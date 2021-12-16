@@ -11,20 +11,20 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.detail.video.d;
 import com.kwad.sdk.contentalliance.detail.video.e;
 import com.kwad.sdk.draw.view.playend.DrawVideoTailFrame;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.draw.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public DrawVideoTailFrame f58343b;
+    public DrawVideoTailFrame f58924b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.i.b f58344c;
+    public com.kwad.sdk.i.b f58925c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f58345d;
+    public d f58926d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class a extends com.kwad.sdk.draw.kwai.a {
                 return;
             }
         }
-        this.f58345d = new e(this) { // from class: com.kwad.sdk.draw.a.b.a.1
+        this.f58926d = new e(this) { // from class: com.kwad.sdk.draw.a.b.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -67,10 +67,10 @@ public class a extends com.kwad.sdk.draw.kwai.a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     super.f();
-                    if (this.a.f58344c == null || !this.a.f58344c.d()) {
+                    if (this.a.f58925c == null || !this.a.f58925c.d()) {
                         this.a.e();
                     } else {
-                        this.a.f58343b.setVisibility(8);
+                        this.a.f58924b.setVisibility(8);
                     }
                 }
             }
@@ -81,8 +81,8 @@ public class a extends com.kwad.sdk.draw.kwai.a {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f58343b.a();
-            this.f58343b.setVisibility(0);
+            this.f58924b.a();
+            this.f58924b.setVisibility(0);
         }
     }
 
@@ -92,13 +92,13 @@ public class a extends com.kwad.sdk.draw.kwai.a {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
             com.kwad.sdk.draw.kwai.b bVar = ((com.kwad.sdk.draw.kwai.a) this).a;
-            this.f58344c = bVar.f58383g;
-            this.f58343b.a(bVar.f58379c);
-            this.f58343b.setAdBaseFrameLayout(((com.kwad.sdk.draw.kwai.a) this).a.f58378b);
-            this.f58343b.setApkDownloadHelper(((com.kwad.sdk.draw.kwai.a) this).a.f58380d);
-            this.f58343b.setVisibility(8);
-            this.f58343b.setAdInteractionListener(((com.kwad.sdk.draw.kwai.a) this).a.a);
-            ((com.kwad.sdk.draw.kwai.a) this).a.f58381e.a(this.f58345d);
+            this.f58925c = bVar.f58964g;
+            this.f58924b.a(bVar.f58960c);
+            this.f58924b.setAdBaseFrameLayout(((com.kwad.sdk.draw.kwai.a) this).a.f58959b);
+            this.f58924b.setApkDownloadHelper(((com.kwad.sdk.draw.kwai.a) this).a.f58961d);
+            this.f58924b.setVisibility(8);
+            this.f58924b.setAdInteractionListener(((com.kwad.sdk.draw.kwai.a) this).a.a);
+            ((com.kwad.sdk.draw.kwai.a) this).a.f58962e.a(this.f58926d);
         }
     }
 
@@ -107,8 +107,8 @@ public class a extends com.kwad.sdk.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.c();
-            ((com.kwad.sdk.draw.kwai.a) this).a.f58381e.b(this.f58345d);
-            this.f58343b.b();
+            ((com.kwad.sdk.draw.kwai.a) this).a.f58962e.b(this.f58926d);
+            this.f58924b.b();
         }
     }
 
@@ -117,7 +117,7 @@ public class a extends com.kwad.sdk.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.c_();
-            this.f58343b = (DrawVideoTailFrame) a(R.id.ksad_video_tail_frame);
+            this.f58924b = (DrawVideoTailFrame) a(R.id.ksad_video_tail_frame);
         }
     }
 }

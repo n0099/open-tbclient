@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CallbackDispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CallbackDispatcher";
@@ -37,7 +37,7 @@ public class CallbackDispatcher {
     public final DownloadListener transmit;
     public final Handler uiHandler;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class DefaultTransmitListener implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

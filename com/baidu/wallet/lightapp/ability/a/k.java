@@ -17,7 +17,7 @@ import com.baidu.wallet.router.RouterRequest;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class k extends com.baidu.wallet.lightapp.ability.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,10 +55,10 @@ public class k extends com.baidu.wallet.lightapp.ability.b {
             public final /* synthetic */ ILightappInvokerCallback a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f52798b;
+            public final /* synthetic */ String f53378b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ k f52799c;
+            public final /* synthetic */ k f53379c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -75,9 +75,9 @@ public class k extends com.baidu.wallet.lightapp.ability.b {
                         return;
                     }
                 }
-                this.f52799c = this;
+                this.f53379c = this;
                 this.a = iLightappInvokerCallback;
-                this.f52798b = str2;
+                this.f53378b = str2;
             }
 
             @Override // com.baidu.wallet.router.RouterCallback
@@ -105,9 +105,9 @@ public class k extends com.baidu.wallet.lightapp.ability.b {
                         }
                     }
                     String str4 = (String) hashMap.get("errorMsg");
-                    k kVar = this.f52799c;
+                    k kVar = this.f53379c;
                     ILightappInvokerCallback iLightappInvokerCallback2 = this.a;
-                    String str5 = this.f52798b;
+                    String str5 = this.f53378b;
                     String num = Integer.toString(i2);
                     if (!TextUtils.isEmpty(str4)) {
                         str4 = LightappConstants.ROUTER_INVOKE_FAIL;

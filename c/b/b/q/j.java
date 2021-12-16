@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f27826b;
+    public static boolean f28201b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,10 +33,10 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             synchronized (j.class) {
-                if (f27826b) {
+                if (f28201b) {
                     return;
                 }
-                f27826b = true;
+                f28201b = true;
                 if (a) {
                     return;
                 }

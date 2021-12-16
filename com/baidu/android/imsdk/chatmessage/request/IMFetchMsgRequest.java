@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class IMFetchMsgRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMFetchMsgRequest";
@@ -181,8 +181,8 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00f8  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x011d  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00f9  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x011e  */
     /* JADX WARN: Type inference failed for: r6v1, types: [T, java.lang.Long] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

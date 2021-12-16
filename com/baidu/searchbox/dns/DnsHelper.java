@@ -15,13 +15,13 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DnsHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f38947k;
+    public boolean f39436k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DnsHelper(Context context) {
@@ -46,7 +46,7 @@ public class DnsHelper {
 
     public void forceUpdateDomain(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f38947k) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f39436k) {
             b.forceUpdateDomain(str);
         }
     }
@@ -55,7 +55,7 @@ public class DnsHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.f38947k) {
+            if (this.f39436k) {
                 DnsParseResult parseResult = b.getParseResult(str);
                 if (parseResult != null) {
                     return parseResult.getIpList();
@@ -71,7 +71,7 @@ public class DnsHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.f38947k) {
+            if (this.f39436k) {
                 DnsParseResult b2 = b.b(str, true);
                 if (b2 != null) {
                     return b2.getIpList();
@@ -87,7 +87,7 @@ public class DnsHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (this.f38947k) {
+            if (this.f39436k) {
                 DnsParseResult a = b.a(str, true);
                 if (a != null) {
                     return a.getIpList();
@@ -103,7 +103,7 @@ public class DnsHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (this.f38947k) {
+            if (this.f39436k) {
                 return b.getParseResult(str);
             }
             Map<String, List<String>> h2 = com.baidu.searchbox.dns.b.b.h(str);
@@ -116,7 +116,7 @@ public class DnsHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (this.f38947k) {
+            if (this.f39436k) {
                 return b.b(str, true);
             }
             Map<String, List<String>> h2 = com.baidu.searchbox.dns.b.b.h(str);
@@ -129,7 +129,7 @@ public class DnsHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (this.f38947k) {
+            if (this.f39436k) {
                 return b.a(str, true);
             }
             return new DnsParseResult(new ArrayList(), 0, 1, DnsUtil.stackType);
@@ -140,13 +140,13 @@ public class DnsHelper {
     public boolean isHttpDnsEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f38947k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f39436k : invokeV.booleanValue;
     }
 
     public void setHttpDnsEnable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f38947k = z;
+            this.f39436k = z;
             if (z) {
                 a.b().a();
             } else {
@@ -180,9 +180,9 @@ public class DnsHelper {
                 return;
             }
         }
-        this.f38947k = true;
+        this.f39436k = true;
         com.baidu.searchbox.dns.a.a.b(context);
         a.a(context);
-        this.f38947k = z;
+        this.f39436k = z;
     }
 }

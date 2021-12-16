@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.callback;
 
 import com.baidu.searchbox.player.layer.ILayer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ILayerActionCallback {
     void onLayerDismiss(ILayer iLayer);
 

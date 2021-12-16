@@ -13,7 +13,7 @@ import com.tachikoma.core.component.TKBase;
 import com.tachikoma.core.utility.TKColorUtil;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TKMarqueeText extends TKBase<MarqueeTextView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

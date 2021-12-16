@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.VisibleForTesting;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class GestureDetector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class GestureDetector {
     @VisibleForTesting
     public final float mSingleTapSlopPx;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public interface ClickListener {
         boolean onClick();
     }

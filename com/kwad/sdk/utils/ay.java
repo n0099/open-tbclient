@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ay {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ay l;
@@ -14,34 +14,34 @@ public class ay {
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f59619b;
+    public volatile boolean f60200b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f59620c;
+    public volatile boolean f60201c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f59621d;
+    public volatile boolean f60202d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f59622e;
+    public volatile boolean f60203e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f59623f;
+    public volatile boolean f60204f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f59624g;
+    public volatile long f60205g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f59625h;
+    public volatile long f60206h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile long f59626i;
+    public volatile long f60207i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile long f59627j;
+    public volatile long f60208j;
 
     /* renamed from: k  reason: collision with root package name */
-    public volatile boolean f59628k;
+    public volatile boolean f60209k;
 
     public ay() {
         Interceptable interceptable = $ic;
@@ -57,16 +57,16 @@ public class ay {
             }
         }
         this.a = false;
-        this.f59619b = false;
-        this.f59620c = false;
-        this.f59621d = false;
-        this.f59622e = false;
-        this.f59623f = false;
-        this.f59624g = 0L;
-        this.f59625h = 0L;
-        this.f59626i = 0L;
-        this.f59627j = -1L;
-        this.f59628k = false;
+        this.f60200b = false;
+        this.f60201c = false;
+        this.f60202d = false;
+        this.f60203e = false;
+        this.f60204f = false;
+        this.f60205g = 0L;
+        this.f60206h = 0L;
+        this.f60207i = 0L;
+        this.f60208j = -1L;
+        this.f60209k = false;
     }
 
     public static ay a() {
@@ -88,13 +88,13 @@ public class ay {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f59627j = j2;
+            this.f60208j = j2;
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59623f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60204f : invokeV.booleanValue;
     }
 }

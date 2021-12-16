@@ -1,8 +1,8 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
-import c.a.d.f.p.l;
-import c.a.q0.d1.z;
-import c.a.q0.s.k;
+import c.a.d.f.p.m;
+import c.a.r0.d1.b0;
+import c.a.r0.s.l;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.AgreeMe.AgreeMeReqIdl;
 import tbclient.AgreeMe.DataReq;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class AgreeMeRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,13 +46,13 @@ public class AgreeMeRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.id = Long.valueOf(this.id);
-                builder.q_type = Integer.valueOf(k.c().e());
+                builder.q_type = Integer.valueOf(l.c().e());
                 builder.rn = 20;
                 builder.scr_dip = Integer.valueOf((int) TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-                builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst().getApp()));
-                builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_h = Integer.valueOf(m.i(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_w = Integer.valueOf(m.k(TbadkCoreApplication.getInst().getApp()));
                 if (z) {
-                    z.a(builder, true);
+                    b0.a(builder, true);
                 }
                 AgreeMeReqIdl.Builder builder2 = new AgreeMeReqIdl.Builder();
                 builder2.data = builder.build(false);

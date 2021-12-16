@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KsToastView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59761b;
+    public int f60342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59762c;
+    public String f60343c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Runnable f59763d;
+    public Runnable f60344d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KsToastView(Context context) {
@@ -44,9 +44,9 @@ public class KsToastView extends LinearLayout {
                 return;
             }
         }
-        this.f59761b = 3;
-        this.f59762c = "%ss后自动进入";
-        this.f59763d = null;
+        this.f60342b = 3;
+        this.f60343c = "%ss后自动进入";
+        this.f60344d = null;
         a(context);
     }
 
@@ -69,9 +69,9 @@ public class KsToastView extends LinearLayout {
                 return;
             }
         }
-        this.f59761b = 3;
-        this.f59762c = "%ss后自动进入";
-        this.f59763d = null;
+        this.f60342b = 3;
+        this.f60343c = "%ss后自动进入";
+        this.f60344d = null;
         a(context);
     }
 
@@ -94,9 +94,9 @@ public class KsToastView extends LinearLayout {
                 return;
             }
         }
-        this.f59761b = 3;
-        this.f59762c = "%ss后自动进入";
-        this.f59763d = null;
+        this.f60342b = 3;
+        this.f60343c = "%ss后自动进入";
+        this.f60344d = null;
         a(context);
     }
 
@@ -118,9 +118,9 @@ public class KsToastView extends LinearLayout {
                 return;
             }
         }
-        this.f59761b = 3;
-        this.f59762c = "%ss后自动进入";
-        this.f59763d = null;
+        this.f60342b = 3;
+        this.f60343c = "%ss后自动进入";
+        this.f60344d = null;
         a(context);
     }
 
@@ -133,8 +133,8 @@ public class KsToastView extends LinearLayout {
     }
 
     public static /* synthetic */ int b(KsToastView ksToastView) {
-        int i2 = ksToastView.f59761b;
-        ksToastView.f59761b = i2 - 1;
+        int i2 = ksToastView.f60342b;
+        ksToastView.f60342b = i2 - 1;
         return i2;
     }
 
@@ -142,7 +142,7 @@ public class KsToastView extends LinearLayout {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65544, this, i2) == null) {
-            this.a.setText(String.format(this.f59762c, Integer.valueOf(i2)));
+            this.a.setText(String.format(this.f60343c, Integer.valueOf(i2)));
         }
     }
 
@@ -151,8 +151,8 @@ public class KsToastView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 <= 0) {
             return;
         }
-        if (this.f59763d == null) {
-            this.f59763d = new Runnable(this) { // from class: com.kwad.sdk.widget.KsToastView.1
+        if (this.f60344d == null) {
+            this.f60344d = new Runnable(this) { // from class: com.kwad.sdk.widget.KsToastView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsToastView a;
@@ -178,18 +178,18 @@ public class KsToastView extends LinearLayout {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.f59761b == 0) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.f60342b == 0) {
                         return;
                     }
                     KsToastView ksToastView = this.a;
-                    ksToastView.b(ksToastView.f59761b);
+                    ksToastView.b(ksToastView.f60342b);
                     KsToastView.b(this.a);
                     this.a.postDelayed(this, 1000L);
                 }
             };
         }
-        this.f59761b = i2;
-        post(this.f59763d);
+        this.f60342b = i2;
+        post(this.f60344d);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -197,7 +197,7 @@ public class KsToastView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDetachedFromWindow();
-            removeCallbacks(this.f59763d);
+            removeCallbacks(this.f60344d);
         }
     }
 }

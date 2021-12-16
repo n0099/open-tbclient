@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class JsResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ResultReceiver mReceiver;
     public boolean mResult;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public interface ResultReceiver {
         void onJsResultComplete(JsResult jsResult);
     }

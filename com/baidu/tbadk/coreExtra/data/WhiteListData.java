@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
-import c.a.q0.s.e0.b;
+import c.a.r0.s.g0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class WhiteListData extends LinkedList<String> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HTTPS_PREFIX = "https://";

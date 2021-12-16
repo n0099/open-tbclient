@@ -15,7 +15,7 @@ import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.utils.q;
 import java.io.File;
 import java.nio.charset.Charset;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public static volatile e a;

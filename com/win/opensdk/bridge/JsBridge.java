@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.bridge.core.NativeMethodInjectHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class JsBridge {
     public static /* synthetic */ Interceptable $ic;
     public static volatile JsBridge a;

@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import com.win.opensdk.downloader.WDownLoadService;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Info f30754e;
+    public final /* synthetic */ Info f31124e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ WDownLoadService f30755f;
+    public final /* synthetic */ WDownLoadService f31125f;
 
     public b2(WDownLoadService wDownLoadService, Info info) {
         Interceptable interceptable = $ic;
@@ -32,17 +32,17 @@ public class b2 implements Runnable {
                 return;
             }
         }
-        this.f30755f = wDownLoadService;
-        this.f30754e = info;
+        this.f31125f = wDownLoadService;
+        this.f31124e = info;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Info info = this.f30754e;
-            WDownLoadService wDownLoadService = this.f30755f;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(m1.win_wdownload_download_finish), this.f30755f.getString(m1.win_wdownload_download_finish), 100);
+            Info info = this.f31124e;
+            WDownLoadService wDownLoadService = this.f31125f;
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(m1.win_wdownload_download_finish), this.f31125f.getString(m1.win_wdownload_download_finish), 100);
         }
     }
 }

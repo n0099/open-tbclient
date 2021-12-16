@@ -24,7 +24,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<R>, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public static final Waiter DEFAULT_WAITER;
@@ -45,7 +45,7 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     public final int width;
 
     @VisibleForTesting
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class Waiter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

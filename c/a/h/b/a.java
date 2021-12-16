@@ -3,7 +3,7 @@ package c.a.h.b;
 import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
-import c.a.q0.x.m;
+import c.a.r0.x.m;
 import com.baidu.audiorecorder.lib.voice.SendVoiceView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.RawLayout;
@@ -36,20 +36,20 @@ public class a extends m {
                 return;
             }
         }
-        this.f13689b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
-        this.f13691d = R.drawable.icon_pure_post_speak24;
-        this.f13694g = false;
-        this.f13695h = true;
+        this.f14029b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
+        this.f14031d = R.drawable.icon_pure_post_speak24;
+        this.f14034g = false;
+        this.f14035h = true;
         this.m = true;
         this.l = 5;
-        this.f13698k = new SendVoiceView(context);
+        this.f14038k = new SendVoiceView(context);
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -2);
         ((LinearLayout.LayoutParams) layoutParams).leftMargin = context.getResources().getDimensionPixelSize(R.dimen.ds10);
         ((LinearLayout.LayoutParams) layoutParams).rightMargin = context.getResources().getDimensionPixelSize(R.dimen.ds10);
         ((LinearLayout.LayoutParams) layoutParams).topMargin = context.getResources().getDimensionPixelSize(R.dimen.ds22);
         ((LinearLayout.LayoutParams) layoutParams).bottomMargin = context.getResources().getDimensionPixelSize(R.dimen.ds20);
         ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
-        ((View) this.f13698k).setLayoutParams(layoutParams);
+        ((View) this.f14038k).setLayoutParams(layoutParams);
         this.n = new int[0];
     }
 }

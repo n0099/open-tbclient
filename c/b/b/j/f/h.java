@@ -5,15 +5,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class h extends b<c.b.b.k.a, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.k.a f27370b;
+    public c.b.b.k.a f27745b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends c.b.b.j.c<c.b.b.k.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class h extends b<c.b.b.k.a, a> {
     public void c(c.b.b.j.e eVar, String str, c.b.b.m.a aVar, a aVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, eVar, str, aVar, aVar2) == null) {
-            this.f27370b = c.b.b.f.f27321c.f(aVar);
+            this.f27745b = c.b.b.f.f27696c.f(aVar);
         }
     }
 
@@ -82,8 +82,8 @@ public class h extends b<c.b.b.k.a, a> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
-            c.b.b.k.a aVar3 = this.f27370b;
-            this.f27370b = null;
+            c.b.b.k.a aVar3 = this.f27745b;
+            this.f27745b = null;
             return aVar3;
         }
         return (c.b.b.k.a) invokeLLLL.objValue;

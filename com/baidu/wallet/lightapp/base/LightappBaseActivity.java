@@ -58,7 +58,7 @@ import java.util.List;
 import java.util.Locale;
 import org.webrtc.MediaStreamTrack;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public abstract class LightappBaseActivity extends BaseActivity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CALL_CAMERA_ID_DETECT = 5;
@@ -74,16 +74,16 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
     public Intent a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52822b;
+    public int f53402b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f52823c;
+    public String f53403c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f52824d;
+    public boolean f53404d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Uri f52825e;
+    public Uri f53405e;
     public long mLangbridgeHash;
     public LightappJsClient mLightappJsClient;
     public boolean mNeedClearHistory;
@@ -93,7 +93,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
     public ValueCallback<Uri[]> mUploadMessageForAndroid5;
     public LightappBrowserWebView mWebView;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public class BaseCustomWebViewClient extends SafeWebView.SafeWebViewClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,9 +236,9 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         }
         this.mNeedClearHistory = true;
         this.a = null;
-        this.f52822b = -1;
-        this.f52823c = null;
-        this.f52824d = false;
+        this.f53402b = -1;
+        this.f53403c = null;
+        this.f53404d = false;
         this.mNeedOverrideUrl = false;
         this.mLangbridgeHash = 0L;
     }
@@ -257,7 +257,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         if (interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             this.a = null;
-            this.f52822b = -1;
+            this.f53402b = -1;
             if (i2 == 1) {
                 if (this.mUploadMessage == null) {
                     return;
@@ -266,10 +266,10 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                 if (data != null) {
                     this.mUploadMessage.onReceiveValue(data);
                 } else {
-                    this.mUploadMessage.onReceiveValue(this.f52825e);
+                    this.mUploadMessage.onReceiveValue(this.f53405e);
                 }
                 this.mUploadMessage = null;
-                this.f52825e = null;
+                this.f53405e = null;
             } else if (i2 == 2) {
                 if (this.mUploadMessageForAndroid5 == null) {
                     return;
@@ -278,7 +278,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                 if (data2 != null) {
                     this.mUploadMessageForAndroid5.onReceiveValue(new Uri[]{data2});
                 } else {
-                    Uri uri = this.f52825e;
+                    Uri uri = this.f53405e;
                     if (uri != null) {
                         this.mUploadMessageForAndroid5.onReceiveValue(new Uri[]{uri});
                     } else {
@@ -286,7 +286,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                     }
                 }
                 this.mUploadMessageForAndroid5 = null;
-                this.f52825e = null;
+                this.f53405e = null;
             } else if (i2 == 3) {
                 if (i3 == -1) {
                     this.mLightappJsClient.onCallCameraPicCallbackLocal();
@@ -367,7 +367,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, com.baidu.wallet.core.SDKBaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     @SuppressLint({"NewApi"})
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -465,37 +465,37 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                         }
                     }
                     if (!z) {
-                        a(this.f52823c, this.f52824d, this.f52822b);
-                        this.f52823c = "";
-                        this.f52824d = false;
-                        this.f52822b = -1;
+                        a(this.f53403c, this.f53404d, this.f53402b);
+                        this.f53403c = "";
+                        this.f53404d = false;
+                        this.f53402b = -1;
                     }
                 }
                 z = false;
             } else if (iArr[0] == 0) {
                 Intent intent = this.a;
                 if (intent != null) {
-                    startActivityForResult(intent, this.f52822b);
+                    startActivityForResult(intent, this.f53402b);
                 }
                 z = false;
             } else {
                 z = true;
             }
             if (z) {
-                if (this.f52822b == 1) {
+                if (this.f53402b == 1) {
                     ValueCallback<Uri> valueCallback = this.mUploadMessage;
                     if (valueCallback != null) {
                         valueCallback.onReceiveValue(null);
                         this.mUploadMessage = null;
                     }
-                    this.f52825e = null;
+                    this.f53405e = null;
                 } else if (i2 == 2) {
                     ValueCallback<Uri[]> valueCallback2 = this.mUploadMessageForAndroid5;
                     if (valueCallback2 != null) {
                         valueCallback2.onReceiveValue(new Uri[0]);
                         this.mUploadMessageForAndroid5 = null;
                     }
-                    this.f52825e = null;
+                    this.f53405e = null;
                 }
             }
         }
@@ -557,10 +557,10 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         Intent intent2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            if (!PermissionManager.checkCallingPermission(getActivity(), s.f56844i) && !PermissionManager.checkCallingPermission(getActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                this.f52823c = str;
-                this.f52824d = z;
-                this.f52822b = i2;
+            if (!PermissionManager.checkCallingPermission(getActivity(), s.f57425i) && !PermissionManager.checkCallingPermission(getActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                this.f53403c = str;
+                this.f53404d = z;
+                this.f53402b = i2;
                 BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, new BaiduWalletUtils.IRequestPermissionCallBack(this) { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -589,9 +589,9 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
                             if (bool.booleanValue()) {
-                                PermissionManager.checkCallingOrSelfPermission(this.a.getActivity(), new String[]{s.f56844i, "android.permission.WRITE_EXTERNAL_STORAGE"}, 102);
+                                PermissionManager.checkCallingOrSelfPermission(this.a.getActivity(), new String[]{s.f57425i, "android.permission.WRITE_EXTERNAL_STORAGE"}, 102);
                             } else {
-                                this.a.onRequestPermissionsResult(102, new String[]{s.f56844i, "android.permission.WRITE_EXTERNAL_STORAGE"}, new int[]{-1, -1});
+                                this.a.onRequestPermissionsResult(102, new String[]{s.f57425i, "android.permission.WRITE_EXTERNAL_STORAGE"}, new int[]{-1, -1});
                             }
                         }
                     }
@@ -646,17 +646,17 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                             File file = new File(externalStoragePublicDirectory + File.separator + "IMG_" + System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX);
                             if ("iqiyi".equals(BeanConstants.CHANNEL_ID)) {
                                 Activity activity = getActivity();
-                                this.f52825e = FileProvider.getUriForFile(activity, getPackageName() + ".fileprovider", file);
+                                this.f53405e = FileProvider.getUriForFile(activity, getPackageName() + ".fileprovider", file);
                             } else {
                                 Activity activity2 = getActivity();
-                                this.f52825e = FileProvider.getUriForFile(activity2, getPackageName() + ".langbrigeProvider", file);
+                                this.f53405e = FileProvider.getUriForFile(activity2, getPackageName() + ".langbrigeProvider", file);
                             }
-                            grantUriPermission(getPackageName(), this.f52825e, 3);
+                            grantUriPermission(getPackageName(), this.f53405e, 3);
                             intent2 = new Intent("android.media.action.IMAGE_CAPTURE");
-                            intent2.putExtra("output", this.f52825e);
+                            intent2.putExtra("output", this.f53405e);
                             if (!PermissionManager.checkCallingPermission(getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
                                 this.a = intent2;
-                                this.f52822b = i2;
+                                this.f53402b = i2;
                                 BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new BaiduWalletUtils.IRequestPermissionCallBack(this) { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.3
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
@@ -712,17 +712,17 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
                             File file2 = new File(externalStoragePublicDirectory + File.separator + "video_" + System.currentTimeMillis() + ".mp4");
                             if ("iqiyi".equals(BeanConstants.CHANNEL_ID)) {
                                 Activity activity3 = getActivity();
-                                this.f52825e = FileProvider.getUriForFile(activity3, getPackageName() + ".fileprovider", file2);
+                                this.f53405e = FileProvider.getUriForFile(activity3, getPackageName() + ".fileprovider", file2);
                             } else {
                                 Activity activity4 = getActivity();
-                                this.f52825e = FileProvider.getUriForFile(activity4, getPackageName() + ".langbrigeProvider", file2);
+                                this.f53405e = FileProvider.getUriForFile(activity4, getPackageName() + ".langbrigeProvider", file2);
                             }
-                            grantUriPermission(getPackageName(), this.f52825e, 3);
+                            grantUriPermission(getPackageName(), this.f53405e, 3);
                             intent2 = new Intent("android.media.action.VIDEO_CAPTURE");
-                            intent2.putExtra("output", this.f52825e);
+                            intent2.putExtra("output", this.f53405e);
                             if (!PermissionManager.checkCallingPermission(getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
                                 this.a = intent2;
-                                this.f52822b = i2;
+                                this.f53402b = i2;
                                 BaiduWalletUtils.requestPermissionsDialog("", getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new BaiduWalletUtils.IRequestPermissionCallBack(this) { // from class: com.baidu.wallet.lightapp.base.LightappBaseActivity.4
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
@@ -799,7 +799,7 @@ public abstract class LightappBaseActivity extends BaseActivity implements NoPro
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public class BaseCustomChromeClient extends SafeWebView.SafeChromeClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

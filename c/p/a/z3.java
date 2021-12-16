@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class z3 extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,15 +54,15 @@ public class z3 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
             super.onReceivedError(webView, i2, str, str2);
-            WebView webView2 = this.a.f30801b;
+            WebView webView2 = this.a.f31171b;
             if (webView2 != null) {
                 webView2.setVisibility(8);
             }
             if (str.contains("TIMED_OUT")) {
                 h4 h4Var = this.a;
-                if (h4Var.f30802c != null) {
+                if (h4Var.f31172c != null) {
                     y2 a = c3.a(h4Var.a);
-                    a.q(new g3(this.a.f30802c), 4);
+                    a.q(new g3(this.a.f31172c), 4);
                     a.l("desc", str + "&errcode:" + i2 + "&fileurl:" + str2);
                     a.m();
                 }

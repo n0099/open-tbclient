@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetGameDetail.DataReq;
 import tbclient.GetGameDetail.GetGameDetailReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RequestGameDetailMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -9,8 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.d.f.p.l;
-import c.a.q0.s.s.a;
+import c.a.d.f.p.m;
+import c.a.r0.s.t.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -48,16 +48,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CacheModel.c<c.a.r0.j2.h.a> callback;
+    public final CacheModel.c<c.a.s0.k2.h.a> callback;
     public List<Long> closeLives;
-    public List<c.a.r0.j2.h.a> datas;
+    public List<c.a.s0.k2.h.a> datas;
     public boolean hasLoadStatus;
     public final HttpMessageListener listener;
-    public c.a.q0.l0.f.d<c.a.r0.j2.h.a, c.a.q0.l0.d.b, c.a.r0.j2.i.a> mAdapter;
+    public c.a.r0.l0.f.d<c.a.s0.k2.h.a, c.a.r0.l0.d.b, c.a.s0.k2.i.a> mAdapter;
     public TextView mEditBtn;
     public BdListView mListView;
     public NavigationBar mNavigationBar;
@@ -66,13 +66,13 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public NavigationBarShadowView mShadowView;
     public PbHistoryCacheModel model;
 
-    /* loaded from: classes10.dex */
-    public class a implements CacheModel.c<c.a.r0.j2.h.a> {
+    /* loaded from: classes12.dex */
+    public class a implements CacheModel.c<c.a.s0.k2.h.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbHistoryActivity f47112e;
+        public final /* synthetic */ PbHistoryActivity f47613e;
 
         public a(PbHistoryActivity pbHistoryActivity) {
             Interceptable interceptable = $ic;
@@ -89,46 +89,46 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                     return;
                 }
             }
-            this.f47112e = pbHistoryActivity;
+            this.f47613e = pbHistoryActivity;
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void onCacheDataGet(ReadCacheRespMsg<List<c.a.r0.j2.h.a>> readCacheRespMsg, ReadCacheMessage<c.a.r0.j2.h.a> readCacheMessage) {
+        public void onCacheDataGet(ReadCacheRespMsg<List<c.a.s0.k2.h.a>> readCacheRespMsg, ReadCacheMessage<c.a.s0.k2.h.a> readCacheMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, readCacheRespMsg, readCacheMessage) == null) || readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
                 return;
             }
-            this.f47112e.datas = readCacheRespMsg.getData();
+            this.f47613e.datas = readCacheRespMsg.getData();
             ArrayList arrayList = new ArrayList();
-            for (c.a.r0.j2.h.a aVar : readCacheRespMsg.getData()) {
+            for (c.a.s0.k2.h.a aVar : readCacheRespMsg.getData()) {
                 if (!StringUtils.isNull(aVar.f()) && Long.valueOf(aVar.f()).longValue() != 0) {
                     arrayList.add(Long.valueOf(aVar.f()));
                 }
             }
-            if (this.f47112e.hasLoadStatus) {
-                this.f47112e.mergeLiveStatus();
-                PbHistoryActivity pbHistoryActivity = this.f47112e;
+            if (this.f47613e.hasLoadStatus) {
+                this.f47613e.mergeLiveStatus();
+                PbHistoryActivity pbHistoryActivity = this.f47613e;
                 pbHistoryActivity.updateUIByData(pbHistoryActivity.datas);
                 return;
             }
-            this.f47112e.sendLiveRoomStatusMessage(arrayList, 0L);
-            this.f47112e.hasLoadStatus = true;
+            this.f47613e.sendLiveRoomStatusMessage(arrayList, 0L);
+            this.f47613e.hasLoadStatus = true;
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void onCacheDataWrite(WriteCacheRespMsg<List<c.a.r0.j2.h.a>> writeCacheRespMsg, WriteCacheMessage<c.a.r0.j2.h.a> writeCacheMessage) {
+        public void onCacheDataWrite(WriteCacheRespMsg<List<c.a.s0.k2.h.a>> writeCacheRespMsg, WriteCacheMessage<c.a.s0.k2.h.a> writeCacheMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeCacheRespMsg, writeCacheMessage) == null) && writeCacheRespMsg != null && writeCacheRespMsg.isSuccess()) {
                 if (writeCacheMessage.isClear()) {
-                    this.f47112e.updateUIByData(new ArrayList());
+                    this.f47613e.updateUIByData(new ArrayList());
                 } else {
-                    this.f47112e.refreshData();
+                    this.f47613e.refreshData();
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,13 +171,13 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class c implements AbsListView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbHistoryActivity f47113e;
+        public final /* synthetic */ PbHistoryActivity f47614e;
 
         public c(PbHistoryActivity pbHistoryActivity) {
             Interceptable interceptable = $ic;
@@ -194,7 +194,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                     return;
                 }
             }
-            this.f47113e = pbHistoryActivity;
+            this.f47614e = pbHistoryActivity;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -202,7 +202,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             View childAt;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i2, i3, i4) == null) && i2 == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
-                this.f47113e.mShadowView.hide();
+                this.f47614e.mShadowView.hide();
             }
         }
 
@@ -210,26 +210,26 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) && i2 == 1) {
-                this.f47113e.mShadowView.show();
+                this.f47614e.mShadowView.show();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbHistoryActivity f47114e;
+        public final /* synthetic */ PbHistoryActivity f47615e;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes12.dex */
         public class a implements a.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f47115e;
+            public final /* synthetic */ d f47616e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -246,20 +246,20 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                         return;
                     }
                 }
-                this.f47115e = dVar;
+                this.f47616e = dVar;
             }
 
-            @Override // c.a.q0.s.s.a.e
-            public void onClick(c.a.q0.s.s.a aVar) {
+            @Override // c.a.r0.s.t.a.e
+            public void onClick(c.a.r0.s.t.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                    this.f47115e.f47114e.model.F();
+                    this.f47616e.f47615e.model.F();
                     aVar.dismiss();
                 }
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes12.dex */
         public class b implements a.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -280,8 +280,8 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                 }
             }
 
-            @Override // c.a.q0.s.s.a.e
-            public void onClick(c.a.q0.s.s.a aVar) {
+            @Override // c.a.r0.s.t.a.e
+            public void onClick(c.a.r0.s.t.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
@@ -304,29 +304,29 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                     return;
                 }
             }
-            this.f47114e = pbHistoryActivity;
+            this.f47615e = pbHistoryActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f47114e.getPageContext().getPageActivity());
+                c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(this.f47615e.getPageContext().getPageActivity());
                 aVar.setMessageId(R.string.pb_history_clear_tip);
                 aVar.setPositiveButton(R.string.confirm, new a(this));
                 aVar.setNegativeButton(R.string.cancel, new b(this));
-                aVar.create(this.f47114e.getPageContext()).show();
+                aVar.create(this.f47615e.getPageContext()).show();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class e implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbHistoryActivity f47116e;
+        public final /* synthetic */ PbHistoryActivity f47617e;
 
         public e(PbHistoryActivity pbHistoryActivity) {
             Interceptable interceptable = $ic;
@@ -343,36 +343,36 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                     return;
                 }
             }
-            this.f47116e = pbHistoryActivity;
+            this.f47617e = pbHistoryActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
-            c.a.r0.j2.h.a aVar;
+            c.a.s0.k2.h.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (aVar = (c.a.r0.j2.h.a) this.f47116e.mAdapter.getItem(i2)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (aVar = (c.a.s0.k2.h.a) this.f47617e.mAdapter.getItem(i2)) == null) {
                 return;
             }
             if (aVar.k() == 49) {
                 AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                 alaLiveInfoCoreData.liveID = c.a.d.f.m.b.g(aVar.f(), 0L);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f47116e.getPageContext().getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_SCAN_HISTORY, !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) ? TbadkCoreApplication.getCurrentAccount() : "", false, "")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f47617e.getPageContext().getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_SCAN_HISTORY, !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) ? TbadkCoreApplication.getCurrentAccount() : "", false, "")));
             } else if (aVar.r()) {
                 if (TbadkCoreApplication.getInst().appResponseToIntentClass(MangaBrowserActivityConfig.class)) {
                     if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                        ViewHelper.skipToLoginActivity(this.f47116e.getActivity());
+                        ViewHelper.skipToLoginActivity(this.f47617e.getActivity());
                         return;
                     } else {
-                        this.f47116e.sendMessage(new CustomMessage(2002001, new MangaBrowserActivityConfig(this.f47116e.getPageContext().getPageActivity(), aVar.a(), aVar.b(), 5)));
+                        this.f47617e.sendMessage(new CustomMessage(2002001, new MangaBrowserActivityConfig(this.f47617e.getPageContext().getPageActivity(), aVar.a(), aVar.b(), 5)));
                         return;
                     }
                 }
-                l.L(this.f47116e.getPageContext().getPageActivity(), R.string.manga_plugin_not_install_tip);
+                m.L(this.f47617e.getPageContext().getPageActivity(), R.string.manga_plugin_not_install_tip);
             } else {
-                PbActivityConfig createHistoryCfg = new PbActivityConfig(this.f47116e.getPageContext().getPageActivity()).createHistoryCfg(aVar.i(), aVar.g(), aVar.p(), aVar.w(), null);
+                PbActivityConfig createHistoryCfg = new PbActivityConfig(this.f47617e.getPageContext().getPageActivity()).createHistoryCfg(aVar.i(), aVar.g(), aVar.p(), aVar.w(), null);
                 createHistoryCfg.setStartFrom(11);
                 createHistoryCfg.setIsShareThread(aVar.t());
-                this.f47116e.sendMessage(new CustomMessage(2004001, createHistoryCfg));
+                this.f47617e.sendMessage(new CustomMessage(2004001, createHistoryCfg));
             }
         }
     }
@@ -402,7 +402,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || ListUtils.isEmpty(this.closeLives) || ListUtils.isEmpty(this.datas)) {
             return;
         }
-        for (c.a.r0.j2.h.a aVar : this.datas) {
+        for (c.a.s0.k2.h.a aVar : this.datas) {
             if (!StringUtils.isNull(aVar.f()) && Long.valueOf(aVar.f()).longValue() != 0) {
                 if (this.closeLives.contains(Long.valueOf(aVar.f()))) {
                     aVar.E(false);
@@ -431,10 +431,10 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateUIByData(List<c.a.r0.j2.h.a> list) {
+    public void updateUIByData(List<c.a.s0.k2.h.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, this, list) == null) {
-            c.a.q0.l0.f.d<c.a.r0.j2.h.a, c.a.q0.l0.d.b, c.a.r0.j2.i.a> dVar = this.mAdapter;
+            c.a.r0.l0.f.d<c.a.s0.k2.h.a, c.a.r0.l0.d.b, c.a.s0.k2.i.a> dVar = this.mAdapter;
             if (dVar != null) {
                 dVar.k(list);
             }
@@ -446,7 +446,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.r0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -488,9 +488,9 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             this.mEditBtn.setVisibility(8);
             this.mListView = (BdListView) findViewById(R.id.list);
             TextView textView = new TextView(getActivity());
-            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.f(getActivity(), R.dimen.ds88)));
+            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + m.f(getActivity(), R.dimen.ds88)));
             this.mListView.addHeaderView(textView, 0);
-            this.mAdapter = new c.a.q0.l0.f.d<>(getPageContext(), c.a.r0.j2.i.a.class, R.layout.pb_history_list_item, null);
+            this.mAdapter = new c.a.r0.l0.f.d<>(getPageContext(), c.a.s0.k2.i.a.class, R.layout.pb_history_list_item, null);
             this.mAdapter.j(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.ds190)), NoDataViewFactory.e.d(null, getResources().getString(R.string.pb_history_no_data_tip_2)), null, null);
             this.mListView.setAdapter((ListAdapter) this.mAdapter);
             this.mListView.setOnItemClickListener(new e(this));

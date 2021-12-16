@@ -19,7 +19,7 @@ import okhttp3.internal.cache.InternalCache;
 import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.RouteDatabase;
 import okhttp3.internal.connection.StreamAllocation;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class Internal {
     public static /* synthetic */ Interceptable $ic;
     public static Internal instance;

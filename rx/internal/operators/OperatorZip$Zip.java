@@ -16,7 +16,7 @@ import i.o.d.f;
 import i.u.b;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class OperatorZip$Zip<R> extends AtomicLong {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int THRESHOLD;
@@ -29,16 +29,16 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
     public volatile Object[] subscribers;
     public final h<? extends R> zipFunction;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class a extends j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final f f64392i;
+        public final f f64963i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ OperatorZip$Zip f64393j;
+        public final /* synthetic */ OperatorZip$Zip f64964j;
 
         public a(OperatorZip$Zip operatorZip$Zip) {
             Interceptable interceptable = $ic;
@@ -55,15 +55,15 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                     return;
                 }
             }
-            this.f64393j = operatorZip$Zip;
-            this.f64392i = f.a();
+            this.f64964j = operatorZip$Zip;
+            this.f64963i = f.a();
         }
 
         @Override // i.j
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e(f.f63860g);
+                e(f.f64441g);
             }
         }
 
@@ -78,8 +78,8 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f64392i.f();
-                this.f64393j.tick();
+                this.f64963i.f();
+                this.f64964j.tick();
             }
         }
 
@@ -87,7 +87,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f64393j.child.onError(th);
+                this.f64964j.child.onError(th);
             }
         }
 
@@ -96,11 +96,11 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 try {
-                    this.f64392i.g(obj);
+                    this.f64963i.g(obj);
                 } catch (MissingBackpressureException e2) {
                     onError(e2);
                 }
-                this.f64393j.tick();
+                this.f64964j.tick();
             }
         }
     }
@@ -118,7 +118,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                 return;
             }
         }
-        THRESHOLD = (int) (f.f63860g * 0.7d);
+        THRESHOLD = (int) (f.f64441g * 0.7d);
     }
 
     public OperatorZip$Zip(j<? super R> jVar, h<? extends R> hVar) {
@@ -174,7 +174,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
             Object[] objArr2 = new Object[length];
             boolean z = true;
             for (int i2 = 0; i2 < length; i2++) {
-                f fVar = ((a) objArr[i2]).f64392i;
+                f fVar = ((a) objArr[i2]).f64963i;
                 Object h2 = fVar.h();
                 if (h2 == null) {
                     z = false;
@@ -192,7 +192,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                     atomicLong.decrementAndGet();
                     this.emitted++;
                     for (Object obj : objArr) {
-                        f fVar2 = ((a) obj).f64392i;
+                        f fVar2 = ((a) obj).f64963i;
                         fVar2.i();
                         if (fVar2.d(fVar2.h())) {
                             eVar.onCompleted();

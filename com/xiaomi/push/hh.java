@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class hh {
     public static /* synthetic */ Interceptable $ic;
     public static final hh a;
@@ -19,34 +19,34 @@ public final class hh {
     public static final /* synthetic */ hh[] f480a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hh f62979b;
+    public static final hh f63560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hh f62980c;
+    public static final hh f63561c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hh f62981d;
+    public static final hh f63562d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hh f62982e;
+    public static final hh f63563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hh f62983f;
+    public static final hh f63564f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hh f62984g;
+    public static final hh f63565g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hh f62985h;
+    public static final hh f63566h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hh f62986i;
+    public static final hh f63567i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final hh f62987j;
+    public static final hh f63568j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final hh f62988k;
+    public static final hh f63569k;
     public static final hh l;
     public static final hh m;
     public static final hh n;
@@ -79,16 +79,16 @@ public final class hh {
             }
         }
         a = new hh("DeviceInfo", 0, 1);
-        f62979b = new hh("AppInstallList", 1, 2);
-        f62980c = new hh("AppActiveList", 2, 3);
-        f62981d = new hh("Bluetooth", 3, 4);
-        f62982e = new hh("Location", 4, 5);
-        f62983f = new hh("Account", 5, 6);
-        f62984g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
-        f62985h = new hh("Cellular", 7, 8);
-        f62986i = new hh("TopApp", 8, 9);
-        f62987j = new hh("BroadcastAction", 9, 10);
-        f62988k = new hh("BroadcastActionAdded", 10, 11);
+        f63560b = new hh("AppInstallList", 1, 2);
+        f63561c = new hh("AppActiveList", 2, 3);
+        f63562d = new hh("Bluetooth", 3, 4);
+        f63563e = new hh("Location", 4, 5);
+        f63564f = new hh("Account", 5, 6);
+        f63565g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
+        f63566h = new hh("Cellular", 7, 8);
+        f63567i = new hh("TopApp", 8, 9);
+        f63568j = new hh("BroadcastAction", 9, 10);
+        f63569k = new hh("BroadcastActionAdded", 10, 11);
         l = new hh("BroadcastActionRemoved", 11, 12);
         m = new hh("BroadcastActionReplaced", 12, 13);
         n = new hh("BroadcastActionDataCleared", 13, 14);
@@ -103,7 +103,7 @@ public final class hh {
         w = new hh("Storage", 22, 23);
         hh hhVar = new hh("AppIsInstalled", 23, 24);
         x = hhVar;
-        f480a = new hh[]{a, f62979b, f62980c, f62981d, f62982e, f62983f, f62984g, f62985h, f62986i, f62987j, f62988k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
+        f480a = new hh[]{a, f63560b, f63561c, f63562d, f63563e, f63564f, f63565g, f63566h, f63567i, f63568j, f63569k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
     }
 
     public hh(String str, int i2, int i3) {
@@ -135,25 +135,25 @@ public final class hh {
                 case 1:
                     return a;
                 case 2:
-                    return f62979b;
+                    return f63560b;
                 case 3:
-                    return f62980c;
+                    return f63561c;
                 case 4:
-                    return f62981d;
+                    return f63562d;
                 case 5:
-                    return f62982e;
+                    return f63563e;
                 case 6:
-                    return f62983f;
+                    return f63564f;
                 case 7:
-                    return f62984g;
+                    return f63565g;
                 case 8:
-                    return f62985h;
+                    return f63566h;
                 case 9:
-                    return f62986i;
+                    return f63567i;
                 case 10:
-                    return f62987j;
+                    return f63568j;
                 case 11:
-                    return f62988k;
+                    return f63569k;
                 case 12:
                     return l;
                 case 13:

@@ -18,7 +18,7 @@ import com.squareup.wire2.WireField;
 import java.io.IOException;
 import okio.ByteString;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Transform extends Message<Transform, Builder> {
     public static /* synthetic */ Interceptable $ic;
     public static final ProtoAdapter<Transform> ADAPTER;
@@ -35,34 +35,34 @@ public final class Transform extends Message<Transform, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
 
     /* renamed from: b  reason: collision with root package name */
-    public final Float f60660b;
+    public final Float f61241b;
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
 
     /* renamed from: c  reason: collision with root package name */
-    public final Float f60661c;
+    public final Float f61242c;
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
 
     /* renamed from: d  reason: collision with root package name */
-    public final Float f60662d;
+    public final Float f61243d;
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 5)
     public final Float tx;
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 6)
     public final Float ty;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder extends Message.a<Transform, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Float a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Float f60663b;
+        public Float f61244b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Float f60664c;
+        public Float f61245c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Float f60665d;
+        public Float f61246d;
         public Float tx;
         public Float ty;
 
@@ -94,7 +94,7 @@ public final class Transform extends Message<Transform, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-                this.f60663b = f2;
+                this.f61244b = f2;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -104,7 +104,7 @@ public final class Transform extends Message<Transform, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, f2)) == null) {
-                this.f60664c = f2;
+                this.f61245c = f2;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -114,7 +114,7 @@ public final class Transform extends Message<Transform, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, f2)) == null) {
-                this.f60665d = f2;
+                this.f61246d = f2;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -146,11 +146,11 @@ public final class Transform extends Message<Transform, Builder> {
         public Transform build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Transform(this.a, this.f60663b, this.f60664c, this.f60665d, this.tx, this.ty, super.buildUnknownFields()) : (Transform) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Transform(this.a, this.f61244b, this.f61245c, this.f61246d, this.tx, this.ty, super.buildUnknownFields()) : (Transform) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ProtoAdapter_Transform extends ProtoAdapter<Transform> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -229,15 +229,15 @@ public final class Transform extends Message<Transform, Builder> {
                 if (f2 != null) {
                     ProtoAdapter.FLOAT.encodeWithTag(dVar, 1, f2);
                 }
-                Float f3 = transform.f60660b;
+                Float f3 = transform.f61241b;
                 if (f3 != null) {
                     ProtoAdapter.FLOAT.encodeWithTag(dVar, 2, f3);
                 }
-                Float f4 = transform.f60661c;
+                Float f4 = transform.f61242c;
                 if (f4 != null) {
                     ProtoAdapter.FLOAT.encodeWithTag(dVar, 3, f4);
                 }
-                Float f5 = transform.f60662d;
+                Float f5 = transform.f61243d;
                 if (f5 != null) {
                     ProtoAdapter.FLOAT.encodeWithTag(dVar, 4, f5);
                 }
@@ -261,11 +261,11 @@ public final class Transform extends Message<Transform, Builder> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, transform)) == null) {
                 Float f2 = transform.a;
                 int encodedSizeWithTag = f2 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, f2) : 0;
-                Float f3 = transform.f60660b;
+                Float f3 = transform.f61241b;
                 int encodedSizeWithTag2 = encodedSizeWithTag + (f3 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, f3) : 0);
-                Float f4 = transform.f60661c;
+                Float f4 = transform.f61242c;
                 int encodedSizeWithTag3 = encodedSizeWithTag2 + (f4 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(3, f4) : 0);
-                Float f5 = transform.f60662d;
+                Float f5 = transform.f61243d;
                 int encodedSizeWithTag4 = encodedSizeWithTag3 + (f5 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(4, f5) : 0);
                 Float f6 = transform.tx;
                 int encodedSizeWithTag5 = encodedSizeWithTag4 + (f6 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(5, f6) : 0);
@@ -342,7 +342,7 @@ public final class Transform extends Message<Transform, Builder> {
             }
             if (obj instanceof Transform) {
                 Transform transform = (Transform) obj;
-                return unknownFields().equals(transform.unknownFields()) && a.f(this.a, transform.a) && a.f(this.f60660b, transform.f60660b) && a.f(this.f60661c, transform.f60661c) && a.f(this.f60662d, transform.f60662d) && a.f(this.tx, transform.tx) && a.f(this.ty, transform.ty);
+                return unknownFields().equals(transform.unknownFields()) && a.f(this.a, transform.a) && a.f(this.f61241b, transform.f61241b) && a.f(this.f61242c, transform.f61242c) && a.f(this.f61243d, transform.f61243d) && a.f(this.tx, transform.tx) && a.f(this.ty, transform.ty);
             }
             return false;
         }
@@ -358,11 +358,11 @@ public final class Transform extends Message<Transform, Builder> {
                 int hashCode = unknownFields().hashCode() * 37;
                 Float f2 = this.a;
                 int hashCode2 = (hashCode + (f2 != null ? f2.hashCode() : 0)) * 37;
-                Float f3 = this.f60660b;
+                Float f3 = this.f61241b;
                 int hashCode3 = (hashCode2 + (f3 != null ? f3.hashCode() : 0)) * 37;
-                Float f4 = this.f60661c;
+                Float f4 = this.f61242c;
                 int hashCode4 = (hashCode3 + (f4 != null ? f4.hashCode() : 0)) * 37;
-                Float f5 = this.f60662d;
+                Float f5 = this.f61243d;
                 int hashCode5 = (hashCode4 + (f5 != null ? f5.hashCode() : 0)) * 37;
                 Float f6 = this.tx;
                 int hashCode6 = (hashCode5 + (f6 != null ? f6.hashCode() : 0)) * 37;
@@ -386,17 +386,17 @@ public final class Transform extends Message<Transform, Builder> {
                 sb.append(", a=");
                 sb.append(this.a);
             }
-            if (this.f60660b != null) {
+            if (this.f61241b != null) {
                 sb.append(", b=");
-                sb.append(this.f60660b);
+                sb.append(this.f61241b);
             }
-            if (this.f60661c != null) {
+            if (this.f61242c != null) {
                 sb.append(", c=");
-                sb.append(this.f60661c);
+                sb.append(this.f61242c);
             }
-            if (this.f60662d != null) {
+            if (this.f61243d != null) {
                 sb.append(", d=");
-                sb.append(this.f60662d);
+                sb.append(this.f61243d);
             }
             if (this.tx != null) {
                 sb.append(", tx=");
@@ -433,9 +433,9 @@ public final class Transform extends Message<Transform, Builder> {
             }
         }
         this.a = f2;
-        this.f60660b = f3;
-        this.f60661c = f4;
-        this.f60662d = f5;
+        this.f61241b = f3;
+        this.f61242c = f4;
+        this.f61243d = f5;
         this.tx = f6;
         this.ty = f7;
     }
@@ -450,9 +450,9 @@ public final class Transform extends Message<Transform, Builder> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Builder builder = new Builder();
             builder.a = this.a;
-            builder.f60663b = this.f60660b;
-            builder.f60664c = this.f60661c;
-            builder.f60665d = this.f60662d;
+            builder.f61244b = this.f61241b;
+            builder.f61245c = this.f61242c;
+            builder.f61246d = this.f61243d;
             builder.tx = this.tx;
             builder.ty = this.ty;
             builder.addUnknownFields(unknownFields());

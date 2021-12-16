@@ -1,9 +1,9 @@
 package com.baidu.tieba.hottopic.controller;
 
 import c.a.d.a.f;
-import c.a.d.f.p.l;
-import c.a.q0.s.k;
-import c.a.r0.p1.l.e;
+import c.a.d.f.p.m;
+import c.a.r0.s.l;
+import c.a.s0.q1.l.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SORT_TYPE_HOT = 1;
@@ -27,15 +27,15 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f45642e;
+    public BaseActivity<?> f46141e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f45643f;
+    public b f46142f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f45644g;
+    public c.a.d.c.g.a f46143g;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,14 +75,14 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
                     return;
                 }
                 if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                    this.a.f45642e.showToast(responsedMessage.getErrorString());
+                    this.a.f46141e.showToast(responsedMessage.getErrorString());
                 }
-                this.a.f45643f.hotTopicDataCallback(false, null);
+                this.a.f46142f.hotTopicDataCallback(false, null);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void hotTopicDataCallback(boolean z, e eVar);
     }
@@ -105,10 +105,10 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
                 return;
             }
         }
-        this.f45643f = null;
+        this.f46142f = null;
         a aVar = new a(this, CmdConfigHttp.CMD_HOT_TOPIC, 303050);
-        this.f45644g = aVar;
-        this.f45642e = baseActivity;
+        this.f46143g = aVar;
+        this.f46141e = baseActivity;
         registerListener(aVar);
     }
 
@@ -133,15 +133,15 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
             eVar.s = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
         }
-        this.f45643f.hotTopicDataCallback(!responsedMessage.hasError(), eVar);
+        this.f46142f.hotTopicDataCallback(!responsedMessage.hasError(), eVar);
     }
 
     public final void B(long j2, String str, int i2, long j3, String str2, String str3, String str4, long j4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), str, Integer.valueOf(i2), Long.valueOf(j3), str2, str3, str4, Long.valueOf(j4)}) == null) {
             RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
-            int k2 = l.k(TbadkCoreApplication.getInst().getApp());
-            int i3 = l.i(TbadkCoreApplication.getInst().getApp());
+            int k2 = m.k(TbadkCoreApplication.getInst().getApp());
+            int i3 = m.i(TbadkCoreApplication.getInst().getApp());
             requestHotTopicMessage.setTopicId(Long.valueOf(j2));
             requestHotTopicMessage.setCall_from(D(str4));
             requestHotTopicMessage.setTopicName(str);
@@ -152,7 +152,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
             requestHotTopicMessage.setFid(Long.valueOf(j3));
             requestHotTopicMessage.setFirst_dir(str2);
             requestHotTopicMessage.setSecond_dir(str3);
-            requestHotTopicMessage.setQType(Integer.valueOf(k.c().e()));
+            requestHotTopicMessage.setQType(Integer.valueOf(l.c().e()));
             requestHotTopicMessage.setSort_type(Integer.valueOf(i2));
             if (requestHotTopicMessage.getHttpMessage() != null) {
                 requestHotTopicMessage.getHttpMessage().setExtra(Integer.valueOf(i2));
@@ -169,7 +169,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public void C(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f45643f = bVar;
+            this.f46142f = bVar;
         }
     }
 

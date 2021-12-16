@@ -16,27 +16,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.iddetect.IdCardDetectionH5Activity;
 import com.baidu.wallet.base.iddetect.IdentityCardDetectionActivity;
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class IdCardDetectionController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IIdCardDetectionListener mIdCardResultListener;
 
     /* renamed from: com.baidu.wallet.base.controllers.IdCardDetectionController$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface IIdCardDetectionListener extends NoProguard {
         void onDetectFailed(int i2, String str);
 
         void onDetectOK(Bundle bundle);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final IdCardDetectionController sInstance;

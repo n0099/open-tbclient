@@ -11,7 +11,7 @@ import com.baidu.webkit.sdk.WebView;
 import com.google.zxing.Result;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class EmailAddressResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern COMMA;

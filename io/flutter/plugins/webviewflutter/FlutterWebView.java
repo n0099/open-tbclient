@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JS_CHANNEL_NAMES_FIELD = "javascriptChannelNames";

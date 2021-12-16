@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final i.e<Object> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i.q.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C2209a implements i.e<Object> {
+    /* loaded from: classes4.dex */
+    public static class C2270a implements i.e<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2209a() {
+        public C2270a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,7 +71,7 @@ public final class a {
                 return;
             }
         }
-        a = new C2209a();
+        a = new C2270a();
     }
 
     public static <T> i.e<T> a() {

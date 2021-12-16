@@ -17,7 +17,7 @@ import com.idlefish.flutterboost.FlutterBoostPlugin;
 import com.idlefish.flutterboost.containers.FlutterSplashView;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FlutterBoostExtender {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DART_INIT_FINISH = "dataInitFinish";

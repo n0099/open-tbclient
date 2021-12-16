@@ -2,8 +2,8 @@ package io.flutter.plugins;
 
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
-import c.a.o.a.a;
-import c.a.o.d.b;
+import c.a.p.a.a;
+import c.a.p.d.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +14,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
 import io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class GeneratedPluginRegistrant {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GeneratedPluginRegistrant";
@@ -48,12 +48,12 @@ public final class GeneratedPluginRegistrant {
                 Log.e(TAG, "Error registering plugin flutter_boost, com.idlefish.flutterboost.FlutterBoostPlugin", e3);
             }
             try {
-                flutterEngine.getPlugins().add(new c.a.o.b.a());
+                flutterEngine.getPlugins().add(new c.a.p.b.a());
             } catch (Exception e4) {
                 Log.e(TAG, "Error registering plugin flutter_exception_perf_plugin, com.baidu.flutter.flutter_exception_perf_plugin.FlutterExceptionPerfPlugin", e4);
             }
             try {
-                flutterEngine.getPlugins().add(new c.a.o.c.a());
+                flutterEngine.getPlugins().add(new c.a.p.c.a());
             } catch (Exception e5) {
                 Log.e(TAG, "Error registering plugin flutter_open_page_perf, com.baidu.flutter.perf.FlutterOpenPagePerfPlugin", e5);
             }

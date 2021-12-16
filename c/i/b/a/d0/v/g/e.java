@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f29738b;
+    public final long f30108b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<a> f29739c;
+    public final List<a> f30109c;
 
     public e(String str, long j2, List<a> list) {
         Interceptable interceptable = $ic;
@@ -35,17 +35,17 @@ public class e {
             }
         }
         this.a = str;
-        this.f29738b = j2;
-        this.f29739c = Collections.unmodifiableList(list);
+        this.f30108b = j2;
+        this.f30109c = Collections.unmodifiableList(list);
     }
 
     public int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int size = this.f29739c.size();
+            int size = this.f30109c.size();
             for (int i3 = 0; i3 < size; i3++) {
-                if (this.f29739c.get(i3).f29715b == i2) {
+                if (this.f30109c.get(i3).f30085b == i2) {
                     return i3;
                 }
             }

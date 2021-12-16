@@ -15,7 +15,7 @@ public class q extends c<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2371h;
+    public String f2335h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(c.a.d.a.k.b bVar, String str) {
@@ -35,7 +35,7 @@ public class q extends c<String> {
                 return;
             }
         }
-        this.f2371h = str;
+        this.f2335h = str;
     }
 
     @Override // c.a.d.f.d.c
@@ -44,7 +44,7 @@ public class q extends c<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                this.a.f().delete(this.f2333b, "m_ns = ?", new String[]{str});
+                this.a.f().delete(this.f2297b, "m_ns = ?", new String[]{str});
                 return true;
             } catch (Throwable th) {
                 this.a.i(th, "clearData");
@@ -74,7 +74,7 @@ public class q extends c<String> {
         }
         Cursor cursor = null;
         try {
-            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f2333b + " where m_key = ?", new String[]{str});
+            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f2297b + " where m_key = ?", new String[]{str});
             try {
                 if (!rawQuery.moveToNext()) {
                     c.a.d.f.m.a.a(rawQuery);
@@ -82,11 +82,11 @@ public class q extends c<String> {
                 }
                 g<String> gVar = new g<>();
                 gVar.a = rawQuery.getString(0);
-                gVar.f2344c = rawQuery.getString(1);
-                gVar.f2345d = rawQuery.getLong(2);
-                gVar.f2346e = rawQuery.getLong(3);
-                gVar.f2347f = rawQuery.getLong(4);
-                gVar.f2343b = rawQuery.getString(5);
+                gVar.f2308c = rawQuery.getString(1);
+                gVar.f2309d = rawQuery.getLong(2);
+                gVar.f2310e = rawQuery.getLong(3);
+                gVar.f2311f = rawQuery.getLong(4);
+                gVar.f2307b = rawQuery.getString(5);
                 c.a.d.f.m.a.a(rawQuery);
                 return gVar;
             } catch (Throwable th) {
@@ -112,9 +112,9 @@ public class q extends c<String> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.a.d("CREATE TABLE IF NOT EXISTS " + this.f2371h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-            this.a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.f2371h + "(m_ns)");
-            return this.f2371h;
+            this.a.d("CREATE TABLE IF NOT EXISTS " + this.f2335h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+            this.a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.f2335h + "(m_ns)");
+            return this.f2335h;
         }
         return (String) invokeL.objValue;
     }
@@ -126,11 +126,11 @@ public class q extends c<String> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, gVar)) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("m_key", gVar.a);
-            contentValues.put("m_ns", gVar.f2344c);
-            contentValues.put("m_value", gVar.f2343b);
-            contentValues.put("saveTime", Long.valueOf(gVar.f2345d));
-            contentValues.put("lastHitTime", Long.valueOf(gVar.f2346e));
-            contentValues.put("timeToExpire", Long.valueOf(gVar.f2347f));
+            contentValues.put("m_ns", gVar.f2308c);
+            contentValues.put("m_value", gVar.f2307b);
+            contentValues.put("saveTime", Long.valueOf(gVar.f2309d));
+            contentValues.put("lastHitTime", Long.valueOf(gVar.f2310e));
+            contentValues.put("timeToExpire", Long.valueOf(gVar.f2311f));
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -141,7 +141,7 @@ public class q extends c<String> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
-            return sQLiteDatabase.rawQuery("select * from " + this.f2333b + " where m_ns = ?", new String[]{str});
+            return sQLiteDatabase.rawQuery("select * from " + this.f2297b + " where m_ns = ?", new String[]{str});
         }
         return (Cursor) invokeLL.objValue;
     }

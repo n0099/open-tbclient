@@ -1,5 +1,5 @@
 package com.kwad.v8.inspector;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface V8InspectorDelegate {
     void onResponse(String str);
 

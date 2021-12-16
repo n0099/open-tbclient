@@ -1,8 +1,8 @@
 package com.baidu.smallgame.sdk.delegate;
 
 import android.opengl.GLSurfaceView;
-import c.a.l0.a.d.c;
-import c.a.x.c.a;
+import c.a.m0.a.d.c;
+import c.a.y.c.a;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
 import com.baidu.searchbox.v8engine.console.DebugConsole;
@@ -10,7 +10,7 @@ import com.baidu.smallgame.sdk.ArBridge;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface AREngineDelegate {
     boolean ableToDraw();
 
@@ -66,9 +66,9 @@ public interface AREngineDelegate {
 
     void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener);
 
-    void setGameRecordCallback(c.a.x.c.c cVar);
+    void setGameRecordCallback(c.a.y.c.c cVar);
 
-    void setOnStuckScreenListener(c.a.l0.a.d.a aVar);
+    void setOnStuckScreenListener(c.a.m0.a.d.a aVar);
 
     void setPermissionProxy(PermissionProxy permissionProxy);
 

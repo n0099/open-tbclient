@@ -5,7 +5,7 @@ import c.d.b.c0;
 import c.d.b.z;
 import java.io.IOException;
 import okio.Sink;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface c {
     c0 a(b0 b0Var) throws IOException;
 

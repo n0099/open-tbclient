@@ -10,7 +10,7 @@ import com.kwad.sdk.live.mode.LiveInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class cg implements com.kwad.sdk.core.d<LiveInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

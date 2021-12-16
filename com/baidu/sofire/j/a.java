@@ -1,5 +1,5 @@
 package com.baidu.sofire.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
     void a();
 }

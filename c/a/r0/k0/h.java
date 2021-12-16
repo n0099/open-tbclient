@@ -1,18 +1,21 @@
 package c.a.r0.k0;
 
-import android.location.Location;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Process;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.q0.d1.o;
-import c.a.r0.k0.c;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import c.a.d.f.p.m;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.mutiprocess.StickyEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,40 +23,143 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class h implements c.a {
+public class h {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: j  reason: collision with root package name */
-    public static h f18578j;
+    /* renamed from: h  reason: collision with root package name */
+    public static h f12694h;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
+    public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f18579b;
+    public final Map<Class<? extends c.a.r0.k0.a>, c.a.r0.k0.b> f12695b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f18580c;
+    public final Map<Class<? extends c.a.r0.k0.a>, LinkedList<i>> f12696c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f18581d;
+    public final Handler f12697d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18582e;
+    public d f12698e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f18583f;
+    public final c.a.r0.k0.c f12699f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f18584g;
+    public final c.a.r0.n.g f12700g;
 
-    /* renamed from: h  reason: collision with root package name */
-    public int f18585h;
+    /* loaded from: classes6.dex */
+    public class a implements c.a.r0.k0.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h a;
 
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f18586i;
+        public a(h hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hVar;
+        }
+
+        @Override // c.a.r0.k0.c
+        public void a(c.a.r0.k0.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                this.a.d(aVar);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ c.a.r0.k0.a f12701e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ h f12702f;
+
+        public b(h hVar, c.a.r0.k0.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hVar, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12702f = hVar;
+            this.f12701e = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f12702f.c(this.f12701e);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends c.a.r0.n.g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ h f12703e;
+
+        public c(h hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12703e = hVar;
+        }
+
+        @Override // c.a.r0.n.g, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && (activity instanceof TbPageContextSupport)) {
+                this.f12703e.n(((TbPageContextSupport) activity).getPageContext().getUniqueId());
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -83,192 +189,193 @@ public class h implements c.a {
                 return;
             }
         }
-        this.f18580c = new ArrayList<>();
-        this.f18582e = false;
-        this.f18584g = false;
-        this.f18586i = false;
-        e();
+        this.a = false;
+        this.f12697d = new Handler(Looper.getMainLooper());
+        this.f12699f = new a(this);
+        this.f12700g = new c(this);
+        this.f12695b = new HashMap();
+        this.f12696c = new HashMap();
     }
 
-    public static Location b() {
+    public static h f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return null;
-        }
-        return (Location) invokeV.objValue;
-    }
-
-    public static h c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f18578j == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f12694h == null) {
                 synchronized (h.class) {
-                    if (f18578j == null) {
-                        f18578j = new h();
+                    if (f12694h == null) {
+                        f12694h = new h();
                     }
                 }
             }
-            return f18578j;
+            return f12694h;
         }
         return (h) invokeV.objValue;
     }
 
-    @Override // c.a.r0.k0.c.a
-    public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i2, int i3) {
+    public static void i(@NonNull c.a.r0.k0.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            if (i2 == 1) {
-                if (z) {
-                    this.f18583f = arrayList;
-                }
-                this.f18584g = true;
-            } else if (i2 == 2) {
-                if (z) {
-                    this.f18581d = arrayList;
-                    this.f18585h = i3;
-                }
-                this.f18582e = true;
-            }
-            j();
+        if (interceptable == null || interceptable.invokeL(65541, null, aVar) == null) {
+            f().h(aVar);
         }
     }
 
-    public final Location d() {
-        InterceptResult invokeV;
+    public final void c(c.a.r0.k0.a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() : (Location) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            g();
-            f();
-            this.f18586i = false;
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), c.class);
-            if (runTask != null) {
-                this.f18579b = (c) runTask.getData();
-            }
-            c cVar = this.f18579b;
-            if (cVar != null) {
-                cVar.a(this);
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), c.class);
-            if (runTask != null) {
-                this.a = (c) runTask.getData();
-            }
-            c cVar = this.a;
-            if (cVar != null) {
-                cVar.a(this);
-            }
-        }
-    }
-
-    public final boolean h(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            ArrayList<TransmitForumData> arrayList = this.f18580c;
-            if (arrayList == null) {
-                return false;
-            }
-            Iterator<TransmitForumData> it = arrayList.iterator();
-            while (it.hasNext()) {
-                TransmitForumData next = it.next();
-                if (next != null && next.forumId == j2) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f18586i = true;
-            c cVar = this.a;
-            if (cVar != null) {
-                cVar.b();
-            }
-            c cVar2 = this.f18579b;
-            if (cVar2 != null) {
-                cVar2.b();
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.a == null || this.f18582e) {
-                if (this.f18579b == null || this.f18584g) {
-                    this.f18582e = false;
-                    this.f18584g = false;
-                    this.f18586i = false;
-                    this.f18580c.clear();
-                    if (!ListUtils.isEmpty(this.f18581d)) {
-                        Iterator<TransmitForumData> it = this.f18581d.iterator();
-                        while (it.hasNext()) {
-                            TransmitForumData next = it.next();
-                            if (!h(next.forumId)) {
-                                this.f18580c.add(next);
-                            }
-                        }
-                    }
-                    if (!ListUtils.isEmpty(this.f18583f)) {
-                        Iterator<TransmitForumData> it2 = this.f18583f.iterator();
-                        while (it2.hasNext()) {
-                            TransmitForumData next2 = it2.next();
-                            if (!h(next2.forumId)) {
-                                this.f18580c.add(next2);
-                            }
-                        }
-                    }
-                    this.f18581d = null;
-                    this.f18583f = null;
-                    k();
-                }
-            }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.f18580c));
-        }
-    }
-
-    public void l(ShareDialogConfig shareDialogConfig) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, shareDialogConfig) == null) || shareDialogConfig == null || shareDialogConfig.shareItem == null || o.a()) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (shareDialogConfig.showLocation) {
-            shareDialogConfig.shareItem.B = d();
+        Class<?> cls = aVar.getClass();
+        try {
+            c.a.r0.k0.b bVar = this.f12695b.get(cls);
+            if (bVar != null) {
+                bVar.onEvent(aVar);
+            }
+        } catch (Exception e2) {
+            BdLog.detailException(cls.getName(), e2);
         }
-        if (l.C() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.f18586i && !shareDialogConfig.shareItem.f()) {
-            i();
+        try {
+            LinkedList<i> linkedList = this.f12696c.get(cls);
+            if (ListUtils.isEmpty(linkedList)) {
+                return;
+            }
+            int myPid = Process.myPid();
+            for (i iVar : linkedList) {
+                if (iVar != null && (!iVar.isSelfListener() || (aVar.getPid() == myPid && iVar.getTag() != null && iVar.getTag().getId() == aVar.getTag()))) {
+                    try {
+                        iVar.onEvent(aVar);
+                    } catch (Exception e3) {
+                        BdLog.detailException(cls.getName(), e3);
+                    }
+                }
+            }
+        } catch (Exception e4) {
+            BdLog.detailException(cls.getName(), e4);
         }
-        shareDialogConfig.setIsShowTransmitShare(true);
-        shareDialogConfig.setTransmitForumList(this.f18580c);
-        shareDialogConfig.setPrivateThread(this.f18585h);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
+    }
+
+    public final void d(c.a.r0.k0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (m.B()) {
+                c(aVar);
+            } else {
+                this.f12697d.post(new b(this, aVar));
+            }
+        }
+    }
+
+    public final void e(@NonNull Class<? extends c.a.r0.k0.a> cls, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cls, bdUniqueId) == null) && StickyEvent.class.isAssignableFrom(cls)) {
+            OrmObject c2 = g.c(cls.getSimpleName(), cls);
+            if (c2 instanceof StickyEvent) {
+                StickyEvent stickyEvent = (StickyEvent) c2;
+                stickyEvent.resetPid();
+                stickyEvent.setTag(bdUniqueId);
+                stickyEvent.setType(2);
+                i(stickyEvent);
+            }
+        }
+    }
+
+    public void g(@NonNull Application application) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, application) == null) || this.a) {
+            return;
+        }
+        f.g();
+        k(application);
+        e eVar = new e(application);
+        this.f12698e = eVar;
+        eVar.b(this.f12699f);
+        this.f12698e.startService();
+        this.a = true;
+    }
+
+    public void h(@NonNull c.a.r0.k0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            if (!f.i()) {
+                String c2 = f.c();
+                f.m(c2 + " Process Not In WhiteList，Ignore Event!");
+                return;
+            }
+            int myPid = Process.myPid();
+            int pid = aVar.getPid();
+            if (aVar.getType() == 2 && myPid == pid) {
+                d(aVar);
+            } else {
+                j(aVar);
+            }
+        }
+    }
+
+    public final void j(c.a.r0.k0.a aVar) {
+        d dVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || (dVar = this.f12698e) == null) {
+            return;
+        }
+        dVar.a(aVar);
+    }
+
+    public final void k(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, application) == null) {
+            try {
+                application.registerActivityLifecycleCallbacks(this.f12700g);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public void l(@NonNull Class<? extends c.a.r0.k0.a> cls, @NonNull c.a.r0.k0.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, cls, bVar) == null) {
+            if (this.f12695b.containsKey(cls)) {
+                BdLog.e(cls + " has existed, Please unRegister old listener first！");
+                return;
+            }
+            this.f12695b.put(cls, bVar);
+        }
+    }
+
+    public void m(@NonNull Class<? extends c.a.r0.k0.a> cls, @NonNull i iVar, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, iVar, bdUniqueId) == null) {
+            LinkedList<i> linkedList = this.f12696c.get(cls);
+            if (linkedList == null) {
+                linkedList = new LinkedList<>();
+                this.f12696c.put(cls, linkedList);
+            }
+            if (linkedList.contains(iVar)) {
+                BdLog.e("listener has existed, Please unRegister old listener first！");
+                return;
+            }
+            iVar.setTag(bdUniqueId);
+            FrameHelper.insert(linkedList, iVar);
+            e(cls, bdUniqueId);
+        }
+    }
+
+    public void n(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) || bdUniqueId == null) {
+            return;
+        }
+        for (Map.Entry<Class<? extends c.a.r0.k0.a>, LinkedList<i>> entry : this.f12696c.entrySet()) {
+            LinkedList<i> value = entry.getValue();
+            if (!ListUtils.isEmpty(value)) {
+                Iterator<i> it = value.iterator();
+                while (it.hasNext()) {
+                    i next = it.next();
+                    if (next != null && next.getTag() != null && next.getTag() == bdUniqueId) {
+                        it.remove();
+                    }
+                }
+            }
+        }
     }
 }

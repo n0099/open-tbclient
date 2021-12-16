@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,26 +28,26 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public boolean mIsContentSelectBold;
     public ThemeColorInfo mThemeColorInfo;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f41868b;
+        public boolean f42359b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f41869c;
+        public int f42360c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f41870d;
+        public int f42361d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f41871e;
+        public int f42362e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbFragmentTabIndicator f41872f;
+        public TbFragmentTabIndicator f42363f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -62,8 +62,8 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                     return;
                 }
             }
-            this.f41868b = true;
-            this.f41871e = R.color.common_color_10225;
+            this.f42359b = true;
+            this.f42362e = R.color.common_color_10225;
         }
 
         public final int a(TextView textView) {
@@ -85,13 +85,13 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                int i3 = this.f41870d;
+                int i3 = this.f42361d;
                 if (i3 != 0) {
                     SkinManager.setBackgroundResource(this.a, i3);
                 }
                 View view = this.a;
                 if (view instanceof TextView) {
-                    int i4 = this.f41871e;
+                    int i4 = this.f42362e;
                     if (i4 != 0) {
                         SkinManager.setViewTextColor(view, i4, 1);
                     }

@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61553b;
+    public boolean f62134b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61554c;
+    public int f62135c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, inputStream, z) == null) {
             this.a = inputStream;
-            this.f61553b = z;
-            this.f61554c = 0;
+            this.f62134b = z;
+            this.f62135c = 0;
         }
     }
 
@@ -57,7 +57,7 @@ public class d {
         }
         long j2 = i2;
         long skip = this.a.skip(j2);
-        this.f61554c = (int) (this.f61554c + skip);
+        this.f62135c = (int) (this.f62135c + skip);
         if (skip != j2) {
             throw new EOFException();
         }
@@ -118,13 +118,13 @@ public class d {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (i2 >= 0 && i2 <= 4) {
                 int i3 = 0;
-                if (this.f61553b) {
+                if (this.f62134b) {
                     for (int i4 = (i2 - 1) * 8; i4 >= 0; i4 -= 8) {
                         int read = this.a.read();
                         if (read == -1) {
                             throw new EOFException();
                         }
-                        this.f61554c++;
+                        this.f62135c++;
                         i3 |= read << i4;
                     }
                     return i3;
@@ -136,7 +136,7 @@ public class d {
                     if (read2 == -1) {
                         throw new EOFException();
                     }
-                    this.f61554c++;
+                    this.f62135c++;
                     i6 |= read2 << i3;
                     i3 += 8;
                 }

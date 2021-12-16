@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.PopupWindow;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.g;
-import c.a.d.f.p.l;
-import c.a.q0.s.c;
+import c.a.d.f.p.m;
+import c.a.r0.s.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MorePopupWindow extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class MorePopupWindow extends PopupWindow {
         int dimension = measuredHeight + ((int) this.mActivity.getResources().getDimension(R.dimen.ds4));
         this.mWindowHeight = dimension;
         setHeight(dimension);
-        int[] p = l.p(this.mActivity);
+        int[] p = m.p(this.mActivity);
         if (p != null && p.length > 1 && p[0] > measuredWidth) {
             this.mShowRightTopXOff = p[0] - measuredWidth;
         }
@@ -155,7 +155,7 @@ public class MorePopupWindow extends PopupWindow {
     public void setWidthAsWidthOfDeviceScreen(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            int k2 = l.k(context);
+            int k2 = m.k(context);
             this.mContentView.getLayoutParams().width = k2;
             setWidth(k2);
         }

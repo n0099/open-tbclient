@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f32969b;
+    public final int f33339b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f32970c;
+    public final b f33340c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f32971d;
+    public boolean f33341d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, Looper looper, int i2) {
@@ -43,8 +43,8 @@ public final class c extends Handler {
                 return;
             }
         }
-        this.f32970c = bVar;
-        this.f32969b = i2;
+        this.f33340c = bVar;
+        this.f33339b = i2;
         this.a = new e();
     }
 
@@ -54,8 +54,8 @@ public final class c extends Handler {
             d a = d.a(gVar, event);
             synchronized (this) {
                 this.a.a(a);
-                if (!this.f32971d) {
-                    this.f32971d = true;
+                if (!this.f33341d) {
+                    this.f33341d = true;
                     if (!sendMessage(obtainMessage())) {
                         throw new EventBusException("Could not send handler message");
                     }
@@ -76,20 +76,20 @@ public final class c extends Handler {
                         synchronized (this) {
                             a = this.a.a();
                             if (a == null) {
-                                this.f32971d = false;
+                                this.f33341d = false;
                                 return;
                             }
                         }
                     }
-                    this.f32970c.a(a);
-                } while (SystemClock.uptimeMillis() - uptimeMillis < this.f32969b);
+                    this.f33340c.a(a);
+                } while (SystemClock.uptimeMillis() - uptimeMillis < this.f33339b);
                 if (sendMessage(obtainMessage())) {
-                    this.f32971d = true;
+                    this.f33341d = true;
                     return;
                 }
                 throw new EventBusException("Could not send handler message");
             } finally {
-                this.f32971d = false;
+                this.f33341d = false;
             }
         }
     }

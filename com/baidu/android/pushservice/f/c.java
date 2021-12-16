@@ -28,13 +28,13 @@ import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f32462b;
+    public static volatile c f32832b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -71,14 +71,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f32462b == null) {
+            if (f32832b == null) {
                 synchronized (c.class) {
-                    if (f32462b == null) {
-                        f32462b = new c();
+                    if (f32832b == null) {
+                        f32832b = new c();
                     }
                 }
             }
-            return f32462b;
+            return f32832b;
         }
         return (c) invokeV.objValue;
     }
@@ -162,10 +162,10 @@ public class c {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f32463b;
+                public final /* synthetic */ String f32833b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ c f32464c;
+                public final /* synthetic */ c f32834c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -182,23 +182,23 @@ public class c {
                             return;
                         }
                     }
-                    this.f32464c = this;
+                    this.f32834c = this;
                     this.a = context;
-                    this.f32463b = r8;
+                    this.f32833b = r8;
                 }
 
                 @Override // com.baidu.android.pushservice.h.c
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        HashMap a3 = this.f32464c.a(this.a, "POST", this.f32463b);
+                        HashMap a3 = this.f32834c.a(this.a, "POST", this.f32833b);
                         int i2 = 2;
                         do {
-                            com.baidu.android.pushservice.e.b b2 = com.baidu.android.pushservice.e.c.b(this.a, this.f32463b, "POST", a3, "BCCS_SDK/3.0", h.c());
+                            com.baidu.android.pushservice.e.b b2 = com.baidu.android.pushservice.e.c.b(this.a, this.f32833b, "POST", a3, "BCCS_SDK/3.0", h.c());
                             if (b2 != null) {
                                 int b3 = b2.b();
                                 String a4 = m.a(this.a, b2.a());
-                                if (b3 == 200 && this.f32464c.a(a4) == 0) {
+                                if (b3 == 200 && this.f32834c.a(a4) == 0) {
                                     return;
                                 }
                             }

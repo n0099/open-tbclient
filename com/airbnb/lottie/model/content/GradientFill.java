@@ -10,7 +10,7 @@ import com.airbnb.lottie.model.animatable.AnimatableGradientColorValue;
 import com.airbnb.lottie.model.animatable.AnimatableIntegerValue;
 import com.airbnb.lottie.model.animatable.AnimatablePointValue;
 import com.airbnb.lottie.model.layer.BaseLayer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GradientFill implements ContentModel {
     public final AnimatablePointValue endPoint;
     public final Path.FillType fillType;

@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class y implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Map f62480b;
+    public final /* synthetic */ Map f63061b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ t f62481c;
+    public final /* synthetic */ t f63062c;
 
     public y(t tVar, Context context, Map map) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public final class y implements Runnable {
                 return;
             }
         }
-        this.f62481c = tVar;
+        this.f63062c = tVar;
         this.a = context;
-        this.f62480b = map;
+        this.f63061b = map;
     }
 
     @Override // java.lang.Runnable
@@ -57,7 +57,7 @@ public final class y implements Runnable {
                             Intent intent = new Intent();
                             intent.setComponent(componentName);
                             intent.setFlags(270532608);
-                            t.b(intent, this.f62480b);
+                            t.b(intent, this.f63061b);
                             this.a.startActivity(intent);
                             return;
                         }
@@ -69,7 +69,7 @@ public final class y implements Runnable {
             Intent launchIntentForPackage = this.a.getPackageManager().getLaunchIntentForPackage(this.a.getPackageName());
             if (launchIntentForPackage != null) {
                 launchIntentForPackage.setFlags(268435456);
-                t.b(launchIntentForPackage, this.f62480b);
+                t.b(launchIntentForPackage, this.f63061b);
                 this.a.startActivity(launchIntentForPackage);
                 return;
             }

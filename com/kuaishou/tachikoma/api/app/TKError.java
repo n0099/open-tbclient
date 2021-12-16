@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.tachikoma.api.model.BaseJsonApiParse;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TKError extends BaseJsonApiParse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

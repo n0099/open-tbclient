@@ -2,23 +2,23 @@ package com.meizu.cloud.pushsdk.a.a;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60166b;
+    public String f60747b;
 
     public c(int i2, String str) {
         this.a = i2;
-        this.f60166b = str;
+        this.f60747b = str;
     }
 
     public String toString() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("code", this.a);
-            jSONObject.put("body", this.f60166b);
+            jSONObject.put("body", this.f60747b);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

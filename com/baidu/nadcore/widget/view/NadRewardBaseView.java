@@ -11,12 +11,12 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.b.e;
-import c.a.b0.b.h;
-import c.a.b0.g.f.d;
-import c.a.b0.p.b;
-import c.a.b0.p.o;
-import c.a.b0.s.p;
+import c.a.c0.b.e;
+import c.a.c0.b.h;
+import c.a.c0.g.f.d;
+import c.a.c0.p.b;
+import c.a.c0.p.o;
+import c.a.c0.s.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.feed.AdFeedBaseView;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class NadRewardBaseView extends AdFeedBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,10 +39,10 @@ public abstract class NadRewardBaseView extends AdFeedBaseView {
     public int mActivitySystemUIVisible;
     public boolean mDislikeClicked;
     public NadRewardOperateView mOperateBar;
-    public c.a.b0.h0.e0.a mRewardMediaListener;
+    public c.a.c0.h0.e0.a mRewardMediaListener;
     public NadRewardCountDownView mSkipButton;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements DislikeBottomDialog.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public abstract class NadRewardBaseView extends AdFeedBaseView {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (weakReference = this.mActivityRef) == null || weakReference.get() == null) {
             return;
         }
-        c.a.b0.d0.p.a(this.mActivityRef.get().getWindow());
+        c.a.c0.d0.p.a(this.mActivityRef.get().getWindow());
     }
 
     public abstract void initInflate(LayoutInflater layoutInflater, o oVar);
@@ -215,7 +215,7 @@ public abstract class NadRewardBaseView extends AdFeedBaseView {
         }
     }
 
-    public void setRewardMediaListener(c.a.b0.h0.e0.a aVar) {
+    public void setRewardMediaListener(c.a.c0.h0.e0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
             this.mRewardMediaListener = aVar;
@@ -260,11 +260,11 @@ public abstract class NadRewardBaseView extends AdFeedBaseView {
         }
         this.mOperateBar.update(adBaseModel);
         this.mOperateBar.bindContainer(viewGroup);
-        c.a.b0.h0.c0.a aVar = this.mNadDownloadListener;
+        c.a.c0.h0.c0.a aVar = this.mNadDownloadListener;
         if (aVar != null) {
             this.mOperateBar.setViewDownloadListener(aVar);
         }
-        c.a.b0.h0.c0.b bVar = this.mFeedListener;
+        c.a.c0.h0.c0.b bVar = this.mFeedListener;
         if (bVar != null) {
             this.mOperateBar.setFeedListener(bVar);
         }

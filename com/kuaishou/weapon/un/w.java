@@ -5,36 +5,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class w {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f56880c = "plc001_c_h_c";
+    public static final String f57461c = "plc001_c_h_c";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f56881d = 1;
+    public static final int f57462d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f56882e = 2;
+    public static final int f57463e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f56883f = 4;
+    public static final int f57464f = 4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f56884g = 8;
+    public static final int f57465g = 8;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f56885h = 16;
+    public static final int f57466h = 16;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f56886i = 32;
+    public static final int f57467i = 32;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f56887j = 64;
+    public static final int f57468j = 64;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f56888k = 128;
+    public static final int f57469k = 128;
     public static final int l = 256;
     public static final int m = 512;
     public static final int n = 1024;
@@ -45,7 +45,7 @@ public class w {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f56889b;
+    public d f57470b;
 
     public w(d dVar) {
         Interceptable interceptable = $ic;
@@ -64,8 +64,8 @@ public class w {
         }
         this.a = 0;
         try {
-            this.f56889b = dVar;
-            this.a = dVar.b(f56880c, 0);
+            this.f57470b = dVar;
+            this.a = dVar.b(f57461c, 0);
             a();
         } catch (Throwable th) {
             x0.a(th);
@@ -79,7 +79,7 @@ public class w {
                 int i2 = l1.i();
                 if (this.a != i2) {
                     this.a = i2;
-                    this.f56889b.c(f56880c, i2);
+                    this.f57470b.c(f57461c, i2);
                 }
             } catch (Throwable th) {
                 x0.a(th);

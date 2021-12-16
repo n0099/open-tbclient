@@ -29,28 +29,28 @@ import com.win.opensdk.PBMediaView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class v extends ReporterPidLoader<f> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HashMap<f, b> f28762h;
+    public final HashMap<f, b> f29132h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f28763b;
+        public boolean f29133b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ f f28764c;
+        public final /* synthetic */ f f29134c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ v f28765d;
+        public final /* synthetic */ v f29135d;
 
         public a(v vVar, f fVar) {
             Interceptable interceptable = $ic;
@@ -67,20 +67,20 @@ public class v extends ReporterPidLoader<f> {
                     return;
                 }
             }
-            this.f28765d = vVar;
-            this.f28764c = fVar;
+            this.f29135d = vVar;
+            this.f29134c = fVar;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f28765d.onAdClicked(this.f28763b);
-                this.f28763b = true;
-                synchronized (this.f28765d.f28762h) {
-                    b bVar = this.f28765d.f28762h.get(this.f28764c);
+                this.f29135d.onAdClicked(this.f29133b);
+                this.f29133b = true;
+                synchronized (this.f29135d.f29132h) {
+                    b bVar = this.f29135d.f29132h.get(this.f29134c);
                     if (bVar != null) {
-                        bVar.f28767c.onAdClicked(bVar.a, this.f28765d.mPid.ssp.type, this.f28765d.mPid.pid);
+                        bVar.f29137c.onAdClicked(bVar.a, this.f29135d.mPid.ssp.type, this.f29135d.mPid.pid);
                     }
                 }
             }
@@ -90,7 +90,7 @@ public class v extends ReporterPidLoader<f> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
                 LogPrinter.e("onFail code: " + i2 + ", message: " + str, new Object[0]);
-                this.f28765d.onError(i2, str);
+                this.f29135d.onError(i2, str);
             }
         }
 
@@ -98,22 +98,22 @@ public class v extends ReporterPidLoader<f> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.f28765d.onAdLoaded((v) this.f28764c);
+                this.f29135d.onAdLoaded((v) this.f29134c);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f28766b;
+        public boolean f29136b;
 
         /* renamed from: c  reason: collision with root package name */
-        public FunAdInteractionListener f28767c;
+        public FunAdInteractionListener f29137c;
 
         public b(String str) {
             Interceptable interceptable = $ic;
@@ -153,7 +153,7 @@ public class v extends ReporterPidLoader<f> {
                 return;
             }
         }
-        this.f28762h = new HashMap<>();
+        this.f29132h = new HashMap<>();
     }
 
     public JYNativeAdView a(f fVar) {
@@ -162,11 +162,11 @@ public class v extends ReporterPidLoader<f> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
             JYNativeAdView jYNativeAdView = (JYNativeAdView) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(R.layout.fun_jy_ad_native_view, (ViewGroup) null, false);
             jYNativeAdView.a.setText(fVar.f());
-            jYNativeAdView.f55660d.setText(fVar.h());
-            GlideHelper.get().load(jYNativeAdView.getContext(), fVar.j(), jYNativeAdView.f55661e);
-            jYNativeAdView.f55662f.setText(fVar.g());
-            jYNativeAdView.f55663g = (fVar.l() * 1.0f) / (fVar.k() * 1.0f);
-            fVar.c(jYNativeAdView, jYNativeAdView.f55659c);
+            jYNativeAdView.f56241d.setText(fVar.h());
+            GlideHelper.get().load(jYNativeAdView.getContext(), fVar.j(), jYNativeAdView.f56242e);
+            jYNativeAdView.f56243f.setText(fVar.g());
+            jYNativeAdView.f56244g = (fVar.l() * 1.0f) / (fVar.k() * 1.0f);
+            fVar.c(jYNativeAdView, jYNativeAdView.f56240c);
             return jYNativeAdView;
         }
         return (JYNativeAdView) invokeL.objValue;
@@ -184,15 +184,15 @@ public class v extends ReporterPidLoader<f> {
     public final void d(f fVar, String str, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, fVar, str, funAdInteractionListener) == null) {
-            synchronized (this.f28762h) {
-                b bVar = this.f28762h.get(fVar);
+            synchronized (this.f29132h) {
+                b bVar = this.f29132h.get(fVar);
                 if (bVar == null) {
                     bVar = new b(str);
-                    this.f28762h.put(fVar, bVar);
+                    this.f29132h.put(fVar, bVar);
                 }
-                onShowStart(bVar.f28766b);
-                bVar.f28766b = true;
-                bVar.f28767c = funAdInteractionListener;
+                onShowStart(bVar.f29136b);
+                bVar.f29136b = true;
+                bVar.f29137c = funAdInteractionListener;
             }
         }
     }
@@ -205,8 +205,8 @@ public class v extends ReporterPidLoader<f> {
             return;
         }
         fVar.a();
-        synchronized (this.f28762h) {
-            this.f28762h.remove(fVar);
+        synchronized (this.f29132h) {
+            this.f29132h.remove(fVar);
         }
     }
 

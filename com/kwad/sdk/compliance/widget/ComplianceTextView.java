@@ -37,39 +37,39 @@ import com.kwad.sdk.utils.bb;
 import com.kwad.sdk.utils.l;
 import org.apache.commons.lang3.StringUtils;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ComplianceTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57144b;
+    public String f57725b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57145c;
+    public String f57726c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57146d;
+    public String f57727d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57147e;
+    public String f57728e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57148f;
+    public int f57729f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f57149g;
+    public String f57730g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdTemplate f57150h;
+    public AdTemplate f57731h;
     @ColorInt
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57151i;
+    public int f57732i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ViewTreeObserver.OnGlobalLayoutListener f57152j;
+    public ViewTreeObserver.OnGlobalLayoutListener f57733j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ComplianceTextView(Context context) {
@@ -132,8 +132,8 @@ public class ComplianceTextView extends TextView {
                 return;
             }
         }
-        this.f57148f = Opcodes.IFNE;
-        this.f57152j = new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.kwad.sdk.compliance.widget.ComplianceTextView.3
+        this.f57729f = Opcodes.IFNE;
+        this.f57733j = new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.kwad.sdk.compliance.widget.ComplianceTextView.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ComplianceTextView a;
@@ -163,7 +163,7 @@ public class ComplianceTextView extends TextView {
                     return;
                 }
                 ComplianceTextView complianceTextView = this.a;
-                complianceTextView.a(complianceTextView.a, this.a.f57144b, this.a.f57145c);
+                complianceTextView.a(complianceTextView.a, this.a.f57725b, this.a.f57726c);
                 this.a.a();
             }
         };
@@ -173,11 +173,11 @@ public class ComplianceTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f57152j == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f57733j == null) {
             return;
         }
-        getViewTreeObserver().removeOnGlobalLayoutListener(this.f57152j);
-        this.f57152j = null;
+        getViewTreeObserver().removeOnGlobalLayoutListener(this.f57733j);
+        this.f57733j = null;
     }
 
     @SuppressLint({"CustomViewStyleable"})
@@ -185,12 +185,12 @@ public class ComplianceTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_ComplianceTextView);
-            this.f57148f = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.ksad_ComplianceTextView_ksad_width_in_landscape, Opcodes.IFNE);
-            this.f57151i = obtainStyledAttributes.getColor(R.styleable.ksad_ComplianceTextView_ksad_privacy_color, getResources().getColor(R.color.ksad_default_privacy_link_color));
+            this.f57729f = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.ksad_ComplianceTextView_ksad_width_in_landscape, Opcodes.IFNE);
+            this.f57732i = obtainStyledAttributes.getColor(R.styleable.ksad_ComplianceTextView_ksad_privacy_color, getResources().getColor(R.color.ksad_default_privacy_link_color));
             if (getBackground() == null) {
                 setBackground(ContextCompat.getDrawable(context, R.drawable.ksad_compliance_view_bg));
             }
-            getViewTreeObserver().addOnGlobalLayoutListener(this.f57152j);
+            getViewTreeObserver().addOnGlobalLayoutListener(this.f57733j);
             obtainStyledAttributes.recycle();
         }
     }
@@ -199,8 +199,8 @@ public class ComplianceTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, str, str2) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) this.f57149g);
-            if (!TextUtils.isEmpty(this.f57146d)) {
+            spannableStringBuilder.append((CharSequence) this.f57730g);
+            if (!TextUtils.isEmpty(this.f57727d)) {
                 int length = spannableStringBuilder.length();
                 spannableStringBuilder.append((CharSequence) str);
                 spannableStringBuilder.setSpan(new ClickableSpan(this, str) { // from class: com.kwad.sdk.compliance.widget.ComplianceTextView.1
@@ -209,7 +209,7 @@ public class ComplianceTextView extends TextView {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ComplianceTextView f57153b;
+                    public final /* synthetic */ ComplianceTextView f57734b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -226,7 +226,7 @@ public class ComplianceTextView extends TextView {
                                 return;
                             }
                         }
-                        this.f57153b = this;
+                        this.f57734b = this;
                         this.a = str;
                     }
 
@@ -234,7 +234,7 @@ public class ComplianceTextView extends TextView {
                     public void onClick(@NonNull View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            AdWebViewActivityProxy.launch(this.f57153b.getContext(), new AdWebViewActivityProxy.a.C2022a().a(this.a).b(this.f57153b.f57146d).a(this.f57153b.f57150h).a());
+                            AdWebViewActivityProxy.launch(this.f57734b.getContext(), new AdWebViewActivityProxy.a.C2083a().a(this.a).b(this.f57734b.f57727d).a(this.f57734b.f57731h).a());
                         }
                     }
 
@@ -243,16 +243,16 @@ public class ComplianceTextView extends TextView {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
                             super.updateDrawState(textPaint);
-                            textPaint.setColor(this.f57153b.f57151i);
+                            textPaint.setColor(this.f57734b.f57732i);
                             textPaint.setUnderlineText(true);
                         }
                     }
                 }, length, spannableStringBuilder.length(), 33);
             }
-            if (!TextUtils.isEmpty(this.f57146d) && !TextUtils.isEmpty(this.f57147e)) {
+            if (!TextUtils.isEmpty(this.f57727d) && !TextUtils.isEmpty(this.f57728e)) {
                 spannableStringBuilder.append((CharSequence) " | ");
             }
-            if (!TextUtils.isEmpty(this.f57147e)) {
+            if (!TextUtils.isEmpty(this.f57728e)) {
                 int length2 = spannableStringBuilder.length();
                 spannableStringBuilder.append((CharSequence) str2);
                 spannableStringBuilder.setSpan(new ClickableSpan(this, str2) { // from class: com.kwad.sdk.compliance.widget.ComplianceTextView.2
@@ -261,7 +261,7 @@ public class ComplianceTextView extends TextView {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ComplianceTextView f57154b;
+                    public final /* synthetic */ ComplianceTextView f57735b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -278,7 +278,7 @@ public class ComplianceTextView extends TextView {
                                 return;
                             }
                         }
-                        this.f57154b = this;
+                        this.f57735b = this;
                         this.a = str2;
                     }
 
@@ -286,7 +286,7 @@ public class ComplianceTextView extends TextView {
                     public void onClick(@NonNull View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            AdWebViewActivityProxy.launch(this.f57154b.getContext(), new AdWebViewActivityProxy.a.C2022a().a(this.a).b(this.f57154b.f57147e).a(this.f57154b.f57150h).a());
+                            AdWebViewActivityProxy.launch(this.f57735b.getContext(), new AdWebViewActivityProxy.a.C2083a().a(this.a).b(this.f57735b.f57728e).a(this.f57735b.f57731h).a());
                         }
                     }
 
@@ -295,7 +295,7 @@ public class ComplianceTextView extends TextView {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
                             super.updateDrawState(textPaint);
-                            textPaint.setColor(this.f57154b.f57151i);
+                            textPaint.setColor(this.f57735b.f57732i);
                             textPaint.setUnderlineText(true);
                         }
                     }
@@ -317,19 +317,19 @@ public class ComplianceTextView extends TextView {
                 return;
             }
             StringBuilder sb2 = new StringBuilder();
-            if (!TextUtils.isEmpty(this.f57146d) || !TextUtils.isEmpty(this.f57147e)) {
+            if (!TextUtils.isEmpty(this.f57727d) || !TextUtils.isEmpty(this.f57728e)) {
                 sb2.append("   ");
             }
-            if (!TextUtils.isEmpty(this.f57146d)) {
+            if (!TextUtils.isEmpty(this.f57727d)) {
                 sb2.append(str2);
             }
-            if (!TextUtils.isEmpty(this.f57146d) && !TextUtils.isEmpty(this.f57147e)) {
+            if (!TextUtils.isEmpty(this.f57727d) && !TextUtils.isEmpty(this.f57728e)) {
                 sb2.append(" | ");
             }
-            if (!TextUtils.isEmpty(this.f57147e)) {
+            if (!TextUtils.isEmpty(this.f57728e)) {
                 sb2.append(str3);
             }
-            int width = ((!af.e(getContext()) ? this.f57148f : getWidth()) - getPaddingLeft()) - getPaddingRight();
+            int width = ((!af.e(getContext()) ? this.f57729f : getWidth()) - getPaddingLeft()) - getPaddingRight();
             if (width < 0) {
                 return;
             }
@@ -342,7 +342,7 @@ public class ComplianceTextView extends TextView {
                 sb.append(str);
                 sb.append("   ");
             }
-            this.f57149g = sb.toString();
+            this.f57730g = sb.toString();
             a(str2, str3);
         }
     }
@@ -379,7 +379,7 @@ public class ComplianceTextView extends TextView {
     public void setAdTemplate(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            this.f57150h = adTemplate;
+            this.f57731h = adTemplate;
             AdInfo j2 = d.j(adTemplate);
             StringBuilder sb = new StringBuilder();
             if (!TextUtils.isEmpty(j2.adBaseInfo.appName)) {
@@ -403,17 +403,17 @@ public class ComplianceTextView extends TextView {
                 sb.append("；");
             }
             this.a = sb.toString();
-            this.f57144b = "权限信息";
-            this.f57145c = "隐私政策";
+            this.f57725b = "权限信息";
+            this.f57726c = "隐私政策";
             AdInfo.DownloadSafeInfo downloadSafeInfo = j2.downloadSafeInfo;
-            this.f57146d = downloadSafeInfo.appPermissionInfoUrl;
-            this.f57147e = downloadSafeInfo.appPrivacyUrl;
+            this.f57727d = downloadSafeInfo.appPermissionInfoUrl;
+            this.f57728e = downloadSafeInfo.appPrivacyUrl;
             if (!af.e(getContext())) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                layoutParams.width = bb.a(getContext(), this.f57148f);
+                layoutParams.width = bb.a(getContext(), this.f57729f);
                 setLayoutParams(layoutParams);
             }
-            a(this.a, this.f57144b, this.f57145c);
+            a(this.a, this.f57725b, this.f57726c);
         }
     }
 }

@@ -9,7 +9,7 @@ import com.kwad.sdk.live.mode.LiveInfo;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4483350806354759008L;
@@ -24,7 +24,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
     public VideoInfo videoInfo;
     public WallpaperInfo wallpaperInfo;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AuthorInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3647144332352243129L;
@@ -55,7 +55,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BaseInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2257669583403371065L;
@@ -90,7 +90,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CoverInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 9136122984250063738L;
@@ -117,7 +117,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ProductInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6976688557388750318L;
@@ -127,7 +127,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         public long productId;
         public String shennongjiaLog;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class ProductDetail extends com.kwad.sdk.core.response.kwai.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -3610510819973783411L;
@@ -200,7 +200,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TubeEpisode extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2087412525733788061L;
@@ -240,7 +240,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class VideoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1395696168725754442L;
@@ -272,7 +272,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class WallpaperInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8572865298854850054L;

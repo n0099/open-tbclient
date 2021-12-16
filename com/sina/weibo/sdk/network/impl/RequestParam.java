@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RequestParam implements IRequestParam {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PARAM_BODY_BYTE_ARRAY = "body_byte_array";
@@ -37,7 +37,7 @@ public class RequestParam implements IRequestParam {
     public int responseTimeout;
     public String shortUrl;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

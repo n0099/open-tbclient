@@ -3,7 +3,7 @@ package com.airbnb.lottie.model.content;
 import com.airbnb.lottie.utils.GammaEvaluator;
 import com.airbnb.lottie.utils.MiscUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GradientColor {
     public final int[] colors;
     public final float[] positions;

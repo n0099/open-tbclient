@@ -11,23 +11,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a extends c.b.b.n.l.a {
     public static /* synthetic */ Interceptable $ic;
     public static final long l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27593h;
+    public boolean f27968h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27594i;
+    public int f27969i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f27595j;
+    public int f27970j;
 
     /* renamed from: k  reason: collision with root package name */
-    public float f27596k;
+    public float f27971k;
 
     static {
         InterceptResult invokeClinit;
@@ -70,30 +70,30 @@ public class a extends c.b.b.n.l.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            long j2 = this.f27579e;
-            long j3 = aVar.f27579e;
+            long j2 = this.f27954e;
+            long j3 = aVar.f27954e;
             if (j2 != j3) {
                 return (int) (j2 - j3);
             }
             a aVar2 = (a) aVar;
-            boolean z = this.f27593h;
-            if (z != aVar2.f27593h) {
+            boolean z = this.f27968h;
+            if (z != aVar2.f27968h) {
                 return z ? 1 : -1;
             }
-            int i2 = this.f27594i;
-            int i3 = aVar2.f27594i;
+            int i2 = this.f27969i;
+            int i3 = aVar2.f27969i;
             if (i2 != i3) {
                 return i2 - i3;
             }
-            int i4 = this.f27595j;
-            int i5 = aVar2.f27595j;
+            int i4 = this.f27970j;
+            int i5 = aVar2.f27970j;
             if (i4 != i5) {
                 return i4 - i5;
             }
-            if (com.badlogic.gdx.math.d.e(this.f27596k, aVar2.f27596k)) {
+            if (com.badlogic.gdx.math.d.e(this.f27971k, aVar2.f27971k)) {
                 return 0;
             }
-            return this.f27596k < aVar2.f27596k ? 1 : -1;
+            return this.f27971k < aVar2.f27971k ? 1 : -1;
         }
         return invokeL.intValue;
     }
@@ -103,7 +103,7 @@ public class a extends c.b.b.n.l.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (((((((super.hashCode() * 947) + (this.f27593h ? 1 : 0)) * 947) + this.f27594i) * 947) + this.f27595j) * 947) + t.b(this.f27596k);
+            return (((((((super.hashCode() * 947) + (this.f27968h ? 1 : 0)) * 947) + this.f27969i) * 947) + this.f27970j) * 947) + t.b(this.f27971k);
         }
         return invokeV.intValue;
     }
@@ -126,11 +126,11 @@ public class a extends c.b.b.n.l.a {
                 return;
             }
         }
-        this.f27596k = 1.0f;
-        this.f27593h = z;
-        this.f27594i = i2;
-        this.f27595j = i3;
-        this.f27596k = f2;
+        this.f27971k = 1.0f;
+        this.f27968h = z;
+        this.f27969i = i2;
+        this.f27970j = i3;
+        this.f27971k = f2;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -156,7 +156,7 @@ public class a extends c.b.b.n.l.a {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(a aVar) {
-        this(aVar == null || aVar.f27593h, aVar == null ? BankSignFactory.BEAN_ID_QUERY : aVar.f27594i, aVar == null ? BankSignFactory.BEAN_ID_BIND_CARD : aVar.f27595j, aVar == null ? 1.0f : aVar.f27596k);
+        this(aVar == null || aVar.f27968h, aVar == null ? BankSignFactory.BEAN_ID_QUERY : aVar.f27969i, aVar == null ? BankSignFactory.BEAN_ID_BIND_CARD : aVar.f27970j, aVar == null ? 1.0f : aVar.f27971k);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

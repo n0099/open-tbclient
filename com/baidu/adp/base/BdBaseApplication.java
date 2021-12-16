@@ -10,7 +10,7 @@ import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.b;
 import c.a.d.a.h;
-import c.a.d.f.p.d;
+import c.a.d.f.p.e;
 import c.a.d.h.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BdBaseApplication extends Application {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;
@@ -46,7 +46,7 @@ public class BdBaseApplication extends Application {
     public long mSmallFlowInterval;
     public long mStartSmallFlowTime;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public class BdBaseApplication extends Application {
     private void initBitmapHelper() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            d.d().f(this.mContext);
+            e.d().f(this.mContext);
         }
     }
 

@@ -35,7 +35,7 @@ import com.dxmpay.wallet.core.beans.BeanErrorContent;
 import com.dxmpay.wallet.core.utils.PassUtil;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 @SuppressLint({"HandlerLeak"})
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class WelcomeActivity extends PayBaseBeanActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

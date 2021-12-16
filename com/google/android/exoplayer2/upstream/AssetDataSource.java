@@ -15,28 +15,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class AssetDataSource implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AssetManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final p<? super AssetDataSource> f55904b;
+    public final p<? super AssetDataSource> f56485b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Uri f55905c;
+    public Uri f56486c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InputStream f55906d;
+    public InputStream f56487d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f55907e;
+    public long f56488e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f55908f;
+    public boolean f56489f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class AssetDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public final class AssetDataSource implements e {
             }
         }
         this.a = context.getAssets();
-        this.f55904b = pVar;
+        this.f56485b = pVar;
     }
 
     @Override // c.i.b.a.h0.e
@@ -88,7 +88,7 @@ public final class AssetDataSource implements e {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             try {
                 Uri uri = gVar.a;
-                this.f55905c = uri;
+                this.f56486c = uri;
                 String path = uri.getPath();
                 if (path.startsWith("/android_asset/")) {
                     path = path.substring(15);
@@ -96,23 +96,23 @@ public final class AssetDataSource implements e {
                     path = path.substring(1);
                 }
                 InputStream open = this.a.open(path, 1);
-                this.f55906d = open;
-                if (open.skip(gVar.f30141d) >= gVar.f30141d) {
-                    if (gVar.f30142e != -1) {
-                        this.f55907e = gVar.f30142e;
+                this.f56487d = open;
+                if (open.skip(gVar.f30511d) >= gVar.f30511d) {
+                    if (gVar.f30512e != -1) {
+                        this.f56488e = gVar.f30512e;
                     } else {
-                        long available = this.f55906d.available();
-                        this.f55907e = available;
+                        long available = this.f56487d.available();
+                        this.f56488e = available;
                         if (available == 2147483647L) {
-                            this.f55907e = -1L;
+                            this.f56488e = -1L;
                         }
                     }
-                    this.f55908f = true;
-                    p<? super AssetDataSource> pVar = this.f55904b;
+                    this.f56489f = true;
+                    p<? super AssetDataSource> pVar = this.f56485b;
                     if (pVar != null) {
                         pVar.d(this, gVar);
                     }
-                    return this.f55907e;
+                    return this.f56488e;
                 }
                 throw new EOFException();
             } catch (IOException e2) {
@@ -126,20 +126,20 @@ public final class AssetDataSource implements e {
     public void close() throws AssetDataSourceException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f55905c = null;
+            this.f56486c = null;
             try {
                 try {
-                    if (this.f55906d != null) {
-                        this.f55906d.close();
+                    if (this.f56487d != null) {
+                        this.f56487d.close();
                     }
                 } catch (IOException e2) {
                     throw new AssetDataSourceException(e2);
                 }
             } finally {
-                this.f55906d = null;
-                if (this.f55908f) {
-                    this.f55908f = false;
-                    p<? super AssetDataSource> pVar = this.f55904b;
+                this.f56487d = null;
+                if (this.f56489f) {
+                    this.f56489f = false;
+                    p<? super AssetDataSource> pVar = this.f56485b;
                     if (pVar != null) {
                         pVar.b(this);
                     }
@@ -152,7 +152,7 @@ public final class AssetDataSource implements e {
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55905c : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56486c : (Uri) invokeV.objValue;
     }
 
     @Override // c.i.b.a.h0.e
@@ -163,7 +163,7 @@ public final class AssetDataSource implements e {
             if (i3 == 0) {
                 return 0;
             }
-            long j2 = this.f55907e;
+            long j2 = this.f56488e;
             if (j2 == 0) {
                 return -1;
             }
@@ -174,18 +174,18 @@ public final class AssetDataSource implements e {
                     throw new AssetDataSourceException(e2);
                 }
             }
-            int read = this.f55906d.read(bArr, i2, i3);
+            int read = this.f56487d.read(bArr, i2, i3);
             if (read == -1) {
-                if (this.f55907e == -1) {
+                if (this.f56488e == -1) {
                     return -1;
                 }
                 throw new AssetDataSourceException(new EOFException());
             }
-            long j3 = this.f55907e;
+            long j3 = this.f56488e;
             if (j3 != -1) {
-                this.f55907e = j3 - read;
+                this.f56488e = j3 - read;
             }
-            p<? super AssetDataSource> pVar = this.f55904b;
+            p<? super AssetDataSource> pVar = this.f56485b;
             if (pVar != null) {
                 pVar.a(this, read);
             }

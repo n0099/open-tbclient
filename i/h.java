@@ -14,22 +14,22 @@ import i.o.a.y;
 import java.util.concurrent.TimeUnit;
 import rx.functions.Actions;
 import rx.schedulers.Schedulers;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class h<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final c<T> a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends i<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i.n.b f63632f;
+        public final /* synthetic */ i.n.b f64213f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i.n.b f63633g;
+        public final /* synthetic */ i.n.b f64214g;
 
         public a(h hVar, i.n.b bVar, i.n.b bVar2) {
             Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class h<T> {
                     return;
                 }
             }
-            this.f63632f = bVar;
-            this.f63633g = bVar2;
+            this.f64213f = bVar;
+            this.f64214g = bVar2;
         }
 
         @Override // i.i
@@ -55,7 +55,7 @@ public class h<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
                 try {
-                    this.f63632f.call(th);
+                    this.f64213f.call(th);
                 } finally {
                     unsubscribe();
                 }
@@ -67,7 +67,7 @@ public class h<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
                 try {
-                    this.f63633g.call(t);
+                    this.f64214g.call(t);
                 } finally {
                     unsubscribe();
                 }
@@ -75,13 +75,13 @@ public class h<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements i.n.b<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.n.b f63634e;
+        public final /* synthetic */ i.n.b f64215e;
 
         public b(h hVar, i.n.b bVar) {
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class h<T> {
                     return;
                 }
             }
-            this.f63634e = bVar;
+            this.f64215e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -106,12 +106,12 @@ public class h<T> {
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.f63634e.call(th);
+                this.f64215e.call(th);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c<T> extends i.n.b<i<? super T>> {
         @Override // i.n.b
         /* synthetic */ void call(T t);

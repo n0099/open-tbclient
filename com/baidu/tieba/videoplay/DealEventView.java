@@ -12,36 +12,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DealEventView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f49884e;
+    public long f50400e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f49885f;
+    public boolean f50401f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f49886g;
+    public b f50402g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f49887h;
+    public float f50403h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f49888i;
+    public float f50404i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f49889j;
+    public boolean f50405j;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DealEventView f49890e;
+        public final /* synthetic */ DealEventView f50406e;
 
         public a(DealEventView dealEventView) {
             Interceptable interceptable = $ic;
@@ -58,20 +58,20 @@ public class DealEventView extends FrameLayout {
                     return;
                 }
             }
-            this.f49890e = dealEventView;
+            this.f50406e = dealEventView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49890e.f49885f || !this.f49890e.f49889j || this.f49890e.f49886g == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50406e.f50401f || !this.f50406e.f50405j || this.f50406e.f50402g == null) {
                 return;
             }
-            this.f49890e.f49886g.onViewClick();
+            this.f50406e.f50402g.onViewClick();
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void onViewClick();
 
@@ -115,28 +115,28 @@ public class DealEventView extends FrameLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f49887h = motionEvent.getX();
-                this.f49888i = motionEvent.getY();
+                this.f50403h = motionEvent.getX();
+                this.f50404i = motionEvent.getY();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.f49884e < 300) {
-                    this.f49885f = true;
-                    b bVar2 = this.f49886g;
+                if (currentTimeMillis - this.f50400e < 300) {
+                    this.f50401f = true;
+                    b bVar2 = this.f50402g;
                     if (bVar2 != null) {
                         bVar2.onViewDoubleClick();
                     }
                 } else {
-                    this.f49885f = false;
+                    this.f50401f = false;
                 }
-                this.f49884e = currentTimeMillis;
+                this.f50400e = currentTimeMillis;
             } else if (action != 1) {
-                if (action == 2 && this.f49887h - motionEvent.getX() > 60.0f && (this.f49887h - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.f49888i) && !this.f49885f && (bVar = this.f49886g) != null) {
+                if (action == 2 && this.f50403h - motionEvent.getX() > 60.0f && (this.f50403h - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.f50404i) && !this.f50401f && (bVar = this.f50402g) != null) {
                     bVar.onViewDragToRight();
                 }
             } else {
-                if (this.f49887h - motionEvent.getX() < 10.0f && this.f49888i - motionEvent.getY() < 10.0f) {
-                    this.f49889j = true;
+                if (this.f50403h - motionEvent.getX() < 10.0f && this.f50404i - motionEvent.getY() < 10.0f) {
+                    this.f50405j = true;
                 } else {
-                    this.f49889j = false;
+                    this.f50405j = false;
                 }
                 postDelayed(new a(this), 300L);
             }
@@ -162,7 +162,7 @@ public class DealEventView extends FrameLayout {
     public void setOnViewClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f49886g = bVar;
+            this.f50402g = bVar;
         }
     }
 

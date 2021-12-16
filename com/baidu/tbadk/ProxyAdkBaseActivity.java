@@ -18,13 +18,13 @@ import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import c.a.d.m.e.q;
-import c.a.q0.g0.g;
-import c.a.q0.g0.h;
-import c.a.q0.s.a;
-import c.a.q0.s.c;
-import c.a.q0.s.g0.d;
+import c.a.r0.g0.g;
+import c.a.r0.g0.h;
+import c.a.r0.s.a;
+import c.a.r0.s.c;
+import c.a.r0.s.i0.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -56,7 +56,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IVideoNeedPreload {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte KEYBOARD_STATE_HIDE = -2;
@@ -89,7 +89,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     public h refreshView;
     public final CustomMessageListener skinTypeChangeListener;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class DelayRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public abstract class LoadDataCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class NetRefreshListener implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -580,7 +580,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            l.w(getApplicationContext(), getWindow().getDecorView());
+            m.w(getApplicationContext(), getWindow().getDecorView());
             dismissAllDialog();
             dismissAllPopupWindow();
             super.finish();
@@ -1031,7 +1031,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             if (this.refreshView == null) {
                 this.refreshView = new h(getPageContext().getContext(), getNetRefreshListener());
             }
-            this.refreshView.l(str);
+            this.refreshView.m(str);
             this.refreshView.attachView(view, z);
         }
     }
@@ -1093,7 +1093,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             String name = getClass().getName();
             String str2 = getApplicationContext().getPackageName() + ".chat";
             if (!name.startsWith(getApplicationContext().getPackageName() + ".im") && !name.startsWith(str2)) {
-                l.M(getActivity(), str);
+                m.M(getActivity(), str);
             } else {
                 this.customToast.showToast(str, 2000);
             }
@@ -1301,7 +1301,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             }
             ProgressBar progressBar3 = this.mProgressBar;
             if (progressBar3 != null) {
-                progressBar3.setPadding(l.d(getActivity(), i2), l.d(getActivity(), i3), 0, 0);
+                progressBar3.setPadding(m.d(getActivity(), i2), m.d(getActivity(), i3), 0, 0);
                 this.mProgressBar.setVisibility(0);
             }
         }
@@ -1357,7 +1357,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             String name = getClass().getName();
             String str = getApplicationContext().getPackageName() + ".chat";
             if (!name.startsWith(getApplicationContext().getPackageName() + ".im") && !name.startsWith(str)) {
-                l.L(getActivity(), i2);
+                m.L(getActivity(), i2);
             } else {
                 this.customToast.showToast(i2, 2000);
             }
@@ -1370,7 +1370,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             if (z) {
                 showToast(str);
             } else {
-                l.M(getActivity(), str);
+                m.M(getActivity(), str);
             }
         }
     }
@@ -1381,7 +1381,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             if (z) {
                 showToast(i2);
             } else {
-                l.L(getActivity(), i2);
+                m.L(getActivity(), i2);
             }
         }
     }

@@ -18,14 +18,14 @@ import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MultiGraphicTextMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public Article[] mArticles;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Article implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Article> CREATOR;

@@ -7,26 +7,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.cache.LongAddables;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final g f30549b;
+    public final g f30919b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final g f30550c;
+    public final g f30920c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final g f30551d;
+    public final g f30921d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final g f30552e;
+    public final g f30922e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g f30553f;
+    public final g f30923f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,11 +42,11 @@ public final class a implements b {
             }
         }
         this.a = LongAddables.a();
-        this.f30549b = LongAddables.a();
-        this.f30550c = LongAddables.a();
-        this.f30551d = LongAddables.a();
-        this.f30552e = LongAddables.a();
-        this.f30553f = LongAddables.a();
+        this.f30919b = LongAddables.a();
+        this.f30920c = LongAddables.a();
+        this.f30921d = LongAddables.a();
+        this.f30922e = LongAddables.a();
+        this.f30923f = LongAddables.a();
     }
 
     public static long h(long j2) {
@@ -73,7 +73,7 @@ public final class a implements b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f30553f.increment();
+            this.f30923f.increment();
         }
     }
 
@@ -81,8 +81,8 @@ public final class a implements b {
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f30550c.increment();
-            this.f30552e.add(j2);
+            this.f30920c.increment();
+            this.f30922e.add(j2);
         }
     }
 
@@ -90,7 +90,7 @@ public final class a implements b {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f30549b.add(i2);
+            this.f30919b.add(i2);
         }
     }
 
@@ -98,8 +98,8 @@ public final class a implements b {
     public void e(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f30551d.increment();
-            this.f30552e.add(j2);
+            this.f30921d.increment();
+            this.f30922e.add(j2);
         }
     }
 
@@ -107,7 +107,7 @@ public final class a implements b {
     public d f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new d(h(this.a.sum()), h(this.f30549b.sum()), h(this.f30550c.sum()), h(this.f30551d.sum()), h(this.f30552e.sum()), h(this.f30553f.sum())) : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new d(h(this.a.sum()), h(this.f30919b.sum()), h(this.f30920c.sum()), h(this.f30921d.sum()), h(this.f30922e.sum()), h(this.f30923f.sum())) : (d) invokeV.objValue;
     }
 
     public void g(b bVar) {
@@ -115,11 +115,11 @@ public final class a implements b {
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
             d f2 = bVar.f();
             this.a.add(f2.b());
-            this.f30549b.add(f2.e());
-            this.f30550c.add(f2.d());
-            this.f30551d.add(f2.c());
-            this.f30552e.add(f2.f());
-            this.f30553f.add(f2.a());
+            this.f30919b.add(f2.e());
+            this.f30920c.add(f2.d());
+            this.f30921d.add(f2.c());
+            this.f30922e.add(f2.f());
+            this.f30923f.add(f2.a());
         }
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,10 +72,10 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             synchronized (this) {
-                if (this.mHeader != null) {
-                    return Collections.unmodifiableList(this.mHeader.get(str));
+                if (this.mHeader == null || !this.mHeader.containsKey(str)) {
+                    return null;
                 }
-                return null;
+                return Collections.unmodifiableList(this.mHeader.get(str));
             }
         }
         return (List) invokeL.objValue;

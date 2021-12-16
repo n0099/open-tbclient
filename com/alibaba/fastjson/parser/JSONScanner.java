@@ -18,7 +18,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.SimpleTimeZone;
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class JSONScanner extends JSONLexerBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

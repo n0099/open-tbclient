@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class dl implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public final class dl implements View.OnClickListener {
             return;
         }
         try {
-            linearLayout = this.a.f51614b;
+            linearLayout = this.a.f52163b;
             linearLayout.setVisibility(8);
             view2 = this.a.v;
             view2.setVisibility(0);

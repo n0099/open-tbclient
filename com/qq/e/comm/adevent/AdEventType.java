@@ -1,5 +1,5 @@
 package com.qq.e.comm.adevent;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface AdEventType {
     public static final int EVENT_AD_LOAD = 100;
     public static final int EVENT_CLICK = 105;

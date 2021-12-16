@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.d.f.p.k;
-import c.a.r0.d1.c1;
-import c.a.r0.d1.d1;
-import c.a.r0.d1.e1;
-import c.a.r0.d1.f1;
-import c.a.r0.d1.g1;
-import c.a.r0.d1.i1;
+import c.a.d.f.p.l;
+import c.a.s0.d1.c1;
+import c.a.s0.d1.d1;
+import c.a.s0.d1.e1;
+import c.a.s0.d1.f1;
+import c.a.s0.d1.g1;
+import c.a.s0.d1.i1;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,39 +32,39 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.HotUserRankEntry;
 import tbclient.ShortUserInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class HotRankEntryView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44839e;
+    public int f45330e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f44840f;
+    public ImageView f45331f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageOverlayView f44841g;
+    public ImageOverlayView f45332g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44842h;
+    public TextView f45333h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f44843i;
+    public ImageView f45334i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f44844j;
+    public boolean f45335j;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f44845e;
+        public final /* synthetic */ Context f45336e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HotRankEntryView f44846f;
+        public final /* synthetic */ HotRankEntryView f45337f;
 
         public a(HotRankEntryView hotRankEntryView, Context context) {
             Interceptable interceptable = $ic;
@@ -81,15 +81,15 @@ public class HotRankEntryView extends RelativeLayout {
                     return;
                 }
             }
-            this.f44846f = hotRankEntryView;
-            this.f44845e = context;
+            this.f45337f = hotRankEntryView;
+            this.f45336e = context;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotUserRankActivityConfig(this.f44845e)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotUserRankActivityConfig(this.f45336e)));
             }
         }
     }
@@ -119,17 +119,17 @@ public class HotRankEntryView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(g1.hot_rank_entry, (ViewGroup) this, true);
-            this.f44840f = (ImageView) findViewById(f1.first_tag);
+            this.f45331f = (ImageView) findViewById(f1.first_tag);
             int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d1.tbds62);
             int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d1.tbds1);
             int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d1.tbds20);
             ImageOverlayView imageOverlayView = (ImageOverlayView) findViewById(f1.image_group);
-            this.f44841g = imageOverlayView;
+            this.f45332g = imageOverlayView;
             imageOverlayView.init(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, c1.CAM_X0618, dimensionPixelOffset3);
-            this.f44841g.setStrokeStyle(1);
-            this.f44841g.setLoadImageType(12);
-            this.f44842h = (TextView) findViewById(f1.entry_describe);
-            this.f44843i = (ImageView) findViewById(f1.arrow);
+            this.f45332g.setStrokeStyle(1);
+            this.f45332g.setLoadImageType(12);
+            this.f45333h = (TextView) findViewById(f1.entry_describe);
+            this.f45334i = (ImageView) findViewById(f1.arrow);
             setOnClickListener(new a(this, context));
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -137,15 +137,15 @@ public class HotRankEntryView extends RelativeLayout {
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == this.f44839e) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == this.f45330e) {
             return;
         }
-        this.f44839e = i2;
-        SkinManager.setBackgroundResource(this, this.f44844j ? e1.frs_red_list_entrance_bg_black : e1.frs_red_list_entrance_bg_white);
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f44840f, e1.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
-        this.f44841g.onChangeSkinType();
-        SkinManager.setViewTextColor(this.f44842h, c1.CAM_X0101);
-        WebPManager.setPureDrawable(this.f44843i, e1.icon_pure_arrow12_right, c1.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+        this.f45330e = i2;
+        SkinManager.setBackgroundResource(this, this.f45335j ? e1.frs_red_list_entrance_bg_black : e1.frs_red_list_entrance_bg_white);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f45331f, e1.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
+        this.f45332g.onChangeSkinType();
+        SkinManager.setViewTextColor(this.f45333h, c1.CAM_X0101);
+        WebPManager.setPureDrawable(this.f45334i, e1.icon_pure_arrow12_right, c1.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
     }
 
     public void setData(HotUserRankEntry hotUserRankEntry, boolean z) {
@@ -160,9 +160,9 @@ public class HotRankEntryView extends RelativeLayout {
                 arrayList.add(shortUserInfo.portrait);
             }
         }
-        this.f44841g.setData(arrayList);
-        this.f44844j = z;
-        this.f44842h.setText(!k.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(i1.hot_rank));
+        this.f45332g.setData(arrayList);
+        this.f45335j = z;
+        this.f45333h.setText(!l.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(i1.hot_rank));
         SkinManager.setBackgroundResource(this, z ? e1.frs_red_list_entrance_bg_black : e1.frs_red_list_entrance_bg_white);
     }
 
@@ -185,7 +185,7 @@ public class HotRankEntryView extends RelativeLayout {
                 return;
             }
         }
-        this.f44839e = 3;
+        this.f45330e = 3;
         a(context);
     }
 }

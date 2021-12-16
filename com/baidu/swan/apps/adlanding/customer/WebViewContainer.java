@@ -8,38 +8,38 @@ import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.z2.n0;
+import c.a.q0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WebViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public OverScroller f39301e;
+    public OverScroller f39790e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f39302f;
+    public float f39791f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f39303g;
+    public float f39792g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GestureDetector f39304h;
+    public GestureDetector f39793h;
 
     /* renamed from: i  reason: collision with root package name */
-    public VelocityTracker f39305i;
+    public VelocityTracker f39794i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f39306j;
+    public int f39795j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f39307k;
+    public int f39796k;
     public c l;
     public b m;
     public boolean n;
@@ -51,30 +51,30 @@ public class WebViewContainer extends FrameLayout {
     public float t;
     public int u;
     public int v;
-    public c.a.p0.a.p.e.c w;
+    public c.a.q0.a.p.e.c w;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         boolean a(boolean z);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void a(boolean z);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class d extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final WebViewContainer f39308e;
+        public final WebViewContainer f39797e;
 
         public d(WebViewContainer webViewContainer) {
             Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class WebViewContainer extends FrameLayout {
                     return;
                 }
             }
-            this.f39308e = webViewContainer;
+            this.f39797e = webViewContainer;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -99,7 +99,7 @@ public class WebViewContainer extends FrameLayout {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                this.f39308e.f39303g = motionEvent.getRawY();
+                this.f39797e.f39792g = motionEvent.getRawY();
                 return false;
             }
             return invokeL.booleanValue;
@@ -111,15 +111,15 @@ public class WebViewContainer extends FrameLayout {
             WebViewContainer webViewContainer;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                if (Math.abs(f3) <= Math.abs(f2) || (webViewContainer = this.f39308e) == null || webViewContainer.w.getWebViewScrollY() > 10) {
+                if (Math.abs(f3) <= Math.abs(f2) || (webViewContainer = this.f39797e) == null || webViewContainer.w.getWebViewScrollY() > 10) {
                     return false;
                 }
                 if (f3 > 0.0f) {
-                    this.f39308e.o = true;
-                    return this.f39308e.f39306j > this.f39308e.u;
+                    this.f39797e.o = true;
+                    return this.f39797e.f39795j > this.f39797e.u;
                 }
-                this.f39308e.o = false;
-                return (this.f39308e.r && this.f39308e.s && this.f39308e.f39306j < this.f39308e.f39307k) || this.f39308e.f39306j < this.f39308e.f39307k;
+                this.f39797e.o = false;
+                return (this.f39797e.r && this.f39797e.s && this.f39797e.f39795j < this.f39797e.f39796k) || this.f39797e.f39795j < this.f39797e.f39796k;
             }
             return invokeCommon.booleanValue;
         }
@@ -143,8 +143,8 @@ public class WebViewContainer extends FrameLayout {
                 return;
             }
         }
-        this.f39306j = 0;
-        this.f39307k = 0;
+        this.f39795j = 0;
+        this.f39796k = 0;
         this.q = 2000;
         this.r = false;
         this.t = 1.0f;
@@ -157,14 +157,14 @@ public class WebViewContainer extends FrameLayout {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f39301e.computeScrollOffset()) {
-                int i2 = i(this.f39301e.getCurrY());
+            if (this.f39790e.computeScrollOffset()) {
+                int i2 = i(this.f39790e.getCurrY());
                 if (this.n) {
                     scrollTo(0, i2);
                 } else {
                     scrollBy(0, i2);
                 }
-                this.f39303g -= i2;
+                this.f39792g -= i2;
                 invalidate();
             }
             if (!this.n || (bVar = this.m) == null) {
@@ -184,7 +184,7 @@ public class WebViewContainer extends FrameLayout {
     public int getTopMargin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39306j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39795j : invokeV.intValue;
     }
 
     public float getYVelocity() {
@@ -198,24 +198,24 @@ public class WebViewContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             if (this.n) {
-                this.f39306j = this.f39307k - i2;
+                this.f39795j = this.f39796k - i2;
                 return i2;
             }
-            int i3 = this.f39306j;
+            int i3 = this.f39795j;
             int i4 = i3 - i2;
             int i5 = this.u;
             if (i4 < i5) {
                 int i6 = i3 - i5;
-                this.f39306j = i5;
+                this.f39795j = i5;
                 return i6;
             }
-            int i7 = this.f39307k;
+            int i7 = this.f39796k;
             if (i4 > i7) {
                 int i8 = i3 - i7;
-                this.f39306j = i7;
+                this.f39795j = i7;
                 return i8;
             }
-            this.f39306j = i3 - i2;
+            this.f39795j = i3 - i2;
             return i2;
         }
         return invokeI.intValue;
@@ -225,11 +225,11 @@ public class WebViewContainer extends FrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            OverScroller overScroller = this.f39301e;
-            if (overScroller == null || this.f39306j < this.f39307k) {
+            OverScroller overScroller = this.f39790e;
+            if (overScroller == null || this.f39795j < this.f39796k) {
                 return false;
             }
-            overScroller.fling(0, (int) this.f39303g, 0, i2, 0, 0, -500, 10000);
+            overScroller.fling(0, (int) this.f39792g, 0, i2, 0, 0, -500, 10000);
             invalidate();
             return true;
         }
@@ -240,8 +240,8 @@ public class WebViewContainer extends FrameLayout {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f39305i.computeCurrentVelocity(1000);
-            int yVelocity = (int) this.f39305i.getYVelocity();
+            this.f39794i.computeCurrentVelocity(1000);
+            int yVelocity = (int) this.f39794i.getYVelocity();
             this.v = yVelocity;
             if (this.o) {
                 float f2 = this.t;
@@ -249,7 +249,7 @@ public class WebViewContainer extends FrameLayout {
                     this.v = (int) (yVelocity * f2);
                 }
             }
-            if (Math.abs(this.v) > this.q && ((this.v > 0 && this.f39306j < this.f39307k) || (this.v < 0 && this.f39306j >= this.u))) {
+            if (Math.abs(this.v) > this.q && ((this.v > 0 && this.f39795j < this.f39796k) || (this.v < 0 && this.f39795j >= this.u))) {
                 a aVar = this.p;
                 r0 = aVar != null ? aVar.a(this.o) : false;
                 if (!r0) {
@@ -259,16 +259,16 @@ public class WebViewContainer extends FrameLayout {
             if (!r0 && (cVar = this.l) != null) {
                 cVar.a(this.o);
             }
-            this.f39305i.recycle();
-            this.f39305i = null;
+            this.f39794i.recycle();
+            this.f39794i = null;
         }
     }
 
     public final void l(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            this.f39301e = new OverScroller(context);
-            this.f39304h = new GestureDetector(context, new d(this));
+            this.f39790e = new OverScroller(context);
+            this.f39793h = new GestureDetector(context, new d(this));
             setMotionEventSplittingEnabled(false);
         }
     }
@@ -278,9 +278,9 @@ public class WebViewContainer extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            boolean z = this.f39306j > ((int) motionEvent.getY());
+            boolean z = this.f39795j > ((int) motionEvent.getY());
             this.s = z;
-            if ((!z || this.r) && this.f39304h.onTouchEvent(motionEvent)) {
+            if ((!z || this.r) && this.f39793h.onTouchEvent(motionEvent)) {
                 if (getParent() != null) {
                     getParent().requestDisallowInterceptTouchEvent(true);
                 }
@@ -298,12 +298,12 @@ public class WebViewContainer extends FrameLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
             this.n = false;
             int y = (int) motionEvent.getY();
-            if (this.f39306j <= y || this.r) {
+            if (this.f39795j <= y || this.r) {
                 super.onTouchEvent(motionEvent);
-                if (this.f39305i == null) {
-                    this.f39305i = VelocityTracker.obtain();
+                if (this.f39794i == null) {
+                    this.f39794i = VelocityTracker.obtain();
                 }
-                this.f39305i.addMovement(motionEvent);
+                this.f39794i.addMovement(motionEvent);
                 int action = motionEvent.getAction();
                 if (action != 0) {
                     if (action == 1) {
@@ -314,15 +314,15 @@ public class WebViewContainer extends FrameLayout {
                         }
                     } else {
                         float rawY = motionEvent.getRawY();
-                        this.f39302f = rawY;
-                        int i2 = i((int) (this.f39303g - rawY));
+                        this.f39791f = rawY;
+                        int i2 = i((int) (this.f39792g - rawY));
                         scrollBy(0, i2);
-                        this.f39303g -= i2;
+                        this.f39792g -= i2;
                     }
-                } else if (!this.f39301e.isFinished()) {
-                    this.f39301e.abortAnimation();
+                } else if (!this.f39790e.isFinished()) {
+                    this.f39790e.abortAnimation();
                 }
-                return this.f39306j <= y;
+                return this.f39795j <= y;
             }
             return false;
         }
@@ -343,7 +343,7 @@ public class WebViewContainer extends FrameLayout {
         }
     }
 
-    public void setInternalWebView(c.a.p0.a.p.e.c cVar) {
+    public void setInternalWebView(c.a.q0.a.p.e.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
             this.w = cVar;
@@ -367,14 +367,14 @@ public class WebViewContainer extends FrameLayout {
     public void setTopLimit(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f39307k = i2;
+            this.f39796k = i2;
         }
     }
 
     public void setTopMargin(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f39306j = i2;
+            this.f39795j = i2;
         }
     }
 
@@ -404,8 +404,8 @@ public class WebViewContainer extends FrameLayout {
                 return;
             }
         }
-        this.f39306j = 0;
-        this.f39307k = 0;
+        this.f39795j = 0;
+        this.f39796k = 0;
         this.q = 2000;
         this.r = false;
         this.t = 1.0f;
@@ -432,8 +432,8 @@ public class WebViewContainer extends FrameLayout {
                 return;
             }
         }
-        this.f39306j = 0;
-        this.f39307k = 0;
+        this.f39795j = 0;
+        this.f39796k = 0;
         this.q = 2000;
         this.r = false;
         this.t = 1.0f;

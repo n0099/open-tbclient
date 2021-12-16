@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.openid.IOpenID;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ay implements ar {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -39,7 +39,7 @@ public class ay implements ar {
     /* renamed from: a  reason: collision with other field name */
     public final Object f148a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,13 +49,13 @@ public class ay implements ar {
         public String f149a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f62728b;
+        public String f63309b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f62729c;
+        public String f63310c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f62730d;
+        public String f63311d;
 
         public a(ay ayVar) {
             Interceptable interceptable = $ic;
@@ -74,9 +74,9 @@ public class ay implements ar {
             }
             this.a = ayVar;
             this.f149a = null;
-            this.f62728b = null;
-            this.f62729c = null;
-            this.f62730d = null;
+            this.f63309b = null;
+            this.f63310c = null;
+            this.f63311d = null;
         }
 
         public /* synthetic */ a(ay ayVar, az azVar) {
@@ -84,7 +84,7 @@ public class ay implements ar {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public class ay implements ar {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -293,7 +293,7 @@ public class ay implements ar {
             if (this.f147a == null) {
                 return null;
             }
-            return this.f147a.f62728b;
+            return this.f147a.f63309b;
         }
         return (String) invokeV.objValue;
     }
@@ -307,7 +307,7 @@ public class ay implements ar {
             if (this.f147a == null) {
                 return null;
             }
-            return this.f147a.f62729c;
+            return this.f147a.f63310c;
         }
         return (String) invokeV.objValue;
     }
@@ -321,7 +321,7 @@ public class ay implements ar {
             if (this.f147a == null) {
                 return null;
             }
-            return this.f147a.f62730d;
+            return this.f147a.f63311d;
         }
         return (String) invokeV.objValue;
     }

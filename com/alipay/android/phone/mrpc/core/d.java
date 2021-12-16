@@ -17,7 +17,7 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.BasicHttpProcessor;
 import org.apache.http.protocol.HttpContext;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class d extends DefaultHttpClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public final class d extends DefaultHttpClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             BasicHttpProcessor createHttpProcessor = super.createHttpProcessor();
-            httpRequestInterceptor = b.f31126c;
+            httpRequestInterceptor = b.f31496c;
             createHttpProcessor.addRequestInterceptor(httpRequestInterceptor);
             createHttpProcessor.addRequestInterceptor(new b.a(this.a, (byte) 0));
             return createHttpProcessor;

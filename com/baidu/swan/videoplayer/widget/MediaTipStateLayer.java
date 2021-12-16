@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.y.c;
-import c.a.p0.y.e;
-import c.a.p0.y.f;
-import c.a.p0.y.g;
-import c.a.p0.y.h;
+import c.a.q0.y.c;
+import c.a.q0.y.e;
+import c.a.q0.y.f;
+import c.a.q0.y.g;
+import c.a.q0.y.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.videoplayer.SwanVideoView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,31 +22,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MediaTipStateLayer implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f40795e;
+    public Context f41284e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SwanVideoView f40796f;
+    public SwanVideoView f41285f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f40797g;
+    public View f41286g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f40798h;
+    public View f41287h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f40799i;
+    public View f41288i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f40800j;
+    public TextView f41289j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TextView f40801k;
+    public TextView f41290k;
     public TipState l;
     public ImageView m;
     public TextView n;
@@ -54,7 +54,7 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public boolean p;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class TipState {
         public static final /* synthetic */ TipState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -134,7 +134,7 @@ public class MediaTipStateLayer implements View.OnClickListener {
                 return;
             }
         }
-        this.f40795e = context;
+        this.f41284e = context;
         e();
         d();
     }
@@ -142,14 +142,14 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public void a(SwanVideoView swanVideoView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, swanVideoView) == null) {
-            this.f40796f = swanVideoView;
+            this.f41285f = swanVideoView;
         }
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40797g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41286g : (View) invokeV.objValue;
     }
 
     public TipState c() {
@@ -161,8 +161,8 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f40800j.setOnClickListener(this);
-            this.f40798h.setOnClickListener(this);
+            this.f41289j.setOnClickListener(this);
+            this.f41287h.setOnClickListener(this);
             this.o.setOnClickListener(this);
         }
     }
@@ -170,15 +170,15 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = LayoutInflater.from(this.f40795e).inflate(g.swanapp_video_occur_error, (ViewGroup) null, false);
-            this.f40797g = inflate;
-            this.f40799i = inflate.findViewById(f.swanapp_video_no_wifi);
-            this.o = (ImageView) this.f40797g.findViewById(f.swanapp_video_full_screen_back);
-            this.f40800j = (TextView) this.f40797g.findViewById(f.swanapp_video_continue_play);
-            this.f40801k = (TextView) this.f40797g.findViewById(f.swanapp_video_continue_play_text);
-            this.f40798h = this.f40797g.findViewById(f.swanapp_video_replay);
-            this.m = (ImageView) this.f40797g.findViewById(f.swanapp_video_relay_img);
-            this.n = (TextView) this.f40797g.findViewById(f.swanapp_video_replay_text);
+            View inflate = LayoutInflater.from(this.f41284e).inflate(g.swanapp_video_occur_error, (ViewGroup) null, false);
+            this.f41286g = inflate;
+            this.f41288i = inflate.findViewById(f.swanapp_video_no_wifi);
+            this.o = (ImageView) this.f41286g.findViewById(f.swanapp_video_full_screen_back);
+            this.f41289j = (TextView) this.f41286g.findViewById(f.swanapp_video_continue_play);
+            this.f41290k = (TextView) this.f41286g.findViewById(f.swanapp_video_continue_play_text);
+            this.f41287h = this.f41286g.findViewById(f.swanapp_video_replay);
+            this.m = (ImageView) this.f41286g.findViewById(f.swanapp_video_relay_img);
+            this.n = (TextView) this.f41286g.findViewById(f.swanapp_video_replay_text);
             h(TipState.NORMAL);
         }
     }
@@ -186,39 +186,39 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Resources resources = this.f40795e.getResources();
+            Resources resources = this.f41284e.getResources();
             TipState tipState = this.l;
             if (tipState == TipState.ERROR) {
                 this.m.setImageResource(e.swanapp_video_refresh);
-                this.n.setText(this.f40795e.getText(h.swanapp_video_refresh));
-                this.f40797g.setVisibility(0);
-                this.f40798h.setVisibility(0);
-                this.f40799i.setVisibility(8);
+                this.n.setText(this.f41284e.getText(h.swanapp_video_refresh));
+                this.f41286g.setVisibility(0);
+                this.f41287h.setVisibility(0);
+                this.f41288i.setVisibility(8);
             } else if (tipState == TipState.NO_WIFI) {
-                this.f40797g.setVisibility(0);
-                this.f40798h.setVisibility(8);
-                this.f40799i.setVisibility(0);
-                this.f40801k.setTextColor(resources.getColor(c.swanapp_video_no_wifi_text_color));
-                this.f40801k.setText(h.swanapp_video_error_no_wifi);
-                this.f40800j.setBackgroundResource(e.swanapp_video_continue_play);
+                this.f41286g.setVisibility(0);
+                this.f41287h.setVisibility(8);
+                this.f41288i.setVisibility(0);
+                this.f41290k.setTextColor(resources.getColor(c.swanapp_video_no_wifi_text_color));
+                this.f41290k.setText(h.swanapp_video_error_no_wifi);
+                this.f41289j.setBackgroundResource(e.swanapp_video_continue_play);
             } else if (tipState == TipState.NO_NETWORK) {
-                this.f40797g.setVisibility(0);
-                this.f40798h.setVisibility(8);
-                this.f40799i.setVisibility(0);
-                this.f40801k.setTextColor(resources.getColor(c.swanapp_video_no_network_text_color));
-                this.f40801k.setText(h.swanapp_video_network_error);
-                this.f40800j.setText(h.swanapp_video_click_retry);
-                this.f40800j.setBackgroundResource(e.swanapp_video_click_retry);
+                this.f41286g.setVisibility(0);
+                this.f41287h.setVisibility(8);
+                this.f41288i.setVisibility(0);
+                this.f41290k.setTextColor(resources.getColor(c.swanapp_video_no_network_text_color));
+                this.f41290k.setText(h.swanapp_video_network_error);
+                this.f41289j.setText(h.swanapp_video_click_retry);
+                this.f41289j.setBackgroundResource(e.swanapp_video_click_retry);
             } else if (tipState == TipState.END) {
                 this.m.setImageResource(e.swanapp_video_replay);
-                this.n.setText(this.f40795e.getText(h.swanapp_video_replay));
-                this.f40797g.setVisibility(0);
-                this.f40798h.setVisibility(0);
-                this.f40799i.setVisibility(8);
+                this.n.setText(this.f41284e.getText(h.swanapp_video_replay));
+                this.f41286g.setVisibility(0);
+                this.f41287h.setVisibility(0);
+                this.f41288i.setVisibility(8);
             } else if (tipState == TipState.NORMAL) {
-                this.f40797g.setVisibility(8);
-                this.f40799i.setVisibility(8);
-                this.f40798h.setVisibility(8);
+                this.f41286g.setVisibility(8);
+                this.f41288i.setVisibility(8);
+                this.f41287h.setVisibility(8);
             }
         }
     }
@@ -246,13 +246,13 @@ public class MediaTipStateLayer implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
             int id = view.getId();
             if (id != f.swanapp_video_continue_play && id != f.swanapp_video_replay) {
-                if (id != f.swanapp_video_full_screen_back || (swanVideoView = this.f40796f) == null || swanVideoView.getVideoPlayerCallback() == null) {
+                if (id != f.swanapp_video_full_screen_back || (swanVideoView = this.f41285f) == null || swanVideoView.getVideoPlayerCallback() == null) {
                     return;
                 }
-                this.f40796f.getVideoPlayerCallback().d(!this.p);
+                this.f41285f.getVideoPlayerCallback().d(!this.p);
                 return;
             }
-            SwanVideoView swanVideoView2 = this.f40796f;
+            SwanVideoView swanVideoView2 = this.f41285f;
             if (swanVideoView2 != null) {
                 swanVideoView2.startWithFocus();
             }

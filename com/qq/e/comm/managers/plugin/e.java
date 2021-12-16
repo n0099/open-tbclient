@@ -1,5 +1,5 @@
 package com.qq.e.comm.managers.plugin;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface e {
     void onLoadFail();
 

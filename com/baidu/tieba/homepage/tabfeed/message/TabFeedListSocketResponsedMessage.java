@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.tabfeed.message;
 
-import c.a.r0.n1.j.h.a;
+import c.a.s0.o1.j.h.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.ActivityPage.ActivityPageResIdl;
 import tbclient.Error;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a tabFeedData;
+    public b tabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -51,9 +51,9 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
                 setErrorString(activityPageResIdl.error.usermsg);
             }
             if (getError() == 0 && activityPageResIdl.data != null) {
-                a aVar = new a();
-                this.tabFeedData = aVar;
-                aVar.j(activityPageResIdl.data);
+                b bVar = new b();
+                this.tabFeedData = bVar;
+                bVar.j(activityPageResIdl.data);
             }
         }
     }

@@ -15,7 +15,7 @@ import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.api.proxy.IFragmentActivityProxy;
 import com.kwad.sdk.utils.aj;
 import com.kwad.sdk.utils.n;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class b extends IFragmentActivityProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

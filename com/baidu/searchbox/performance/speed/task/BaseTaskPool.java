@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseTaskPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public abstract class BaseTaskPool {
         }
     }
 
-    public abstract List<LaunchTask> beforeAppCreate(boolean z);
+    public abstract List<LaunchTask> afterSuperCreate(boolean z);
 
     public List<LaunchTask> getTaskList(int i2, boolean z) {
         InterceptResult invokeCommon;
@@ -47,7 +47,7 @@ public abstract class BaseTaskPool {
                 }
                 return onAppCreate(z);
             }
-            return beforeAppCreate(z);
+            return afterSuperCreate(z);
         }
         return (List) invokeCommon.objValue;
     }

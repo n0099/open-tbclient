@@ -1,13 +1,13 @@
 package com.baidu.searchbox.player.layer;
 
 import android.view.View;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.interfaces.INeuron;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ILayer extends INeuron {
     View getContentView();
 
-    @NonNull
+    @Nullable
     LayerContainer getLayerContainer();
 
     void initLayer();

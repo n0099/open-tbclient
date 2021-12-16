@@ -4,10 +4,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class VideoPlayerUbcConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UBC_PLAY_PERFORMANCE_ID = "515";
+    public static final String UBC_VIDEO_BUSINESS_ERROR = "4642";
     public static final String UBC_VIDEO_CARLTON = "481";
     public static final String UBC_VIDEO_DOWNLOAD_TOAST = "615";
     public static final String UBC_VIDEO_FLOATING = "1292";

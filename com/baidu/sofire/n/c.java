@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.identifier.IdentifierIdClient;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c implements com.baidu.sofire.k.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39167b;
+    public String f39656b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f39168c;
+    public Context f39657c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f39169d;
+    public a f39658d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public final class c implements com.baidu.sofire.k.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, cVar) == null) {
             this.a = new b(context);
-            this.f39168c = context;
+            this.f39657c = context;
             if ("1".equals(com.baidu.sofire.p.a.a(IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0"))) {
-                this.f39169d = new a(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f39169d);
+                this.f39658d = new a(this);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f39658d);
             }
         }
     }
@@ -57,10 +57,10 @@ public final class c implements com.baidu.sofire.k.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.f39167b)) {
-                this.f39167b = this.a.a();
+            if (TextUtils.isEmpty(this.f39656b)) {
+                this.f39656b = this.a.a();
             }
-            return this.f39167b;
+            return this.f39656b;
         }
         return (String) invokeV.objValue;
     }

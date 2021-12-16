@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.wallet.lightapp.business.LangbridgeBarParams;
 import com.baidu.wallet.lightapp.business.LightappBrowserWebView;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface c {
     View a();
 

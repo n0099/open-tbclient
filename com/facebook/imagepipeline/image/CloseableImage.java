@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import java.io.Closeable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class CloseableImage implements Closeable, ImageInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CloseableImage";

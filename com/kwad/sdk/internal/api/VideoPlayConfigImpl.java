@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsVideoPlayConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VideoPlayConfigImpl implements KsVideoPlayConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7203854889686049813L;

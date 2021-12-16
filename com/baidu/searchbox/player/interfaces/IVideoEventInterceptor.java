@@ -1,9 +1,10 @@
 package com.baidu.searchbox.player.interfaces;
 
-import com.baidu.searchbox.player.layer.ILayer;
-/* loaded from: classes9.dex */
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.player.event.VideoEvent;
+/* loaded from: classes10.dex */
 public interface IVideoEventInterceptor {
-    ILayer getInterceptorLayer();
+    INeuron getInterceptorLayer();
 
-    boolean onInterceptorEvent(String str);
+    boolean onInterceptorEvent(@NonNull VideoEvent videoEvent);
 }

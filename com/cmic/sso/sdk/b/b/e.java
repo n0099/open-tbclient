@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class e extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f54940b;
+    public byte[] f55520b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54941c;
+    public String f55521c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54942d;
+    public String f55522d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f54943e;
+    public boolean f55523e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class e extends g {
                 return;
             }
         }
-        this.f54943e = false;
+        this.f55523e = false;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
@@ -56,28 +56,28 @@ public class e extends g {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f54943e = z;
+            this.f55523e = z;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f54942d = str;
+            this.f55522d = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f54941c = str;
+            this.f55521c = str;
         }
     }
 
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
-            this.f54940b = bArr;
+            this.f55520b = bArr;
         }
     }
 
@@ -87,11 +87,11 @@ public class e extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (this.f54943e) {
+            if (this.f55523e) {
                 try {
-                    jSONObject.put("encrypted", this.f54941c);
-                    jSONObject.put("reqdata", com.cmic.sso.sdk.d.a.a(this.f54940b, this.a.toString()));
-                    jSONObject.put("securityreinforce", this.f54942d);
+                    jSONObject.put("encrypted", this.f55521c);
+                    jSONObject.put("reqdata", com.cmic.sso.sdk.d.a.a(this.f55520b, this.a.toString()));
+                    jSONObject.put("securityreinforce", this.f55522d);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }

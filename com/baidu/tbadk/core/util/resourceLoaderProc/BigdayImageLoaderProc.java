@@ -7,7 +7,7 @@ import c.a.d.f.a.f.c;
 import c.a.d.f.l.b;
 import c.a.d.f.l.d;
 import c.a.d.f.l.e;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import c.a.d.m.d.a;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BigdayImageLoaderProc implements e<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class BigdayImageLoaderProc implements e<a> {
         if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) && obj != null && (obj instanceof a)) {
             a aVar = (a) obj;
             if (aVar.u()) {
-                c.a.q0.c0.c.k().d(str, aVar);
+                c.a.r0.c0.c.k().d(str, aVar);
             }
         }
     }
@@ -131,7 +131,7 @@ public class BigdayImageLoaderProc implements e<a> {
                 diskCancelWorker.setOperate(cVar);
                 bVar.a = diskCancelWorker;
             }
-            boolean H = j.H();
+            boolean H = k.H();
             if (c.a.d.f.a.d.f().a(cVar)) {
                 int i4 = H ? 300 : 2000;
                 synchronized (bArr) {
@@ -161,7 +161,7 @@ public class BigdayImageLoaderProc implements e<a> {
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) ? c.a.q0.c0.c.k().m(str) : (a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) ? c.a.r0.c0.c.k().m(str) : (a) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

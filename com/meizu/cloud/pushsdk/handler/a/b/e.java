@@ -7,34 +7,34 @@ import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60512b = String.valueOf(-1);
+    public String f61093b = String.valueOf(-1);
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60513c = "";
+    public String f61094c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f60514d = "";
+    public String f61095d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public int f60515e = -1;
+    public int f61096e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60516f = "";
+    public String f61097f = "";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60517b;
+        public String f61098b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f60518c;
+        public String f61099c;
 
         public a(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -58,7 +58,7 @@ public class e {
         }
 
         public String a() {
-            return this.f60518c;
+            return this.f61099c;
         }
 
         public void a(String str) {
@@ -66,15 +66,15 @@ public class e {
         }
 
         public void b(String str) {
-            this.f60517b = str;
+            this.f61098b = str;
         }
 
         public void c(String str) {
-            this.f60518c = str;
+            this.f61099c = str;
         }
 
         public String toString() {
-            return "PublicKeyStatus{code='" + this.a + ExtendedMessageFormat.QUOTE + ", message='" + this.f60517b + ExtendedMessageFormat.QUOTE + ", publicKey='" + this.f60518c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PublicKeyStatus{code='" + this.a + ExtendedMessageFormat.QUOTE + ", message='" + this.f61098b + ExtendedMessageFormat.QUOTE + ", publicKey='" + this.f61099c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
     }
 
@@ -194,46 +194,46 @@ public class e {
     }
 
     public void a(String str) {
-        this.f60512b = str;
+        this.f61093b = str;
     }
 
     public String b() {
-        return this.f60512b;
+        return this.f61093b;
     }
 
     public void b(int i2) {
-        this.f60515e = i2;
+        this.f61096e = i2;
     }
 
     public void b(String str) {
-        this.f60513c = str;
+        this.f61094c = str;
     }
 
     public String c() {
-        return this.f60513c;
+        return this.f61094c;
     }
 
     public void c(String str) {
-        this.f60514d = str;
+        this.f61095d = str;
     }
 
     public String d() {
-        return this.f60514d;
+        return this.f61095d;
     }
 
     public void d(String str) {
-        this.f60516f = str;
+        this.f61097f = str;
     }
 
     public int e() {
-        return this.f60515e;
+        return this.f61096e;
     }
 
     public String f() {
-        return this.f60516f;
+        return this.f61097f;
     }
 
     public String toString() {
-        return "SecurityMessage{timestamp=" + this.a + ", taskId='" + this.f60512b + ExtendedMessageFormat.QUOTE + ", title='" + this.f60513c + ExtendedMessageFormat.QUOTE + ", content='" + this.f60514d + ExtendedMessageFormat.QUOTE + ", clickType=" + this.f60515e + ", params='" + this.f60516f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "SecurityMessage{timestamp=" + this.a + ", taskId='" + this.f61093b + ExtendedMessageFormat.QUOTE + ", title='" + this.f61094c + ExtendedMessageFormat.QUOTE + ", content='" + this.f61095d + ExtendedMessageFormat.QUOTE + ", clickType=" + this.f61096e + ", params='" + this.f61097f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 }

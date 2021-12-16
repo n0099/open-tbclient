@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.kwad.sdk.core.webview.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f57993b;
+    public b f58574b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57994b;
+        public int f58575b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -55,14 +55,14 @@ public class d implements com.kwad.sdk.core.webview.kwai.a {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 com.kwad.sdk.utils.t.a(jSONObject, "width", this.a);
-                com.kwad.sdk.utils.t.a(jSONObject, "height", this.f57994b);
+                com.kwad.sdk.utils.t.a(jSONObject, "height", this.f58575b);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(a aVar);
     }
@@ -96,7 +96,7 @@ public class d implements com.kwad.sdk.core.webview.kwai.a {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f57993b = bVar;
+            this.f58574b = bVar;
         }
     }
 
@@ -105,12 +105,12 @@ public class d implements com.kwad.sdk.core.webview.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) {
             a aVar = new a();
-            b bVar = this.f57993b;
+            b bVar = this.f58574b;
             if (bVar != null) {
                 bVar.a(aVar);
             } else {
-                aVar.a = this.a.f57957d.getWidth();
-                aVar.f57994b = this.a.f57957d.getHeight();
+                aVar.a = this.a.f58538d.getWidth();
+                aVar.f58575b = this.a.f58538d.getHeight();
             }
             cVar.a(aVar);
         }

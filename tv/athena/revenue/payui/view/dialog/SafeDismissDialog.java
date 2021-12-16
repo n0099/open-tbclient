@@ -1,12 +1,8 @@
 package tv.athena.revenue.payui.view.dialog;
 
 import android.app.Dialog;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,40 +10,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import j.a.a.e.n.n;
-/* loaded from: classes4.dex */
+import j.a.a.e.p.k;
+import j.a.a.e.p.q;
+import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.view.AbsPayMessageReceiver;
+/* loaded from: classes5.dex */
 public class SafeDismissDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f64905e;
+    public String f65496e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f64906f;
+    public AbsPayMessageReceiver f65497f;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public PayFlowType f65498g;
 
-    /* loaded from: classes4.dex */
-    public class b extends BroadcastReceiver {
+    /* renamed from: h  reason: collision with root package name */
+    public Context f65499h;
+
+    /* loaded from: classes5.dex */
+    public class a extends AbsPayMessageReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SafeDismissDialog this$0;
 
-        public b(SafeDismissDialog safeDismissDialog) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(SafeDismissDialog safeDismissDialog, PayFlowType payFlowType) {
+            super(payFlowType);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {safeDismissDialog};
+                Object[] objArr = {safeDismissDialog, payFlowType};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
+                    super((PayFlowType) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -56,28 +58,42 @@ public class SafeDismissDialog extends Dialog {
             this.this$0 = safeDismissDialog;
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
+        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
+        public void onAllPayFlowViewRelease() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && "tv.athena.revenue.payui.close_all_pay_ui_action".equals(intent.getAction())) {
-                RLog.info("SafeDismissDialog", "onReceive login out");
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                RLog.info(this.this$0.f65496e, "onAllPayFlowViewRelease");
                 this.this$0.dismiss();
             }
         }
 
-        public /* synthetic */ b(SafeDismissDialog safeDismissDialog, a aVar) {
-            this(safeDismissDialog);
+        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
+        public void onDialogPayFlowViewRelease() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                RLog.info(this.this$0.f65496e, "onDialogPayFlowViewRelease");
+                this.this$0.dismiss();
+            }
+        }
+
+        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
+        public void onWalletPayFlowViewRelease() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                RLog.info(this.this$0.f65496e, "onWalletPayFlowViewRelease");
+                this.this$0.dismiss();
+            }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SafeDismissDialog(Context context, int i2) {
+    public SafeDismissDialog(Context context, int i2, PayFlowType payFlowType) {
         super(context, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i2), payFlowType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -89,13 +105,16 @@ public class SafeDismissDialog extends Dialog {
                 return;
             }
         }
-        this.f64906f = context;
+        this.f65496e = "SafeDismissDialog";
+        this.f65496e += "@" + hashCode();
+        this.f65499h = context;
+        this.f65498g = payFlowType;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && n.a.a(this.f64906f)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && q.a.a(this.f65499h)) {
             super.dismiss();
         }
     }
@@ -105,9 +124,9 @@ public class SafeDismissDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            RLog.info("SafeDismissDialog", "onCreate");
-            this.f64905e = new b(this, null);
-            LocalBroadcastManager.getInstance(getContext()).registerReceiver(this.f64905e, new IntentFilter("tv.athena.revenue.payui.close_all_pay_ui_action"));
+            RLog.info(this.f65496e, "onCreate");
+            this.f65497f = new a(this, this.f65498g);
+            k.d(getContext(), this.f65497f);
         }
     }
 
@@ -116,10 +135,10 @@ public class SafeDismissDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onStop();
-            RLog.info("SafeDismissDialog", MissionEvent.MESSAGE_STOP);
-            if (this.f64905e != null) {
-                LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(this.f64905e);
-                this.f64905e = null;
+            RLog.info(this.f65496e, MissionEvent.MESSAGE_STOP);
+            if (this.f65497f != null) {
+                k.e(getContext(), this.f65497f);
+                this.f65497f = null;
             }
         }
     }

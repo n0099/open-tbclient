@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.NoSuchElementException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class a<E> extends p1<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f30559e;
+    public final int f30929e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30560f;
+    public int f30930f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(int i2) {
@@ -45,14 +45,14 @@ public abstract class a<E> extends p1<E> {
     public final boolean hasNext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30560f < this.f30559e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30930f < this.f30929e : invokeV.booleanValue;
     }
 
     @Override // java.util.ListIterator
     public final boolean hasPrevious() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30560f > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30930f > 0 : invokeV.booleanValue;
     }
 
     @Override // java.util.Iterator, java.util.ListIterator
@@ -61,8 +61,8 @@ public abstract class a<E> extends p1<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (hasNext()) {
-                int i2 = this.f30560f;
-                this.f30560f = i2 + 1;
+                int i2 = this.f30930f;
+                this.f30930f = i2 + 1;
                 return a(i2);
             }
             throw new NoSuchElementException();
@@ -74,7 +74,7 @@ public abstract class a<E> extends p1<E> {
     public final int nextIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30560f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30930f : invokeV.intValue;
     }
 
     @Override // java.util.ListIterator
@@ -83,8 +83,8 @@ public abstract class a<E> extends p1<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (hasPrevious()) {
-                int i2 = this.f30560f - 1;
-                this.f30560f = i2;
+                int i2 = this.f30930f - 1;
+                this.f30930f = i2;
                 return a(i2);
             }
             throw new NoSuchElementException();
@@ -96,7 +96,7 @@ public abstract class a<E> extends p1<E> {
     public final int previousIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30560f - 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30930f - 1 : invokeV.intValue;
     }
 
     public a(int i2, int i3) {
@@ -115,7 +115,7 @@ public abstract class a<E> extends p1<E> {
             }
         }
         c.i.d.a.n.t(i3, i2);
-        this.f30559e = i2;
-        this.f30560f = i3;
+        this.f30929e = i2;
+        this.f30930f = i3;
     }
 }

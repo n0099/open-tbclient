@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56821b;
+    public String f57402b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56822c;
+    public String f57403c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IntentFilter f56823d;
+    public IntentFilter f57404d;
 
     public r(String str, String str2, String str3, IntentFilter intentFilter) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public class r {
             }
         }
         this.a = str;
-        this.f56821b = str2;
-        this.f56822c = str3;
-        this.f56823d = intentFilter;
+        this.f57402b = str2;
+        this.f57403c = str3;
+        this.f57404d = intentFilter;
     }
 
     public boolean a(r rVar) {
@@ -49,11 +49,11 @@ public class r {
         IntentFilter intentFilter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rVar)) == null) {
-            if (rVar == null || TextUtils.isEmpty(rVar.a) || TextUtils.isEmpty(rVar.f56821b) || TextUtils.isEmpty(rVar.f56822c) || !rVar.a.equals(this.a) || !rVar.f56821b.equals(this.f56821b) || !rVar.f56822c.equals(this.f56822c)) {
+            if (rVar == null || TextUtils.isEmpty(rVar.a) || TextUtils.isEmpty(rVar.f57402b) || TextUtils.isEmpty(rVar.f57403c) || !rVar.a.equals(this.a) || !rVar.f57402b.equals(this.f57402b) || !rVar.f57403c.equals(this.f57403c)) {
                 return false;
             }
-            IntentFilter intentFilter2 = rVar.f56823d;
-            return intentFilter2 == null || (intentFilter = this.f56823d) == null || intentFilter == intentFilter2;
+            IntentFilter intentFilter2 = rVar.f57404d;
+            return intentFilter2 == null || (intentFilter = this.f57404d) == null || intentFilter == intentFilter2;
         }
         return invokeL.booleanValue;
     }
@@ -63,7 +63,7 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                return "WeaponSDKIntentFilter:" + this.a + "-" + this.f56821b + "-" + this.f56822c + "-" + this.f56823d;
+                return "WeaponSDKIntentFilter:" + this.a + "-" + this.f57402b + "-" + this.f57403c + "-" + this.f57404d;
             } catch (Throwable unused) {
                 return "";
             }

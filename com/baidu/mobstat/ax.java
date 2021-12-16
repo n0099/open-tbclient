@@ -11,17 +11,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ax {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ax f37087c;
+    public static final ax f37576c;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f37088b;
+    public volatile boolean f37577b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class ax {
                 return;
             }
         }
-        f37087c = new ax();
+        f37576c = new ax();
     }
 
     public ax() {
@@ -58,7 +58,7 @@ public class ax {
     public static ax a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f37087c : (ax) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f37576c : (ax) invokeV.objValue;
     }
 
     public boolean b() {
@@ -77,6 +77,6 @@ public class ax {
             this.a = (jSONObject != null ? jSONObject.optInt(IntentConfig.CLOSE) : 0) != 0;
         } catch (Exception unused) {
         }
-        this.f37088b = true;
+        this.f37577b = true;
     }
 }

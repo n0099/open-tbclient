@@ -12,16 +12,16 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?>[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f28561b;
+    public static final Map<Class<?>, Class<?>> f28936b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f28562c;
+    public static final Map<Class<?>, Class<?>> f28937c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,23 +38,23 @@ public class a {
             }
         }
         a = new Class[]{Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
-        f28561b = new HashMap();
-        f28562c = new HashMap();
-        f28561b.put(Boolean.TYPE, Boolean.class);
-        f28561b.put(Byte.TYPE, Byte.class);
-        f28561b.put(Character.TYPE, Character.class);
-        f28561b.put(Short.TYPE, Short.class);
-        f28561b.put(Integer.TYPE, Integer.class);
-        f28561b.put(Long.TYPE, Long.class);
-        f28561b.put(Double.TYPE, Double.class);
-        f28561b.put(Float.TYPE, Float.class);
-        Map<Class<?>, Class<?>> map = f28561b;
+        f28936b = new HashMap();
+        f28937c = new HashMap();
+        f28936b.put(Boolean.TYPE, Boolean.class);
+        f28936b.put(Byte.TYPE, Byte.class);
+        f28936b.put(Character.TYPE, Character.class);
+        f28936b.put(Short.TYPE, Short.class);
+        f28936b.put(Integer.TYPE, Integer.class);
+        f28936b.put(Long.TYPE, Long.class);
+        f28936b.put(Double.TYPE, Double.class);
+        f28936b.put(Float.TYPE, Float.class);
+        Map<Class<?>, Class<?>> map = f28936b;
         Class<?> cls = Void.TYPE;
         map.put(cls, cls);
-        for (Class<?> cls2 : f28561b.keySet()) {
-            Class<?> cls3 = f28561b.get(cls2);
+        for (Class<?> cls2 : f28936b.keySet()) {
+            Class<?> cls3 = f28936b.get(cls2);
             if (!cls2.equals(cls3)) {
-                f28562c.put(cls3, cls2);
+                f28937c.put(cls3, cls2);
             }
         }
     }
@@ -89,7 +89,7 @@ public class a {
     public static Class<?> c(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) ? (cls == null || !cls.isPrimitive()) ? cls : f28561b.get(cls) : (Class) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) ? (cls == null || !cls.isPrimitive()) ? cls : f28936b.get(cls) : (Class) invokeL.objValue;
     }
 
     public static boolean d(int i2) {
@@ -186,10 +186,10 @@ public class a {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, clsArr, clsArr2, z)) == null) {
             if (Utils.b(clsArr, clsArr2)) {
                 if (clsArr == null) {
-                    clsArr = Utils.f55194b;
+                    clsArr = Utils.f55774b;
                 }
                 if (clsArr2 == null) {
-                    clsArr2 = Utils.f55194b;
+                    clsArr2 = Utils.f55774b;
                 }
                 for (int i2 = 0; i2 < clsArr.length; i2++) {
                     if (!f(clsArr[i2], clsArr2[i2], z)) {
@@ -231,7 +231,7 @@ public class a {
     public static Class<?> k(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, cls)) == null) ? f28562c.get(cls) : (Class) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, cls)) == null) ? f28937c.get(cls) : (Class) invokeL.objValue;
     }
 
     public static float l(Class<?> cls, Class<?> cls2) {

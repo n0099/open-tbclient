@@ -12,7 +12,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IReq
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetBannerConfigRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

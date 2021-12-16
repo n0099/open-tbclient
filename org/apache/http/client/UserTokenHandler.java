@@ -2,7 +2,7 @@ package org.apache.http.client;
 
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface UserTokenHandler {
     Object getUserToken(HttpContext httpContext);
 }

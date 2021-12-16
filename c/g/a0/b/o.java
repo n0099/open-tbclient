@@ -39,15 +39,15 @@ import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import com.qq.e.comm.util.AdError;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class o extends ReporterPidLoader<NativeUnifiedADData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final FunNativeAdListenerHelper<NativeUnifiedADData, NativeADEventListener> f28710h;
+    public final FunNativeAdListenerHelper<NativeUnifiedADData, NativeADEventListener> f29080h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements NativeADUnifiedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b implements NativeADMediaListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,13 +192,13 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ o f28711f;
+        public final /* synthetic */ o f29081f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(o oVar, NativeUnifiedADData nativeUnifiedADData, String str) {
@@ -219,14 +219,14 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
                     return;
                 }
             }
-            this.f28711f = oVar;
+            this.f29081f = oVar;
         }
 
         @Override // c.g.a0.b.o.d, com.qq.e.ads.nativ.NativeADEventListener
         public void onADClicked() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28711f.f28710h.onAdClick(this.a);
+                this.f29081f.f29080h.onAdClick(this.a);
             }
         }
 
@@ -234,7 +234,7 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
         public void onADError(AdError adError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adError) == null) {
-                this.f28711f.onAdError(adError.getErrorCode(), adError.getErrorMsg());
+                this.f29081f.onAdError(adError.getErrorCode(), adError.getErrorMsg());
             }
         }
 
@@ -242,28 +242,28 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
         public void onADExposed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f28711f.f28710h.onAdShow(this.a);
+                this.f29081f.f29080h.onAdShow(this.a);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class d implements NativeADEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final NativeUnifiedADData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f28712b;
+        public boolean f29082b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f28713c;
+        public boolean f29083c;
 
         /* renamed from: d  reason: collision with root package name */
-        public e f28714d;
+        public e f29084d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f28715e;
+        public final /* synthetic */ o f29085e;
 
         public d(o oVar, NativeUnifiedADData nativeUnifiedADData, String str) {
             Interceptable interceptable = $ic;
@@ -280,7 +280,7 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
                     return;
                 }
             }
-            this.f28715e = oVar;
+            this.f29085e = oVar;
             this.a = nativeUnifiedADData;
         }
 
@@ -289,8 +289,8 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f28715e.onAdClicked(this.f28713c);
-                this.f28713c = true;
+                this.f29085e.onAdClicked(this.f29083c);
+                this.f29083c = true;
             }
         }
 
@@ -299,7 +299,7 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adError) == null) {
                 LogPrinter.d();
-                this.f28715e.onAdError(adError.getErrorCode(), adError.getErrorMsg());
+                this.f29085e.onAdError(adError.getErrorCode(), adError.getErrorMsg());
             }
         }
 
@@ -308,8 +308,8 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.f28715e.onAdShow(this.a, this.f28712b);
-                this.f28712b = true;
+                this.f29085e.onAdShow(this.a, this.f29082b);
+                this.f29082b = true;
             }
         }
 
@@ -318,7 +318,7 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
-                e eVar = this.f28714d;
+                e eVar = this.f29084d;
                 if (eVar != null) {
                     eVar.onADStatusChanged();
                 }
@@ -326,7 +326,7 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface e {
         void onADStatusChanged();
     }
@@ -350,7 +350,7 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
                 return;
             }
         }
-        this.f28710h = new FunNativeAdListenerHelper<>(this);
+        this.f29080h = new FunNativeAdListenerHelper<>(this);
     }
 
     public final com.fun.module.gdt.w a(Context context, NativeUnifiedADData nativeUnifiedADData) {
@@ -368,7 +368,7 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, nativeUnifiedADData, str, nativeAdContainer, mediaView, list, funAdInteractionListener, gdtADStatusChangeListener}) == null) {
             c cVar = new c(this, nativeUnifiedADData, str);
             if (gdtADStatusChangeListener != null) {
-                cVar.f28714d = new e() { // from class: c.g.a0.b.a
+                cVar.f29084d = new e() { // from class: c.g.a0.b.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -400,7 +400,7 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
             return;
         }
         nativeUnifiedADData.destroy();
-        this.f28710h.destroy(nativeUnifiedADData);
+        this.f29080h.destroy(nativeUnifiedADData);
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
@@ -430,7 +430,7 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
     public void i(NativeUnifiedADData nativeUnifiedADData, String str, NativeAdContainer nativeAdContainer, MediaView mediaView, List list, NativeADEventListener nativeADEventListener, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{nativeUnifiedADData, str, nativeAdContainer, mediaView, list, nativeADEventListener, funAdInteractionListener}) == null) {
-            this.f28710h.startShow(nativeUnifiedADData, str, this.mPid, nativeADEventListener, funAdInteractionListener);
+            this.f29080h.startShow(nativeUnifiedADData, str, this.mPid, nativeADEventListener, funAdInteractionListener);
             if (nativeAdContainer == null) {
                 onAdError(0, "NativeAdContainer is null");
                 funAdInteractionListener.onAdError(str);
@@ -469,7 +469,7 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
             com.fun.module.gdt.w a2 = a(activity, nativeUnifiedADData);
             p pVar = new p(this, a2, nativeUnifiedADData);
             d dVar = new d(this, nativeUnifiedADData, str);
-            dVar.f28714d = pVar;
+            dVar.f29084d = pVar;
             if (a2 instanceof GDTNativeUnifiedVideoView) {
                 ((GDTNativeUnifiedVideoView) a2).setVideoOnClickListener(new q(this));
             }
@@ -497,7 +497,7 @@ public class o extends ReporterPidLoader<NativeUnifiedADData> {
             }
             r rVar = new r(this, b0Var, nativeUnifiedADData);
             d dVar = new d(this, nativeUnifiedADData, str);
-            dVar.f28714d = rVar;
+            dVar.f29084d = rVar;
             nativeUnifiedADData.setNativeAdEventListener(dVar);
             nativeUnifiedADData.bindAdToView(gdtAdContainer.getContext(), gdtAdContainer, null, clickViews);
             if (mediaView != null) {

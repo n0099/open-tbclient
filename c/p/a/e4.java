@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBError;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e4 extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f30778b;
+    public final /* synthetic */ String f31148b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ b1 f30779c;
+    public final /* synthetic */ b1 f31149c;
 
     public e4(b1 b1Var, long j2, String str) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class e4 extends AsyncTask {
                 return;
             }
         }
-        this.f30779c = b1Var;
+        this.f31149c = b1Var;
         this.a = j2;
-        this.f30778b = str;
+        this.f31148b = str;
     }
 
     @Override // android.os.AsyncTask
@@ -67,24 +67,24 @@ public class e4 extends AsyncTask {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             byte[] bArr = (byte[]) obj;
             if (bArr == null) {
-                b1 b1Var = this.f30779c;
-                c1 c1Var = b1Var.f30745c;
-                if (c1Var != null && !b1Var.f30747e) {
+                b1 b1Var = this.f31149c;
+                c1 c1Var = b1Var.f31115c;
+                if (c1Var != null && !b1Var.f31117e) {
                     c1Var.onFail(PBError.NO_RESUOURCE);
-                    this.f30779c.f30746d = true;
+                    this.f31149c.f31116d = true;
                 }
             } else {
-                b1 b1Var2 = this.f30779c;
-                if (b1Var2.f30745c != null && !b1Var2.f30747e) {
-                    file = b1Var2.f30749g;
+                b1 b1Var2 = this.f31149c;
+                if (b1Var2.f31115c != null && !b1Var2.f31117e) {
+                    file = b1Var2.f31119g;
                     r0.t(bArr, file.getPath(), new a4(this));
                 }
             }
             if (bArr != null) {
-                b1 b1Var3 = this.f30779c;
-                if (b1Var3.f30747e) {
-                    b1Var3.f30749g = new File(r0.e(this.f30779c.a) + File.separator + "win" + File.separator + r0.D(this.f30778b) + ".mp4");
-                    file2 = this.f30779c.f30749g;
+                b1 b1Var3 = this.f31149c;
+                if (b1Var3.f31117e) {
+                    b1Var3.f31119g = new File(r0.e(this.f31149c.a) + File.separator + "win" + File.separator + r0.D(this.f31148b) + ".mp4");
+                    file2 = this.f31149c.f31119g;
                     r0.t(bArr, file2.getPath(), null);
                 }
             }

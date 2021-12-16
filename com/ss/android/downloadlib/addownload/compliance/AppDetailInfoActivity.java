@@ -19,31 +19,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.R;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AppDetailInfoActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f61244b;
+    public TextView f61825b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f61245c;
+    public LinearLayout f61826c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RecyclerView f61246d;
+    public RecyclerView f61827d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f61247e;
+    public long f61828e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f61248f;
+    public long f61829f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Pair<String, String>> f61249g;
+    public List<Pair<String, String>> f61830g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends RecyclerView.Adapter<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,17 +86,17 @@ public class AppDetailInfoActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.a = (ImageView) findViewById(R.id.iv_detail_back);
-            this.f61244b = (TextView) findViewById(R.id.tv_empty);
-            this.f61246d = (RecyclerView) findViewById(R.id.permission_list);
-            this.f61245c = (LinearLayout) findViewById(R.id.ll_download);
-            if (this.f61249g.isEmpty()) {
-                this.f61246d.setVisibility(8);
-                this.f61244b.setVisibility(0);
+            this.f61825b = (TextView) findViewById(R.id.tv_empty);
+            this.f61827d = (RecyclerView) findViewById(R.id.permission_list);
+            this.f61826c = (LinearLayout) findViewById(R.id.ll_download);
+            if (this.f61830g.isEmpty()) {
+                this.f61827d.setVisibility(8);
+                this.f61825b.setVisibility(0);
             } else {
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
                 linearLayoutManager.setOrientation(1);
-                this.f61246d.setLayoutManager(linearLayoutManager);
-                this.f61246d.setAdapter(new a());
+                this.f61827d.setLayoutManager(linearLayoutManager);
+                this.f61827d.setAdapter(new a());
             }
             this.a.setOnClickListener(new View.OnClickListener(this) { // from class: com.ss.android.downloadlib.addownload.compliance.AppDetailInfoActivity.1
                 public static /* synthetic */ Interceptable $ic;
@@ -125,12 +125,12 @@ public class AppDetailInfoActivity extends Activity {
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        e.a("lp_app_detail_click_close", this.a.f61248f);
+                        e.a("lp_app_detail_click_close", this.a.f61829f);
                         this.a.finish();
                     }
                 }
             });
-            this.f61245c.setOnClickListener(new View.OnClickListener(this) { // from class: com.ss.android.downloadlib.addownload.compliance.AppDetailInfoActivity.2
+            this.f61826c.setOnClickListener(new View.OnClickListener(this) { // from class: com.ss.android.downloadlib.addownload.compliance.AppDetailInfoActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AppDetailInfoActivity a;
@@ -157,8 +157,8 @@ public class AppDetailInfoActivity extends Activity {
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        e.a("lp_app_detail_click_download", this.a.f61248f);
-                        b.a().b(this.a.f61248f);
+                        e.a("lp_app_detail_click_download", this.a.f61829f);
+                        b.a().b(this.a.f61829f);
                         com.ss.android.socialbase.appdownloader.c.a((Activity) this.a);
                         com.ss.android.socialbase.appdownloader.c.a(b.a().b());
                     }
@@ -171,7 +171,7 @@ public class AppDetailInfoActivity extends Activity {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e.a("lp_app_detail_click_close", this.f61248f);
+            e.a("lp_app_detail_click_close", this.f61829f);
             super.onBackPressed();
         }
     }
@@ -203,13 +203,13 @@ public class AppDetailInfoActivity extends Activity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            this.f61247e = getIntent().getLongExtra("app_info_id", 0L);
-            com.ss.android.downloadlib.addownload.b.b a2 = c.a().a(this.f61247e);
+            this.f61828e = getIntent().getLongExtra("app_info_id", 0L);
+            com.ss.android.downloadlib.addownload.b.b a2 = c.a().a(this.f61828e);
             if (a2 == null) {
                 return false;
             }
-            this.f61248f = a2.f61200b;
-            this.f61249g = a2.f61206h;
+            this.f61829f = a2.f61781b;
+            this.f61830g = a2.f61787h;
             return true;
         }
         return invokeV.booleanValue;

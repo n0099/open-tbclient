@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class p extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f30528b;
+    public final /* synthetic */ l f30898b;
 
     public p(l lVar, m mVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class p extends BroadcastReceiver {
                 return;
             }
         }
-        this.f30528b = lVar;
+        this.f30898b = lVar;
         this.a = mVar;
     }
 
@@ -43,15 +43,15 @@ public final class p extends BroadcastReceiver {
             String action = intent.getAction();
             Bundle extras = intent.getExtras();
             if ("com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) && extras != null && extras.containsKey("install.status")) {
-                this.f30528b.p();
+                this.f30898b.p();
                 int i2 = extras.getInt("install.status");
                 if (i2 == 1 || i2 == 2 || i2 == 3) {
                     this.a.a(com.google.ar.core.p.a);
                 } else if (i2 == 4) {
-                    this.a.a(com.google.ar.core.p.f55970c);
+                    this.a.a(com.google.ar.core.p.f56551c);
                 } else if (i2 != 6) {
                 } else {
-                    this.a.a(com.google.ar.core.p.f55969b);
+                    this.a.a(com.google.ar.core.p.f56550b);
                 }
             }
         }

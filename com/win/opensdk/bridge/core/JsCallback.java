@@ -12,16 +12,16 @@ import java.lang.ref.WeakReference;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class JsCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62632b;
+    public String f63213b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class JsCallbackException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class JsCallback {
             }
         }
         this.a = new WeakReference(webView);
-        this.f62632b = str;
+        this.f63213b = str;
     }
 
     public static void invokeJsCallback(JsCallback jsCallback, boolean z, JSONObject jSONObject, String str) {
@@ -107,7 +107,7 @@ public class JsCallback {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.f62632b, jSONObject2.toString());
+            String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.f63213b, jSONObject2.toString());
             if (AsyncTaskExecutor.isMainThread()) {
                 webView.loadUrl(format);
             } else {
@@ -117,7 +117,7 @@ public class JsCallback {
                     public final /* synthetic */ WebView a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f62633b;
+                    public final /* synthetic */ String f63214b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -135,14 +135,14 @@ public class JsCallback {
                             }
                         }
                         this.a = webView;
-                        this.f62633b = format;
+                        this.f63214b = format;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.a.loadUrl(this.f62633b);
+                            this.a.loadUrl(this.f63214b);
                         }
                     }
                 });

@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.metadata.id3.ApicFrame;
 import com.google.android.exoplayer2.metadata.id3.CommentFrame;
 import com.google.android.exoplayer2.metadata.id3.Id3Frame;
 import com.google.android.exoplayer2.metadata.id3.TextInformationFrame;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public static final int A;
@@ -24,34 +24,34 @@ public final class f {
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f29154b;
+    public static final int f29524b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f29155c;
+    public static final int f29525c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f29156d;
+    public static final int f29526d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f29157e;
+    public static final int f29527e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f29158f;
+    public static final int f29528f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f29159g;
+    public static final int f29529g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f29160h;
+    public static final int f29530h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f29161i;
+    public static final int f29531i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f29162j;
+    public static final int f29532j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f29163k;
+    public static final int f29533k;
     public static final int l;
     public static final int m;
     public static final int n;
@@ -83,16 +83,16 @@ public final class f {
             }
         }
         a = v.q("nam");
-        f29154b = v.q("trk");
-        f29155c = v.q("cmt");
-        f29156d = v.q("day");
-        f29157e = v.q("ART");
-        f29158f = v.q("too");
-        f29159g = v.q("alb");
-        f29160h = v.q("com");
-        f29161i = v.q("wrt");
-        f29162j = v.q("lyr");
-        f29163k = v.q("gen");
+        f29524b = v.q("trk");
+        f29525c = v.q("cmt");
+        f29526d = v.q("day");
+        f29527e = v.q("ART");
+        f29528f = v.q("too");
+        f29529g = v.q("alb");
+        f29530h = v.q("com");
+        f29531i = v.q("wrt");
+        f29532j = v.q("lyr");
+        f29533k = v.q("gen");
         l = v.q("covr");
         m = v.q(GenreBox.TYPE);
         n = v.q("grp");
@@ -215,27 +215,27 @@ public final class f {
                     }
                 } else {
                     int i4 = 16777215 & i2;
-                    if (i4 == f29155c) {
+                    if (i4 == f29525c) {
                         return a(i2, lVar);
                     }
-                    if (i4 != a && i4 != f29154b) {
-                        if (i4 != f29160h && i4 != f29161i) {
-                            if (i4 == f29156d) {
+                    if (i4 != a && i4 != f29524b) {
+                        if (i4 != f29530h && i4 != f29531i) {
+                            if (i4 == f29526d) {
                                 return g(i2, "TDRC", lVar);
                             }
-                            if (i4 == f29157e) {
+                            if (i4 == f29527e) {
                                 return g(i2, "TPE1", lVar);
                             }
-                            if (i4 == f29158f) {
+                            if (i4 == f29528f) {
                                 return g(i2, "TSSE", lVar);
                             }
-                            if (i4 == f29159g) {
+                            if (i4 == f29529g) {
                                 return g(i2, "TALB", lVar);
                             }
-                            if (i4 == f29162j) {
+                            if (i4 == f29532j) {
                                 return g(i2, "USLT", lVar);
                             }
-                            if (i4 == f29163k) {
+                            if (i4 == f29533k) {
                                 return g(i2, "TCON", lVar);
                             }
                             if (i4 == n) {

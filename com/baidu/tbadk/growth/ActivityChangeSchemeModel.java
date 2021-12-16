@@ -2,7 +2,7 @@ package com.baidu.tbadk.growth;
 
 import android.app.Activity;
 import android.text.TextUtils;
-import c.a.q0.b0.b;
+import c.a.r0.b0.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -23,15 +23,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ActivityChangeSchemeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f41842e;
+    public final HttpMessageListener f42333e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
                     this.a.y();
                 } else {
-                    int a = c.a.q0.s.b0.b.a();
+                    int a = c.a.r0.s.d0.b.a();
                     if (a != 2) {
                         this.a.z(a);
                         return;
@@ -108,12 +108,12 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f41842e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
+        this.f42333e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
         setUniqueId(BdUniqueId.gen());
         A();
-        this.f41842e.setTag(getUniqueId());
-        this.f41842e.setSelfListener(true);
-        registerListener(this.f41842e);
+        this.f42333e.setTag(getUniqueId());
+        this.f42333e.setSelfListener(true);
+        registerListener(this.f42333e);
     }
 
     public static void A() {

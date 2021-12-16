@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.ad;
 import com.kwad.sdk.utils.av;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -25,34 +25,34 @@ public class e implements com.kwad.sdk.core.webview.kwai.a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57995b;
+        public int f58576b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f57996c;
+        public String f58577c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f57997d;
+        public int f58578d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f57998e;
+        public int f58579e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f57999f;
+        public String f58580f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f58000g;
+        public String f58581g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f58001h;
+        public String f58582h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f58002i;
+        public String f58583i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f58003j;
+        public String f58584j;
 
         /* renamed from: k  reason: collision with root package name */
-        public String f58004k;
+        public String f58585k;
         public String l;
         public String m;
         public String n;
@@ -89,16 +89,16 @@ public class e implements com.kwad.sdk.core.webview.kwai.a {
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 a aVar = new a();
                 aVar.a = "3.3.17.4";
-                aVar.f57995b = 3031704;
-                aVar.f57996c = KsAdSDKImpl.get().getApiVersion();
-                aVar.f57997d = KsAdSDKImpl.get().getApiVersionCode();
-                aVar.f57998e = KsAdSDKImpl.get().getSDKType();
-                aVar.f57999f = av.w(KsAdSDKImpl.get().getContext());
-                aVar.f58000g = KsAdSDKImpl.get().getAppName();
-                aVar.f58001h = KsAdSDKImpl.get().getAppId();
-                aVar.f58002i = "";
-                aVar.f58003j = com.kwad.sdk.core.a.e.a();
-                aVar.f58004k = com.kwad.sdk.core.a.e.b();
+                aVar.f58576b = 3031704;
+                aVar.f58577c = KsAdSDKImpl.get().getApiVersion();
+                aVar.f58578d = KsAdSDKImpl.get().getApiVersionCode();
+                aVar.f58579e = KsAdSDKImpl.get().getSDKType();
+                aVar.f58580f = av.w(KsAdSDKImpl.get().getContext());
+                aVar.f58581g = KsAdSDKImpl.get().getAppName();
+                aVar.f58582h = KsAdSDKImpl.get().getAppId();
+                aVar.f58583i = "";
+                aVar.f58584j = com.kwad.sdk.core.a.e.a();
+                aVar.f58585k = com.kwad.sdk.core.a.e.b();
                 aVar.l = String.valueOf(ad.c(KsAdSDKImpl.get().getContext()));
                 aVar.m = av.n();
                 aVar.n = av.e();

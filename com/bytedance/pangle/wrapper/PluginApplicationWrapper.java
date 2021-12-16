@@ -22,7 +22,7 @@ import com.bytedance.pangle.util.FieldUtils;
 import java.io.File;
 @Keep
 @SuppressLint({"MissingSuperCall", "NewApi"})
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class PluginApplicationWrapper extends Application {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

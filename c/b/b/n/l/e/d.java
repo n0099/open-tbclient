@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d extends c.b.b.n.l.a {
     public static /* synthetic */ Interceptable $ic;
     public static final long n;
@@ -26,16 +26,16 @@ public class d extends c.b.b.n.l.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.b.b.n.l.i.a<Texture> f27603h;
+    public final c.b.b.n.l.i.a<Texture> f27978h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f27604i;
+    public float f27979i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f27605j;
+    public float f27980j;
 
     /* renamed from: k  reason: collision with root package name */
-    public float f27606k;
+    public float f27981k;
     public float l;
     public int m;
 
@@ -81,13 +81,13 @@ public class d extends c.b.b.n.l.a {
                 return;
             }
         }
-        this.f27604i = 0.0f;
-        this.f27605j = 0.0f;
-        this.f27606k = 1.0f;
+        this.f27979i = 0.0f;
+        this.f27980j = 0.0f;
+        this.f27981k = 1.0f;
         this.l = 1.0f;
         this.m = 0;
         if (f(j2)) {
-            this.f27603h = new c.b.b.n.l.i.a<>();
+            this.f27978h = new c.b.b.n.l.i.a<>();
             return;
         }
         throw new GdxRuntimeException("Invalid type specified");
@@ -106,13 +106,13 @@ public class d extends c.b.b.n.l.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            long j2 = this.f27579e;
-            long j3 = aVar.f27579e;
+            long j2 = this.f27954e;
+            long j3 = aVar.f27954e;
             if (j2 != j3) {
                 return j2 < j3 ? -1 : 1;
             }
             d dVar = (d) aVar;
-            int compareTo = this.f27603h.compareTo(dVar.f27603h);
+            int compareTo = this.f27978h.compareTo(dVar.f27978h);
             if (compareTo != 0) {
                 return compareTo;
             }
@@ -121,16 +121,16 @@ public class d extends c.b.b.n.l.a {
             if (i2 != i3) {
                 return i2 - i3;
             }
-            if (!com.badlogic.gdx.math.d.e(this.f27606k, dVar.f27606k)) {
-                return this.f27606k > dVar.f27606k ? 1 : -1;
+            if (!com.badlogic.gdx.math.d.e(this.f27981k, dVar.f27981k)) {
+                return this.f27981k > dVar.f27981k ? 1 : -1;
             } else if (!com.badlogic.gdx.math.d.e(this.l, dVar.l)) {
                 return this.l > dVar.l ? 1 : -1;
-            } else if (!com.badlogic.gdx.math.d.e(this.f27604i, dVar.f27604i)) {
-                return this.f27604i > dVar.f27604i ? 1 : -1;
-            } else if (com.badlogic.gdx.math.d.e(this.f27605j, dVar.f27605j)) {
+            } else if (!com.badlogic.gdx.math.d.e(this.f27979i, dVar.f27979i)) {
+                return this.f27979i > dVar.f27979i ? 1 : -1;
+            } else if (com.badlogic.gdx.math.d.e(this.f27980j, dVar.f27980j)) {
                 return 0;
             } else {
-                return this.f27605j > dVar.f27605j ? 1 : -1;
+                return this.f27980j > dVar.f27980j ? 1 : -1;
             }
         }
         return invokeL.intValue;
@@ -140,7 +140,7 @@ public class d extends c.b.b.n.l.a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((((((((((super.hashCode() * 991) + this.f27603h.hashCode()) * 991) + t.b(this.f27604i)) * 991) + t.b(this.f27605j)) * 991) + t.b(this.f27606k)) * 991) + t.b(this.l)) * 991) + this.m : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((((((((((super.hashCode() * 991) + this.f27978h.hashCode()) * 991) + t.b(this.f27979i)) * 991) + t.b(this.f27980j)) * 991) + t.b(this.f27981k)) * 991) + t.b(this.l)) * 991) + this.m : invokeV.intValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -161,7 +161,7 @@ public class d extends c.b.b.n.l.a {
                 return;
             }
         }
-        this.f27603h.c(aVar);
+        this.f27978h.c(aVar);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -183,9 +183,9 @@ public class d extends c.b.b.n.l.a {
                 return;
             }
         }
-        this.f27604i = f2;
-        this.f27605j = f3;
-        this.f27606k = f4;
+        this.f27979i = f2;
+        this.f27980j = f3;
+        this.f27981k = f4;
         this.l = f5;
         this.m = i2;
     }

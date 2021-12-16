@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseAdRipper implements AdRipper {
     public static /* synthetic */ Interceptable $ic;
     public static AdRipper FAKE_AD_RIPPER;
@@ -25,7 +25,7 @@ public abstract class BaseAdRipper implements AdRipper {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<Object, RippedAd> f55722b;
+    public final HashMap<Object, RippedAd> f56303b;
     public final Ssp.Pid mPid;
 
     static {
@@ -60,7 +60,7 @@ public abstract class BaseAdRipper implements AdRipper {
                 return;
             }
         }
-        this.f55722b = new HashMap<>();
+        this.f56303b = new HashMap<>();
         this.mPid = pid;
     }
 
@@ -68,8 +68,8 @@ public abstract class BaseAdRipper implements AdRipper {
     public final void destroy(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            synchronized (this.f55722b) {
-                this.f55722b.remove(obj);
+            synchronized (this.f56303b) {
+                this.f56303b.remove(obj);
             }
         }
     }
@@ -79,8 +79,8 @@ public abstract class BaseAdRipper implements AdRipper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            synchronized (this.f55722b) {
-                RippedAd rippedAd = this.f55722b.get(obj);
+            synchronized (this.f56303b) {
+                RippedAd rippedAd = this.f56303b.get(obj);
                 if (rippedAd != null) {
                     return rippedAd;
                 }
@@ -88,7 +88,7 @@ public abstract class BaseAdRipper implements AdRipper {
                 if (rippedAdInternal == null) {
                     return null;
                 }
-                this.f55722b.put(obj, rippedAdInternal);
+                this.f56303b.put(obj, rippedAdInternal);
                 return rippedAdInternal;
             }
         }
@@ -135,8 +135,8 @@ public abstract class BaseAdRipper implements AdRipper {
             } catch (JSONException e2) {
                 LogPrinter.e(e2);
             }
-            synchronized (this.f55722b) {
-                this.f55722b.put(obj, rippedAdInternal);
+            synchronized (this.f56303b) {
+                this.f56303b.put(obj, rippedAdInternal);
             }
         }
     }

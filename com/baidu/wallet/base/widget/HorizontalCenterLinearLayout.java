@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class HorizontalCenterLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Runnable a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52092b;
+    public int f52672b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f52093c;
+    public int f52673c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f52094d;
+    public boolean f52674d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HorizontalCenterLinearLayout(Context context) {
@@ -104,12 +104,12 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                 i2 = abs;
                 abs = 0;
             }
-            if (!this.f52094d) {
-                this.f52092b = getPaddingLeft();
-                this.f52093c = getPaddingRight();
-                this.f52094d = true;
+            if (!this.f52674d) {
+                this.f52672b = getPaddingLeft();
+                this.f52673c = getPaddingRight();
+                this.f52674d = true;
             }
-            setPadding(this.f52092b + i2, getPaddingTop(), this.f52093c + abs, getPaddingBottom());
+            setPadding(this.f52672b + i2, getPaddingTop(), this.f52673c + abs, getPaddingBottom());
         }
     }
 

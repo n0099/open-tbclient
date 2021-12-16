@@ -40,7 +40,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(KsFullScreenVideoActivity.class)
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kwad.sdk.reward.a> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TEMPLATE = "key_template_json";
@@ -337,18 +337,18 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             com.kwad.sdk.reward.a aVar = new com.kwad.sdk.reward.a();
-            aVar.f58875h = getActivity();
-            aVar.f58876i = this.mContext;
-            aVar.f58869b = this.mAdOpenInteractionListener;
-            aVar.f58873f = this.mScreenOrientation;
+            aVar.f59456h = getActivity();
+            aVar.f59457i = this.mContext;
+            aVar.f59450b = this.mAdOpenInteractionListener;
+            aVar.f59454f = this.mScreenOrientation;
             KsVideoPlayConfig ksVideoPlayConfig = this.mVideoPlayConfig;
-            aVar.f58871d = ksVideoPlayConfig;
-            aVar.f58872e = this.mReportExtData;
-            aVar.f58877j = this.mRootContainer;
+            aVar.f59452d = ksVideoPlayConfig;
+            aVar.f59453e = this.mReportExtData;
+            aVar.f59458j = this.mRootContainer;
             AdTemplate adTemplate = this.mAdTemplate;
-            aVar.f58874g = adTemplate;
+            aVar.f59455g = adTemplate;
             com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(adTemplate, this.mDetailVideoView, ksVideoPlayConfig);
-            aVar.f58878k = aVar2;
+            aVar.f59459k = aVar2;
             aVar.a.add(aVar2);
             if (com.kwad.sdk.core.response.a.a.B(this.mAdInfo)) {
                 aVar.l = new com.kwad.sdk.core.download.a.b(this.mAdTemplate, this.mReportExtData);

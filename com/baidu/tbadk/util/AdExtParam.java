@@ -1,7 +1,7 @@
 package com.baidu.tbadk.util;
 
 import androidx.annotation.Keep;
-import c.a.q0.d1.f;
+import c.a.r0.d1.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
 import java.util.HashMap;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AdExtParam {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AD_CONTEXT_LIST = "ad_context_list";
@@ -24,7 +24,7 @@ public class AdExtParam {
     public static final String KEY_THREAD_COUNT = "pre_ad_thread_count";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,8 +51,8 @@ public class AdExtParam {
                 a aVar = new a();
                 HashMap hashMap = new HashMap();
                 aVar.a = hashMap;
-                hashMap.put(AdExtParam.KEY_IADEX, f.e());
-                if (c.a.r0.a.h().y()) {
+                hashMap.put(AdExtParam.KEY_IADEX, h.e());
+                if (c.a.s0.a.h().y()) {
                     aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "4.2.1.3");
                 }
                 return aVar;

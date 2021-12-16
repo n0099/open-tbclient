@@ -5,7 +5,7 @@ import com.airbnb.lottie.animation.keyframe.GradientColorKeyframeAnimation;
 import com.airbnb.lottie.model.content.GradientColor;
 import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AnimatableGradientColorValue extends BaseAnimatableValue<GradientColor, GradientColor> {
     public AnimatableGradientColorValue(List<Keyframe<GradientColor>> list) {
         super((List) list);

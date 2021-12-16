@@ -21,23 +21,23 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ApkCacheManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Future a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f57263b;
+    public File f57844b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ExecutorService f57264c;
+    public final ExecutorService f57845c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Callable<Void> f57265d;
+    public final Callable<Void> f57846d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Holder {
         public static final /* synthetic */ Holder[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -116,8 +116,8 @@ public class ApkCacheManager {
                 return;
             }
         }
-        this.f57264c = b.j();
-        this.f57265d = new Callable<Void>(this) { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
+        this.f57845c = b.j();
+        this.f57846d = new Callable<Void>(this) { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ApkCacheManager a;
@@ -148,8 +148,8 @@ public class ApkCacheManager {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     synchronized (ApkCacheManager.class) {
-                        if (this.a.f57263b != null && this.a.f57263b.exists() && !this.a.c()) {
-                            for (File file : this.a.d(this.a.f57263b)) {
+                        if (this.a.f57844b != null && this.a.f57844b.exists() && !this.a.c()) {
+                            for (File file : this.a.d(this.a.f57844b)) {
                                 if (file.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
                                     this.a.c(file);
                                     if (this.a.c()) {
@@ -169,7 +169,7 @@ public class ApkCacheManager {
             return;
         }
         try {
-            this.f57263b = aq.c(KsAdSDKImpl.get().getContext());
+            this.f57844b = aq.c(KsAdSDKImpl.get().getContext());
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.a(th);
         }
@@ -272,12 +272,12 @@ public class ApkCacheManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            File file = this.f57263b;
+            File file = this.f57844b;
             if (file == null || !file.exists()) {
                 return false;
             }
-            File[] listFiles = this.f57263b.listFiles();
-            return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.f57263b) <= 400);
+            File[] listFiles = this.f57844b.listFiles();
+            return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.f57844b) <= 400);
         }
         return invokeV.booleanValue;
     }
@@ -302,10 +302,10 @@ public class ApkCacheManager {
     public void b() {
         File file;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (file = this.f57263b) != null && file.exists()) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (file = this.f57844b) != null && file.exists()) {
             Future future = this.a;
             if (future == null || future.isDone()) {
-                this.a = this.f57264c.submit(this.f57265d);
+                this.a = this.f57845c.submit(this.f57846d);
             }
         }
     }

@@ -24,7 +24,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadHandlerService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -224,10 +224,10 @@ public class DownloadHandlerService extends Service {
             public final /* synthetic */ DownloadInfo a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ com.ss.android.socialbase.appdownloader.c.d f61454b;
+            public final /* synthetic */ com.ss.android.socialbase.appdownloader.c.d f62035b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ z f61455c;
+            public final /* synthetic */ z f62036c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -245,8 +245,8 @@ public class DownloadHandlerService extends Service {
                     }
                 }
                 this.a = downloadInfo;
-                this.f61454b = dVar;
-                this.f61455c = downloadNotificationEventListener;
+                this.f62035b = dVar;
+                this.f62036c = downloadNotificationEventListener;
             }
 
             @Override // java.lang.Runnable
@@ -259,11 +259,11 @@ public class DownloadHandlerService extends Service {
                         if (file.exists()) {
                             try {
                                 String str = (com.ss.android.socialbase.downloader.downloader.c.N() == null || (a2 = c.a(this.a, file)) == null) ? "" : a2.packageName;
-                                if (this.f61454b != null) {
-                                    this.f61454b.a(this.a.getId(), 3, str, -3, this.a.getDownloadTime());
+                                if (this.f62035b != null) {
+                                    this.f62035b.a(this.a.getId(), 3, str, -3, this.a.getDownloadTime());
                                 }
-                                if (this.f61455c != null) {
-                                    this.f61455c.a(3, this.a, str, "");
+                                if (this.f62036c != null) {
+                                    this.f62036c.a(3, this.a, str, "");
                                 }
                             } catch (Exception e2) {
                                 e2.printStackTrace();

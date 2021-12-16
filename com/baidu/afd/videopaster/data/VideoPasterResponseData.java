@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VideoPasterResponseData extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TPL_IMAGE_TYPE = "ad_video_attach_image";
@@ -216,19 +216,19 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                             aVar5.t = 24;
                                         }
                                         a aVar6 = this.pasterData;
-                                        aVar6.f3066g = optString3;
+                                        aVar6.f3081g = optString3;
                                         aVar6.e(this.type);
                                         a aVar7 = this.pasterData;
-                                        aVar7.f3065f = optString2;
-                                        aVar7.f3069j = optInt;
-                                        aVar7.f3068i = optString5;
-                                        aVar7.f3067h = optString4;
+                                        aVar7.f3080f = optString2;
+                                        aVar7.f3084j = optInt;
+                                        aVar7.f3083i = optString5;
+                                        aVar7.f3082h = optString4;
                                         aVar7.o = optString7;
                                         aVar7.n = optString6;
                                         aVar7.p = optString8;
                                         aVar7.m = str2;
                                         aVar7.l = str3;
-                                        aVar7.f3070k = str;
+                                        aVar7.f3085k = str;
                                         return;
                                     }
                                     throw new ParseError(1, "operate_info has no element");

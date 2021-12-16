@@ -7,31 +7,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kuaishou.weapon.un.w0;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f63497b;
+    public static final int[] f64078b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f63498c;
+    public static final int[] f64079c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f63499d;
+    public static final int[] f64080d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int[] f63500e;
+    public static final int[] f64081e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int[] f63501f;
+    public static final int[] f64082f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int[] f63502g;
+    public static final int[] f64083g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int[] f63503h;
+    public static final int[] f64084h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,12 +48,12 @@ public final class i {
             }
         }
         a = new int[]{1, 5, 9, 13, 17, 25, 33, 41, 49, 65, 81, 97, 113, w0.n, 177, 209, 241, 305, 369, 497, 753, 1265, 2289, 4337, 8433, 16625};
-        f63497b = new int[]{2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 24};
-        f63498c = new int[]{0, 1, 2, 3, 4, 5, 6, 8, 10, 14, 18, 26, 34, 50, 66, 98, 130, 194, 322, 578, 1090, 2114, 6210, 22594};
-        f63499d = new int[]{0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 12, 14, 24};
-        f63500e = new int[]{2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 18, 22, 30, 38, 54, 70, 102, 134, Opcodes.IFNULL, 326, 582, 1094, 2118};
-        f63501f = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 24};
-        f63502g = new int[]{0, 0, 8, 8, 0, 16, 8, 16, 16};
-        f63503h = new int[]{0, 8, 0, 8, 16, 0, 16, 8, 16};
+        f64078b = new int[]{2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 24};
+        f64079c = new int[]{0, 1, 2, 3, 4, 5, 6, 8, 10, 14, 18, 26, 34, 50, 66, 98, 130, 194, 322, 578, 1090, 2114, 6210, 22594};
+        f64080d = new int[]{0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 12, 14, 24};
+        f64081e = new int[]{2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 18, 22, 30, 38, 54, 70, 102, 134, Opcodes.IFNULL, 326, 582, 1094, 2118};
+        f64082f = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 24};
+        f64083g = new int[]{0, 0, 8, 8, 0, 16, 8, 16, 16};
+        f64084h = new int[]{0, 8, 0, 8, 16, 0, 16, 8, 16};
     }
 }

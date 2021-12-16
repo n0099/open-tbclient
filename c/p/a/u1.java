@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class u1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final u1 f30956c;
+    public static final u1 f31326c;
     public transient /* synthetic */ FieldHolder $fh;
     public double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f30957b;
+    public double f31327b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public class u1 {
                 return;
             }
         }
-        f30956c = new u1();
+        f31326c = new u1();
     }
 
     public u1() {

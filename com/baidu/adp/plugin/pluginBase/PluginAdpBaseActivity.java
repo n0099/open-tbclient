@@ -13,7 +13,7 @@ import c.a.d.a.b;
 import c.a.d.a.g;
 import c.a.d.a.i;
 import c.a.d.f.l.d;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import c.a.d.g.a.h;
 import c.a.d.m.e.q;
 import com.baidu.adp.BdUniqueId;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class PluginAdpBaseActivity extends PluginBaseActivity implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i, Handler.Callback, g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRELOAD_DELAY = 100;
@@ -37,13 +37,13 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     public boolean mIsScroll;
     public final Runnable preLoadRunnable;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseActivity f31747e;
+        public final /* synthetic */ PluginAdpBaseActivity f32117e;
 
         public a(PluginAdpBaseActivity pluginAdpBaseActivity) {
             Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
                     return;
                 }
             }
-            this.f31747e = pluginAdpBaseActivity;
+            this.f32117e = pluginAdpBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseActivity pluginAdpBaseActivity = this.f31747e;
+                PluginAdpBaseActivity pluginAdpBaseActivity = this.f32117e;
                 pluginAdpBaseActivity.onPreLoad(pluginAdpBaseActivity.onGetPreLoadListView());
             }
         }
@@ -320,7 +320,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            l.M(getApplicationContext(), str);
+            m.M(getApplicationContext(), str);
         }
     }
 

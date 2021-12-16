@@ -13,12 +13,12 @@ import com.duxiaoman.dxmpay.statistics.StatApi;
 import com.duxiaoman.dxmpay.statistics.internal.LogSender;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class SensorStatisticApi extends StatisticDecorate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static SensorStatisticApi a;

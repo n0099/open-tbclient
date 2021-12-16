@@ -38,7 +38,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PlayStoreDeferredComponentManager implements DeferredComponentManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MAPPING_KEY;
@@ -69,13 +69,13 @@ public class PlayStoreDeferredComponentManager implements DeferredComponentManag
     public SplitInstallManager splitInstallManager;
 
     /* renamed from: io.flutter.embedding.engine.deferredcomponents.PlayStoreDeferredComponentManager$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class FeatureInstallStateUpdatedListener implements SplitInstallStateUpdatedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +152,7 @@ public class PlayStoreDeferredComponentManager implements DeferredComponentManag
                             }
                             this.this$0.sessionIdToName.delete(sessionId);
                             this.this$0.sessionIdToLoadingUnitId.delete(sessionId);
-                            this.this$0.sessionIdToState.put(sessionId, f.f31418j);
+                            this.this$0.sessionIdToState.put(sessionId, f.f31788j);
                             return;
                         case 7:
                             Log.d(PlayStoreDeferredComponentManager.TAG, String.format("Module \"%s\" (sessionId %d) install canceled.", this.this$0.sessionIdToName.get(sessionId), Integer.valueOf(sessionId)));

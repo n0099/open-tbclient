@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.lang.reflect.Field;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LivenessBaseActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class LivenessBaseActivity extends BeanActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessBaseActivity f34605b;
+                public final /* synthetic */ LivenessBaseActivity f35073b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -130,7 +130,7 @@ public class LivenessBaseActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f34605b = this;
+                    this.f35073b = this;
                     this.a = bioAlertDialog;
                 }
 
@@ -140,7 +140,7 @@ public class LivenessBaseActivity extends BeanActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
                         try {
-                            this.f34605b.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
+                            this.f35073b.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
@@ -153,7 +153,7 @@ public class LivenessBaseActivity extends BeanActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessBaseActivity f34606b;
+                public final /* synthetic */ LivenessBaseActivity f35074b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -170,7 +170,7 @@ public class LivenessBaseActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f34606b = this;
+                    this.f35074b = this;
                     this.a = bioAlertDialog;
                 }
 

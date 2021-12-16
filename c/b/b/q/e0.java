@@ -21,33 +21,33 @@ import java.util.zip.CRC32;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.apache.commons.lang3.SystemUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f27803b;
+    public static boolean f28178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f27804c;
+    public static boolean f28179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f27805d;
+    public static boolean f28180d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f27806e;
+    public static boolean f28181e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f27807f;
+    public static boolean f28182f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f27808g;
+    public static boolean f28183g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f27809h;
+    public static boolean f28184h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final HashSet<String> f27810i;
+    public static final HashSet<String> f28185i;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -64,30 +64,30 @@ public class e0 {
                 return;
             }
         }
-        f27803b = System.getProperty("os.name").contains(SystemUtils.OS_NAME_WINDOWS_PREFIX);
-        f27804c = System.getProperty("os.name").contains("Linux");
-        f27805d = System.getProperty("os.name").contains("Mac");
-        f27806e = false;
-        f27807f = false;
-        f27808g = System.getProperty("os.arch").startsWith("arm") || System.getProperty("os.arch").startsWith("aarch64");
-        f27809h = System.getProperty("os.arch").contains(WebKitFactory.OS_64) || System.getProperty("os.arch").startsWith("armv8");
+        f28178b = System.getProperty("os.name").contains(SystemUtils.OS_NAME_WINDOWS_PREFIX);
+        f28179c = System.getProperty("os.name").contains("Linux");
+        f28180d = System.getProperty("os.name").contains("Mac");
+        f28181e = false;
+        f28182f = false;
+        f28183g = System.getProperty("os.arch").startsWith("arm") || System.getProperty("os.arch").startsWith("aarch64");
+        f28184h = System.getProperty("os.arch").contains(WebKitFactory.OS_64) || System.getProperty("os.arch").startsWith("armv8");
         String property = System.getProperty("java.runtime.name");
         if (property != null && property.contains("Android Runtime")) {
-            f27807f = true;
-            f27803b = false;
-            f27804c = false;
-            f27805d = false;
-            f27809h = false;
+            f28182f = true;
+            f28178b = false;
+            f28179c = false;
+            f28180d = false;
+            f28184h = false;
         }
-        if (!f27807f && !f27803b && !f27804c && !f27805d) {
-            f27806e = true;
-            f27807f = false;
-            f27803b = false;
-            f27804c = false;
-            f27805d = false;
-            f27809h = false;
+        if (!f28182f && !f28178b && !f28179c && !f28180d) {
+            f28181e = true;
+            f28182f = false;
+            f28178b = false;
+            f28179c = false;
+            f28180d = false;
+            f28184h = false;
         }
-        f27810i = new HashSet<>();
+        f28185i = new HashSet<>();
     }
 
     public e0() {
@@ -110,7 +110,7 @@ public class e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (e0.class) {
-                contains = f27810i.contains(str);
+                contains = f28185i.contains(str);
             }
             return contains;
         }
@@ -121,7 +121,7 @@ public class e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             synchronized (e0.class) {
-                f27810i.add(str);
+                f28185i.add(str);
             }
         }
     }
@@ -254,7 +254,7 @@ public class e0 {
 
     public void d(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || f27806e) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || f28181e) {
             return;
         }
         synchronized (e0.class) {
@@ -262,7 +262,7 @@ public class e0 {
                 return;
             }
             String g2 = g(str);
-            if (f27807f) {
+            if (f28182f) {
                 System.loadLibrary(g2);
             } else {
                 f(g2);
@@ -323,23 +323,23 @@ public class e0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (f27803b) {
+            if (f28178b) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
-                sb.append(f27809h ? "64.dll" : ".dll");
+                sb.append(f28184h ? "64.dll" : ".dll");
                 return sb.toString();
-            } else if (f27804c) {
+            } else if (f28179c) {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("lib");
                 sb2.append(str);
-                sb2.append(f27808g ? "arm" : "");
-                sb2.append(f27809h ? "64.so" : ".so");
+                sb2.append(f28183g ? "arm" : "");
+                sb2.append(f28184h ? "64.so" : ".so");
                 return sb2.toString();
-            } else if (f27805d) {
+            } else if (f28180d) {
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("lib");
                 sb3.append(str);
-                sb3.append(f27809h ? "64.dylib" : ".dylib");
+                sb3.append(f28184h ? "64.dylib" : ".dylib");
                 return sb3.toString();
             } else {
                 return str;

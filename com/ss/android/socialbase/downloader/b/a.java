@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61601b;
+    public boolean f62182b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a() {
@@ -37,7 +37,7 @@ public class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f61601b = false;
+        this.f62182b = false;
     }
 
     public static a a() {
@@ -62,14 +62,14 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Context N = com.ss.android.socialbase.downloader.downloader.c.N();
-            if (!this.f61601b && N != null) {
+            if (!this.f62182b && N != null) {
                 try {
                     File file = new File("/data/data/" + N.getPackageName() + "/database/main/");
                     if (!file.exists()) {
                         file.mkdir();
                     }
                     super.getReadableDatabase().execSQL("PRAGMA temp_store_directory = tempDir");
-                    this.f61601b = true;
+                    this.f62182b = true;
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

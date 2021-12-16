@@ -1,137 +1,96 @@
 package c.a.q0.a.d0;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import c.a.d.f.p.k;
-import c.a.q0.k0.h;
-import c.a.q0.s.s.g;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.zip.CRC32;
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f11615b;
+    public final long f4897b;
 
-    public b() {
+    /* renamed from: c  reason: collision with root package name */
+    public final String f4898c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Map<String, String> f4899d;
+
+    public b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f4899d = new HashMap();
+        this.f4897b = TimeUnit.MILLISECONDS.toSeconds(j2);
+        this.a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j2);
+        this.f4898c = Long.toHexString(a(this.a + "#" + this.f4897b));
+        this.f4899d.put("timestamp", Long.toString(this.a));
+        this.f4899d.put("delta", Long.toString(this.f4897b));
+        this.f4899d.put("rasign", this.f4898c);
     }
 
-    public void a() {
-        g gVar;
+    public static b b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.f11615b) == null) {
-            return;
-        }
-        gVar.f();
-        this.f11615b = null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new b(0L) : (b) invokeV.objValue;
     }
 
-    public final void b(String str) {
-        Activity currentActivity;
-        TbPageContext c2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || k.isEmpty(str) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (c2 = c(currentActivity)) == null || StringUtils.isNull(str)) {
-            return;
-        }
-        c2.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(currentActivity, "", str, true)));
-    }
-
-    public final TbPageContext c(Activity activity) {
+    public final long a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-            if (activity instanceof BaseActivity) {
-                return ((BaseActivity) activity).getPageContext();
-            }
-            if (activity instanceof BaseFragmentActivity) {
-                return ((BaseFragmentActivity) activity).getPageContext();
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            CRC32 crc32 = new CRC32();
+            crc32.reset();
+            crc32.update(str.getBytes());
+            return crc32.getValue();
         }
-        return (TbPageContext) invokeL.objValue;
+        return invokeL.longValue;
     }
 
-    public void d(a aVar) {
+    public String c(long j2) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+            return Long.toHexString(a(j2 + "#smartapp_formid"));
         }
+        return (String) invokeJ.objValue;
     }
 
-    public void e() {
-        a aVar;
+    public String d(long j2) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+            return Long.toHexString(a(j2 + "#payid"));
         }
-        int i2 = aVar.f11606c;
-        if (i2 == a.y) {
-            g h2 = g.h(TbadkCoreApplication.getInst().getCurrentActivity(), this.a);
-            h2.j();
-            this.f11615b = h2;
-        } else if (i2 == a.z) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            c.a.q0.s.o.b bVar = new c.a.q0.s.o.b(currentActivity);
-            bVar.d(currentActivity, this.a);
-            bVar.i();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            c.a.q0.s.o.a b2 = c.a.q0.s.o.a.b();
-            c.a.q0.s.o.a b3 = c.a.q0.s.o.a.b();
-            b3.i("business_count_hint" + currentAccount + this.a.a, b2.c("business_count_hint" + currentAccount + this.a.a) - 1);
-        } else if (i2 == a.A) {
-            int i3 = aVar.f11607d;
-            if (i3 == a.D) {
-                if (UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.a.l) || k.isEmpty(this.a.f11614k)) {
-                    return;
-                }
-                b(this.a.f11614k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-            } else if (i3 != a.E || k.isEmpty(aVar.f11614k)) {
-            } else {
-                b(this.a.f11614k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-            }
-        } else if (i2 != a.B || TextUtils.isEmpty(aVar.f11608e)) {
-        } else {
-            CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
-            a aVar2 = this.a;
-            completeTaskToastData.activityId = aVar2.a;
-            completeTaskToastData.missionId = aVar2.f11605b;
-            completeTaskToastData.duration = aVar2.f11612i;
-            completeTaskToastData.message = aVar2.f11608e;
-            completeTaskToastData.url = aVar2.f11614k;
-            completeTaskToastData.pageId = c.a.q0.a.d.y().x();
-            CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
-            competeTaskEvent.taskToastData = completeTaskToastData;
-            h.i(competeTaskEvent);
-            a aVar3 = this.a;
-            c.c(aVar3.a, aVar3.f11605b);
+        return (String) invokeJ.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return super.toString() + " serverTime:" + this.a + " delta:" + this.f4897b + " rasign:" + this.f4898c;
         }
+        return (String) invokeV.objValue;
     }
 }

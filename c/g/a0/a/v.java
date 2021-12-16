@@ -16,14 +16,14 @@ import com.fun.ad.sdk.internal.api.BaseNativeAd2;
 import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
 import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class v implements FunNativeAd2Bridger<TTNativeExpressAd, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ t f28677b;
+    public final /* synthetic */ t f29047b;
 
     public v(t tVar) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class v implements FunNativeAd2Bridger<TTNativeExpressAd, View> {
                 return;
             }
         }
-        this.f28677b = tVar;
+        this.f29047b = tVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -65,13 +65,13 @@ public class v implements FunNativeAd2Bridger<TTNativeExpressAd, View> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, tTNativeExpressAd, baseNativeAd2, funAdInteractionListener}) == null) {
             expressInflater.inflate();
-            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.f28677b.f28666i.get(tTNativeExpressAd);
+            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.f29047b.f29036i.get(tTNativeExpressAd);
             if (expressAdListenerWrapper != null) {
                 expressAdListenerWrapper.funListener = funAdInteractionListener;
             } else {
                 LogPrinter.e("Can not get correspond listener by csjDrawVideoAd.", new Object[0]);
             }
-            this.f28677b.onShowStart(this.a);
+            this.f29047b.onShowStart(this.a);
             this.a = true;
         }
     }

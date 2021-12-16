@@ -16,7 +16,7 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class gx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class gx {
     /* renamed from: a  reason: collision with other field name */
     public boolean f470a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final gx a;
@@ -89,7 +89,7 @@ public class gx {
                 return null;
             }
             ex m417a = m417a();
-            m417a.a(ew.f62865k.a());
+            m417a.a(ew.f63446k.a());
             m417a.c(aVar.f158a);
             m417a.c(aVar.f160a);
             return m417a;

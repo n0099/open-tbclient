@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.implementation.CommonFiller;
 import com.yy.hiidostatis.inner.implementation.ITaskManager;
 import com.yy.hiidostatis.inner.implementation.TaskManagerNew;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GeneralStatisTool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

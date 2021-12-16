@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
 import com.xiaomi.mipush.sdk.MessageHandleService;
 import com.xiaomi.push.el;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class PushMessageReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

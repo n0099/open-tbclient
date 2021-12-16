@@ -43,7 +43,7 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter implements PwdPayContract.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
     public String pwdword;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class CheckForWhat {
         public static final /* synthetic */ CheckForWhat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

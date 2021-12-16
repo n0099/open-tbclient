@@ -1,7 +1,7 @@
 package com.baidu.down.common;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IDownloadWrapper {
     void addObserver(TaskObserver taskObserver);
 

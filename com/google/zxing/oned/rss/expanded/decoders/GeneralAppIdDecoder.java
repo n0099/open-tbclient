@@ -18,7 +18,7 @@ import com.kuaishou.weapon.un.w0;
 import kotlin.text.Typography;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class GeneralAppIdDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +153,7 @@ public final class GeneralAppIdDecoder {
                         c2 = Typography.less;
                         break;
                     case 248:
-                        c2 = a.f31351h;
+                        c2 = a.f31721h;
                         break;
                     case 249:
                         c2 = Typography.greater;

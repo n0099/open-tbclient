@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.CompositeException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends AtomicInteger implements f, k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object MISSING;

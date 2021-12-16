@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class g1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, context) == null) {
             try {
-                String str2 = r0.a + r0.f56826d;
+                String str2 = r0.a + r0.f57407d;
                 String e2 = s0.e(context);
                 if (!TextUtils.isEmpty(e2)) {
                     str2 = str2 + "?" + e2;

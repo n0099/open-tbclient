@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class k extends u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62438b;
+    public String f63019b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62439c;
+    public String f63020c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(int i2) {
@@ -44,8 +44,8 @@ public final class k extends u {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
             aVar.a("app_id", this.a);
-            aVar.a("client_id", this.f62438b);
-            aVar.a("client_token", this.f62439c);
+            aVar.a("client_id", this.f63019b);
+            aVar.a("client_token", this.f63020c);
         }
     }
 
@@ -58,7 +58,7 @@ public final class k extends u {
     public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62439c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63020c : (String) invokeV.objValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -74,8 +74,8 @@ public final class k extends u {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
             this.a = aVar.a("app_id");
-            this.f62438b = aVar.a("client_id");
-            this.f62439c = aVar.a("client_token");
+            this.f63019b = aVar.a("client_id");
+            this.f63020c = aVar.a("client_token");
         }
     }
 }

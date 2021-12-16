@@ -10,13 +10,13 @@ import okio.Buffer;
 import okio.BufferedSink;
 import okio.Okio;
 import okio.Pipe;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class e extends d implements l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Pipe f28342e;
+    public final Pipe f28717e;
 
     public e(long j2) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class e extends d implements l {
             }
         }
         Pipe pipe = new Pipe(8192L);
-        this.f28342e = pipe;
+        this.f28717e = pipe;
         f(Okio.buffer(pipe.sink()), j2);
     }
 
@@ -43,7 +43,7 @@ public final class e extends d implements l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bufferedSink) == null) {
             Buffer buffer = new Buffer();
-            while (this.f28342e.source().read(buffer, 8192L) != -1) {
+            while (this.f28717e.source().read(buffer, 8192L) != -1) {
                 bufferedSink.write(buffer, buffer.size());
             }
         }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RewardActionBarControl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,36 +23,36 @@ public class RewardActionBarControl {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public d f59204b;
+    public d f59785b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public a f59205c;
+    public a f59786c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public c f59206d;
+    public c f59787d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f59207e;
+    public AdTemplate f59788e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdInfo f59208f;
+    public AdInfo f59789f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f59209g;
+    public Handler f59790g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final long f59210h;
+    public final long f59791h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f59211i;
+    public boolean f59792i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f59212j;
+    public Context f59793j;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ShowActionBarResult {
         public static final /* synthetic */ ShowActionBarResult[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -119,22 +119,22 @@ public class RewardActionBarControl {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void d();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void d();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         boolean a();
     }
@@ -154,13 +154,13 @@ public class RewardActionBarControl {
                 return;
             }
         }
-        this.f59212j = context;
-        this.f59207e = adTemplate;
-        this.f59208f = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        this.f59209g = new Handler(Looper.getMainLooper());
-        this.f59211i = false;
+        this.f59793j = context;
+        this.f59788e = adTemplate;
+        this.f59789f = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.f59790g = new Handler(Looper.getMainLooper());
+        this.f59792i = false;
         long c2 = com.kwad.sdk.core.response.a.b.c(adTemplate);
-        this.f59210h = c2 <= 0 ? 1000L : c2;
+        this.f59791h = c2 <= 0 ? 1000L : c2;
     }
 
     private ShowActionBarResult a(boolean z) {
@@ -169,21 +169,21 @@ public class RewardActionBarControl {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, this, z)) == null) {
-            if (com.kwad.sdk.core.response.a.a.aH(this.f59208f) && (aVar = this.f59205c) != null) {
+            if (com.kwad.sdk.core.response.a.a.aH(this.f59789f) && (aVar = this.f59786c) != null) {
                 aVar.d();
                 return ShowActionBarResult.SHOW_FOLLOW;
-            } else if (com.kwad.sdk.core.response.a.a.aI(this.f59208f) && (cVar = this.f59206d) != null) {
+            } else if (com.kwad.sdk.core.response.a.a.aI(this.f59789f) && (cVar = this.f59787d) != null) {
                 cVar.d();
                 return ShowActionBarResult.SHOW_ORDER;
-            } else if (com.kwad.sdk.core.response.a.a.T(this.f59208f)) {
+            } else if (com.kwad.sdk.core.response.a.a.T(this.f59789f)) {
                 return ShowActionBarResult.SHOW_NEW_STYLE;
             } else {
-                if (!com.kwad.sdk.core.response.a.b.d(this.f59207e) || this.f59204b == null) {
+                if (!com.kwad.sdk.core.response.a.b.d(this.f59788e) || this.f59785b == null) {
                     b(z);
                     return ShowActionBarResult.SHOW_NATIVE;
                 }
-                com.kwad.sdk.core.d.a.a("ActionBarControl", "showWebActionBar success in " + this.f59210h);
-                return this.f59204b.a() ? ShowActionBarResult.SHOW_H5_SUCCESS : ShowActionBarResult.SHOW_H5_FAILURE;
+                com.kwad.sdk.core.d.a.a("ActionBarControl", "showWebActionBar success in " + this.f59791h);
+                return this.f59785b.a() ? ShowActionBarResult.SHOW_H5_SUCCESS : ShowActionBarResult.SHOW_H5_FAILURE;
             }
         }
         return (ShowActionBarResult) invokeZ.objValue;
@@ -207,7 +207,7 @@ public class RewardActionBarControl {
             if (a2 != ShowActionBarResult.SHOW_H5_FAILURE) {
                 return;
             }
-            this.f59209g.postDelayed(new Runnable(this) { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.RewardActionBarControl.1
+            this.f59790g.postDelayed(new Runnable(this) { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.RewardActionBarControl.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ RewardActionBarControl a;
@@ -234,18 +234,18 @@ public class RewardActionBarControl {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.f59211i = true;
+                        this.a.f59792i = true;
                         com.kwad.sdk.core.d.a.a("ActionBarControl", "mHasOutTime");
-                        if (this.a.f59204b != null && this.a.f59204b.a()) {
-                            com.kwad.sdk.core.d.a.a("ActionBarControl", "showWebActionBar success on " + this.a.f59210h);
+                        if (this.a.f59785b != null && this.a.f59785b.a()) {
+                            com.kwad.sdk.core.d.a.a("ActionBarControl", "showWebActionBar success on " + this.a.f59791h);
                             return;
                         }
-                        com.kwad.sdk.core.d.a.a("ActionBarControl", "showWebActionBar out " + this.a.f59210h);
-                        com.kwad.sdk.core.report.d.c(this.a.f59207e, this.a.f59210h);
+                        com.kwad.sdk.core.d.a.a("ActionBarControl", "showWebActionBar out " + this.a.f59791h);
+                        com.kwad.sdk.core.report.d.c(this.a.f59788e, this.a.f59791h);
                         this.a.b(true);
                     }
                 }
-            }, this.f59210h);
+            }, this.f59791h);
         }
     }
 
@@ -253,7 +253,7 @@ public class RewardActionBarControl {
     public void a(@Nullable a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f59205c = aVar;
+            this.f59786c = aVar;
         }
     }
 
@@ -269,7 +269,7 @@ public class RewardActionBarControl {
     public void a(@Nullable c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f59206d = cVar;
+            this.f59787d = cVar;
         }
     }
 
@@ -277,18 +277,18 @@ public class RewardActionBarControl {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f59204b = dVar;
+            this.f59785b = dVar;
         }
     }
 
     public void b(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            if (this.f59211i) {
+            if (this.f59792i) {
                 com.kwad.sdk.core.d.a.c("ActionBarControl", "showWebActionBar time out on pageStatus");
                 return;
             }
-            this.f59209g.removeCallbacksAndMessages(null);
+            this.f59790g.removeCallbacksAndMessages(null);
             a(true);
         }
     }

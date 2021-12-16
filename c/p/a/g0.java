@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.activitys.H5OpenActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class g0 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,12 +37,12 @@ public class g0 extends WebChromeClient {
     public void onProgressChanged(WebView webView, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i2) == null) {
-            ProgressBar progressBar = this.a.f62626c;
+            ProgressBar progressBar = this.a.f63207c;
             if (progressBar != null) {
                 progressBar.setVisibility(0);
-                this.a.f62626c.setProgress(i2);
+                this.a.f63207c.setProgress(i2);
                 if (i2 == 100) {
-                    this.a.f62626c.setVisibility(8);
+                    this.a.f63207c.setVisibility(8);
                 }
             }
             super.onProgressChanged(webView, i2);

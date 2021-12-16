@@ -4,13 +4,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class VideoTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int duration;
     public int position;
+    public int positionMs;
+    public String sessionId;
     public String title;
+    public String traceId;
     public String videoUrl;
     public String webUrl;
 
@@ -32,5 +35,8 @@ public class VideoTask {
         this.title = "";
         this.position = 0;
         this.duration = 0;
+        this.positionMs = 0;
+        this.sessionId = "";
+        this.traceId = "";
     }
 }

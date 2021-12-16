@@ -18,20 +18,20 @@ import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.util.Collections;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile i f54603d;
+    public static volatile i f55183d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ZeusParam f54604b;
+    public ZeusParam f55184b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<ZeusPluginStateListener> f54605c;
+    public List<ZeusPluginStateListener> f55185c;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -46,21 +46,21 @@ public class i {
                 return;
             }
         }
-        this.f54605c = Collections.emptyList();
+        this.f55185c = Collections.emptyList();
     }
 
     public static i a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f54603d == null) {
+            if (f55183d == null) {
                 synchronized (i.class) {
-                    if (f54603d == null) {
-                        f54603d = new i();
+                    if (f55183d == null) {
+                        f55183d = new i();
                     }
                 }
             }
-            return f54603d;
+            return f55183d;
         }
         return (i) invokeV.objValue;
     }
@@ -100,10 +100,10 @@ public class i {
                         zeusParam = new ZeusParam.Builder().build();
                         ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, use default ZeusParam");
                     }
-                    this.f54604b = zeusParam;
+                    this.f55184b = zeusParam;
                     ZeusLogger.setDebug(zeusParam.isDebug());
-                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, context = " + application + ", hParam = " + this.f54604b);
-                    if (!this.f54604b.isCloseDefaultReport()) {
+                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, context = " + application + ", hParam = " + this.f55184b);
+                    if (!this.f55184b.isCloseDefaultReport()) {
                         com.bytedance.pangle.helper.d.a(application, String.valueOf(zeusParam.getAppId()), zeusParam.getChannel(), String.valueOf(zeusParam.getDid().get()));
                     }
                     com.bytedance.pangle.b.b a = com.bytedance.pangle.b.b.a();
@@ -141,7 +141,7 @@ public class i {
                     synchronized (a.a) {
                         a.a.add(aVar);
                     }
-                    if (this.f54604b.isEnable()) {
+                    if (this.f55184b.isEnable()) {
                         c.a();
                         if (com.bytedance.pangle.util.h.e()) {
                             com.bytedance.pangle.helper.e.a.execute(new Runnable(this) { // from class: com.bytedance.pangle.i.2
@@ -190,7 +190,7 @@ public class i {
                         b();
                         ContentProviderManager.getInstance().initSystemContentProviderInfo();
                         if (com.bytedance.pangle.helper.c.b(application)) {
-                            if (this.f54604b.autoFetch()) {
+                            if (this.f55184b.autoFetch()) {
                                 com.bytedance.pangle.download.g.a();
                                 com.bytedance.pangle.download.g.b();
                             }

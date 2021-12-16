@@ -10,18 +10,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.core.MdidSdkHelper;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f58601b;
+    public static boolean f59182b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC2043a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC2104a {
     }
 
     static {
@@ -39,32 +39,32 @@ public class a {
         }
     }
 
-    public static void a(Context context, InterfaceC2043a interfaceC2043a) {
+    public static void a(Context context, InterfaceC2104a interfaceC2104a) {
         long currentTimeMillis;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, interfaceC2043a) == null) || context == null || f58601b) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, interfaceC2104a) == null) || context == null || f59182b) {
             return;
         }
         if (!a()) {
-            f58601b = true;
+            f59182b = true;
         } else if (a) {
         } else {
             a = true;
             try {
-                String str = "[OADIDSDKHelper25]:sdk init time=" + (System.currentTimeMillis() - currentTimeMillis) + "--result=" + MdidSdkHelper.InitSdk(context.getApplicationContext(), true, new IIdentifierListener(System.currentTimeMillis(), interfaceC2043a) { // from class: com.kwad.sdk.g.a.1
+                String str = "[OADIDSDKHelper25]:sdk init time=" + (System.currentTimeMillis() - currentTimeMillis) + "--result=" + MdidSdkHelper.InitSdk(context.getApplicationContext(), true, new IIdentifierListener(System.currentTimeMillis(), interfaceC2104a) { // from class: com.kwad.sdk.g.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ long a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ InterfaceC2043a f58602b;
+                    public final /* synthetic */ InterfaceC2104a f59183b;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {Long.valueOf(r6), interfaceC2043a};
+                            Object[] objArr = {Long.valueOf(r6), interfaceC2104a};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -75,13 +75,13 @@ public class a {
                             }
                         }
                         this.a = r6;
-                        this.f58602b = interfaceC2043a;
+                        this.f59183b = interfaceC2104a;
                     }
                 });
             } catch (Throwable th) {
                 String str2 = "[OADIDSDKHelper25]:oaid sdk not find " + th.getMessage();
                 a = false;
-                f58601b = true;
+                f59182b = true;
             }
         }
     }

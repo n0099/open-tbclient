@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.constants.Constants;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30757b;
+    public String f31127b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f30758c;
+    public JSONObject f31128c;
 
     public b6() {
         Interceptable interceptable = $ic;
@@ -40,16 +40,16 @@ public class b6 {
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             JSONObject jSONObject = new JSONObject(str);
             this.a = jSONObject.optInt(Constants.KEYS.RET);
-            this.f30757b = jSONObject.optString("msg");
+            this.f31127b = jSONObject.optString("msg");
             String optString = jSONObject.optString("data");
             try {
                 optString = r0.x(optString);
             } catch (Exception unused) {
             }
             if (TextUtils.isEmpty(optString)) {
-                this.f30758c = new JSONObject();
+                this.f31128c = new JSONObject();
             } else {
-                this.f30758c = new JSONObject(optString);
+                this.f31128c = new JSONObject(optString);
             }
         }
     }

@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f61844b;
+    public final AtomicInteger f62425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f61845c;
+    public final boolean f62426c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(String str) {
@@ -45,9 +45,9 @@ public class a implements ThreadFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            int incrementAndGet = this.f61844b.incrementAndGet();
+            int incrementAndGet = this.f62425b.incrementAndGet();
             Thread thread = new Thread(runnable, this.a + "-" + incrementAndGet);
-            if (!this.f61845c) {
+            if (!this.f62426c) {
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }
@@ -75,8 +75,8 @@ public class a implements ThreadFactory {
                 return;
             }
         }
-        this.f61844b = new AtomicInteger();
+        this.f62425b = new AtomicInteger();
         this.a = str;
-        this.f61845c = z;
+        this.f62426c = z;
     }
 }

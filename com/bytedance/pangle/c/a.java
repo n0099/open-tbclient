@@ -31,36 +31,36 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class a implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f54481b;
+    public final long f55061b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final File f54482c;
+    public final File f55062c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final RandomAccessFile f54483d;
+    public final RandomAccessFile f55063d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final FileChannel f54484e;
+    public final FileChannel f55064e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final FileLock f54485f;
+    public final FileLock f55065f;
 
     /* renamed from: com.bytedance.pangle.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public static class C1947a extends File {
+    /* loaded from: classes2.dex */
+    public static class C2008a extends File {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1947a(File file, String str) {
+        public C2008a(File file, String str) {
             super(file, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -99,32 +99,32 @@ public final class a implements Closeable {
         }
         ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex MultiDexExtractor(" + file.getPath() + StringUtil.ARRAY_ELEMENT_SEPARATOR + file2.getPath() + SmallTailInfo.EMOTION_SUFFIX);
         this.a = file;
-        this.f54482c = file2;
-        this.f54481b = b(file);
+        this.f55062c = file2;
+        this.f55061b = b(file);
         File file3 = new File(file2, MultiDexExtractor.LOCK_FILENAME);
         RandomAccessFile randomAccessFile = new RandomAccessFile(file3, "rw");
-        this.f54483d = randomAccessFile;
+        this.f55063d = randomAccessFile;
         try {
-            this.f54484e = randomAccessFile.getChannel();
+            this.f55064e = randomAccessFile.getChannel();
             try {
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex Blocking on lock " + file3.getPath());
-                this.f54485f = this.f54484e.lock();
+                this.f55065f = this.f55064e.lock();
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex " + file3.getPath() + " locked");
             } catch (IOException e2) {
                 e = e2;
-                a(this.f54484e);
+                a(this.f55064e);
                 throw e;
             } catch (Error e3) {
                 e = e3;
-                a(this.f54484e);
+                a(this.f55064e);
                 throw e;
             } catch (RuntimeException e4) {
                 e = e4;
-                a(this.f54484e);
+                a(this.f55064e);
                 throw e;
             }
         } catch (IOException | Error | RuntimeException e5) {
-            a(this.f54483d);
+            a(this.f55063d);
             throw e5;
         }
     }
@@ -145,15 +145,15 @@ public final class a implements Closeable {
     */
     public final List<? extends File> a(Context context, String str, boolean z) {
         InterceptResult invokeLLZ;
-        List<C1947a> list;
+        List<C2008a> list;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, context, str, z)) == null) {
             ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex MultiDexExtractor.load(" + this.a.getPath() + StringUtil.ARRAY_ELEMENT_SEPARATOR + z + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + SmallTailInfo.EMOTION_SUFFIX);
-            if (this.f54485f.isValid()) {
+            if (this.f55065f.isValid()) {
                 if (!z) {
                     File file = this.a;
-                    long j2 = this.f54481b;
+                    long j2 = this.f55061b;
                     SharedPreferences a = a(context);
                     if (a.getLong(str + "timestamp", -1L) == a(file)) {
                         if (a.getLong(str + MultiDexExtractor.KEY_CRC, -1L) == j2) {
@@ -178,8 +178,8 @@ public final class a implements Closeable {
                 } else {
                     ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex Detected that extraction must be performed.");
                 }
-                List<C1947a> a2 = a();
-                a(context, str, a(this.a), this.f54481b, a2);
+                List<C2008a> a2 = a();
+                a(context, str, a(this.a), this.f55061b, a2);
                 list = a2;
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex load found " + list.size() + " secondary dex files");
                 return list;
@@ -193,16 +193,16 @@ public final class a implements Closeable {
     public final void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f54485f.release();
-            this.f54484e.close();
-            this.f54483d.close();
+            this.f55065f.release();
+            this.f55064e.close();
+            this.f55063d.close();
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            File[] listFiles = this.f54482c.listFiles(new FileFilter(this) { // from class: com.bytedance.pangle.c.a.1
+            File[] listFiles = this.f55062c.listFiles(new FileFilter(this) { // from class: com.bytedance.pangle.c.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
@@ -233,7 +233,7 @@ public final class a implements Closeable {
                 }
             });
             if (listFiles == null) {
-                ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed to list secondary dex dir content (" + this.f54482c.getPath() + ").");
+                ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed to list secondary dex dir content (" + this.f55062c.getPath() + ").");
                 return;
             }
             for (File file : listFiles) {
@@ -247,7 +247,7 @@ public final class a implements Closeable {
         }
     }
 
-    private List<C1947a> a(Context context, String str) {
+    private List<C2008a> a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str)) == null) {
@@ -258,25 +258,25 @@ public final class a implements Closeable {
             ArrayList arrayList = new ArrayList(i2 + (-1));
             int i3 = 2;
             while (i3 <= i2) {
-                C1947a c1947a = new C1947a(this.f54482c, str2 + i3 + ".zip");
-                if (c1947a.isFile()) {
-                    c1947a.a = b(c1947a);
+                C2008a c2008a = new C2008a(this.f55062c, str2 + i3 + ".zip");
+                if (c2008a.isFile()) {
+                    c2008a.a = b(c2008a);
                     long j2 = a.getLong(str + MultiDexExtractor.KEY_DEX_CRC + i3, -1L);
                     long j3 = a.getLong(str + MultiDexExtractor.KEY_DEX_TIME + i3, -1L);
-                    long lastModified = c1947a.lastModified();
+                    long lastModified = c2008a.lastModified();
                     if (j3 == lastModified) {
                         String str3 = str2;
                         SharedPreferences sharedPreferences = a;
-                        if (j2 == c1947a.a) {
-                            arrayList.add(c1947a);
+                        if (j2 == c2008a.a) {
+                            arrayList.add(c2008a);
                             i3++;
                             a = sharedPreferences;
                             str2 = str3;
                         }
                     }
-                    throw new IOException("Invalid extracted dex: " + c1947a + " (key \"" + str + "\"), expected modification time: " + j3 + ", modification time: " + lastModified + ", expected crc: " + j2 + ", file crc: " + c1947a.a);
+                    throw new IOException("Invalid extracted dex: " + c2008a + " (key \"" + str + "\"), expected modification time: " + j3 + ", modification time: " + lastModified + ", expected crc: " + j2 + ", file crc: " + c2008a.a);
                 }
-                throw new IOException("Missing extracted secondary dex file '" + c1947a.getPath() + "'");
+                throw new IOException("Missing extracted secondary dex file '" + c2008a.getPath() + "'");
             }
             return arrayList;
         }
@@ -300,7 +300,7 @@ public final class a implements Closeable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private List<C1947a> a() {
+    private List<C2008a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(65539, this)) != null) {
@@ -318,34 +318,34 @@ public final class a implements Closeable {
                 if (entry == null) {
                     return arrayList;
                 }
-                C1947a c1947a = new C1947a(this.f54482c, str + i2 + ".zip");
-                arrayList.add(c1947a);
-                ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex Extraction is needed for file ".concat(String.valueOf(c1947a)));
+                C2008a c2008a = new C2008a(this.f55062c, str + i2 + ".zip");
+                arrayList.add(c2008a);
+                ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex Extraction is needed for file ".concat(String.valueOf(c2008a)));
                 int i3 = 0;
                 boolean z = false;
                 while (i3 < 3 && !z) {
                     i3++;
-                    a(zipFile, entry, c1947a, str);
+                    a(zipFile, entry, c2008a, str);
                     try {
-                        c1947a.a = b(c1947a);
+                        c2008a.a = b(c2008a);
                         z = true;
                     } catch (IOException e2) {
-                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed to read crc from " + c1947a.getAbsolutePath(), e2);
+                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed to read crc from " + c2008a.getAbsolutePath(), e2);
                         z = false;
                     }
                     StringBuilder sb = new StringBuilder("PluginMultiDex Extraction ");
-                    sb.append(z ? "succeeded" : f.f31418j);
+                    sb.append(z ? "succeeded" : f.f31788j);
                     sb.append(" '");
-                    sb.append(c1947a.getAbsolutePath());
+                    sb.append(c2008a.getAbsolutePath());
                     sb.append("': length ");
-                    sb.append(c1947a.length());
+                    sb.append(c2008a.length());
                     sb.append(" - crc: ");
-                    sb.append(c1947a.a);
+                    sb.append(c2008a.a);
                     ZeusLogger.i(ZeusLogger.TAG_LOAD, sb.toString());
                     if (!z) {
-                        c1947a.delete();
-                        if (c1947a.exists()) {
-                            ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed to delete corrupted secondary dex '" + c1947a.getPath() + "'");
+                        c2008a.delete();
+                        if (c2008a.exists()) {
+                            ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed to delete corrupted secondary dex '" + c2008a.getPath() + "'");
                         }
                     }
                 }
@@ -364,7 +364,7 @@ public final class a implements Closeable {
         }
     }
 
-    public static void a(Context context, String str, long j2, long j3, List<C1947a> list) {
+    public static void a(Context context, String str, long j2, long j3, List<C2008a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, str, Long.valueOf(j2), Long.valueOf(j3), list}) == null) {
             SharedPreferences.Editor edit = a(context).edit();
@@ -372,9 +372,9 @@ public final class a implements Closeable {
             edit.putLong(str + MultiDexExtractor.KEY_CRC, j3);
             edit.putInt(str + "dex.number", list.size() + 1);
             int i2 = 2;
-            for (C1947a c1947a : list) {
-                edit.putLong(str + MultiDexExtractor.KEY_DEX_CRC + i2, c1947a.a);
-                edit.putLong(str + MultiDexExtractor.KEY_DEX_TIME + i2, c1947a.lastModified());
+            for (C2008a c2008a : list) {
+                edit.putLong(str + MultiDexExtractor.KEY_DEX_CRC + i2, c2008a.a);
+                edit.putLong(str + MultiDexExtractor.KEY_DEX_TIME + i2, c2008a.lastModified());
                 i2++;
             }
             edit.commit();

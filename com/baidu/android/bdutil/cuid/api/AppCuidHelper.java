@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class AppCuidHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -25,13 +25,13 @@ public final class AppCuidHelper {
     public volatile String mUidFromGalaxy;
 
     /* renamed from: com.baidu.android.bdutil.cuid.api.AppCuidHelper$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Singleton {
         public static /* synthetic */ Interceptable $ic;
         public static final AppCuidHelper INSTANCE;

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.infer.annotation.ThreadSafe;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class BitmapCounterProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long KB = 1024;

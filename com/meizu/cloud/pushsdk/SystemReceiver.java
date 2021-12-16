@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.base.IntentReceiver;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import com.meizu.cloud.pushsdk.util.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SystemReceiver extends IntentReceiver {
     public void a(Context context) {
         String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");

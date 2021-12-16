@@ -17,7 +17,7 @@ import com.baidu.wallet.paysdk.ui.PwdPayActivity;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.statistics.StatServiceEvent;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PwdPayPresenterForAuthsign extends PwdPayContract.Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

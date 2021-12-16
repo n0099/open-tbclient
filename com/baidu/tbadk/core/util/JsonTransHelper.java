@@ -28,7 +28,7 @@ import tbclient.McnAdInfo;
 import tbclient.ThreadPicList;
 import tbclient.VideoDesc;
 import tbclient.VideoInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class JsonTransHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public class JsonTransHelper {
             builder.plan_id = Integer.valueOf(jSONObject.optInt("plan_id"));
             builder.user_id = jSONObject.optString("user_id");
             builder.price = jSONObject.optString("price");
-            builder.verify = jSONObject.optString(SmsLoginView.f.f38828j);
+            builder.verify = jSONObject.optString(SmsLoginView.f.f39317j);
             builder.ext_info = jSONObject.optString("ext_info");
             ArrayList arrayList = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("goods_info");
@@ -370,7 +370,7 @@ public class JsonTransHelper {
                 jSONObject.put("plan_id", app.plan_id);
                 jSONObject.put("user_id", app.user_id);
                 jSONObject.put("price", app.price);
-                jSONObject.put(SmsLoginView.f.f38828j, app.verify);
+                jSONObject.put(SmsLoginView.f.f39317j, app.verify);
                 jSONObject.put("ext_info", app.ext_info);
                 JSONArray jSONArray = new JSONArray();
                 for (GoodsInfo goodsInfo : app.goods_info) {

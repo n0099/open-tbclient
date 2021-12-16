@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.exoplayer2.text.SubtitleDecoderException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f30060b;
+    public static final Pattern f30430b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class h {
             }
         }
         a = Pattern.compile("^NOTE(( |\t).*)?$");
-        f30060b = Pattern.compile("^\ufeff?WEBVTT(( |\t).*)?$");
+        f30430b = Pattern.compile("^\ufeff?WEBVTT(( |\t).*)?$");
     }
 
     public static Matcher a(l lVar) {
@@ -56,7 +56,7 @@ public final class h {
                     }
                 } while (!k2.isEmpty());
             } else {
-                Matcher matcher = f.f30052b.matcher(k3);
+                Matcher matcher = f.f30422b.matcher(k3);
                 if (matcher.matches()) {
                     return matcher;
                 }
@@ -98,7 +98,7 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, lVar) == null) {
             String k2 = lVar.k();
-            if (k2 == null || !f30060b.matcher(k2).matches()) {
+            if (k2 == null || !f30430b.matcher(k2).matches()) {
                 throw new SubtitleDecoderException("Expected WEBVTT. Got " + k2);
             }
         }

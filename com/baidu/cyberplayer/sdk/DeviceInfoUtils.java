@@ -22,13 +22,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f33904b;
+    public static String f34372b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -311,7 +311,7 @@ public class DeviceInfoUtils {
                 return str2;
             }
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f56920b).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f57501b).start().getInputStream();
                 String str3 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str3 = str3 + new String(bArr);
@@ -385,12 +385,12 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            String str2 = f33904b;
+            String str2 = f34372b;
             if (str2 != null) {
                 return str2;
             }
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f56921c).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f57502c).start().getInputStream();
                 String str3 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str3 = str3 + new String(bArr);
@@ -402,7 +402,7 @@ public class DeviceInfoUtils {
                 str = null;
             }
             if (str != null) {
-                f33904b = str;
+                f34372b = str;
             }
             return str;
         }

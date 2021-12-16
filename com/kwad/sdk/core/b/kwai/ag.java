@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ag implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,8 +34,8 @@ public class ag implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.c
             return;
         }
         cVar.a = jSONObject.optInt("cellId");
-        cVar.f57769b = jSONObject.optInt("lac");
-        cVar.f57770c = jSONObject.optInt("bsss");
+        cVar.f58350b = jSONObject.optInt("lac");
+        cVar.f58351c = jSONObject.optInt("bsss");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,8 +48,8 @@ public class ag implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.c
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "cellId", cVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "lac", cVar.f57769b);
-            com.kwad.sdk.utils.t.a(jSONObject, "bsss", cVar.f57770c);
+            com.kwad.sdk.utils.t.a(jSONObject, "lac", cVar.f58350b);
+            com.kwad.sdk.utils.t.a(jSONObject, "bsss", cVar.f58351c);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

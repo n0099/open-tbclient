@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.inner.util.http;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IStatisHttpUtil {
     String getHost();
 

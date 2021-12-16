@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.m0;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b0 implements m0.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +39,13 @@ public class b0 implements m0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, networkInfo) == null) {
             if (networkInfo == null) {
-                this.a.f28856d = "unknow";
+                this.a.f29226d = "unknow";
                 return;
             }
             if (networkInfo.isConnectedOrConnecting()) {
                 String subtypeName = networkInfo.getSubtypeName();
                 if (!TextUtils.isEmpty(subtypeName)) {
-                    this.a.f28856d = subtypeName;
+                    this.a.f29226d = subtypeName;
                     return;
                 } else {
                     g0Var = this.a;
@@ -55,7 +55,7 @@ public class b0 implements m0.b {
                 g0Var = this.a;
                 str = "unknow";
             }
-            g0Var.f28856d = str;
+            g0Var.f29226d = str;
         }
     }
 }

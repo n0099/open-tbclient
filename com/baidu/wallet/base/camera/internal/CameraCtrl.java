@@ -27,7 +27,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ListIterator;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_RAW = 0;
@@ -50,7 +50,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public int _width;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static final class MethodIndex {
         public static final /* synthetic */ MethodIndex[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -111,7 +111,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static CameraCtrl a;
@@ -316,7 +316,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                         this._cameraProxy.a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
                         Camera.Parameters d2 = this._cameraProxy.d();
                         focusMode = d2.getFocusMode();
-                        if (!focusMode.equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO) && !focusMode.equals("macro")) {
+                        if (!focusMode.equals("auto") && !focusMode.equals("macro")) {
                             z = false;
                             this._supportAutoFocus = z;
                             similarRatioSize = getSimilarRatioSize(i3, i4, d2.getSupportedPreviewSizes(), 0);
@@ -376,7 +376,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                     this._cameraProxy.b();
                     Camera.Parameters d22 = this._cameraProxy.d();
                     focusMode = d22.getFocusMode();
-                    if (!focusMode.equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO)) {
+                    if (!focusMode.equals("auto")) {
                         z = false;
                         this._supportAutoFocus = z;
                         similarRatioSize = getSimilarRatioSize(i3, i4, d22.getSupportedPreviewSizes(), 0);

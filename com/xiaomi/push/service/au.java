@@ -22,7 +22,7 @@ import com.xiaomi.push.gq;
 import com.xiaomi.push.gz;
 import com.xiaomi.push.service.av;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class au {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -196,13 +196,13 @@ public class au {
                     }
                     if (a5.a()) {
                         com.xiaomi.channel.commonutils.logger.b.m122a("SMACK: channel bind succeeded, chid=" + faVar.a());
-                        a6.a(av.c.f63252c, 1, 0, (String) null, (String) null);
+                        a6.a(av.c.f63833c, 1, 0, (String) null, (String) null);
                         return;
                     }
                     String a7 = a5.a();
                     if ("auth".equals(a7)) {
                         if ("invalid-sig".equals(a5.b())) {
-                            com.xiaomi.channel.commonutils.logger.b.m122a("SMACK: bind error invalid-sig token = " + a6.f63241c + " sec = " + a6.f63246h);
+                            com.xiaomi.channel.commonutils.logger.b.m122a("SMACK: bind error invalid-sig token = " + a6.f63822c + " sec = " + a6.f63827h);
                             gz.a(0, ew.T.a(), 1, null, 0);
                         }
                         cVar = av.c.a;

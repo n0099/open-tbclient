@@ -1,43 +1,153 @@
 package c.a.f0;
 
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import c.a.g0.r.h;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.PolyActivity;
+import com.baidu.poly.widget.WechatSignAutoRenewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public final class e {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int cashiersdk_common_dialog_button_height = 2131165676;
-    public static final int cashiersdk_common_dialog_content_margin = 2131165677;
-    public static final int cashiersdk_common_dialog_line = 2131165678;
-    public static final int channel_list_icon_size = 2131165679;
-    public static final int channel_list_icon_title_margin = 2131165681;
-    public static final int channel_list_item_height = 2131165682;
-    public static final int channel_list_item_left_margin = 2131165683;
-    public static final int channel_list_item_right_margin = 2131165684;
-    public static final int channel_list_landscape_margin = 2131165685;
-    public static final int channel_list_open_fold = 2131165686;
-    public static final int channel_list_subtitle_text_size = 2131165687;
-    public static final int channel_list_title_subtitle_margin = 2131165688;
-    public static final int channel_list_title_text_size = 2131165690;
-    public static final int channel_loading_icon_size = 2131165691;
-    public static final int confirm_pay_button_height = 2131165707;
-    public static final int confirm_pay_button_hor_margin = 2131165708;
-    public static final int confirm_pay_button_top_shadow_height = 2131165709;
-    public static final int confirm_pay_button_ver_margin = 2131165710;
-    public static final int ksw_md_thumb_ripple_size = 2131166308;
-    public static final int ksw_md_thumb_shadow_inset = 2131166309;
-    public static final int ksw_md_thumb_shadow_inset_bottom = 2131166310;
-    public static final int ksw_md_thumb_shadow_inset_top = 2131166311;
-    public static final int ksw_md_thumb_shadow_offset = 2131166312;
-    public static final int ksw_md_thumb_shadow_size = 2131166313;
-    public static final int ksw_md_thumb_solid_inset = 2131166314;
-    public static final int ksw_md_thumb_solid_size = 2131166315;
-    public static final int pay_loading_icon_size = 2131166819;
-    public static final int pay_money_layout_height = 2131166820;
-    public static final int real_pay_money_size = 2131166851;
-    public static final int text_size_open_channel_list_flod = 2131167880;
-    public static final int title_height = 2131167881;
-    public static final int title_size = 2131167882;
-    public static final int title_top_margin = 2131167883;
-    public static final int total_pay_money_size = 2131167892;
+public class e implements c.a.g0.s.g.c {
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static e f3103c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f3104b;
+
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e this$0;
+
+        public b(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = eVar;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.f3104b) {
+                this.this$0.f3104b = false;
+                try {
+                    int intExtra = intent.getIntExtra("code", 0);
+                    Intent intent2 = new Intent(PolyActivity.invokerActivity, WechatSignAutoRenewActivity.class);
+                    intent2.putExtra("code", intExtra);
+                    PolyActivity.invokerActivity.startActivity(intent2);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+
+        public /* synthetic */ b(e eVar, a aVar) {
+            this(eVar);
+        }
+    }
+
+    public e() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f3104b = false;
+    }
+
+    public static e d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (f3103c == null) {
+                synchronized (e.class) {
+                    if (f3103c == null) {
+                        f3103c = new e();
+                    }
+                }
+            }
+            return f3103c;
+        }
+        return (e) invokeV.objValue;
+    }
+
+    @Override // c.a.g0.s.g.c
+    public void a(Activity activity, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
+            h.b("WECHAT signWechatAutoRenew appId=" + str);
+            c.a.f0.h.a a2 = c.a.f0.a.a();
+            if (a2 == null) {
+                return;
+            }
+            if (!a2.b(activity)) {
+                c.a.g0.t.e.b.f(activity, "您没有安装微信，请选择其他支付方式");
+                activity.finish();
+                return;
+            }
+            this.f3104b = true;
+            f();
+            e();
+            a2.a(activity, str, str2);
+            activity.finish();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = new b(this, null);
+            PolyActivity.invokerActivity.getApplicationContext().registerReceiver(this.a, new IntentFilter("com_baidu_poly_cashier_wechat_sign_auto_renew_receiver"));
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
+            return;
+        }
+        try {
+            PolyActivity.invokerActivity.getApplicationContext().unregisterReceiver(this.a);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
 }

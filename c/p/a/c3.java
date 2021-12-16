@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONStringer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c3 {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f30762b;
+    public static final String[] f31132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f30763c;
+    public static final String[] f31133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f30764d;
+    public static final String[] f31134d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,9 +38,9 @@ public class c3 {
             }
         }
         a = new String[]{"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
-        f30762b = new String[]{"ins", "bd", "wdtr", "witr"};
-        f30763c = new String[]{"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe", "hte"};
-        f30764d = new String[]{"Ld", "wdin", "wiin", "wdre", "wiop", "wii", "rle"};
+        f31132b = new String[]{"ins", "bd", "wdtr", "witr"};
+        f31133c = new String[]{"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe", "hte"};
+        f31134d = new String[]{"Ld", "wdin", "wiin", "wdre", "wiop", "wii", "rle"};
     }
 
     public c3() {
@@ -76,20 +76,20 @@ public class c3 {
         g2.key("e").value(str).key("timeis").value(f());
         if (g3Var != null) {
             g2.key("pid").value(g3Var.a);
-            if (g3Var.f30792b != null) {
+            if (g3Var.f31162b != null) {
                 JSONStringer key = g2.key("traceid");
-                String traceid = g3Var.f30792b.getTraceid();
+                String traceid = g3Var.f31162b.getTraceid();
                 try {
                     traceid = r0.g(traceid);
                 } catch (Exception unused) {
                 }
                 JSONStringer key2 = key.value(traceid).key("cid");
-                String id = g3Var.f30792b.getId();
+                String id = g3Var.f31162b.getId();
                 try {
                     id = r0.g(id);
                 } catch (Exception unused2) {
                 }
-                key2.value(id).key("type").value(g3Var.f30792b.getType());
+                key2.value(id).key("type").value(g3Var.f31162b.getType());
             }
         }
         return g2;

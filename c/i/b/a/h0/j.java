@@ -16,35 +16,35 @@ import com.google.android.exoplayer2.upstream.ContentDataSource;
 import com.google.android.exoplayer2.upstream.FileDataSource;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class j implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final p<? super e> f30165b;
+    public final p<? super e> f30535b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f30166c;
+    public final e f30536c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f30167d;
+    public e f30537d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f30168e;
+    public e f30538e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f30169f;
+    public e f30539f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f30170g;
+    public e f30540g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f30171h;
+    public e f30541h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f30172i;
+    public e f30542i;
 
     public j(Context context, p<? super e> pVar, e eVar) {
         Interceptable interceptable = $ic;
@@ -62,9 +62,9 @@ public final class j implements e {
             }
         }
         this.a = context.getApplicationContext();
-        this.f30165b = pVar;
+        this.f30535b = pVar;
         c.i.b.a.i0.a.e(eVar);
-        this.f30166c = eVar;
+        this.f30536c = eVar;
     }
 
     @Override // c.i.b.a.h0.e
@@ -72,26 +72,26 @@ public final class j implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-            c.i.b.a.i0.a.f(this.f30172i == null);
+            c.i.b.a.i0.a.f(this.f30542i == null);
             String scheme = gVar.a.getScheme();
             if (v.A(gVar.a)) {
                 if (gVar.a.getPath().startsWith("/android_asset/")) {
-                    this.f30172i = b();
+                    this.f30542i = b();
                 } else {
-                    this.f30172i = e();
+                    this.f30542i = e();
                 }
             } else if (UriUtil.LOCAL_ASSET_SCHEME.equals(scheme)) {
-                this.f30172i = b();
+                this.f30542i = b();
             } else if ("content".equals(scheme)) {
-                this.f30172i = c();
+                this.f30542i = c();
             } else if ("rtmp".equals(scheme)) {
-                this.f30172i = f();
+                this.f30542i = f();
             } else if ("data".equals(scheme)) {
-                this.f30172i = d();
+                this.f30542i = d();
             } else {
-                this.f30172i = this.f30166c;
+                this.f30542i = this.f30536c;
             }
-            return this.f30172i.a(gVar);
+            return this.f30542i.a(gVar);
         }
         return invokeL.longValue;
     }
@@ -100,10 +100,10 @@ public final class j implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f30168e == null) {
-                this.f30168e = new AssetDataSource(this.a, this.f30165b);
+            if (this.f30538e == null) {
+                this.f30538e = new AssetDataSource(this.a, this.f30535b);
             }
-            return this.f30168e;
+            return this.f30538e;
         }
         return (e) invokeV.objValue;
     }
@@ -112,10 +112,10 @@ public final class j implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f30169f == null) {
-                this.f30169f = new ContentDataSource(this.a, this.f30165b);
+            if (this.f30539f == null) {
+                this.f30539f = new ContentDataSource(this.a, this.f30535b);
             }
-            return this.f30169f;
+            return this.f30539f;
         }
         return (e) invokeV.objValue;
     }
@@ -124,13 +124,13 @@ public final class j implements e {
     public void close() throws IOException {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (eVar = this.f30172i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (eVar = this.f30542i) == null) {
             return;
         }
         try {
             eVar.close();
         } finally {
-            this.f30172i = null;
+            this.f30542i = null;
         }
     }
 
@@ -138,10 +138,10 @@ public final class j implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f30171h == null) {
-                this.f30171h = new d();
+            if (this.f30541h == null) {
+                this.f30541h = new d();
             }
-            return this.f30171h;
+            return this.f30541h;
         }
         return (e) invokeV.objValue;
     }
@@ -150,10 +150,10 @@ public final class j implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f30167d == null) {
-                this.f30167d = new FileDataSource(this.f30165b);
+            if (this.f30537d == null) {
+                this.f30537d = new FileDataSource(this.f30535b);
             }
-            return this.f30167d;
+            return this.f30537d;
         }
         return (e) invokeV.objValue;
     }
@@ -162,16 +162,16 @@ public final class j implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f30170g == null) {
+            if (this.f30540g == null) {
                 try {
-                    this.f30170g = (e) Class.forName("com.google.android.exoplayer2.ext.rtmp.RtmpDataSource").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+                    this.f30540g = (e) Class.forName("com.google.android.exoplayer2.ext.rtmp.RtmpDataSource").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
                 } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException unused) {
                 }
-                if (this.f30170g == null) {
-                    this.f30170g = this.f30166c;
+                if (this.f30540g == null) {
+                    this.f30540g = this.f30536c;
                 }
             }
-            return this.f30170g;
+            return this.f30540g;
         }
         return (e) invokeV.objValue;
     }
@@ -181,7 +181,7 @@ public final class j implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            e eVar = this.f30172i;
+            e eVar = this.f30542i;
             if (eVar == null) {
                 return null;
             }
@@ -194,6 +194,6 @@ public final class j implements e {
     public int read(byte[] bArr, int i2, int i3) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3)) == null) ? this.f30172i.read(bArr, i2, i3) : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3)) == null) ? this.f30542i.read(bArr, i2, i3) : invokeLII.intValue;
     }
 }

@@ -20,40 +20,40 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "k";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34310b = "cu";
+    public static final String f34778b = "cu";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34311c = "cu2";
+    public static final String f34779c = "cu2";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34312d = "ua";
+    public static final String f34780d = "ua";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34313e = "op";
+    public static final String f34781e = "op";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34314f = "bs";
+    public static final String f34782f = "bs";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34315g = "bk";
+    public static final String f34783g = "bk";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34316h = "lc";
+    public static final String f34784h = "lc";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34317i = "sd";
+    public static final String f34785i = "sd";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Pattern f34318j;
+    public Pattern f34786j;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static k a;
@@ -118,7 +118,7 @@ public class k {
                 return;
             }
         }
-        this.f34318j = Pattern.compile("\\s*|\t|\r|\n");
+        this.f34786j = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public /* synthetic */ k(j jVar) {
@@ -153,7 +153,7 @@ public class k {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, context)) == null) {
             try {
                 try {
-                    return this.f34318j.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+                    return this.f34786j.matcher(PhoneUtils.getCUID(context)).replaceAll("");
                 } catch (Exception unused) {
                     return str;
                 }
@@ -171,7 +171,7 @@ public class k {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, context)) == null) {
             try {
                 try {
-                    return this.f34318j.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+                    return this.f34786j.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
                 } catch (Exception unused) {
                     return str;
                 }
@@ -215,13 +215,13 @@ public class k {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("ua", h(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f34310b, e(RimStatisticsUtil.getAppContext()));
-                jSONObject.put(f34311c, f(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f34778b, e(RimStatisticsUtil.getAppContext()));
+                jSONObject.put(f34779c, f(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("op", g(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("bs", c(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f34315g, d(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f34783g, d(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("sd", b(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f34316h, a(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f34784h, a(RimStatisticsUtil.getAppContext()));
             } catch (JSONException unused) {
             }
             return jSONObject.toString();

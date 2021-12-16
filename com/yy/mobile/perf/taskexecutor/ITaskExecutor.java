@@ -1,5 +1,5 @@
 package com.yy.mobile.perf.taskexecutor;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ITaskExecutor {
     void execute(Runnable runnable, long j2);
 

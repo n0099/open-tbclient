@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class r3 implements q1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,12 +40,12 @@ public class r3 implements q1 {
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            y3 y3Var = this.a.f30976e;
+            y3 y3Var = this.a.f31346e;
             long currentTimeMillis = System.currentTimeMillis();
-            y3 y3Var2 = this.a.f30976e;
-            y3Var.f31012c = currentTimeMillis - y3Var2.f31011b;
+            y3 y3Var2 = this.a.f31346e;
+            y3Var.f31382c = currentTimeMillis - y3Var2.f31381b;
             y2 a = c3.a(y3Var2.a);
-            a.a(i2, this.a.f30976e.f31012c);
+            a.a(i2, this.a.f31346e.f31382c);
             a.m();
         }
     }
@@ -55,11 +55,11 @@ public class r3 implements q1 {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            y3 y3Var = this.a.f30976e;
+            y3 y3Var = this.a.f31346e;
             long currentTimeMillis = System.currentTimeMillis();
-            j2 = this.a.f30976e.f31011b;
-            y3Var.f31012c = currentTimeMillis - j2;
-            this.a.f30976e.e((b6) obj);
+            j2 = this.a.f31346e.f31381b;
+            y3Var.f31382c = currentTimeMillis - j2;
+            this.a.f31346e.e((b6) obj);
         }
     }
 }

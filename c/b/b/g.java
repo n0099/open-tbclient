@@ -1,5 +1,5 @@
 package c.b.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface g {
     boolean a(int i2, int i3, int i4, int i5);
 

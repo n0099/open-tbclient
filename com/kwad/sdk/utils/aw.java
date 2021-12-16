@@ -1,11 +1,12 @@
 package com.kwad.sdk.utils;
 
+import com.baidu.searchbox.player.widget.BdPlayerProgressView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Formatter;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class aw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,7 +16,7 @@ public class aw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j2)) == null) {
             if (j2 <= 0 || j2 >= 86400000) {
-                return "00:00";
+                return BdPlayerProgressView.DEFAULT_TIME_TEXT;
             }
             try {
                 long j3 = j2 / 1000;

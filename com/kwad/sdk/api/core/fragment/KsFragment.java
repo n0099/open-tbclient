@@ -41,7 +41,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KsFragment extends AbstractIFragmentLifecycle implements IFragment, IFragmentLifecycle {
     public static /* synthetic */ Interceptable $ic;
     public static final SimpleArrayMap<String, Class<?>> sClassMap;
@@ -356,7 +356,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (a.f56964c.booleanValue()) {
+            if (a.f57545c.booleanValue()) {
                 throw new RuntimeException("please use getContext().getResources()");
             }
             return this.mBase.getContext().getResources();

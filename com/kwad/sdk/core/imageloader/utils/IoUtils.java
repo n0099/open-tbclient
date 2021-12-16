@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class IoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONTINUE_LOADING_PERCENTAGE = 75;
@@ -19,7 +19,7 @@ public final class IoUtils {
     public static final int DEFAULT_IMAGE_TOTAL_SIZE = 512000;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CopyListener {
         boolean onBytesCopied(int i2, int i3);
     }

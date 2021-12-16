@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class DirectorySoSource extends SoSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ON_LD_LIBRARY_PATH = 2;

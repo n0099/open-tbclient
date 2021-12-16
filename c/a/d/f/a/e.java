@@ -25,10 +25,10 @@ public class e {
     public c.a.d.f.a.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f2303b;
+    public AtomicBoolean f2267b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DiskFileOperate f2304c;
+    public DiskFileOperate f2268c;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -115,12 +115,12 @@ public class e {
             }
         }
         this.a = null;
-        this.f2303b = null;
-        this.f2304c = null;
+        this.f2267b = null;
+        this.f2268c = null;
         if (bVar != null && diskFileOperate != null && diskFileOperate.getAction() != null) {
-            this.f2303b = new AtomicBoolean(false);
+            this.f2267b = new AtomicBoolean(false);
             this.a = bVar;
-            this.f2304c = diskFileOperate;
+            this.f2268c = diskFileOperate;
             return;
         }
         throw new InvalidParameterException("DiskWorker Parameter is null");
@@ -133,21 +133,21 @@ public class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             try {
                 try {
-                    c2 = this.a.c(this.f2304c.buildPath(), this.f2304c.getName(), false, this.f2304c.isSdCard(), this.f2304c.isSavedCache());
+                    c2 = this.a.c(this.f2268c.buildPath(), this.f2268c.getName(), false, this.f2268c.isSdCard(), this.f2268c.isSavedCache());
                 } catch (Exception e2) {
                     e2.getMessage();
                 }
-                if (c2 != null && !this.f2303b.get()) {
+                if (c2 != null && !this.f2267b.get()) {
                     r0 = c2.exists() ? c2.delete() : false;
                     if (r0) {
-                        this.f2304c.setFileInfo(c2);
-                        this.f2304c.setSuccess(true);
+                        this.f2268c.setFileInfo(c2);
+                        this.f2268c.setSuccess(true);
                     }
                     return r0;
                 }
                 return false;
             } finally {
-                this.f2304c.unLock();
+                this.f2268c.unLock();
             }
         }
         return invokeV.booleanValue;
@@ -157,33 +157,33 @@ public class e {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            OutputStream outputStream = this.f2304c.getOutputStream();
-            File fileInfo = this.f2304c.getFileInfo();
+            OutputStream outputStream = this.f2268c.getOutputStream();
+            File fileInfo = this.f2268c.getFileInfo();
             try {
                 if (outputStream == null) {
                     try {
-                        fileInfo = this.a.c(this.f2304c.buildPath(), this.f2304c.getName(), true, this.f2304c.isSdCard(), this.f2304c.isSavedCache());
-                        if (fileInfo != null && !this.f2303b.get()) {
+                        fileInfo = this.a.c(this.f2268c.buildPath(), this.f2268c.getName(), true, this.f2268c.isSdCard(), this.f2268c.isSavedCache());
+                        if (fileInfo != null && !this.f2267b.get()) {
                             outputStream = new FileOutputStream(fileInfo, true);
                         }
-                        this.f2304c.unLock();
+                        this.f2268c.unLock();
                         return false;
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                         if (!z) {
                             c.a.d.f.m.a.d(outputStream);
                         }
-                        this.f2304c.unLock();
+                        this.f2268c.unLock();
                         return false;
                     }
                 }
-                byte[] buildFormatData = this.f2304c.buildFormatData();
-                byte[] data = this.f2304c.getData();
-                if ((buildFormatData == null && data == null) || this.f2303b.get()) {
+                byte[] buildFormatData = this.f2268c.buildFormatData();
+                byte[] data = this.f2268c.getData();
+                if ((buildFormatData == null && data == null) || this.f2267b.get()) {
                     if (!z) {
                         c.a.d.f.m.a.d(outputStream);
                     }
-                    this.f2304c.unLock();
+                    this.f2268c.unLock();
                     return false;
                 }
                 if (buildFormatData != null) {
@@ -193,20 +193,20 @@ public class e {
                     outputStream.write(data);
                 }
                 outputStream.flush();
-                this.f2304c.setFileInfo(fileInfo);
-                this.f2304c.setSuccess(true);
+                this.f2268c.setFileInfo(fileInfo);
+                this.f2268c.setSuccess(true);
                 if (!z) {
                     c.a.d.f.m.a.d(outputStream);
                 } else {
-                    this.f2304c.setOutputStream(outputStream);
+                    this.f2268c.setOutputStream(outputStream);
                 }
-                this.f2304c.unLock();
+                this.f2268c.unLock();
                 return true;
             } catch (Throwable th) {
                 if (!z) {
                     c.a.d.f.m.a.d(outputStream);
                 }
-                this.f2304c.unLock();
+                this.f2268c.unLock();
                 throw th;
             }
         }
@@ -216,7 +216,7 @@ public class e {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f2303b.set(true);
+            this.f2267b.set(true);
         }
     }
 
@@ -226,16 +226,16 @@ public class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
                 try {
-                    r0 = this.f2304c.getCustomOperate() != null ? this.f2304c.getCustomOperate().a(this, this.f2304c, this.a) : false;
+                    r0 = this.f2268c.getCustomOperate() != null ? this.f2268c.getCustomOperate().a(this, this.f2268c, this.a) : false;
                     if (r0) {
-                        this.f2304c.setSuccess(true);
+                        this.f2268c.setSuccess(true);
                     }
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
                 return r0;
             } finally {
-                this.f2304c.unLock();
+                this.f2268c.unLock();
             }
         }
         return invokeV.booleanValue;
@@ -245,7 +245,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            switch (a.a[this.f2304c.getAction().ordinal()]) {
+            switch (a.a[this.f2268c.getAction().ordinal()]) {
                 case 1:
                     return i(false);
                 case 2:
@@ -278,13 +278,13 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, file)) == null) {
             if (file != null) {
-                DiskFileOperate diskFileOperate = this.f2304c;
+                DiskFileOperate diskFileOperate = this.f2268c;
                 if (diskFileOperate instanceof c.a.d.f.a.a) {
                     c.a.d.f.a.a aVar = (c.a.d.f.a.a) diskFileOperate;
                     if (file.isDirectory()) {
                         File[] listFiles = file.listFiles();
                         if (listFiles != null) {
-                            for (int i2 = 0; i2 < listFiles.length && !this.f2303b.get(); i2++) {
+                            for (int i2 = 0; i2 < listFiles.length && !this.f2267b.get(); i2++) {
                                 if (listFiles[i2].isDirectory()) {
                                     d(listFiles[i2]);
                                 } else if (aVar.compare(listFiles[i2])) {
@@ -311,18 +311,18 @@ public class e {
             boolean z = false;
             try {
                 try {
-                    File d2 = this.a.d(this.f2304c.getPath(), false, this.f2304c.isSdCard(), this.f2304c.isSavedCache());
+                    File d2 = this.a.d(this.f2268c.getPath(), false, this.f2268c.isSdCard(), this.f2268c.isSavedCache());
                     z = d(d2);
                     if (z) {
-                        this.f2304c.setFileInfo(d2);
-                        this.f2304c.setSuccess(true);
+                        this.f2268c.setFileInfo(d2);
+                        this.f2268c.setSuccess(true);
                     }
                 } catch (Exception e2) {
                     e2.getMessage();
                 }
                 return z;
             } finally {
-                this.f2304c.unLock();
+                this.f2268c.unLock();
             }
         }
         return invokeV.booleanValue;
@@ -333,18 +333,18 @@ public class e {
         File d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f2304c.getName() != null) {
-                d2 = this.a.c(this.f2304c.buildPath(), this.f2304c.getName(), false, this.f2304c.isSdCard(), this.f2304c.isSavedCache());
+            if (this.f2268c.getName() != null) {
+                d2 = this.a.c(this.f2268c.buildPath(), this.f2268c.getName(), false, this.f2268c.isSdCard(), this.f2268c.isSavedCache());
             } else {
-                d2 = this.a.d(this.f2304c.buildPath(), false, this.f2304c.isSdCard(), this.f2304c.isSavedCache());
+                d2 = this.a.d(this.f2268c.buildPath(), false, this.f2268c.isSdCard(), this.f2268c.isSavedCache());
             }
             if (d2 != null && d2.exists()) {
-                this.f2304c.setFileInfo(d2);
-                this.f2304c.setSuccess(true);
-                this.f2304c.unLock();
+                this.f2268c.setFileInfo(d2);
+                this.f2268c.setSuccess(true);
+                this.f2268c.unLock();
                 return true;
             }
-            this.f2304c.unLock();
+            this.f2268c.unLock();
             return false;
         }
         return invokeV.booleanValue;
@@ -359,10 +359,10 @@ public class e {
         File c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            this.f2304c.startLog();
+            this.f2268c.startLog();
             boolean z = false;
             try {
-                c2 = this.a.c(this.f2304c.buildPath(), this.f2304c.getName(), false, this.f2304c.isSdCard(), this.f2304c.isSavedCache());
+                c2 = this.a.c(this.f2268c.buildPath(), this.f2268c.getName(), false, this.f2268c.isSdCard(), this.f2268c.isSavedCache());
             } catch (Exception e3) {
                 fileInputStream = null;
                 e2 = e3;
@@ -372,7 +372,7 @@ public class e {
                 byteArrayOutputStream = null;
                 fileInputStream = null;
             }
-            if (c2 != null && c2.exists() && !this.f2303b.get()) {
+            if (c2 != null && c2.exists() && !this.f2267b.get()) {
                 fileInputStream = new FileInputStream(c2);
                 try {
                     byteArrayOutputStream = new ByteArrayOutputStream(1024);
@@ -381,37 +381,37 @@ public class e {
                             byte[] bArr = new byte[1024];
                             while (true) {
                                 int read = fileInputStream.read(bArr, 0, 1024);
-                                if (read == -1 || this.f2303b.get()) {
+                                if (read == -1 || this.f2267b.get()) {
                                     break;
                                 }
                                 byteArrayOutputStream.write(bArr, 0, read);
                             }
-                            if (!this.f2303b.get()) {
+                            if (!this.f2267b.get()) {
                                 byte[] byteArray = byteArrayOutputStream.toByteArray();
-                                if (!this.f2304c.isFormatData() || this.f2304c.formatData(byteArray)) {
-                                    this.f2304c.setData(byteArray);
+                                if (!this.f2268c.isFormatData() || this.f2268c.formatData(byteArray)) {
+                                    this.f2268c.setData(byteArray);
                                     z = true;
                                 }
                             }
                             c.a.d.f.m.a.c(fileInputStream);
                             c.a.d.f.m.a.d(byteArrayOutputStream);
                             if (z) {
-                                this.f2304c.setSuccess(true);
+                                this.f2268c.setSuccess(true);
                             }
                         } catch (Exception e4) {
                             e2 = e4;
                             BdLog.e(e2.getMessage());
                             c.a.d.f.m.a.c(fileInputStream);
                             c.a.d.f.m.a.d(byteArrayOutputStream);
-                            this.f2304c.unLock();
-                            this.f2304c.endLog();
+                            this.f2268c.unLock();
+                            this.f2268c.endLog();
                             return z;
                         }
                     } catch (Throwable th3) {
                         th = th3;
                         c.a.d.f.m.a.c(fileInputStream);
                         c.a.d.f.m.a.d(byteArrayOutputStream);
-                        this.f2304c.unLock();
+                        this.f2268c.unLock();
                         throw th;
                     }
                 } catch (Exception e5) {
@@ -423,16 +423,16 @@ public class e {
                     th = th;
                     c.a.d.f.m.a.c(fileInputStream);
                     c.a.d.f.m.a.d(byteArrayOutputStream);
-                    this.f2304c.unLock();
+                    this.f2268c.unLock();
                     throw th;
                 }
-                this.f2304c.unLock();
-                this.f2304c.endLog();
+                this.f2268c.unLock();
+                this.f2268c.endLog();
                 return z;
             }
             c.a.d.f.m.a.c(null);
             c.a.d.f.m.a.d(null);
-            this.f2304c.unLock();
+            this.f2268c.unLock();
             return false;
         }
         return invokeV.booleanValue;
@@ -445,8 +445,8 @@ public class e {
             boolean z = false;
             try {
                 try {
-                    File c2 = this.a.c(this.f2304c.buildPath(), this.f2304c.getName(), false, this.f2304c.isSdCard(), this.f2304c.isSavedCache());
-                    File c3 = this.a.c(this.f2304c.buildDesPath(), this.f2304c.getDesName(), true, this.f2304c.isSdCard(), this.f2304c.isSavedCache());
+                    File c2 = this.a.c(this.f2268c.buildPath(), this.f2268c.getName(), false, this.f2268c.isSdCard(), this.f2268c.isSavedCache());
+                    File c3 = this.a.c(this.f2268c.buildDesPath(), this.f2268c.getDesName(), true, this.f2268c.isSdCard(), this.f2268c.isSavedCache());
                     if (c2 != null) {
                         if (c3 != null) {
                             c3.delete();
@@ -454,14 +454,14 @@ public class e {
                         z = c2.renameTo(c3);
                     }
                     if (z) {
-                        this.f2304c.setSuccess(true);
+                        this.f2268c.setSuccess(true);
                     }
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
                 return z;
             } finally {
-                this.f2304c.unLock();
+                this.f2268c.unLock();
             }
         }
         return invokeV.booleanValue;
@@ -476,20 +476,20 @@ public class e {
         FileOutputStream fileOutputStream = null;
         try {
             try {
-                File c2 = this.a.c(this.f2304c.buildPath(), this.f2304c.getName(), true, this.f2304c.isSdCard(), this.f2304c.isSavedCache());
-                if (c2 != null && !this.f2303b.get()) {
+                File c2 = this.a.c(this.f2268c.buildPath(), this.f2268c.getName(), true, this.f2268c.isSdCard(), this.f2268c.isSavedCache());
+                if (c2 != null && !this.f2267b.get()) {
                     if (c2.exists()) {
                         if (z) {
                             c2.delete();
                         } else {
                             c.a.d.f.m.a.d(null);
-                            this.f2304c.unLock();
+                            this.f2268c.unLock();
                             return true;
                         }
                     }
-                    byte[] buildFormatData = this.f2304c.buildFormatData();
-                    byte[] data = this.f2304c.getData();
-                    if ((buildFormatData != null || data != null) && !this.f2303b.get()) {
+                    byte[] buildFormatData = this.f2268c.buildFormatData();
+                    byte[] data = this.f2268c.getData();
+                    if ((buildFormatData != null || data != null) && !this.f2267b.get()) {
                         FileOutputStream fileOutputStream2 = new FileOutputStream(c2);
                         if (buildFormatData != null) {
                             try {
@@ -499,13 +499,13 @@ public class e {
                                 fileOutputStream = fileOutputStream2;
                                 BdLog.e(e.getMessage());
                                 c.a.d.f.m.a.d(fileOutputStream);
-                                this.f2304c.unLock();
+                                this.f2268c.unLock();
                                 return false;
                             } catch (Throwable th) {
                                 th = th;
                                 fileOutputStream = fileOutputStream2;
                                 c.a.d.f.m.a.d(fileOutputStream);
-                                this.f2304c.unLock();
+                                this.f2268c.unLock();
                                 throw th;
                             }
                         }
@@ -514,14 +514,14 @@ public class e {
                         }
                         fileOutputStream2.flush();
                         c.a.d.f.m.a.d(fileOutputStream2);
-                        this.f2304c.setFileInfo(c2);
-                        this.f2304c.setSuccess(true);
-                        this.f2304c.unLock();
+                        this.f2268c.setFileInfo(c2);
+                        this.f2268c.setSuccess(true);
+                        this.f2268c.unLock();
                         return true;
                     }
                 }
                 c.a.d.f.m.a.d(null);
-                this.f2304c.unLock();
+                this.f2268c.unLock();
                 return false;
             } catch (Throwable th2) {
                 th = th2;

@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.sapi2.stat.ShareLoginStat;
@@ -26,16 +27,17 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CoreStatPlugin extends AbsPlugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TYPE = "type";
+    public static final String TAG = "CoreStatPlugin";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsShowFirstFrame;
-    public PlayerLoadingFlow mLoadingFlow;
+    public final PlayerLoadingFlow mLoadingFlow;
     public long mStartLoadingTime;
     public BDVideoPlayerUbcContent mUBCContent;
-    public UBCManager mUBCService;
+    public final UBCManager mUBCService;
 
     public CoreStatPlugin() {
         Interceptable interceptable = $ic;
@@ -67,15 +69,47 @@ public class CoreStatPlugin extends AbsPlugin {
         sendEvent(obtainEvent);
     }
 
+    private long getMsgChannelCost(@Nullable String str) {
+        InterceptResult invokeL;
+        long parseLong;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0L;
+            }
+            try {
+                parseLong = Long.parseLong(new JSONObject(str).optString("first_disp_notify_time"));
+                long currentTimeMillis = System.currentTimeMillis();
+                StringBuilder sb = new StringBuilder();
+                sb.append("getMsgChannelCost时间：");
+                sb.append(currentTimeMillis);
+                sb.append("; firstDisplayNotifyTime = ");
+                sb.append(parseLong);
+                sb.append("; diff = ");
+                j2 = currentTimeMillis - parseLong;
+                sb.append(j2);
+                BdVideoLog.d(TAG, sb.toString());
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            if (parseLong > 0) {
+                return j2;
+            }
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
     private String getPlayerKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? getBindPlayer() != null ? getBindPlayer().getVideoUniqueKey() : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? getBindPlayer() != null ? getBindPlayer().getVideoUniqueKey() : "" : (String) invokeV.objValue;
     }
 
     private void onBufferEnd() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || System.currentTimeMillis() - this.mStartLoadingTime < 300) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || System.currentTimeMillis() - this.mStartLoadingTime < 300) {
             return;
         }
         try {
@@ -89,7 +123,7 @@ public class CoreStatPlugin extends AbsPlugin {
 
     private void onBufferStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.mStartLoadingTime = System.currentTimeMillis();
             this.mLoadingFlow.createFlow();
         }
@@ -97,7 +131,7 @@ public class CoreStatPlugin extends AbsPlugin {
 
     private void onCarlton(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, this, bDVideoPlayerUbcContent, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, this, bDVideoPlayerUbcContent, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         BdVideoLog.d("【Statistics】 onCarlton upload begin");
@@ -117,7 +151,7 @@ public class CoreStatPlugin extends AbsPlugin {
 
     private void onError(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65542, this, bDVideoPlayerUbcContent, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65543, this, bDVideoPlayerUbcContent, i2, str) == null) {
             BdVideoLog.d("【Statistics】 onError upload begin");
             try {
                 JSONObject extStatisticsLogClone = bDVideoPlayerUbcContent.getExtStatisticsLogClone();
@@ -131,29 +165,6 @@ public class CoreStatPlugin extends AbsPlugin {
         }
     }
 
-    private void setKernelExternalInfo(@Nullable Flow flow) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, this, flow) == null) || flow == null) {
-            return;
-        }
-        HashMap<String, Slot> slotMaps = flow.getSlotMaps();
-        long startTime = flow.getStartTime();
-        if (slotMaps == null || slotMaps.size() <= 0) {
-            return;
-        }
-        HashMap<String, String> hashMap = new HashMap<>();
-        for (Map.Entry<String, Slot> entry : slotMaps.entrySet()) {
-            String key = entry.getKey();
-            Slot value = entry.getValue();
-            if (!TextUtils.isEmpty(key) && value != null) {
-                hashMap.put(key, String.valueOf(value.getEnd() - value.getStart()));
-            }
-        }
-        hashMap.put("type", String.valueOf((int) DpStatConstants.SESSION_TYPE_FIRST_SCREEN));
-        hashMap.put("click_time", String.valueOf(startTime));
-        this.mUBCContent.getPlayerFetcher().setKernelExternalInfo(hashMap);
-    }
-
     @Override // com.baidu.searchbox.player.interfaces.INeuron
     @Nullable
     public int[] getSubscribeEvent() {
@@ -162,9 +173,15 @@ public class CoreStatPlugin extends AbsPlugin {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{6} : (int[]) invokeV.objValue;
     }
 
+    public BDVideoPlayerUbcContent getUploadUBCContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mUBCContent : (BDVideoPlayerUbcContent) invokeV.objValue;
+    }
+
     public void onFirstFrameDisPlay(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bDVideoPlayerUbcContent) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bDVideoPlayerUbcContent) == null) {
             BdVideoLog.d("【Statistics】 onFirstFrameDisPlay upload begin");
             try {
                 JSONObject jSONObject = new JSONObject();
@@ -181,62 +198,69 @@ public class CoreStatPlugin extends AbsPlugin {
     public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoEvent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, videoEvent) == null) {
             super.onVideoEventNotify(videoEvent);
             String action = videoEvent.getAction();
             switch (action.hashCode()) {
+                case -2127352417:
+                    if (action.equals(StatisticsEvent.ACTION_UPDATE_CONTENT)) {
+                        c2 = 0;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
                 case -1771982113:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY)) {
-                        c2 = 7;
+                        c2 = '\b';
                         break;
                     }
                     c2 = 65535;
                     break;
                 case -545382619:
                     if (action.equals(StatisticsEvent.ACTION_BUFFER_START)) {
-                        c2 = 4;
+                        c2 = 5;
                         break;
                     }
                     c2 = 65535;
                     break;
                 case -192759714:
                     if (action.equals(StatisticsEvent.ACTION_BUFFER_END)) {
-                        c2 = 5;
+                        c2 = 6;
                         break;
                     }
                     c2 = 65535;
                     break;
                 case -168110661:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_COMPLETE)) {
-                        c2 = 3;
+                        c2 = 4;
                         break;
                     }
                     c2 = 65535;
                     break;
                 case 1537938041:
                     if (action.equals("statistics_player_carlton")) {
-                        c2 = 0;
+                        c2 = 1;
                         break;
                     }
                     c2 = 65535;
                     break;
                 case 2082163910:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_ERROR)) {
-                        c2 = 1;
+                        c2 = 2;
                         break;
                     }
                     c2 = 65535;
                     break;
                 case 2095136544:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_START)) {
-                        c2 = 6;
+                        c2 = 7;
                         break;
                     }
                     c2 = 65535;
                     break;
                 case 2145795460:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
-                        c2 = 2;
+                        c2 = 3;
                         break;
                     }
                     c2 = 65535;
@@ -247,46 +271,72 @@ public class CoreStatPlugin extends AbsPlugin {
             }
             switch (c2) {
                 case 0:
-                    onCarlton(this.mUBCContent, videoEvent.getStringExtra(2));
+                    this.mUBCContent = (BDVideoPlayerUbcContent) videoEvent.getExtra(13);
                     return;
                 case 1:
-                    PlayerSpeedTracker.cancelTrack(getPlayerKey());
-                    String stringExtra = videoEvent.getStringExtra(2);
-                    onError(this.mUBCContent, videoEvent.getIntExtra(4), stringExtra);
+                    onCarlton(getUploadUBCContent(), videoEvent.getStringExtra(2));
                     return;
                 case 2:
-                    this.mIsShowFirstFrame = false;
-                    this.mLoadingFlow.cancelFlow();
                     PlayerSpeedTracker.cancelTrack(getPlayerKey());
+                    String stringExtra = videoEvent.getStringExtra(2);
+                    onError(getUploadUBCContent(), videoEvent.getIntExtra(4), stringExtra);
                     return;
                 case 3:
                     this.mIsShowFirstFrame = false;
                     this.mLoadingFlow.cancelFlow();
+                    PlayerSpeedTracker.cancelTrack(getPlayerKey());
                     return;
                 case 4:
-                    onBufferStart();
+                    this.mIsShowFirstFrame = false;
+                    this.mLoadingFlow.cancelFlow();
                     return;
                 case 5:
-                    onBufferEnd();
+                    onBufferStart();
                     return;
                 case 6:
+                    onBufferEnd();
+                    return;
+                case 7:
                     this.mIsShowFirstFrame = false;
                     PlayerSpeedTracker.endAfterInitToPlayPart(getPlayerKey());
                     PlayerSpeedTracker.beginCallPlayerStart(getPlayerKey());
                     return;
-                case 7:
+                case '\b':
                     PlayerSpeedTracker.endPlayCore(getPlayerKey());
                     this.mIsShowFirstFrame = true;
                     String stringExtra2 = videoEvent.getStringExtra(2);
-                    onFirstFrameDisPlay(this.mUBCContent);
+                    onFirstFrameDisPlay(getUploadUBCContent());
                     Flow flow = FlowInstanceManager.getFlow(getPlayerKey());
                     setKernelExternalInfo(flow);
-                    dispatchMonitorEvent(flow, this.mUBCContent);
-                    PlayerSpeedTracker.endTrack(getPlayerKey(), this.mUBCContent, stringExtra2);
+                    dispatchMonitorEvent(flow, getUploadUBCContent());
+                    PlayerSpeedTracker.endTrack(getPlayerKey(), getUploadUBCContent(), stringExtra2, getMsgChannelCost(stringExtra2));
                     return;
                 default:
                     return;
             }
         }
+    }
+
+    public void setKernelExternalInfo(@Nullable Flow flow) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, flow) == null) || flow == null || getBindPlayer() == null) {
+            return;
+        }
+        HashMap<String, Slot> slotMaps = flow.getSlotMaps();
+        long startTime = flow.getStartTime();
+        if (slotMaps == null || slotMaps.size() <= 0) {
+            return;
+        }
+        HashMap hashMap = new HashMap();
+        for (Map.Entry<String, Slot> entry : slotMaps.entrySet()) {
+            String key = entry.getKey();
+            Slot value = entry.getValue();
+            if (!TextUtils.isEmpty(key) && value != null) {
+                hashMap.put(key, String.valueOf(value.getEnd() - value.getStart()));
+            }
+        }
+        hashMap.put("type", String.valueOf((int) DpStatConstants.SESSION_TYPE_FIRST_SCREEN));
+        hashMap.put("click_time", String.valueOf(startTime));
+        getBindPlayer().setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
     }
 }

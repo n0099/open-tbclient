@@ -27,7 +27,7 @@ import java.util.Collections;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FlutterLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AOT_SHARED_LIBRARY_NAME = "aot-shared-library-name";
@@ -52,7 +52,7 @@ public class FlutterLoader {
     @Nullable
     public Settings settings;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class InitResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class FlutterLoader {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Settings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

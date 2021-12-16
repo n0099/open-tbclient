@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.IABTestInterface;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ABTestSDK implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "ABTestSDK";

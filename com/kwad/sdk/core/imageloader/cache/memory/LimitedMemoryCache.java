@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class LimitedMemoryCache extends BaseMemoryCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_NORMAL_CACHE_SIZE = 16777216;

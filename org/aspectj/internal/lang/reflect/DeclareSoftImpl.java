@@ -11,7 +11,7 @@ import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.DeclareSoft;
 import org.aspectj.lang.reflect.PointcutExpression;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DeclareSoftImpl implements DeclareSoft {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

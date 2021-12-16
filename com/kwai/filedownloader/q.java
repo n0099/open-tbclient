@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.x;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final b a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final q a;
@@ -41,14 +41,14 @@ public class q {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ThreadPoolExecutor a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LinkedBlockingQueue<Runnable> f60049b;
+        public LinkedBlockingQueue<Runnable> f60630b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class q {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 LinkedBlockingQueue<Runnable> linkedBlockingQueue = new LinkedBlockingQueue<>();
-                this.f60049b = linkedBlockingQueue;
+                this.f60630b = linkedBlockingQueue;
                 this.a = com.kwai.filedownloader.e.b.a(3, linkedBlockingQueue, "LauncherTask");
             }
         }
@@ -85,19 +85,19 @@ public class q {
         public void b(x.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                this.f60049b.remove(bVar);
+                this.f60630b.remove(bVar);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final x.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f60050b;
+        public boolean f60631b;
 
         public c(x.b bVar) {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class q {
                 }
             }
             this.a = bVar;
-            this.f60050b = false;
+            this.f60631b = false;
         }
 
         public boolean equals(Object obj) {
@@ -127,7 +127,7 @@ public class q {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f60050b) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f60631b) {
                 return;
             }
             this.a.p();

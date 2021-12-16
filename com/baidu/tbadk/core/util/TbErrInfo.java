@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.res.Resources;
-import c.a.d.f.p.f;
+import c.a.d.f.p.g;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TbErrInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERR_FILE_IO_SD = -25;
@@ -193,7 +193,7 @@ public class TbErrInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int y = f.y();
+            int y = g.y();
             if (y != 1) {
                 if (y != 2) {
                     return y != 3 ? 0 : -25;

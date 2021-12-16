@@ -11,7 +11,7 @@ import com.kwad.sdk.core.response.model.CouponInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class q implements com.kwad.sdk.core.d<AdProductInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

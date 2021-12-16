@@ -10,52 +10,52 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface b {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Handler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final b f29483b;
+        public final b f29853b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f29484c;
+        public final long f29854c;
 
         /* renamed from: c.i.b.a.d0.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC1596a implements Runnable {
+        /* loaded from: classes9.dex */
+        public class RunnableC1635a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.i.b.a.h0.g f29485e;
+            public final /* synthetic */ c.i.b.a.h0.g f29855e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f29486f;
+            public final /* synthetic */ int f29856f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f29487g;
+            public final /* synthetic */ int f29857g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ Format f29488h;
+            public final /* synthetic */ Format f29858h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ int f29489i;
+            public final /* synthetic */ int f29859i;
 
             /* renamed from: j  reason: collision with root package name */
-            public final /* synthetic */ Object f29490j;
+            public final /* synthetic */ Object f29860j;
 
             /* renamed from: k  reason: collision with root package name */
-            public final /* synthetic */ long f29491k;
+            public final /* synthetic */ long f29861k;
             public final /* synthetic */ long l;
             public final /* synthetic */ long m;
             public final /* synthetic */ a n;
 
-            public RunnableC1596a(a aVar, c.i.b.a.h0.g gVar, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4) {
+            public RunnableC1635a(a aVar, c.i.b.a.h0.g gVar, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,13 +71,13 @@ public interface b {
                     }
                 }
                 this.n = aVar;
-                this.f29485e = gVar;
-                this.f29486f = i2;
-                this.f29487g = i3;
-                this.f29488h = format;
-                this.f29489i = i4;
-                this.f29490j = obj;
-                this.f29491k = j2;
+                this.f29855e = gVar;
+                this.f29856f = i2;
+                this.f29857g = i3;
+                this.f29858h = format;
+                this.f29859i = i4;
+                this.f29860j = obj;
+                this.f29861k = j2;
                 this.l = j3;
                 this.m = j4;
             }
@@ -86,44 +86,44 @@ public interface b {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.n.f29483b.d(this.f29485e, this.f29486f, this.f29487g, this.f29488h, this.f29489i, this.f29490j, this.n.c(this.f29491k), this.n.c(this.l), this.m);
+                    this.n.f29853b.d(this.f29855e, this.f29856f, this.f29857g, this.f29858h, this.f29859i, this.f29860j, this.n.c(this.f29861k), this.n.c(this.l), this.m);
                 }
             }
         }
 
         /* renamed from: c.i.b.a.d0.b$a$b  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC1597b implements Runnable {
+        /* loaded from: classes9.dex */
+        public class RunnableC1636b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.i.b.a.h0.g f29492e;
+            public final /* synthetic */ c.i.b.a.h0.g f29862e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f29493f;
+            public final /* synthetic */ int f29863f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f29494g;
+            public final /* synthetic */ int f29864g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ Format f29495h;
+            public final /* synthetic */ Format f29865h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ int f29496i;
+            public final /* synthetic */ int f29866i;
 
             /* renamed from: j  reason: collision with root package name */
-            public final /* synthetic */ Object f29497j;
+            public final /* synthetic */ Object f29867j;
 
             /* renamed from: k  reason: collision with root package name */
-            public final /* synthetic */ long f29498k;
+            public final /* synthetic */ long f29868k;
             public final /* synthetic */ long l;
             public final /* synthetic */ long m;
             public final /* synthetic */ long n;
             public final /* synthetic */ long o;
             public final /* synthetic */ a p;
 
-            public RunnableC1597b(a aVar, c.i.b.a.h0.g gVar, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4, long j5, long j6) {
+            public RunnableC1636b(a aVar, c.i.b.a.h0.g gVar, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4, long j5, long j6) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,13 +139,13 @@ public interface b {
                     }
                 }
                 this.p = aVar;
-                this.f29492e = gVar;
-                this.f29493f = i2;
-                this.f29494g = i3;
-                this.f29495h = format;
-                this.f29496i = i4;
-                this.f29497j = obj;
-                this.f29498k = j2;
+                this.f29862e = gVar;
+                this.f29863f = i2;
+                this.f29864g = i3;
+                this.f29865h = format;
+                this.f29866i = i4;
+                this.f29867j = obj;
+                this.f29868k = j2;
                 this.l = j3;
                 this.m = j4;
                 this.n = j5;
@@ -156,36 +156,36 @@ public interface b {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.p.f29483b.e(this.f29492e, this.f29493f, this.f29494g, this.f29495h, this.f29496i, this.f29497j, this.p.c(this.f29498k), this.p.c(this.l), this.m, this.n, this.o);
+                    this.p.f29853b.e(this.f29862e, this.f29863f, this.f29864g, this.f29865h, this.f29866i, this.f29867j, this.p.c(this.f29868k), this.p.c(this.l), this.m, this.n, this.o);
                 }
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public class c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.i.b.a.h0.g f29499e;
+            public final /* synthetic */ c.i.b.a.h0.g f29869e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f29500f;
+            public final /* synthetic */ int f29870f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f29501g;
+            public final /* synthetic */ int f29871g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ Format f29502h;
+            public final /* synthetic */ Format f29872h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ int f29503i;
+            public final /* synthetic */ int f29873i;
 
             /* renamed from: j  reason: collision with root package name */
-            public final /* synthetic */ Object f29504j;
+            public final /* synthetic */ Object f29874j;
 
             /* renamed from: k  reason: collision with root package name */
-            public final /* synthetic */ long f29505k;
+            public final /* synthetic */ long f29875k;
             public final /* synthetic */ long l;
             public final /* synthetic */ long m;
             public final /* synthetic */ long n;
@@ -208,13 +208,13 @@ public interface b {
                     }
                 }
                 this.p = aVar;
-                this.f29499e = gVar;
-                this.f29500f = i2;
-                this.f29501g = i3;
-                this.f29502h = format;
-                this.f29503i = i4;
-                this.f29504j = obj;
-                this.f29505k = j2;
+                this.f29869e = gVar;
+                this.f29870f = i2;
+                this.f29871g = i3;
+                this.f29872h = format;
+                this.f29873i = i4;
+                this.f29874j = obj;
+                this.f29875k = j2;
                 this.l = j3;
                 this.m = j4;
                 this.n = j5;
@@ -225,36 +225,36 @@ public interface b {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.p.f29483b.b(this.f29499e, this.f29500f, this.f29501g, this.f29502h, this.f29503i, this.f29504j, this.p.c(this.f29505k), this.p.c(this.l), this.m, this.n, this.o);
+                    this.p.f29853b.b(this.f29869e, this.f29870f, this.f29871g, this.f29872h, this.f29873i, this.f29874j, this.p.c(this.f29875k), this.p.c(this.l), this.m, this.n, this.o);
                 }
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public class d implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.i.b.a.h0.g f29506e;
+            public final /* synthetic */ c.i.b.a.h0.g f29876e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f29507f;
+            public final /* synthetic */ int f29877f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f29508g;
+            public final /* synthetic */ int f29878g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ Format f29509h;
+            public final /* synthetic */ Format f29879h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ int f29510i;
+            public final /* synthetic */ int f29880i;
 
             /* renamed from: j  reason: collision with root package name */
-            public final /* synthetic */ Object f29511j;
+            public final /* synthetic */ Object f29881j;
 
             /* renamed from: k  reason: collision with root package name */
-            public final /* synthetic */ long f29512k;
+            public final /* synthetic */ long f29882k;
             public final /* synthetic */ long l;
             public final /* synthetic */ long m;
             public final /* synthetic */ long n;
@@ -279,13 +279,13 @@ public interface b {
                     }
                 }
                 this.r = aVar;
-                this.f29506e = gVar;
-                this.f29507f = i2;
-                this.f29508g = i3;
-                this.f29509h = format;
-                this.f29510i = i4;
-                this.f29511j = obj;
-                this.f29512k = j2;
+                this.f29876e = gVar;
+                this.f29877f = i2;
+                this.f29878g = i3;
+                this.f29879h = format;
+                this.f29880i = i4;
+                this.f29881j = obj;
+                this.f29882k = j2;
                 this.l = j3;
                 this.m = j4;
                 this.n = j5;
@@ -298,33 +298,33 @@ public interface b {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.r.f29483b.c(this.f29506e, this.f29507f, this.f29508g, this.f29509h, this.f29510i, this.f29511j, this.r.c(this.f29512k), this.r.c(this.l), this.m, this.n, this.o, this.p, this.q);
+                    this.r.f29853b.c(this.f29876e, this.f29877f, this.f29878g, this.f29879h, this.f29880i, this.f29881j, this.r.c(this.f29882k), this.r.c(this.l), this.m, this.n, this.o, this.p, this.q);
                 }
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public class e implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f29513e;
+            public final /* synthetic */ int f29883e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Format f29514f;
+            public final /* synthetic */ Format f29884f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f29515g;
+            public final /* synthetic */ int f29885g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ Object f29516h;
+            public final /* synthetic */ Object f29886h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ long f29517i;
+            public final /* synthetic */ long f29887i;
 
             /* renamed from: j  reason: collision with root package name */
-            public final /* synthetic */ a f29518j;
+            public final /* synthetic */ a f29888j;
 
             public e(a aVar, int i2, Format format, int i3, Object obj, long j2) {
                 Interceptable interceptable = $ic;
@@ -341,19 +341,19 @@ public interface b {
                         return;
                     }
                 }
-                this.f29518j = aVar;
-                this.f29513e = i2;
-                this.f29514f = format;
-                this.f29515g = i3;
-                this.f29516h = obj;
-                this.f29517i = j2;
+                this.f29888j = aVar;
+                this.f29883e = i2;
+                this.f29884f = format;
+                this.f29885g = i3;
+                this.f29886h = obj;
+                this.f29887i = j2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f29518j.f29483b.a(this.f29513e, this.f29514f, this.f29515g, this.f29516h, this.f29518j.c(this.f29517i));
+                    this.f29888j.f29853b.a(this.f29883e, this.f29884f, this.f29885g, this.f29886h, this.f29888j.c(this.f29887i));
                 }
             }
         }
@@ -387,7 +387,7 @@ public interface b {
                 if (b2 == -9223372036854775807L) {
                     return -9223372036854775807L;
                 }
-                return this.f29484c + b2;
+                return this.f29854c + b2;
             }
             return invokeJ.longValue;
         }
@@ -395,12 +395,12 @@ public interface b {
         public a d(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? new a(this.a, this.f29483b, j2) : (a) invokeJ.objValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? new a(this.a, this.f29853b, j2) : (a) invokeJ.objValue;
         }
 
         public void e(int i2, Format format, int i3, Object obj, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), format, Integer.valueOf(i3), obj, Long.valueOf(j2)}) == null) || this.f29483b == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), format, Integer.valueOf(i3), obj, Long.valueOf(j2)}) == null) || this.f29853b == null) {
                 return;
             }
             this.a.post(new e(this, i2, format, i3, obj, j2));
@@ -408,7 +408,7 @@ public interface b {
 
         public void f(c.i.b.a.h0.g gVar, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4, long j5, long j6) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{gVar, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) || this.f29483b == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{gVar, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) || this.f29853b == null) {
                 return;
             }
             this.a.post(new c(this, gVar, i2, i3, format, i4, obj, j2, j3, j4, j5, j6));
@@ -423,10 +423,10 @@ public interface b {
 
         public void h(c.i.b.a.h0.g gVar, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4, long j5, long j6) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{gVar, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) || this.f29483b == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{gVar, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) || this.f29853b == null) {
                 return;
             }
-            this.a.post(new RunnableC1597b(this, gVar, i2, i3, format, i4, obj, j2, j3, j4, j5, j6));
+            this.a.post(new RunnableC1636b(this, gVar, i2, i3, format, i4, obj, j2, j3, j4, j5, j6));
         }
 
         public void i(c.i.b.a.h0.g gVar, int i2, long j2, long j3, long j4) {
@@ -438,7 +438,7 @@ public interface b {
 
         public void j(c.i.b.a.h0.g gVar, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4, long j5, long j6, IOException iOException, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{gVar, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), iOException, Boolean.valueOf(z)}) == null) || this.f29483b == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{gVar, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), iOException, Boolean.valueOf(z)}) == null) || this.f29853b == null) {
                 return;
             }
             this.a.post(new d(this, gVar, i2, i3, format, i4, obj, j2, j3, j4, j5, j6, iOException, z));
@@ -453,10 +453,10 @@ public interface b {
 
         public void l(c.i.b.a.h0.g gVar, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{gVar, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) || this.f29483b == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{gVar, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) || this.f29853b == null) {
                 return;
             }
-            this.a.post(new RunnableC1596a(this, gVar, i2, i3, format, i4, obj, j2, j3, j4));
+            this.a.post(new RunnableC1635a(this, gVar, i2, i3, format, i4, obj, j2, j3, j4));
         }
 
         public void m(c.i.b.a.h0.g gVar, int i2, long j2) {
@@ -489,8 +489,8 @@ public interface b {
                 handler2 = null;
             }
             this.a = handler2;
-            this.f29483b = bVar;
-            this.f29484c = j2;
+            this.f29853b = bVar;
+            this.f29854c = j2;
         }
     }
 

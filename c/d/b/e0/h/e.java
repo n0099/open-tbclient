@@ -21,41 +21,41 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final c.d.b.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d f28137b;
+    public final d f28512b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.d.b.e f28138c;
+    public final c.d.b.e f28513c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final p f28139d;
+    public final p f28514d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<Proxy> f28140e;
+    public List<Proxy> f28515e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28141f;
+    public int f28516f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<InetSocketAddress> f28142g;
+    public List<InetSocketAddress> f28517g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<d0> f28143h;
+    public final List<d0> f28518h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final List<d0> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f28144b;
+        public int f28519b;
 
         public a(List<d0> list) {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public final class e {
                     return;
                 }
             }
-            this.f28144b = 0;
+            this.f28519b = 0;
             this.a = list;
         }
 
@@ -85,7 +85,7 @@ public final class e {
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28144b < this.a.size() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28519b < this.a.size() : invokeV.booleanValue;
         }
 
         public void c() {
@@ -93,7 +93,7 @@ public final class e {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 for (int i2 = 0; i2 < this.a.size(); i2++) {
                     if (this.a.get(i2).d().getAddress() instanceof Inet4Address) {
-                        this.f28144b = i2;
+                        this.f28519b = i2;
                         return;
                     }
                 }
@@ -106,8 +106,8 @@ public final class e {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 if (b()) {
                     List<d0> list = this.a;
-                    int i2 = this.f28144b;
-                    this.f28144b = i2 + 1;
+                    int i2 = this.f28519b;
+                    this.f28519b = i2 + 1;
                     return list.get(i2);
                 }
                 throw new NoSuchElementException();
@@ -131,13 +131,13 @@ public final class e {
                 return;
             }
         }
-        this.f28140e = Collections.emptyList();
-        this.f28142g = Collections.emptyList();
-        this.f28143h = new ArrayList();
+        this.f28515e = Collections.emptyList();
+        this.f28517g = Collections.emptyList();
+        this.f28518h = new ArrayList();
         this.a = aVar;
-        this.f28137b = dVar;
-        this.f28138c = eVar;
-        this.f28139d = pVar;
+        this.f28512b = dVar;
+        this.f28513c = eVar;
+        this.f28514d = pVar;
         h(aVar.l(), aVar.g());
     }
 
@@ -160,20 +160,20 @@ public final class e {
             if (d0Var.b().type() != Proxy.Type.DIRECT && this.a.i() != null) {
                 this.a.i().connectFailed(this.a.l().B(), d0Var.b().address(), iOException);
             }
-            this.f28137b.b(d0Var);
+            this.f28512b.b(d0Var);
         }
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d() || !this.f28143h.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d() || !this.f28518h.isEmpty() : invokeV.booleanValue;
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28141f < this.f28140e.size() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28516f < this.f28515e.size() : invokeV.booleanValue;
     }
 
     public a e() throws IOException {
@@ -184,11 +184,11 @@ public final class e {
                 ArrayList arrayList = new ArrayList();
                 while (d()) {
                     Proxy f2 = f();
-                    int size = this.f28142g.size();
+                    int size = this.f28517g.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        d0 d0Var = new d0(this.a, f2, this.f28142g.get(i2));
-                        if (this.f28137b.c(d0Var)) {
-                            this.f28143h.add(d0Var);
+                        d0 d0Var = new d0(this.a, f2, this.f28517g.get(i2));
+                        if (this.f28512b.c(d0Var)) {
+                            this.f28518h.add(d0Var);
                         } else {
                             arrayList.add(d0Var);
                         }
@@ -198,8 +198,8 @@ public final class e {
                     }
                 }
                 if (arrayList.isEmpty()) {
-                    arrayList.addAll(this.f28143h);
-                    this.f28143h.clear();
+                    arrayList.addAll(this.f28518h);
+                    this.f28518h.clear();
                 }
                 return new a(arrayList);
             }
@@ -213,14 +213,14 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (d()) {
-                List<Proxy> list = this.f28140e;
-                int i2 = this.f28141f;
-                this.f28141f = i2 + 1;
+                List<Proxy> list = this.f28515e;
+                int i2 = this.f28516f;
+                this.f28516f = i2 + 1;
                 Proxy proxy = list.get(i2);
                 g(proxy);
                 return proxy;
             }
-            throw new SocketException("No route to " + this.a.l().l() + "; exhausted proxy configurations: " + this.f28140e);
+            throw new SocketException("No route to " + this.a.l().l() + "; exhausted proxy configurations: " + this.f28515e);
         }
         return (Proxy) invokeV.objValue;
     }
@@ -230,7 +230,7 @@ public final class e {
         int w;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, proxy) == null) {
-            this.f28142g = new ArrayList();
+            this.f28517g = new ArrayList();
             if (proxy.type() != Proxy.Type.DIRECT && proxy.type() != Proxy.Type.SOCKS) {
                 SocketAddress address = proxy.address();
                 if (address instanceof InetSocketAddress) {
@@ -246,16 +246,16 @@ public final class e {
             }
             if (w >= 1 && w <= 65535) {
                 if (proxy.type() == Proxy.Type.SOCKS) {
-                    this.f28142g.add(InetSocketAddress.createUnresolved(l, w));
+                    this.f28517g.add(InetSocketAddress.createUnresolved(l, w));
                     return;
                 }
-                this.f28139d.dnsStart(this.f28138c, l);
+                this.f28514d.dnsStart(this.f28513c, l);
                 List<InetAddress> lookup = this.a.c().lookup(l);
                 if (!lookup.isEmpty()) {
-                    this.f28139d.dnsEnd(this.f28138c, l, lookup);
+                    this.f28514d.dnsEnd(this.f28513c, l, lookup);
                     int size = lookup.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        this.f28142g.add(new InetSocketAddress(lookup.get(i2), w));
+                        this.f28517g.add(new InetSocketAddress(lookup.get(i2), w));
                     }
                     return;
                 }
@@ -269,12 +269,12 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, sVar, proxy) == null) {
             if (proxy != null) {
-                this.f28140e = Collections.singletonList(proxy);
+                this.f28515e = Collections.singletonList(proxy);
             } else {
                 List<Proxy> select = this.a.i().select(sVar.B());
-                this.f28140e = (select == null || select.isEmpty()) ? c.d.b.e0.e.t(Proxy.NO_PROXY) : c.d.b.e0.e.s(select);
+                this.f28515e = (select == null || select.isEmpty()) ? c.d.b.e0.e.t(Proxy.NO_PROXY) : c.d.b.e0.e.s(select);
             }
-            this.f28141f = 0;
+            this.f28516f = 0;
         }
     }
 }

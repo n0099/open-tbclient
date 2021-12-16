@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PlayerLoadingFlow implements IUbcFlow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Flow mFlow;
-    public UBCManager mUBCManager;
+    public final UBCManager mUBCManager;
 
     public PlayerLoadingFlow() {
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class PlayerLoadingFlow implements IUbcFlow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, bDVideoPlayerUbcContent, jSONObject, jSONObject2) == null) {
             try {
-                String ubcContent = BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject2);
+                String ubcContent = BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent.getExtStatisticsLogClone(), bDVideoPlayerUbcContent, jSONObject2);
                 if (this.mFlow != null) {
                     this.mUBCManager.flowSetValueWithDuration(this.mFlow, ubcContent);
                     resetFlow();

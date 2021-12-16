@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class p extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,17 +42,17 @@ public class p extends Handler {
             if (message.what != 1101) {
                 return;
             }
-            this.a.f30911e.removeMessages(1101);
+            this.a.f31281e.removeMessages(1101);
             s0 s0Var = this.a;
-            if (!s0Var.f30908b && s0Var.b(s0Var.a)) {
-                p0 p0Var = this.a.f30909c;
+            if (!s0Var.f31278b && s0Var.b(s0Var.a)) {
+                p0 p0Var = this.a.f31279c;
                 if (p0Var != null) {
                     p0Var.a();
                 }
-                this.a.f30908b = true;
+                this.a.f31278b = true;
                 return;
             }
-            this.a.f30911e.sendEmptyMessageDelayed(1101, 300L);
+            this.a.f31281e.sendEmptyMessageDelayed(1101, 300L);
         }
     }
 }

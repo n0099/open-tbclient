@@ -24,7 +24,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ReportAction extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public class ReportAction extends c {
     public JSONArray az;
 
     /* renamed from: b  reason: collision with root package name */
-    public transient SceneImpl f57636b;
+    public transient SceneImpl f58217b;
     public String bA;
     public int bB;
     public int bC;
@@ -151,31 +151,31 @@ public class ReportAction extends c {
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public transient AdTemplate f57637c;
+    public transient AdTemplate f58218c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f57638d;
+    public long f58219d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57639e;
+    public String f58220e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f57640f;
+    public long f58221f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f57641g;
+    public int f58222g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f57642h;
+    public long f58223h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f57643i;
+    public long f58224i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f57644j;
+    public long f58225j;
 
     /* renamed from: k  reason: collision with root package name */
-    public JSONObject f57645k;
+    public JSONObject f58226k;
     public JSONObject l;
     public long m;
     public int n;
@@ -192,7 +192,7 @@ public class ReportAction extends c {
     public long y;
     public long z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LiveLogInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4898843925487388950L;
@@ -214,14 +214,14 @@ public class ReportAction extends c {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57646b;
+        public int f58227b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -243,20 +243,20 @@ public class ReportAction extends c {
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 a aVar = new a();
                 aVar.a = b.a;
-                aVar.f57646b = b.f57647b;
+                aVar.f58227b = b.f58228b;
                 return aVar;
             }
             return (a) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f57647b;
+        public static int f58228b;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
@@ -275,7 +275,7 @@ public class ReportAction extends c {
                 return;
             }
         }
-        this.f57641g = -1;
+        this.f58222g = -1;
         this.n = 0;
         this.o = 0;
         this.B = -1L;
@@ -296,7 +296,7 @@ public class ReportAction extends c {
         this.aZ = -1;
         this.ba = 0;
         this.bK = 0;
-        this.f57643i = j2;
+        this.f58224i = j2;
     }
 
     public ReportAction(long j2, @NonNull AdTemplate adTemplate) {
@@ -314,7 +314,7 @@ public class ReportAction extends c {
                 return;
             }
         }
-        this.f57641g = -1;
+        this.f58222g = -1;
         this.n = 0;
         this.o = 0;
         this.B = -1L;
@@ -335,8 +335,8 @@ public class ReportAction extends c {
         this.aZ = -1;
         this.ba = 0;
         this.bK = 0;
-        this.f57643i = j2;
-        this.f57637c = adTemplate;
+        this.f58224i = j2;
+        this.f58218c = adTemplate;
     }
 
     public ReportAction(String str) {
@@ -354,7 +354,7 @@ public class ReportAction extends c {
                 return;
             }
         }
-        this.f57641g = -1;
+        this.f58222g = -1;
         this.n = 0;
         this.o = 0;
         this.B = -1L;
@@ -397,7 +397,7 @@ public class ReportAction extends c {
                 return;
             }
         }
-        this.f57641g = -1;
+        this.f58222g = -1;
         this.n = 0;
         this.o = 0;
         this.B = -1L;
@@ -457,27 +457,27 @@ public class ReportAction extends c {
             this.aY = bVar.d();
         }
         this.a = UUID.randomUUID().toString();
-        this.f57638d = System.currentTimeMillis();
-        this.f57639e = n.b();
+        this.f58219d = System.currentTimeMillis();
+        this.f58220e = n.b();
         try {
-            this.f57640f = n.c();
+            this.f58221f = n.c();
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
-        this.f57642h = n.e();
-        SceneImpl sceneImpl2 = this.f57636b;
+        this.f58223h = n.e();
+        SceneImpl sceneImpl2 = this.f58217b;
         if (sceneImpl2 == null) {
             if (adTemplate != null && (sceneImpl2 = adTemplate.mAdScene) != null) {
-                this.f57636b = sceneImpl2;
+                this.f58217b = sceneImpl2;
             }
             if (adTemplate != null) {
                 this.q = adTemplate.getShowPosition() + 1;
                 this.r = adTemplate.getServerPosition() + 1;
-                this.f57644j = com.kwad.sdk.core.response.a.d.g(adTemplate);
+                this.f58225j = com.kwad.sdk.core.response.a.d.g(adTemplate);
                 String h2 = com.kwad.sdk.core.response.a.d.h(adTemplate);
                 if (!TextUtils.isEmpty(h2)) {
                     try {
-                        this.f57645k = new JSONObject(h2);
+                        this.f58226k = new JSONObject(h2);
                     } catch (Exception e3) {
                         com.kwad.sdk.core.d.a.b(e3);
                     }
@@ -516,11 +516,11 @@ public class ReportAction extends c {
                     LiveInfo r = com.kwad.sdk.core.response.a.d.r(adTemplate);
                     this.aG.liveStreamId = com.kwad.sdk.live.mode.a.a(r);
                     this.N = com.kwad.sdk.live.mode.a.b(r);
-                    if (com.kwad.sdk.b.f57045d.booleanValue()) {
+                    if (com.kwad.sdk.b.f57626d.booleanValue()) {
                         this.bK = 1;
                     }
                 } else if (i3 == 5) {
-                    this.bJ = com.kwad.sdk.core.response.a.e.c(com.kwad.sdk.core.response.a.d.l(this.f57637c));
+                    this.bJ = com.kwad.sdk.core.response.a.e.c(com.kwad.sdk.core.response.a.d.l(this.f58218c));
                 }
                 this.aj = adTemplate.mMediaPlayerType;
                 this.ax = adTemplate.mIsLeftSlipStatus;
@@ -532,13 +532,13 @@ public class ReportAction extends c {
                 this.F = com.kwad.sdk.core.response.a.d.q(adTemplate);
             }
             this.ai = a.a();
-            if (this.f57636b == null && adTemplate != null) {
-                this.f57636b = adTemplate.mAdScene;
+            if (this.f58217b == null && adTemplate != null) {
+                this.f58217b = adTemplate.mAdScene;
             }
-            sceneImpl = this.f57636b;
+            sceneImpl = this.f58217b;
             if (sceneImpl != null) {
                 this.m = sceneImpl.getPosId();
-                this.L = this.f57636b.getUrlPackage();
+                this.L = this.f58217b.getUrlPackage();
             }
             if (this.L == null) {
                 EntryPackage b2 = com.kwad.sdk.core.scene.a.a().b(this.L.identity);
@@ -550,15 +550,15 @@ public class ReportAction extends c {
             return;
         }
         this.m = sceneImpl2.getPosId();
-        this.L = this.f57636b.getUrlPackage();
-        this.f57641g = this.f57636b.getAdStyle();
+        this.L = this.f58217b.getUrlPackage();
+        this.f58222g = this.f58217b.getAdStyle();
         if (adTemplate != null) {
         }
         this.ai = a.a();
-        if (this.f57636b == null) {
-            this.f57636b = adTemplate.mAdScene;
+        if (this.f58217b == null) {
+            this.f58217b = adTemplate.mAdScene;
         }
-        sceneImpl = this.f57636b;
+        sceneImpl = this.f58217b;
         if (sceneImpl != null) {
         }
         if (this.L == null) {
@@ -574,7 +574,7 @@ public class ReportAction extends c {
                 return;
             }
             this.ak = 3;
-            this.f57641g = jSONObject.optInt("adStyle", -1);
+            this.f58222g = jSONObject.optInt("adStyle", -1);
             this.as = jSONObject.optInt("adHorizontalFeedType");
             this.at = jSONObject.optInt("videoPlayMode");
             this.au = jSONObject.optInt("autoReplayTimes");
@@ -602,7 +602,7 @@ public class ReportAction extends c {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             super.afterToJson(jSONObject);
             t.a(jSONObject, "actionId", this.a);
-            int i2 = this.f57641g;
+            int i2 = this.f58222g;
             if (i2 > 0) {
                 t.a(jSONObject, "adStyle", i2);
             }
@@ -661,7 +661,7 @@ public class ReportAction extends c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            a(this.f57637c);
+            a(this.f58218c);
             return this;
         }
         return (ReportAction) invokeV.objValue;

@@ -6,7 +6,7 @@ import com.baidu.searchbox.live.interfaces.callback.ILiveDiskClearCacheCallback;
 import com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback;
 import com.baidu.searchbox.live.interfaces.callback.LiveLoadStatusCallback;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IYYLiveNPSPlugin {
     public static final String YY_ENV_CREATE_LIVE = "create_live";
     public static final String YY_ENV_ENTRANCE_PRE_INSTALL = "entrance_pre_install";

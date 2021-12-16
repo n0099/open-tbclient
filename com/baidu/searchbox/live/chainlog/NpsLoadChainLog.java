@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NpsLoadChainLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERR_CODE_UNUSED = Integer.MIN_VALUE;
@@ -40,7 +40,7 @@ public class NpsLoadChainLog {
     public String sessionId;
     public UBCManager ubcManager;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final NpsLoadChainLog INSTANCE;

@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.loader.a;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SecurityChecker {
     public static /* synthetic */ Interceptable $ic;
     public static volatile State a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -81,33 +81,33 @@ public class SecurityChecker {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(Exception exc);
 
         void a(boolean z, State state);
     }
 
-    public static void a(File file, a.C2003a c2003a, a aVar) {
+    public static void a(File file, a.C2064a c2064a, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, file, c2003a, aVar) == null) {
-            i.a(new Runnable(c2003a, file, aVar) { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
+        if (interceptable == null || interceptable.invokeLLL(65538, null, file, c2064a, aVar) == null) {
+            i.a(new Runnable(c2064a, file, aVar) { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a.C2003a a;
+                public final /* synthetic */ a.C2064a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ File f56983b;
+                public final /* synthetic */ File f57564b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f56984c;
+                public final /* synthetic */ a f57565c;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c2003a, file, aVar};
+                        Object[] objArr = {c2064a, file, aVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -117,9 +117,9 @@ public class SecurityChecker {
                             return;
                         }
                     }
-                    this.a = c2003a;
-                    this.f56983b = file;
-                    this.f56984c = aVar;
+                    this.a = c2064a;
+                    this.f57564b = file;
+                    this.f57565c = aVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -128,16 +128,16 @@ public class SecurityChecker {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         State unused = SecurityChecker.a = State.INIT;
                         try {
-                            boolean z = this.a != null && SecurityChecker.b(this.f56983b) && SecurityChecker.b(this.f56983b, this.a.f56989c);
+                            boolean z = this.a != null && SecurityChecker.b(this.f57564b) && SecurityChecker.b(this.f57564b, this.a.f57570c);
                             if (z) {
                                 State unused2 = SecurityChecker.a = State.SUCCESS;
                             }
-                            a aVar2 = this.f56984c;
+                            a aVar2 = this.f57565c;
                             if (aVar2 != null) {
                                 aVar2.a(z, SecurityChecker.a);
                             }
                         } catch (Exception e2) {
-                            a aVar3 = this.f56984c;
+                            a aVar3 = this.f57565c;
                             if (aVar3 != null) {
                                 aVar3.a(e2);
                             }

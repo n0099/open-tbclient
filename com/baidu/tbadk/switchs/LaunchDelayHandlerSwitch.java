@@ -1,6 +1,7 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.q0.s.e0.b;
+import c.a.r0.b.d;
+import c.a.r0.s.g0.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class LaunchDelayHandlerSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "launch_delay_handler_switch";
@@ -51,7 +52,11 @@ public class LaunchDelayHandlerSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                type = b.j().k(KEY_SWITCH, 1);
+                if (d.E()) {
+                    type = 0;
+                } else {
+                    type = b.j().k(KEY_SWITCH, 1);
+                }
             }
             return type == 1;
         }

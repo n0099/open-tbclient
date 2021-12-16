@@ -12,11 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PlayerUbcFlowStatisticsManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, IUbcFlow> mFlowFetchers;
+    public float currentSpeed;
+    public final HashMap<String, IUbcFlow> mFlowFetchers;
     public boolean mIsShowFirstFrame;
     public long mStartLoadingTime;
     public BDVideoPlayerUbcContent mUbcContent;
@@ -36,16 +37,17 @@ public class PlayerUbcFlowStatisticsManager {
         }
         this.mFlowFetchers = new HashMap<>();
         this.mUbcContent = new BDVideoPlayerUbcContent.Builder().buildEmpty();
+        this.currentSpeed = 1.0f;
     }
 
     private void upSpeedDurationFlow() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || BDVideoPlayerUbcHelper.sPlayerCurrentSpreed == 1.0f) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.currentSpeed == 1.0f) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("value", BDVideoPlayerUbcHelper.sPlayerCurrentSpreed);
+            jSONObject.put("value", this.currentSpeed);
             getFlow(IUbcFlow.TYPE_SPEED_DURATION_FLOW).uploadFlow(this.mUbcContent, null, jSONObject);
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -74,7 +76,7 @@ public class PlayerUbcFlowStatisticsManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if (z) {
-                if (BDVideoPlayerUbcHelper.sPlayerCurrentSpreed != 1.0f) {
+                if (this.currentSpeed != 1.0f) {
                     getFlow(IUbcFlow.TYPE_SPEED_DURATION_FLOW).createFlow();
                     return;
                 }
@@ -89,7 +91,7 @@ public class PlayerUbcFlowStatisticsManager {
         if (interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, obj) == null) {
             if (i2 == 904 || i2 == 956) {
                 this.mIsShowFirstFrame = true;
-                if (BDVideoPlayerUbcHelper.sPlayerCurrentSpreed != 1.0f) {
+                if (this.currentSpeed != 1.0f) {
                     getFlow(IUbcFlow.TYPE_SPEED_DURATION_FLOW).createFlow();
                 }
             }
@@ -152,6 +154,7 @@ public class PlayerUbcFlowStatisticsManager {
             if (f2 != 1.0f) {
                 getFlow(IUbcFlow.TYPE_SPEED_DURATION_FLOW).createFlow();
             }
+            this.currentSpeed = f2;
         }
     }
 }

@@ -18,7 +18,7 @@ import okio.Buffer;
 import okio.BufferedSource;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.auth.AUTH;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Response implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +280,7 @@ public final class Response implements Closeable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.headers : (Headers) invokeV.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class v implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.sdk.core.webview.kwai.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f58088b;
+    public a f58669b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class v implements com.kwad.sdk.core.webview.kwai.a {
                 return;
             }
         }
-        this.f58088b = new a();
+        this.f58669b = new a();
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
@@ -67,7 +67,7 @@ public class v implements com.kwad.sdk.core.webview.kwai.a {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (cVar = this.a) == null) {
             return;
         }
-        a aVar = this.f58088b;
+        a aVar = this.f58669b;
         aVar.a = i2;
         cVar.a(aVar);
     }

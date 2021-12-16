@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LogRequest extends BaseRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_GET_LOG = "http://face.baidu.com/openapi/v2/stat/sdkdata";

@@ -1,5 +1,5 @@
 package com.baidu.apollon.beans;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IBeanResponseCallback {
     void onBeanExecFailure(int i2, int i3, String str);
 

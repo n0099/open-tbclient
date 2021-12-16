@@ -59,7 +59,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class BaseActivity extends SDKBaseActivity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -646,7 +646,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         }
     }
 
-    @Override // com.baidu.wallet.core.SDKBaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         ActivityInfo activityInfo;
         Interceptable interceptable = $ic;
@@ -977,7 +977,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public final /* synthetic */ PromptDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f52363b;
+                    public final /* synthetic */ BaseActivity f52943b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -994,7 +994,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f52363b = this;
+                        this.f52943b = this;
                         this.a = promptDialog3;
                     }
 
@@ -1004,8 +1004,8 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             this.a.dismiss();
                             try {
-                                ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f52363b.getActivity());
-                                PhoneUtils.showInstalledAppOrDetails(this.f52363b.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
+                                ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f52943b.getActivity());
+                                PhoneUtils.showInstalledAppOrDetails(this.f52943b.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
                             } catch (Throwable unused) {
                             }
                         }
@@ -1017,7 +1017,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public final /* synthetic */ PromptDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f52364b;
+                    public final /* synthetic */ BaseActivity f52944b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1034,7 +1034,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f52364b = this;
+                        this.f52944b = this;
                         this.a = promptDialog3;
                     }
 

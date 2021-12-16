@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.dxmpay.wallet.core.BaseActivity;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

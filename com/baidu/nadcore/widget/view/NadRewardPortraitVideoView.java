@@ -5,11 +5,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import c.a.b0.b.e;
-import c.a.b0.b.g;
-import c.a.b0.p.o;
-import c.a.b0.p.p;
-import c.a.b0.u.c;
+import c.a.c0.b.e;
+import c.a.c0.b.g;
+import c.a.c0.p.o;
+import c.a.c0.p.p;
+import c.a.c0.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uitemplate.NadRewardOperateView;
@@ -19,21 +19,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NadRewardPortraitVideoView extends NadRewardVideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: k  reason: collision with root package name */
-    public PortraitVideoTailView f38015k;
+    public PortraitVideoTailView f38504k;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NadRewardPortraitVideoView f38016e;
+        public final /* synthetic */ NadRewardPortraitVideoView f38505e;
 
         public a(NadRewardPortraitVideoView nadRewardPortraitVideoView) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
                     return;
                 }
             }
-            this.f38016e = nadRewardPortraitVideoView;
+            this.f38505e = nadRewardPortraitVideoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AdBaseModel adBaseModel = this.f38016e.getTag() instanceof AdBaseModel ? (AdBaseModel) this.f38016e.getTag() : null;
-                if (this.f38016e.mFeedListener != null) {
-                    this.f38016e.mFeedListener.b(adBaseModel);
+                AdBaseModel adBaseModel = this.f38505e.getTag() instanceof AdBaseModel ? (AdBaseModel) this.f38505e.getTag() : null;
+                if (this.f38505e.mFeedListener != null) {
+                    this.f38505e.mFeedListener.b(adBaseModel);
                 }
             }
         }
@@ -88,12 +88,12 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView
     public void hideTailFrame() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f38015k != null && isShowingTailFrame()) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f38504k != null && isShowingTailFrame()) {
             NadRewardOperateView nadRewardOperateView = this.mOperateBar;
             if (nadRewardOperateView != null) {
                 nadRewardOperateView.setVisibility(0);
             }
-            this.f38015k.hideTailFrame();
+            this.f38504k.hideTailFrame();
         }
     }
 
@@ -114,7 +114,7 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            PortraitVideoTailView portraitVideoTailView = this.f38015k;
+            PortraitVideoTailView portraitVideoTailView = this.f38504k;
             return portraitVideoTailView != null && portraitVideoTailView.getVisibility() == 0;
         }
         return invokeV.booleanValue;
@@ -123,16 +123,16 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView
     public void showTailFrame() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f38015k == null || isShowingTailFrame() || !(getTag() instanceof AdBaseModel)) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f38504k == null || isShowingTailFrame() || !(getTag() instanceof AdBaseModel)) {
             return;
         }
         NadRewardOperateView nadRewardOperateView = this.mOperateBar;
         if (nadRewardOperateView != null) {
             nadRewardOperateView.setVisibility(8);
         }
-        this.f38015k.showTailFrame((AdBaseModel) getTag());
-        this.f38015k.hideReplayBtn();
-        this.f38015k.bringToFront();
+        this.f38504k.showTailFrame((AdBaseModel) getTag());
+        this.f38504k.hideReplayBtn();
+        this.f38504k.bringToFront();
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardBaseView
@@ -157,14 +157,14 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
     public final void x(AdBaseModel adBaseModel) {
         PortraitVideoTailView portraitVideoTailView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) || (portraitVideoTailView = this.f38015k) == null || adBaseModel == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) || (portraitVideoTailView = this.f38504k) == null || adBaseModel == null) {
             return;
         }
-        p pVar = adBaseModel.f37577g;
-        if (pVar != null && pVar.f1820k) {
+        p pVar = adBaseModel.f38066g;
+        if (pVar != null && pVar.f1838k) {
             portraitVideoTailView.setAdInfo(pVar);
         }
-        this.f38015k.setOnAdClickListener(new a(this));
+        this.f38504k.setOnAdClickListener(new a(this));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -228,6 +228,6 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
                 return;
             }
         }
-        this.f38015k = (PortraitVideoTailView) findViewById(e.nad_portrait_video_tail_frame_view);
+        this.f38504k = (PortraitVideoTailView) findViewById(e.nad_portrait_video_tail_frame_view);
     }
 }

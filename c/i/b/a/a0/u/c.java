@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f29465b;
+        public final long f29835b;
 
         public a(int i2, long j2) {
             Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public final class c {
                 }
             }
             this.a = i2;
-            this.f29465b = j2;
+            this.f29835b = j2;
         }
 
         public static a a(f fVar, l lVar) throws IOException, InterruptedException {
@@ -61,22 +61,22 @@ public final class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fVar)) == null) {
             c.i.b.a.i0.a.e(fVar);
             l lVar = new l(16);
-            if (a.a(fVar, lVar).a != v.q(com.baidu.wallet.base.audio.b.f51909e)) {
+            if (a.a(fVar, lVar).a != v.q(com.baidu.wallet.base.audio.b.f52489e)) {
                 return null;
             }
             fVar.c(lVar.a, 0, 4);
             lVar.J(0);
             int i2 = lVar.i();
-            if (i2 != v.q(com.baidu.wallet.base.audio.b.f51910f)) {
+            if (i2 != v.q(com.baidu.wallet.base.audio.b.f52490f)) {
                 String str = "Unsupported RIFF format: " + i2;
                 return null;
             }
             a a2 = a.a(fVar, lVar);
-            while (a2.a != v.q(com.baidu.wallet.base.audio.b.f51911g)) {
-                fVar.g((int) a2.f29465b);
+            while (a2.a != v.q(com.baidu.wallet.base.audio.b.f52491g)) {
+                fVar.g((int) a2.f29835b);
                 a2 = a.a(fVar, lVar);
             }
-            c.i.b.a.i0.a.f(a2.f29465b >= 16);
+            c.i.b.a.i0.a.f(a2.f29835b >= 16);
             fVar.c(lVar.a, 0, 16);
             lVar.J(0);
             int p = lVar.p();
@@ -95,7 +95,7 @@ public final class c {
                     String str2 = "Unsupported WAV format type: " + p;
                     return null;
                 } else {
-                    fVar.g(((int) a2.f29465b) - 16);
+                    fVar.g(((int) a2.f29835b) - 16);
                     return new b(p2, o, o2, p3, p4, r);
                 }
             }
@@ -114,8 +114,8 @@ public final class c {
             a a2 = a.a(fVar, lVar);
             while (a2.a != v.q("data")) {
                 String str = "Ignoring unknown WAV chunk: " + a2.a;
-                long j2 = a2.f29465b + 8;
-                if (a2.a == v.q(com.baidu.wallet.base.audio.b.f51909e)) {
+                long j2 = a2.f29835b + 8;
+                if (a2.a == v.q(com.baidu.wallet.base.audio.b.f52489e)) {
                     j2 = 12;
                 }
                 if (j2 <= 2147483647L) {
@@ -126,7 +126,7 @@ public final class c {
                 }
             }
             fVar.h(8);
-            bVar.j(fVar.getPosition(), a2.f29465b);
+            bVar.j(fVar.getPosition(), a2.f29835b);
         }
     }
 }

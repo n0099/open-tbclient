@@ -30,7 +30,7 @@ import java.util.Properties;
 import org.apache.commons.codec.digest4util.Sha2Crypt;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class IOUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ASCII_CHARS;
@@ -389,7 +389,7 @@ public class IOUtils {
     /* JADX WARN: Removed duplicated region for block: B:40:0x008a  */
     /* JADX WARN: Type inference failed for: r10v16, types: [int] */
     /* JADX WARN: Type inference failed for: r10v26 */
-    /* JADX WARN: Type inference failed for: r10v3, types: [char, int] */
+    /* JADX WARN: Type inference failed for: r10v3, types: [int, char] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

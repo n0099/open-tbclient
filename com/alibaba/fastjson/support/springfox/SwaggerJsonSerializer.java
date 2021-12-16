@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import springfox.documentation.spring.web.json.Json;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SwaggerJsonSerializer implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public static final SwaggerJsonSerializer instance;

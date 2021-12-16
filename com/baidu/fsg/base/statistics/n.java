@@ -17,19 +17,19 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "LogSender";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f34322b = 10000;
+    public static final int f34790b = 10000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f34323c = 10001;
+    public static final int f34791c = 10001;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static n a;

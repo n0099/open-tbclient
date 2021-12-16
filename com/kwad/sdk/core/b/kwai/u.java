@@ -20,7 +20,7 @@ import com.kwad.sdk.live.mode.LiveInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class u implements com.kwad.sdk.core.d<AdTemplate> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

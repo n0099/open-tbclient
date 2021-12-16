@@ -8,7 +8,7 @@ import com.kuaishou.weapon.un.j0;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class m {
                     String str = strArr[i2];
                     StringBuilder sb = new StringBuilder();
                     sb.append(str);
-                    sb.append(j0.f56676b);
+                    sb.append(j0.f57257b);
                     String sb2 = sb.toString();
                     if (new File(sb2).exists()) {
                         String[] strArr2 = new String[3];

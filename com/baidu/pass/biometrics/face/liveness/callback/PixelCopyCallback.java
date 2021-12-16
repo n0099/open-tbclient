@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.face.liveness.callback;
 
 import android.graphics.Bitmap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface PixelCopyCallback {
     void onFinsh(Bitmap bitmap);
 }

@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class aa extends com.vivo.push.y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f62429b;
+    public long f63010b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aa() {
@@ -47,7 +47,7 @@ public final class aa extends com.vivo.push.y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             aVar.a("ReporterCommand.EXTRA_PARAMS", this.a);
-            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f62429b);
+            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f63010b);
         }
     }
 
@@ -56,7 +56,7 @@ public final class aa extends com.vivo.push.y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             this.a = (HashMap) aVar.c("ReporterCommand.EXTRA_PARAMS");
-            this.f62429b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f62429b);
+            this.f63010b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f63010b);
         }
     }
 
@@ -65,7 +65,7 @@ public final class aa extends com.vivo.push.y {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "ReporterCommand（" + this.f62429b + SmallTailInfo.EMOTION_SUFFIX;
+            return "ReporterCommand（" + this.f63010b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -88,6 +88,6 @@ public final class aa extends com.vivo.push.y {
                 return;
             }
         }
-        this.f62429b = j2;
+        this.f63010b = j2;
     }
 }

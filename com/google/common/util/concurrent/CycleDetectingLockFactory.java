@@ -31,7 +31,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CycleDetectingLockFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadLocal<ArrayList<LockGraphNode>> acquiredLocks;
@@ -40,14 +40,14 @@ public class CycleDetectingLockFactory {
     public transient /* synthetic */ FieldHolder $fh;
     public final Policy policy;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CycleDetectingLock {
         LockGraphNode getLockGraphNode();
 
         boolean isAcquiredByCurrentThread();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class CycleDetectingReentrantLock extends ReentrantLock implements CycleDetectingLock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,7 +160,7 @@ public class CycleDetectingLockFactory {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class CycleDetectingReentrantReadWriteLock extends ReentrantReadWriteLock implements CycleDetectingLock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -225,7 +225,7 @@ public class CycleDetectingLockFactory {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ExampleStackTrace extends IllegalStateException {
         public static /* synthetic */ Interceptable $ic;
         public static final StackTraceElement[] EMPTY_STACK_TRACE;
@@ -281,7 +281,7 @@ public class CycleDetectingLockFactory {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LockGraphNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -381,7 +381,7 @@ public class CycleDetectingLockFactory {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Policies implements Policy {
         public static final /* synthetic */ Policies[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -537,12 +537,12 @@ public class CycleDetectingLockFactory {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Policy {
         void handlePotentialDeadlock(PotentialDeadlockException potentialDeadlockException);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class PotentialDeadlockException extends ExampleStackTrace {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -593,7 +593,7 @@ public class CycleDetectingLockFactory {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class WithExplicitOrdering<E extends Enum<E>> extends CycleDetectingLockFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -827,7 +827,7 @@ public class CycleDetectingLockFactory {
         return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) ? this.policy == Policies.DISABLED ? new ReentrantReadWriteLock(z) : new CycleDetectingReentrantReadWriteLock(new LockGraphNode(str), z) : (ReentrantReadWriteLock) invokeLZ.objValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class CycleDetectingReentrantReadLock extends ReentrantReadWriteLock.ReadLock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -925,7 +925,7 @@ public class CycleDetectingLockFactory {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class CycleDetectingReentrantWriteLock extends ReentrantReadWriteLock.WriteLock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

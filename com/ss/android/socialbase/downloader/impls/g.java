@@ -19,7 +19,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g implements IDownloadHttpService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,10 +61,10 @@ public class g implements IDownloadHttpService {
                             public final /* synthetic */ String a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ String f61942b;
+                            public final /* synthetic */ String f62523b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ g f61943c;
+                            public final /* synthetic */ g f62524c;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -81,9 +81,9 @@ public class g implements IDownloadHttpService {
                                         return;
                                     }
                                 }
-                                this.f61943c = this;
+                                this.f62524c = this;
                                 this.a = host;
-                                this.f61942b = str2;
+                                this.f62523b = str2;
                             }
                         });
                         OkHttpClient build = t.build();
@@ -141,16 +141,16 @@ public class g implements IDownloadHttpService {
                             public final /* synthetic */ InputStream a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ Response f61938b;
+                            public final /* synthetic */ Response f62519b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ Call f61939c;
+                            public final /* synthetic */ Call f62520c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ ResponseBody f61940d;
+                            public final /* synthetic */ ResponseBody f62521d;
 
                             /* renamed from: e  reason: collision with root package name */
-                            public final /* synthetic */ g f61941e;
+                            public final /* synthetic */ g f62522e;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -167,11 +167,11 @@ public class g implements IDownloadHttpService {
                                         return;
                                     }
                                 }
-                                this.f61941e = this;
+                                this.f62522e = this;
                                 this.a = r7;
-                                this.f61938b = execute;
-                                this.f61939c = newCall;
-                                this.f61940d = body;
+                                this.f62519b = execute;
+                                this.f62520c = newCall;
+                                this.f62521d = body;
                             }
 
                             @Override // com.ss.android.socialbase.downloader.network.i
@@ -185,17 +185,17 @@ public class g implements IDownloadHttpService {
                             public int b() throws IOException {
                                 InterceptResult invokeV;
                                 Interceptable interceptable2 = $ic;
-                                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61938b.code() : invokeV.intValue;
+                                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62519b.code() : invokeV.intValue;
                             }
 
                             @Override // com.ss.android.socialbase.downloader.network.g
                             public void c() {
                                 Call call;
                                 Interceptable interceptable2 = $ic;
-                                if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || (call = this.f61939c) == null || call.isCanceled()) {
+                                if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || (call = this.f62520c) == null || call.isCanceled()) {
                                     return;
                                 }
-                                this.f61939c.cancel();
+                                this.f62520c.cancel();
                             }
 
                             @Override // com.ss.android.socialbase.downloader.network.i
@@ -203,13 +203,13 @@ public class g implements IDownloadHttpService {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
                                     try {
-                                        if (this.f61940d != null) {
-                                            this.f61940d.close();
+                                        if (this.f62521d != null) {
+                                            this.f62521d.close();
                                         }
-                                        if (this.f61939c == null || this.f61939c.isCanceled()) {
+                                        if (this.f62520c == null || this.f62520c.isCanceled()) {
                                             return;
                                         }
-                                        this.f61939c.cancel();
+                                        this.f62520c.cancel();
                                     } catch (Throwable unused) {
                                     }
                                 }
@@ -226,7 +226,7 @@ public class g implements IDownloadHttpService {
                             public String a(String str3) {
                                 InterceptResult invokeL;
                                 Interceptable interceptable2 = $ic;
-                                return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str3)) == null) ? this.f61938b.header(str3) : (String) invokeL.objValue;
+                                return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str3)) == null) ? this.f62519b.header(str3) : (String) invokeL.objValue;
                             }
                         };
                     }

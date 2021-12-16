@@ -12,17 +12,17 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.r;
 import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public static e a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f57781b;
+    public double f58362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f57782c;
+    public double f58363c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -50,8 +50,8 @@ public class e implements com.kwad.sdk.core.b {
             if (a2 != null) {
                 e eVar2 = new e();
                 a = eVar2;
-                eVar2.f57781b = a2.getLatitude();
-                a.f57782c = a2.getLongitude();
+                eVar2.f58362b = a2.getLatitude();
+                a.f58363c = a2.getLongitude();
             }
             return a;
         }
@@ -71,8 +71,8 @@ public class e implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            t.a(jSONObject, "latitude", this.f57781b);
-            t.a(jSONObject, "longitude", this.f57782c);
+            t.a(jSONObject, "latitude", this.f58362b);
+            t.a(jSONObject, "longitude", this.f58363c);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

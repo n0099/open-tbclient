@@ -3,7 +3,7 @@ package org.apache.commons.lang3.exception;
 import java.util.List;
 import java.util.Set;
 import org.apache.commons.lang3.tuple.Pair;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ExceptionContext {
     ExceptionContext addContextValue(String str, Object obj);
 

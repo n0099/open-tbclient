@@ -9,20 +9,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class u0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static u0 f30953d;
+    public static u0 f31323d;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public s1 f30954b;
+    public s1 f31324b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30955c;
+    public boolean f31325c;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class u0 {
                 return;
             }
         }
-        f30953d = new u0();
+        f31323d = new u0();
     }
 
     public u0() {
@@ -53,7 +53,7 @@ public class u0 {
                 return;
             }
         }
-        this.f30955c = false;
+        this.f31325c = false;
         this.a = (ThreadPoolExecutor) Executors.newCachedThreadPool();
     }
 }

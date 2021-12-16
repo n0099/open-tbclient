@@ -10,7 +10,7 @@ import com.xiaomi.push.ai;
 import com.xiaomi.push.hf;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class p extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public final class p extends ai.a {
     public String mo236a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "22" : (String) invokeV.objValue;
     }
 
     @Override // java.lang.Runnable
@@ -54,6 +54,6 @@ public final class p extends ai.a {
             return;
         }
         ieVar.a(com.xiaomi.push.service.at.a());
-        an.a(this.a.getApplicationContext()).a((an) this.f100a, hf.f62975i, true, (hs) null, true);
+        an.a(this.a.getApplicationContext()).a((an) this.f100a, hf.f63556i, true, (hs) null, true);
     }
 }

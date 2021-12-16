@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
 import com.baidu.webkit.sdk.WebKitFactory;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ao implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public final class ao implements View.OnClickListener {
         try {
             view2 = this.a.n;
             view2.setVisibility(0);
-            linearLayout = this.a.f51588g;
+            linearLayout = this.a.f52137g;
             linearLayout.setVisibility(8);
             webView = this.a.o;
             webView.setVisibility(0);
@@ -70,7 +70,7 @@ public final class ao implements View.OnClickListener {
                 Context applicationContext = this.a.getApplicationContext();
                 textView = this.a.q;
                 com.baidu.ufosdk.f.i.a(applicationContext, textView);
-                linearLayout3 = this.a.f51588g;
+                linearLayout3 = this.a.f52137g;
                 linearLayout3.setVisibility(0);
                 Toast.makeText(this.a, com.baidu.ufosdk.f.s.a(WebKitFactory.OS_64), 1).show();
             } else if (UfoSDK.clientid.length() == 0) {
@@ -79,7 +79,7 @@ public final class ao implements View.OnClickListener {
             } else {
                 webView2 = this.a.o;
                 webView2.loadDataWithBaseURL(null, null, SapiWebView.DATA_MIME_TYPE, "utf-8", null);
-                linearLayout2 = this.a.f51588g;
+                linearLayout2 = this.a.f52137g;
                 linearLayout2.setVisibility(8);
                 webView3 = this.a.o;
                 webView3.setVisibility(0);

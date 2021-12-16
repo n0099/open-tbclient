@@ -11,40 +11,40 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "SdkConfigOptions";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34507b = "global-config";
+    public static final String f34975b = "global-config";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34508c = "host_version";
+    public static final String f34976c = "host_version";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34509d = "zip_version";
+    public static final String f34977d = "zip_version";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34510e = "updateFail";
+    public static final String f34978e = "updateFail";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34511f = "distributedSdk";
+    public static final String f34979f = "distributedSdk";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34512g = "files";
+    public static final String f34980g = "files";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34513h = "list";
+    public static final String f34981h = "list";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34514i = "cpu";
+    public static final String f34982i = "cpu";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f34515j = "extra_params";
+    public static final String f34983j = "extra_params";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f34516k = "extra_global_enable";
+    public static final String f34984k = "extra_global_enable";
     public static final String l = "enable";
     public static final String m = "gray";
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,9 +81,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, aVar)) == null) {
             c cVar = new c();
-            cVar.q = jSONObject.optBoolean(f34516k, true);
+            cVar.q = jSONObject.optBoolean(f34984k, true);
             try {
-                cVar.n = jSONObject.optString(f34509d);
+                cVar.n = jSONObject.optString(f34977d);
                 cVar.r = jSONObject.optBoolean(l, true);
                 cVar.s = jSONObject.optInt("gray");
                 jSONArray = jSONObject.getJSONArray("list");
@@ -114,26 +114,26 @@ public class c {
         return (c) invokeLL.objValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f34517d = "name";
+        public static final String f34985d = "name";
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f34518e = "url";
+        public static final String f34986e = "url";
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f34519f = "hash";
+        public static final String f34987f = "hash";
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34520b;
+        public String f34988b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f34521c;
+        public String f34989c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -149,8 +149,8 @@ public class c {
                 }
             }
             this.a = null;
-            this.f34520b = null;
-            this.f34521c = null;
+            this.f34988b = null;
+            this.f34989c = null;
         }
 
         public static a a(JSONObject jSONObject) {
@@ -162,8 +162,8 @@ public class c {
                     return aVar;
                 }
                 aVar.a = jSONObject.optString("name");
-                aVar.f34520b = jSONObject.optString("url");
-                aVar.f34521c = jSONObject.optString("hash");
+                aVar.f34988b = jSONObject.optString("url");
+                aVar.f34989c = jSONObject.optString("hash");
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -176,8 +176,8 @@ public class c {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("name", this.a);
-                    jSONObject.put("url", this.f34520b);
-                    jSONObject.put("hash", this.f34521c);
+                    jSONObject.put("url", this.f34988b);
+                    jSONObject.put("hash", this.f34989c);
                     return jSONObject;
                 } catch (JSONException e2) {
                     com.baidu.fsg.face.base.d.d.a(e2);
@@ -193,12 +193,12 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             c cVar = new c();
-            cVar.n = jSONObject.optString(f34509d);
-            cVar.p = jSONObject.optBoolean(f34510e);
-            cVar.q = jSONObject.optBoolean(f34516k);
+            cVar.n = jSONObject.optString(f34977d);
+            cVar.p = jSONObject.optBoolean(f34978e);
+            cVar.q = jSONObject.optBoolean(f34984k);
             cVar.r = jSONObject.optBoolean(l);
             cVar.s = jSONObject.optInt("gray");
-            cVar.o = a.a(jSONObject.optJSONObject(f34511f));
+            cVar.o = a.a(jSONObject.optJSONObject(f34979f));
             return cVar;
         }
         return (c) invokeL.objValue;
@@ -210,12 +210,12 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f34509d, this.n);
-                jSONObject.put(f34510e, this.p);
-                jSONObject.put(f34516k, this.q);
+                jSONObject.put(f34977d, this.n);
+                jSONObject.put(f34978e, this.p);
+                jSONObject.put(f34984k, this.q);
                 jSONObject.put(l, this.r);
                 jSONObject.put("gray", this.s);
-                jSONObject.put(f34511f, this.o == null ? "" : this.o.a());
+                jSONObject.put(f34979f, this.o == null ? "" : this.o.a());
                 return jSONObject;
             } catch (JSONException unused) {
                 return null;

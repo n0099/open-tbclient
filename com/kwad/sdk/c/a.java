@@ -11,7 +11,7 @@ import com.kwad.sdk.c.kwai.f;
 import com.kwai.filedownloader.i;
 import com.kwai.filedownloader.m;
 import com.kwai.filedownloader.r;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements com.kwad.sdk.c.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,10 +54,10 @@ public class a implements com.kwad.sdk.c.a.b {
                 public final /* synthetic */ b.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.kwad.sdk.c.kwai.d f57048b;
+                public final /* synthetic */ com.kwad.sdk.c.kwai.d f57629b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f57049c;
+                public final /* synthetic */ a f57630c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -74,9 +74,9 @@ public class a implements com.kwad.sdk.c.a.b {
                             return;
                         }
                     }
-                    this.f57049c = this;
+                    this.f57630c = this;
                     this.a = aVar;
-                    this.f57048b = dVar;
+                    this.f57629b = dVar;
                 }
 
                 @Override // com.kwai.filedownloader.m, com.kwai.filedownloader.i
@@ -84,7 +84,7 @@ public class a implements com.kwad.sdk.c.a.b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, aVar2, th) == null) {
                         super.a(aVar2, th);
-                        com.kwad.sdk.c.b.b.a(this.f57048b, 1, th.getMessage());
+                        com.kwad.sdk.c.b.b.a(this.f57629b, 1, th.getMessage());
                         b.a aVar3 = this.a;
                         if (aVar3 != null) {
                             aVar3.b((com.kwad.sdk.c.kwai.d) aVar2.z());
@@ -104,7 +104,7 @@ public class a implements com.kwad.sdk.c.a.b {
                         b.a aVar3 = this.a;
                         if (aVar3 != null) {
                             aVar3.b((com.kwad.sdk.c.kwai.d) aVar2.z());
-                            com.kwad.sdk.c.kwai.d dVar2 = this.f57048b;
+                            com.kwad.sdk.c.kwai.d dVar2 = this.f57629b;
                             com.kwad.sdk.c.b.b.a(dVar2, 1, "task.getStatus()=" + ((int) aVar2.v()));
                         }
                     }

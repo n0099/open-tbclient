@@ -8,12 +8,13 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
 import c.a.d.f.p.l;
-import c.a.q0.b.d;
-import c.a.q0.b.g.a;
-import c.a.q0.d1.f0;
-import c.a.q0.s.q.d2;
-import c.a.r0.d1.y2.k;
-import c.a.r0.h3.y;
+import c.a.d.f.p.m;
+import c.a.r0.b.d;
+import c.a.r0.b.g.a;
+import c.a.r0.d1.h0;
+import c.a.r0.s.r.d2;
+import c.a.s0.d1.y2.k;
+import c.a.s0.j3.y;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_IS_ONLIVING = "ala_is_living";
@@ -199,7 +200,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
                 i2 = 6;
             }
-            if (d.r() && a.f11780c != a.d()) {
+            if (d.r() && a.f12095c != a.d()) {
                 frsRequestData.H(k.d(a.d()));
             }
             frsRequestData.setSortType(k.d(i2));
@@ -208,7 +209,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else {
                 frsRequestData.K(0);
             }
-            frsRequestData.w("forum_name", c.a.d.f.p.k.getUrlEncode(stringExtra));
+            frsRequestData.w("forum_name", l.getUrlEncode(stringExtra));
             frsRequestData.w("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
@@ -218,16 +219,16 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.M(stringExtra);
             frsRequestData.Z(1);
             frsRequestData.E(0);
-            frsRequestData.Y(l.k(TbadkCoreApplication.getInst()));
-            frsRequestData.X(l.i(TbadkCoreApplication.getInst()));
-            frsRequestData.W(l.h(TbadkCoreApplication.getInst()));
+            frsRequestData.Y(m.k(TbadkCoreApplication.getInst()));
+            frsRequestData.X(m.i(TbadkCoreApplication.getInst()));
+            frsRequestData.W(m.h(TbadkCoreApplication.getInst()));
             frsRequestData.b0(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             if (uri != null) {
                 frsRequestData.V(uri.toString());
             }
             frsRequestData.O(null);
             frsRequestData.a0(stringExtra3);
-            frsRequestData.N(b.g(f0.a(), 0L));
+            frsRequestData.N(b.g(h0.a(), 0L));
             frsRequestData.setStType(stringExtra2);
             frsRequestData.J(1);
             frsRequestData.setNeedCache(true);
@@ -235,7 +236,7 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.I(longExtra);
             k.e(i2, frsRequestData);
             frsRequestData.Q(1);
-            if (d2.T3.get() && y.q().b() != null) {
+            if (d2.U3.get() && y.q().b() != null) {
                 int d2 = y.q().b().d(stringExtra, false);
                 int e2 = y.q().b().e(stringExtra, false);
                 if (frsRequestData.A() == 1) {

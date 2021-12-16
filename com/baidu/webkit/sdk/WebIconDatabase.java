@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class WebIconDatabase {
     public static /* synthetic */ Interceptable $ic;
     public static final WebIconDatabase mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Deprecated
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public interface IconListener {
         void onReceivedIcon(String str, Bitmap bitmap);
     }

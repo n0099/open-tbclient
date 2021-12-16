@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.config.item.h;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bx implements com.kwad.sdk.core.d<h.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public class bx implements com.kwad.sdk.core.d<h.a> {
         if (jSONObject.opt("imei") == JSONObject.NULL) {
             aVar.a = "";
         }
-        aVar.f57256b = jSONObject.optString("oaid");
+        aVar.f57837b = jSONObject.optString("oaid");
         if (jSONObject.opt("oaid") == JSONObject.NULL) {
-            aVar.f57256b = "";
+            aVar.f57837b = "";
         }
     }
 
@@ -54,7 +54,7 @@ public class bx implements com.kwad.sdk.core.d<h.a> {
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "imei", aVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "oaid", aVar.f57256b);
+            com.kwad.sdk.utils.t.a(jSONObject, "oaid", aVar.f57837b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

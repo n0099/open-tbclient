@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk;
 
 import android.os.Bundle;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface TTAdBridge {
     String call(int i2, Bundle bundle);
 

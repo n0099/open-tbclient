@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class StateEvent extends VideoEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_STATE_CHANGED = "state_event_state_changed";
@@ -40,10 +40,16 @@ public class StateEvent extends VideoEvent {
         return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) ? (PlayerStatus) getExtra(i2) : (PlayerStatus) invokeI.objValue;
     }
 
-    public static VideoEvent obtainEvent() {
-        InterceptResult invokeV;
+    public static VideoEvent obtainEvent(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? VideoEvent.obtain(ACTION_STATE_CHANGED, 5) : (VideoEvent) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, playerStatus, playerStatus2)) == null) {
+            VideoEvent obtain = VideoEvent.obtain(ACTION_STATE_CHANGED, 5);
+            obtain.putExtra(1, playerStatus);
+            obtain.putExtra(2, playerStatus2);
+            return obtain;
+        }
+        return (VideoEvent) invokeLL.objValue;
     }
 
     public PlayerStatus getOldStatus() {

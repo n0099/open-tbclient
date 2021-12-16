@@ -24,7 +24,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FlutterPluginRegistry implements PluginRegistry, PluginRegistry.RequestPermissionsResultListener, PluginRegistry.ActivityResultListener, PluginRegistry.NewIntentListener, PluginRegistry.UserLeaveHintListener, PluginRegistry.ViewDestroyListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterPluginRegistry";
@@ -41,7 +41,7 @@ public class FlutterPluginRegistry implements PluginRegistry, PluginRegistry.Req
     public final List<PluginRegistry.UserLeaveHintListener> mUserLeaveHintListeners;
     public final List<PluginRegistry.ViewDestroyListener> mViewDestroyListeners;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class FlutterRegistrar implements PluginRegistry.Registrar {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

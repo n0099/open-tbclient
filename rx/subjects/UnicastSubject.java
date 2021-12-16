@@ -22,15 +22,15 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class UnicastSubject<T> extends d<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final State<T> f64467f;
+    public final State<T> f65038f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class State<T> extends AtomicLong implements f, e<T>, d.a<T>, k {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9044104859202255786L;
@@ -333,7 +333,7 @@ public final class UnicastSubject<T> extends d<T, T> {
                 return;
             }
         }
-        this.f64467f = state;
+        this.f65038f = state;
     }
 
     public static <T> UnicastSubject<T> F(int i2, a aVar) {
@@ -346,7 +346,7 @@ public final class UnicastSubject<T> extends d<T, T> {
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f64467f.onCompleted();
+            this.f65038f.onCompleted();
         }
     }
 
@@ -354,7 +354,7 @@ public final class UnicastSubject<T> extends d<T, T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f64467f.onError(th);
+            this.f65038f.onError(th);
         }
     }
 
@@ -362,7 +362,7 @@ public final class UnicastSubject<T> extends d<T, T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f64467f.onNext(t);
+            this.f65038f.onNext(t);
         }
     }
 }

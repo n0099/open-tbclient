@@ -17,7 +17,7 @@ import com.ss.android.downloadlib.g.l;
 import com.ss.android.socialbase.downloader.a.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public static Handler a;
@@ -50,7 +50,7 @@ public class f {
             public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f61358b;
+            public final /* synthetic */ int f61939b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -68,7 +68,7 @@ public class f {
                     }
                 }
                 this.a = bVar;
-                this.f61358b = i2;
+                this.f61939b = i2;
             }
 
             @Override // java.lang.Runnable
@@ -89,7 +89,7 @@ public class f {
                         com.ss.android.downloadlib.d.a.a().a("deeplink_success_2", jSONObject, this.a);
                         return;
                     }
-                    f.b(this.a, this.f61358b - 1);
+                    f.b(this.a, this.f61939b - 1);
                 }
             }
         }, i(bVar) * 1000);
@@ -157,16 +157,16 @@ public class f {
             if (b3) {
                 return;
             }
-            com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2112a(bVar, System.currentTimeMillis(), hVar) { // from class: com.ss.android.downloadlib.b.f.1
+            com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2173a(bVar, System.currentTimeMillis(), hVar) { // from class: com.ss.android.downloadlib.b.f.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f61356b;
+                public final /* synthetic */ long f61937b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ h f61357c;
+                public final /* synthetic */ h f61938c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -184,11 +184,11 @@ public class f {
                         }
                     }
                     this.a = bVar;
-                    this.f61356b = r7;
-                    this.f61357c = hVar;
+                    this.f61937b = r7;
+                    this.f61938c = hVar;
                 }
 
-                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
+                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2173a
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -222,17 +222,17 @@ public class f {
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                     boolean c2 = l.c(this.a.a.e());
                                     long e2 = f.e(this.a.a);
-                                    if (!c2 || e2 >= System.currentTimeMillis() - this.a.f61356b) {
+                                    if (!c2 || e2 >= System.currentTimeMillis() - this.a.f61937b) {
                                         long h2 = f.h(this.a.a);
                                         long currentTimeMillis = System.currentTimeMillis();
                                         AnonymousClass1 anonymousClass1 = this.a;
-                                        if (currentTimeMillis - anonymousClass1.f61356b > h2) {
+                                        if (currentTimeMillis - anonymousClass1.f61937b > h2) {
                                             com.ss.android.downloadlib.d.a.a().a("deeplink_delay_timeout", this.a.a);
                                             return;
                                         }
                                         anonymousClass1.a.l(true);
                                         com.ss.android.downloadlib.d.a.a().a("deeplink_delay_invoke", this.a.a);
-                                        this.a.f61357c.a(true);
+                                        this.a.f61938c.a(true);
                                         com.ss.android.downloadad.api.a.b bVar2 = this.a.a;
                                         f.b(bVar2, f.j(bVar2));
                                     }
@@ -242,7 +242,7 @@ public class f {
                     }
                 }
 
-                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
+                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2173a
                 public void c() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

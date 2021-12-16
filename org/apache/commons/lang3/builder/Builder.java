@@ -1,5 +1,5 @@
 package org.apache.commons.lang3.builder;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface Builder<T> {
     T build();
 }

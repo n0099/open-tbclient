@@ -17,7 +17,7 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.util.LogTime;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class SourceGenerator implements DataFetcherGenerator, DataFetcher.DataCallback<Object>, DataFetcherGenerator.FetcherReadyCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SourceGenerator";

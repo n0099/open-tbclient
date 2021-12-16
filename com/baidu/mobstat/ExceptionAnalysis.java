@@ -19,26 +19,26 @@ import java.io.StringWriter;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ExceptionAnalysis {
     public static /* synthetic */ Interceptable $ic;
     public static ExceptionAnalysis a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36882b;
+    public boolean f37371b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f36883c;
+    public Context f37372c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HeadObject f36884d;
+    public HeadObject f37373d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36885e;
+    public String f37374e;
     public Callback mCallback;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface Callback {
         void onCallback(JSONObject jSONObject);
     }
@@ -72,8 +72,8 @@ public class ExceptionAnalysis {
                 return;
             }
         }
-        this.f36882b = false;
-        this.f36884d = new HeadObject();
+        this.f37371b = false;
+        this.f37373d = new HeadObject();
     }
 
     private JSONObject a() {
@@ -104,17 +104,17 @@ public class ExceptionAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
             if (context != null) {
-                this.f36883c = context.getApplicationContext();
+                this.f37372c = context.getApplicationContext();
             }
-            if (this.f36883c == null || this.f36882b) {
+            if (this.f37372c == null || this.f37371b) {
                 return;
             }
-            this.f36882b = true;
-            ad.a().a(this.f36883c);
+            this.f37371b = true;
+            ad.a().a(this.f37372c);
             if (z) {
                 return;
             }
-            NativeCrashHandler.init(this.f36883c);
+            NativeCrashHandler.init(this.f37372c);
         }
     }
 
@@ -123,9 +123,9 @@ public class ExceptionAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, th, z) == null) {
             if (context != null) {
-                this.f36883c = context.getApplicationContext();
+                this.f37372c = context.getApplicationContext();
             }
-            if (this.f36883c == null) {
+            if (this.f37372c == null) {
                 return;
             }
             String th2 = th.toString();
@@ -148,7 +148,7 @@ public class ExceptionAnalysis {
             } else {
                 i2 = th instanceof Error ? 12 : 13;
             }
-            saveCrashInfo(this.f36883c, System.currentTimeMillis(), obj, str2, 0, i2);
+            saveCrashInfo(this.f37372c, System.currentTimeMillis(), obj, str2, 0, i2);
         }
     }
 
@@ -160,7 +160,7 @@ public class ExceptionAnalysis {
         if (str.length() > 256) {
             str = str.substring(0, 256);
         }
-        this.f36885e = str;
+        this.f37374e = str;
     }
 
     public ExceptionAnalysis(Callback callback) {
@@ -178,8 +178,8 @@ public class ExceptionAnalysis {
                 return;
             }
         }
-        this.f36882b = false;
-        this.f36884d = new HeadObject();
+        this.f37371b = false;
+        this.f37373d = new HeadObject();
         this.mCallback = callback;
     }
 
@@ -215,10 +215,10 @@ public class ExceptionAnalysis {
             if (context != null && str != null && !str.trim().equals("")) {
                 try {
                     StringBuilder sb = new StringBuilder(str);
-                    if (!TextUtils.isEmpty(this.f36885e)) {
+                    if (!TextUtils.isEmpty(this.f37374e)) {
                         sb.append(StringUtils.LF);
                         sb.append("ExtraInfo:");
-                        sb.append(this.f36885e);
+                        sb.append(this.f37374e);
                     }
                     String appVersionName = CooperService.instance().getAppVersionName(context);
                     JSONObject jSONObject = new JSONObject();
@@ -232,7 +232,7 @@ public class ExceptionAnalysis {
                     JSONArray jSONArray = new JSONArray();
                     jSONArray.put(jSONObject);
                     JSONObject jSONObject2 = new JSONObject();
-                    this.f36884d.installHeader(context, jSONObject2);
+                    this.f37373d.installHeader(context, jSONObject2);
                     jSONObject2.put("ss", 0);
                     jSONObject2.put("sq", 0);
                     JSONObject jSONObject3 = new JSONObject();

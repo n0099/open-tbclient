@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.IntBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EnvDrawText {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "EnvDrawText";
@@ -745,10 +745,10 @@ public class EnvDrawText {
                 if (aVar == null) {
                     a aVar2 = new a();
                     aVar2.a = typeface;
-                    aVar2.f64304b++;
+                    aVar2.f64875b++;
                     fontCache.put(i2, aVar2);
                 } else {
-                    aVar.f64304b++;
+                    aVar.f64875b++;
                 }
             }
         }
@@ -762,8 +762,8 @@ public class EnvDrawText {
                 if (aVar == null) {
                     return;
                 }
-                int i3 = aVar.f64304b - 1;
-                aVar.f64304b = i3;
+                int i3 = aVar.f64875b - 1;
+                aVar.f64875b = i3;
                 if (i3 == 0) {
                     fontCache.remove(i2);
                 }

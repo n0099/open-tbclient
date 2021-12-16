@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class o extends com.kwad.sdk.core.network.a<p> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public abstract class o extends com.kwad.sdk.core.network.a<p> {
             }
             if (cVar != null) {
                 try {
-                    this.a.parseJson(new JSONObject(cVar.f57506b));
+                    this.a.parseJson(new JSONObject(cVar.f58087b));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -143,7 +143,7 @@ public abstract class o extends com.kwad.sdk.core.network.a<p> {
                 if (cVar == null || cVar.a != 200) {
                     str2 = "report fail result is null";
                 } else {
-                    str2 = "report success actionType:" + b2.f57677b;
+                    str2 = "report success actionType:" + b2.f58258b;
                 }
                 com.kwad.sdk.core.d.a.a("ReportNetwork", str2);
             } catch (Exception e3) {
@@ -154,7 +154,7 @@ public abstract class o extends com.kwad.sdk.core.network.a<p> {
                 }
                 if (!b2.i().mCheatingFlow) {
                 }
-                if (com.kwad.sdk.b.f57044c.booleanValue()) {
+                if (com.kwad.sdk.b.f57625c.booleanValue()) {
                     return;
                 }
                 return;
@@ -166,7 +166,7 @@ public abstract class o extends com.kwad.sdk.core.network.a<p> {
             if (!b2.i().mCheatingFlow) {
                 a(b2);
             }
-            if (com.kwad.sdk.b.f57044c.booleanValue() || a.isResultOk()) {
+            if (com.kwad.sdk.b.f57625c.booleanValue() || a.isResultOk()) {
                 return;
             }
             throw new RuntimeException("请求返回失败 code:" + a.result + ", errorMsg:" + a.errorMsg + "\n url=" + str);

@@ -19,15 +19,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class BarInformationModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f47194e;
+    public final HttpMessageListener f47701e;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class BarInformationModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void success(BazhuInfoData bazhuInfoData);
     }
@@ -94,11 +94,11 @@ public class BarInformationModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47194e = new a(this, CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
+        this.f47701e = new a(this, CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
         registerTask();
-        this.f47194e.setTag(getUniqueId());
-        this.f47194e.setSelfListener(true);
-        registerListener(this.f47194e);
+        this.f47701e.setTag(getUniqueId());
+        this.f47701e.setSelfListener(true);
+        registerListener(this.f47701e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.c.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class d {
     public static <T> T a(T t) {
         if (t != null) {

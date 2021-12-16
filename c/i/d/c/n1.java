@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.Iterators;
 import java.util.Iterator;
 import java.util.ListIterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class n1<F, T> extends m1<F, T> implements ListIterator<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public abstract class n1<F, T> extends m1<F, T> implements ListIterator<T> {
     public final ListIterator<? extends F> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Iterators.d(this.f30576e) : (ListIterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Iterators.d(this.f30946e) : (ListIterator) invokeV.objValue;
     }
 
     @Override // java.util.ListIterator

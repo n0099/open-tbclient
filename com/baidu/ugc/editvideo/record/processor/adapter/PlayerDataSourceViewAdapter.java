@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.player.IPlayer;
 import com.baidu.ugc.editvideo.record.preview.GLMediaPreviewView;
 import com.baidu.ugc.editvideo.record.source.IDataSourceView;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class PlayerDataSourceViewAdapter implements IDataSourceView.IPlayerDataSourceView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

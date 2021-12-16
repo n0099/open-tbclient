@@ -11,7 +11,7 @@ import com.facebook.datasource.AbstractDataSource;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class SettableDataSource<T> extends AbstractDataSource<CloseableReference<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

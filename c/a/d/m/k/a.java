@@ -36,25 +36,25 @@ public class a extends Drawable implements Animatable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ArrayList<Animation> f3012e;
+    public final ArrayList<Animation> f2976e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d f3013f;
+    public final d f2977f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f3014g;
+    public float f2978g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Resources f3015h;
+    public Resources f2979h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f3016i;
+    public View f2980i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Animation f3017j;
+    public Animation f2981j;
 
     /* renamed from: k  reason: collision with root package name */
-    public float f3018k;
+    public float f2982k;
     public double l;
     public double m;
     public boolean n;
@@ -62,17 +62,17 @@ public class a extends Drawable implements Animatable {
 
     /* renamed from: c.a.d.m.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0099a extends Animation {
+    public class C0097a extends Animation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f3019e;
+        public final /* synthetic */ d f2983e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f3020f;
+        public final /* synthetic */ a f2984f;
 
-        public C0099a(a aVar, d dVar) {
+        public C0097a(a aVar, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,33 +87,33 @@ public class a extends Drawable implements Animatable {
                     return;
                 }
             }
-            this.f3020f = aVar;
-            this.f3019e = dVar;
+            this.f2984f = aVar;
+            this.f2983e = dVar;
         }
 
         @Override // android.view.animation.Animation
         public void applyTransformation(float f2, Transformation transformation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
-                a aVar = this.f3020f;
+                a aVar = this.f2984f;
                 if (aVar.n) {
-                    aVar.a(f2, this.f3019e);
+                    aVar.a(f2, this.f2983e);
                     return;
                 }
-                float c2 = aVar.c(this.f3019e);
-                float j2 = this.f3019e.j();
-                float l = this.f3019e.l();
-                float k2 = this.f3019e.k();
-                this.f3020f.m(f2, this.f3019e);
+                float c2 = aVar.c(this.f2983e);
+                float j2 = this.f2983e.j();
+                float l = this.f2983e.l();
+                float k2 = this.f2983e.k();
+                this.f2984f.m(f2, this.f2983e);
                 if (f2 <= 0.5f) {
-                    this.f3019e.D(l + ((0.8f - c2) * a.q.getInterpolation(f2 / 0.5f)));
+                    this.f2983e.D(l + ((0.8f - c2) * a.q.getInterpolation(f2 / 0.5f)));
                 }
                 if (f2 > 0.5f) {
-                    this.f3019e.z(j2 + ((0.8f - c2) * a.q.getInterpolation((f2 - 0.5f) / 0.5f)));
+                    this.f2983e.z(j2 + ((0.8f - c2) * a.q.getInterpolation((f2 - 0.5f) / 0.5f)));
                 }
-                this.f3019e.B(k2 + (0.25f * f2));
-                a aVar2 = this.f3020f;
-                aVar2.h((f2 * 216.0f) + ((aVar2.f3018k / 5.0f) * 1080.0f));
+                this.f2983e.B(k2 + (0.25f * f2));
+                a aVar2 = this.f2984f;
+                aVar2.h((f2 * 216.0f) + ((aVar2.f2982k / 5.0f) * 1080.0f));
             }
         }
     }
@@ -125,7 +125,7 @@ public class a extends Drawable implements Animatable {
         public final /* synthetic */ d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f3021b;
+        public final /* synthetic */ a f2985b;
 
         public b(a aVar, d dVar) {
             Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public class a extends Drawable implements Animatable {
                     return;
                 }
             }
-            this.f3021b = aVar;
+            this.f2985b = aVar;
             this.a = dVar;
         }
 
@@ -161,14 +161,14 @@ public class a extends Drawable implements Animatable {
                 this.a.n();
                 d dVar = this.a;
                 dVar.D(dVar.e());
-                a aVar = this.f3021b;
+                a aVar = this.f2985b;
                 if (aVar.n) {
                     aVar.n = false;
                     animation.setDuration(1332L);
                     this.a.C(false);
                     return;
                 }
-                aVar.f3018k = (aVar.f3018k + 1.0f) % 5.0f;
+                aVar.f2982k = (aVar.f2982k + 1.0f) % 5.0f;
             }
         }
 
@@ -176,7 +176,7 @@ public class a extends Drawable implements Animatable {
         public void onAnimationStart(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                this.f3021b.f3018k = 0.0f;
+                this.f2985b.f2982k = 0.0f;
             }
         }
     }
@@ -187,7 +187,7 @@ public class a extends Drawable implements Animatable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f3022e;
+        public final /* synthetic */ a f2986e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -204,14 +204,14 @@ public class a extends Drawable implements Animatable {
                     return;
                 }
             }
-            this.f3022e = aVar;
+            this.f2986e = aVar;
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void invalidateDrawable(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-                this.f3022e.invalidateSelf();
+                this.f2986e.invalidateSelf();
             }
         }
 
@@ -219,7 +219,7 @@ public class a extends Drawable implements Animatable {
         public void scheduleDrawable(Drawable drawable, Runnable runnable, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) {
-                this.f3022e.scheduleSelf(runnable, j2);
+                this.f2986e.scheduleSelf(runnable, j2);
             }
         }
 
@@ -227,7 +227,7 @@ public class a extends Drawable implements Animatable {
         public void unscheduleDrawable(Drawable drawable, Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, drawable, runnable) == null) {
-                this.f3022e.unscheduleSelf(runnable);
+                this.f2986e.unscheduleSelf(runnable);
             }
         }
     }
@@ -239,34 +239,34 @@ public class a extends Drawable implements Animatable {
         public final RectF a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Paint f3023b;
+        public final Paint f2987b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Paint f3024c;
+        public final Paint f2988c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Drawable.Callback f3025d;
+        public final Drawable.Callback f2989d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f3026e;
+        public float f2990e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f3027f;
+        public float f2991f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f3028g;
+        public float f2992g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f3029h;
+        public float f2993h;
 
         /* renamed from: i  reason: collision with root package name */
-        public float f3030i;
+        public float f2994i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int[] f3031j;
+        public int[] f2995j;
 
         /* renamed from: k  reason: collision with root package name */
-        public int f3032k;
+        public int f2996k;
         public float l;
         public float m;
         public float n;
@@ -297,20 +297,20 @@ public class a extends Drawable implements Animatable {
                 }
             }
             this.a = new RectF();
-            this.f3023b = new Paint();
-            this.f3024c = new Paint();
-            this.f3026e = 0.0f;
-            this.f3027f = 0.0f;
-            this.f3028g = 0.0f;
-            this.f3029h = 5.0f;
-            this.f3030i = 2.5f;
+            this.f2987b = new Paint();
+            this.f2988c = new Paint();
+            this.f2990e = 0.0f;
+            this.f2991f = 0.0f;
+            this.f2992g = 0.0f;
+            this.f2993h = 5.0f;
+            this.f2994i = 2.5f;
             this.v = new Paint(1);
-            this.f3025d = callback;
-            this.f3023b.setStrokeCap(Paint.Cap.SQUARE);
-            this.f3023b.setAntiAlias(true);
-            this.f3023b.setStyle(Paint.Style.STROKE);
-            this.f3024c.setStyle(Paint.Style.FILL);
-            this.f3024c.setAntiAlias(true);
+            this.f2989d = callback;
+            this.f2987b.setStrokeCap(Paint.Cap.SQUARE);
+            this.f2987b.setAntiAlias(true);
+            this.f2987b.setStyle(Paint.Style.STROKE);
+            this.f2988c.setStyle(Paint.Style.FILL);
+            this.f2988c.setAntiAlias(true);
         }
 
         public void A(int i2, int i3) {
@@ -318,14 +318,14 @@ public class a extends Drawable implements Animatable {
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
                 float min = Math.min(i2, i3);
                 double d2 = this.r;
-                this.f3030i = (float) ((d2 <= 0.0d || min < 0.0f) ? Math.ceil(this.f3029h / 2.0f) : (min / 2.0f) - d2);
+                this.f2994i = (float) ((d2 <= 0.0d || min < 0.0f) ? Math.ceil(this.f2993h / 2.0f) : (min / 2.0f) - d2);
             }
         }
 
         public void B(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-                this.f3028g = f2;
+                this.f2992g = f2;
                 o();
             }
         }
@@ -342,7 +342,7 @@ public class a extends Drawable implements Animatable {
         public void D(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-                this.f3026e = f2;
+                this.f2990e = f2;
                 o();
             }
         }
@@ -350,8 +350,8 @@ public class a extends Drawable implements Animatable {
         public void E(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-                this.f3029h = f2;
-                this.f3023b.setStrokeWidth(f2);
+                this.f2993h = f2;
+                this.f2987b.setStrokeWidth(f2);
                 o();
             }
         }
@@ -359,9 +359,9 @@ public class a extends Drawable implements Animatable {
         public void F() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.l = this.f3026e;
-                this.m = this.f3027f;
-                this.n = this.f3028g;
+                this.l = this.f2990e;
+                this.m = this.f2991f;
+                this.n = this.f2992g;
             }
         }
 
@@ -370,14 +370,14 @@ public class a extends Drawable implements Animatable {
             if (interceptable == null || interceptable.invokeLL(1048582, this, canvas, rect) == null) {
                 RectF rectF = this.a;
                 rectF.set(rect);
-                float f2 = this.f3030i;
+                float f2 = this.f2994i;
                 rectF.inset(f2, f2);
-                float f3 = this.f3026e;
-                float f4 = this.f3028g;
+                float f3 = this.f2990e;
+                float f4 = this.f2992g;
                 float f5 = (f3 + f4) * 360.0f;
-                float f6 = ((this.f3027f + f4) * 360.0f) - f5;
-                this.f3023b.setColor(this.x);
-                canvas.drawArc(rectF, f5, f6, false, this.f3023b);
+                float f6 = ((this.f2991f + f4) * 360.0f) - f5;
+                this.f2987b.setColor(this.x);
+                canvas.drawArc(rectF, f5, f6, false, this.f2987b);
                 b(canvas, f5, f6, rect);
                 if (this.u < 255) {
                     this.v.setColor(this.w);
@@ -398,7 +398,7 @@ public class a extends Drawable implements Animatable {
                 } else {
                     path.reset();
                 }
-                float f4 = (((int) this.f3030i) / 2) * this.q;
+                float f4 = (((int) this.f2994i) / 2) * this.q;
                 float sin = (float) ((this.r * Math.sin(0.0d)) + rect.exactCenterY());
                 this.p.moveTo(0.0f, 0.0f);
                 this.p.lineTo(this.s * this.q, 0.0f);
@@ -407,9 +407,9 @@ public class a extends Drawable implements Animatable {
                 path3.lineTo((this.s * f5) / 2.0f, this.t * f5);
                 this.p.offset(((float) ((this.r * Math.cos(0.0d)) + rect.exactCenterX())) - f4, sin);
                 this.p.close();
-                this.f3024c.setColor(this.x);
+                this.f2988c.setColor(this.x);
                 canvas.rotate((f2 + f3) - 5.0f, rect.exactCenterX(), rect.exactCenterY());
-                canvas.drawPath(this.p, this.f3024c);
+                canvas.drawPath(this.p, this.f2988c);
             }
         }
 
@@ -428,31 +428,31 @@ public class a extends Drawable implements Animatable {
         public float e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f3027f : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f2991f : invokeV.floatValue;
         }
 
         public int f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f3031j[g()] : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f2995j[g()] : invokeV.intValue;
         }
 
         public final int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (this.f3032k + 1) % this.f3031j.length : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (this.f2996k + 1) % this.f2995j.length : invokeV.intValue;
         }
 
         public float h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f3026e : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f2990e : invokeV.floatValue;
         }
 
         public int i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f3031j[this.f3032k] : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f2995j[this.f2996k] : invokeV.intValue;
         }
 
         public float j() {
@@ -476,7 +476,7 @@ public class a extends Drawable implements Animatable {
         public float m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f3029h : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f2993h : invokeV.floatValue;
         }
 
         public void n() {
@@ -489,7 +489,7 @@ public class a extends Drawable implements Animatable {
         public final void o() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-                this.f3025d.invalidateDrawable(null);
+                this.f2989d.invalidateDrawable(null);
             }
         }
 
@@ -553,7 +553,7 @@ public class a extends Drawable implements Animatable {
         public void w(ColorFilter colorFilter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048604, this, colorFilter) == null) {
-                this.f3023b.setColorFilter(colorFilter);
+                this.f2987b.setColorFilter(colorFilter);
                 o();
             }
         }
@@ -561,15 +561,15 @@ public class a extends Drawable implements Animatable {
         public void x(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-                this.f3032k = i2;
-                this.x = this.f3031j[i2];
+                this.f2996k = i2;
+                this.x = this.f2995j[i2];
             }
         }
 
         public void y(@NonNull int[] iArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048606, this, iArr) == null) {
-                this.f3031j = iArr;
+                this.f2995j = iArr;
                 x(0);
             }
         }
@@ -577,7 +577,7 @@ public class a extends Drawable implements Animatable {
         public void z(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048607, this, f2) == null) {
-                this.f3027f = f2;
+                this.f2991f = f2;
                 o();
             }
         }
@@ -616,12 +616,12 @@ public class a extends Drawable implements Animatable {
                 return;
             }
         }
-        this.f3012e = new ArrayList<>();
+        this.f2976e = new ArrayList<>();
         this.o = new c(this);
-        this.f3016i = view;
-        this.f3015h = context.getResources();
+        this.f2980i = view;
+        this.f2979h = context.getResources();
         d dVar = new d(this.o);
-        this.f3013f = dVar;
+        this.f2977f = dVar;
         dVar.y(r);
         n(1);
         k();
@@ -661,7 +661,7 @@ public class a extends Drawable implements Animatable {
     public void d(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.f3013f.s(f2);
+            this.f2977f.s(f2);
         }
     }
 
@@ -671,8 +671,8 @@ public class a extends Drawable implements Animatable {
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             Rect bounds = getBounds();
             int save = canvas.save();
-            canvas.rotate(this.f3014g, bounds.exactCenterX(), bounds.exactCenterY());
-            this.f3013f.a(canvas, bounds);
+            canvas.rotate(this.f2978g, bounds.exactCenterX(), bounds.exactCenterY());
+            this.f2977f.a(canvas, bounds);
             if (save < 1 || save > canvas.getSaveCount()) {
                 return;
             }
@@ -683,22 +683,22 @@ public class a extends Drawable implements Animatable {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f3013f.t(i2);
+            this.f2977f.t(i2);
         }
     }
 
     public void f(int... iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, iArr) == null) {
-            this.f3013f.y(iArr);
-            this.f3013f.x(0);
+            this.f2977f.y(iArr);
+            this.f2977f.x(0);
         }
     }
 
     public void g(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.f3013f.B(f2);
+            this.f2977f.B(f2);
         }
     }
 
@@ -706,7 +706,7 @@ public class a extends Drawable implements Animatable {
     public int getAlpha() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f3013f.c() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2977f.c() : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -736,7 +736,7 @@ public class a extends Drawable implements Animatable {
     public void h(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048588, this, f2) == null) {
-            this.f3014g = f2;
+            this.f2978g = f2;
             invalidateSelf();
         }
     }
@@ -744,8 +744,8 @@ public class a extends Drawable implements Animatable {
     public final void i(double d2, double d3, double d4, double d5, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            d dVar = this.f3013f;
-            float f4 = this.f3015h.getDisplayMetrics().density;
+            d dVar = this.f2977f;
+            float f4 = this.f2979h.getDisplayMetrics().density;
             double d6 = f4;
             this.l = d2 * d6;
             this.m = d3 * d6;
@@ -762,7 +762,7 @@ public class a extends Drawable implements Animatable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ArrayList<Animation> arrayList = this.f3012e;
+            ArrayList<Animation> arrayList = this.f2976e;
             int size = arrayList.size();
             for (int i2 = 0; i2 < size; i2++) {
                 Animation animation = arrayList.get(i2);
@@ -778,28 +778,28 @@ public class a extends Drawable implements Animatable {
     public void j(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.f3013f.D(f2);
-            this.f3013f.z(f3);
+            this.f2977f.D(f2);
+            this.f2977f.z(f3);
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            d dVar = this.f3013f;
-            C0099a c0099a = new C0099a(this, dVar);
-            c0099a.setRepeatCount(-1);
-            c0099a.setRepeatMode(1);
-            c0099a.setInterpolator(p);
-            c0099a.setAnimationListener(new b(this, dVar));
-            this.f3017j = c0099a;
+            d dVar = this.f2977f;
+            C0097a c0097a = new C0097a(this, dVar);
+            c0097a.setRepeatCount(-1);
+            c0097a.setRepeatMode(1);
+            c0097a.setInterpolator(p);
+            c0097a.setAnimationListener(new b(this, dVar));
+            this.f2981j = c0097a;
         }
     }
 
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f3013f.C(z);
+            this.f2977f.C(z);
         }
     }
 
@@ -826,7 +826,7 @@ public class a extends Drawable implements Animatable {
     public void setAlpha(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.f3013f.q(i2);
+            this.f2977f.q(i2);
         }
     }
 
@@ -834,7 +834,7 @@ public class a extends Drawable implements Animatable {
     public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, colorFilter) == null) {
-            this.f3013f.w(colorFilter);
+            this.f2977f.w(colorFilter);
         }
     }
 
@@ -842,18 +842,18 @@ public class a extends Drawable implements Animatable {
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.f3017j.reset();
-            this.f3013f.F();
-            if (this.f3013f.e() != this.f3013f.h()) {
+            this.f2981j.reset();
+            this.f2977f.F();
+            if (this.f2977f.e() != this.f2977f.h()) {
                 this.n = true;
-                this.f3017j.setDuration(666L);
-                this.f3016i.startAnimation(this.f3017j);
+                this.f2981j.setDuration(666L);
+                this.f2980i.startAnimation(this.f2981j);
                 return;
             }
-            this.f3013f.x(0);
-            this.f3013f.p();
-            this.f3017j.setDuration(1332L);
-            this.f3016i.startAnimation(this.f3017j);
+            this.f2977f.x(0);
+            this.f2977f.p();
+            this.f2981j.setDuration(1332L);
+            this.f2980i.startAnimation(this.f2981j);
         }
     }
 
@@ -861,11 +861,11 @@ public class a extends Drawable implements Animatable {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.f3016i.clearAnimation();
+            this.f2980i.clearAnimation();
             h(0.0f);
-            this.f3013f.C(false);
-            this.f3013f.x(0);
-            this.f3013f.p();
+            this.f2977f.C(false);
+            this.f2977f.x(0);
+            this.f2977f.p();
         }
     }
 }

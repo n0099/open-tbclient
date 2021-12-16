@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class de implements com.kwad.sdk.core.d<com.kwad.sdk.core.response.model.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,12 +34,12 @@ public class de implements com.kwad.sdk.core.d<com.kwad.sdk.core.response.model.
             return;
         }
         bVar.a = jSONObject.optLong("posId");
-        bVar.f57820b = jSONObject.optInt("adPhotoCountForMedia");
-        bVar.f57821c = jSONObject.optBoolean("enablePreload");
-        bVar.f57822d = jSONObject.optLong("increaseAdLoadTime", new Long("10000").longValue());
-        bVar.f57823e = jSONObject.optInt("adLoadStrategy");
-        bVar.f57824f = jSONObject.optInt("entryAutoPlay");
-        bVar.f57825g = jSONObject.optInt("drawAdForcedWatchTimes", new Integer("3").intValue());
+        bVar.f58401b = jSONObject.optInt("adPhotoCountForMedia");
+        bVar.f58402c = jSONObject.optBoolean("enablePreload");
+        bVar.f58403d = jSONObject.optLong("increaseAdLoadTime", new Long("10000").longValue());
+        bVar.f58404e = jSONObject.optInt("adLoadStrategy");
+        bVar.f58405f = jSONObject.optInt("entryAutoPlay");
+        bVar.f58406g = jSONObject.optInt("drawAdForcedWatchTimes", new Integer("3").intValue());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,12 +52,12 @@ public class de implements com.kwad.sdk.core.d<com.kwad.sdk.core.response.model.
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "posId", bVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "adPhotoCountForMedia", bVar.f57820b);
-            com.kwad.sdk.utils.t.a(jSONObject, "enablePreload", bVar.f57821c);
-            com.kwad.sdk.utils.t.a(jSONObject, "increaseAdLoadTime", bVar.f57822d);
-            com.kwad.sdk.utils.t.a(jSONObject, "adLoadStrategy", bVar.f57823e);
-            com.kwad.sdk.utils.t.a(jSONObject, "entryAutoPlay", bVar.f57824f);
-            com.kwad.sdk.utils.t.a(jSONObject, "drawAdForcedWatchTimes", bVar.f57825g);
+            com.kwad.sdk.utils.t.a(jSONObject, "adPhotoCountForMedia", bVar.f58401b);
+            com.kwad.sdk.utils.t.a(jSONObject, "enablePreload", bVar.f58402c);
+            com.kwad.sdk.utils.t.a(jSONObject, "increaseAdLoadTime", bVar.f58403d);
+            com.kwad.sdk.utils.t.a(jSONObject, "adLoadStrategy", bVar.f58404e);
+            com.kwad.sdk.utils.t.a(jSONObject, "entryAutoPlay", bVar.f58405f);
+            com.kwad.sdk.utils.t.a(jSONObject, "drawAdForcedWatchTimes", bVar.f58406g);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

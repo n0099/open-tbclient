@@ -14,7 +14,7 @@ import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.RendererCommon;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GlGenericDrawer implements RendererCommon.GlDrawer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_VERTEX_SHADER_STRING = "varying vec2 tc;\nattribute vec4 in_pos;\nattribute vec4 in_tc;\nuniform mat4 tex_mat;\nvoid main() {\n  gl_Position = in_pos;\n  tc = (tex_mat * in_tc).xy;\n}\n";
@@ -35,7 +35,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
     public int texMatrixLocation;
     public final String vertexShader;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ShaderCallbacks {
         void onNewShader(GlShader glShader);
 
@@ -43,7 +43,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ShaderType {
         public static final /* synthetic */ ShaderType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

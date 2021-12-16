@@ -4,9 +4,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import c.a.d.m.e.a;
-import c.a.r0.a0.f.a.b;
-import c.a.r0.a0.f.i.c;
-import c.a.r0.a0.f.i.d;
+import c.a.s0.a0.f.a.b;
+import c.a.s0.a0.f.i.c;
+import c.a.s0.a0.f.i.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     public int n;
     public d o;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class SquareActiveViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,9 +78,9 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
                 return null;
             }
             cVar.k(bVar);
-            c.a.r0.a0.f.e.a.c().a(bVar.g("c12249", false));
+            c.a.s0.a0.f.e.a.c().a(bVar.g("c12249", false));
             if (i2 == this.n) {
-                cVar.j().setAnimation(AnimationUtils.loadAnimation(this.f2907e, R.anim.list_anim));
+                cVar.j().setAnimation(AnimationUtils.loadAnimation(this.f2871e, R.anim.list_anim));
             }
             return squareActiveViewHolder.getView();
         }

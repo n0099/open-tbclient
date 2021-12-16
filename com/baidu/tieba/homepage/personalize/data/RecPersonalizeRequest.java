@@ -1,13 +1,13 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.j;
-import c.a.d.f.p.l;
-import c.a.q0.d1.g;
-import c.a.q0.d1.z;
-import c.a.q0.s.q.g1;
-import c.a.r0.h3.j0.a;
-import c.a.r0.h3.l0.b;
+import c.a.d.f.p.k;
+import c.a.d.f.p.m;
+import c.a.r0.d1.b0;
+import c.a.r0.d1.i;
+import c.a.r0.s.r.g1;
+import c.a.s0.j3.j0.a;
+import c.a.s0.j3.l0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class RecPersonalizeRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_TYPE_LOAD_MORE = 2;
@@ -66,7 +66,7 @@ public class RecPersonalizeRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            z.c(builder, true, false, true);
+            b0.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -74,12 +74,12 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.sug_count = Integer.valueOf(this.suggestCount);
             builder.tag_code = 0;
-            builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(l.h(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(m.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(m.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(m.h(TbadkCoreApplication.getInst()));
             builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             builder.need_forumlist = Integer.valueOf(this.needForumlist);
-            builder.new_net_type = Integer.valueOf(j.I());
+            builder.new_net_type = Integer.valueOf(k.I());
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
@@ -88,15 +88,15 @@ public class RecPersonalizeRequest extends NetMessage {
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
                 g1 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
                 builder.from_tid = Long.valueOf(c.a.d.f.m.b.g(pbToHomeUpdateData.a, 0L));
-                builder.query_eqid = pbToHomeUpdateData.f12954b;
-                builder.first_dir = pbToHomeUpdateData.f12955c;
-                builder.second_dir = pbToHomeUpdateData.f12956d;
+                builder.query_eqid = pbToHomeUpdateData.f13334b;
+                builder.first_dir = pbToHomeUpdateData.f13335c;
+                builder.second_dir = pbToHomeUpdateData.f13336d;
                 TbSingleton.getInstance().setPbToHomeUpdateData(null);
             }
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.e(this.adFloorInfo);
             builder.ad_ext_params = b2.a();
-            builder.app_transmit_data = g.b();
+            builder.app_transmit_data = i.b();
             PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

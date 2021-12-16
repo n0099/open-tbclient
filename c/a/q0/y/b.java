@@ -1,49 +1,46 @@
 package c.a.q0.y;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import c.a.d.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
-/* loaded from: classes5.dex */
-public class b implements c {
+import java.lang.ref.WeakReference;
+/* loaded from: classes6.dex */
+public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f13769b;
+    public int f11476b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f13770c;
+    public int f11477c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f13771d;
+    public int f11478d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f13772e;
+    public int f11479e;
 
-    public b(Context context) {
+    /* renamed from: f  reason: collision with root package name */
+    public int f11480f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f11481g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f11482h;
+
+    public b(View view) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -53,43 +50,161 @@ public class b implements c {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_rule_copy, (ViewGroup) null);
-        this.a = inflate;
-        this.f13769b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
-        this.f13771d = (TextView) this.a.findViewById(R.id.floating_view_title);
-        this.f13770c = (ImageView) this.a.findViewById(R.id.floating_view_arrow);
-        this.f13772e = (LinearLayout) this.a.findViewById(R.id.floating_view_main);
-        this.f13771d.setText(R.string.frs_forum_rule_return_info);
-        changeSkin();
+        this.f11482h = 0;
+        new WeakReference(view);
     }
 
-    @Override // c.a.q0.y.c
-    public void changeSkin() {
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00af, code lost:
+        if (r4 != false) goto L36;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x00b2, code lost:
+        if (r4 != false) goto L35;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x00b4, code lost:
+        r12 = (int) (r0 / r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x00b8, code lost:
+        r11 = (int) (r3 * r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x00f8, code lost:
+        if (r1 > r11) goto L77;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(int i2, int i3) {
+        int i4;
+        float f2;
+        int i5;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
+            int i6 = this.f11479e;
+            if (i6 == 90 || i6 == 270) {
+                i3 = i2;
+                i2 = i3;
+            }
+            int defaultSize = View.getDefaultSize(this.a, i2);
+            int defaultSize2 = View.getDefaultSize(this.f11476b, i3);
+            if (this.f11482h != 3) {
+                if (this.a <= 0 || this.f11476b <= 0) {
+                    i2 = defaultSize;
+                    i3 = defaultSize2;
+                } else {
+                    int mode = View.MeasureSpec.getMode(i2);
+                    i2 = View.MeasureSpec.getSize(i2);
+                    int mode2 = View.MeasureSpec.getMode(i3);
+                    i3 = View.MeasureSpec.getSize(i3);
+                    if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
+                        float f3 = i2;
+                        float f4 = i3;
+                        float f5 = f3 / f4;
+                        int i7 = this.f11482h;
+                        if (i7 == 4) {
+                            int i8 = this.f11479e;
+                            f2 = (i8 == 90 || i8 == 270) ? 0.5625f : 1.7777778f;
+                        } else if (i7 != 5) {
+                            f2 = this.a / this.f11476b;
+                            int i9 = this.f11477c;
+                            if (i9 > 0 && (i5 = this.f11478d) > 0) {
+                                f2 = (f2 * i9) / i5;
+                            }
+                        } else {
+                            int i10 = this.f11479e;
+                            f2 = (i10 == 90 || i10 == 270) ? 0.75f : 1.3333334f;
+                        }
+                        boolean z = f2 > f5;
+                        int i11 = this.f11482h;
+                        if (i11 != 0) {
+                            if (i11 != 1) {
+                                if (i11 != 4 && i11 != 5) {
+                                    if (z) {
+                                        i2 = Math.min(this.a, i2);
+                                        i3 = (int) (i2 / f2);
+                                    } else {
+                                        i3 = Math.min(this.f11476b, i3);
+                                        i2 = (int) (i3 * f2);
+                                    }
+                                }
+                            }
+                        }
+                    } else if (mode == 1073741824 && mode2 == 1073741824) {
+                        int i12 = this.a;
+                        int i13 = i12 * i3;
+                        int i14 = this.f11476b;
+                        if (i13 < i2 * i14) {
+                            i2 = (i12 * i3) / i14;
+                        } else if (i12 * i3 > i2 * i14) {
+                            i3 = (i14 * i2) / i12;
+                        }
+                    } else if (mode == 1073741824) {
+                        int i15 = (this.f11476b * i2) / this.a;
+                        if (mode2 != Integer.MIN_VALUE || i15 <= i3) {
+                            i3 = i15;
+                        }
+                    } else if (mode2 == 1073741824) {
+                        i4 = (this.a * i3) / this.f11476b;
+                        if (mode == Integer.MIN_VALUE) {
+                        }
+                        i2 = i4;
+                    } else {
+                        i4 = this.a;
+                        int i16 = this.f11476b;
+                        if (mode2 != Integer.MIN_VALUE || i16 <= i3) {
+                            i3 = i16;
+                        } else {
+                            i4 = (i4 * i3) / i16;
+                        }
+                        if (mode == Integer.MIN_VALUE && i4 > i2) {
+                            i3 = (this.f11476b * i2) / this.a;
+                        }
+                        i2 = i4;
+                    }
+                }
+            }
+            this.f11480f = i2;
+            this.f11481g = i3;
         }
-        SkinManager.setViewTextColor(this.f13771d, R.color.CAM_X0101);
-        this.f13770c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(w0.A).tlRadius(l.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(l.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.f13772e);
-        this.f13769b.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_manage_postdelete_cancel32, WebPManager.ResourceStateType.NORMAL));
     }
 
-    @Override // c.a.q0.y.c
-    public View getView() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view = this.a;
-            return view != null ? view : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
-        }
-        return (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11481g : invokeV.intValue;
     }
 
-    @Override // c.a.q0.y.c
-    public void onClick() {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11480f : invokeV.intValue;
+    }
+
+    public void d(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.f11482h = i2;
+        }
+    }
+
+    public void e(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.f11479e = i2;
+        }
+    }
+
+    public void f(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
+            this.f11477c = i2;
+            this.f11478d = i3;
+        }
+    }
+
+    public void g(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
+            this.a = i2;
+            this.f11476b = i3;
         }
     }
 }

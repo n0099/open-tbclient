@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class RimAnimUtils {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f34378b;
+    public static int f34846b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f34379c;
+    public static int f34847c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f34380d;
+    public static int f34848d;
     public transient /* synthetic */ FieldHolder $fh;
 
     public RimAnimUtils() {
@@ -40,14 +40,14 @@ public final class RimAnimUtils {
         if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || context == null) {
             return;
         }
-        if (f34379c == 0 || f34380d == 0) {
-            f34379c = ResUtils.anim(context, "rim_base_slide_from_left");
-            f34380d = ResUtils.anim(context, "rim_base_slide_to_right");
+        if (f34847c == 0 || f34848d == 0) {
+            f34847c = ResUtils.anim(context, "rim_base_slide_from_left");
+            f34848d = ResUtils.anim(context, "rim_base_slide_to_right");
         }
         if (context instanceof Activity) {
-            ((Activity) context).overridePendingTransition(f34379c, f34380d);
+            ((Activity) context).overridePendingTransition(f34847c, f34848d);
         }
-        LogUtil.v("xyz", "Rim-finishActivityAnim-context:" + context + ", mCloseEnter:" + f34379c + ", mCloseExit:" + f34380d);
+        LogUtil.v("xyz", "Rim-finishActivityAnim-context:" + context + ", mCloseEnter:" + f34847c + ", mCloseExit:" + f34848d);
     }
 
     public static void overridePendingTransitionNoAnim(Activity activity) {
@@ -63,12 +63,12 @@ public final class RimAnimUtils {
         if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || context == null) {
             return;
         }
-        if (a == 0 || f34378b == 0) {
+        if (a == 0 || f34846b == 0) {
             a = ResUtils.anim(context, "rim_base_slide_from_right");
-            f34378b = ResUtils.anim(context, "rim_base_slide_to_left");
+            f34846b = ResUtils.anim(context, "rim_base_slide_to_left");
         }
         if (context instanceof Activity) {
-            ((Activity) context).overridePendingTransition(a, f34378b);
+            ((Activity) context).overridePendingTransition(a, f34846b);
         }
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.Writer;
 import org.apache.commons.lang3.ArrayUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AggregateTranslator extends CharSequenceTranslator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

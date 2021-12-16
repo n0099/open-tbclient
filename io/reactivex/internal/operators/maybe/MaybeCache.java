@@ -13,7 +13,7 @@ import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeSource;
 import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class MaybeCache<T> extends Maybe<T> implements MaybeObserver<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final CacheDisposable[] EMPTY;
@@ -24,7 +24,7 @@ public final class MaybeCache<T> extends Maybe<T> implements MaybeObserver<T> {
     public final AtomicReference<MaybeSource<T>> source;
     public T value;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class CacheDisposable<T> extends AtomicReference<MaybeCache<T>> implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5791853038359966195L;

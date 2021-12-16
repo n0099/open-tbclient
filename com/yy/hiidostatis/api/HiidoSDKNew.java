@@ -76,7 +76,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HiidoSDKNew implements HiidoApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_METRICS_NAME = "DEFAULT_METRICS";
@@ -121,12 +121,12 @@ public class HiidoSDKNew implements HiidoApi {
     public SessionReportWrapper sessionReport;
     public volatile boolean userAgreed;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface HdidReceiver {
         void onHdidReceived(String str);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class QuitTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -492,7 +492,7 @@ public class HiidoSDKNew implements HiidoApi {
     public boolean imeiPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65577, this)) == null) ? !HiidoSDK.instance().getOptions().isWaitGrant() || Build.VERSION.SDK_INT > 28 || this.appRunIsCalled || ArdUtil.checkPermissions(this.mContext, s.f56838c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65577, this)) == null) ? !HiidoSDK.instance().getOptions().isWaitGrant() || Build.VERSION.SDK_INT > 28 || this.appRunIsCalled || ArdUtil.checkPermissions(this.mContext, s.f57419c) : invokeV.booleanValue;
     }
 
     private MessageConfig initMessageConfig(Context context, StatisOption statisOption, OnStatisListener onStatisListener) {

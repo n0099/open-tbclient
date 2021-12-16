@@ -2,7 +2,7 @@ package com.kuaishou.weapon;
 
 import android.location.Location;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IWeaponInitParams {
     String getAndroidID();
 

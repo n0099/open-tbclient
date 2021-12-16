@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public static SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences.Editor f28537b;
+    public static SharedPreferences.Editor f28912b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,7 +54,7 @@ public final class c {
         if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && a == null) {
             SharedPreferences sharedPreferences = context.getSharedPreferences("DxmHeartBeatSP", 0);
             a = sharedPreferences;
-            f28537b = sharedPreferences.edit();
+            f28912b = sharedPreferences.edit();
         }
     }
 
@@ -62,8 +62,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
             a(context);
-            f28537b.putLong(str, j2);
-            f28537b.commit();
+            f28912b.putLong(str, j2);
+            f28912b.commit();
         }
     }
 

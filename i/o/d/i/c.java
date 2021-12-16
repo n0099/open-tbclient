@@ -11,25 +11,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class c<E> extends a<E> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final Integer f63877k;
+    public static final Integer f64458k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicLong f63878g;
+    public final AtomicLong f64459g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f63879h;
+    public long f64460h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final AtomicLong f63880i;
+    public final AtomicLong f64461i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f63881j;
+    public final int f64462j;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public final class c<E> extends a<E> {
                 return;
             }
         }
-        f63877k = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+        f64458k = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,34 +65,34 @@ public final class c<E> extends a<E> {
                 return;
             }
         }
-        this.f63878g = new AtomicLong();
-        this.f63880i = new AtomicLong();
-        this.f63881j = Math.min(i2 / 4, f63877k.intValue());
+        this.f64459g = new AtomicLong();
+        this.f64461i = new AtomicLong();
+        this.f64462j = Math.min(i2 / 4, f64458k.intValue());
     }
 
     public final long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63880i.get() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64461i.get() : invokeV.longValue;
     }
 
     public final long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63878g.get() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64459g.get() : invokeV.longValue;
     }
 
     public final void h(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f63880i.lazySet(j2);
+            this.f64461i.lazySet(j2);
         }
     }
 
     public final void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f63878g.lazySet(j2);
+            this.f64459g.lazySet(j2);
         }
     }
 
@@ -109,14 +109,14 @@ public final class c<E> extends a<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e2)) == null) {
             if (e2 != null) {
-                AtomicReferenceArray<E> atomicReferenceArray = this.f63873e;
-                int i2 = this.f63874f;
-                long j2 = this.f63878g.get();
+                AtomicReferenceArray<E> atomicReferenceArray = this.f64454e;
+                int i2 = this.f64455f;
+                long j2 = this.f64459g.get();
                 int b2 = b(j2, i2);
-                if (j2 >= this.f63879h) {
-                    long j3 = this.f63881j + j2;
+                if (j2 >= this.f64460h) {
+                    long j3 = this.f64462j + j2;
                     if (d(atomicReferenceArray, b(j3, i2)) == null) {
-                        this.f63879h = j3;
+                        this.f64460h = j3;
                     } else if (d(atomicReferenceArray, b2) != null) {
                         return false;
                     }
@@ -134,7 +134,7 @@ public final class c<E> extends a<E> {
     public E peek() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? c(a(this.f63880i.get())) : (E) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? c(a(this.f64461i.get())) : (E) invokeV.objValue;
     }
 
     @Override // java.util.Queue
@@ -142,9 +142,9 @@ public final class c<E> extends a<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long j2 = this.f63880i.get();
+            long j2 = this.f64461i.get();
             int a = a(j2);
-            AtomicReferenceArray<E> atomicReferenceArray = this.f63873e;
+            AtomicReferenceArray<E> atomicReferenceArray = this.f64454e;
             E d2 = d(atomicReferenceArray, a);
             if (d2 == null) {
                 return null;

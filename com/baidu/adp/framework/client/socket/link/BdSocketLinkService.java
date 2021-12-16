@@ -15,7 +15,7 @@ import android.os.Looper;
 import android.os.Message;
 import c.a.d.c.e.c.i;
 import c.a.d.f.m.f;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import c.a.d.f.r.h;
 import c.a.d.f.r.j;
 import c.a.d.f.r.k;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BdSocketLinkService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALLREADY;
@@ -61,7 +61,7 @@ public class BdSocketLinkService extends BdBaseService {
     public ScreenOnBroadcastReciver mScreenOnBroadcastReciver;
     public d myBinder;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class ScreenOnBroadcastReciver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +96,7 @@ public class BdSocketLinkService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +132,7 @@ public class BdSocketLinkService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b extends j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public class BdSocketLinkService extends BdBaseService {
                     i.d();
                 }
                 BdSocketLinkService.mHandler.removeMessages(1);
-                if ((BdSocketLinkService.connStateCallBack != null ? BdSocketLinkService.connStateCallBack.b(i2, null) : false) || i2 == 1 || !l.C()) {
+                if ((BdSocketLinkService.connStateCallBack != null ? BdSocketLinkService.connStateCallBack.b(i2, null) : false) || i2 == 1 || !m.C()) {
                     return;
                 }
                 c.a.d.c.e.c.k.d dVar = BdSocketLinkService.reConnStra;
@@ -209,13 +209,13 @@ public class BdSocketLinkService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketLinkService f31650e;
+        public final /* synthetic */ BdSocketLinkService f32020e;
 
         public c(BdSocketLinkService bdSocketLinkService) {
             Interceptable interceptable = $ic;
@@ -232,7 +232,7 @@ public class BdSocketLinkService extends BdBaseService {
                     return;
                 }
             }
-            this.f31650e = bdSocketLinkService;
+            this.f32020e = bdSocketLinkService;
         }
 
         @Override // android.content.ServiceConnection
@@ -251,13 +251,13 @@ public class BdSocketLinkService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class d extends Binder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketLinkService f31651e;
+        public final /* synthetic */ BdSocketLinkService f32021e;
 
         public d(BdSocketLinkService bdSocketLinkService) {
             Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public class BdSocketLinkService extends BdBaseService {
                     return;
                 }
             }
-            this.f31651e = bdSocketLinkService;
+            this.f32021e = bdSocketLinkService;
         }
     }
 

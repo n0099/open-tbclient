@@ -24,7 +24,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AFTER_MAINTAB_CREATE_COST = "afterMainTabCreateCost";

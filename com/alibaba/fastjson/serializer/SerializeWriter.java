@@ -25,7 +25,7 @@ import java.nio.charset.Charset;
 import java.util.List;
 import kotlin.text.Typography;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SerializeWriter extends Writer {
     public static /* synthetic */ Interceptable $ic;
     public static int BUFFER_THRESHOLD;
@@ -535,7 +535,7 @@ public final class SerializeWriter extends Writer {
                         int i11 = ((bArr[i2] & 255) << 10) | (i10 == 2 ? (bArr[i3] & 255) << 2 : 0);
                         write(cArr[i11 >> 12]);
                         write(cArr[(i11 >>> 6) & 63]);
-                        write(i10 == 2 ? cArr[i11 & 63] : a.f31351h);
+                        write(i10 == 2 ? cArr[i11 & 63] : a.f31721h);
                         write(61);
                     }
                     write(c2);
@@ -570,8 +570,8 @@ public final class SerializeWriter extends Writer {
                 char[] cArr3 = this.buf;
                 cArr3[i5 - 5] = cArr[i23 >> 12];
                 cArr3[i5 - 4] = cArr[(i23 >>> 6) & 63];
-                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f31351h;
-                this.buf[i5 - 2] = a.f31351h;
+                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f31721h;
+                this.buf[i5 - 2] = a.f31721h;
             }
             this.buf[i5 - 1] = c2;
         }

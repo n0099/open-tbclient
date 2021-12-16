@@ -3,7 +3,7 @@ package com.airbnb.lottie;
 import android.graphics.ColorFilter;
 import android.graphics.PointF;
 import com.airbnb.lottie.value.ScaleXY;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface LottieProperty {
     public static final ColorFilter COLOR_FILTER;
     public static final Float CORNER_RADIUS;

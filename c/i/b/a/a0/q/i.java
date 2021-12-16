@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.coremedia.iso.boxes.sampleentry.VisualSampleEntry;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] a;
@@ -101,7 +101,7 @@ public final class i {
                     } else {
                         int i6 = (int) (z4 - j3);
                         i3 += i6;
-                        if (i4 == a.f29095b) {
+                        if (i4 == a.f29465b) {
                             if (i6 < 8) {
                                 return false;
                             }

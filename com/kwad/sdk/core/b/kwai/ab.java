@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.request.model.g;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ab implements com.kwad.sdk.core.d<g.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class ab implements com.kwad.sdk.core.d<g.a> {
             return;
         }
         aVar.a = jSONObject.optInt("streamType");
-        aVar.f57796b = jSONObject.optInt("maxVolume");
-        aVar.f57797c = jSONObject.optInt("minVolume");
-        aVar.f57798d = jSONObject.optInt("currentVolume");
+        aVar.f58377b = jSONObject.optInt("maxVolume");
+        aVar.f58378c = jSONObject.optInt("minVolume");
+        aVar.f58379d = jSONObject.optInt("currentVolume");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,9 +50,9 @@ public class ab implements com.kwad.sdk.core.d<g.a> {
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "streamType", aVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "maxVolume", aVar.f57796b);
-            com.kwad.sdk.utils.t.a(jSONObject, "minVolume", aVar.f57797c);
-            com.kwad.sdk.utils.t.a(jSONObject, "currentVolume", aVar.f57798d);
+            com.kwad.sdk.utils.t.a(jSONObject, "maxVolume", aVar.f58377b);
+            com.kwad.sdk.utils.t.a(jSONObject, "minVolume", aVar.f58378c);
+            com.kwad.sdk.utils.t.a(jSONObject, "currentVolume", aVar.f58379d);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

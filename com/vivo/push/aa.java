@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f62418b;
+    public Handler f62999b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f62419c;
+    public final Object f63000c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,10 +72,10 @@ public abstract class aa {
                 return;
             }
         }
-        this.f62419c = new Object();
+        this.f63000c = new Object();
         HandlerThread handlerThread = new HandlerThread(getClass().getSimpleName(), 1);
         handlerThread.start();
-        this.f62418b = new a(this, handlerThread.getLooper());
+        this.f62999b = new a(this, handlerThread.getLooper());
     }
 
     public final void a(Context context) {
@@ -90,12 +90,12 @@ public abstract class aa {
     public final void a(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-            synchronized (this.f62419c) {
-                if (this.f62418b == null) {
+            synchronized (this.f63000c) {
+                if (this.f62999b == null) {
                     String simpleName = getClass().getSimpleName();
                     com.vivo.push.util.p.e(simpleName, ("Dead worker dropping a message: " + message.what) + " (Thread " + Thread.currentThread().getId() + SmallTailInfo.EMOTION_SUFFIX);
                 } else {
-                    this.f62418b.sendMessage(message);
+                    this.f62999b.sendMessage(message);
                 }
             }
         }

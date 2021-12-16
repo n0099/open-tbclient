@@ -16,12 +16,12 @@ import com.dxmpay.apollon.utils.FileCopyUtils;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b extends AbstractHttpMessageConverter<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f28541b;
+    public static final Charset f28916b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class b extends AbstractHttpMessageConverter<Object> {
                 return;
             }
         }
-        f28541b = Charset.forName("UTF-8");
+        f28916b = Charset.forName("UTF-8");
     }
 
     public b() {
@@ -73,7 +73,7 @@ public class b extends AbstractHttpMessageConverter<Object> {
             if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
                 return Charset.forName(aVar.j());
             }
-            return f28541b;
+            return f28916b;
         }
         return (Charset) invokeL.objValue;
     }

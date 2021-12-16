@@ -2,13 +2,13 @@ package com.baidu.tieba.frs.forumRule.adapter;
 
 import android.view.View;
 import android.widget.ImageView;
-import c.a.d.f.p.l;
-import c.a.q0.s.u.c;
-import c.a.r0.d1.c1;
-import c.a.r0.d1.d1;
-import c.a.r0.d1.e1;
-import c.a.r0.d1.f1;
-import c.a.r0.d1.i1;
+import c.a.d.f.p.m;
+import c.a.r0.s.v.c;
+import c.a.s0.d1.c1;
+import c.a.s0.d1.d1;
+import c.a.s0.d1.e1;
+import c.a.s0.d1.f1;
+import c.a.s0.d1.i1;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
         barImageView.setShowOval(true);
         this.mBarManagementHeadView.setShowOuterBorder(false);
         this.mBarManagementHeadView.setShowInnerBorder(true);
-        this.mBarManagementHeadView.setStrokeWith(l.f(TbadkCoreApplication.getInst(), d1.tbds1));
+        this.mBarManagementHeadView.setStrokeWith(m.f(TbadkCoreApplication.getInst(), d1.tbds1));
         this.mBarManagementHeadView.setStrokeColorResId(c1.CAM_X0401);
         this.mHeadViewIndex = (ImageView) view.findViewById(f1.forum_rules_bar_management_index);
         this.mBarManagementTitle = (EMTextView) view.findViewById(f1.forum_rules_bar_management_title);

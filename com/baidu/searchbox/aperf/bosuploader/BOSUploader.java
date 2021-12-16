@@ -31,7 +31,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BOSUploader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -103,7 +103,7 @@ public class BOSUploader {
         return (BOSUploader) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:64:0x012d A[Catch: Exception -> 0x0150, JSONException -> 0x0152, BceClientException -> 0x0154, BceServiceException -> 0x0156, TryCatch #7 {BceServiceException -> 0x0156, BceClientException -> 0x0154, JSONException -> 0x0152, Exception -> 0x0150, blocks: (B:21:0x004a, B:23:0x0056, B:25:0x0064, B:27:0x007c, B:28:0x007e, B:67:0x014c, B:68:0x014f, B:61:0x0119, B:62:0x011c, B:64:0x012d, B:65:0x0141, B:53:0x010b), top: B:111:0x004a }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x012c A[Catch: Exception -> 0x014f, JSONException -> 0x0151, BceClientException -> 0x0153, BceServiceException -> 0x0155, TryCatch #7 {BceServiceException -> 0x0155, BceClientException -> 0x0153, JSONException -> 0x0151, Exception -> 0x014f, blocks: (B:21:0x0049, B:23:0x0055, B:25:0x0063, B:27:0x007b, B:28:0x007d, B:67:0x014b, B:68:0x014e, B:61:0x0118, B:62:0x011b, B:64:0x012c, B:65:0x0140, B:53:0x010a), top: B:111:0x0049 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

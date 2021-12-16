@@ -16,17 +16,17 @@ import com.kwad.sdk.core.config.item.p;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ap {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ap a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f59601b;
+    public boolean f60182b;
 
     /* renamed from: c  reason: collision with root package name */
-    public p.a f59602c;
+    public p.a f60183c;
 
     public ap() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class ap {
                 return;
             }
         }
-        this.f59601b = false;
+        this.f60182b = false;
     }
 
     public static ap a() {
@@ -97,28 +97,28 @@ public class ap {
     private void c() {
         p.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (aVar = this.f59602c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (aVar = this.f60183c) == null) {
             return;
         }
-        if (!this.f59601b && aVar.f57259c.size() > 0) {
-            for (String str : this.f59602c.f57259c) {
+        if (!this.f60182b && aVar.f57840c.size() > 0) {
+            for (String str : this.f60183c.f57840c) {
                 boolean a2 = a(str);
-                this.f59601b = a2;
+                this.f60182b = a2;
                 if (a2) {
                     break;
                 }
             }
         }
-        if (this.f59601b) {
+        if (this.f60182b) {
             ArrayList arrayList = new ArrayList();
-            if (this.f59602c.a.size() > 0) {
-                for (Map.Entry<Integer, String> entry : this.f59602c.a.entrySet()) {
+            if (this.f60183c.a.size() > 0) {
+                for (Map.Entry<Integer, String> entry : this.f60183c.a.entrySet()) {
                     if (a(entry.getValue())) {
                         arrayList.add(entry.getKey());
                     }
                 }
             }
-            com.kwad.sdk.core.report.d.a(a(this.f59602c.f57258b), arrayList);
+            com.kwad.sdk.core.report.d.a(a(this.f60183c.f57839b), arrayList);
         }
     }
 
@@ -130,9 +130,9 @@ public class ap {
         SharedPreferences sharedPreferences = context.getSharedPreferences("ksadsdk_config", 0);
         if (sharedPreferences != null) {
             b.a.aX.a(sharedPreferences);
-            this.f59602c = b.a.aX.a();
+            this.f60183c = b.a.aX.a();
         }
-        if (this.f59602c != null) {
+        if (this.f60183c != null) {
             c();
         }
     }
@@ -141,7 +141,7 @@ public class ap {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksScene, str)) == null) {
-            boolean a2 = this.f59601b ? a(this.f59602c.f57258b) : false;
+            boolean a2 = this.f60182b ? a(this.f60183c.f57839b) : false;
             com.kwad.sdk.core.report.d.a(ksScene, a2, str);
             return a2;
         }
@@ -152,9 +152,9 @@ public class ap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            p.a aVar = this.f59602c;
+            p.a aVar = this.f60183c;
             if (aVar != null) {
-                return aVar.f57260d;
+                return aVar.f57841d;
             }
             return 0;
         }

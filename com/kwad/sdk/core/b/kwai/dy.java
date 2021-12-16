@@ -10,7 +10,7 @@ import com.kwad.sdk.core.request.model.TaskStat;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class dy implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.j> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,15 +36,15 @@ public class dy implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.j
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, jVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        jVar.f57802b = jSONObject.optInt("personalRecommend");
-        jVar.f57803c = jSONObject.optInt("programmaticRecommend");
-        jVar.f57804d = new ArrayList();
+        jVar.f58383b = jSONObject.optInt("personalRecommend");
+        jVar.f58384c = jSONObject.optInt("programmaticRecommend");
+        jVar.f58385d = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("taskStats");
         if (optJSONArray != null) {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 TaskStat taskStat = new TaskStat();
                 taskStat.parseJson(optJSONArray.optJSONObject(i2));
-                jVar.f57804d.add(taskStat);
+                jVar.f58385d.add(taskStat);
             }
         }
     }
@@ -58,9 +58,9 @@ public class dy implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.j
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.t.a(jSONObject, "personalRecommend", jVar.f57802b);
-            com.kwad.sdk.utils.t.a(jSONObject, "programmaticRecommend", jVar.f57803c);
-            com.kwad.sdk.utils.t.a(jSONObject, "taskStats", jVar.f57804d);
+            com.kwad.sdk.utils.t.a(jSONObject, "personalRecommend", jVar.f58383b);
+            com.kwad.sdk.utils.t.a(jSONObject, "programmaticRecommend", jVar.f58384c);
+            com.kwad.sdk.utils.t.a(jSONObject, "taskStats", jVar.f58385d);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

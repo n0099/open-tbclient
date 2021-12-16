@@ -12,7 +12,7 @@ import org.apache.commons.base.BinaryDecoder;
 import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_RESIZE_FACTOR = 2;
@@ -31,7 +31,7 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
     public final byte pad;
     public final int unencodedBlockSize;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

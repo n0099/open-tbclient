@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class dt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -28,25 +28,25 @@ public final class dt {
         public boolean f250a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f62783b;
+        public int f63364b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f251b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f62784c;
+        public int f63365c;
 
         /* renamed from: c  reason: collision with other field name */
         public boolean f252c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f62785d;
+        public boolean f63366d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f62786e;
+        public boolean f63367e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f62787f;
+        public boolean f63368f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -63,10 +63,10 @@ public final class dt {
             }
             this.a = 0;
             this.f252c = false;
-            this.f62783b = 0;
-            this.f62787f = false;
+            this.f63364b = 0;
+            this.f63368f = false;
             this.f249a = Collections.emptyList();
-            this.f62784c = -1;
+            this.f63365c = -1;
         }
 
         public static a a(byte[] bArr) {
@@ -86,10 +86,10 @@ public final class dt {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f62784c < 0) {
+                if (this.f63365c < 0) {
                     b();
                 }
-                return this.f62784c;
+                return this.f63365c;
             }
             return invokeV.intValue;
         }
@@ -217,7 +217,7 @@ public final class dt {
                     i2 += c.a(str);
                 }
                 int size = b2 + i2 + (a().size() * 1);
-                this.f62784c = size;
+                this.f63365c = size;
                 return size;
             }
             return invokeV.intValue;
@@ -227,8 +227,8 @@ public final class dt {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-                this.f62785d = true;
-                this.f62783b = i2;
+                this.f63366d = true;
+                this.f63364b = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -238,8 +238,8 @@ public final class dt {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-                this.f62786e = true;
-                this.f62787f = z;
+                this.f63367e = true;
+                this.f63368f = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -268,14 +268,14 @@ public final class dt {
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f62783b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f63364b : invokeV.intValue;
         }
 
         /* renamed from: d  reason: collision with other method in class */
         public boolean m304d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f62785d : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f63366d : invokeV.booleanValue;
         }
 
         public int e() {
@@ -288,13 +288,13 @@ public final class dt {
         public boolean m305e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f62787f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f63368f : invokeV.booleanValue;
         }
 
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f62786e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f63367e : invokeV.booleanValue;
         }
     }
 }

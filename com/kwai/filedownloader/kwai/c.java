@@ -16,26 +16,26 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements com.kwai.filedownloader.kwai.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public URLConnection a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Proxy a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Integer f60014b;
+        public Integer f60595b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Integer f60015c;
+        public Integer f60596c;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements c.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,11 +124,11 @@ public class c implements com.kwai.filedownloader.kwai.b {
         this.a = (aVar == null || aVar.a == null) ? url.openConnection() : url.openConnection(aVar.a);
         ((com.kwad.sdk.design.kwai.a) ServiceProvider.a(com.kwad.sdk.design.kwai.a.class)).a(this.a);
         if (aVar != null) {
-            if (aVar.f60014b != null) {
-                this.a.setReadTimeout(aVar.f60014b.intValue());
+            if (aVar.f60595b != null) {
+                this.a.setReadTimeout(aVar.f60595b.intValue());
             }
-            if (aVar.f60015c != null) {
-                this.a.setConnectTimeout(aVar.f60015c.intValue());
+            if (aVar.f60596c != null) {
+                this.a.setConnectTimeout(aVar.f60596c.intValue());
             }
         }
     }

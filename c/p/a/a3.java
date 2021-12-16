@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBError;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a3 implements i3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class a3 implements i3 {
     public void a(boolean z) {
         i3 i3Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (i3Var = this.a.f30777b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (i3Var = this.a.f31147b) == null) {
             return;
         }
         i3Var.a(z);
@@ -44,7 +44,7 @@ public class a3 implements i3 {
     public void onClicked() {
         i3 i3Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (i3Var = this.a.f30777b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (i3Var = this.a.f31147b) == null) {
             return;
         }
         i3Var.onClicked();
@@ -54,7 +54,7 @@ public class a3 implements i3 {
     public void onDisplayed() {
         i3 i3Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (i3Var = this.a.f30777b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (i3Var = this.a.f31147b) == null) {
             return;
         }
         i3Var.onDisplayed();
@@ -64,7 +64,7 @@ public class a3 implements i3 {
     public void onFail(PBError pBError) {
         i3 i3Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) || (i3Var = this.a.f30777b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) || (i3Var = this.a.f31147b) == null) {
             return;
         }
         i3Var.onFail(pBError);
@@ -74,7 +74,7 @@ public class a3 implements i3 {
     public void onLoaded() {
         i3 i3Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (i3Var = this.a.f30777b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (i3Var = this.a.f31147b) == null) {
             return;
         }
         i3Var.onLoaded();

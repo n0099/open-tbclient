@@ -7,10 +7,10 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.j.a.c;
 import c.a.d.f.j.a.d;
 import c.a.d.f.n.a;
-import c.a.d.f.p.j;
 import c.a.d.f.p.k;
 import c.a.d.f.p.l;
-import c.a.q0.d1.r;
+import c.a.d.f.p.m;
+import c.a.r0.d1.t;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.tbadk.TbDomainConfig;
@@ -29,7 +29,7 @@ import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ImageLogger {
     public static /* synthetic */ Interceptable $ic;
     public static long connBaiduCost;
@@ -38,7 +38,7 @@ public class ImageLogger {
     public static Object syncLock;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class IMG extends TiebaStatic.LogFields {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ACTION = "act";
@@ -221,9 +221,9 @@ public class ImageLogger {
     public static void imagePerfNetLog(String str, boolean z, String str2, Boolean bool, d dVar, String str3, long j2, boolean z2, int i2) {
         boolean z3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, Boolean.valueOf(z), str2, bool, dVar, str3, Long.valueOf(j2), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) && l.C() && dVar != null) {
+        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, Boolean.valueOf(z), str2, bool, dVar, str3, Long.valueOf(j2), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) && m.C() && dVar != null) {
             String str4 = "";
-            boolean b2 = r.b(str2);
+            boolean b2 = t.b(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();
@@ -232,7 +232,7 @@ public class ImageLogger {
             } else {
                 z3 = false;
             }
-            boolean H = j.H();
+            boolean H = k.H();
             boolean isShouldCDNFallBack = (b2 && z3) ? ICDNIPDirectConnect.getInstance().isShouldCDNFallBack() : false;
             if (b2 && H && isShouldCDNFallBack) {
                 if (z) {
@@ -240,14 +240,14 @@ public class ImageLogger {
                 } else {
                     str4 = ImageLoggerHelper.getInstance().getTiebaIp();
                     if (!TextUtils.isEmpty(str4)) {
-                        ICDNProblemUploader.getInstance().insertErrorData(dVar.f2432i, str);
+                        ICDNProblemUploader.getInstance().insertErrorData(dVar.f2396i, str);
                     }
                 }
             }
             synchronized (syncLock) {
                 if (z) {
                     mCWImgFialedCnt = 0;
-                } else if (j.z()) {
+                } else if (k.z()) {
                     int i3 = mCWImgFialedCnt + 1;
                     mCWImgFialedCnt = i3;
                     if (i3 >= c.a.d.f.n.m.a.o().q("alert_img", 5)) {
@@ -257,13 +257,13 @@ public class ImageLogger {
                 }
             }
             if (z && z3) {
-                if (H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f12463d) {
+                if (H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f12790d) {
                     return;
                 }
-                if (!H && j.t() && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f12465f) {
+                if (!H && k.t() && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f12792f) {
                     return;
                 }
-                if (!H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f12464e) {
+                if (!H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f12791e) {
                     return;
                 }
             }
@@ -278,9 +278,9 @@ public class ImageLogger {
             logItem.b("requrl", str2);
             logItem.b("netlib", dVar.v == 0 ? "Apache" : "HttpManager");
             logItem.b(TiebaStatic.LogFields.COST_TIME, String.valueOf(j2));
-            logItem.b("connTime", String.valueOf(dVar.f2426c));
-            logItem.b("rspTime", String.valueOf(dVar.f2427d));
-            logItem.b(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(dVar.f2428e));
+            logItem.b("connTime", String.valueOf(dVar.f2390c));
+            logItem.b("rspTime", String.valueOf(dVar.f2391d));
+            logItem.b(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(dVar.f2392e));
             logItem.b("clientIp", CommonHelper.getIp());
             logItem.b("tiebaIp", str4);
             String domainIp = ImageLoggerHelper.getInstance().getDomainIp(str);
@@ -288,19 +288,19 @@ public class ImageLogger {
                 logItem.b("domainIp", domainIp);
             }
             logItem.b("wifiDnsIp", dnsIp);
-            long j3 = dVar.f2426c;
+            long j3 = dVar.f2390c;
             if (j3 > 1500 || j3 < 0) {
                 logItem.b("connBaidu", String.valueOf(connBaidu()));
             }
             logItem.b("memory", memoryUsage());
             logItem.b("task", taskStatus());
-            logItem.b("status", String.valueOf(dVar.f2433j));
+            logItem.b("status", String.valueOf(dVar.f2397j));
             logItem.b("up", String.valueOf(dVar.a));
-            logItem.b("down", String.valueOf(dVar.f2425b));
+            logItem.b("down", String.valueOf(dVar.f2389b));
             logItem.b("isCDN", b2 ? "1" : "0");
             logItem.b("isWebp", bool.booleanValue() ? "1" : "0");
             logItem.b("isMobileProxy", z2 ? "1" : "0");
-            logItem.b("exception", dVar.f2431h);
+            logItem.b("exception", dVar.f2395h);
             logItem.b("reason", str3);
             if (i2 != 0) {
                 logItem.c("procType", Integer.valueOf(i2));
@@ -313,13 +313,13 @@ public class ImageLogger {
             if (str6 != null) {
                 logItem.b("tracecode2", str6);
             }
-            if (!k.isEmpty(dVar.f2434k)) {
-                logItem.b("httpDnsIp", dVar.f2434k);
+            if (!l.isEmpty(dVar.f2398k)) {
+                logItem.b("httpDnsIp", dVar.f2398k);
             } else {
                 logItem.b("httpDnsIp", dVar.l);
             }
             logItem.c("ipIndex", Integer.valueOf(dVar.q));
-            logItem.c("dnsSwitch1", Boolean.valueOf(c.f2420f));
+            logItem.c("dnsSwitch1", Boolean.valueOf(c.f2384f));
             logItem.c("dnsSwitch2", Boolean.valueOf(UseHttpdnsSdkSwitch.isOn()));
             logItem.b("httpDnsIpList", dVar.p);
             logItem.c("dnsResolveType", dVar.m);
@@ -350,7 +350,7 @@ public class ImageLogger {
     public static String memoryUsage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? c.a.q0.c0.c.k().v() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? c.a.r0.c0.c.k().v() : (String) invokeV.objValue;
     }
 
     public static void mobileTachometerLoger(ArrayList<String> arrayList, long j2) {

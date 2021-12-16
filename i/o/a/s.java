@@ -9,59 +9,59 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import i.d;
 import i.g;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class s<T> implements d.b<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final a<T> f63735e;
+    public final a<T> f64316e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b<T> f63736f;
+    public final b<T> f64317f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final i.d<? extends T> f63737g;
+    public final i.d<? extends T> f64318g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final i.g f63738h;
+    public final i.g f64319h;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a<T> {
         /* synthetic */ R call(T1 t1, T2 t2, T3 t3);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b<T> {
         /* synthetic */ R call(T1 t1, T2 t2, T3 t3, T4 t4);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class c<T> extends i.j<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final i.u.d f63739i;
+        public final i.u.d f64320i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final i.q.e<T> f63740j;
+        public final i.q.e<T> f64321j;
 
         /* renamed from: k  reason: collision with root package name */
-        public final b<T> f63741k;
+        public final b<T> f64322k;
         public final i.d<? extends T> l;
         public final g.a m;
         public final i.o.b.a n;
         public boolean o;
         public long p;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a extends i.j<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ c f63742i;
+            public final /* synthetic */ c f64323i;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -78,14 +78,14 @@ public class s<T> implements d.b<T, T> {
                         return;
                     }
                 }
-                this.f63742i = cVar;
+                this.f64323i = cVar;
             }
 
             @Override // i.j
             public void f(i.f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                    this.f63742i.n.c(fVar);
+                    this.f64323i.n.c(fVar);
                 }
             }
 
@@ -93,7 +93,7 @@ public class s<T> implements d.b<T, T> {
             public void onCompleted() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f63742i.f63740j.onCompleted();
+                    this.f64323i.f64321j.onCompleted();
                 }
             }
 
@@ -101,7 +101,7 @@ public class s<T> implements d.b<T, T> {
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                    this.f63742i.f63740j.onError(th);
+                    this.f64323i.f64321j.onError(th);
                 }
             }
 
@@ -109,7 +109,7 @@ public class s<T> implements d.b<T, T> {
             public void onNext(T t) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                    this.f63742i.f63740j.onNext(t);
+                    this.f64323i.f64321j.onNext(t);
                 }
             }
         }
@@ -129,9 +129,9 @@ public class s<T> implements d.b<T, T> {
                     return;
                 }
             }
-            this.f63740j = eVar;
-            this.f63741k = bVar;
-            this.f63739i = dVar;
+            this.f64321j = eVar;
+            this.f64322k = bVar;
+            this.f64320i = dVar;
             this.l = dVar2;
             this.m = aVar;
             this.n = new i.o.b.a();
@@ -159,12 +159,12 @@ public class s<T> implements d.b<T, T> {
                 }
                 if (z) {
                     if (this.l == null) {
-                        this.f63740j.onError(new TimeoutException());
+                        this.f64321j.onError(new TimeoutException());
                         return;
                     }
                     a aVar = new a(this);
                     this.l.D(aVar);
-                    this.f63739i.a(aVar);
+                    this.f64320i.a(aVar);
                 }
             }
         }
@@ -183,8 +183,8 @@ public class s<T> implements d.b<T, T> {
                     }
                 }
                 if (z) {
-                    this.f63739i.unsubscribe();
-                    this.f63740j.onCompleted();
+                    this.f64320i.unsubscribe();
+                    this.f64321j.onCompleted();
                 }
             }
         }
@@ -203,8 +203,8 @@ public class s<T> implements d.b<T, T> {
                     }
                 }
                 if (z) {
-                    this.f63739i.unsubscribe();
-                    this.f63740j.onError(th);
+                    this.f64320i.unsubscribe();
+                    this.f64321j.onError(th);
                 }
             }
         }
@@ -226,8 +226,8 @@ public class s<T> implements d.b<T, T> {
                     }
                 }
                 if (z) {
-                    this.f63740j.onNext(t);
-                    this.f63739i.a((i.k) this.f63741k.call(this, Long.valueOf(j2), t, this.m));
+                    this.f64321j.onNext(t);
+                    this.f64320i.a((i.k) this.f64322k.call(this, Long.valueOf(j2), t, this.m));
                 }
             }
         }
@@ -248,10 +248,10 @@ public class s<T> implements d.b<T, T> {
                 return;
             }
         }
-        this.f63735e = aVar;
-        this.f63736f = bVar;
-        this.f63737g = dVar;
-        this.f63738h = gVar;
+        this.f64316e = aVar;
+        this.f64317f = bVar;
+        this.f64318g = dVar;
+        this.f64319h = gVar;
     }
 
     @Override // i.d.b, i.n.f
@@ -263,15 +263,15 @@ public class s<T> implements d.b<T, T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            g.a createWorker = this.f63738h.createWorker();
+            g.a createWorker = this.f64319h.createWorker();
             jVar.b(createWorker);
             i.q.e eVar = new i.q.e(jVar);
             i.u.d dVar = new i.u.d();
             eVar.b(dVar);
-            c cVar = new c(eVar, this.f63736f, dVar, this.f63737g, createWorker);
+            c cVar = new c(eVar, this.f64317f, dVar, this.f64318g, createWorker);
             eVar.b(cVar);
             eVar.f(cVar.n);
-            dVar.a((i.k) this.f63735e.call(cVar, 0L, createWorker));
+            dVar.a((i.k) this.f64316e.call(cVar, 0L, createWorker));
             return cVar;
         }
         return (i.j) invokeL.objValue;

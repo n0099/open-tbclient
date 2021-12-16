@@ -8,38 +8,38 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.p0.a.z2.n0;
-import c.a.p0.b.j;
+import c.a.q0.a.z2.n0;
+import c.a.q0.b.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class CommonTagView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f40271e;
+    public Context f40760e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40272f;
+    public int f40761f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40273g;
+    public int f40762g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40274h;
+    public int f40763h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f40275i;
+    public boolean f40764i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f40276j;
+    public boolean f40765j;
 
     /* renamed from: k  reason: collision with root package name */
-    public Paint f40277k;
+    public Paint f40766k;
     public RectF l;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -67,9 +67,9 @@ public class CommonTagView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i2) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, j.CommonTagView);
-            this.f40272f = obtainStyledAttributes.getDimensionPixelOffset(j.CommonTagView_borderWidth, 1);
-            this.f40273g = obtainStyledAttributes.getColor(j.CommonTagView_borderColor, -16777216);
-            this.f40274h = obtainStyledAttributes.getDimensionPixelOffset(j.CommonTagView_cornerRadius, 3);
+            this.f40761f = obtainStyledAttributes.getDimensionPixelOffset(j.CommonTagView_borderWidth, 1);
+            this.f40762g = obtainStyledAttributes.getColor(j.CommonTagView_borderColor, -16777216);
+            this.f40763h = obtainStyledAttributes.getDimensionPixelOffset(j.CommonTagView_cornerRadius, 3);
             obtainStyledAttributes.recycle();
             setPadding(getPaddingLeft() == 0 ? n0.f(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? n0.f(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? n0.f(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? n0.f(context, 1.0f) : getPaddingBottom());
             b(context);
@@ -79,8 +79,8 @@ public class CommonTagView extends TextView {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f40271e = context;
-            this.f40277k = new Paint();
+            this.f40760e = context;
+            this.f40766k = new Paint();
             this.l = new RectF();
         }
     }
@@ -90,23 +90,23 @@ public class CommonTagView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f40275i) {
-                this.f40277k.setStyle(Paint.Style.STROKE);
-                this.f40277k.setAntiAlias(true);
-                this.f40277k.setStrokeWidth(this.f40272f);
-                if (this.f40276j && this.f40273g != getCurrentTextColor()) {
-                    this.f40273g = getCurrentTextColor();
+            if (this.f40764i) {
+                this.f40766k.setStyle(Paint.Style.STROKE);
+                this.f40766k.setAntiAlias(true);
+                this.f40766k.setStrokeWidth(this.f40761f);
+                if (this.f40765j && this.f40762g != getCurrentTextColor()) {
+                    this.f40762g = getCurrentTextColor();
                 }
-                this.f40277k.setColor(this.f40273g);
+                this.f40766k.setColor(this.f40762g);
                 RectF rectF = this.l;
-                int i2 = this.f40272f;
+                int i2 = this.f40761f;
                 rectF.left = i2 * 0.5f;
                 rectF.top = i2 * 0.5f;
-                rectF.right = getMeasuredWidth() - (this.f40272f * 0.5f);
-                this.l.bottom = getMeasuredHeight() - (this.f40272f * 0.5f);
+                rectF.right = getMeasuredWidth() - (this.f40761f * 0.5f);
+                this.l.bottom = getMeasuredHeight() - (this.f40761f * 0.5f);
                 RectF rectF2 = this.l;
-                int i3 = this.f40274h;
-                canvas.drawRoundRect(rectF2, i3, i3, this.f40277k);
+                int i3 = this.f40763h;
+                canvas.drawRoundRect(rectF2, i3, i3, this.f40766k);
             }
         }
     }
@@ -151,8 +151,8 @@ public class CommonTagView extends TextView {
                 return;
             }
         }
-        this.f40275i = true;
-        this.f40276j = true;
+        this.f40764i = true;
+        this.f40765j = true;
         a(context, attributeSet, i2);
     }
 }

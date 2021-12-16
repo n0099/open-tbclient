@@ -7,8 +7,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.PagerAdapter;
-import c.a.q0.s.w.b.a;
-import c.a.r0.d1.h;
+import c.a.r0.s.x.b.a;
+import c.a.s0.d1.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -20,26 +20,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class CoverFlowLocalAdapter<T extends a> extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<ImageView> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<T> f41005b;
+    public ArrayList<T> f41496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f41006c;
+    public Context f41497c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f41007d;
+    public View.OnClickListener f41498d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f41008e;
+    public boolean f41499e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<RelativeLayout> f41009f;
+    public ArrayList<RelativeLayout> f41500f;
 
     public CoverFlowLocalAdapter(Context context) {
         Interceptable interceptable = $ic;
@@ -57,16 +57,16 @@ public class CoverFlowLocalAdapter<T extends a> extends PagerAdapter {
             }
         }
         this.a = new ArrayList<>();
-        this.f41005b = new ArrayList<>();
+        this.f41496b = new ArrayList<>();
         new ArrayList();
-        this.f41009f = new ArrayList<>();
-        this.f41006c = context;
+        this.f41500f = new ArrayList<>();
+        this.f41497c = context;
     }
 
     public final void a(ArrayList<T> arrayList) {
         int size;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) || arrayList == null || (size = arrayList.size()) <= 1 || !this.f41008e) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) || arrayList == null || (size = arrayList.size()) <= 1 || !this.f41499e) {
             return;
         }
         arrayList.add(0, arrayList.get(size - 1));
@@ -105,11 +105,11 @@ public class CoverFlowLocalAdapter<T extends a> extends PagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            ArrayList<T> arrayList = this.f41005b;
-            if (arrayList == null || arrayList.isEmpty() || i2 < 0 || i2 >= this.f41005b.size()) {
+            ArrayList<T> arrayList = this.f41496b;
+            if (arrayList == null || arrayList.isEmpty() || i2 < 0 || i2 >= this.f41496b.size()) {
                 return null;
             }
-            return this.f41005b.get(i2);
+            return this.f41496b.get(i2);
         }
         return (T) invokeI.objValue;
     }
@@ -168,45 +168,45 @@ public class CoverFlowLocalAdapter<T extends a> extends PagerAdapter {
     public void setCanRepeat(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f41008e = z;
+            this.f41499e = z;
         }
     }
 
-    public void setData(List<T> list, c.a.q0.s.w.a aVar) {
+    public void setData(List<T> list, c.a.r0.s.x.a aVar) {
         ImageView imageView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048586, this, list, aVar) == null) || list == null || list.isEmpty()) {
             return;
         }
-        this.f41005b.clear();
-        this.f41005b.addAll(list);
-        a(this.f41005b);
+        this.f41496b.clear();
+        this.f41496b.addAll(list);
+        a(this.f41496b);
         int size = this.a.size();
-        int size2 = this.f41005b.size();
+        int size2 = this.f41496b.size();
         for (int i2 = 0; i2 < size2; i2++) {
             if (i2 >= size) {
-                imageView = new ImageView(this.f41006c);
+                imageView = new ImageView(this.f41497c);
                 this.a.add(imageView);
-                this.f41009f.add(new RelativeLayout(this.f41006c));
+                this.f41500f.add(new RelativeLayout(this.f41497c));
             } else {
                 imageView = this.a.get(i2);
-                this.f41009f.get(i2);
+                this.f41500f.get(i2);
             }
-            if (this.f41005b.get(i2) != null && imageView != null) {
-                if (this.f41005b.get(i2) instanceof h) {
-                    imageView.setImageDrawable(SkinManager.getDrawable(imageView.getResources(), Integer.valueOf(this.f41005b.get(i2).a()).intValue()));
+            if (this.f41496b.get(i2) != null && imageView != null) {
+                if (this.f41496b.get(i2) instanceof h) {
+                    imageView.setImageDrawable(SkinManager.getDrawable(imageView.getResources(), Integer.valueOf(this.f41496b.get(i2).a()).intValue()));
                 }
-                imageView.setOnClickListener(this.f41007d);
+                imageView.setOnClickListener(this.f41498d);
             }
         }
-        int count = ListUtils.getCount(this.f41005b);
+        int count = ListUtils.getCount(this.f41496b);
         int count2 = ListUtils.getCount(this.a);
         if (count2 > count) {
             ListUtils.removeSubList(this.a, count, count2);
         }
-        int count3 = ListUtils.getCount(this.f41009f);
+        int count3 = ListUtils.getCount(this.f41500f);
         if (count3 > count) {
-            ListUtils.removeSubList(this.f41009f, count, count3);
+            ListUtils.removeSubList(this.f41500f, count, count3);
         }
         notifyDataSetChanged();
     }
@@ -214,7 +214,7 @@ public class CoverFlowLocalAdapter<T extends a> extends PagerAdapter {
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
-            this.f41007d = onClickListener;
+            this.f41498d = onClickListener;
         }
     }
 }

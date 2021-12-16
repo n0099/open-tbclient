@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static SimpleDateFormat f59589c;
+    public static SimpleDateFormat f60170c;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59590b;
+    public int f60171b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class b extends com.kwad.sdk.core.response.kwai.a {
                 return;
             }
         }
-        f59589c = new SimpleDateFormat("yyyy-MM-dd");
+        f60170c = new SimpleDateFormat("yyyy-MM-dd");
     }
 
     public b() {
@@ -52,7 +52,7 @@ public class b extends com.kwad.sdk.core.response.kwai.a {
             }
         }
         this.a = -1L;
-        this.f59590b = -1;
+        this.f60171b = -1;
     }
 
     public b(long j2, int i2) {
@@ -71,9 +71,9 @@ public class b extends com.kwad.sdk.core.response.kwai.a {
             }
         }
         this.a = -1L;
-        this.f59590b = -1;
+        this.f60171b = -1;
         this.a = j2;
-        this.f59590b = i2;
+        this.f60171b = i2;
     }
 
     public boolean a() {
@@ -81,7 +81,7 @@ public class b extends com.kwad.sdk.core.response.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int aO = com.kwad.sdk.core.config.b.aO();
-            int i2 = this.f59590b;
+            int i2 = this.f60171b;
             return i2 > 0 && i2 >= aO;
         }
         return invokeV.booleanValue;
@@ -93,7 +93,7 @@ public class b extends com.kwad.sdk.core.response.kwai.a {
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
             if (this.a > 0 && j2 > 0) {
                 try {
-                    return f59589c.format(new Date(this.a)).equals(f59589c.format(new Date(j2)));
+                    return f60170c.format(new Date(this.a)).equals(f60170c.format(new Date(j2)));
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.b(e2);
                 }

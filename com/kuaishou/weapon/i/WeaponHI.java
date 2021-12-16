@@ -20,14 +20,14 @@ import com.kuaishou.weapon.un.t1;
 import com.kuaishou.weapon.un.x1;
 import com.kuaishou.weapon.un.z1;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WeaponHI {
     public static /* synthetic */ Interceptable $ic;
     public static RequestCallback mCallback;
     public static Context mContext;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,17 +78,17 @@ public class WeaponHI {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f56607b;
+        public final /* synthetic */ String f57188b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f56608c;
+        public final /* synthetic */ String f57189c;
 
         public b(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -106,32 +106,32 @@ public class WeaponHI {
                 }
             }
             this.a = str;
-            this.f56607b = str2;
-            this.f56608c = str3;
+            this.f57188b = str2;
+            this.f57189c = str3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             String[] a;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.f56607b) && !TextUtils.isEmpty(this.f56608c) && (a = l1.a(WeaponHI.mContext)) != null && a.length == 2 && a[0] != null && a[1] != null && a[0].equals(this.a) && a[1].equals(this.f56607b)) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.f57188b) && !TextUtils.isEmpty(this.f57189c) && (a = l1.a(WeaponHI.mContext)) != null && a.length == 2 && a[0] != null && a[1] != null && a[0].equals(this.a) && a[1].equals(this.f57188b)) {
                 try {
                     if (new d(WeaponHI.mContext).a(d.g0, 0) == 0) {
                         return;
                     }
-                    r0.a(this.f56608c);
+                    r0.a(this.f57189c);
                     n a2 = n.a(WeaponHI.mContext);
                     if (a2 == null) {
                         return;
                     }
-                    a2.a(this.f56608c);
+                    a2.a(this.f57189c);
                 } catch (Exception unused) {
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

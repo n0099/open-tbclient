@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class PanoStateError {
     public static /* synthetic */ Interceptable $ic;
     public static final PanoStateError a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final PanoStateError f38355b;
+    public static final PanoStateError f38844b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final PanoStateError f38356c;
+    public static final PanoStateError f38845c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final PanoStateError f38357d;
+    public static final PanoStateError f38846d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ PanoStateError[] f38358e;
+    public static final /* synthetic */ PanoStateError[] f38847e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,11 +40,11 @@ public final class PanoStateError {
             }
         }
         a = new PanoStateError("PANO_NO_ERROR", 0);
-        f38355b = new PanoStateError("PANO_UID_ERROR", 1);
-        f38356c = new PanoStateError("PANO_NOT_FOUND", 2);
+        f38844b = new PanoStateError("PANO_UID_ERROR", 1);
+        f38845c = new PanoStateError("PANO_NOT_FOUND", 2);
         PanoStateError panoStateError = new PanoStateError("PANO_NO_TOKEN", 3);
-        f38357d = panoStateError;
-        f38358e = new PanoStateError[]{a, f38355b, f38356c, panoStateError};
+        f38846d = panoStateError;
+        f38847e = new PanoStateError[]{a, f38844b, f38845c, panoStateError};
     }
 
     public PanoStateError(String str, int i2) {
@@ -75,6 +75,6 @@ public final class PanoStateError {
     public static PanoStateError[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PanoStateError[]) f38358e.clone() : (PanoStateError[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PanoStateError[]) f38847e.clone() : (PanoStateError[]) invokeV.objValue;
     }
 }

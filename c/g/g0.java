@@ -33,7 +33,7 @@ import java.util.UUID;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class g0 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile long s;
@@ -42,34 +42,34 @@ public class g0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28854b;
+    public String f29224b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28855c;
+    public String f29225c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28856d;
+    public String f29226d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28857e;
+    public String f29227e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f28858f;
+    public String f29228f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28859g;
+    public String f29229g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f28860h;
+    public String f29230h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f28861i;
+    public String f29231i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f28862j;
+    public String f29232j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f28863k;
+    public String f29233k;
     public String l;
     public String m;
     public String n;
@@ -109,7 +109,7 @@ public class g0 {
                         g0 g0Var = t;
                         g0Var.getClass();
                         b0 b0Var = new b0(g0Var);
-                        HashSet<m0.b> hashSet = com.fun.m0.f55740b;
+                        HashSet<m0.b> hashSet = com.fun.m0.f56321b;
                         synchronized (hashSet) {
                             hashSet.add(b0Var);
                         }
@@ -131,17 +131,17 @@ public class g0 {
             }
             g0 g0Var2 = t;
             jSONObject.put("app", g0Var2.a);
-            jSONObject.put("appv", g0Var2.f28855c);
-            jSONObject.put("appvn", g0Var2.f28854b);
-            jSONObject.put("net", g0Var2.f28856d);
-            jSONObject.put("manu", g0Var2.f28857e);
-            jSONObject.put("model", g0Var2.f28858f);
-            jSONObject.put("sysv", g0Var2.f28859g);
-            jSONObject.put("h", g0Var2.f28860h);
-            jSONObject.put("w", g0Var2.f28861i);
+            jSONObject.put("appv", g0Var2.f29225c);
+            jSONObject.put("appvn", g0Var2.f29224b);
+            jSONObject.put("net", g0Var2.f29226d);
+            jSONObject.put("manu", g0Var2.f29227e);
+            jSONObject.put("model", g0Var2.f29228f);
+            jSONObject.put("sysv", g0Var2.f29229g);
+            jSONObject.put("h", g0Var2.f29230h);
+            jSONObject.put("w", g0Var2.f29231i);
             jSONObject.put("locale", g0Var2.n);
-            jSONObject.put("opcode", g0Var2.f28862j);
-            jSONObject.put("tk", g0Var2.f28863k);
+            jSONObject.put("opcode", g0Var2.f29232j);
+            jSONObject.put("tk", g0Var2.f29233k);
             jSONObject.put("sdkvn", BuildConfig.VERSION_NAME);
             jSONObject.put("sdkv", BuildConfig.VERSION_CODE);
             jSONObject.put("anid", g0Var2.l);
@@ -180,7 +180,7 @@ public class g0 {
         if (interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) {
             g0 a = a(jSONObject);
             long currentTimeMillis = System.currentTimeMillis();
-            String str = a.f28863k + a.a + a.f28854b + a.n + currentTimeMillis + "c643144089d135c383c4c87f1df87a9d4ccc1c0f70cee0a5f78fd32d475f1a49";
+            String str = a.f29233k + a.a + a.f29224b + a.n + currentTimeMillis + "c643144089d135c383c4c87f1df87a9d4ccc1c0f70cee0a5f78fd32d475f1a49";
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.update(str.getBytes());
@@ -215,20 +215,20 @@ public class g0 {
             try {
                 PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
                 this.a = packageInfo.packageName;
-                this.f28854b = packageInfo.versionName;
-                this.f28855c = String.valueOf(packageInfo.versionCode);
+                this.f29224b = packageInfo.versionName;
+                this.f29225c = String.valueOf(packageInfo.versionCode);
             } catch (PackageManager.NameNotFoundException unused) {
             }
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager != null) {
                 String networkOperator = telephonyManager.getNetworkOperator();
                 if (!TextUtils.isEmpty(networkOperator)) {
-                    this.f28862j = networkOperator;
+                    this.f29232j = networkOperator;
                 }
             }
-            this.f28857e = Build.MANUFACTURER;
-            this.f28858f = Build.MODEL;
-            this.f28859g = String.valueOf(Build.VERSION.SDK_INT);
+            this.f29227e = Build.MANUFACTURER;
+            this.f29228f = Build.MODEL;
+            this.f29229g = String.valueOf(Build.VERSION.SDK_INT);
             WindowManager windowManager = (WindowManager) context.getSystemService("window");
             if (windowManager == null) {
                 displayMetrics = context.getResources().getDisplayMetrics();
@@ -238,8 +238,8 @@ public class g0 {
                 defaultDisplay.getMetrics(displayMetrics2);
                 displayMetrics = displayMetrics2;
             }
-            this.f28860h = String.valueOf(displayMetrics.heightPixels);
-            this.f28861i = String.valueOf(displayMetrics.widthPixels);
+            this.f29230h = String.valueOf(displayMetrics.heightPixels);
+            this.f29231i = String.valueOf(displayMetrics.widthPixels);
             if (TextUtils.isEmpty(d.a)) {
                 SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(FunAdSdk.getAppContext());
                 String string = defaultSharedPreferences.getString("u_tok", "");
@@ -259,7 +259,7 @@ public class g0 {
                 }
                 d.a = string;
             }
-            this.f28863k = d.a;
+            this.f29233k = d.a;
         }
     }
 
@@ -267,7 +267,7 @@ public class g0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "HostAppInfo{packageName='" + this.a + ExtendedMessageFormat.QUOTE + ", versionName='" + this.f28854b + ExtendedMessageFormat.QUOTE + ", versionCode='" + this.f28855c + ExtendedMessageFormat.QUOTE + ", networkTypeName='" + this.f28856d + ExtendedMessageFormat.QUOTE + ", manufacturer='" + this.f28857e + ExtendedMessageFormat.QUOTE + ", model='" + this.f28858f + ExtendedMessageFormat.QUOTE + ", osVersion='" + this.f28859g + ExtendedMessageFormat.QUOTE + ", h='" + this.f28860h + ExtendedMessageFormat.QUOTE + ", w='" + this.f28861i + ExtendedMessageFormat.QUOTE + ", opcode='" + this.f28862j + ExtendedMessageFormat.QUOTE + ", token='" + this.f28863k + ExtendedMessageFormat.QUOTE + ", anid='" + this.l + ExtendedMessageFormat.QUOTE + ", oaid='" + this.m + ExtendedMessageFormat.QUOTE + ", locale='" + this.n + ExtendedMessageFormat.QUOTE + ", lic='" + this.o + ExtendedMessageFormat.QUOTE + ", userId='" + this.p + ExtendedMessageFormat.QUOTE + ", imei='" + this.q + ExtendedMessageFormat.QUOTE + ", imeiNew='" + this.r + ExtendedMessageFormat.QUOTE + ", cfgv='" + s + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "HostAppInfo{packageName='" + this.a + ExtendedMessageFormat.QUOTE + ", versionName='" + this.f29224b + ExtendedMessageFormat.QUOTE + ", versionCode='" + this.f29225c + ExtendedMessageFormat.QUOTE + ", networkTypeName='" + this.f29226d + ExtendedMessageFormat.QUOTE + ", manufacturer='" + this.f29227e + ExtendedMessageFormat.QUOTE + ", model='" + this.f29228f + ExtendedMessageFormat.QUOTE + ", osVersion='" + this.f29229g + ExtendedMessageFormat.QUOTE + ", h='" + this.f29230h + ExtendedMessageFormat.QUOTE + ", w='" + this.f29231i + ExtendedMessageFormat.QUOTE + ", opcode='" + this.f29232j + ExtendedMessageFormat.QUOTE + ", token='" + this.f29233k + ExtendedMessageFormat.QUOTE + ", anid='" + this.l + ExtendedMessageFormat.QUOTE + ", oaid='" + this.m + ExtendedMessageFormat.QUOTE + ", locale='" + this.n + ExtendedMessageFormat.QUOTE + ", lic='" + this.o + ExtendedMessageFormat.QUOTE + ", userId='" + this.p + ExtendedMessageFormat.QUOTE + ", imei='" + this.q + ExtendedMessageFormat.QUOTE + ", imeiNew='" + this.r + ExtendedMessageFormat.QUOTE + ", cfgv='" + s + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

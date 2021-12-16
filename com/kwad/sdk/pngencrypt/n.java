@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class n {
     public static /* synthetic */ Interceptable $ic;
     public static Charset a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Charset f58805b;
+    public static Charset f59386b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ThreadLocal<Boolean> f58806c;
+    public static ThreadLocal<Boolean> f59387c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,8 +37,8 @@ public final class n {
             }
         }
         a = Charset.forName("ISO-8859-1");
-        f58805b = Charset.forName("UTF-8");
-        f58806c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
+        f59386b = Charset.forName("UTF-8");
+        f59387c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

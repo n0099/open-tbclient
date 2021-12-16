@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.d.f.p.k;
-import c.a.r0.w2.c;
-import c.a.r0.w2.d;
-import c.a.r0.w2.e;
-import c.a.r0.w2.g;
+import c.a.d.f.p.l;
+import c.a.s0.y2.c;
+import c.a.s0.y2.d;
+import c.a.s0.y2.e;
+import c.a.s0.y2.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PersonIntroductionActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PERSON_INTRODUCTION = "person_introduction";
@@ -30,13 +30,13 @@ public class PersonIntroductionActivity extends BaseActivity {
     public NavigationBar mNavigationBar;
     public View mRootView;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonIntroductionActivity f48330e;
+        public final /* synthetic */ PersonIntroductionActivity f48843e;
 
         public a(PersonIntroductionActivity personIntroductionActivity) {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class PersonIntroductionActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f48330e = personIntroductionActivity;
+            this.f48843e = personIntroductionActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48330e.finish();
+                this.f48843e.finish();
             }
         }
     }
@@ -83,7 +83,7 @@ public class PersonIntroductionActivity extends BaseActivity {
 
     public static void startPersonIntroductionActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || k.isEmpty(str) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || l.isEmpty(str) || context == null) {
             return;
         }
         Intent intent = new Intent();
@@ -98,8 +98,8 @@ public class PersonIntroductionActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-            SkinManager.setViewTextColor(this.mIntroView, c.a.r0.w2.a.CAM_X0105, 1, i2);
-            SkinManager.setBackgroundResource(this.mRootView, c.a.r0.w2.a.CAM_X0201, i2);
+            SkinManager.setViewTextColor(this.mIntroView, c.a.s0.y2.a.CAM_X0105, 1, i2);
+            SkinManager.setBackgroundResource(this.mRootView, c.a.s0.y2.a.CAM_X0201, i2);
         }
     }
 

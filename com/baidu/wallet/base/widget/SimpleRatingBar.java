@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class SimpleRatingBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,12 +27,12 @@ public class SimpleRatingBar extends LinearLayout {
     public ArrayList<ImageView> mStars;
     public float mVerticalPaddingDP;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface OnSimpleRatingBarChangeListener {
         void onRatingChanged(SimpleRatingBar simpleRatingBar, int i2, boolean z);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public class OnStarClickListener implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

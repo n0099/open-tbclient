@@ -8,9 +8,9 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.s.e;
-import c.a.b0.s.j0.b;
-import c.a.b0.s.j0.o;
+import c.a.c0.s.e;
+import c.a.c0.s.j0.b;
+import c.a.c0.s.j0.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,19 +19,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LayerContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout.LayoutParams f37614e;
+    public FrameLayout.LayoutParams f38103e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f37615f;
+    public e f38104f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<b> f37616g;
+    public ArrayList<b> f38105g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LayerContainer(@NonNull Context context) {
@@ -57,8 +57,8 @@ public class LayerContainer extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f37616g = new ArrayList<>();
-            this.f37614e = new FrameLayout.LayoutParams(-1, -1);
+            this.f38105g = new ArrayList<>();
+            this.f38103e = new FrameLayout.LayoutParams(-1, -1);
         }
     }
 
@@ -73,11 +73,11 @@ public class LayerContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             detachLayer(bVar);
-            bVar.M(this);
-            bVar.s(getBindPlayer().x());
-            this.f37616g.add(0, bVar);
+            bVar.L(this);
+            bVar.r(getBindPlayer().x());
+            this.f38105g.add(0, bVar);
             if (bVar.getContentView() != null) {
-                addView(bVar.getContentView(), 0, this.f37614e);
+                addView(bVar.getContentView(), 0, this.f38103e);
             }
         }
     }
@@ -85,14 +85,14 @@ public class LayerContainer extends FrameLayout {
     public void attachLayerMessenger(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            bVar.s(getBindPlayer().x());
+            bVar.r(getBindPlayer().x());
         }
     }
 
     public void bindPlayer(@NonNull e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
-            this.f37615f = eVar;
+            this.f38104f = eVar;
         }
     }
 
@@ -107,7 +107,7 @@ public class LayerContainer extends FrameLayout {
     public void detachLayerMessenger(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            bVar.t();
+            bVar.s();
         }
     }
 
@@ -115,7 +115,7 @@ public class LayerContainer extends FrameLayout {
     public e getBindPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f37615f : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f38104f : (e) invokeV.objValue;
     }
 
     public FrameLayout.LayoutParams getContainerParams() {
@@ -127,17 +127,17 @@ public class LayerContainer extends FrameLayout {
     public ArrayList<b> getLayerList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f37616g : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f38105g : (ArrayList) invokeV.objValue;
     }
 
     public void insertLayer(@NonNull b bVar, @IntRange(from = 0, to = 20) int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048590, this, bVar, i2) == null) {
             detachLayer(bVar);
-            if (i2 < this.f37616g.size()) {
-                bVar.M(this);
-                bVar.s(getBindPlayer().x());
-                this.f37616g.add(i2, bVar);
+            if (i2 < this.f38105g.size()) {
+                bVar.L(this);
+                bVar.r(getBindPlayer().x());
+                this.f38105g.add(i2, bVar);
                 addView(bVar.getContentView(), i2, getContainerParams());
             }
         }
@@ -146,7 +146,7 @@ public class LayerContainer extends FrameLayout {
     public void onContainerDetach() {
         ArrayList<b> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (arrayList = this.f37616g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (arrayList = this.f38105g) == null) {
             return;
         }
         Iterator<b> it = arrayList.iterator();
@@ -158,24 +158,24 @@ public class LayerContainer extends FrameLayout {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            int size = this.f37616g.size();
+            int size = this.f38105g.size();
             for (int i2 = 0; i2 < size; i2++) {
-                this.f37616g.get(i2).onLayerRelease();
+                this.f38105g.get(i2).onLayerRelease();
             }
-            this.f37616g.clear();
+            this.f38105g.clear();
             removeAllViews();
         }
     }
 
     public void addLayer(@NonNull b bVar, FrameLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, layoutParams) == null) || this.f37616g.contains(bVar)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, layoutParams) == null) || this.f38105g.contains(bVar)) {
             return;
         }
-        bVar.M(this);
-        bVar.C();
-        bVar.s(getBindPlayer().x());
-        this.f37616g.add(bVar);
+        bVar.L(this);
+        bVar.B();
+        bVar.r(getBindPlayer().x());
+        this.f38105g.add(bVar);
         if (bVar.getContentView() == null || bVar.getContentView() == this) {
             return;
         }
@@ -245,25 +245,25 @@ public class LayerContainer extends FrameLayout {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048583, this, bVar, z) == null) {
-            this.f37616g.remove(bVar);
-            bVar.E();
+            this.f38105g.remove(bVar);
+            bVar.D();
             if (bVar.getContentView() != null && (viewGroup = (ViewGroup) bVar.getContentView().getParent()) != null) {
                 viewGroup.removeView(bVar.getContentView());
             }
             if (z) {
-                bVar.t();
+                bVar.s();
             }
         }
     }
 
     public void insertLayer(@NonNull b bVar, @Nullable FrameLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048591, this, bVar, layoutParams) == null) || this.f37616g.contains(bVar)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048591, this, bVar, layoutParams) == null) || this.f38105g.contains(bVar)) {
             return;
         }
-        bVar.M(this);
-        bVar.s(getBindPlayer().x());
-        this.f37616g.add(bVar);
+        bVar.L(this);
+        bVar.r(getBindPlayer().x());
+        this.f38105g.add(bVar);
         if (layoutParams == null) {
             layoutParams = getContainerParams();
         }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class af {
     public static /* synthetic */ Interceptable $ic;
     public static final af a;
@@ -17,19 +17,19 @@ public final class af {
     public static final /* synthetic */ af[] f66a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final af f62684b;
+    public static final af f63265b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final af f62685c;
+    public static final af f63266c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final af f62686d;
+    public static final af f63267d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final af f62687e;
+    public static final af f63268e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final af f62688f;
+    public static final af f63269f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,13 +46,13 @@ public final class af {
             }
         }
         a = new af("HUAWEI", 0);
-        f62684b = new af("MEIZU", 1);
-        f62685c = new af("FCM", 2);
-        f62686d = new af("OPPO", 3);
-        f62687e = new af("VIVO", 4);
+        f63265b = new af("MEIZU", 1);
+        f63266c = new af("FCM", 2);
+        f63267d = new af("OPPO", 3);
+        f63268e = new af("VIVO", 4);
         af afVar = new af("OTHER", 5);
-        f62688f = afVar;
-        f66a = new af[]{a, f62684b, f62685c, f62686d, f62687e, afVar};
+        f63269f = afVar;
+        f66a = new af[]{a, f63265b, f63266c, f63267d, f63268e, afVar};
     }
 
     public af(String str, int i2) {

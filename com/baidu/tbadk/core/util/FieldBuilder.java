@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.util;
 
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class FieldBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EQ = "=";
@@ -35,7 +35,7 @@ public class FieldBuilder {
 
     public void append(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) || k.isEmpty(str) || obj == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) || l.isEmpty(str) || obj == null) {
             return;
         }
         try {

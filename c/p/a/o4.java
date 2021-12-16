@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBError;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class o4 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ PBError f30876e;
+    public final /* synthetic */ PBError f31246e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ a5 f30877f;
+    public final /* synthetic */ a5 f31247f;
 
     public o4(a5 a5Var, PBError pBError) {
         Interceptable interceptable = $ic;
@@ -31,17 +31,17 @@ public class o4 implements Runnable {
                 return;
             }
         }
-        this.f30877f = a5Var;
-        this.f30876e = pBError;
+        this.f31247f = a5Var;
+        this.f31246e = pBError;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         e5 e5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (e5Var = this.f30877f.f30738g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (e5Var = this.f31247f.f31108g) == null) {
             return;
         }
-        e5Var.onFail(this.f30876e);
+        e5Var.onFail(this.f31246e);
     }
 }

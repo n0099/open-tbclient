@@ -12,7 +12,7 @@ import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class HttpDefines$HttpMethod {
     public static final /* synthetic */ HttpDefines$HttpMethod[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

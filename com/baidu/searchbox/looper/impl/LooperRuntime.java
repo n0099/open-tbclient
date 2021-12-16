@@ -2,9 +2,9 @@ package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.a.i0.a.b.b;
-import c.a.i0.a.b.c;
-import c.a.i0.a.b.d;
+import c.a.j0.a.b.b;
+import c.a.j0.a.b.c;
+import c.a.j0.a.b.d;
 import c.h.b.a.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LooperRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static final ILooperUIContext EMPTY_RUKA_UI_CONTEXT;
@@ -188,7 +188,7 @@ public class LooperRuntime {
     public void initmLooperNeedContext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.i0.a.b.a b2 = c.a.i0.a.b.a.b();
+            c.a.j0.a.b.a b2 = c.a.j0.a.b.a.b();
             this.mLooperNeedContext = b2;
             b2.a(new ILooperNeedContext_LooperRuntime_Provider());
         }

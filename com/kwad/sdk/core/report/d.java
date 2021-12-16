@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -84,7 +84,7 @@ public class d {
             reportAction.aW = z;
             reportAction.aX = str;
             if (ksScene instanceof SceneImpl) {
-                reportAction.f57636b = (SceneImpl) ksScene;
+                reportAction.f58217b = (SceneImpl) ksScene;
             }
             f.a(reportAction);
         }
@@ -183,9 +183,9 @@ public class d {
         if (interceptable == null || interceptable.invokeL(65551, null, bVar) == null) {
             ReportAction reportAction = new ReportAction(10215L);
             reportAction.bl = bVar.a;
-            reportAction.bp = bVar.f58609b;
-            reportAction.bm = bVar.f58610c;
-            reportAction.bn = bVar.f58611d;
+            reportAction.bp = bVar.f59190b;
+            reportAction.bm = bVar.f59191c;
+            reportAction.bn = bVar.f59192d;
             f.a(reportAction);
         }
     }
@@ -194,13 +194,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65552, null, sceneImpl, aVar) == null) {
             ReportAction reportAction = new ReportAction(10214L);
-            reportAction.f57636b = sceneImpl;
-            reportAction.bf = aVar.f57498g;
+            reportAction.f58217b = sceneImpl;
+            reportAction.bf = aVar.f58079g;
             reportAction.bg = aVar.a;
-            reportAction.bh = aVar.f57494c;
-            reportAction.bi = aVar.f57495d;
-            reportAction.bj = aVar.f57496e;
-            reportAction.bk = aVar.f57497f;
+            reportAction.bh = aVar.f58075c;
+            reportAction.bi = aVar.f58076d;
+            reportAction.bj = aVar.f58077e;
+            reportAction.bk = aVar.f58078f;
             f.a(reportAction);
         }
     }

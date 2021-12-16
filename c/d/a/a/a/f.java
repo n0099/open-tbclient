@@ -10,32 +10,32 @@ import java.util.Collection;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f28015b;
+    public long f28390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28016c;
+    public String f28391c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28017d;
+    public String f28392d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28018e;
+    public String f28393e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f28019f;
+    public long f28394f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28020g;
+    public String f28395g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, Object> f28021h;
+    public Map<String, Object> f28396h;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -57,20 +57,20 @@ public class f {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j2), str2, Long.valueOf(j3), str3, collection, map, str4})) == null) {
             f fVar = new f();
             fVar.a = str;
-            fVar.f28015b = j2;
-            fVar.f28017d = str2;
-            fVar.f28019f = j3;
-            fVar.f28018e = str3;
-            fVar.f28020g = str4;
+            fVar.f28390b = j2;
+            fVar.f28392d = str2;
+            fVar.f28394f = j3;
+            fVar.f28393e = str3;
+            fVar.f28395g = str4;
             if (collection != null) {
                 JSONArray jSONArray = new JSONArray();
                 for (String str5 : collection) {
                     jSONArray.put(str5);
                 }
-                fVar.f28016c = jSONArray.toString();
+                fVar.f28391c = jSONArray.toString();
             }
             if (map != null && !map.isEmpty()) {
-                fVar.f28021h = map;
+                fVar.f28396h = map;
             }
             return fVar;
         }
@@ -84,20 +84,20 @@ public class f {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(com.baidu.fsg.base.statistics.h.a, this.a);
-                jSONObject.put("et", this.f28015b);
-                jSONObject.put(com.baidu.fsg.base.statistics.h.f34296f, this.f28019f);
-                if (!TextUtils.isEmpty(this.f28017d)) {
-                    jSONObject.put(com.baidu.fsg.base.statistics.h.f34294d, this.f28017d);
+                jSONObject.put("et", this.f28390b);
+                jSONObject.put(com.baidu.fsg.base.statistics.h.f34764f, this.f28394f);
+                if (!TextUtils.isEmpty(this.f28392d)) {
+                    jSONObject.put(com.baidu.fsg.base.statistics.h.f34762d, this.f28392d);
                 }
-                jSONObject.putOpt(com.baidu.fsg.base.statistics.h.f34295e, this.f28018e);
-                if (this.f28016c != null) {
-                    jSONObject.put("ev", this.f28016c);
+                jSONObject.putOpt(com.baidu.fsg.base.statistics.h.f34763e, this.f28393e);
+                if (this.f28391c != null) {
+                    jSONObject.put("ev", this.f28391c);
                 }
-                if (!TextUtils.isEmpty(this.f28020g)) {
-                    jSONObject.put("at", this.f28020g);
+                if (!TextUtils.isEmpty(this.f28395g)) {
+                    jSONObject.put("at", this.f28395g);
                 }
-                if (this.f28021h != null && !this.f28021h.isEmpty()) {
-                    for (Map.Entry<String, Object> entry : this.f28021h.entrySet()) {
+                if (this.f28396h != null && !this.f28396h.isEmpty()) {
+                    for (Map.Entry<String, Object> entry : this.f28396h.entrySet()) {
                         if (entry.getValue() instanceof Integer) {
                             jSONObject.put(entry.getKey(), ((Integer) entry.getValue()).intValue());
                         } else if (entry.getValue() instanceof Long) {

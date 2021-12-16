@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.d.o;
 import com.cmic.sso.sdk.d.t;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class d implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,16 +47,16 @@ public class d implements b {
                     public final /* synthetic */ com.cmic.sso.sdk.a a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ com.cmic.sso.sdk.b.c.c f54914b;
+                    public final /* synthetic */ com.cmic.sso.sdk.b.c.c f55494b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ com.cmic.sso.sdk.b.d.c f54915c;
+                    public final /* synthetic */ com.cmic.sso.sdk.b.d.c f55495c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ d f54916d;
+                    public final /* synthetic */ d f55496d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final AtomicBoolean f54917e;
+                    public final AtomicBoolean f55497e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -73,17 +73,17 @@ public class d implements b {
                                 return;
                             }
                         }
-                        this.f54916d = this;
+                        this.f55496d = this;
                         this.a = aVar;
-                        this.f54914b = cVar;
-                        this.f54915c = cVar2;
-                        this.f54917e = new AtomicBoolean(false);
+                        this.f55494b = cVar;
+                        this.f55495c = cVar2;
+                        this.f55497e = new AtomicBoolean(false);
                     }
 
                     @Override // com.cmic.sso.sdk.d.t.a
                     public void a(Network network) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, network) == null) || this.f54917e.getAndSet(true) || network == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, network) == null) || this.f55497e.getAndSet(true) || network == null) {
                             return;
                         }
                         o.a(new o.a(this, null, this.a, network) { // from class: com.cmic.sso.sdk.b.a.d.1.1
@@ -92,7 +92,7 @@ public class d implements b {
                             public final /* synthetic */ Network a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f54918b;
+                            public final /* synthetic */ AnonymousClass1 f55498b;
 
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                             {
@@ -113,7 +113,7 @@ public class d implements b {
                                         return;
                                     }
                                 }
-                                this.f54918b = this;
+                                this.f55498b = this;
                                 this.a = network;
                             }
 
@@ -122,9 +122,9 @@ public class d implements b {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                     com.cmic.sso.sdk.d.c.b("WifiChangeInterceptor", "onAvailable");
-                                    this.f54918b.f54914b.a(this.a);
-                                    AnonymousClass1 anonymousClass1 = this.f54918b;
-                                    anonymousClass1.f54916d.b(anonymousClass1.f54914b, anonymousClass1.f54915c, anonymousClass1.a);
+                                    this.f55498b.f55494b.a(this.a);
+                                    AnonymousClass1 anonymousClass1 = this.f55498b;
+                                    anonymousClass1.f55496d.b(anonymousClass1.f55494b, anonymousClass1.f55495c, anonymousClass1.a);
                                 }
                             }
                         });
@@ -158,7 +158,7 @@ public class d implements b {
             public final /* synthetic */ com.cmic.sso.sdk.b.d.c a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d f54919b;
+            public final /* synthetic */ d f55499b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -175,7 +175,7 @@ public class d implements b {
                         return;
                     }
                 }
-                this.f54919b = this;
+                this.f55499b = this;
                 this.a = cVar2;
             }
 

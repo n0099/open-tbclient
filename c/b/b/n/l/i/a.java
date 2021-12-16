@@ -8,25 +8,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a<T extends e> implements Comparable<a<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public T f27681e;
+    public T f28056e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Texture.TextureFilter f27682f;
+    public Texture.TextureFilter f28057f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Texture.TextureFilter f27683g;
+    public Texture.TextureFilter f28058g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Texture.TextureWrap f27684h;
+    public Texture.TextureWrap f28059h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Texture.TextureWrap f27685i;
+    public Texture.TextureWrap f28060i;
 
     public a(T t, Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class a<T extends e> implements Comparable<a<T>> {
                 return;
             }
         }
-        this.f27681e = null;
+        this.f28056e = null;
         b(t, textureFilter, textureFilter2, textureWrap, textureWrap2);
     }
 
@@ -57,42 +57,42 @@ public class a<T extends e> implements Comparable<a<T>> {
             if (aVar == this) {
                 return 0;
             }
-            T t = this.f27681e;
-            int i2 = t == null ? 0 : t.f27475e;
-            T t2 = aVar.f27681e;
-            int i3 = t2 == null ? 0 : t2.f27475e;
+            T t = this.f28056e;
+            int i2 = t == null ? 0 : t.f27850e;
+            T t2 = aVar.f28056e;
+            int i3 = t2 == null ? 0 : t2.f27850e;
             if (i2 != i3) {
                 return i2 - i3;
             }
-            T t3 = this.f27681e;
+            T t3 = this.f28056e;
             int i4 = t3 == null ? 0 : t3.i();
-            T t4 = aVar.f27681e;
+            T t4 = aVar.f28056e;
             int i5 = t4 == null ? 0 : t4.i();
             if (i4 != i5) {
                 return i4 - i5;
             }
-            Texture.TextureFilter textureFilter = this.f27682f;
-            if (textureFilter != aVar.f27682f) {
+            Texture.TextureFilter textureFilter = this.f28057f;
+            if (textureFilter != aVar.f28057f) {
                 int gLEnum = textureFilter == null ? 0 : textureFilter.getGLEnum();
-                Texture.TextureFilter textureFilter2 = aVar.f27682f;
+                Texture.TextureFilter textureFilter2 = aVar.f28057f;
                 return gLEnum - (textureFilter2 != null ? textureFilter2.getGLEnum() : 0);
             }
-            Texture.TextureFilter textureFilter3 = this.f27683g;
-            if (textureFilter3 != aVar.f27683g) {
+            Texture.TextureFilter textureFilter3 = this.f28058g;
+            if (textureFilter3 != aVar.f28058g) {
                 int gLEnum2 = textureFilter3 == null ? 0 : textureFilter3.getGLEnum();
-                Texture.TextureFilter textureFilter4 = aVar.f27683g;
+                Texture.TextureFilter textureFilter4 = aVar.f28058g;
                 return gLEnum2 - (textureFilter4 != null ? textureFilter4.getGLEnum() : 0);
             }
-            Texture.TextureWrap textureWrap = this.f27684h;
-            if (textureWrap != aVar.f27684h) {
+            Texture.TextureWrap textureWrap = this.f28059h;
+            if (textureWrap != aVar.f28059h) {
                 int gLEnum3 = textureWrap == null ? 0 : textureWrap.getGLEnum();
-                Texture.TextureWrap textureWrap2 = aVar.f27684h;
+                Texture.TextureWrap textureWrap2 = aVar.f28059h;
                 return gLEnum3 - (textureWrap2 != null ? textureWrap2.getGLEnum() : 0);
             }
-            Texture.TextureWrap textureWrap3 = this.f27685i;
-            if (textureWrap3 != aVar.f27685i) {
+            Texture.TextureWrap textureWrap3 = this.f28060i;
+            if (textureWrap3 != aVar.f28060i) {
                 int gLEnum4 = textureWrap3 == null ? 0 : textureWrap3.getGLEnum();
-                Texture.TextureWrap textureWrap4 = aVar.f27685i;
+                Texture.TextureWrap textureWrap4 = aVar.f28060i;
                 return gLEnum4 - (textureWrap4 != null ? textureWrap4.getGLEnum() : 0);
             }
             return 0;
@@ -103,11 +103,11 @@ public class a<T extends e> implements Comparable<a<T>> {
     public void b(T t, Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, textureFilter, textureFilter2, textureWrap, textureWrap2) == null) {
-            this.f27681e = t;
-            this.f27682f = textureFilter;
-            this.f27683g = textureFilter2;
-            this.f27684h = textureWrap;
-            this.f27685i = textureWrap2;
+            this.f28056e = t;
+            this.f28057f = textureFilter;
+            this.f28058g = textureFilter2;
+            this.f28059h = textureWrap;
+            this.f28060i = textureWrap2;
         }
     }
 
@@ -115,11 +115,11 @@ public class a<T extends e> implements Comparable<a<T>> {
     public <V extends T> void c(a<V> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f27681e = aVar.f27681e;
-            this.f27682f = aVar.f27682f;
-            this.f27683g = aVar.f27683g;
-            this.f27684h = aVar.f27684h;
-            this.f27685i = aVar.f27685i;
+            this.f28056e = aVar.f28056e;
+            this.f28057f = aVar.f28057f;
+            this.f28058g = aVar.f28058g;
+            this.f28059h = aVar.f28059h;
+            this.f28060i = aVar.f28060i;
         }
     }
 
@@ -135,7 +135,7 @@ public class a<T extends e> implements Comparable<a<T>> {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return aVar.f27681e == this.f27681e && aVar.f27682f == this.f27682f && aVar.f27683g == this.f27683g && aVar.f27684h == this.f27684h && aVar.f27685i == this.f27685i;
+                return aVar.f28056e == this.f28056e && aVar.f28057f == this.f28057f && aVar.f28058g == this.f28058g && aVar.f28059h == this.f28059h && aVar.f28060i == this.f28060i;
             }
             return false;
         }
@@ -146,17 +146,17 @@ public class a<T extends e> implements Comparable<a<T>> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.f27681e;
-            long j2 = (t == null ? 0 : t.f27475e) * 811;
-            T t2 = this.f27681e;
+            T t = this.f28056e;
+            long j2 = (t == null ? 0 : t.f27850e) * 811;
+            T t2 = this.f28056e;
             long i2 = (j2 + (t2 == null ? 0 : t2.i())) * 811;
-            Texture.TextureFilter textureFilter = this.f27682f;
+            Texture.TextureFilter textureFilter = this.f28057f;
             long gLEnum = (i2 + (textureFilter == null ? 0 : textureFilter.getGLEnum())) * 811;
-            Texture.TextureFilter textureFilter2 = this.f27683g;
+            Texture.TextureFilter textureFilter2 = this.f28058g;
             long gLEnum2 = (gLEnum + (textureFilter2 == null ? 0 : textureFilter2.getGLEnum())) * 811;
-            Texture.TextureWrap textureWrap = this.f27684h;
+            Texture.TextureWrap textureWrap = this.f28059h;
             long gLEnum3 = (gLEnum2 + (textureWrap == null ? 0 : textureWrap.getGLEnum())) * 811;
-            Texture.TextureWrap textureWrap2 = this.f27685i;
+            Texture.TextureWrap textureWrap2 = this.f28060i;
             long gLEnum4 = gLEnum3 + (textureWrap2 != null ? textureWrap2.getGLEnum() : 0);
             return (int) ((gLEnum4 >> 32) ^ gLEnum4);
         }
@@ -197,6 +197,6 @@ public class a<T extends e> implements Comparable<a<T>> {
                 return;
             }
         }
-        this.f27681e = null;
+        this.f28056e = null;
     }
 }

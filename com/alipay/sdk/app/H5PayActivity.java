@@ -13,32 +13,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class H5PayActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.alipay.sdk.widget.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31224b;
+    public String f31594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31225c;
+    public String f31595c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f31226d;
+    public String f31596d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31227e;
+    public String f31597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f31228f;
+    public boolean f31598f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f31229g;
+    public String f31599g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WeakReference<com.alipay.sdk.sys.a> f31230h;
+    public WeakReference<com.alipay.sdk.sys.a> f31600h;
 
     public H5PayActivity() {
         Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class H5PayActivity extends Activity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Object obj = PayTask.f31249h;
+            Object obj = PayTask.f31619h;
             synchronized (obj) {
                 try {
                     obj.notify();
@@ -94,7 +94,7 @@ public class H5PayActivity extends Activity {
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             if (i2 == 1010) {
-                d.a((com.alipay.sdk.sys.a) l.a(this.f31230h), i2, i3, intent);
+                d.a((com.alipay.sdk.sys.a) l.a(this.f31600h), i2, i3, intent);
             }
         }
     }
@@ -133,13 +133,13 @@ public class H5PayActivity extends Activity {
             b();
             super.onCreate(bundle);
             try {
-                com.alipay.sdk.sys.a a = a.C1640a.a(getIntent());
+                com.alipay.sdk.sys.a a = a.C1679a.a(getIntent());
                 if (a == null) {
                     finish();
                     LogUtil.logActivity(this, "onCreate");
                     return;
                 }
-                this.f31230h = new WeakReference<>(a);
+                this.f31600h = new WeakReference<>(a);
                 if (!com.alipay.sdk.data.a.u().s()) {
                     setRequestedOrientation(1);
                 } else {
@@ -148,23 +148,23 @@ public class H5PayActivity extends Activity {
                 try {
                     Bundle extras = getIntent().getExtras();
                     String string = extras.getString("url", null);
-                    this.f31224b = string;
+                    this.f31594b = string;
                     if (!l.d(string)) {
                         finish();
                         LogUtil.logActivity(this, "onCreate");
                         return;
                     }
-                    this.f31226d = extras.getString("cookie", null);
-                    this.f31225c = extras.getString("method", null);
-                    this.f31227e = extras.getString("title", null);
-                    this.f31229g = extras.getString("version", "v1");
-                    this.f31228f = extras.getBoolean("backisexit", false);
+                    this.f31596d = extras.getString("cookie", null);
+                    this.f31595c = extras.getString("method", null);
+                    this.f31597e = extras.getString("title", null);
+                    this.f31599g = extras.getString("version", "v1");
+                    this.f31598f = extras.getBoolean("backisexit", false);
                     try {
-                        com.alipay.sdk.widget.d dVar = new com.alipay.sdk.widget.d(this, a, this.f31229g);
+                        com.alipay.sdk.widget.d dVar = new com.alipay.sdk.widget.d(this, a, this.f31599g);
                         setContentView(dVar);
-                        dVar.a(this.f31227e, this.f31225c, this.f31228f);
-                        dVar.a(this.f31224b, this.f31226d);
-                        dVar.a(this.f31224b);
+                        dVar.a(this.f31597e, this.f31595c, this.f31598f);
+                        dVar.a(this.f31594b, this.f31596d);
+                        dVar.a(this.f31594b);
                         this.a = dVar;
                         LogUtil.logActivity(this, "onCreate");
                     } catch (Throwable th) {
@@ -203,7 +203,7 @@ public class H5PayActivity extends Activity {
                 super.setRequestedOrientation(i2);
             } catch (Throwable th) {
                 try {
-                    com.alipay.sdk.app.statistic.a.a((com.alipay.sdk.sys.a) l.a(this.f31230h), "biz", com.alipay.sdk.app.statistic.b.F, th);
+                    com.alipay.sdk.app.statistic.a.a((com.alipay.sdk.sys.a) l.a(this.f31600h), "biz", com.alipay.sdk.app.statistic.b.F, th);
                 } catch (Throwable unused) {
                 }
             }

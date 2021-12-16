@@ -18,20 +18,20 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Arrays;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f51548c;
+    public static String f52097c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f51549d;
+    public static f f52098d;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f51550b;
+    public final String f52099b;
 
     static {
         InterceptResult invokeClinit;
@@ -46,8 +46,8 @@ public final class f {
                 return;
             }
         }
-        f51548c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
-        f51549d = null;
+        f52097c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
+        f52098d = null;
     }
 
     public f() {
@@ -63,7 +63,7 @@ public final class f {
                 return;
             }
         }
-        this.f51550b = "ufo";
+        this.f52099b = "ufo";
         this.a = 1209600000;
     }
 
@@ -74,7 +74,7 @@ public final class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             String b2 = b(str);
             if (new File(b2).exists() && (decodeFile = BitmapFactory.decodeFile(b2, null)) != null) {
-                new File(f51548c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
+                new File(f52097c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
                 return decodeFile;
             }
             return null;
@@ -86,10 +86,10 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f51549d == null) {
-                f51549d = new f();
+            if (f52098d == null) {
+                f52098d = new f();
             }
-            return f51549d;
+            return f52098d;
         }
         return (f) invokeV.objValue;
     }
@@ -98,7 +98,7 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return f51548c + "/cache/image/" + str;
+            return f52097c + "/cache/image/" + str;
         }
         return (String) invokeL.objValue;
     }
@@ -106,7 +106,7 @@ public final class f {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            String str = f51548c + "/cache/image/";
+            String str = f52097c + "/cache/image/";
             File[] listFiles = new File(str).listFiles();
             if (listFiles == null) {
                 return;
@@ -163,11 +163,11 @@ public final class f {
                         c.c("ufo ->Low free space onsd, do not cache");
                         return;
                     }
-                    c(f51548c + "/cache/image/");
+                    c(f52097c + "/cache/image/");
                     if (equals) {
-                        File file2 = new File(f51548c);
-                        File file3 = new File(f51548c + "/cache");
-                        File file4 = new File(f51548c + "/cache/image");
+                        File file2 = new File(f52097c);
+                        File file3 = new File(f52097c + "/cache");
+                        File file4 = new File(f52097c + "/cache/image");
                         if (!file2.exists()) {
                             file2.mkdir();
                         }

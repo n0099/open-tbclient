@@ -16,20 +16,20 @@ import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.BaseNativeAd2;
 import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
 import com.kwad.sdk.api.KsFeedAd;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class l implements FunNativeAd2Bridger<KsFeedAd, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public k.b f28796b;
+    public k.b f29166b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Context f28797c;
+    public final /* synthetic */ Context f29167c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ k f28798d;
+    public final /* synthetic */ k f29168d;
 
     public l(k kVar, Context context) {
         Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class l implements FunNativeAd2Bridger<KsFeedAd, View> {
                 return;
             }
         }
-        this.f28798d = kVar;
-        this.f28797c = context;
+        this.f29168d = kVar;
+        this.f29167c = context;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -55,7 +55,7 @@ public class l implements FunNativeAd2Bridger<KsFeedAd, View> {
     public View createExpressView(KsFeedAd ksFeedAd) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksFeedAd)) == null) ? this.f28798d.a(this.f28797c, ksFeedAd) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksFeedAd)) == null) ? this.f29168d.a(this.f29167c, ksFeedAd) : (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
@@ -72,16 +72,16 @@ public class l implements FunNativeAd2Bridger<KsFeedAd, View> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ksFeedAd, baseNativeAd2, funAdInteractionListener}) == null) {
             KsFeedAd ksFeedAd2 = ksFeedAd;
-            this.f28798d.onShowStart(this.a);
+            this.f29168d.onShowStart(this.a);
             this.a = true;
             View expressView = expressInflater.getExpressView();
-            if (this.f28796b == null) {
-                k kVar = this.f28798d;
+            if (this.f29166b == null) {
+                k kVar = this.f29168d;
                 k.b bVar = new k.b(kVar, ksFeedAd2, expressView, str);
-                this.f28796b = bVar;
+                this.f29166b = bVar;
                 kVar.g(ksFeedAd2, bVar);
             }
-            this.f28796b.f28792d = funAdInteractionListener;
+            this.f29166b.f29162d = funAdInteractionListener;
             expressInflater.inflate();
         }
     }

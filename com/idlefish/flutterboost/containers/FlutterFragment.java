@@ -31,7 +31,7 @@ import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlutterFragment extends Fragment implements FlutterActivityAndFragmentDelegate.Host {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
@@ -48,7 +48,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     public transient /* synthetic */ FieldHolder $fh;
     public FlutterActivityAndFragmentDelegate delegate;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class NewEngineFragmentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

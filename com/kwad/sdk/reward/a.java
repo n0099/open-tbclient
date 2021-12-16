@@ -24,7 +24,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.core.e.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,41 +34,41 @@ public class a extends com.kwad.sdk.core.e.b {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f58869b;
+    public com.kwad.sdk.reward.a.b f59450b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.d f58870c;
+    public com.kwad.sdk.reward.a.d f59451c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public KsVideoPlayConfig f58871d;
+    public KsVideoPlayConfig f59452d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f58872e;
+    public JSONObject f59453e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58873f;
+    public int f59454f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public AdTemplate f58874g;
+    public AdTemplate f59455g;
     @Deprecated
 
     /* renamed from: h  reason: collision with root package name */
-    public Activity f58875h;
+    public Activity f59456h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f58876i;
+    public Context f59457i;
     @NonNull
 
     /* renamed from: j  reason: collision with root package name */
-    public AdBaseFrameLayout f58877j;
+    public AdBaseFrameLayout f59458j;
     @NonNull
 
     /* renamed from: k  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f58878k;
+    public com.kwad.sdk.reward.c.a f59459k;
     @Nullable
     public com.kwad.sdk.core.download.a.b l;
     @Nullable
@@ -120,8 +120,8 @@ public class a extends com.kwad.sdk.core.e.b {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, this, i2) == null) {
-            com.kwad.sdk.core.report.a.a(this.f58874g, i2, this.f58877j.getTouchCoords(), this.f58872e);
-            this.f58869b.a();
+            com.kwad.sdk.core.report.a.a(this.f59455g, i2, this.f59458j.getTouchCoords(), this.f59453e);
+            this.f59450b.a();
         }
     }
 
@@ -146,7 +146,7 @@ public class a extends com.kwad.sdk.core.e.b {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.clear();
             this.A.clear();
-            com.kwad.sdk.reward.c.a aVar = this.f58878k;
+            com.kwad.sdk.reward.c.a aVar = this.f59459k;
             if (aVar != null) {
                 aVar.e();
             }
@@ -177,13 +177,13 @@ public class a extends com.kwad.sdk.core.e.b {
     public void a(Context context, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, context, i2, i3) == null) {
-            com.kwad.sdk.core.download.a.a.a(new a.C2015a(context).a(this.f58874g).a(this.l).a(false).a(i3).a(new a.b(this, i2) { // from class: com.kwad.sdk.reward.a.2
+            com.kwad.sdk.core.download.a.a.a(new a.C2076a(context).a(this.f59455g).a(this.l).a(false).a(i3).a(new a.b(this, i2) { // from class: com.kwad.sdk.reward.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f58879b;
+                public final /* synthetic */ a f59460b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -200,7 +200,7 @@ public class a extends com.kwad.sdk.core.e.b {
                             return;
                         }
                     }
-                    this.f58879b = this;
+                    this.f59460b = this;
                     this.a = i2;
                 }
 
@@ -208,7 +208,7 @@ public class a extends com.kwad.sdk.core.e.b {
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f58879b.a(this.a);
+                        this.f59460b.a(this.a);
                     }
                 }
             }));

@@ -55,7 +55,7 @@ import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static b a;
@@ -104,7 +104,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f56838c)) {
+        if (a(context, s.f57419c)) {
             return "";
         }
         if (context != null) {
@@ -150,7 +150,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f56838c)) {
+        if (a(context, s.f57419c)) {
             return "";
         }
         if (context != null) {
@@ -614,7 +614,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
             String str = "";
-            if (a(context, s.f56839d)) {
+            if (a(context, s.f57420d)) {
                 return "";
             }
             try {
@@ -648,7 +648,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
-            if (a(context, s.f56838c)) {
+            if (a(context, s.f57419c)) {
                 return "";
             }
             try {
@@ -749,7 +749,7 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x002a  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x002b  */
     /* JADX WARN: Removed duplicated region for block: B:23:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -762,7 +762,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65567, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f56839d)) {
+        if (a(context, s.f57420d)) {
             return "";
         }
         try {
@@ -1094,7 +1094,7 @@ public final class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
             BufferedReader bufferedReader2 = null;
             try {
-                fileReader = new FileReader(z.f56920b);
+                fileReader = new FileReader(z.f57501b);
                 try {
                     bufferedReader = new BufferedReader(fileReader, 8192);
                     try {

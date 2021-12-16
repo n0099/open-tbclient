@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,30 +14,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RecordLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public VelocityTracker f49776e;
+    public VelocityTracker f50292e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49777f;
+    public int f50293f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49778g;
+    public int f50294g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49779h;
+    public int f50295h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f49780i;
+    public float f50296i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f49781j;
+    public a f50297j;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void onTouchToLeft();
 
@@ -68,9 +68,9 @@ public class RecordLayout extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f49778g = ViewConfiguration.getMaximumFlingVelocity();
-            this.f49777f = ViewConfiguration.getMinimumFlingVelocity();
-            this.f49779h = l.f(getContext(), R.dimen.ds150);
+            this.f50294g = ViewConfiguration.getMaximumFlingVelocity();
+            this.f50293f = ViewConfiguration.getMinimumFlingVelocity();
+            this.f50295h = m.f(getContext(), R.dimen.ds150);
         }
     }
 
@@ -79,35 +79,35 @@ public class RecordLayout extends RelativeLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (this.f49776e == null) {
-                this.f49776e = VelocityTracker.obtain();
+            if (this.f50292e == null) {
+                this.f50292e = VelocityTracker.obtain();
             }
-            this.f49776e.addMovement(motionEvent);
+            this.f50292e.addMovement(motionEvent);
             int action = motionEvent.getAction();
             if (action != 0) {
-                if ((action == 1 || action == 3) && this.f49781j != null) {
-                    this.f49776e.computeCurrentVelocity(1000, this.f49778g);
-                    float xVelocity = this.f49776e.getXVelocity();
-                    int rawX = (int) (motionEvent.getRawX() - this.f49780i);
-                    if (Math.abs(xVelocity) <= this.f49777f || Math.abs(rawX) <= this.f49779h) {
-                        if (Math.abs(rawX) > l.k(getContext()) * 0.5d) {
+                if ((action == 1 || action == 3) && this.f50297j != null) {
+                    this.f50292e.computeCurrentVelocity(1000, this.f50294g);
+                    float xVelocity = this.f50292e.getXVelocity();
+                    int rawX = (int) (motionEvent.getRawX() - this.f50296i);
+                    if (Math.abs(xVelocity) <= this.f50293f || Math.abs(rawX) <= this.f50295h) {
+                        if (Math.abs(rawX) > m.k(getContext()) * 0.5d) {
                             if (rawX > 0) {
-                                this.f49781j.onTouchToRight();
+                                this.f50297j.onTouchToRight();
                             } else {
-                                this.f49781j.onTouchToRight();
+                                this.f50297j.onTouchToRight();
                             }
                         }
                     } else if (rawX > 0) {
-                        this.f49781j.onTouchToRight();
+                        this.f50297j.onTouchToRight();
                     } else {
-                        this.f49781j.onTouchToLeft();
+                        this.f50297j.onTouchToLeft();
                     }
-                    this.f49776e.clear();
-                    this.f49776e.recycle();
-                    this.f49776e = null;
+                    this.f50292e.clear();
+                    this.f50292e.recycle();
+                    this.f50292e = null;
                 }
             } else {
-                this.f49780i = motionEvent.getRawX();
+                this.f50296i = motionEvent.getRawX();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -117,7 +117,7 @@ public class RecordLayout extends RelativeLayout {
     public void setListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f49781j = aVar;
+            this.f50297j = aVar;
         }
     }
 

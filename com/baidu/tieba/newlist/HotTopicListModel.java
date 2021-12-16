@@ -1,8 +1,9 @@
 package com.baidu.tieba.newlist;
 
 import c.a.d.a.f;
-import c.a.r0.n2.b;
-import c.a.r0.p1.l.j;
+import c.a.d.f.p.k;
+import c.a.s0.p2.b;
+import c.a.s0.q1.l.j;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -19,18 +20,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class HotTopicListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f47387e;
+    public b f47894e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f47388f;
+    public boolean f47895f;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +70,7 @@ public class HotTopicListModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 int i2 = 0;
-                this.a.f47388f = false;
+                this.a.f47895f = false;
                 if (responsedMessage == null) {
                     return;
                 }
@@ -86,21 +87,21 @@ public class HotTopicListModel extends BdBaseModel {
                                 }
                             }
                             if (jVar != null) {
-                                if (!ListUtils.isEmpty(jVar.f21172h)) {
+                                if (!ListUtils.isEmpty(jVar.f21657h)) {
                                     LinkedList linkedList = new LinkedList();
-                                    int size = jVar.f21172h.size();
+                                    int size = jVar.f21657h.size();
                                     while (i2 < size) {
-                                        linkedList.add(new c.a.r0.n2.d.b(jVar.f21172h.get(i2), i2));
+                                        linkedList.add(new c.a.s0.p2.d.b(jVar.f21657h.get(i2), i2));
                                         i2++;
                                     }
-                                    this.a.f47387e.netCallback(responsedMessage.getError(), linkedList);
+                                    this.a.f47894e.netCallback(responsedMessage.getError(), linkedList);
                                     i2 = 1;
                                 }
                                 if (i2 != 0) {
                                     return;
                                 }
                             }
-                            this.a.f47387e.netCallback(-1, null);
+                            this.a.f47894e.netCallback(-1, null);
                         }
                     }
                     jVar = null;
@@ -108,7 +109,7 @@ public class HotTopicListModel extends BdBaseModel {
                     }
                     if (jVar != null) {
                     }
-                    this.a.f47387e.netCallback(-1, null);
+                    this.a.f47894e.netCallback(-1, null);
                 }
             }
         }
@@ -133,7 +134,7 @@ public class HotTopicListModel extends BdBaseModel {
             }
         }
         y();
-        this.f47387e = bVar;
+        this.f47894e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -152,7 +153,7 @@ public class HotTopicListModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!c.a.d.f.p.j.A() || this.f47388f) {
+            if (!k.A() || this.f47895f) {
                 return false;
             }
             cancelLoadData();
@@ -163,7 +164,7 @@ public class HotTopicListModel extends BdBaseModel {
             requestHotRanklistMessage.setNeedTabList("0");
             requestHotRanklistMessage.setFid(0L);
             boolean sendMessage = MessageManager.getInstance().sendMessage(requestHotRanklistMessage);
-            this.f47388f = sendMessage;
+            this.f47895f = sendMessage;
             return sendMessage;
         }
         return invokeV.booleanValue;

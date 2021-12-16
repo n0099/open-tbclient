@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.pb.main.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
-import c.a.q0.s.g0.t.b;
-import c.a.r0.q2.f;
-import c.a.r0.q2.g;
-import c.a.r0.q2.h;
-import c.a.r0.q2.l;
+import c.a.r0.s.i0.t.b;
+import c.a.s0.s2.f;
+import c.a.s0.s2.g;
+import c.a.s0.s2.h;
+import c.a.s0.s2.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,13 +47,13 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements b
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                c.a.q0.s.g0.n.b bVar = new c.a.q0.s.g0.n.b();
+                c.a.r0.s.i0.n.b bVar = new c.a.r0.s.i0.n.b();
                 bVar.s(f.CAM_X0109);
                 setConfig(bVar);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(l.relate_forum_is_followed));
             } else {
-                c.a.q0.s.g0.n.b bVar2 = new c.a.q0.s.g0.n.b();
+                c.a.r0.s.i0.n.b bVar2 = new c.a.r0.s.i0.n.b();
                 bVar2.r(f.CAM_X0302);
                 bVar2.i(h.icon_pure_add10_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
                 bVar2.g(UtilHelper.getDimenPixelSize(g.tbds26));

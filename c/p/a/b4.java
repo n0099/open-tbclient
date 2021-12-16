@@ -1,7 +1,7 @@
 package c.p.a;
 
 import android.graphics.Bitmap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface b4 {
     void a(int i2);
 

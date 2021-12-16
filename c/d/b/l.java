@@ -22,45 +22,45 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import okhttp3.internal.http.HttpDate;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Pattern f28398j;
+    public static final Pattern f28773j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final Pattern f28399k;
+    public static final Pattern f28774k;
     public static final Pattern l;
     public static final Pattern m;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f28400b;
+    public final String f28775b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f28401c;
+    public final long f28776c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f28402d;
+    public final String f28777d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f28403e;
+    public final String f28778e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f28404f;
+    public final boolean f28779f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f28405g;
+    public final boolean f28780g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f28406h;
+    public final boolean f28781h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f28407i;
+    public final boolean f28782i;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,29 +69,29 @@ public final class l {
         @Nullable
 
         /* renamed from: b  reason: collision with root package name */
-        public String f28408b;
+        public String f28783b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f28409c;
+        public long f28784c;
         @Nullable
 
         /* renamed from: d  reason: collision with root package name */
-        public String f28410d;
+        public String f28785d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f28411e;
+        public String f28786e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f28412f;
+        public boolean f28787f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f28413g;
+        public boolean f28788g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f28414h;
+        public boolean f28789h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f28415i;
+        public boolean f28790i;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -106,8 +106,8 @@ public final class l {
                     return;
                 }
             }
-            this.f28409c = HttpDate.MAX_DATE;
-            this.f28411e = "/";
+            this.f28784c = HttpDate.MAX_DATE;
+            this.f28786e = "/";
         }
 
         public l a() {
@@ -133,8 +133,8 @@ public final class l {
                 if (str != null) {
                     String c2 = c.d.b.e0.e.c(str);
                     if (c2 != null) {
-                        this.f28410d = c2;
-                        this.f28415i = z;
+                        this.f28785d = c2;
+                        this.f28790i = z;
                         return this;
                     }
                     throw new IllegalArgumentException("unexpected domain: " + str);
@@ -166,7 +166,7 @@ public final class l {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
                 if (str != null) {
                     if (str.trim().equals(str)) {
-                        this.f28408b = str;
+                        this.f28783b = str;
                         return this;
                     }
                     throw new IllegalArgumentException("value is not trimmed");
@@ -190,8 +190,8 @@ public final class l {
                 return;
             }
         }
-        f28398j = Pattern.compile("(\\d{2,4})[^\\d]*");
-        f28399k = Pattern.compile("(?i)(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec).*");
+        f28773j = Pattern.compile("(\\d{2,4})[^\\d]*");
+        f28774k = Pattern.compile("(?i)(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec).*");
         l = Pattern.compile("(\\d{1,2})[^\\d]*");
         m = Pattern.compile("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})[^\\d]*");
     }
@@ -212,14 +212,14 @@ public final class l {
             }
         }
         this.a = str;
-        this.f28400b = str2;
-        this.f28401c = j2;
-        this.f28402d = str3;
-        this.f28403e = str4;
-        this.f28404f = z;
-        this.f28405g = z2;
-        this.f28407i = z3;
-        this.f28406h = z4;
+        this.f28775b = str2;
+        this.f28776c = j2;
+        this.f28777d = str3;
+        this.f28778e = str4;
+        this.f28779f = z;
+        this.f28780g = z2;
+        this.f28782i = z3;
+        this.f28781h = z4;
     }
 
     public static int a(String str, int i2, int i3, boolean z) {
@@ -269,8 +269,8 @@ public final class l {
             int length = str.length();
             char c2 = ';';
             int m2 = c.d.b.e0.e.m(str, 0, length, ';');
-            char c3 = com.alipay.sdk.encrypt.a.f31351h;
-            int m3 = c.d.b.e0.e.m(str, 0, m2, com.alipay.sdk.encrypt.a.f31351h);
+            char c3 = com.alipay.sdk.encrypt.a.f31721h;
+            int m3 = c.d.b.e0.e.m(str, 0, m2, com.alipay.sdk.encrypt.a.f31721h);
             if (m3 == m2) {
                 return null;
             }
@@ -316,12 +316,12 @@ public final class l {
                     }
                     i2 = m4 + 1;
                     c2 = ';';
-                    c3 = com.alipay.sdk.encrypt.a.f31351h;
+                    c3 = com.alipay.sdk.encrypt.a.f31721h;
                 }
                 z4 = true;
                 i2 = m4 + 1;
                 c2 = ';';
-                c3 = com.alipay.sdk.encrypt.a.f31351h;
+                c3 = com.alipay.sdk.encrypt.a.f31721h;
             }
             long j6 = Long.MIN_VALUE;
             if (j4 != Long.MIN_VALUE) {
@@ -442,9 +442,9 @@ public final class l {
                     i9 = Integer.parseInt(matcher.group(3));
                 } else if (i6 == -1 && matcher.usePattern(l).matches()) {
                     i6 = Integer.parseInt(matcher.group(1));
-                } else if (i7 == -1 && matcher.usePattern(f28399k).matches()) {
-                    i7 = f28399k.pattern().indexOf(matcher.group(1).toLowerCase(Locale.US)) / 4;
-                } else if (i4 == -1 && matcher.usePattern(f28398j).matches()) {
+                } else if (i7 == -1 && matcher.usePattern(f28774k).matches()) {
+                    i7 = f28774k.pattern().indexOf(matcher.group(1).toLowerCase(Locale.US)) / 4;
+                } else if (i4 == -1 && matcher.usePattern(f28773j).matches()) {
                     i4 = Integer.parseInt(matcher.group(1));
                 }
                 a2 = a(str, a3 + 1, i3, false);
@@ -467,7 +467,7 @@ public final class l {
                         throw new IllegalArgumentException();
                     }
                     if (i9 >= 0 && i9 <= 59) {
-                        GregorianCalendar gregorianCalendar = new GregorianCalendar(c.d.b.e0.e.f28093f);
+                        GregorianCalendar gregorianCalendar = new GregorianCalendar(c.d.b.e0.e.f28468f);
                         gregorianCalendar.setLenient(false);
                         gregorianCalendar.set(1, i4);
                         gregorianCalendar.set(2, i7 - 1);
@@ -519,7 +519,7 @@ public final class l {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (obj instanceof l) {
                 l lVar = (l) obj;
-                return lVar.a.equals(this.a) && lVar.f28400b.equals(this.f28400b) && lVar.f28402d.equals(this.f28402d) && lVar.f28403e.equals(this.f28403e) && lVar.f28401c == this.f28401c && lVar.f28404f == this.f28404f && lVar.f28405g == this.f28405g && lVar.f28406h == this.f28406h && lVar.f28407i == this.f28407i;
+                return lVar.a.equals(this.a) && lVar.f28775b.equals(this.f28775b) && lVar.f28777d.equals(this.f28777d) && lVar.f28778e.equals(this.f28778e) && lVar.f28776c == this.f28776c && lVar.f28779f == this.f28779f && lVar.f28780g == this.f28780g && lVar.f28781h == this.f28781h && lVar.f28782i == this.f28782i;
             }
             return false;
         }
@@ -530,8 +530,8 @@ public final class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j2 = this.f28401c;
-            return ((((((((((((((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a.hashCode()) * 31) + this.f28400b.hashCode()) * 31) + this.f28402d.hashCode()) * 31) + this.f28403e.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.f28404f ? 1 : 0)) * 31) + (!this.f28405g ? 1 : 0)) * 31) + (!this.f28406h ? 1 : 0)) * 31) + (!this.f28407i ? 1 : 0);
+            long j2 = this.f28776c;
+            return ((((((((((((((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a.hashCode()) * 31) + this.f28775b.hashCode()) * 31) + this.f28777d.hashCode()) * 31) + this.f28778e.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.f28779f ? 1 : 0)) * 31) + (!this.f28780g ? 1 : 0)) * 31) + (!this.f28781h ? 1 : 0)) * 31) + (!this.f28782i ? 1 : 0);
         }
         return invokeV.intValue;
     }
@@ -542,29 +542,29 @@ public final class l {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a);
-            sb.append(com.alipay.sdk.encrypt.a.f31351h);
-            sb.append(this.f28400b);
-            if (this.f28406h) {
-                if (this.f28401c == Long.MIN_VALUE) {
+            sb.append(com.alipay.sdk.encrypt.a.f31721h);
+            sb.append(this.f28775b);
+            if (this.f28781h) {
+                if (this.f28776c == Long.MIN_VALUE) {
                     sb.append("; max-age=0");
                 } else {
                     sb.append("; expires=");
-                    sb.append(c.d.b.e0.i.d.a(new Date(this.f28401c)));
+                    sb.append(c.d.b.e0.i.d.a(new Date(this.f28776c)));
                 }
             }
-            if (!this.f28407i) {
+            if (!this.f28782i) {
                 sb.append("; domain=");
                 if (z) {
                     sb.append(".");
                 }
-                sb.append(this.f28402d);
+                sb.append(this.f28777d);
             }
             sb.append("; path=");
-            sb.append(this.f28403e);
-            if (this.f28404f) {
+            sb.append(this.f28778e);
+            if (this.f28779f) {
                 sb.append("; secure");
             }
-            if (this.f28405g) {
+            if (this.f28780g) {
                 sb.append("; httponly");
             }
             return sb.toString();
@@ -575,7 +575,7 @@ public final class l {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28400b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28775b : (String) invokeV.objValue;
     }
 
     public String toString() {
@@ -601,19 +601,19 @@ public final class l {
         }
         String str = aVar.a;
         if (str != null) {
-            String str2 = aVar.f28408b;
+            String str2 = aVar.f28783b;
             if (str2 != null) {
-                String str3 = aVar.f28410d;
+                String str3 = aVar.f28785d;
                 if (str3 != null) {
                     this.a = str;
-                    this.f28400b = str2;
-                    this.f28401c = aVar.f28409c;
-                    this.f28402d = str3;
-                    this.f28403e = aVar.f28411e;
-                    this.f28404f = aVar.f28412f;
-                    this.f28405g = aVar.f28413g;
-                    this.f28406h = aVar.f28414h;
-                    this.f28407i = aVar.f28415i;
+                    this.f28775b = str2;
+                    this.f28776c = aVar.f28784c;
+                    this.f28777d = str3;
+                    this.f28778e = aVar.f28786e;
+                    this.f28779f = aVar.f28787f;
+                    this.f28780g = aVar.f28788g;
+                    this.f28781h = aVar.f28789h;
+                    this.f28782i = aVar.f28790i;
                     return;
                 }
                 throw new NullPointerException("builder.domain == null");

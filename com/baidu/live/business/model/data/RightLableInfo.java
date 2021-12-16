@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RightLableInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<RightLableInfo> CREATOR;
@@ -19,8 +19,8 @@ public class RightLableInfo implements Parcelable {
     public String iconUrl;
     public double wh;
 
-    /* loaded from: classes8.dex */
-    public static class a implements Parcelable.Creator<RightLableInfo> {
+    /* loaded from: classes10.dex */
+    public class a implements Parcelable.Creator<RightLableInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

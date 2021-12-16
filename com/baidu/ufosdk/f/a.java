@@ -17,16 +17,16 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @SuppressLint({"HandlerLeak"})
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap f51541b;
+    public static HashMap f52090b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ExecutorService f51542c;
+    public static ExecutorService f52091c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -42,8 +42,8 @@ public final class a {
                 return;
             }
         }
-        if (f51541b == null) {
-            f51541b = new HashMap();
+        if (f52090b == null) {
+            f52090b = new HashMap();
         }
     }
 
@@ -142,8 +142,8 @@ public final class a {
             synchronized (a.class) {
                 if (a == null) {
                     a = new a();
-                    if (f51542c == null) {
-                        f51542c = Executors.newFixedThreadPool(1);
+                    if (f52091c == null) {
+                        f52091c = Executors.newFixedThreadPool(1);
                     }
                 }
                 aVar = a;
@@ -160,7 +160,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, nVar, str)) == null) {
             String c2 = k.c(str);
-            if (!f51541b.containsKey(c2) || (bitmap2 = (Bitmap) ((SoftReference) f51541b.get(c2)).get()) == null) {
+            if (!f52090b.containsKey(c2) || (bitmap2 = (Bitmap) ((SoftReference) f52090b.get(c2)).get()) == null) {
                 try {
                     bitmap = f.a(c2);
                 } catch (OutOfMemoryError unused) {
@@ -168,10 +168,10 @@ public final class a {
                     bitmap = null;
                 }
                 if (bitmap != null) {
-                    f51541b.put(c2, new SoftReference(bitmap));
+                    f52090b.put(c2, new SoftReference(bitmap));
                     return bitmap;
                 }
-                f51542c.execute(new b(this, str, c2, nVar));
+                f52091c.execute(new b(this, str, c2, nVar));
                 return null;
             }
             return bitmap2;

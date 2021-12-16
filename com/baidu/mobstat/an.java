@@ -37,29 +37,29 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class an {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile String f36987c;
+    public static volatile String f37476c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile int f36988d;
+    public static volatile int f37477d;
     public transient /* synthetic */ FieldHolder $fh;
     public final b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f36989b;
+    public final Handler f37478b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Bitmap a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Paint f36990b;
+        public final Paint f37479b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class an {
                     return;
                 }
             }
-            this.f36990b = new Paint(2);
+            this.f37479b = new Paint(2);
             this.a = null;
         }
 
@@ -93,30 +93,30 @@ public class an {
                         }
                     }
                     if (this.a != null) {
-                        new Canvas(this.a).drawBitmap(bitmap, 0.0f, 0.0f, this.f36990b);
+                        new Canvas(this.a).drawBitmap(bitmap, 0.0f, 0.0f, this.f37479b);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class b implements Callable<List<c>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Activity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<c> f36991b;
+        public final List<c> f37480b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final DisplayMetrics f36992c;
+        public final DisplayMetrics f37481c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final a f36993d;
+        public final a f37482d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f36994e;
+        public final int f37483e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -131,10 +131,10 @@ public class an {
                     return;
                 }
             }
-            this.f36994e = 160;
-            this.f36992c = new DisplayMetrics();
-            this.f36991b = new ArrayList();
-            this.f36993d = new a();
+            this.f37483e = 160;
+            this.f37481c = new DisplayMetrics();
+            this.f37480b = new ArrayList();
+            this.f37482d = new a();
         }
 
         private void b() {
@@ -165,22 +165,22 @@ public class an {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f36991b.clear();
+                this.f37480b.clear();
                 HashSet<Activity> hashSet = new HashSet(1);
                 hashSet.add(this.a);
                 for (Activity activity : hashSet) {
                     String canonicalName = activity.getClass().getCanonicalName();
                     View b2 = bj.b(activity);
-                    activity.getWindowManager().getDefaultDisplay().getMetrics(this.f36992c);
-                    this.f36991b.add(new c(canonicalName, b2));
+                    activity.getWindowManager().getDefaultDisplay().getMetrics(this.f37481c);
+                    this.f37480b.add(new c(canonicalName, b2));
                 }
-                int size = this.f36991b.size();
+                int size = this.f37480b.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     b();
-                    a(this.f36991b.get(i2));
+                    a(this.f37480b.get(i2));
                     c();
                 }
-                return this.f36991b;
+                return this.f37480b;
             }
             return (List) invokeV.objValue;
         }
@@ -195,7 +195,7 @@ public class an {
             Bitmap bitmap;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65537, this, cVar) == null) {
-                View view = cVar.f36995b;
+                View view = cVar.f37484b;
                 Boolean bool = null;
                 try {
                     Method declaredMethod = View.class.getDeclaredMethod("createSnapshot", Bitmap.Config.class, Integer.TYPE, Boolean.TYPE);
@@ -211,8 +211,8 @@ public class an {
                     if (bool != null) {
                         view.setDrawingCacheEnabled(false);
                     }
-                    cVar.f36997d = r3;
-                    cVar.f36996c = this.f36993d;
+                    cVar.f37486d = r3;
+                    cVar.f37485c = this.f37482d;
                 } catch (IllegalAccessException e3) {
                     bc.c().d("autotrace: Can't access createSnapshot, using drawCache", e3);
                     bitmap = null;
@@ -222,8 +222,8 @@ public class an {
                     }
                     if (bool != null) {
                     }
-                    cVar.f36997d = r3;
-                    cVar.f36996c = this.f36993d;
+                    cVar.f37486d = r3;
+                    cVar.f37485c = this.f37482d;
                 } catch (IllegalArgumentException e4) {
                     bc.c().b("autotrace: Can't call createSnapshot with arguments", e4);
                     bitmap = null;
@@ -233,8 +233,8 @@ public class an {
                     }
                     if (bool != null) {
                     }
-                    cVar.f36997d = r3;
-                    cVar.f36996c = this.f36993d;
+                    cVar.f37486d = r3;
+                    cVar.f37485c = this.f37482d;
                 } catch (NoSuchMethodException e5) {
                     bc.c().a("autotrace: Can't call createSnapshot, will use drawCache", e5);
                     bitmap = null;
@@ -244,8 +244,8 @@ public class an {
                     }
                     if (bool != null) {
                     }
-                    cVar.f36997d = r3;
-                    cVar.f36996c = this.f36993d;
+                    cVar.f37486d = r3;
+                    cVar.f37485c = this.f37482d;
                 } catch (InvocationTargetException e6) {
                     bc.c().d("autotrace: Exception when calling createSnapshot", e6);
                     bitmap = null;
@@ -255,8 +255,8 @@ public class an {
                     }
                     if (bool != null) {
                     }
-                    cVar.f36997d = r3;
-                    cVar.f36996c = this.f36993d;
+                    cVar.f37486d = r3;
+                    cVar.f37485c = this.f37482d;
                 } catch (Exception e7) {
                     bc.c().d(" autotrace:createSnapshot encounter exception", e7);
                     bitmap = null;
@@ -266,8 +266,8 @@ public class an {
                     }
                     if (bool != null) {
                     }
-                    cVar.f36997d = r3;
-                    cVar.f36996c = this.f36993d;
+                    cVar.f37486d = r3;
+                    cVar.f37485c = this.f37482d;
                 }
                 if (bitmap == null) {
                     try {
@@ -287,32 +287,32 @@ public class an {
                     int width2 = (int) ((bitmap.getWidth() * r3) + 0.5d);
                     int height2 = (int) ((bitmap.getHeight() * r3) + 0.5d);
                     if (width > 0 && height > 0 && width2 > 0 && height2 > 0) {
-                        this.f36993d.a(width2, height2, 160, bitmap);
+                        this.f37482d.a(width2, height2, 160, bitmap);
                     }
                 }
                 if (bool != null && !bool.booleanValue()) {
                     view.setDrawingCacheEnabled(false);
                 }
-                cVar.f36997d = r3;
-                cVar.f36996c = this.f36993d;
+                cVar.f37486d = r3;
+                cVar.f37485c = this.f37482d;
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final View f36995b;
+        public final View f37484b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f36996c;
+        public a f37485c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f36997d;
+        public float f37486d;
 
         public c(String str, View view) {
             Interceptable interceptable = $ic;
@@ -330,9 +330,9 @@ public class an {
                 }
             }
             this.a = str;
-            this.f36995b = view;
-            this.f36996c = null;
-            this.f36997d = 1.0f;
+            this.f37484b = view;
+            this.f37485c = null;
+            this.f37486d = 1.0f;
         }
     }
 
@@ -364,21 +364,21 @@ public class an {
                 return;
             }
         }
-        this.f36989b = new Handler(Looper.getMainLooper());
+        this.f37478b = new Handler(Looper.getMainLooper());
         this.a = new b();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            f36988d = 0;
+            f37477d = 0;
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            f36987c = "";
+            f37476c = "";
         }
     }
 
@@ -406,8 +406,8 @@ public class an {
         }
         try {
             if (ak.a()) {
-                int i2 = f36988d + 1;
-                f36988d = i2;
+                int i2 = f37477d + 1;
+                f37477d = i2;
                 if (i2 >= 3) {
                     ak.a(false);
                 }
@@ -417,8 +417,8 @@ public class an {
                 }
                 JSONArray c2 = c(activity);
                 String a2 = bt.a.a(c2.toString().getBytes());
-                if (f36987c == null || !f36987c.equals(a2)) {
-                    f36987c = a2;
+                if (f37476c == null || !f37476c.equals(a2)) {
+                    f37476c = a2;
                     JSONObject jSONObject2 = new JSONObject();
                     try {
                         jSONObject2.put(StatisticConstants.SCREENSHOT, bj.a(b2));
@@ -448,7 +448,7 @@ public class an {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
             this.a.a(activity);
             FutureTask futureTask = new FutureTask(this.a);
-            this.f36989b.post(futureTask);
+            this.f37478b.post(futureTask);
             List emptyList = Collections.emptyList();
             try {
                 emptyList = (List) futureTask.get(2L, TimeUnit.SECONDS);
@@ -462,7 +462,7 @@ public class an {
             if (emptyList.size() == 0) {
                 return null;
             }
-            return ((c) emptyList.get(0)).f36996c.a;
+            return ((c) emptyList.get(0)).f37485c.a;
         }
         return (Bitmap) invokeL.objValue;
     }

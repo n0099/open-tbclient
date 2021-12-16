@@ -2,7 +2,7 @@ package com.kwad.yoga;
 
 import com.kwad.proguard.annotations.DoNotStrip;
 @DoNotStrip
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface YogaLogger {
     @DoNotStrip
     void log(YogaNode yogaNode, YogaLogLevel yogaLogLevel, String str);

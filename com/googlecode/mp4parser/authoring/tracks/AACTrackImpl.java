@@ -41,7 +41,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.commons.codec.digest4util.PureJavaCrc32C;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AACTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, String> audioObjectTypes;
@@ -57,7 +57,7 @@ public class AACTrackImpl extends AbstractTrack {
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AdtsHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

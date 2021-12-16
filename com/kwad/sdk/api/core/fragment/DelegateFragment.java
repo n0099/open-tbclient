@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.loader.Loader;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class DelegateFragment extends Fragment implements IDelegateFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String REAL_BASE_CLASS = "real_base_class";

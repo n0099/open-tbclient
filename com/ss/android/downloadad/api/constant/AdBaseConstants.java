@@ -3,7 +3,7 @@ package com.ss.android.downloadad.api.constant;
 import com.ss.android.download.api.constant.BaseConstants;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface AdBaseConstants extends BaseConstants {
     @Deprecated
     public static final int DOWNLOAD_AFTER_JUMP = 1;
@@ -36,7 +36,7 @@ public interface AdBaseConstants extends BaseConstants {
     public static final int TYPE_RECOMMEND_DOWNLOAD_MODEL = 1;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public @interface DownloadMode {
         public static final int DOWNLOAD = 0;
         public static final int DOWNLOAD_AND_JUMP = 1;
@@ -46,13 +46,13 @@ public interface AdBaseConstants extends BaseConstants {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public @interface DownloadScene {
         public static final int DETAIL = 1;
         public static final int NORMAL = 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public @interface FunnelType {
         public static final int APP_LINK = 4;
         public static final int DOWNLOAD = 1;
@@ -61,7 +61,7 @@ public interface AdBaseConstants extends BaseConstants {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public @interface LinkMode {
         public static final int ENABLE_AUTO_OPEN = 1;
         public static final int ENABLE_AUTO_OPEN2 = 2;
@@ -69,7 +69,7 @@ public interface AdBaseConstants extends BaseConstants {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public @interface ModelType {
         public static final int AD = 0;
         public static final int BROWSER = 3;
@@ -78,7 +78,7 @@ public interface AdBaseConstants extends BaseConstants {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public @interface OpenAppScene {
         public static final int APP_LINK = 0;
         public static final int INSTALLER = 1;

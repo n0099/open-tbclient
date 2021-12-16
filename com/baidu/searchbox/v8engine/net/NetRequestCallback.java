@@ -1,7 +1,7 @@
 package com.baidu.searchbox.v8engine.net;
 
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface NetRequestCallback {
     public static final int FAILED = 1;
     public static final int NONE = -1;

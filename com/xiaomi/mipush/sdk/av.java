@@ -14,7 +14,7 @@ import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class av implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +106,7 @@ public final class av implements Runnable {
                 str = Constants.EXTRA_KEY_ACCOUNTS;
             }
             com.xiaomi.push.n.a(map, str, d4);
-            an.a(this.a).a((an) ieVar, hf.f62975i, false, (hs) null);
+            an.a(this.a).a((an) ieVar, hf.f63556i, false, (hs) null);
         }
     }
 }

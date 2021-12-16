@@ -21,17 +21,17 @@ import com.kwad.sdk.reward.b.b;
 import com.kwad.sdk.widget.DividerView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RewardTaskStepView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59292b;
+    public int f59873b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f59293c;
+    public int f59874c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RewardTaskStepView(Context context) {
@@ -159,8 +159,8 @@ public class RewardTaskStepView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65542, this, context, attributeSet, i2) == null) {
             setOrientation(1);
-            this.f59292b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_apk_info_card_step_icon_size);
-            this.f59293c = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_apk_info_card_step_icon_text_size);
+            this.f59873b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_apk_info_card_step_icon_size);
+            this.f59874c = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_apk_info_card_step_icon_text_size);
         }
     }
 

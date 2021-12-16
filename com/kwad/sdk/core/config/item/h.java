@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends b<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f57256b;
+        public String f57837b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class h extends b<a> {
                 }
             }
             this.a = "";
-            this.f57256b = "";
+            this.f57837b = "";
         }
     }
 
@@ -125,7 +125,7 @@ public class h extends b<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             a a2 = a();
-            return (a2 == null || TextUtils.isEmpty(a2.f57256b)) ? "" : a2.f57256b;
+            return (a2 == null || TextUtils.isEmpty(a2.f57837b)) ? "" : a2.f57837b;
         }
         return (String) invokeV.objValue;
     }

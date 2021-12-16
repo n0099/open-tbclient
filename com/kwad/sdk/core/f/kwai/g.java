@@ -13,17 +13,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.f.a.e;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f57452b;
+    public final LinkedBlockingQueue<IBinder> f58033b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f57453c;
+    public ServiceConnection f58034c;
 
     public g(Context context) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class g {
                 return;
             }
         }
-        this.f57452b = new LinkedBlockingQueue<>(1);
-        this.f57453c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.kwai.g.1
+        this.f58033b = new LinkedBlockingQueue<>(1);
+        this.f58034c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.kwai.g.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ g a;
@@ -69,7 +69,7 @@ public class g {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     try {
-                        this.a.f57452b.put(iBinder);
+                        this.a.f58033b.put(iBinder);
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
@@ -96,16 +96,16 @@ public class g {
             try {
                 Intent intent = new Intent();
                 intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-                if (this.a.bindService(intent, this.f57453c, 1)) {
+                if (this.a.bindService(intent, this.f58034c, 1)) {
                     try {
-                        str = new e.a(this.f57452b.take()).a();
+                        str = new e.a(this.f58033b.take()).a();
                         com.kwad.sdk.core.d.a.c("SamsungDeviceIDHelper", "getOAID oaid:" + str);
                         context = this.a;
-                        serviceConnection = this.f57453c;
+                        serviceConnection = this.f58034c;
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                         context = this.a;
-                        serviceConnection = this.f57453c;
+                        serviceConnection = this.f58034c;
                     }
                     context.unbindService(serviceConnection);
                 }

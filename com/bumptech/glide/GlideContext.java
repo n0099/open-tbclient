@@ -21,7 +21,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.ImageViewTargetFactory;
 import com.bumptech.glide.request.target.ViewTarget;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class GlideContext extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
     @VisibleForTesting

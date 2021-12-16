@@ -36,7 +36,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class PayBaseBeanActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIALOG_ABANDON_CONFIM = 18;

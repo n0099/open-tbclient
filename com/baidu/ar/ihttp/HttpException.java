@@ -10,7 +10,7 @@ import java.net.ConnectException;
 import java.net.NoRouteToHostException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HttpException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_ERROR = 4;

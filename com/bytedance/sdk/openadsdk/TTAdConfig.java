@@ -10,41 +10,41 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.AdConfig;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class TTAdConfig implements AdConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54676b;
+    public String f55256b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f54677c;
+    public boolean f55257c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54678d;
+    public String f55258d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54679e;
+    public String f55259e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54680f;
+    public int f55260f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f54681g;
+    public boolean f55261g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f54682h;
+    public boolean f55262h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f54683i;
+    public boolean f55263i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int[] f54684j;
+    public int[] f55264j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f54685k;
+    public boolean f55265k;
     public boolean l;
     public String[] m;
     public boolean n;
@@ -52,41 +52,41 @@ public final class TTAdConfig implements AdConfig {
     public TTCustomController p;
     public int q;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f54686b;
+        public String f55266b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f54687c;
+        public boolean f55267c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f54688d;
+        public String f55268d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f54689e;
+        public String f55269e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f54690f;
+        public int f55270f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f54691g;
+        public boolean f55271g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f54692h;
+        public boolean f55272h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f54693i;
+        public boolean f55273i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int[] f54694j;
+        public int[] f55274j;
 
         /* renamed from: k  reason: collision with root package name */
-        public boolean f54695k;
+        public boolean f55275k;
         public boolean l;
         public String[] m;
         public boolean n;
@@ -107,12 +107,12 @@ public final class TTAdConfig implements AdConfig {
                     return;
                 }
             }
-            this.f54687c = false;
-            this.f54690f = 0;
-            this.f54691g = true;
-            this.f54692h = false;
-            this.f54693i = false;
-            this.f54695k = false;
+            this.f55267c = false;
+            this.f55270f = 0;
+            this.f55271g = true;
+            this.f55272h = false;
+            this.f55273i = false;
+            this.f55275k = false;
             this.l = false;
             this.n = false;
             this.q = 2;
@@ -122,7 +122,7 @@ public final class TTAdConfig implements AdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                this.f54691g = z;
+                this.f55271g = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -133,7 +133,7 @@ public final class TTAdConfig implements AdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.f54693i = z;
+                this.f55273i = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -153,7 +153,7 @@ public final class TTAdConfig implements AdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f54686b = str;
+                this.f55266b = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -175,16 +175,16 @@ public final class TTAdConfig implements AdConfig {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 TTAdConfig tTAdConfig = new TTAdConfig();
                 tTAdConfig.setAppId(this.a);
-                tTAdConfig.setAppName(this.f54686b);
-                tTAdConfig.setPaid(this.f54687c);
-                tTAdConfig.setKeywords(this.f54688d);
-                tTAdConfig.setData(this.f54689e);
-                tTAdConfig.setTitleBarTheme(this.f54690f);
-                tTAdConfig.setAllowShowNotify(this.f54691g);
-                tTAdConfig.setDebug(this.f54692h);
-                tTAdConfig.setAllowShowPageWhenScreenLock(this.f54693i);
-                tTAdConfig.setDirectDownloadNetworkType(this.f54694j);
-                tTAdConfig.setUseTextureView(this.f54695k);
+                tTAdConfig.setAppName(this.f55266b);
+                tTAdConfig.setPaid(this.f55267c);
+                tTAdConfig.setKeywords(this.f55268d);
+                tTAdConfig.setData(this.f55269e);
+                tTAdConfig.setTitleBarTheme(this.f55270f);
+                tTAdConfig.setAllowShowNotify(this.f55271g);
+                tTAdConfig.setDebug(this.f55272h);
+                tTAdConfig.setAllowShowPageWhenScreenLock(this.f55273i);
+                tTAdConfig.setDirectDownloadNetworkType(this.f55274j);
+                tTAdConfig.setUseTextureView(this.f55275k);
                 tTAdConfig.setSupportMultiProcess(this.l);
                 tTAdConfig.setNeedClearTaskReset(this.m);
                 tTAdConfig.setAsyncInit(this.n);
@@ -210,7 +210,7 @@ public final class TTAdConfig implements AdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.f54689e = str;
+                this.f55269e = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -220,7 +220,7 @@ public final class TTAdConfig implements AdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-                this.f54692h = z;
+                this.f55272h = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -230,7 +230,7 @@ public final class TTAdConfig implements AdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, iArr)) == null) {
-                this.f54694j = iArr;
+                this.f55274j = iArr;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -240,7 +240,7 @@ public final class TTAdConfig implements AdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-                this.f54688d = str;
+                this.f55268d = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -260,7 +260,7 @@ public final class TTAdConfig implements AdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-                this.f54687c = z;
+                this.f55267c = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -300,7 +300,7 @@ public final class TTAdConfig implements AdConfig {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-                this.f54690f = i2;
+                this.f55270f = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -310,7 +310,7 @@ public final class TTAdConfig implements AdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
-                this.f54695k = z;
+                this.f55275k = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -328,7 +328,7 @@ public final class TTAdConfig implements AdConfig {
     public String getAppName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54676b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55256b : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -342,14 +342,14 @@ public final class TTAdConfig implements AdConfig {
     public String getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54679e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55259e : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public int[] getDirectDownloadNetworkType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54684j : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f55264j : (int[]) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -364,7 +364,7 @@ public final class TTAdConfig implements AdConfig {
     public String getKeywords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f54678d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f55258d : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -447,21 +447,21 @@ public final class TTAdConfig implements AdConfig {
     public int getTitleBarTheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f54680f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f55260f : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public boolean isAllowShowNotify() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f54681g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f55261g : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public boolean isAllowShowPageWhenScreenLock() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f54683i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f55263i : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -475,14 +475,14 @@ public final class TTAdConfig implements AdConfig {
     public boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f54682h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f55262h : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public boolean isPaid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f54677c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f55257c : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -496,7 +496,7 @@ public final class TTAdConfig implements AdConfig {
     public boolean isUseTextureView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f54685k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f55265k : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -509,14 +509,14 @@ public final class TTAdConfig implements AdConfig {
     public void setAllowShowNotify(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.f54681g = z;
+            this.f55261g = z;
         }
     }
 
     public void setAllowShowPageWhenScreenLock(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f54683i = z;
+            this.f55263i = z;
         }
     }
 
@@ -530,7 +530,7 @@ public final class TTAdConfig implements AdConfig {
     public void setAppName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.f54676b = str;
+            this.f55256b = str;
         }
     }
 
@@ -551,21 +551,21 @@ public final class TTAdConfig implements AdConfig {
     public void setData(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.f54679e = str;
+            this.f55259e = str;
         }
     }
 
     public void setDebug(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-            this.f54682h = z;
+            this.f55262h = z;
         }
     }
 
     public void setDirectDownloadNetworkType(int... iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, iArr) == null) {
-            this.f54684j = iArr;
+            this.f55264j = iArr;
         }
     }
 
@@ -581,7 +581,7 @@ public final class TTAdConfig implements AdConfig {
     public void setKeywords(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.f54678d = str;
+            this.f55258d = str;
         }
     }
 
@@ -595,7 +595,7 @@ public final class TTAdConfig implements AdConfig {
     public void setPaid(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            this.f54677c = z;
+            this.f55257c = z;
         }
     }
 
@@ -616,14 +616,14 @@ public final class TTAdConfig implements AdConfig {
     public void setTitleBarTheme(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.f54680f = i2;
+            this.f55260f = i2;
         }
     }
 
     public void setUseTextureView(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
-            this.f54685k = z;
+            this.f55265k = z;
         }
     }
 
@@ -640,12 +640,12 @@ public final class TTAdConfig implements AdConfig {
                 return;
             }
         }
-        this.f54677c = false;
-        this.f54680f = 0;
-        this.f54681g = true;
-        this.f54682h = false;
-        this.f54683i = false;
-        this.f54685k = false;
+        this.f55257c = false;
+        this.f55260f = 0;
+        this.f55261g = true;
+        this.f55262h = false;
+        this.f55263i = false;
+        this.f55265k = false;
         this.l = false;
         this.n = false;
         this.o = new HashMap();

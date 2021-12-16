@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Camera a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: c.f.b.a.a.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1581b {
+    /* loaded from: classes9.dex */
+    public static class C1621b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public final class b {
     public static final b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1581b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1621b.a : (b) invokeV.objValue;
     }
 
     public void b(Camera.AutoFocusCallback autoFocusCallback) {
@@ -154,10 +154,15 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.a != null) {
-                return this.a.getParameters();
+            try {
+                if (this.a != null) {
+                    return this.a.getParameters();
+                }
+                return null;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return null;
             }
-            return null;
         }
         return (Camera.Parameters) invokeV.objValue;
     }

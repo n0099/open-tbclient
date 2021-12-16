@@ -5,6 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,34 +25,34 @@ public class h {
     public static int a = -100000000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f2227b;
+    public static final int f2194b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f2228c;
+    public static final int f2195c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f2229d;
+    public static final int f2196d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f2230e;
+    public static final int f2197e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f2231f;
+    public static final int f2198f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f2232g;
+    public static final int f2199g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f2233h;
+    public static final int f2200h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f2234i;
+    public static final int f2201i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f2235j;
+    public static final int f2202j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f2236k;
+    public static final int f2203k;
     public static final int l;
     public static final int m;
     public static final int n;
@@ -82,16 +83,16 @@ public class h {
                 return;
             }
         }
-        f2227b = (-100000000) - 200;
-        f2228c = (-100000000) + com.baidu.fsg.face.base.c.a.ERROR_CODE_CAMERA_EXCEPTION;
-        f2229d = (-100000000) - 213;
-        f2230e = (-100000000) - 214;
-        f2231f = (-100000000) - 221;
-        f2232g = (-100000000) - 230;
-        f2233h = (-100000000) - 232;
-        f2234i = (-100000000) - 233;
-        f2235j = (-100000000) - 234;
-        f2236k = (-100000000) - 235;
+        f2194b = (-100000000) + DeepLinkCode.ERROR_LINK_NOT_MATCH;
+        f2195c = (-100000000) + com.baidu.fsg.face.base.c.a.ERROR_CODE_CAMERA_EXCEPTION;
+        f2196d = (-100000000) - 213;
+        f2197e = (-100000000) - 214;
+        f2198f = (-100000000) - 221;
+        f2199g = (-100000000) - 230;
+        f2200h = (-100000000) - 232;
+        f2201i = (-100000000) - 233;
+        f2202j = (-100000000) - 234;
+        f2203k = (-100000000) - 235;
         l = (-100000000) - 236;
         m = (-100000000) - 301;
         n = (-100000000) - 302;

@@ -12,7 +12,7 @@ public class c extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f2283c;
+    public static c f2250c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,21 +44,21 @@ public class c extends d {
             }
         }
         this.a = new e(20000, 10000, 5000);
-        this.f2284b = 3;
+        this.f2251b = 3;
     }
 
     public static c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2283c == null) {
+            if (f2250c == null) {
                 synchronized (c.class) {
-                    if (f2283c == null) {
-                        f2283c = new c();
+                    if (f2250c == null) {
+                        f2250c = new c();
                     }
                 }
             }
-            return f2283c;
+            return f2250c;
         }
         return (c) invokeV.objValue;
     }

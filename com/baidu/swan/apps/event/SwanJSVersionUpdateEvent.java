@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.event;
 
 import androidx.annotation.Keep;
-import c.a.p0.a.c1.a;
-import c.a.p0.a.k;
-import c.a.p0.a.q2.b;
+import c.a.q0.a.c1.a;
+import c.a.q0.a.k;
+import c.a.q0.a.q2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SwanJSVersionUpdateEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

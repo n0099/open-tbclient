@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.OnGetOaidListener;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d2 implements OnGetOaidListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,10 +35,10 @@ public class d2 implements OnGetOaidListener {
     public void onGetOaid(String str) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !TextUtils.isEmpty(g2.f30789c) || TextUtils.isEmpty(str) || (context = this.a.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !TextUtils.isEmpty(g2.f31159c) || TextUtils.isEmpty(str) || (context = this.a.a) == null) {
             return;
         }
-        g2.f30789c = str;
+        g2.f31159c = str;
         m2.z(context, str);
     }
 }

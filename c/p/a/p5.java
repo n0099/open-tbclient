@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class p5 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ t5 f30878e;
+    public final /* synthetic */ t5 f31248e;
 
     public p5(t5 t5Var) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class p5 implements Runnable {
                 return;
             }
         }
-        this.f30878e = t5Var;
+        this.f31248e = t5Var;
     }
 
     @Override // java.lang.Runnable
@@ -39,10 +39,10 @@ public final class p5 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String str = "";
-            HashMap b2 = h5.b(this.f30878e.a);
-            b2.put("pid", this.f30878e.f30940b);
-            x5.c(this.f30878e, b2);
-            t5 t5Var = this.f30878e;
+            HashMap b2 = h5.b(this.f31248e.a);
+            b2.put("pid", this.f31248e.f31310b);
+            x5.c(this.f31248e, b2);
+            t5 t5Var = this.f31248e;
             char c2 = 0;
             try {
                 String[] split = m2.J(t5Var.a).split(",");
@@ -57,7 +57,7 @@ public final class p5 implements Runnable {
                     if (System.currentTimeMillis() - Long.parseLong(str3) < m2.H(t5Var.a)) {
                         n3 n3Var = new n3();
                         n3Var.a = str2;
-                        n3Var.f30854b = Long.parseLong(str3);
+                        n3Var.f31224b = Long.parseLong(str3);
                         arrayList.add(n3Var);
                     }
                     i2++;
@@ -68,7 +68,7 @@ public final class p5 implements Runnable {
                     String str5 = str4;
                     for (n3 n3Var2 : arrayList) {
                         str4 = str4 + n3Var2.a + ",";
-                        str5 = str5 + n3Var2.a + ":" + n3Var2.f30854b + ",";
+                        str5 = str5 + n3Var2.a + ":" + n3Var2.f31224b + ",";
                     }
                     if (!TextUtils.isEmpty(str4)) {
                         b2.put("a605", str4.substring(0, str4.length() - 1));
@@ -80,7 +80,7 @@ public final class p5 implements Runnable {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            t5 t5Var2 = this.f30878e;
+            t5 t5Var2 = this.f31248e;
             try {
                 String[] split3 = m2.I(t5Var2.a).split(",");
                 ArrayList<n3> arrayList2 = new ArrayList();
@@ -92,7 +92,7 @@ public final class p5 implements Runnable {
                     if (System.currentTimeMillis() - Long.parseLong(str8) <= m2.H(t5Var2.a)) {
                         n3 n3Var3 = new n3();
                         n3Var3.a = str7;
-                        n3Var3.f30854b = Long.parseLong(str8);
+                        n3Var3.f31224b = Long.parseLong(str8);
                         arrayList2.add(n3Var3);
                     }
                 }
@@ -101,7 +101,7 @@ public final class p5 implements Runnable {
                     String str10 = str9;
                     for (n3 n3Var4 : arrayList2) {
                         str9 = str9 + n3Var4.a + ",";
-                        str10 = str10 + n3Var4.a + ":" + n3Var4.f30854b + ",";
+                        str10 = str10 + n3Var4.a + ":" + n3Var4.f31224b + ",";
                     }
                     if (!TextUtils.isEmpty(str9)) {
                         b2.put("a601", str9.substring(0, str9.length() - 1));
@@ -114,7 +114,7 @@ public final class p5 implements Runnable {
                 e3.printStackTrace();
             }
             try {
-                str = this.f30878e.f30941c + h5.a(b2);
+                str = this.f31248e.f31311c + h5.a(b2);
             } catch (UnsupportedEncodingException unused) {
             }
             r0.s(str, null, new l5(this));

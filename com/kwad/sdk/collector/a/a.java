@@ -10,22 +10,22 @@ import com.kwad.sdk.core.network.d;
 import com.kwad.sdk.utils.t;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public C2006a f57088b;
+    public C2067a f57669b;
 
     /* renamed from: com.kwad.sdk.collector.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2006a {
+    /* loaded from: classes3.dex */
+    public static class C2067a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<String> a;
 
-        public C2006a(List<String> list) {
+        public C2067a(List<String> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,9 +70,9 @@ public class a extends d {
                 return;
             }
         }
-        C2006a c2006a = new C2006a(list);
-        this.f57088b = c2006a;
-        a("targetAppInfo", c2006a.a());
+        C2067a c2067a = new C2067a(list);
+        this.f57669b = c2067a;
+        a("targetAppInfo", c2067a.a());
         b(CommandMessage.SDK_VERSION, "3.3.17.4");
         a("sdkVersionCode", 3031704);
     }

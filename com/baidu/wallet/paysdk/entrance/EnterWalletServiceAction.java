@@ -9,8 +9,10 @@ import com.baidu.wallet.BaiduPayServiceController;
 import com.baidu.wallet.lightapp.base.LightappConstants;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
+import com.dxmpay.wallet.utils.BdWalletUtils;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class EnterWalletServiceAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,8 +27,10 @@ public class EnterWalletServiceAction implements RouterAction {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        BdWalletUtils.putFunctionNameList(EnterDxmPayServiceAction.DXM_BANK_CARD, EnterDxmPayServiceAction.DXM_TRANS_RECORDS, EnterDxmPayServiceAction.DXM_SECURITY_CENTER, EnterDxmPayServiceAction.DXM_PAY_SET, EnterDxmPayServiceAction.DXM_PWD_SET, EnterDxmPayServiceAction.DXM_CHECK_PWD, EnterDxmPayServiceAction.DXM_DO_SCAN_CODE, EnterDxmPayServiceAction.DXM_BALANCE);
     }
 
     private void a(Context context, String str, String str2, boolean z) {

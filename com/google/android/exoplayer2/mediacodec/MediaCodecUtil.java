@@ -30,31 +30,31 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @SuppressLint({"InlinedApi"})
 @TargetApi(16)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MediaCodecUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final c.i.b.a.b0.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f55813b;
+    public static final Pattern f56394b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HashMap<b, List<c.i.b.a.b0.a>> f55814c;
+    public static final HashMap<b, List<c.i.b.a.b0.a>> f56395c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final SparseIntArray f55815d;
+    public static final SparseIntArray f56396d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final SparseIntArray f55816e;
+    public static final SparseIntArray f56397e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Map<String, Integer> f55817f;
+    public static final Map<String, Integer> f56398f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f55818g;
+    public static int f56399g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DecoderQueryException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,20 +85,20 @@ public final class MediaCodecUtil {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f55819b;
+        public final boolean f56400b;
 
         public b(String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public final class MediaCodecUtil {
                 }
             }
             this.a = str;
-            this.f55819b = z;
+            this.f56400b = z;
         }
 
         public boolean equals(Object obj) {
@@ -130,7 +130,7 @@ public final class MediaCodecUtil {
                     return false;
                 }
                 b bVar = (b) obj;
-                return TextUtils.equals(this.a, bVar.a) && this.f55819b == bVar.f55819b;
+                return TextUtils.equals(this.a, bVar.a) && this.f56400b == bVar.f56400b;
             }
             return invokeL.booleanValue;
         }
@@ -140,13 +140,13 @@ public final class MediaCodecUtil {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 String str = this.a;
-                return (((str == null ? 0 : str.hashCode()) + 31) * 31) + (this.f55819b ? 1231 : 1237);
+                return (((str == null ? 0 : str.hashCode()) + 31) * 31) + (this.f56400b ? 1231 : 1237);
             }
             return invokeV.intValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         MediaCodecInfo a(int i2);
 
@@ -157,7 +157,7 @@ public final class MediaCodecUtil {
         boolean d();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class d implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,14 +213,14 @@ public final class MediaCodecUtil {
     }
 
     @TargetApi(21)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class e implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public MediaCodecInfo[] f55820b;
+        public MediaCodecInfo[] f56401b;
 
         public e(boolean z) {
             Interceptable interceptable = $ic;
@@ -246,7 +246,7 @@ public final class MediaCodecUtil {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
                 e();
-                return this.f55820b[i2];
+                return this.f56401b[i2];
             }
             return (MediaCodecInfo) invokeI.objValue;
         }
@@ -264,7 +264,7 @@ public final class MediaCodecUtil {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 e();
-                return this.f55820b.length;
+                return this.f56401b.length;
             }
             return invokeV.intValue;
         }
@@ -281,8 +281,8 @@ public final class MediaCodecUtil {
 
         public final void e() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f55820b == null) {
-                this.f55820b = new MediaCodecList(this.a).getCodecInfos();
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f56401b == null) {
+                this.f56401b = new MediaCodecList(this.a).getCodecInfos();
             }
         }
     }
@@ -301,61 +301,61 @@ public final class MediaCodecUtil {
             }
         }
         a = c.i.b.a.b0.a.r("OMX.google.raw.decoder");
-        f55813b = Pattern.compile("^\\D?(\\d+)$");
-        f55814c = new HashMap<>();
-        f55818g = -1;
+        f56394b = Pattern.compile("^\\D?(\\d+)$");
+        f56395c = new HashMap<>();
+        f56399g = -1;
         SparseIntArray sparseIntArray = new SparseIntArray();
-        f55815d = sparseIntArray;
+        f56396d = sparseIntArray;
         sparseIntArray.put(66, 1);
-        f55815d.put(77, 2);
-        f55815d.put(88, 4);
-        f55815d.put(100, 8);
+        f56396d.put(77, 2);
+        f56396d.put(88, 4);
+        f56396d.put(100, 8);
         SparseIntArray sparseIntArray2 = new SparseIntArray();
-        f55816e = sparseIntArray2;
+        f56397e = sparseIntArray2;
         sparseIntArray2.put(10, 1);
-        f55816e.put(11, 4);
-        f55816e.put(12, 8);
-        f55816e.put(13, 16);
-        f55816e.put(20, 32);
-        f55816e.put(21, 64);
-        f55816e.put(22, 128);
-        f55816e.put(30, 256);
-        f55816e.put(31, 512);
-        f55816e.put(32, 1024);
-        f55816e.put(40, 2048);
-        f55816e.put(41, 4096);
-        f55816e.put(42, 8192);
-        f55816e.put(50, 16384);
-        f55816e.put(51, 32768);
-        f55816e.put(52, 65536);
+        f56397e.put(11, 4);
+        f56397e.put(12, 8);
+        f56397e.put(13, 16);
+        f56397e.put(20, 32);
+        f56397e.put(21, 64);
+        f56397e.put(22, 128);
+        f56397e.put(30, 256);
+        f56397e.put(31, 512);
+        f56397e.put(32, 1024);
+        f56397e.put(40, 2048);
+        f56397e.put(41, 4096);
+        f56397e.put(42, 8192);
+        f56397e.put(50, 16384);
+        f56397e.put(51, 32768);
+        f56397e.put(52, 65536);
         HashMap hashMap = new HashMap();
-        f55817f = hashMap;
+        f56398f = hashMap;
         hashMap.put("L30", 1);
-        f55817f.put("L60", 4);
-        f55817f.put("L63", 16);
-        f55817f.put("L90", 64);
-        f55817f.put("L93", 256);
-        f55817f.put("L120", 1024);
-        f55817f.put("L123", 4096);
-        f55817f.put("L150", 16384);
-        f55817f.put("L153", 65536);
-        f55817f.put("L156", 262144);
-        f55817f.put("L180", 1048576);
-        f55817f.put("L183", 4194304);
-        f55817f.put("L186", 16777216);
-        f55817f.put("H30", 2);
-        f55817f.put("H60", 8);
-        f55817f.put("H63", 32);
-        f55817f.put("H90", 128);
-        f55817f.put("H93", 512);
-        f55817f.put("H120", 2048);
-        f55817f.put("H123", 8192);
-        f55817f.put("H150", 32768);
-        f55817f.put("H153", 131072);
-        f55817f.put("H156", 524288);
-        f55817f.put("H180", 2097152);
-        f55817f.put("H183", 8388608);
-        f55817f.put("H186", 33554432);
+        f56398f.put("L60", 4);
+        f56398f.put("L63", 16);
+        f56398f.put("L90", 64);
+        f56398f.put("L93", 256);
+        f56398f.put("L120", 1024);
+        f56398f.put("L123", 4096);
+        f56398f.put("L150", 16384);
+        f56398f.put("L153", 65536);
+        f56398f.put("L156", 262144);
+        f56398f.put("L180", 1048576);
+        f56398f.put("L183", 4194304);
+        f56398f.put("L186", 16777216);
+        f56398f.put("H30", 2);
+        f56398f.put("H60", 8);
+        f56398f.put("H63", 32);
+        f56398f.put("H90", 128);
+        f56398f.put("H93", 512);
+        f56398f.put("H120", 2048);
+        f56398f.put("H123", 8192);
+        f56398f.put("H150", 32768);
+        f56398f.put("H153", 131072);
+        f56398f.put("H156", 524288);
+        f56398f.put("H180", 2097152);
+        f56398f.put("H183", 8388608);
+        f56398f.put("H186", 33554432);
     }
 
     public static void a(List<c.i.b.a.b0.a> list) {
@@ -417,7 +417,7 @@ public final class MediaCodecUtil {
     public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? v.a <= 22 && (v.f30255d.equals("ODROID-XU3") || v.f30255d.equals("Nexus 10")) && ("OMX.Exynos.AVC.Decoder".equals(str) || "OMX.Exynos.AVC.Decoder.secure".equals(str)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? v.a <= 22 && (v.f30625d.equals("ODROID-XU3") || v.f30625d.equals("Nexus 10")) && ("OMX.Exynos.AVC.Decoder".equals(str) || "OMX.Exynos.AVC.Decoder.secure".equals(str)) : invokeL.booleanValue;
     }
 
     public static Pair<Integer, Integer> d(String str, String[] strArr) {
@@ -442,12 +442,12 @@ public final class MediaCodecUtil {
                     String str3 = "Ignoring malformed AVC codec string: " + str;
                     return null;
                 }
-                Integer valueOf3 = Integer.valueOf(f55815d.get(num.intValue()));
+                Integer valueOf3 = Integer.valueOf(f56396d.get(num.intValue()));
                 if (valueOf3 == null) {
                     String str4 = "Unknown AVC profile: " + num;
                     return null;
                 }
-                Integer valueOf4 = Integer.valueOf(f55816e.get(valueOf.intValue()));
+                Integer valueOf4 = Integer.valueOf(f56397e.get(valueOf.intValue()));
                 if (valueOf4 == null) {
                     String str5 = "Unknown AVC level: " + valueOf;
                     return null;
@@ -536,7 +536,7 @@ public final class MediaCodecUtil {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, str, z)) == null) {
             synchronized (MediaCodecUtil.class) {
                 b bVar = new b(str, z);
-                List<c.i.b.a.b0.a> list = f55814c.get(bVar);
+                List<c.i.b.a.b0.a> list = f56395c.get(bVar);
                 if (list != null) {
                     return list;
                 }
@@ -549,7 +549,7 @@ public final class MediaCodecUtil {
                 }
                 a(h2);
                 List<c.i.b.a.b0.a> unmodifiableList = Collections.unmodifiableList(h2);
-                f55814c.put(bVar, unmodifiableList);
+                f56395c.put(bVar, unmodifiableList);
                 return unmodifiableList;
             }
         }
@@ -582,11 +582,11 @@ public final class MediaCodecUtil {
                                     boolean b2 = cVar2.b(str, capabilitiesForType);
                                     boolean c3 = c(name);
                                     if (d2) {
-                                        if (bVar.f55819b != b2) {
+                                        if (bVar.f56400b != b2) {
                                         }
                                         arrayList.add(c.i.b.a.b0.a.q(name, str, capabilitiesForType, c3, false));
                                     }
-                                    if (!d2 && !bVar.f55819b) {
+                                    if (!d2 && !bVar.f56400b) {
                                         arrayList.add(c.i.b.a.b0.a.q(name, str, capabilitiesForType, c3, false));
                                     } else if (!d2 && b2) {
                                         arrayList.add(c.i.b.a.b0.a.q(name + ".secure", str, capabilitiesForType, c3, true));
@@ -626,7 +626,7 @@ public final class MediaCodecUtil {
                 String str2 = "Ignoring malformed HEVC codec string: " + str;
                 return null;
             }
-            Matcher matcher = f55813b.matcher(strArr[1]);
+            Matcher matcher = f56394b.matcher(strArr[1]);
             if (!matcher.matches()) {
                 String str3 = "Ignoring malformed HEVC codec string: " + str;
                 return null;
@@ -640,7 +640,7 @@ public final class MediaCodecUtil {
             } else {
                 i2 = 2;
             }
-            Integer num = f55817f.get(strArr[3]);
+            Integer num = f56398f.get(strArr[3]);
             if (num == null) {
                 String str5 = "Unknown HEVC level string: " + matcher.group(1);
                 return null;
@@ -665,20 +665,20 @@ public final class MediaCodecUtil {
             }
             if (v.a >= 21 || !("CIPAACDecoder".equals(str) || "CIPMP3Decoder".equals(str) || "CIPVorbisDecoder".equals(str) || "CIPAMRNBDecoder".equals(str) || "AACDecoder".equals(str) || "MP3Decoder".equals(str))) {
                 if (v.a >= 18 || !"OMX.SEC.MP3.Decoder".equals(str)) {
-                    if (v.a < 18 && "OMX.MTK.AUDIO.DECODER.AAC".equals(str) && ("a70".equals(v.f30253b) || ("Xiaomi".equals(v.f30254c) && v.f30253b.startsWith("HM")))) {
+                    if (v.a < 18 && "OMX.MTK.AUDIO.DECODER.AAC".equals(str) && ("a70".equals(v.f30623b) || ("Xiaomi".equals(v.f30624c) && v.f30623b.startsWith("HM")))) {
                         return false;
                     }
-                    if (v.a == 16 && "OMX.qcom.audio.decoder.mp3".equals(str) && ("dlxu".equals(v.f30253b) || "protou".equals(v.f30253b) || "ville".equals(v.f30253b) || "villeplus".equals(v.f30253b) || "villec2".equals(v.f30253b) || v.f30253b.startsWith("gee") || "C6602".equals(v.f30253b) || "C6603".equals(v.f30253b) || "C6606".equals(v.f30253b) || "C6616".equals(v.f30253b) || "L36h".equals(v.f30253b) || "SO-02E".equals(v.f30253b))) {
+                    if (v.a == 16 && "OMX.qcom.audio.decoder.mp3".equals(str) && ("dlxu".equals(v.f30623b) || "protou".equals(v.f30623b) || "ville".equals(v.f30623b) || "villeplus".equals(v.f30623b) || "villec2".equals(v.f30623b) || v.f30623b.startsWith("gee") || "C6602".equals(v.f30623b) || "C6603".equals(v.f30623b) || "C6606".equals(v.f30623b) || "C6616".equals(v.f30623b) || "L36h".equals(v.f30623b) || "SO-02E".equals(v.f30623b))) {
                         return false;
                     }
-                    if (v.a == 16 && "OMX.qcom.audio.decoder.aac".equals(str) && ("C1504".equals(v.f30253b) || "C1505".equals(v.f30253b) || "C1604".equals(v.f30253b) || "C1605".equals(v.f30253b))) {
+                    if (v.a == 16 && "OMX.qcom.audio.decoder.aac".equals(str) && ("C1504".equals(v.f30623b) || "C1505".equals(v.f30623b) || "C1604".equals(v.f30623b) || "C1605".equals(v.f30623b))) {
                         return false;
                     }
-                    if (v.a >= 24 || !(("OMX.SEC.aac.dec".equals(str) || "OMX.Exynos.AAC.Decoder".equals(str)) && v.f30254c.equals(ManufacturerUtils.SAMSUNG) && (v.f30253b.startsWith("zeroflte") || v.f30253b.startsWith("zerolte") || v.f30253b.startsWith("zenlte") || v.f30253b.equals("SC-05G") || v.f30253b.equals("marinelteatt") || v.f30253b.equals("404SC") || v.f30253b.equals("SC-04G") || v.f30253b.equals("SCV31")))) {
-                        if (v.a <= 19 && "OMX.SEC.vp8.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f30254c) && (v.f30253b.startsWith("d2") || v.f30253b.startsWith("serrano") || v.f30253b.startsWith("jflte") || v.f30253b.startsWith("santos") || v.f30253b.startsWith("t0"))) {
+                    if (v.a >= 24 || !(("OMX.SEC.aac.dec".equals(str) || "OMX.Exynos.AAC.Decoder".equals(str)) && v.f30624c.equals(ManufacturerUtils.SAMSUNG) && (v.f30623b.startsWith("zeroflte") || v.f30623b.startsWith("zerolte") || v.f30623b.startsWith("zenlte") || v.f30623b.equals("SC-05G") || v.f30623b.equals("marinelteatt") || v.f30623b.equals("404SC") || v.f30623b.equals("SC-04G") || v.f30623b.equals("SCV31")))) {
+                        if (v.a <= 19 && "OMX.SEC.vp8.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f30624c) && (v.f30623b.startsWith("d2") || v.f30623b.startsWith("serrano") || v.f30623b.startsWith("jflte") || v.f30623b.startsWith("santos") || v.f30623b.startsWith("t0"))) {
                             return false;
                         }
-                        return (v.a <= 19 && v.f30253b.startsWith("jflte") && "OMX.qcom.video.decoder.vp8".equals(str)) ? false : true;
+                        return (v.a <= 19 && v.f30623b.startsWith("jflte") && "OMX.qcom.video.decoder.vp8".equals(str)) ? false : true;
                     }
                     return false;
                 }
@@ -693,7 +693,7 @@ public final class MediaCodecUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (f55818g == -1) {
+            if (f56399g == -1) {
                 int i2 = 0;
                 c.i.b.a.b0.a f2 = f("video/avc", false);
                 if (f2 != null) {
@@ -706,9 +706,9 @@ public final class MediaCodecUtil {
                     }
                     i2 = Math.max(i3, v.a >= 21 ? 345600 : 172800);
                 }
-                f55818g = i2;
+                f56399g = i2;
             }
-            return f55818g;
+            return f56399g;
         }
         return invokeV.intValue;
     }

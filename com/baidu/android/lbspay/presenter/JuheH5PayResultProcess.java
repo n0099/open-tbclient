@@ -25,7 +25,7 @@ import com.dxmpay.apollon.restnet.RestNameValuePair;
 import com.dxmpay.wallet.api.BaiduWalletDelegate;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class JuheH5PayResultProcess extends H5PayResultProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

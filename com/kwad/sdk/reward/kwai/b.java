@@ -20,22 +20,22 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.h.e;
 import com.kwad.sdk.reward.kwai.a;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends e implements a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.sdk.reward.kwai.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f58987b;
+    public int[] f59568b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f58988c;
+    public AdTemplate f59569c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f58989d;
+    public a f59570d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void b();
     }
@@ -75,7 +75,7 @@ public class b extends e implements a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
             getDialog().requestWindowFeature(1);
-            com.kwad.sdk.reward.kwai.a aVar = new com.kwad.sdk.reward.kwai.a(layoutInflater.getContext(), viewGroup, this.f58987b);
+            com.kwad.sdk.reward.kwai.a aVar = new com.kwad.sdk.reward.kwai.a(layoutInflater.getContext(), viewGroup, this.f59568b);
             this.a = aVar;
             aVar.a(this);
             Window window = getDialog().getWindow();
@@ -86,7 +86,7 @@ public class b extends e implements a.b {
                 window.setDimAmount(0.0f);
                 window.setBackgroundDrawable(new ColorDrawable(0));
             }
-            this.a.a(this.f58988c);
+            this.a.a(this.f59569c);
             getDialog().setOnKeyListener(new DialogInterface.OnKeyListener(this) { // from class: com.kwad.sdk.reward.kwai.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public class b extends e implements a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             dismiss();
-            a aVar = this.f58989d;
+            a aVar = this.f59570d;
             if (aVar != null) {
                 aVar.b();
             }
@@ -137,7 +137,7 @@ public class b extends e implements a.b {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f58989d = aVar;
+            this.f59570d = aVar;
         }
     }
 
@@ -160,14 +160,14 @@ public class b extends e implements a.b {
                     try {
                         String string = arguments.getString("key_template_json");
                         AdTemplate adTemplate = new AdTemplate();
-                        this.f58988c = adTemplate;
+                        this.f59569c = adTemplate;
                         adTemplate.parseJson(new JSONObject(string));
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.b(e2);
                     }
                 }
                 if (arguments.containsKey("key_end_location")) {
-                    this.f58987b = arguments.getIntArray("key_end_location");
+                    this.f59568b = arguments.getIntArray("key_end_location");
                 }
             }
         }

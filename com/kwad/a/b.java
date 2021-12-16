@@ -4,19 +4,19 @@ import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(Context context, String[] strArr, String str, File file, com.kwad.a.c cVar);
     }
 
     /* renamed from: com.kwad.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC2001b {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC2062b {
         void a(String str);
 
         String[] a();
@@ -28,14 +28,14 @@ public class b {
         String d(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a(String str);
 
         void a(String str, Throwable th);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void a(String str);
     }

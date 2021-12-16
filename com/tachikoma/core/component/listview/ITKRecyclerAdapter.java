@@ -2,7 +2,7 @@ package com.tachikoma.core.component.listview;
 
 import android.view.ViewGroup;
 import com.tachikoma.core.component.listview.TKRecyclerAdapter;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ITKRecyclerAdapter {
     int getItemCount();
 

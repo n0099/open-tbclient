@@ -4,23 +4,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57067b;
+    public String f57648b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57068c;
+    public String f57649c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57069d;
+    public String f57650d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f57070e;
+    public a f57651e;
 
     public b() {
         Interceptable interceptable = $ic;

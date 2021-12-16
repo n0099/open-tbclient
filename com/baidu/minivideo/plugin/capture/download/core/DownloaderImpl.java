@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectListener, DownloadTask.OnDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

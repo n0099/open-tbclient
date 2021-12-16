@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.transformation;
 
 import android.graphics.Bitmap;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface BitmapTransformation {
     boolean modifiesTransparency();
 

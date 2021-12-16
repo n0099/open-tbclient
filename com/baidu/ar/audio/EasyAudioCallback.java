@@ -1,7 +1,7 @@
 package com.baidu.ar.audio;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface EasyAudioCallback {
     void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j2);
 

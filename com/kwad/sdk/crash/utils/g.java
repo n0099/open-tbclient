@@ -21,40 +21,40 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f58197b;
+    public static final Charset f58778b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BigInteger f58198c;
+    public static final BigInteger f58779c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final BigInteger f58199d;
+    public static final BigInteger f58780d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BigInteger f58200e;
+    public static final BigInteger f58781e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BigInteger f58201f;
+    public static final BigInteger f58782f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BigInteger f58202g;
+    public static final BigInteger f58783g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BigInteger f58203h;
+    public static final BigInteger f58784h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final char f58204i;
+    public static final char f58785i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final BigInteger f58205j;
+    public static final BigInteger f58786j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final BigInteger f58206k;
+    public static final BigInteger f58787k;
     public static final File[] l;
     public static final String m;
     public static final Charset n;
@@ -75,26 +75,26 @@ public class g {
             }
         }
         a = Charset.forName("US-ASCII");
-        f58197b = Charset.forName("UTF-8");
+        f58778b = Charset.forName("UTF-8");
         BigInteger valueOf = BigInteger.valueOf(1024L);
-        f58198c = valueOf;
+        f58779c = valueOf;
         BigInteger multiply = valueOf.multiply(valueOf);
-        f58199d = multiply;
-        BigInteger multiply2 = f58198c.multiply(multiply);
-        f58200e = multiply2;
-        BigInteger multiply3 = f58198c.multiply(multiply2);
-        f58201f = multiply3;
-        BigInteger multiply4 = f58198c.multiply(multiply3);
-        f58202g = multiply4;
-        f58203h = f58198c.multiply(multiply4);
+        f58780d = multiply;
+        BigInteger multiply2 = f58779c.multiply(multiply);
+        f58781e = multiply2;
+        BigInteger multiply3 = f58779c.multiply(multiply2);
+        f58782f = multiply3;
+        BigInteger multiply4 = f58779c.multiply(multiply3);
+        f58783g = multiply4;
+        f58784h = f58779c.multiply(multiply4);
         BigInteger multiply5 = BigInteger.valueOf(1024L).multiply(BigInteger.valueOf(LockFreeTaskQueueCore.FROZEN_MASK));
-        f58205j = multiply5;
-        f58206k = f58198c.multiply(multiply5);
+        f58786j = multiply5;
+        f58787k = f58779c.multiply(multiply5);
         l = new File[0];
         m = Character.toString('.');
         n = Charset.forName("UTF-8");
         o = File.separatorChar;
-        f58204i = a() ? '/' : FileUtil.WINDOWS_SEPARATOR;
+        f58785i = a() ? '/' : FileUtil.WINDOWS_SEPARATOR;
     }
 
     public static FileInputStream a(File file) {

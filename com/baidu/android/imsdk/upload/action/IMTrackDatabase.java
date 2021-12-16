@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.PushClientConstants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class IMTrackDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME = "im_track.db";
@@ -44,7 +44,7 @@ public class IMTrackDatabase {
     public Context context;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class AckEnum {
         public static final /* synthetic */ AckEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -113,7 +113,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ConnectionEnum {
         public static final /* synthetic */ ConnectionEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -186,7 +186,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class CrashEnum {
         public static final /* synthetic */ CrashEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -253,7 +253,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class DbEnum {
         public static final /* synthetic */ DbEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -329,7 +329,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String SQL_TABLE_CREATE_ACK;
@@ -499,7 +499,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class MsgEnum {
         public static final /* synthetic */ MsgEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -572,7 +572,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class RequestEnum {
         public static final /* synthetic */ RequestEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -645,7 +645,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class UiEnum {
         public static final /* synthetic */ UiEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -839,7 +839,7 @@ public class IMTrackDatabase {
                     return;
                 }
                 try {
-                    db.delete(UiEnum.TABLE_NAME, null, null);
+                    db.delete("ui", null, null);
                     db.delete("crash", null, null);
                     db.delete(DbEnum.TABLE_NAME, null, null);
                     db.delete("connection", null, null);
@@ -1243,7 +1243,7 @@ public class IMTrackDatabase {
                         ui.aliasId = cursor.getLong(cursor.getColumnIndex(UiEnum.aliasId.name()));
                         arrayList.add(ui);
                     }
-                    checkDadabaseMaxCount(db, UiEnum.TABLE_NAME);
+                    checkDadabaseMaxCount(db, "ui");
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -1437,7 +1437,7 @@ public class IMTrackDatabase {
                     contentValues.put(UiEnum.duration.name(), Long.valueOf(ui.duration));
                     contentValues.put(UiEnum.ext.name(), ui.ext);
                     contentValues.put(UiEnum.aliasId.name(), Long.valueOf(ui.aliasId));
-                    db.insert(UiEnum.TABLE_NAME, null, contentValues);
+                    db.insert("ui", null, contentValues);
                 } catch (Exception e2) {
                     String str = TAG;
                     LogUtils.e(str, "IMTrack insert ui exception : " + e2);

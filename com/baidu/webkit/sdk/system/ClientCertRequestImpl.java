@@ -12,7 +12,7 @@ import java.security.Principal;
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
 @TargetApi(21)
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class ClientCertRequestImpl extends ClientCertRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

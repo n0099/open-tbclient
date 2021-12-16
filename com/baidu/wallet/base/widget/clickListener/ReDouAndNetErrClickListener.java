@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public abstract class ReDouAndNetErrClickListener implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                 public final /* synthetic */ View a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ReDouAndNetErrClickListener f52245b;
+                public final /* synthetic */ ReDouAndNetErrClickListener f52825b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -54,7 +54,7 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                             return;
                         }
                     }
-                    this.f52245b = this;
+                    this.f52825b = this;
                     this.a = view;
                 }
 
@@ -89,7 +89,7 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                             public void doClick(View view3) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, view3) == null) {
-                                    this.a.f52245b.doClick(view3);
+                                    this.a.f52825b.doClick(view3);
                                 }
                             }
                         }.onClick(this.a);

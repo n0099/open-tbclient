@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SmartMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SmartMsg> CREATOR;
@@ -41,7 +41,7 @@ public class SmartMsg extends NormalMsg {
     public String mValuationTxt;
     public String mValuationUrl;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Commodity implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Commodity> CREATOR;

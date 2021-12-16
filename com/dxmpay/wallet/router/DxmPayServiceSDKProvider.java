@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class DxmPayServiceSDKProvider extends com.baidu.wallet.router.RouterProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

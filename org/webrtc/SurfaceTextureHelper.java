@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.SurfaceTextureHelper;
 import org.webrtc.VideoFrame;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SurfaceTextureHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SurfaceTextureHelper";

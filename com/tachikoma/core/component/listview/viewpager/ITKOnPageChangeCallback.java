@@ -1,7 +1,7 @@
 package com.tachikoma.core.component.listview.viewpager;
 
 import androidx.annotation.Px;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ITKOnPageChangeCallback {
     void onPageScrollStateChanged(int i2);
 

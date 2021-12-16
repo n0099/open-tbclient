@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 import javax.net.ssl.SSLContext;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class BdNetTask implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -51,7 +51,7 @@ public class BdNetTask implements INoProGuard {
     public b mTaskPriority;
     public String mUrl;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class a extends AsyncTask<HttpURLConnection, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,22 +104,22 @@ public class BdNetTask implements INoProGuard {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f54364b;
+        public static final b f54944b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f54365c;
+        public static final b f54945c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f54366d;
+        public static final b f54946d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ b[] f54367e;
+        public static final /* synthetic */ b[] f54947e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -136,11 +136,11 @@ public class BdNetTask implements INoProGuard {
                 }
             }
             a = new b("PRIORITY_HIGHER", 0);
-            f54364b = new b("PRIORITY_NORMAL", 1);
-            f54365c = new b("PRIORITY_LOWER", 2);
+            f54944b = new b("PRIORITY_NORMAL", 1);
+            f54945c = new b("PRIORITY_LOWER", 2);
             b bVar = new b("PRIORITY_IDLE", 3);
-            f54366d = bVar;
-            f54367e = new b[]{a, f54364b, f54365c, bVar};
+            f54946d = bVar;
+            f54947e = new b[]{a, f54944b, f54945c, bVar};
         }
 
         public b(String str, int i2) {
@@ -171,7 +171,7 @@ public class BdNetTask implements INoProGuard {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f54367e.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f54947e.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -214,7 +214,7 @@ public class BdNetTask implements INoProGuard {
         this.mConnectionTimeOut = 0;
         this.mFollowRedirects = true;
         this.isUseCorenet = true;
-        this.mTaskPriority = b.f54364b;
+        this.mTaskPriority = b.f54944b;
     }
 
     private void clearForRecycle() {

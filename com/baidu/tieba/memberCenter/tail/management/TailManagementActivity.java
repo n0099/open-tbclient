@@ -2,9 +2,9 @@ package com.baidu.tieba.memberCenter.tail.management;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.r0.e2.h.c.a;
-import c.a.r0.e2.h.c.d;
-import c.a.r0.e2.h.c.e;
+import c.a.s0.f2.h.c.a;
+import c.a.s0.f2.h.c.d;
+import c.a.s0.f2.h.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.e2.h.c.a mAdapter;
+    public c.a.s0.f2.h.c.a mAdapter;
     public d mModel;
     public View.OnClickListener mNavBtnClickListener;
     public a.f mRefreshCallbackListener;
     public e mView;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a implements a.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
             this.a = tailManagementActivity;
         }
 
-        @Override // c.a.r0.e2.h.c.a.f
+        @Override // c.a.s0.f2.h.c.a.f
         public void callback() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -61,13 +61,13 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TailManagementActivity f47025e;
+        public final /* synthetic */ TailManagementActivity f47524e;
 
         public b(TailManagementActivity tailManagementActivity) {
             Interceptable interceptable = $ic;
@@ -84,21 +84,21 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     return;
                 }
             }
-            this.f47025e = tailManagementActivity;
+            this.f47524e = tailManagementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f47025e.mView.a()) {
-                    this.f47025e.finish();
-                } else if (view == this.f47025e.mView.b()) {
-                    boolean z = !this.f47025e.mModel.g();
-                    this.f47025e.mModel.l(z);
-                    TailManagementActivity tailManagementActivity = this.f47025e;
+                if (view == this.f47524e.mView.a()) {
+                    this.f47524e.finish();
+                } else if (view == this.f47524e.mView.b()) {
+                    boolean z = !this.f47524e.mModel.g();
+                    this.f47524e.mModel.l(z);
+                    TailManagementActivity tailManagementActivity = this.f47524e;
                     tailManagementActivity.mView.e(z, tailManagementActivity.mModel.h().size() == 0);
-                    this.f47025e.mAdapter.j();
+                    this.f47524e.mAdapter.j();
                 }
             }
         }
@@ -138,7 +138,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
             super.onCreate(bundle);
             setContentView(R.layout.tail_management_activity);
             this.mModel = new d(getPageContext());
-            this.mAdapter = new c.a.r0.e2.h.c.a(getPageContext(), this.mModel, this.mRefreshCallbackListener);
+            this.mAdapter = new c.a.s0.f2.h.c.a(getPageContext(), this.mModel, this.mRefreshCallbackListener);
             e eVar = new e(this, this.mNavBtnClickListener);
             this.mView = eVar;
             eVar.d(this.mAdapter);

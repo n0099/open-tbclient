@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TraceLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INIT_FAILED = -1;

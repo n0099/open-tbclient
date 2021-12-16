@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class TlsVersion {
     public static final /* synthetic */ TlsVersion[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

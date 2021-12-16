@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUILD_TYPE = "release";
@@ -12,7 +12,7 @@ public final class BuildConfig {
     public static final String FLAVOR = "standard";
     public static final String LIBRARY_PACKAGE_NAME = "com.baidu.android.lbspay";
     public static final int VERSION_CODE = 1;
-    public static final String VERSION_NAME = "9.4.5.108";
+    public static final String VERSION_NAME = "9.5.0.114";
     public transient /* synthetic */ FieldHolder $fh;
 
     public BuildConfig() {

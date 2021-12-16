@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.model.MultiBtnDialogModel;
 import com.baidu.wallet.base.widget.dialog.view.MultiBtnDialogAdapter;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class PromptMultiBtnDialog extends WalletDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiBtnDialogModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f52250b;
+    public View.OnClickListener f52830b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PromptMultiBtnDialog(Context context) {
@@ -40,7 +40,7 @@ public class PromptMultiBtnDialog extends WalletDialog {
             }
         }
         this.a = new MultiBtnDialogModel();
-        this.f52250b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptMultiBtnDialog.1
+        this.f52830b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptMultiBtnDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PromptMultiBtnDialog a;
@@ -78,7 +78,7 @@ public class PromptMultiBtnDialog extends WalletDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             MultiBtnDialogModel multiBtnDialogModel = this.a;
-            multiBtnDialogModel.defaultClickListener = this.f52250b;
+            multiBtnDialogModel.defaultClickListener = this.f52830b;
             setAdapter(new MultiBtnDialogAdapter(multiBtnDialogModel));
         }
     }
@@ -206,7 +206,7 @@ public class PromptMultiBtnDialog extends WalletDialog {
             }
         }
         this.a = new MultiBtnDialogModel();
-        this.f52250b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptMultiBtnDialog.1
+        this.f52830b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptMultiBtnDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PromptMultiBtnDialog a;

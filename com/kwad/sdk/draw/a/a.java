@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.compliance.widget.ComplianceTextView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.draw.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ComplianceTextView f58319b;
+    public ComplianceTextView f58900b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class a extends com.kwad.sdk.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f58319b.setVisibility(0);
-            this.f58319b.setAdTemplate(((com.kwad.sdk.draw.kwai.a) this).a.f58379c);
+            this.f58900b.setVisibility(0);
+            this.f58900b.setAdTemplate(((com.kwad.sdk.draw.kwai.a) this).a.f58960c);
         }
     }
 
@@ -44,7 +44,7 @@ public class a extends com.kwad.sdk.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.c_();
-            this.f58319b = (ComplianceTextView) a(R.id.ksad_compliance_view);
+            this.f58900b = (ComplianceTextView) a(R.id.ksad_compliance_view);
         }
     }
 }

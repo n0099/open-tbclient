@@ -59,7 +59,7 @@ public class i {
                 Iterator<c.a.d.f.n.j.d> it2 = c2.iterator();
                 while (it2.hasNext()) {
                     c.a.d.f.n.j.d next = it2.next();
-                    arrayList.add(next.f2566b);
+                    arrayList.add(next.f2530b);
                     i3 = (int) (i3 - next.a);
                     if (i3 <= 0) {
                         break;
@@ -71,9 +71,9 @@ public class i {
             while (it3.hasNext()) {
                 c.a.d.f.n.j.d next2 = it3.next();
                 if (next2 != null) {
-                    long j2 = next2.f2567c;
-                    if (j2 != 0 && j2 + 604800000 < currentTimeMillis && !arrayList.contains(next2.f2566b)) {
-                        arrayList.add(next2.f2566b);
+                    long j2 = next2.f2531c;
+                    if (j2 != 0 && j2 + 604800000 < currentTimeMillis && !arrayList.contains(next2.f2530b)) {
+                        arrayList.add(next2.f2530b);
                     }
                 }
             }

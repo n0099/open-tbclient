@@ -8,7 +8,7 @@ import android.text.format.Time;
 import android.text.style.ForegroundColorSpan;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -34,8 +34,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes9.dex */
-public class StringHelper extends k {
+/* loaded from: classes11.dex */
+public class StringHelper extends l {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ALA_CARD_DAY_BEFORE = null;
     public static String ALA_CARD_HOUR_BEFORE = null;
@@ -109,16 +109,16 @@ public class StringHelper extends k {
         date = new Date();
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
         if (timeZone != null) {
-            k.FORMATE_DATE_ALL.setTimeZone(timeZone);
-            k.FORMATE_DATE_YEAR.setTimeZone(timeZone);
-            k.FORMATE_DATE_TIME.setTimeZone(timeZone);
-            k.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
-            k.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
-            k.FORMATE_DATE_DAY.setTimeZone(timeZone);
-            k.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
-            k.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
-            k.FORMATE_DATE_MS.setTimeZone(timeZone);
-            k.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
+            l.FORMATE_DATE_ALL.setTimeZone(timeZone);
+            l.FORMATE_DATE_YEAR.setTimeZone(timeZone);
+            l.FORMATE_DATE_TIME.setTimeZone(timeZone);
+            l.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
+            l.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
+            l.FORMATE_DATE_DAY.setTimeZone(timeZone);
+            l.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
+            l.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
+            l.FORMATE_DATE_MS.setTimeZone(timeZone);
+            l.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
         }
     }
 
@@ -202,7 +202,7 @@ public class StringHelper extends k {
             int i3 = 0;
             int i4 = 0;
             while (i3 < length) {
-                i4 = k.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
+                i4 = l.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
                 if (i4 >= i2) {
                     break;
                 }
@@ -235,7 +235,7 @@ public class StringHelper extends k {
             int i3 = 0;
             int i4 = 0;
             while (i3 < length) {
-                i4 = k.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
+                i4 = l.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
                 if (i4 >= i2) {
                     break;
                 }
@@ -264,7 +264,7 @@ public class StringHelper extends k {
             int i3 = 0;
             int i4 = 0;
             while (i3 < length) {
-                i4 = k.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
+                i4 = l.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
                 if (i4 >= i2) {
                     break;
                 }
@@ -298,7 +298,7 @@ public class StringHelper extends k {
                 int i3 = 0;
                 int i4 = 0;
                 while (i3 < length) {
-                    i4 = k.isChinese(replaceAll.charAt(i3)) ? i4 + 2 : i4 + 1;
+                    i4 = l.isChinese(replaceAll.charAt(i3)) ? i4 + 2 : i4 + 1;
                     if (i4 >= i2) {
                         break;
                     }
@@ -368,7 +368,7 @@ public class StringHelper extends k {
             int i3 = 0;
             int i4 = 0;
             while (i3 < length) {
-                i4 = k.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
+                i4 = l.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
                 if (i4 >= i2) {
                     break;
                 }
@@ -451,7 +451,7 @@ public class StringHelper extends k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            if (k.isEmpty(str)) {
+            if (l.isEmpty(str)) {
                 return "";
             }
             return "\u202d" + str + "\u202c";
@@ -683,7 +683,7 @@ public class StringHelper extends k {
             int length = str.length();
             int i2 = 0;
             for (int i3 = 0; i3 < length; i3++) {
-                i2 = k.isChinese(str.charAt(i3)) ? i2 + 2 : i2 + 1;
+                i2 = l.isChinese(str.charAt(i3)) ? i2 + 2 : i2 + 1;
             }
             return i2;
         }
@@ -755,8 +755,8 @@ public class StringHelper extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
             Date date2 = new Date();
-            synchronized (k.FORMATE_DATE_MS) {
-                format = k.FORMATE_DATE_MS.format(date2);
+            synchronized (l.FORMATE_DATE_MS) {
+                format = l.FORMATE_DATE_MS.format(date2);
             }
             return format;
         }
@@ -769,8 +769,8 @@ public class StringHelper extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             Date date2 = new Date();
-            synchronized (k.FORMATE_DATE_DAY) {
-                format = k.FORMATE_DATE_DAY.format(date2);
+            synchronized (l.FORMATE_DATE_DAY) {
+                format = l.FORMATE_DATE_DAY.format(date2);
             }
             return format;
         }
@@ -822,8 +822,8 @@ public class StringHelper extends k {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, date2)) == null) {
-            synchronized (k.FORMATE_DATE_DAY_1) {
-                format = k.FORMATE_DATE_DAY_1.format(date2);
+            synchronized (l.FORMATE_DATE_DAY_1) {
+                format = l.FORMATE_DATE_DAY_1.format(date2);
             }
             return format;
         }
@@ -835,8 +835,8 @@ public class StringHelper extends k {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, date2)) == null) {
-            synchronized (k.FORMATE_DATE_DAY_NO_YEAR) {
-                format = k.FORMATE_DATE_DAY_NO_YEAR.format(date2);
+            synchronized (l.FORMATE_DATE_DAY_NO_YEAR) {
+                format = l.FORMATE_DATE_DAY_NO_YEAR.format(date2);
             }
             return format;
         }
@@ -959,8 +959,8 @@ public class StringHelper extends k {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, date2)) == null) {
-            synchronized (k.FORMATE_DATE_DAY_WEEK) {
-                format = k.FORMATE_DATE_DAY_WEEK.format(date2);
+            synchronized (l.FORMATE_DATE_DAY_WEEK) {
+                format = l.FORMATE_DATE_DAY_WEEK.format(date2);
             }
             return format;
         }
@@ -1201,7 +1201,7 @@ public class StringHelper extends k {
             int length = str.length();
             int i2 = 0;
             for (int i3 = 0; i3 < length; i3++) {
-                i2 = k.isChinese(str.charAt(i3)) ? i2 + 2 : i2 + 1;
+                i2 = l.isChinese(str.charAt(i3)) ? i2 + 2 : i2 + 1;
             }
             return i2;
         }
@@ -1426,7 +1426,7 @@ public class StringHelper extends k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65623, null, str)) == null) {
-            if (!k.isEmpty(str)) {
+            if (!l.isEmpty(str)) {
                 String trim = str.trim();
                 if (trim.startsWith(PreferencesUtil.LEFT_MOUNT) && trim.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                     return true;
@@ -1441,7 +1441,7 @@ public class StringHelper extends k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65624, null, str)) == null) {
-            if (k.isEmpty(str)) {
+            if (l.isEmpty(str)) {
                 return false;
             }
             try {
@@ -2178,7 +2178,7 @@ public class StringHelper extends k {
             int i3 = 0;
             for (int i4 = 0; i4 < length; i4++) {
                 char charAt = str.charAt(i4);
-                i3 = k.isChinese(charAt) ? i3 + 2 : i3 + 1;
+                i3 = l.isChinese(charAt) ? i3 + 2 : i3 + 1;
                 if (i3 > i2) {
                     break;
                 }
@@ -2256,7 +2256,7 @@ public class StringHelper extends k {
             int day = date2.getDay() - date3.getDay();
             long time = date2.getTime() - date3.getTime();
             if (time < 0) {
-                return time > -120000 ? "刚刚" : k.getDateStringDay(date3);
+                return time > -120000 ? "刚刚" : l.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2266,9 +2266,9 @@ public class StringHelper extends k {
                 if (time < 3600000) {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
-                    return day == 0 ? k.getDateStringHm(date3) : "1天前";
+                    return day == 0 ? l.getDateStringHm(date3) : "1天前";
                 } else if (time >= 2678400000L) {
-                    return time < 2764800000L ? "1个月前" : k.getDateStringDay(date3);
+                    return time < 2764800000L ? "1个月前" : l.getDateStringDay(date3);
                 } else {
                     return String.valueOf((time * 31) / 2678400000L) + "天前";
                 }
@@ -2307,7 +2307,7 @@ public class StringHelper extends k {
             int day = date2.getDay() - date3.getDay();
             long time = date2.getTime() - date3.getTime();
             if (time < 0) {
-                return time > -120000 ? "刚刚" : k.getDateStringDay(date3);
+                return time > -120000 ? "刚刚" : l.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2317,20 +2317,20 @@ public class StringHelper extends k {
                 if (time < 3600000) {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
-                    return day == 0 ? k.getDateStringHm(date3) : "1天前";
+                    return day == 0 ? l.getDateStringHm(date3) : "1天前";
                 } else if (time < 2678400000L) {
                     return String.valueOf((time * 31) / 2678400000L) + "天前";
                 } else if (time < 2764800000L) {
                     return "1个月前";
                 } else {
                     if (date2.getYear() == date3.getYear()) {
-                        synchronized (k.FORMATE_DATE_DAY_NO_YEAR) {
-                            format2 = k.FORMATE_DATE_DAY_NO_YEAR.format(date3);
+                        synchronized (l.FORMATE_DATE_DAY_NO_YEAR) {
+                            format2 = l.FORMATE_DATE_DAY_NO_YEAR.format(date3);
                         }
                         return format2;
                     }
-                    synchronized (k.FORMATE_DATE_DAY) {
-                        format = k.FORMATE_DATE_DAY.format(date3);
+                    synchronized (l.FORMATE_DATE_DAY) {
+                        format = l.FORMATE_DATE_DAY.format(date3);
                     }
                     return format;
                 }
@@ -2349,7 +2349,7 @@ public class StringHelper extends k {
             int length = charSequence.length();
             int i2 = 0;
             for (int i3 = 0; i3 < length; i3++) {
-                i2 = k.isChinese(charSequence.charAt(i3)) ? i2 + 2 : i2 + 1;
+                i2 = l.isChinese(charSequence.charAt(i3)) ? i2 + 2 : i2 + 1;
             }
             return i2;
         }
@@ -2387,7 +2387,7 @@ public class StringHelper extends k {
             int i3 = 0;
             int i4 = 0;
             while (i3 < length) {
-                i4 = k.isChinese(charSequence.charAt(i3)) ? i4 + 2 : i4 + 1;
+                i4 = l.isChinese(charSequence.charAt(i3)) ? i4 + 2 : i4 + 1;
                 if (i4 >= i2) {
                     break;
                 }
@@ -2443,7 +2443,7 @@ public class StringHelper extends k {
                 if (z) {
                     return getDateStringDayNoYear(date2);
                 }
-                return k.getDateStringDay(date2);
+                return l.getDateStringDay(date2);
             } else if (time < MS_TO_HOUR) {
                 if (time < MS_TO_MIN) {
                     long j2 = time / MS_TO_SEC;
@@ -2497,7 +2497,7 @@ public class StringHelper extends k {
                 if (z) {
                     return getDateStringDayNoYear(date2);
                 }
-                return k.getDateStringDay(date2);
+                return l.getDateStringDay(date2);
             } else if (time < MS_TO_HOUR) {
                 if (time < MS_TO_MIN) {
                     return "刚刚";

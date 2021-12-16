@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.LockSupport;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class InterruptibleTask<T> extends AtomicReference<Runnable> implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Runnable DONE;
@@ -22,13 +22,13 @@ public abstract class InterruptibleTask<T> extends AtomicReference<Runnable> imp
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.common.util.concurrent.InterruptibleTask$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class DoNothingRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

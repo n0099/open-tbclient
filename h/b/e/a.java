@@ -31,7 +31,7 @@ import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class a extends h.b.a implements Runnable, WebSocket {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,19 +49,19 @@ public abstract class a extends h.b.a implements Runnable, WebSocket {
     public Thread writeThread;
 
     /* renamed from: h.b.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class C2187a {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class C2248a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f63527e;
+        public final /* synthetic */ a f64108e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public abstract class a extends h.b.a implements Runnable, WebSocket {
                     return;
                 }
             }
-            this.f63527e = aVar;
+            this.f64108e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -94,27 +94,27 @@ public abstract class a extends h.b.a implements Runnable, WebSocket {
                                 if (Thread.interrupted()) {
                                     break;
                                 }
-                                ByteBuffer take = this.f63527e.engine.f63520e.take();
-                                this.f63527e.ostream.write(take.array(), 0, take.limit());
-                                this.f63527e.ostream.flush();
+                                ByteBuffer take = this.f64108e.engine.f64101e.take();
+                                this.f64108e.ostream.write(take.array(), 0, take.limit());
+                                this.f64108e.ostream.flush();
                             } catch (IOException e2) {
-                                this.f63527e.handleIOException(e2);
+                                this.f64108e.handleIOException(e2);
                             }
                         } finally {
-                            this.f63527e.closeSocket();
-                            this.f63527e.writeThread = null;
+                            this.f64108e.closeSocket();
+                            this.f64108e.writeThread = null;
                         }
                     } catch (InterruptedException unused) {
-                        for (ByteBuffer byteBuffer : this.f63527e.engine.f63520e) {
-                            this.f63527e.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
-                            this.f63527e.ostream.flush();
+                        for (ByteBuffer byteBuffer : this.f64108e.engine.f64101e) {
+                            this.f64108e.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
+                            this.f64108e.ostream.flush();
                         }
                     }
                 }
             }
         }
 
-        public /* synthetic */ b(a aVar, C2187a c2187a) {
+        public /* synthetic */ b(a aVar, C2248a c2248a) {
             this(aVar);
         }
     }

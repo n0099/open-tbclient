@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.t;
 import java.util.Observable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a extends Observable implements com.kwad.sdk.core.b, b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f58880b;
+    public boolean f59461b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,22 +32,22 @@ public abstract class a extends Observable implements com.kwad.sdk.core.b, b {
                 return;
             }
         }
-        this.f58880b = false;
+        this.f59461b = false;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f58880b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f59461b) {
             return;
         }
-        this.f58880b = true;
+        this.f59461b = true;
         f();
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f58880b) {
-            this.f58880b = false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f59461b) {
+            this.f59461b = false;
             f();
         }
     }
@@ -69,14 +69,14 @@ public abstract class a extends Observable implements com.kwad.sdk.core.b, b {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58880b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59461b : invokeV.booleanValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             setChanged();
-            notifyObservers(Boolean.valueOf(this.f58880b));
+            notifyObservers(Boolean.valueOf(this.f59461b));
         }
     }
 
@@ -85,7 +85,7 @@ public abstract class a extends Observable implements com.kwad.sdk.core.b, b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
             try {
-                this.f58880b = jSONObject.optBoolean("selfCompleted");
+                this.f59461b = jSONObject.optBoolean("selfCompleted");
             } catch (Throwable unused) {
             }
         }
@@ -97,7 +97,7 @@ public abstract class a extends Observable implements com.kwad.sdk.core.b, b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            t.a(jSONObject, "selfCompleted", this.f58880b);
+            t.a(jSONObject, "selfCompleted", this.f59461b);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class MaxListView extends ListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f53086b;
+    public Context f53666b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaxListView(Context context) {
@@ -38,14 +38,14 @@ public class MaxListView extends ListView {
                 return;
             }
         }
-        this.f53086b = context;
+        this.f53666b = context;
         a();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.a = DisplayUtils.dip2px(this.f53086b, 400.0f);
+            this.a = DisplayUtils.dip2px(this.f53666b, 400.0f);
         }
     }
 
@@ -93,7 +93,7 @@ public class MaxListView extends ListView {
                 return;
             }
         }
-        this.f53086b = context;
+        this.f53666b = context;
         a();
     }
 
@@ -116,7 +116,7 @@ public class MaxListView extends ListView {
                 return;
             }
         }
-        this.f53086b = context;
+        this.f53666b = context;
         a();
     }
 }

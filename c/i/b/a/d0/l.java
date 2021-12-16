@@ -12,25 +12,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface l {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void c(l lVar, w wVar, @Nullable Object obj);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f29585b;
+        public final int f29955b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f29586c;
+        public final int f29956c;
 
         static {
             InterceptResult invokeClinit;
@@ -71,13 +71,13 @@ public interface l {
         public b a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.a == i2 ? this : new b(i2, this.f29585b, this.f29586c) : (b) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.a == i2 ? this : new b(i2, this.f29955b, this.f29956c) : (b) invokeI.objValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29585b != -1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29955b != -1 : invokeV.booleanValue;
         }
 
         public boolean equals(Object obj) {
@@ -91,7 +91,7 @@ public interface l {
                     return false;
                 }
                 b bVar = (b) obj;
-                return this.a == bVar.a && this.f29585b == bVar.f29585b && this.f29586c == bVar.f29586c;
+                return this.a == bVar.a && this.f29955b == bVar.f29955b && this.f29956c == bVar.f29956c;
             }
             return invokeL.booleanValue;
         }
@@ -99,7 +99,7 @@ public interface l {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a) * 31) + this.f29585b) * 31) + this.f29586c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a) * 31) + this.f29955b) * 31) + this.f29956c : invokeV.intValue;
         }
 
         public b(int i2, int i3, int i4) {
@@ -118,8 +118,8 @@ public interface l {
                 }
             }
             this.a = i2;
-            this.f29585b = i3;
-            this.f29586c = i4;
+            this.f29955b = i3;
+            this.f29956c = i4;
         }
     }
 

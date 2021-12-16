@@ -1,7 +1,7 @@
 package com.ksad.download;
 
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface f {
     void a(int i2);
 

@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class WebSocketReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public final class WebSocketReader {
     public int opcode;
     public final BufferedSource source;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface FrameCallback {
         void onReadClose(int i2, String str);
 

@@ -6,23 +6,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29715b;
+    public final int f30085b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<g> f29716c;
+    public final List<g> f30086c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<d> f29717d;
+    public final List<d> f30087d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<d> f29718e;
+    public final List<d> f30088e;
 
     public a(int i2, int i3, List<g> list, List<d> list2, List<d> list3) {
         List<d> unmodifiableList;
@@ -42,19 +42,19 @@ public class a {
             }
         }
         this.a = i2;
-        this.f29715b = i3;
-        this.f29716c = Collections.unmodifiableList(list);
+        this.f30085b = i3;
+        this.f30086c = Collections.unmodifiableList(list);
         if (list2 == null) {
             unmodifiableList = Collections.emptyList();
         } else {
             unmodifiableList = Collections.unmodifiableList(list2);
         }
-        this.f29717d = unmodifiableList;
+        this.f30087d = unmodifiableList;
         if (list3 == null) {
             unmodifiableList2 = Collections.emptyList();
         } else {
             unmodifiableList2 = Collections.unmodifiableList(list3);
         }
-        this.f29718e = unmodifiableList2;
+        this.f30088e = unmodifiableList2;
     }
 }

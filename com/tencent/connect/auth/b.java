@@ -16,17 +16,17 @@ public class b {
     public static b a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ boolean f62182d;
+    public static final /* synthetic */ boolean f62763d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f62183e;
+    public static int f62764e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, a> f62184b;
+    public HashMap<String, a> f62765b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f62185c;
+    public final String f62766c;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -35,10 +35,10 @@ public class b {
         public IUiListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.tencent.connect.auth.a f62186b;
+        public com.tencent.connect.auth.a f62767b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f62187c;
+        public String f62768c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -68,8 +68,8 @@ public class b {
                 return;
             }
         }
-        f62182d = !b.class.desiredAssertionStatus();
-        f62183e = 0;
+        f62763d = !b.class.desiredAssertionStatus();
+        f62764e = 0;
     }
 
     public b() {
@@ -85,8 +85,8 @@ public class b {
                 return;
             }
         }
-        this.f62184b = new HashMap<>();
-        this.f62185c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        this.f62765b = new HashMap<>();
+        this.f62766c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     }
 
     public static b a() {
@@ -105,8 +105,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int i2 = f62183e + 1;
-            f62183e = i2;
+            int i2 = f62764e + 1;
+            f62764e = i2;
             return i2;
         }
         return invokeV.intValue;
@@ -134,7 +134,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             int b2 = b();
             try {
-                HashMap<String, a> hashMap = this.f62184b;
+                HashMap<String, a> hashMap = this.f62765b;
                 hashMap.put("" + b2, aVar);
             } catch (Throwable th) {
                 th.printStackTrace();

@@ -17,7 +17,7 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.TreeSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CollectionCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static final CollectionCodec instance;

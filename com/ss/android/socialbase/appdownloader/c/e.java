@@ -2,7 +2,7 @@ package com.ss.android.socialbase.appdownloader.c;
 
 import android.content.Context;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface e {
     String a();
 

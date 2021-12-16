@@ -11,34 +11,34 @@ public class f {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2503b;
+    public int f2467b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2504c;
+    public long f2468c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2505d;
+    public int f2469d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2506e;
+    public int f2470e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2507f;
+    public long f2471f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f2508g;
+    public int f2472g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2509h;
+    public int f2473h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f2510i;
+    public long f2474i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f2511j;
+    public int f2475j;
 
     /* renamed from: k  reason: collision with root package name */
-    public long f2512k;
+    public long f2476k;
     public int l;
     public long m;
     public int n;
@@ -73,16 +73,16 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = 0;
-            this.f2503b = 0;
-            this.f2504c = 0L;
-            this.f2505d = 0;
-            this.f2506e = 0;
-            this.f2507f = 0L;
-            this.f2508g = 0;
-            this.f2509h = 0;
-            this.f2510i = 0L;
-            this.f2511j = 0;
-            this.f2512k = 0L;
+            this.f2467b = 0;
+            this.f2468c = 0L;
+            this.f2469d = 0;
+            this.f2470e = 0;
+            this.f2471f = 0L;
+            this.f2472g = 0;
+            this.f2473h = 0;
+            this.f2474i = 0L;
+            this.f2475j = 0;
+            this.f2476k = 0L;
             this.l = 0;
             this.m = 0L;
             this.n = 0;

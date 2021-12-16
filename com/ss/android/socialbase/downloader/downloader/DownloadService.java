@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f61709b;
+    public static final String f62290b;
     public transient /* synthetic */ FieldHolder $fh;
     public o a;
 
@@ -35,7 +35,7 @@ public class DownloadService extends Service {
                 return;
             }
         }
-        f61709b = DownloadService.class.getSimpleName();
+        f62290b = DownloadService.class.getSimpleName();
     }
 
     public DownloadService() {
@@ -57,7 +57,7 @@ public class DownloadService extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            String str = f61709b;
+            String str = f62290b;
             StringBuilder sb = new StringBuilder();
             sb.append("onBind downloadServiceHandler != null:");
             sb.append(this.a != null);
@@ -88,7 +88,7 @@ public class DownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.b(f61709b, "Service onDestroy");
+                com.ss.android.socialbase.downloader.c.a.b(f62290b, "Service onDestroy");
             }
             o oVar = this.a;
             if (oVar != null) {
@@ -105,7 +105,7 @@ public class DownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i2, i3)) == null) {
             if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.b(f61709b, "DownloadService onStartCommand");
+                com.ss.android.socialbase.downloader.c.a.b(f62290b, "DownloadService onStartCommand");
             }
             this.a.c();
             ExecutorService l = c.l();
@@ -116,13 +116,13 @@ public class DownloadService extends Service {
                     public final /* synthetic */ Intent a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f61710b;
+                    public final /* synthetic */ int f62291b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ int f61711c;
+                    public final /* synthetic */ int f62292c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ DownloadService f61712d;
+                    public final /* synthetic */ DownloadService f62293d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -139,20 +139,20 @@ public class DownloadService extends Service {
                                 return;
                             }
                         }
-                        this.f61712d = this;
+                        this.f62293d = this;
                         this.a = intent;
-                        this.f61710b = i2;
-                        this.f61711c = i3;
+                        this.f62291b = i2;
+                        this.f62292c = i3;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         o oVar;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (oVar = this.f61712d.a) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (oVar = this.f62293d.a) == null) {
                             return;
                         }
-                        oVar.a(this.a, this.f61710b, this.f61711c);
+                        oVar.a(this.a, this.f62291b, this.f62292c);
                     }
                 });
             }

@@ -14,33 +14,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e<T> implements o.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public w<String, b> f27671e;
+    public w<String, b> f28046e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.b.b.q.a<b> f27672f;
+    public c.b.b.q.a<b> f28047f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.b.b.q.a<a> f27673g;
+    public c.b.b.q.a<a> f28048g;
 
     /* renamed from: h  reason: collision with root package name */
-    public T f27674h;
+    public T f28049h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a<T> implements o.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f27675e;
+        public String f28050e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Class<T> f27676f;
+        public Class<T> f28051f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -60,10 +60,10 @@ public class e<T> implements o.c {
         public void a(o oVar, JsonValue jsonValue) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, oVar, jsonValue) == null) {
-                this.f27675e = (String) oVar.l(BreakpointSQLiteKey.FILENAME, String.class, jsonValue);
+                this.f28050e = (String) oVar.l(BreakpointSQLiteKey.FILENAME, String.class, jsonValue);
                 String str = (String) oVar.l("type", String.class, jsonValue);
                 try {
-                    this.f27676f = c.b.b.q.p0.b.a(str);
+                    this.f28051f = c.b.b.q.p0.b.a(str);
                 } catch (ReflectionException e2) {
                     throw new GdxRuntimeException("Class not found: " + str, e2);
                 }
@@ -71,16 +71,16 @@ public class e<T> implements o.c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b implements o.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public l f27677e;
+        public l f28052e;
 
         /* renamed from: f  reason: collision with root package name */
-        public e f27678f;
+        public e f28053f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class e<T> implements o.c {
                 }
             }
             new w();
-            this.f27677e = new l();
+            this.f28052e = new l();
         }
 
         @Override // c.b.b.q.o.c
@@ -104,7 +104,7 @@ public class e<T> implements o.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, oVar, jsonValue) == null) {
                 w wVar = (w) oVar.l("data", w.class, jsonValue);
-                this.f27677e.b((int[]) oVar.l("indices", int[].class, jsonValue));
+                this.f28052e.b((int[]) oVar.l("indices", int[].class, jsonValue));
             }
         }
     }
@@ -122,9 +122,9 @@ public class e<T> implements o.c {
                 return;
             }
         }
-        this.f27671e = new w<>();
-        this.f27672f = new c.b.b.q.a<>(true, 3, b.class);
-        this.f27673g = new c.b.b.q.a<>();
+        this.f28046e = new w<>();
+        this.f28047f = new c.b.b.q.a<>(true, 3, b.class);
+        this.f28048g = new c.b.b.q.a<>();
     }
 
     @Override // c.b.b.q.o.c
@@ -132,26 +132,26 @@ public class e<T> implements o.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, oVar, jsonValue) == null) {
             w<String, b> wVar = (w) oVar.l("unique", w.class, jsonValue);
-            this.f27671e = wVar;
+            this.f28046e = wVar;
             w.a<String, b> b2 = wVar.b();
             b2.d();
             while (b2.hasNext()) {
-                ((b) b2.next().f27939b).f27678f = this;
+                ((b) b2.next().f28314b).f28053f = this;
             }
             c.b.b.q.a<b> aVar = (c.b.b.q.a) oVar.m("data", c.b.b.q.a.class, b.class, jsonValue);
-            this.f27672f = aVar;
+            this.f28047f = aVar;
             a.b<b> it = aVar.iterator();
             while (it.hasNext()) {
-                it.next().f27678f = this;
+                it.next().f28053f = this;
             }
-            this.f27673g.b((c.b.b.q.a) oVar.m("assets", c.b.b.q.a.class, a.class, jsonValue));
-            this.f27674h = (T) oVar.l("resource", null, jsonValue);
+            this.f28048g.b((c.b.b.q.a) oVar.m("assets", c.b.b.q.a.class, a.class, jsonValue));
+            this.f28049h = (T) oVar.l("resource", null, jsonValue);
         }
     }
 
     public c.b.b.q.a<a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27673g : (c.b.b.q.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28048g : (c.b.b.q.a) invokeV.objValue;
     }
 }

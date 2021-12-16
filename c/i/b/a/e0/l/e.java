@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class e extends i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public final d f29949j;
+    public final d f30319j;
 
     public e(d dVar) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public final class e extends i {
                 return;
             }
         }
-        this.f29949j = dVar;
+        this.f30319j = dVar;
     }
 
     @Override // c.i.b.a.e0.i
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f29949j.l(this);
+            this.f30319j.l(this);
         }
     }
 }

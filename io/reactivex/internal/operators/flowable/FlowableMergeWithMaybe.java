@@ -24,13 +24,13 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MaybeSource<? extends T> other;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class MergeWithObserver<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int OTHER_STATE_CONSUMED_OR_EMPTY = 2;
@@ -52,7 +52,7 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
         public final AtomicLong requested;
         public T singleItem;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static final class OtherObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -2935427570954647017L;

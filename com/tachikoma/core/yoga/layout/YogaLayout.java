@@ -34,7 +34,6 @@ import com.kwad.yoga.YogaPositionType;
 import com.kwad.yoga.YogaWrap;
 import java.util.HashMap;
 import java.util.Map;
-import kotlinx.coroutines.DebugKt;
 /* loaded from: classes3.dex */
 public class YogaLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
@@ -442,7 +441,7 @@ public class YogaLayout extends ViewGroup {
             for (int i3 = 0; i3 < layoutParams.stringAttributes.size(); i3++) {
                 int keyAt2 = layoutParams.stringAttributes.keyAt(i3);
                 String valueAt = layoutParams.stringAttributes.valueAt(i3);
-                if (valueAt.equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO)) {
+                if (valueAt.equals("auto")) {
                     if (keyAt2 == R.styleable.yoga_yg_marginLeft) {
                         yogaEdge4 = YogaEdge.LEFT;
                     } else if (keyAt2 == R.styleable.yoga_yg_marginTop) {

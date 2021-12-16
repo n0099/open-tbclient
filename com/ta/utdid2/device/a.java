@@ -7,26 +7,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f62117b;
+    public long f62698b;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f62118d;
+    public String f62699d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f62119e;
+    public String f62700e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62120f;
+    public String f62701f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62121g;
+    public String f62702g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -41,18 +41,18 @@ public class a {
                 return;
             }
         }
-        this.f62118d = "";
-        this.f62119e = "";
-        this.f62120f = "";
-        this.f62121g = "";
+        this.f62699d = "";
+        this.f62700e = "";
+        this.f62701f = "";
+        this.f62702g = "";
         this.a = 0L;
-        this.f62117b = 0L;
+        this.f62698b = 0L;
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f62117b = j2;
+            this.f62698b = j2;
         }
     }
 
@@ -66,39 +66,39 @@ public class a {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f62119e = str;
+            this.f62700e = str;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f62120f = str;
+            this.f62701f = str;
         }
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f62118d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f62699d : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f62121g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f62702g : (String) invokeV.objValue;
     }
 
     public String getDeviceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f62120f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f62701f : (String) invokeV.objValue;
     }
 
     public String getImsi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f62119e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f62700e : (String) invokeV.objValue;
     }
 
     public long a() {
@@ -110,14 +110,14 @@ public class a {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f62118d = str;
+            this.f62699d = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f62121g = str;
+            this.f62702g = str;
         }
     }
 }

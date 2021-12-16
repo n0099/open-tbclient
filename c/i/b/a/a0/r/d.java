@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f29221b;
+    public final l f29591b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29222c;
+    public int f29592c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29223d;
+    public int f29593d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f29224e;
+    public boolean f29594e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public final class d {
             }
         }
         this.a = new e();
-        this.f29221b = new l(new byte[65025], 0);
-        this.f29222c = -1;
+        this.f29591b = new l(new byte[65025], 0);
+        this.f29592c = -1;
     }
 
     public final int a(int i2) {
@@ -51,16 +51,16 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             int i4 = 0;
-            this.f29223d = 0;
+            this.f29593d = 0;
             do {
-                int i5 = this.f29223d;
+                int i5 = this.f29593d;
                 int i6 = i2 + i5;
                 e eVar = this.a;
-                if (i6 >= eVar.f29228d) {
+                if (i6 >= eVar.f29598d) {
                     break;
                 }
-                int[] iArr = eVar.f29231g;
-                this.f29223d = i5 + 1;
+                int[] iArr = eVar.f29601g;
+                this.f29593d = i5 + 1;
                 i3 = iArr[i5 + i2];
                 i4 += i3;
             } while (i3 == 255);
@@ -78,7 +78,7 @@ public final class d {
     public l c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29221b : (l) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29591b : (l) invokeV.objValue;
     }
 
     public boolean d(c.i.b.a.a0.f fVar) throws IOException, InterruptedException {
@@ -87,43 +87,43 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fVar)) == null) {
             c.i.b.a.i0.a.f(fVar != null);
-            if (this.f29224e) {
-                this.f29224e = false;
-                this.f29221b.F();
+            if (this.f29594e) {
+                this.f29594e = false;
+                this.f29591b.F();
             }
-            while (!this.f29224e) {
-                if (this.f29222c < 0) {
+            while (!this.f29594e) {
+                if (this.f29592c < 0) {
                     if (!this.a.a(fVar, true)) {
                         return false;
                     }
                     e eVar = this.a;
-                    int i3 = eVar.f29229e;
-                    if ((eVar.f29226b & 1) == 1 && this.f29221b.d() == 0) {
+                    int i3 = eVar.f29599e;
+                    if ((eVar.f29596b & 1) == 1 && this.f29591b.d() == 0) {
                         i3 += a(0);
-                        i2 = this.f29223d + 0;
+                        i2 = this.f29593d + 0;
                     } else {
                         i2 = 0;
                     }
                     fVar.h(i3);
-                    this.f29222c = i2;
+                    this.f29592c = i2;
                 }
-                int a = a(this.f29222c);
-                int i4 = this.f29222c + this.f29223d;
+                int a = a(this.f29592c);
+                int i4 = this.f29592c + this.f29593d;
                 if (a > 0) {
-                    if (this.f29221b.b() < this.f29221b.d() + a) {
-                        l lVar = this.f29221b;
+                    if (this.f29591b.b() < this.f29591b.d() + a) {
+                        l lVar = this.f29591b;
                         lVar.a = Arrays.copyOf(lVar.a, lVar.d() + a);
                     }
-                    l lVar2 = this.f29221b;
+                    l lVar2 = this.f29591b;
                     fVar.readFully(lVar2.a, lVar2.d(), a);
-                    l lVar3 = this.f29221b;
+                    l lVar3 = this.f29591b;
                     lVar3.I(lVar3.d() + a);
-                    this.f29224e = this.a.f29231g[i4 + (-1)] != 255;
+                    this.f29594e = this.a.f29601g[i4 + (-1)] != 255;
                 }
-                if (i4 == this.a.f29228d) {
+                if (i4 == this.a.f29598d) {
                     i4 = -1;
                 }
-                this.f29222c = i4;
+                this.f29592c = i4;
             }
             return true;
         }
@@ -134,16 +134,16 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a.b();
-            this.f29221b.F();
-            this.f29222c = -1;
-            this.f29224e = false;
+            this.f29591b.F();
+            this.f29592c = -1;
+            this.f29594e = false;
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            l lVar = this.f29221b;
+            l lVar = this.f29591b;
             byte[] bArr = lVar.a;
             if (bArr.length == 65025) {
                 return;

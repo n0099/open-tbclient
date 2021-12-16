@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BannerEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BannerEntity> CREATOR;
@@ -31,8 +31,8 @@ public class BannerEntity implements Parcelable {
     public String mLogExt;
     public int mSelected;
 
-    /* loaded from: classes8.dex */
-    public static class a implements Parcelable.Creator<BannerEntity> {
+    /* loaded from: classes10.dex */
+    public class a implements Parcelable.Creator<BannerEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,12 +123,9 @@ public class BannerEntity implements Parcelable {
                 liveBannerEntity.parserJson(jSONObject2);
                 bannerEntity.mBannerList.add(liveBannerEntity);
             }
-            if (bannerEntity.mBannerList.size() > 0) {
-                bannerEntity.mSelected = bannerEntity.mBannerList.size() * 1000;
-                bannerEntity.mLogExt = jSONObject.optString("log_ext", StringUtil.EMPTY_ARRAY);
-                return bannerEntity;
-            }
-            throw new JSONException("Empty banner_list");
+            bannerEntity.mSelected = bannerEntity.mBannerList.size() * 1000;
+            bannerEntity.mLogExt = jSONObject.optString("log_ext", StringUtil.EMPTY_ARRAY);
+            return bannerEntity;
         }
         return (BannerEntity) invokeL.objValue;
     }
@@ -153,12 +150,9 @@ public class BannerEntity implements Parcelable {
                 liveBannerEntity.parserJson(jSONObject2);
                 bannerEntity.mBannerList.add(liveBannerEntity);
             }
-            if (bannerEntity.mBannerList.size() > 0) {
-                bannerEntity.mSelected = bannerEntity.mBannerList.size() * 1000;
-                bannerEntity.mLogExt = jSONObject.optString("log_ext", StringUtil.EMPTY_ARRAY);
-                return bannerEntity;
-            }
-            throw new JSONException("Empty banner_list");
+            bannerEntity.mSelected = bannerEntity.mBannerList.size() * 1000;
+            bannerEntity.mLogExt = jSONObject.optString("log_ext", StringUtil.EMPTY_ARRAY);
+            return bannerEntity;
         }
         return (BannerEntity) invokeL.objValue;
     }

@@ -14,28 +14,28 @@ import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class d extends AsyncTask<Void, Void, a> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f62250h = "https://open.weixin.qq.com/connect/sdk/qrconnect?appid=%s&noncestr=%s&timestamp=%s&scope=%s&signature=%s";
+    public static String f62831h = "https://open.weixin.qq.com/connect/sdk/qrconnect?appid=%s&noncestr=%s&timestamp=%s&scope=%s&signature=%s";
     public transient /* synthetic */ FieldHolder $fh;
     public String appId;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f62251i;
+    public String f62832i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f62252j;
+    public String f62833j;
 
     /* renamed from: k  reason: collision with root package name */
-    public OAuthListener f62253k;
+    public OAuthListener f62834k;
     public f l;
     public String scope;
     public String signature;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,10 +152,10 @@ public final class d extends AsyncTask<Void, Void, a> {
         }
         this.appId = str;
         this.scope = str2;
-        this.f62251i = str3;
-        this.f62252j = str4;
+        this.f62832i = str3;
+        this.f62833j = str4;
         this.signature = str5;
-        this.f62253k = oAuthListener;
+        this.f62834k = oAuthListener;
     }
 
     public final boolean a() {
@@ -175,7 +175,7 @@ public final class d extends AsyncTask<Void, Void, a> {
     public final /* synthetic */ a doInBackground(Void[] voidArr) {
         Thread.currentThread().setName("OpenSdkGetQRCodeTask");
         Log.i("MicroMsg.SDK.GetQRCodeTask", "doInBackground");
-        String format = String.format(f62250h, this.appId, this.f62251i, this.f62252j, this.scope, this.signature);
+        String format = String.format(f62831h, this.appId, this.f62832i, this.f62833j, this.scope, this.signature);
         long currentTimeMillis = System.currentTimeMillis();
         byte[] a2 = e.a(format);
         Log.d("MicroMsg.SDK.GetQRCodeTask", String.format("doInBackground, url = %s, time consumed = %d(ms)", format, Long.valueOf(System.currentTimeMillis() - currentTimeMillis)));
@@ -189,12 +189,12 @@ public final class d extends AsyncTask<Void, Void, a> {
         OAuthErrCode oAuthErrCode = aVar2.m;
         if (oAuthErrCode != OAuthErrCode.WechatAuth_Err_OK) {
             Log.e("MicroMsg.SDK.GetQRCodeTask", String.format("onPostExecute, get qrcode fail, OAuthErrCode = %s", oAuthErrCode));
-            this.f62253k.onAuthFinish(aVar2.m, null);
+            this.f62834k.onAuthFinish(aVar2.m, null);
             return;
         }
         Log.d("MicroMsg.SDK.GetQRCodeTask", "onPostExecute, get qrcode success imgBufSize = " + aVar2.s.length);
-        this.f62253k.onAuthGotQrcode(aVar2.p, aVar2.s);
-        f fVar = new f(aVar2.n, this.f62253k);
+        this.f62834k.onAuthGotQrcode(aVar2.p, aVar2.s);
+        f fVar = new f(aVar2.n, this.f62834k);
         this.l = fVar;
         if (Build.VERSION.SDK_INT >= 11) {
             fVar.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);

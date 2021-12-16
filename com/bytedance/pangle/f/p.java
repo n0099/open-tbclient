@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class p extends r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54596b;
+    public int f55176b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(X509Certificate x509Certificate, byte[] bArr) {
@@ -36,7 +36,7 @@ public final class p extends r {
                 return;
             }
         }
-        this.f54596b = -1;
+        this.f55176b = -1;
         this.a = bArr;
     }
 
@@ -72,14 +72,14 @@ public final class p extends r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f54596b == -1) {
+            if (this.f55176b == -1) {
                 try {
-                    this.f54596b = Arrays.hashCode(getEncoded());
+                    this.f55176b = Arrays.hashCode(getEncoded());
                 } catch (CertificateEncodingException unused) {
-                    this.f54596b = 0;
+                    this.f55176b = 0;
                 }
             }
-            return this.f54596b;
+            return this.f55176b;
         }
         return invokeV.intValue;
     }

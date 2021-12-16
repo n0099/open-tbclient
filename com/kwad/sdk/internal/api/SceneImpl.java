@@ -17,7 +17,7 @@ import java.io.Serializable;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsScene, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 93865491903408451L;
@@ -414,13 +414,13 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         a aVar2 = new a();
         this.mKsAdLabel = aVar2;
         aVar2.a = aVar.a();
-        this.mKsAdLabel.f58643b = aVar.b();
-        this.mKsAdLabel.f58644c = aVar.c();
-        this.mKsAdLabel.f58645d = aVar.d();
-        this.mKsAdLabel.f58646e = aVar.e();
-        this.mKsAdLabel.f58647f = aVar.f();
-        this.mKsAdLabel.f58648g = aVar.g();
-        this.mKsAdLabel.f58649h = aVar.h();
+        this.mKsAdLabel.f59224b = aVar.b();
+        this.mKsAdLabel.f59225c = aVar.c();
+        this.mKsAdLabel.f59226d = aVar.d();
+        this.mKsAdLabel.f59227e = aVar.e();
+        this.mKsAdLabel.f59228f = aVar.f();
+        this.mKsAdLabel.f59229g = aVar.g();
+        this.mKsAdLabel.f59230h = aVar.h();
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -501,7 +501,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
             t.a(jSONObject, "height", this.height);
             a aVar = this.mKsAdLabel;
             if (aVar != null) {
-                long j2 = aVar.f58649h;
+                long j2 = aVar.f59230h;
                 if (j2 != 0) {
                     t.a(jSONObject, "cpmBidFloor", j2);
                 }

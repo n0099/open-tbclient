@@ -14,26 +14,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63342b;
+    public String f63923b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f63343c;
+    public com.yxcorp.kuaishou.addfp.a.b.b f63924c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f63344d;
+    public Context f63925d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CountDownLatch f63345e;
+    public CountDownLatch f63926e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ServiceConnection f63346f;
+    public ServiceConnection f63927f;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public final class d {
             }
         }
         this.a = null;
-        this.f63342b = null;
-        this.f63345e = new CountDownLatch(1);
-        this.f63346f = new e(this);
+        this.f63923b = null;
+        this.f63926e = new CountDownLatch(1);
+        this.f63927f = new e(this);
     }
 
     private void a(boolean z) {
@@ -61,7 +61,7 @@ public final class d {
                 try {
                     String b2 = b();
                     if (!TextUtils.isEmpty(b2)) {
-                        this.f63343c.a(b2);
+                        this.f63924c.a(b2);
                         return;
                     }
                 } catch (Throwable th) {
@@ -69,7 +69,7 @@ public final class d {
                     return;
                 }
             }
-            this.f63343c.e();
+            this.f63924c.e();
         }
     }
 
@@ -92,7 +92,7 @@ public final class d {
     public final void a(Context context) {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (serviceConnection = this.f63346f) == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (serviceConnection = this.f63927f) == null || context == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -102,15 +102,15 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             try {
-                this.f63343c = bVar;
-                this.f63344d = context;
+                this.f63924c = bVar;
+                this.f63925d = context;
                 Intent intent = new Intent();
                 intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-                if (!context.bindService(intent, this.f63346f, 1)) {
+                if (!context.bindService(intent, this.f63927f, 1)) {
                     a(false);
                     return;
                 }
-                this.f63345e.await(10L, TimeUnit.SECONDS);
+                this.f63926e.await(10L, TimeUnit.SECONDS);
                 if (this.a != null) {
                     a(true);
                 } else {

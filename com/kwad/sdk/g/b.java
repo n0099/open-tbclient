@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.core.MdidSdkHelper;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f58603b;
+    public static boolean f59184b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
     }
 
@@ -41,11 +41,11 @@ public class b {
     public static void a(Context context, a aVar) {
         long currentTimeMillis;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, aVar) == null) || context == null || f58603b) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, aVar) == null) || context == null || f59184b) {
             return;
         }
         if (!a()) {
-            f58603b = true;
+            f59184b = true;
         } else if (a) {
         } else {
             a = true;
@@ -56,7 +56,7 @@ public class b {
                     public final /* synthetic */ long a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f58604b;
+                    public final /* synthetic */ a f59185b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -74,13 +74,13 @@ public class b {
                             }
                         }
                         this.a = r6;
-                        this.f58604b = aVar;
+                        this.f59185b = aVar;
                     }
                 });
             } catch (Throwable th) {
                 String str2 = "[OADIDSDKHelper26]:oaid sdk not find " + th.getMessage();
                 a = false;
-                f58603b = true;
+                f59184b = true;
             }
         }
     }

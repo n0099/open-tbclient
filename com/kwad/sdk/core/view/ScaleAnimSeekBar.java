@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ScaleAnimSeekBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,34 +45,34 @@ public class ScaleAnimSeekBar extends View {
     public Paint a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57945b;
+    public int f58526b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57946c;
+    public int f58527c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f57947d;
+    public int f58528d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57948e;
+    public int f58529e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57949f;
+    public int f58530f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f57950g;
+    public int f58531g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57951h;
+    public int f58532h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57952i;
+    public int f58533i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f57953j;
+    public boolean f58534j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f57954k;
+    public int f58535k;
     public int l;
     public int m;
     public int n;
@@ -89,7 +89,7 @@ public class ScaleAnimSeekBar extends View {
     public Drawable y;
     public boolean z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(ScaleAnimSeekBar scaleAnimSeekBar);
 
@@ -159,8 +159,8 @@ public class ScaleAnimSeekBar extends View {
                 return;
             }
         }
-        this.f57950g = 100;
-        this.f57953j = false;
+        this.f58531g = 100;
+        this.f58534j = false;
         this.y = null;
         this.z = false;
         this.A = false;
@@ -179,9 +179,9 @@ public class ScaleAnimSeekBar extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) {
-            int i3 = this.f57954k;
-            int i4 = this.f57949f;
-            return ((i3 * (i2 - i4)) / (this.f57950g - i4)) - (i3 / 2.0f);
+            int i3 = this.f58535k;
+            int i4 = this.f58530f;
+            return ((i3 * (i2 - i4)) / (this.f58531g - i4)) - (i3 / 2.0f);
         }
         return invokeI.floatValue;
     }
@@ -191,7 +191,7 @@ public class ScaleAnimSeekBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65541, this, f2) == null) {
             Rect rect = this.x;
-            int i2 = this.f57948e;
+            int i2 = this.f58529e;
             rect.left = (int) (f2 - i2);
             rect.right = (int) (i2 + f2);
             this.v.right = (int) f2;
@@ -204,30 +204,30 @@ public class ScaleAnimSeekBar extends View {
         if (!(interceptable == null || interceptable.invokeII(65542, this, i2, i3) == null) || i2 <= 0 || i3 <= 0) {
             return;
         }
-        this.f57954k = this.F ? (int) (i2 - ((this.O * 2) * (this.L - this.K))) : i2 - (this.O * 2);
+        this.f58535k = this.F ? (int) (i2 - ((this.O * 2) * (this.L - this.K))) : i2 - (this.O * 2);
         Rect rect = this.u;
-        int i4 = -this.f57952i;
+        int i4 = -this.f58533i;
         rect.top = i4;
         rect.bottom = -i4;
-        rect.left = (this.f57953j ? -i2 : -this.f57954k) / 2;
-        this.u.right = this.f57953j ? i2 / 2 : this.f57954k / 2;
+        rect.left = (this.f58534j ? -i2 : -this.f58535k) / 2;
+        this.u.right = this.f58534j ? i2 / 2 : this.f58535k / 2;
         Rect rect2 = this.v;
-        int i5 = -this.f57952i;
+        int i5 = -this.f58533i;
         rect2.top = i5;
         rect2.bottom = -i5;
-        rect2.left = (this.f57953j ? -i2 : -this.f57954k) / 2;
+        rect2.left = (this.f58534j ? -i2 : -this.f58535k) / 2;
         Rect rect3 = this.v;
-        int i6 = this.f57954k;
+        int i6 = this.f58535k;
         rect3.right = (-i6) / 2;
         Rect rect4 = this.w;
-        rect4.top = -this.f57952i;
+        rect4.top = -this.f58533i;
         rect4.bottom = -rect3.top;
-        rect4.left = (this.f57953j ? -i2 : -i6) / 2;
+        rect4.left = (this.f58534j ? -i2 : -i6) / 2;
         Rect rect5 = this.w;
-        int i7 = this.f57954k;
+        int i7 = this.f58535k;
         rect5.right = (-i7) / 2;
         Rect rect6 = this.x;
-        int i8 = this.f57948e;
+        int i8 = this.f58529e;
         rect6.top = -i8;
         rect6.bottom = i8;
         rect6.left = ((-i7) / 2) - i8;
@@ -250,20 +250,20 @@ public class ScaleAnimSeekBar extends View {
             GradientDrawable gradientDrawable = new GradientDrawable();
             this.r = gradientDrawable;
             gradientDrawable.setShape(0);
-            this.r.setColor(this.f57945b);
+            this.r.setColor(this.f58526b);
             GradientDrawable gradientDrawable2 = new GradientDrawable();
             this.s = gradientDrawable2;
             gradientDrawable2.setShape(0);
-            this.s.setColor(this.f57946c);
+            this.s.setColor(this.f58527c);
             GradientDrawable gradientDrawable3 = new GradientDrawable();
             this.t = gradientDrawable3;
             gradientDrawable3.setShape(0);
-            this.t.setColor(this.f57947d);
+            this.t.setColor(this.f58528d);
             this.u = new Rect();
             this.v = new Rect();
             this.x = new Rect();
             this.w = new Rect();
-            this.m = this.f57949f;
+            this.m = this.f58530f;
         }
     }
 
@@ -276,7 +276,7 @@ public class ScaleAnimSeekBar extends View {
                 drawable.setBounds(this.x);
                 this.y.draw(canvas);
             } else {
-                this.a.setColor(this.f57946c);
+                this.a.setColor(this.f58527c);
                 canvas.drawCircle(this.x.centerX(), this.x.centerY(), (this.x.width() * this.K) / 2.0f, this.a);
             }
             canvas.restore();
@@ -294,7 +294,7 @@ public class ScaleAnimSeekBar extends View {
             rect2.left = rect.left;
             rect2.right = rect.right;
             gradientDrawable.setBounds(rect2);
-            gradientDrawable.setCornerRadius(this.f57951h * this.M);
+            gradientDrawable.setCornerRadius(this.f58532h * this.M);
             gradientDrawable.draw(canvas);
             canvas.restore();
         }
@@ -416,7 +416,7 @@ public class ScaleAnimSeekBar extends View {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(65549, this, f2)) == null) {
-            float f3 = this.f57954k / 2;
+            float f3 = this.f58535k / 2;
             if (f2 > f3) {
                 return f3;
             }
@@ -431,8 +431,8 @@ public class ScaleAnimSeekBar extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65551, this, i2)) == null) {
-            int i3 = this.f57954k;
-            return i2 > i3 / 2 ? this.f57950g : i2 < (-i3) / 2 ? this.f57949f : Math.round(((i2 + (i3 / 2.0f)) * (this.f57950g - this.f57949f)) / i3) + this.f57949f;
+            int i3 = this.f58535k;
+            return i2 > i3 / 2 ? this.f58531g : i2 < (-i3) / 2 ? this.f58530f : Math.round(((i2 + (i3 / 2.0f)) * (this.f58531g - this.f58530f)) / i3) + this.f58530f;
         }
         return invokeI.intValue;
     }
@@ -585,8 +585,8 @@ public class ScaleAnimSeekBar extends View {
     public void a(int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            int i3 = this.f57949f;
-            if (i2 <= i3 || i2 >= (i3 = this.f57950g)) {
+            int i3 = this.f58530f;
+            if (i2 <= i3 || i2 >= (i3 = this.f58531g)) {
                 i2 = i3;
             }
             a(z, i2);
@@ -609,18 +609,18 @@ public class ScaleAnimSeekBar extends View {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.F = true;
             this.O = com.kwad.sdk.a.kwai.a.a(context, 10.0f);
-            this.f57948e = com.kwad.sdk.a.kwai.a.a(context, 3.0f);
+            this.f58529e = com.kwad.sdk.a.kwai.a.a(context, 3.0f);
             this.l = com.kwad.sdk.a.kwai.a.a(context, 20.0f);
             this.y = null;
             this.G = false;
-            this.f57952i = com.kwad.sdk.a.kwai.a.a(context, 0.3f);
-            this.f57951h = com.kwad.sdk.a.kwai.a.a(context, 1.0f);
-            this.f57945b = 654311423;
-            this.f57946c = -1;
-            this.f57947d = 1090519039;
-            this.f57949f = 0;
-            this.f57950g = 100;
-            this.f57953j = false;
+            this.f58533i = com.kwad.sdk.a.kwai.a.a(context, 0.3f);
+            this.f58532h = com.kwad.sdk.a.kwai.a.a(context, 1.0f);
+            this.f58526b = 654311423;
+            this.f58527c = -1;
+            this.f58528d = 1090519039;
+            this.f58530f = 0;
+            this.f58531g = 100;
+            this.f58534j = false;
         }
     }
 
@@ -635,7 +635,7 @@ public class ScaleAnimSeekBar extends View {
     public int getMaxProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f57950g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58531g : invokeV.intValue;
     }
 
     public int getProgress() {
@@ -647,13 +647,13 @@ public class ScaleAnimSeekBar extends View {
     public int getProgressLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f57954k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f58535k : invokeV.intValue;
     }
 
     public int getProgressX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (int) (getX() + (this.f57948e * this.L)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (int) (getX() + (this.f58529e * this.L)) : invokeV.intValue;
     }
 
     public int getSecondaryProgress() {
@@ -766,14 +766,14 @@ public class ScaleAnimSeekBar extends View {
     public void setMaxProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f57950g = i2;
+            this.f58531g = i2;
         }
     }
 
     public void setMinProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f57949f = i2;
+            this.f58530f = i2;
             if (this.m < i2) {
                 this.m = i2;
             }
@@ -797,7 +797,7 @@ public class ScaleAnimSeekBar extends View {
     public void setProgressBackgroundColor(@ColorInt int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f57945b = i2;
+            this.f58526b = i2;
             this.r.setColor(i2);
         }
     }
@@ -805,7 +805,7 @@ public class ScaleAnimSeekBar extends View {
     public void setProgressColor(@ColorInt int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f57946c = i2;
+            this.f58527c = i2;
             this.s.setColor(i2);
         }
     }
@@ -813,8 +813,8 @@ public class ScaleAnimSeekBar extends View {
     public void setSecondaryProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            int i3 = this.f57949f;
-            if (i2 <= i3 || i2 >= (i3 = this.f57950g)) {
+            int i3 = this.f58530f;
+            if (i2 <= i3 || i2 >= (i3 = this.f58531g)) {
                 i2 = i3;
             }
             this.o = i2;
@@ -826,7 +826,7 @@ public class ScaleAnimSeekBar extends View {
     public void setSecondaryProgressColor(@ColorInt int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f57947d = i2;
+            this.f58528d = i2;
             this.t.setColor(i2);
         }
     }

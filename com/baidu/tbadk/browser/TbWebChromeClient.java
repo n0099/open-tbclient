@@ -14,9 +14,9 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.g;
-import c.a.d.f.p.k;
-import c.a.q0.t.c.c0;
-import c.a.r0.t3.n0.c;
+import c.a.d.f.p.l;
+import c.a.r0.t.c.c0;
+import c.a.s0.v3.n0.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class TbWebChromeClient extends WebChromeClient {
 
     private void callJsMethod(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, this, webView, str, str2) == null) || webView == null || k.isEmpty(str) || k.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65537, this, webView, str, str2) == null) || webView == null || l.isEmpty(str) || l.isEmpty(str2)) {
             return;
         }
         if (Build.VERSION.SDK_INT >= 19) {
@@ -133,8 +133,8 @@ public class TbWebChromeClient extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
             if (!c0.a(str) && str2.startsWith("tiebaapp")) {
-                c.a.r0.t3.n0.d.c cVar2 = new c.a.r0.t3.n0.d.c();
-                cVar2.v(c.a.r0.t3.n0.d.g.b(str2));
+                c.a.s0.v3.n0.d.c cVar2 = new c.a.s0.v3.n0.d.c();
+                cVar2.v(c.a.s0.v3.n0.d.g.b(str2));
                 cVar2.x(301);
                 callJsMethod(webView, cVar2.c(), cVar2.d());
             }

@@ -13,41 +13,41 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32846b;
+    public String f33216b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32847c;
+    public String f33217c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32848d;
+    public String f33218d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f32849e;
+    public String f33219e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32850f;
+    public String f33220f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32851g;
+    public String f33221g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f32852h;
+    public String f33222h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f32853i;
+    public String f33223i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f32854j;
+    public String f33224j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f32855k;
+    public int f33225k;
     public String l;
     public String m;
 
@@ -72,18 +72,18 @@ public class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             PublicMsg publicMsg = new PublicMsg();
             try {
-                publicMsg.mMsgId = this.f32854j;
-                publicMsg.mAppId = this.f32853i;
-                if (TextUtils.isEmpty(this.f32851g) && TextUtils.isEmpty(this.f32852h)) {
-                    publicMsg.mTitle = this.f32849e;
-                    publicMsg.mDescription = this.f32850f;
+                publicMsg.mMsgId = this.f33224j;
+                publicMsg.mAppId = this.f33223i;
+                if (TextUtils.isEmpty(this.f33221g) && TextUtils.isEmpty(this.f33222h)) {
+                    publicMsg.mTitle = this.f33219e;
+                    publicMsg.mDescription = this.f33220f;
                     publicMsg.mUrl = this.a;
-                    str = this.f32847c;
+                    str = this.f33217c;
                 } else {
-                    publicMsg.mTitle = this.f32851g;
-                    publicMsg.mDescription = this.f32852h;
-                    publicMsg.mUrl = this.f32846b;
-                    str = this.f32848d;
+                    publicMsg.mTitle = this.f33221g;
+                    publicMsg.mDescription = this.f33222h;
+                    publicMsg.mUrl = this.f33216b;
+                    str = this.f33218d;
                 }
                 publicMsg.mPkgContent = str;
                 return publicMsg;
@@ -134,13 +134,13 @@ public class i {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     if (!jSONObject.isNull("Appid")) {
-                        this.f32853i = jSONObject.getString("Appid");
+                        this.f33223i = jSONObject.getString("Appid");
                     }
                     if (!jSONObject.isNull("Msgid")) {
-                        this.f32854j = jSONObject.getString("Msgid");
+                        this.f33224j = jSONObject.getString("Msgid");
                     }
                     if (!jSONObject.isNull("Type")) {
-                        this.f32855k = jSONObject.getInt("Type");
+                        this.f33225k = jSONObject.getInt("Type");
                     }
                     if (!jSONObject.isNull("msgBody")) {
                         this.l = jSONObject.getString("msgBody");

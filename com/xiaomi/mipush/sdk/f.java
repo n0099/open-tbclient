@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hk;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f implements AbstractPushManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile f a;
@@ -92,38 +92,38 @@ public class f implements AbstractPushManager {
         if (this.f95a.getOpenFCMPush()) {
             StringBuilder sb2 = new StringBuilder();
             sb2.append("ASSEMBLE_PUSH : ");
-            sb2.append(" FCM user switch : " + this.f95a.getOpenFCMPush() + " FCM online switch : " + i.m185a(this.f94a, e.f62703b) + " FCM isSupport : " + n.m188a(this.f94a));
+            sb2.append(" FCM user switch : " + this.f95a.getOpenFCMPush() + " FCM online switch : " + i.m185a(this.f94a, e.f63284b) + " FCM isSupport : " + n.m188a(this.f94a));
             com.xiaomi.channel.commonutils.logger.b.m122a(sb2.toString());
         }
-        if (this.f95a.getOpenFCMPush() && i.m185a(this.f94a, e.f62703b) && n.m188a(this.f94a)) {
-            if (!m181a(e.f62703b)) {
-                e eVar2 = e.f62703b;
+        if (this.f95a.getOpenFCMPush() && i.m185a(this.f94a, e.f63284b) && n.m188a(this.f94a)) {
+            if (!m181a(e.f63284b)) {
+                e eVar2 = e.f63284b;
                 a(eVar2, aj.a(this.f94a, eVar2));
             }
             com.xiaomi.channel.commonutils.logger.b.c("fcm manager add to list");
-        } else if (m181a(e.f62703b) && (a3 = a(e.f62703b)) != null) {
-            m180a(e.f62703b);
+        } else if (m181a(e.f63284b) && (a3 = a(e.f63284b)) != null) {
+            m180a(e.f63284b);
             a3.unregister();
         }
         if (this.f95a.getOpenCOSPush()) {
             StringBuilder sb3 = new StringBuilder();
             sb3.append("ASSEMBLE_PUSH : ");
-            sb3.append(" COS user switch : " + this.f95a.getOpenCOSPush() + " COS online switch : " + i.m185a(this.f94a, e.f62704c) + " COS isSupport : " + n.b(this.f94a));
+            sb3.append(" COS user switch : " + this.f95a.getOpenCOSPush() + " COS online switch : " + i.m185a(this.f94a, e.f63285c) + " COS isSupport : " + n.b(this.f94a));
             com.xiaomi.channel.commonutils.logger.b.m122a(sb3.toString());
         }
-        if (this.f95a.getOpenCOSPush() && i.m185a(this.f94a, e.f62704c) && n.b(this.f94a)) {
-            e eVar3 = e.f62704c;
+        if (this.f95a.getOpenCOSPush() && i.m185a(this.f94a, e.f63285c) && n.b(this.f94a)) {
+            e eVar3 = e.f63285c;
             a(eVar3, aj.a(this.f94a, eVar3));
-        } else if (m181a(e.f62704c) && (a4 = a(e.f62704c)) != null) {
-            m180a(e.f62704c);
+        } else if (m181a(e.f63285c) && (a4 = a(e.f63285c)) != null) {
+            m180a(e.f63285c);
             a4.unregister();
         }
-        if (this.f95a.getOpenFTOSPush() && i.m185a(this.f94a, e.f62705d) && n.c(this.f94a)) {
-            e eVar4 = e.f62705d;
+        if (this.f95a.getOpenFTOSPush() && i.m185a(this.f94a, e.f63286d) && n.c(this.f94a)) {
+            e eVar4 = e.f63286d;
             a(eVar4, aj.a(this.f94a, eVar4));
-        } else if (!m181a(e.f62705d) || (a5 = a(e.f62705d)) == null) {
+        } else if (!m181a(e.f63286d) || (a5 = a(e.f63286d)) == null) {
         } else {
-            m180a(e.f62705d);
+            m180a(e.f63286d);
             a5.unregister();
         }
     }

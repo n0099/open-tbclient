@@ -7,44 +7,44 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29177b;
+    public final int f29547b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f29178c;
+    public final long f29548c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f29179d;
+    public final long f29549d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f29180e;
+    public final long f29550e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Format f29181f;
+    public final Format f29551f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f29182g;
+    public final int f29552g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final long[] f29183h;
+    public final long[] f29553h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final long[] f29184i;
+    public final long[] f29554i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f29185j;
+    public final int f29555j;
     @Nullable
 
     /* renamed from: k  reason: collision with root package name */
-    public final k[] f29186k;
+    public final k[] f29556k;
 
     public j(int i2, int i3, long j2, long j3, long j4, Format format, int i4, @Nullable k[] kVarArr, int i5, @Nullable long[] jArr, @Nullable long[] jArr2) {
         Interceptable interceptable = $ic;
@@ -62,23 +62,23 @@ public final class j {
             }
         }
         this.a = i2;
-        this.f29177b = i3;
-        this.f29178c = j2;
-        this.f29179d = j3;
-        this.f29180e = j4;
-        this.f29181f = format;
-        this.f29182g = i4;
-        this.f29186k = kVarArr;
-        this.f29185j = i5;
-        this.f29183h = jArr;
-        this.f29184i = jArr2;
+        this.f29547b = i3;
+        this.f29548c = j2;
+        this.f29549d = j3;
+        this.f29550e = j4;
+        this.f29551f = format;
+        this.f29552g = i4;
+        this.f29556k = kVarArr;
+        this.f29555j = i5;
+        this.f29553h = jArr;
+        this.f29554i = jArr2;
     }
 
     public k a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            k[] kVarArr = this.f29186k;
+            k[] kVarArr = this.f29556k;
             if (kVarArr == null) {
                 return null;
             }

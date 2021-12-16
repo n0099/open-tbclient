@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
 import org.apache.commons.lang3.ClassUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RecursiveToStringStyle extends ToStringStyle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;

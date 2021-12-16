@@ -20,31 +20,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class n implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AndroidLiveWallpaperService f27430e;
+    public AndroidLiveWallpaperService f27805e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f27431f;
+    public l f27806f;
 
     /* renamed from: g  reason: collision with root package name */
-    public m f27432g;
+    public m f27807g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f27433h;
+    public d f27808h;
 
     /* renamed from: i  reason: collision with root package name */
-    public h f27434i;
+    public h f27809i;
 
     /* renamed from: j  reason: collision with root package name */
-    public q f27435j;
+    public q f27810j;
 
     /* renamed from: k  reason: collision with root package name */
-    public c.b.b.c f27436k;
+    public c.b.b.c f27811k;
     public boolean l;
     public final c.b.b.q.a<Runnable> m;
     public final c.b.b.q.a<Runnable> n;
@@ -90,7 +90,7 @@ public class n implements a {
         this.o = new g0<>(c.b.b.h.class);
         this.p = 2;
         this.r = null;
-        this.f27430e = androidLiveWallpaperService;
+        this.f27805e = androidLiveWallpaperService;
     }
 
     public d a(Context context, b bVar) {
@@ -112,7 +112,7 @@ public class n implements a {
     public m c(Application application, Context context, Object obj, b bVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, application, context, obj, bVar)) == null) ? new z(this, e(), this.f27431f.f27421e, bVar) : (m) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, application, context, obj, bVar)) == null) ? new z(this, e(), this.f27806f.f27796e, bVar) : (m) invokeLLLL.objValue;
     }
 
     public c.b.b.d d() {
@@ -133,7 +133,7 @@ public class n implements a {
     public AndroidLiveWallpaperService e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27430e : (AndroidLiveWallpaperService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27805e : (AndroidLiveWallpaperService) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Application
@@ -160,17 +160,17 @@ public class n implements a {
                 if (cVar2 == null) {
                     cVar2 = new c.b.b.l.a.b0.a();
                 }
-                this.f27431f = new l(this, bVar, cVar2);
-                this.f27432g = c(this, e(), this.f27431f.f27421e, bVar);
-                this.f27433h = a(e(), bVar);
-                this.f27434i = b();
-                this.f27435j = new q(this, bVar);
-                this.f27436k = cVar;
+                this.f27806f = new l(this, bVar, cVar2);
+                this.f27807g = c(this, e(), this.f27806f.f27796e, bVar);
+                this.f27808h = a(e(), bVar);
+                this.f27809i = b();
+                this.f27810j = new q(this, bVar);
+                this.f27811k = cVar;
                 new e(e());
                 c.b.b.f.a = this;
-                c.b.b.f.f27321c = this.f27433h;
-                c.b.b.f.f27322d = this.f27434i;
-                c.b.b.f.f27320b = this.f27431f;
+                c.b.b.f.f27696c = this.f27808h;
+                c.b.b.f.f27697d = this.f27809i;
+                c.b.b.f.f27695b = this.f27806f;
                 return;
             }
             throw new GdxRuntimeException("LibGDX requires Android API Level 14 or later.");
@@ -181,7 +181,7 @@ public class n implements a {
     public c.b.b.c getApplicationListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27436k : (c.b.b.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27811k : (c.b.b.c) invokeV.objValue;
     }
 
     @Override // c.b.b.l.a.a
@@ -198,7 +198,7 @@ public class n implements a {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f27430e : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f27805e : (Context) invokeV.objValue;
     }
 
     @Override // c.b.b.l.a.a
@@ -212,7 +212,7 @@ public class n implements a {
     public Graphics getGraphics() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f27431f : (Graphics) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f27806f : (Graphics) invokeV.objValue;
     }
 
     @Override // c.b.b.l.a.a
@@ -229,7 +229,7 @@ public class n implements a {
     public m getInput() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f27432g : (m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f27807g : (m) invokeV.objValue;
     }
 
     @Override // c.b.b.l.a.a
@@ -257,17 +257,17 @@ public class n implements a {
     public WindowManager getWindowManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f27430e.getWindowManager() : (WindowManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f27805e.getWindowManager() : (WindowManager) invokeV.objValue;
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            l lVar = this.f27431f;
+            l lVar = this.f27806f;
             if (lVar != null) {
                 lVar.z();
             }
-            d dVar = this.f27433h;
+            d dVar = this.f27808h;
             if (dVar != null) {
                 dVar.dispose();
             }
@@ -278,9 +278,9 @@ public class n implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             boolean z = AndroidLiveWallpaperService.DEBUG;
-            this.f27433h.pause();
-            this.f27432g.onPause();
-            l lVar = this.f27431f;
+            this.f27808h.pause();
+            this.f27807g.onPause();
+            l lVar = this.f27806f;
             if (lVar != null) {
                 lVar.p();
             }
@@ -292,18 +292,18 @@ public class n implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             c.b.b.f.a = this;
-            m mVar = this.f27432g;
-            c.b.b.f.f27321c = this.f27433h;
-            c.b.b.f.f27322d = this.f27434i;
-            c.b.b.f.f27320b = this.f27431f;
+            m mVar = this.f27807g;
+            c.b.b.f.f27696c = this.f27808h;
+            c.b.b.f.f27697d = this.f27809i;
+            c.b.b.f.f27695b = this.f27806f;
             mVar.onResume();
-            l lVar = this.f27431f;
+            l lVar = this.f27806f;
             if (lVar != null) {
                 lVar.q();
             }
             if (!this.l) {
-                this.f27433h.resume();
-                this.f27431f.t();
+                this.f27808h.resume();
+                this.f27806f.t();
                 return;
             }
             this.l = false;
@@ -339,7 +339,7 @@ public class n implements a {
     public void startActivity(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, intent) == null) {
-            this.f27430e.startActivity(intent);
+            this.f27805e.startActivity(intent);
         }
     }
 

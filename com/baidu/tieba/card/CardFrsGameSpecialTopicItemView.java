@@ -23,41 +23,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f43242e;
+    public RelativeLayout f43733e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f43243f;
+    public TbImageView f43734f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f43244g;
+    public TextView f43735g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f43245h;
+    public TextView f43736h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f43246i;
+    public TextView f43737i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f43247j;
+    public View f43738j;
 
     /* renamed from: k  reason: collision with root package name */
-    public View f43248k;
+    public View f43739k;
     public String l;
     public int mSkinType;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardFrsGameSpecialTopicItemView f43249e;
+        public final /* synthetic */ CardFrsGameSpecialTopicItemView f43740e;
 
         public a(CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView) {
             Interceptable interceptable = $ic;
@@ -74,15 +74,15 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
                     return;
                 }
             }
-            this.f43249e = cardFrsGameSpecialTopicItemView;
+            this.f43740e = cardFrsGameSpecialTopicItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag() instanceof String)) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 5).param("fid", this.f43249e.l));
-                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f43249e.getContext()), new String[]{(String) view.getTag()}, true);
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 5).param("fid", this.f43740e.l));
+                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f43740e.getContext()), new String[]{(String) view.getTag()}, true);
             }
         }
     }
@@ -113,18 +113,18 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
-            this.f43242e = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
-            this.f43243f = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
-            this.f43244g = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
-            this.f43245h = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
-            this.f43246i = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
-            this.f43247j = findViewById(R.id.divider_line_1);
-            this.f43248k = findViewById(R.id.divider_line_2);
+            this.f43733e = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
+            this.f43734f = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
+            this.f43735g = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
+            this.f43736h = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
+            this.f43737i = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
+            this.f43738j = findViewById(R.id.divider_line_1);
+            this.f43739k = findViewById(R.id.divider_line_2);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f43242e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f43733e.getLayoutParams();
             layoutParams.width = (dimensionPixelSize * 21) / 9;
             layoutParams.height = dimensionPixelSize;
-            this.f43242e.setLayoutParams(layoutParams);
+            this.f43733e.setLayoutParams(layoutParams);
             setOrientation(1);
             setFocusable(true);
             setClickable(true);
@@ -136,25 +136,25 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     public TextView getSpecialTopicDscView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43245h : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43736h : (TextView) invokeV.objValue;
     }
 
     public TextView getSpecialTopicNameView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43244g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43735g : (TextView) invokeV.objValue;
     }
 
     public TbImageView getSpecialTopicPicView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43243f : (TbImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43734f : (TbImageView) invokeV.objValue;
     }
 
     public TextView getSpecialTopicUpdateTimeView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43246i : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43737i : (TextView) invokeV.objValue;
     }
 
     public void onChangeSkinType(int i2) {
@@ -163,11 +163,11 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
             return;
         }
         this.mSkinType = i2;
-        SkinManager.setBackgroundResource(this.f43247j, R.color.CAM_X0205);
-        SkinManager.setBackgroundResource(this.f43248k, R.color.CAM_X0205);
-        SkinManager.setViewTextColor(this.f43244g, R.color.CAM_X0101, 1);
-        SkinManager.setViewTextColor(this.f43245h, R.color.CAM_X0101, 1);
-        SkinManager.setViewTextColor(this.f43246i, R.color.CAM_X0101, 1);
+        SkinManager.setBackgroundResource(this.f43738j, R.color.CAM_X0205);
+        SkinManager.setBackgroundResource(this.f43739k, R.color.CAM_X0205);
+        SkinManager.setViewTextColor(this.f43735g, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f43736h, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f43737i, R.color.CAM_X0101, 1);
     }
 
     public void setForumId(String str) {

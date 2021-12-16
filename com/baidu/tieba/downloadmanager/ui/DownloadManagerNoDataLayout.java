@@ -7,8 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.l;
-import c.a.q0.s.u.c;
+import c.a.d.f.p.m;
+import c.a.r0.s.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class DownloadManagerNoDataLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f43401e;
+    public ImageView f43892e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f43402f;
+    public TextView f43893f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43403g;
+    public String f43894g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DownloadManagerNoDataLayout(@NonNull Context context) {
@@ -56,20 +56,20 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            setLayoutParams(new LinearLayout.LayoutParams(-1, l.f(context, R.dimen.tbds496)));
+            setLayoutParams(new LinearLayout.LayoutParams(-1, m.f(context, R.dimen.tbds496)));
             ImageView imageView = new ImageView(context);
-            this.f43401e = imageView;
+            this.f43892e = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(l.f(context, R.dimen.tbds177), l.f(context, R.dimen.tbds177));
-            layoutParams.setMargins(0, l.f(context, R.dimen.tbds133), 0, 0);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(m.f(context, R.dimen.tbds177), m.f(context, R.dimen.tbds177));
+            layoutParams.setMargins(0, m.f(context, R.dimen.tbds133), 0, 0);
             layoutParams.gravity = 1;
-            addView(this.f43401e, layoutParams);
-            this.f43402f = new TextView(context);
+            addView(this.f43892e, layoutParams);
+            this.f43893f = new TextView(context);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.setMargins(0, l.f(context, R.dimen.tbds34), 0, 0);
-            this.f43402f.setGravity(17);
-            addView(this.f43402f, layoutParams2);
-            this.f43403g = TbadkCoreApplication.getInst().getString(R.string.content_no_data);
+            layoutParams2.setMargins(0, m.f(context, R.dimen.tbds34), 0, 0);
+            this.f43893f.setGravity(17);
+            addView(this.f43893f, layoutParams2);
+            this.f43894g = TbadkCoreApplication.getInst().getString(R.string.content_no_data);
             onChangeSkinType();
         }
     }
@@ -78,8 +78,8 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setBackground(null);
-            SkinManager.setImageResource(this.f43401e, R.drawable.im_no_data_icon);
-            c d2 = c.d(this.f43402f);
+            SkinManager.setImageResource(this.f43892e, R.drawable.im_no_data_icon);
+            c d2 = c.d(this.f43893f);
             d2.v(R.color.CAM_X0110);
             d2.z(R.dimen.T_X08);
         }
@@ -88,7 +88,7 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
     public void setNoDataText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f43402f.setText(String.format(this.f43403g, TbadkCoreApplication.getInst().getString(i2)));
+            this.f43893f.setText(String.format(this.f43894g, TbadkCoreApplication.getInst().getString(i2)));
         }
     }
 

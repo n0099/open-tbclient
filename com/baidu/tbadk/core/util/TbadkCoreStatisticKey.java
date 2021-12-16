@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TbadkCoreStatisticKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FOLLOW_LIVE_LIVE_ITEM_CLICK = "c12677";
@@ -96,6 +96,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_FROM_FRS_VOICE_ROOM_LIST_ITEM_EXPOSE = "c14460";
     public static final String KEY_FROM_FRS_VOICE_ROOM_LIST_PAGE_ENTER = "c14459";
     public static final String KEY_FROM_VIDEO_MIDDLE_AUTO_PLAY = "c14473";
+    public static final String KEY_FROM_VIDEO_MIDDLE_PTS = "c14495";
     public static final String KEY_FROM_VIDEO_ROLLBACK = "c14471";
     public static final String KEY_FRS_AD_LIST_ITEM_CLICK = "c13194";
     public static final String KEY_H5_OFFLINE_PACKAGE_DOWNLOAD = "c13435";
@@ -165,6 +166,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_VIDEO_ACCOUNT_CLICK = "c14183";
     public static final String KEY_VIDEO_ACCOUNT_EXPOSURE = "c14198";
     public static final String KEY_VIDEO_ACCOUNT_PROGRESS_CLICK = "c14184";
+    public static final String KEY_VIDEO_FROM_OUTSIDE = "c14304";
     public static final String KEY_VIDEO_SHARE_SUCCESS = "c14181";
     public static final String KEY_VIDEO_SPLASH_SKIP = "c12946";
     public static final String KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK = "c14302";
@@ -224,7 +226,7 @@ public class TbadkCoreStatisticKey {
     public static final String YULE_GAME_EAST_EGG_VIEW = "c10852";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class AntiLocateValue {
         public static /* synthetic */ Interceptable $ic = null;
         public static int LOCATE_CHAT = 6;

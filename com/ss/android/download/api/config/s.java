@@ -1,5 +1,5 @@
 package com.ss.android.download.api.config;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface s {
     void a();
 

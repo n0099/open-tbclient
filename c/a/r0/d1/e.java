@@ -1,112 +1,99 @@
 package c.a.r0.d1;
 
-import c.a.q0.s.q.c2;
-import c.a.q0.s.q.d2;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
-public class e implements n0 {
+/* loaded from: classes6.dex */
+public class e {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<n0> a;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static e f12195c;
+    public transient /* synthetic */ FieldHolder $fh;
+    public c.a.r0.t.c.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final n0 f15467b;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1781989261, "Lc/a/r0/d1/e;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1781989261, "Lc/a/r0/d1/e;");
-                return;
-            }
-        }
-        a = new AtomicReference<>(null);
-        f15467b = new e();
-    }
+    public ABTestExtraData f12196b;
 
     public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static n0 e() {
+    public static e d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            n0 n0Var = a.get();
-            return n0Var == null ? f15467b : n0Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f12195c == null) {
+                synchronized (e.class) {
+                    if (f12195c == null) {
+                        f12195c = new e();
+                    }
+                }
+            }
+            return f12195c;
         }
-        return (n0) invokeV.objValue;
+        return (e) invokeV.objValue;
     }
 
-    @Override // c.a.r0.d1.n0
-    public c.a.d.m.e.a<? extends c2, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        InterceptResult invokeLLZ;
+    public final void a(c.a.r0.t.c.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            boolean z = aVar == null || this.a == null || aVar.a() != this.a.a();
+            this.a = aVar;
+            if (z) {
+                b("zan_or_cai_smallflow");
+            }
         }
-        return (c.a.d.m.e.a) invokeLLZ.objValue;
     }
 
-    @Override // c.a.r0.d1.n0
-    public k<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
         }
-        return (k) invokeLLL.objValue;
     }
 
-    @Override // c.a.r0.d1.n0
-    public c.a.d.m.e.a<? extends d2, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        InterceptResult invokeCommon;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f12196b == null) {
+                ABTestExtraData aBTestExtraData = new ABTestExtraData();
+                this.f12196b = aBTestExtraData;
+                aBTestExtraData.parserABTestExtraFormSharedPref();
+            }
+            return this.f12196b.getABTestResult();
         }
-        return (c.a.d.m.e.a) invokeCommon.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.d1.n0
-    public c.a.d.m.e.a<? extends d2, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
+    public void e(c.a.r0.t.c.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            a(aVar);
         }
-        return (c.a.d.m.e.a) invokeLLL.objValue;
+    }
+
+    public void f(ABTestExtraData aBTestExtraData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
+            this.f12196b = aBTestExtraData;
+        }
     }
 }

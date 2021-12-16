@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends g implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63544c;
+    public String f64125c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class d extends g implements b {
                 return;
             }
         }
-        this.f63544c = ProxyConfig.MATCH_ALL_SCHEMES;
+        this.f64125c = ProxyConfig.MATCH_ALL_SCHEMES;
     }
 
     @Override // h.b.i.b
@@ -36,7 +36,7 @@ public class d extends g implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (str != null) {
-                this.f63544c = str;
+                this.f64125c = str;
                 return;
             }
             throw new IllegalArgumentException("http resource descriptor must not be null");
@@ -47,6 +47,6 @@ public class d extends g implements b {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63544c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64125c : (String) invokeV.objValue;
     }
 }

@@ -53,41 +53,41 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumberPwdView.OnPwdChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f53805b;
+    public View f54385b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f53806c;
+    public TextView f54386c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f53807d;
+    public TextView f54387d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SixNumberPwdView f53808e;
+    public SixNumberPwdView f54388e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f53809f;
+    public TextView f54389f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f53810g;
+    public View f54390g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SafeKeyBoardEditText f53811h;
+    public SafeKeyBoardEditText f54391h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f53812i;
+    public TextView f54392i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SafeScrollView f53813j;
+    public SafeScrollView f54393j;
 
     /* renamed from: k  reason: collision with root package name */
-    public RelativeLayout f53814k;
+    public RelativeLayout f54394k;
     public PwdRequest l;
     public BindFastRequest m;
     public PayRequest n;
@@ -122,7 +122,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.f53809f.setVisibility(8);
+            this.f54389f.setVisibility(8);
         }
     }
 
@@ -278,7 +278,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     private void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            this.f53808e.resetPwd();
+            this.f54388e.resetPwd();
             b();
         }
     }
@@ -286,7 +286,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     public String getPwdConfirm() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53808e.getPwd() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54388e.getPwd() : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.dxmpay.wallet.core.beans.BeanActivity
@@ -515,11 +515,11 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
             PayRequestCache.getInstance().addBeanRequestToCache(this.l.getRequestId(), this.l);
             setContentView(ResUtils.layout(this, "wallet_cashdesk_setandconfirm_pwd_activity"));
             getWindow().setSoftInputMode(2);
-            this.f53813j = (SafeScrollView) findViewById(ResUtils.id(this, "scrollview"));
-            this.f53814k = (RelativeLayout) findViewById(ResUtils.id(this, "root_view"));
+            this.f54393j = (SafeScrollView) findViewById(ResUtils.id(this, "scrollview"));
+            this.f54394k = (RelativeLayout) findViewById(ResUtils.id(this, "root_view"));
             a(string, string2);
             initActionBar("ebpay_set_phone_paycode");
-            setSafeScrollView(this.f53813j);
+            setSafeScrollView(this.f54393j);
             BindFastRequest bindFastRequest2 = this.m;
             if (bindFastRequest2 != null && bindFastRequest2.getmBindFrom() == 1) {
                 setFlagActiveBindCard();
@@ -730,7 +730,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
                     public final /* synthetic */ PromptDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ PwdSetAndConfirmActivity f53816b;
+                    public final /* synthetic */ PwdSetAndConfirmActivity f54396b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -747,7 +747,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
                                 return;
                             }
                         }
-                        this.f53816b = this;
+                        this.f54396b = this;
                         this.a = promptDialog4;
                     }
 
@@ -774,7 +774,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
                 this.l.mPayPass = getPwdConfirm();
                 this.l.mConfirmPayPass = getPwdConfirm();
                 c();
-            } else if (i2 <= 0 || this.f53805b.getVisibility() != 0) {
+            } else if (i2 <= 0 || this.f54385b.getVisibility() != 0) {
             } else {
                 b();
             }
@@ -804,7 +804,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             super.onWindowFocusChanged(z);
-            if (!z || (safeKeyBoardEditText = this.f53811h) == null) {
+            if (!z || (safeKeyBoardEditText = this.f54391h) == null) {
                 return;
             }
             safeKeyBoardEditText.requestFocus();
@@ -814,7 +814,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     public void resetPwdConfirm() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f53808e.resetPwd();
+            this.f54388e.resetPwd();
         }
     }
 
@@ -848,16 +848,16 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2) == null) {
-            this.f53805b = findViewById(ResUtils.id(this, "layout_confirm"));
-            this.f53806c = (TextView) findViewById(ResUtils.id(this, "pwd_tip_confirm"));
-            this.f53807d = (TextView) findViewById(ResUtils.id(this, "pwd_tip_sub"));
+            this.f54385b = findViewById(ResUtils.id(this, "layout_confirm"));
+            this.f54386c = (TextView) findViewById(ResUtils.id(this, "pwd_tip_confirm"));
+            this.f54387d = (TextView) findViewById(ResUtils.id(this, "pwd_tip_sub"));
             SixNumberPwdView sixNumberPwdView = (SixNumberPwdView) findViewById(ResUtils.id(this, "pwd_input_box_confirm"));
-            this.f53808e = sixNumberPwdView;
+            this.f54388e = sixNumberPwdView;
             sixNumberPwdView.setShowInputMethod(true);
-            this.f53810g = findViewById(ResUtils.id(this, "error_area_confirm"));
-            this.f53809f = (TextView) findViewById(ResUtils.id(this, "error_tip_confirm"));
+            this.f54390g = findViewById(ResUtils.id(this, "error_area_confirm"));
+            this.f54389f = (TextView) findViewById(ResUtils.id(this, "error_tip_confirm"));
             TextView textView = (TextView) findViewById(ResUtils.id(this, "what_is_pay_password"));
-            this.f53812i = textView;
+            this.f54392i = textView;
             textView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdSetAndConfirmActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -890,21 +890,21 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
                 }
             });
             b();
-            this.f53808e.addSixNumberPwdChangedListenter(this);
-            SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f53808e.findViewById(ResUtils.id(getActivity(), "pwd_input"));
-            this.f53811h = safeKeyBoardEditText;
-            safeKeyBoardEditText.initSafeKeyBoardParams(this.f53814k, this.f53813j, this.f53805b, false);
-            this.f53811h.setGap(20);
-            this.f53806c.setText(str);
-            this.f53807d.setText(str2);
-            this.f53811h.setDisablePast(true);
-            this.f53811h.addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.paysdk.ui.PwdSetAndConfirmActivity.2
+            this.f54388e.addSixNumberPwdChangedListenter(this);
+            SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f54388e.findViewById(ResUtils.id(getActivity(), "pwd_input"));
+            this.f54391h = safeKeyBoardEditText;
+            safeKeyBoardEditText.initSafeKeyBoardParams(this.f54394k, this.f54393j, this.f54385b, false);
+            this.f54391h.setGap(20);
+            this.f54386c.setText(str);
+            this.f54387d.setText(str2);
+            this.f54391h.setDisablePast(true);
+            this.f54391h.addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.paysdk.ui.PwdSetAndConfirmActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PwdSetAndConfirmActivity a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public boolean f53815b;
+                public boolean f54395b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -922,7 +922,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
                         }
                     }
                     this.a = this;
-                    this.f53815b = false;
+                    this.f54395b = false;
                 }
 
                 @Override // android.text.TextWatcher
@@ -942,11 +942,11 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
                 @Override // android.text.TextWatcher
                 public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) || this.f53815b) {
+                    if (!(interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) || this.f54395b) {
                         return;
                     }
                     StatisticManager.onEventWithValues("clickConfirmPwd", this.a.a());
-                    this.f53815b = true;
+                    this.f54395b = true;
                 }
             });
         }
@@ -956,11 +956,11 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.f53809f.setVisibility(8);
+                this.f54389f.setVisibility(8);
                 return;
             }
-            this.f53809f.setVisibility(0);
-            this.f53809f.setText(str);
+            this.f54389f.setVisibility(0);
+            this.f54389f.setText(str);
         }
     }
 }

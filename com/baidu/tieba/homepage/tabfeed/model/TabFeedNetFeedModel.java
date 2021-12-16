@@ -1,9 +1,10 @@
 package com.baidu.tieba.homepage.tabfeed.model;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.s.q.d2;
-import c.a.r0.n1.j.e;
-import c.a.r0.n1.j.f;
+import c.a.r0.s.r.d2;
+import c.a.s0.o1.j.e;
+import c.a.s0.o1.j.f;
+import c.a.s0.o1.j.h.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -22,34 +23,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class TabFeedNetFeedModel extends BdBaseModel implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f45421e;
+    public boolean f45912e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f45422f;
+    public boolean f45913f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45423g;
+    public int f45914g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f45424h;
+    public String f45915h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f45425i;
+    public String f45916i;
 
     /* renamed from: j  reason: collision with root package name */
-    public e f45426j;
+    public e f45917j;
 
     /* renamed from: k  reason: collision with root package name */
-    public c.a.r0.n1.j.j.a f45427k;
+    public c.a.s0.o1.j.j.a f45918k;
     public c.a.d.c.g.a l;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,28 +82,28 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f45422f = false;
+                this.a.f45913f = false;
                 if (responsedMessage == null) {
                     return;
                 }
-                c.a.r0.n1.j.h.a aVar = null;
+                b bVar = null;
                 if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
-                    aVar = ((TabFeedListHttpResponsedMessage) responsedMessage).tabFeedData;
+                    bVar = ((TabFeedListHttpResponsedMessage) responsedMessage).tabFeedData;
                 } else if (responsedMessage instanceof TabFeedListSocketResponsedMessage) {
-                    aVar = ((TabFeedListSocketResponsedMessage) responsedMessage).tabFeedData;
+                    bVar = ((TabFeedListSocketResponsedMessage) responsedMessage).tabFeedData;
                 }
                 this.a.mErrorCode = responsedMessage.getError();
                 this.a.mErrorString = responsedMessage.getErrorString();
                 ErrorData errorData = new ErrorData();
                 errorData.setError_code(this.a.mErrorCode);
                 errorData.setError_msg(this.a.mErrorString);
-                if (this.a.f45426j == null) {
+                if (this.a.f45917j == null) {
                     return;
                 }
-                if (this.a.mErrorCode != 0 || aVar == null) {
-                    this.a.f45426j.onServerError(errorData);
+                if (this.a.mErrorCode != 0 || bVar == null) {
+                    this.a.f45917j.onServerError(errorData);
                 } else {
-                    this.a.F(aVar);
+                    this.a.F(bVar);
                 }
             }
         }
@@ -126,14 +127,14 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
                 return;
             }
         }
-        this.f45421e = true;
-        this.f45422f = false;
-        this.f45423g = 1;
+        this.f45912e = true;
+        this.f45913f = false;
+        this.f45914g = 1;
         this.l = new a(this, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, 309655);
-        c.a.r0.t3.f0.a.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
-        c.a.r0.t3.f0.a.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
-        this.f45427k = new c.a.r0.n1.j.j.a();
-        this.f45426j = eVar;
+        c.a.s0.v3.f0.a.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
+        c.a.s0.v3.f0.a.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
+        this.f45918k = new c.a.s0.o1.j.j.a();
+        this.f45917j = eVar;
     }
 
     public final void E(int i2) {
@@ -141,39 +142,39 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             TabFeedListRequestMessage tabFeedListRequestMessage = new TabFeedListRequestMessage();
             tabFeedListRequestMessage.loadType = i2;
-            tabFeedListRequestMessage.tabCode = this.f45425i;
-            tabFeedListRequestMessage.tabName = this.f45424h;
+            tabFeedListRequestMessage.tabCode = this.f45916i;
+            tabFeedListRequestMessage.tabName = this.f45915h;
             if (i2 == 2) {
-                tabFeedListRequestMessage.pn = this.f45423g + 1;
+                tabFeedListRequestMessage.pn = this.f45914g + 1;
             } else if (i2 != 1) {
                 return;
             } else {
                 tabFeedListRequestMessage.pn = 1;
             }
-            this.f45422f = true;
+            this.f45913f = true;
             tabFeedListRequestMessage.setTag(getUniqueId());
             sendMessage(tabFeedListRequestMessage);
         }
     }
 
-    public final void F(c.a.r0.n1.j.h.a aVar) {
+    public final void F(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (aVar != null) {
-                this.f45423g = aVar.b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            if (bVar != null) {
+                this.f45914g = bVar.b();
             }
-            if (this.f45426j != null) {
-                this.f45426j.onNetCallback(this.f45427k.a(this.f45421e, aVar));
+            if (this.f45917j != null) {
+                this.f45917j.onNetCallback(this.f45918k.a(this.f45912e, bVar));
             }
         }
     }
 
-    @Override // c.a.r0.n1.j.f
+    @Override // c.a.s0.o1.j.f
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c.a.r0.n1.j.j.a aVar = this.f45427k;
+            c.a.s0.o1.j.j.a aVar = this.f45918k;
             if (aVar == null) {
                 return false;
             }
@@ -198,26 +199,26 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.cancelMessage();
-            this.f45422f = false;
+            this.f45913f = false;
         }
     }
 
-    @Override // c.a.r0.n1.j.f
+    @Override // c.a.s0.o1.j.f
     public void destory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.l);
-            this.f45422f = false;
-            this.f45421e = true;
+            this.f45913f = false;
+            this.f45912e = true;
         }
     }
 
-    @Override // c.a.r0.n1.j.f
+    @Override // c.a.s0.o1.j.f
     public List<d2> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            c.a.r0.n1.j.j.a aVar = this.f45427k;
+            c.a.s0.o1.j.j.a aVar = this.f45918k;
             if (aVar == null) {
                 return null;
             }
@@ -236,36 +237,36 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.n1.j.f
+    @Override // c.a.s0.o1.j.f
     public void loadMore() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f45422f) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f45913f) {
             return;
         }
-        this.f45421e = false;
+        this.f45912e = false;
         E(2);
     }
 
-    @Override // c.a.r0.n1.j.f
+    @Override // c.a.s0.o1.j.f
     public void o(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048585, this, str, str2, i2) == null) {
-            this.f45425i = str;
-            this.f45424h = str2;
+            this.f45916i = str;
+            this.f45915h = str2;
         }
     }
 
-    @Override // c.a.r0.n1.j.f
+    @Override // c.a.s0.o1.j.f
     public void refresh() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f45422f) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f45913f) {
             return;
         }
-        this.f45421e = true;
+        this.f45912e = true;
         E(1);
     }
 
-    @Override // c.a.r0.n1.j.f
+    @Override // c.a.s0.o1.j.f
     public void registerListener(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {

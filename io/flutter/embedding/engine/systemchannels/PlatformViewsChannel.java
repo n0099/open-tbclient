@@ -19,7 +19,7 @@ import java.io.StringWriter;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PlatformViewsChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PlatformViewsChannel";
@@ -28,7 +28,7 @@ public class PlatformViewsChannel {
     public PlatformViewsHandler handler;
     public final MethodChannel.MethodCallHandler parsingHandler;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PlatformViewCreationRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class PlatformViewsChannel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PlatformViewResizeRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class PlatformViewsChannel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PlatformViewTouch {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +153,7 @@ public class PlatformViewsChannel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface PlatformViewsHandler {
         void clearFocus(int i2);
 

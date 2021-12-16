@@ -29,40 +29,40 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a implements c<String, String> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33098b = "Accept";
+    public static final String f33468b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33099c = "Accept-Charset";
+    public static final String f33469c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f33100d = "Accept-Encoding";
+    public static final String f33470d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f33101e = "Accept-Language";
+    public static final String f33471e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f33102f = "Allow";
+    public static final String f33472f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f33103g = "Cache-Control";
+    public static final String f33473g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f33104h = "Content-Disposition";
+    public static final String f33474h = "Content-Disposition";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f33105i = "Content-Encoding";
+    public static final String f33475i = "Content-Encoding";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f33106j = "Content-Length";
+    public static final String f33476j = "Content-Length";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f33107k = "Content-Type";
+    public static final String f33477k = "Content-Type";
     public static final String l = "Date";
     public static final String m = "ETag";
     public static final String n = "Expires";

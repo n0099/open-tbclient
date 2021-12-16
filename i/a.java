@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f63616b;
+    public static final d f64197b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static final class C2189a implements d {
+    /* loaded from: classes4.dex */
+    public static final class C2250a implements d {
         public static /* synthetic */ Interceptable $ic;
-        public static final C2189a a;
+        public static final C2250a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -37,10 +37,10 @@ public final class a {
                     return;
                 }
             }
-            a = new C2189a();
+            a = new C2250a();
         }
 
-        public C2189a() {
+        public C2250a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,7 +65,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class b implements d {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
@@ -112,7 +112,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class c implements d {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
@@ -159,7 +159,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         boolean a() throws MissingBackpressureException;
     }
@@ -179,8 +179,8 @@ public final class a {
         }
         c cVar = c.a;
         a = cVar;
-        f63616b = cVar;
+        f64197b = cVar;
         b bVar = b.a;
-        C2189a c2189a = C2189a.a;
+        C2250a c2250a = C2250a.a;
     }
 }

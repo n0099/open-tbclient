@@ -1,8 +1,8 @@
 package com.baidu.tieba.flutter.plugin.networkService;
 
 import androidx.annotation.NonNull;
-import c.a.q0.l0.b.g;
-import c.a.r0.z0.a.f.f;
+import c.a.r0.l0.b.g;
+import c.a.s0.z0.a.f.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.SocketMessage;
@@ -28,13 +28,13 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class NetworkServicePlugin implements FlutterPlugin, NetworkServiceAuto.HostNetworkService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, NetModel> netModels;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface NetModel {
         boolean cancelLoadData();
     }

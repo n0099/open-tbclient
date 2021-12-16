@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.request;
 
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface HasImageRequest {
     @Nullable
     ImageRequest getImageRequest();

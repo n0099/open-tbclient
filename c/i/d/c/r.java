@@ -9,7 +9,7 @@ import com.google.common.collect.Sets;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class r<K, V> extends q<K, V> implements w<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public final class r<K, V> extends q<K, V> implements w<K, V> {
     public e1<K, V> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (e1) this.f30594e : (e1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (e1) this.f30964e : (e1) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

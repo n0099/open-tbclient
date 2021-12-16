@@ -13,7 +13,7 @@ import com.kwad.sdk.core.a.i;
 import com.kwad.sdk.utils.as;
 import com.yxcorp.kuaishou.addfp.KWEGIDDFP;
 import com.yxcorp.kuaishou.addfp.ResponseDfpCallback;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements com.kwad.sdk.plugin.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class a implements com.kwad.sdk.plugin.a {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f56962b;
+                public final /* synthetic */ a f57543b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -59,7 +59,7 @@ public class a implements com.kwad.sdk.plugin.a {
                             return;
                         }
                     }
-                    this.f56962b = this;
+                    this.f57543b = this;
                     this.a = context;
                 }
 
@@ -76,7 +76,7 @@ public class a implements com.kwad.sdk.plugin.a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
                         com.kwad.sdk.core.a.e.a(this.a, str2);
-                        this.f56962b.a(this.a, str);
+                        this.f57543b.a(this.a, str);
                     }
                 }
             });

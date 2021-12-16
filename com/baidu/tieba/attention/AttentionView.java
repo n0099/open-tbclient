@@ -9,10 +9,10 @@ import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.f.p.j;
-import c.a.q0.g0.h;
-import c.a.r0.g;
-import c.a.r0.q;
+import c.a.d.f.p.k;
+import c.a.r0.g0.h;
+import c.a.s0.g;
+import c.a.s0.q;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -31,37 +31,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AttentionView extends FrameLayout implements g<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43053e;
+    public int f43544e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f43054f;
+    public RecyclerView f43545f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SelectForumItemAdapter f43055g;
+    public SelectForumItemAdapter f43546g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayoutManager f43056h;
+    public LinearLayoutManager f43547h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.q0.g0.g f43057i;
+    public c.a.r0.g0.g f43548i;
 
     /* renamed from: j  reason: collision with root package name */
-    public h f43058j;
+    public h f43549j;
 
     /* renamed from: k  reason: collision with root package name */
-    public List<SelectForumData> f43059k;
+    public List<SelectForumData> f43550k;
     public List<SelectForumData> l;
     public boolean m;
     public int n;
-    public HttpMessageListener o;
+    public d o;
+    public HttpMessageListener p;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,23 +109,27 @@ public class AttentionView extends FrameLayout implements g<String> {
                     if (ListUtils.isEmpty(selectForumDataList)) {
                         if (ListUtils.isEmpty(this.a.l)) {
                             this.a.showNetRefreshView(false, false);
+                            if (this.a.o != null) {
+                                this.a.o.a();
+                                return;
+                            }
                             return;
                         }
                         return;
                     }
                     this.a.m = attentionResMsg.getHasMore();
-                    AttentionView.d(this.a);
+                    AttentionView.e(this.a);
                     List list = this.a.l;
-                    this.a.j(selectForumDataList);
+                    this.a.k(selectForumDataList);
                     list.addAll(selectForumDataList);
-                    this.a.f43055g.setDataList(this.a.l);
-                    this.a.f43055g.notifyDataSetChanged();
+                    this.a.f43546g.setDataList(this.a.l);
+                    this.a.f43546g.notifyDataSetChanged();
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class b extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,19 +156,19 @@ public class AttentionView extends FrameLayout implements g<String> {
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) && i2 == 0 && this.a.m && this.a.f43056h.findLastVisibleItemPosition() == this.a.f43055g.getItemCount() - 1) {
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) && i2 == 0 && this.a.m && this.a.f43547h.findLastVisibleItemPosition() == this.a.f43546g.getItemCount() - 1) {
                 this.a.request((String) null);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AttentionView f43060e;
+        public final /* synthetic */ AttentionView f43551e;
 
         public c(AttentionView attentionView) {
             Interceptable interceptable = $ic;
@@ -180,16 +185,21 @@ public class AttentionView extends FrameLayout implements g<String> {
                     return;
                 }
             }
-            this.f43060e = attentionView;
+            this.f43551e = attentionView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && j.A()) {
-                this.f43060e.request((String) null);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && k.A()) {
+                this.f43551e.request((String) null);
             }
         }
+    }
+
+    /* loaded from: classes11.dex */
+    public interface d {
+        void a();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -213,88 +223,70 @@ public class AttentionView extends FrameLayout implements g<String> {
         }
     }
 
-    public static /* synthetic */ int d(AttentionView attentionView) {
+    public static /* synthetic */ int e(AttentionView attentionView) {
         int i2 = attentionView.n;
         attentionView.n = i2 + 1;
         return i2;
     }
 
-    @Override // c.a.r0.g
+    @Override // c.a.s0.g
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getContext().getString(R.string.activity_select_forum_tab_attention) : (String) invokeV.objValue;
     }
 
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.select_forum_lately_layout, (ViewGroup) this, true);
-            this.f43054f = (RecyclerView) findViewById(R.id.select_forum_list);
-            SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
-            this.f43055g = selectForumItemAdapter;
-            selectForumItemAdapter.setType(2);
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-            this.f43056h = linearLayoutManager;
-            this.f43054f.setLayoutManager(linearLayoutManager);
-            this.f43054f.setAdapter(this.f43055g);
-            this.f43054f.addOnScrollListener(new b(this));
-            MessageManager.getInstance().registerListener(this.o);
-        }
-    }
-
     public void hideLoadingView() {
-        c.a.q0.g0.g gVar;
+        c.a.r0.g0.g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gVar = this.f43057i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (gVar = this.f43548i) == null) {
             return;
         }
         gVar.dettachView(this);
-        this.f43057i = null;
+        this.f43548i = null;
     }
 
     public void hideNetRefreshView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            h hVar = this.f43058j;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            h hVar = this.f43549j;
             if (hVar != null) {
                 hVar.dettachView(this);
-                this.f43058j = null;
+                this.f43549j = null;
             }
-            this.f43054f.setVisibility(0);
+            this.f43545f.setVisibility(0);
         }
     }
 
-    public final boolean i(SelectForumData selectForumData) {
-        InterceptResult invokeL;
-        String str;
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, selectForumData)) == null) {
-            if (selectForumData != null && !ListUtils.isEmpty(this.f43059k)) {
-                for (int i2 = 0; i2 < this.f43059k.size(); i2++) {
-                    SelectForumData selectForumData2 = this.f43059k.get(i2);
-                    if (selectForumData2 != null && (str = selectForumData.forumId) != null && str.equals(selectForumData2.forumId)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.select_forum_lately_layout, (ViewGroup) this, true);
+            this.f43545f = (RecyclerView) findViewById(R.id.select_forum_list);
+            SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
+            this.f43546g = selectForumItemAdapter;
+            selectForumItemAdapter.setType(2);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+            this.f43547h = linearLayoutManager;
+            this.f43545f.setLayoutManager(linearLayoutManager);
+            this.f43545f.setAdapter(this.f43546g);
+            this.f43545f.addOnScrollListener(new b(this));
+            MessageManager.getInstance().registerListener(this.p);
         }
-        return invokeL.booleanValue;
     }
 
     public void initSelectedForums(ArrayList<SelectForumData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-            this.f43059k = arrayList;
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+            this.f43550k = arrayList;
         }
     }
 
     public boolean isLoadingViewShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            c.a.q0.g0.g gVar = this.f43057i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            c.a.r0.g0.g gVar = this.f43548i;
             if (gVar != null) {
                 return gVar.isViewAttached();
             }
@@ -306,8 +298,8 @@ public class AttentionView extends FrameLayout implements g<String> {
     public boolean isRefreshViewShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            h hVar = this.f43058j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            h hVar = this.f43549j;
             if (hVar != null) {
                 return hVar.isViewAttached();
             }
@@ -316,14 +308,32 @@ public class AttentionView extends FrameLayout implements g<String> {
         return invokeV.booleanValue;
     }
 
-    public final List<SelectForumData> j(List<SelectForumData> list) {
+    public final boolean j(SelectForumData selectForumData) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, selectForumData)) == null) {
+            if (selectForumData != null && !ListUtils.isEmpty(this.f43550k)) {
+                for (int i2 = 0; i2 < this.f43550k.size(); i2++) {
+                    SelectForumData selectForumData2 = this.f43550k.get(i2);
+                    if (selectForumData2 != null && (str = selectForumData.forumId) != null && str.equals(selectForumData2.forumId)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final List<SelectForumData> k(List<SelectForumData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list)) == null) {
-            if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(this.f43059k)) {
+            if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(this.f43550k)) {
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     SelectForumData selectForumData = list.get(i2);
-                    if (i(selectForumData)) {
+                    if (j(selectForumData)) {
                         selectForumData.isInterestForumSelected = true;
                     }
                 }
@@ -336,90 +346,97 @@ public class AttentionView extends FrameLayout implements g<String> {
     public void notifyItemChanged(int i2) {
         SelectForumItemAdapter selectForumItemAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (selectForumItemAdapter = this.f43055g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (selectForumItemAdapter = this.f43546g) == null) {
             return;
         }
         selectForumItemAdapter.notifyItemChanged(i2);
     }
 
-    @Override // c.a.r0.g
+    @Override // c.a.s0.g
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f43053e) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f43544e) {
             return;
         }
-        this.f43053e = skinType;
-        c.a.q0.g0.g gVar = this.f43057i;
+        this.f43544e = skinType;
+        c.a.r0.g0.g gVar = this.f43548i;
         if (gVar != null) {
             gVar.onChangeSkinType();
         }
-        h hVar = this.f43058j;
+        h hVar = this.f43549j;
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
-        this.f43055g.notifyDataSetChanged();
+        this.f43546g.notifyDataSetChanged();
     }
 
-    @Override // c.a.r0.g
+    @Override // c.a.s0.g
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            SelectForumItemAdapter selectForumItemAdapter = this.f43055g;
+            SelectForumItemAdapter selectForumItemAdapter = this.f43546g;
             if (selectForumItemAdapter != null) {
                 selectForumItemAdapter.setForumSelectStateChangedListener(null);
             }
-            MessageManager.getInstance().unRegisterListener(this.o);
+            MessageManager.getInstance().unRegisterListener(this.p);
             hideLoadingView();
         }
     }
 
-    public void setForumSelectStateChangedListener(q.c cVar) {
+    public void setForumSelectStateChangedListener(q.e eVar) {
         SelectForumItemAdapter selectForumItemAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, cVar) == null) || (selectForumItemAdapter = this.f43055g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, eVar) == null) || (selectForumItemAdapter = this.f43546g) == null) {
             return;
         }
-        selectForumItemAdapter.setForumSelectStateChangedListener(cVar);
+        selectForumItemAdapter.setForumSelectStateChangedListener(eVar);
+    }
+
+    public void setResultEmptyListener(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, dVar) == null) {
+            this.o = dVar;
+        }
     }
 
     public void showLoadingView(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || isLoadingViewShowing()) {
+        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || isLoadingViewShowing()) {
             return;
         }
-        if (this.f43057i == null) {
-            c.a.q0.g0.g gVar = new c.a.q0.g0.g(getContext());
-            this.f43057i = gVar;
+        if (this.f43548i == null) {
+            c.a.r0.g0.g gVar = new c.a.r0.g0.g(getContext());
+            this.f43548i = gVar;
             gVar.onChangeSkinType();
         }
-        this.f43057i.attachView(this, z);
+        this.f43548i.attachView(this, z);
     }
 
     public void showNetRefreshView(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || isRefreshViewShowing()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || isRefreshViewShowing()) {
             return;
         }
-        if (this.f43058j == null) {
-            this.f43058j = new h(getContext(), new c(this));
+        if (this.f43549j == null) {
+            this.f43549j = new h(getContext(), new c(this));
         }
-        this.f43058j.j(getResources().getDimensionPixelSize(R.dimen.tbds380));
-        this.f43058j.attachView(this, z);
+        this.f43549j.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
+        this.f43549j.attachView(this, z);
         if (z2) {
-            this.f43058j.o();
+            this.f43549j.p();
         } else {
-            this.f43058j.h(R.drawable.new_pic_emotion_01);
-            this.f43058j.e();
+            this.f43549j.h(R.drawable.new_pic_emotion_01);
+            this.f43549j.e();
         }
-        this.f43058j.n(getContext().getString(R.string.activity_select_forum_empty));
-        this.f43054f.setVisibility(8);
+        this.f43549j.o(getContext().getString(R.string.activity_select_forum_empty));
+        this.f43545f.setVisibility(8);
     }
 
-    @Override // c.a.r0.g
+    @Override // c.a.s0.g
     public void showTip(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
         }
     }
 
@@ -445,12 +462,12 @@ public class AttentionView extends FrameLayout implements g<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.g
+    @Override // c.a.s0.g
     public void request(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             if (ListUtils.isEmpty(this.l)) {
-                if (!j.A()) {
+                if (!k.A()) {
                     showNetRefreshView(false, true);
                     return;
                 } else {
@@ -486,11 +503,11 @@ public class AttentionView extends FrameLayout implements g<String> {
                 return;
             }
         }
-        this.f43053e = 3;
-        this.f43059k = new ArrayList();
+        this.f43544e = 3;
+        this.f43550k = new ArrayList();
         this.l = new ArrayList();
         this.n = 1;
-        this.o = new a(this, CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION);
-        h();
+        this.p = new a(this, CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION);
+        i();
     }
 }

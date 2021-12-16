@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class RouterProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, RouterAction> f34261b;
+    public HashMap<String, RouterAction> f34729b;
 
     public RouterProvider() {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public abstract class RouterProvider {
             }
         }
         this.a = true;
-        this.f34261b = new HashMap<>();
+        this.f34729b = new HashMap<>();
         registerActions();
     }
 
     public RouterAction findAction(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f34261b.get(str) : (RouterAction) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f34729b.get(str) : (RouterAction) invokeL.objValue;
     }
 
     public boolean isValid() {
@@ -49,7 +49,7 @@ public abstract class RouterProvider {
     public void registerAction(String str, RouterAction routerAction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, routerAction) == null) {
-            this.f34261b.put(str, routerAction);
+            this.f34729b.put(str, routerAction);
         }
     }
 

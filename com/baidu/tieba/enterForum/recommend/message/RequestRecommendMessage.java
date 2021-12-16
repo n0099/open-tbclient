@@ -1,6 +1,6 @@
 package com.baidu.tieba.enterForum.recommend.message;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.Recommforum.DataReq;
 import tbclient.Recommforum.RecommforumReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class RequestRecommendMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f43573common;
+    public CommonReq f44064common;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestRecommendMessage() {
@@ -45,9 +45,9 @@ public class RequestRecommendMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f64727common = this.f43573common;
+            builder.f65298common = this.f44064common;
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             RecommforumReqIdl.Builder builder2 = new RecommforumReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -59,7 +59,7 @@ public class RequestRecommendMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f43573common = commonReq;
+            this.f44064common = commonReq;
         }
     }
 }

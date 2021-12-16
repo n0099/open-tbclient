@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TKView extends TKBase<TKYogaLayout> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -165,7 +165,7 @@ public class TKView extends TKBase<TKYogaLayout> {
                                     tKDispatchEvent.setPosition(new HashMap<String, Float>(this) { // from class: com.tachikoma.core.component.view.TKView.1.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ C21581 this$2;
+                                        public final /* synthetic */ C22191 this$2;
 
                                         {
                                             Interceptable interceptable4 = $ic;

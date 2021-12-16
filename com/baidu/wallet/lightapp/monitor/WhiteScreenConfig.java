@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class WhiteScreenConfig implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static final Policy a;
@@ -28,7 +28,7 @@ public class WhiteScreenConfig implements NoProguard {
     public boolean wsc_view_enable;
     public int wsc_wait_time;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class Policy implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

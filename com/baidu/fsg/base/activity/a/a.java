@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RotateAnimation f34171b;
+    public RotateAnimation f34639b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -72,11 +72,11 @@ public class a extends Dialog {
             setCancelable(false);
             this.a = findViewById(ResUtils.id(getContext(), "rim_base_dialog_common_loading_view"));
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
-            this.f34171b = rotateAnimation;
+            this.f34639b = rotateAnimation;
             rotateAnimation.setRepeatCount(-1);
-            this.f34171b.setDuration(1000L);
-            this.f34171b.setInterpolator(new LinearInterpolator());
-            this.a.startAnimation(this.f34171b);
+            this.f34639b.setDuration(1000L);
+            this.f34639b.setInterpolator(new LinearInterpolator());
+            this.a.startAnimation(this.f34639b);
         }
     }
 }

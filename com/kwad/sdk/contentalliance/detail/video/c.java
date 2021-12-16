@@ -9,54 +9,54 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.VideoPlayerStatus;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AdTemplate a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57187b;
+    public String f57768b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57188c;
+    public String f57769c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VideoPlayerStatus f57189d;
+    public VideoPlayerStatus f57770d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f57190e;
+    public b f57771e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f57191f;
+    public boolean f57772f;
 
     /* renamed from: com.kwad.sdk.contentalliance.detail.video.c$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AdTemplate a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f57192b;
+        public String f57773b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f57193c;
+        public String f57774c;
 
         /* renamed from: d  reason: collision with root package name */
-        public VideoPlayerStatus f57194d;
+        public VideoPlayerStatus f57775d;
 
         /* renamed from: e  reason: collision with root package name */
-        public b f57195e;
+        public b f57776e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f57196f;
+        public boolean f57777f;
 
         public a(AdTemplate adTemplate) {
             Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class c {
                     return;
                 }
             }
-            this.f57196f = false;
+            this.f57777f = false;
             this.a = adTemplate;
         }
 
@@ -81,7 +81,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                this.f57195e = bVar;
+                this.f57776e = bVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -91,7 +91,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoPlayerStatus)) == null) {
-                this.f57194d = videoPlayerStatus;
+                this.f57775d = videoPlayerStatus;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -101,7 +101,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f57192b = str;
+                this.f57773b = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -111,7 +111,7 @@ public class c {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.f57196f = z;
+                this.f57777f = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -127,7 +127,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f57193c = str;
+                this.f57774c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -149,19 +149,19 @@ public class c {
                 return;
             }
         }
-        this.f57190e = new b();
-        this.f57191f = false;
+        this.f57771e = new b();
+        this.f57772f = false;
         this.a = aVar.a;
-        this.f57187b = aVar.f57192b;
-        this.f57188c = aVar.f57193c;
-        this.f57189d = aVar.f57194d;
-        if (aVar.f57195e != null) {
-            this.f57190e.a = aVar.f57195e.a;
-            this.f57190e.f57184b = aVar.f57195e.f57184b;
-            this.f57190e.f57185c = aVar.f57195e.f57185c;
-            this.f57190e.f57186d = aVar.f57195e.f57186d;
+        this.f57768b = aVar.f57773b;
+        this.f57769c = aVar.f57774c;
+        this.f57770d = aVar.f57775d;
+        if (aVar.f57776e != null) {
+            this.f57771e.a = aVar.f57776e.a;
+            this.f57771e.f57765b = aVar.f57776e.f57765b;
+            this.f57771e.f57766c = aVar.f57776e.f57766c;
+            this.f57771e.f57767d = aVar.f57776e.f57767d;
         }
-        this.f57191f = aVar.f57196f;
+        this.f57772f = aVar.f57777f;
     }
 
     public /* synthetic */ c(a aVar, AnonymousClass1 anonymousClass1) {

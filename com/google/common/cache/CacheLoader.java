@@ -16,12 +16,12 @@ import java.io.Serializable;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class CacheLoader<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class FunctionToCacheLoader<K, V> extends CacheLoader<K, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -60,7 +60,7 @@ public abstract class CacheLoader<K, V> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class InvalidCacheLoadException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public abstract class CacheLoader<K, V> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SupplierToCacheLoader<V> extends CacheLoader<Object, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -124,7 +124,7 @@ public abstract class CacheLoader<K, V> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class UnsupportedLoadingOperationException extends UnsupportedOperationException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,31 +144,31 @@ public abstract class CacheLoader<K, V> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CacheLoader<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CacheLoader a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Executor f55995b;
+        public final /* synthetic */ Executor f56576b;
 
         /* renamed from: com.google.common.cache.CacheLoader$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class CallableC1980a implements Callable<V> {
+        /* loaded from: classes3.dex */
+        public class CallableC2041a implements Callable<V> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Object f55996e;
+            public final /* synthetic */ Object f56577e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Object f55997f;
+            public final /* synthetic */ Object f56578f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f55998g;
+            public final /* synthetic */ a f56579g;
 
-            public CallableC1980a(a aVar, Object obj, Object obj2) {
+            public CallableC2041a(a aVar, Object obj, Object obj2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,9 +183,9 @@ public abstract class CacheLoader<K, V> {
                         return;
                     }
                 }
-                this.f55998g = aVar;
-                this.f55996e = obj;
-                this.f55997f = obj2;
+                this.f56579g = aVar;
+                this.f56577e = obj;
+                this.f56578f = obj2;
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.google.common.cache.CacheLoader */
@@ -194,7 +194,7 @@ public abstract class CacheLoader<K, V> {
             public V call() throws Exception {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55998g.a.reload(this.f55996e, this.f55997f).get() : (V) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56579g.a.reload(this.f56577e, this.f56578f).get() : (V) invokeV.objValue;
             }
         }
 
@@ -214,7 +214,7 @@ public abstract class CacheLoader<K, V> {
                 }
             }
             this.a = cacheLoader;
-            this.f55995b = executor;
+            this.f56576b = executor;
         }
 
         @Override // com.google.common.cache.CacheLoader
@@ -236,8 +236,8 @@ public abstract class CacheLoader<K, V> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k2, v)) == null) {
-                ListenableFutureTask create = ListenableFutureTask.create(new CallableC1980a(this, k2, v));
-                this.f55995b.execute(create);
+                ListenableFutureTask create = ListenableFutureTask.create(new CallableC2041a(this, k2, v));
+                this.f56576b.execute(create);
                 return create;
             }
             return (ListenableFuture) invokeLL.objValue;

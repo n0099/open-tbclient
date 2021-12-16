@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.kwad.sdk.api.KsSplashScreenAd;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class s extends w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28809b;
+    public boolean f29179b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ KsSplashScreenAd f28810c;
+    public final /* synthetic */ KsSplashScreenAd f29180c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ r f28811d;
+    public final /* synthetic */ r f29181d;
 
     public s(r rVar, KsSplashScreenAd ksSplashScreenAd) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class s extends w {
                 return;
             }
         }
-        this.f28811d = rVar;
-        this.f28810c = ksSplashScreenAd;
+        this.f29181d = rVar;
+        this.f29180c = ksSplashScreenAd;
     }
 
     @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
@@ -46,8 +46,8 @@ public class s extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.f28811d.onAdClicked(this.f28809b);
-            this.f28809b = true;
+            this.f29181d.onAdClicked(this.f29179b);
+            this.f29179b = true;
         }
     }
 
@@ -56,7 +56,7 @@ public class s extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            this.f28811d.onAdClose();
+            this.f29181d.onAdClose();
         }
     }
 
@@ -65,7 +65,7 @@ public class s extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
             LogPrinter.e("onAdShowError code: " + i2 + ", message: " + str, new Object[0]);
-            this.f28811d.onAdError(i2, str);
+            this.f29181d.onAdError(i2, str);
         }
     }
 
@@ -74,7 +74,7 @@ public class s extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LogPrinter.d();
-            this.f28811d.onAdShow(this.f28810c, this.a);
+            this.f29181d.onAdShow(this.f29180c, this.a);
             this.a = true;
         }
     }
@@ -84,7 +84,7 @@ public class s extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             LogPrinter.d();
-            this.f28811d.onAdClose();
+            this.f29181d.onAdClose();
         }
     }
 }

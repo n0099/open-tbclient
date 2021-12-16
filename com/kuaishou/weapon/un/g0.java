@@ -9,12 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UVEventType;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +44,7 @@ public class g0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                d1 d1Var = new d1(str, q0.f56808f);
+                d1 d1Var = new d1(str, q0.f57389f);
                 d1Var.e(l1.g(this.a));
                 d1Var.j(l1.l());
                 d1Var.c(l1.e(this.a));
@@ -87,7 +88,7 @@ public class g0 {
                 }
                 jSONObject.put("5", i0.a());
                 jSONObject.put("49", new y().a(this.a));
-                jSONObject.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE, a0.c());
+                jSONObject.put("22", a0.c());
                 b0 b0Var = new b0();
                 jSONObject.put("7", b0Var.a() ? 1 : 0);
                 boolean d2 = b0Var.d(this.a);
@@ -136,8 +137,8 @@ public class g0 {
                         jSONObject.put("16", m0Var.a(this.a, 16, hashSet));
                         jSONObject.put("17", m0Var.a(this.a, 17, hashSet));
                         jSONObject.put("18", m0Var.a(this.a, 18, hashSet));
-                        jSONObject.put(com.tencent.connect.common.Constants.VIA_ACT_TYPE_NINETEEN, m0Var.a(this.a, 19, hashSet));
-                        jSONObject.put("20", m0Var.a(this.a, 20, hashSet));
+                        jSONObject.put("19", m0Var.a(this.a, 19, hashSet));
+                        jSONObject.put(UVEventType.PAY_WALLET_BANNER_SHOW, m0Var.a(this.a, 20, hashSet));
                         jSONObject.put("21", m0Var.a(this.a, 21, hashSet));
                     }
                 }

@@ -1,6 +1,6 @@
 package org.apache.http.client.protocol;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ClientContext {
     public static final String AUTHSCHEME_REGISTRY = "http.authscheme-registry";
     public static final String AUTH_SCHEME_PREF = "http.auth.scheme-pref";

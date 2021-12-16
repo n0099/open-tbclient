@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class GetFPResponse implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class GetFPResponse implements IBeanResponse {
     public RimFp fp;
     public SoDownloadInfo so_download;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class CommonConfig implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class GetFPResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Exp implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class GetFPResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class ExpContent implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class GetFPResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class LivenessConfig implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CROP_FACE_RATIO = 3;
@@ -116,7 +116,7 @@ public class GetFPResponse implements IBeanResponse {
         public static final int a = 6;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f34221b = 3;
+        public static final int f34689b = 3;
         public transient /* synthetic */ FieldHolder $fh;
         public String crop_face_ratio;
         public String crop_face_size;
@@ -140,7 +140,7 @@ public class GetFPResponse implements IBeanResponse {
         public String track_interval;
         public String yaw;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public static class SpConf implements NoProguard {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -512,7 +512,7 @@ public class GetFPResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class OcrConfig implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -537,13 +537,13 @@ public class GetFPResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class RimConfig implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonConfig f34222common;
+        public CommonConfig f34690common;
         public LivenessConfig living;
         public OcrConfig ocr;
 
@@ -562,7 +562,7 @@ public class GetFPResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class RimFp implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -583,7 +583,7 @@ public class GetFPResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class SoDownloadInfo implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -608,7 +608,7 @@ public class GetFPResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class SoInfo implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

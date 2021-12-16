@@ -20,38 +20,38 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class t1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public URL a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f30927b;
+    public byte[] f31297b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map f30928c;
+    public Map f31298c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map f30929d;
+    public Map f31299d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30930e;
+    public String f31300e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30931f;
+    public int f31301f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30932g;
+    public boolean f31302g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30933h;
+    public boolean f31303h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f30934i;
+    public int f31304i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f30935j;
+    public int f31305j;
 
     public t1(String str, String str2, Map map) {
         Interceptable interceptable = $ic;
@@ -68,15 +68,15 @@ public class t1 {
                 return;
             }
         }
-        this.f30930e = "GET";
-        this.f30931f = -1;
-        this.f30932g = false;
-        this.f30933h = true;
+        this.f31300e = "GET";
+        this.f31301f = -1;
+        this.f31302g = false;
+        this.f31303h = true;
         this.a = new URL(str);
-        this.f30930e = str2;
-        this.f30928c = map;
-        this.f30934i = 20000;
-        this.f30935j = 20000;
+        this.f31300e = str2;
+        this.f31298c = map;
+        this.f31304i = 20000;
+        this.f31305j = 20000;
     }
 
     public w1 a() {
@@ -92,12 +92,12 @@ public class t1 {
             } else {
                 httpURLConnection = (HttpsURLConnection) this.a.openConnection();
             }
-            httpURLConnection.setRequestMethod(this.f30930e);
-            httpURLConnection.setInstanceFollowRedirects(this.f30933h);
-            httpURLConnection.setReadTimeout(this.f30935j);
-            httpURLConnection.setConnectTimeout(this.f30934i);
+            httpURLConnection.setRequestMethod(this.f31300e);
+            httpURLConnection.setInstanceFollowRedirects(this.f31303h);
+            httpURLConnection.setReadTimeout(this.f31305j);
+            httpURLConnection.setConnectTimeout(this.f31304i);
             httpURLConnection.setDoInput(true);
-            Map map = this.f30928c;
+            Map map = this.f31298c;
             if (map != null && map.size() > 0) {
                 for (Map.Entry entry : map.entrySet()) {
                     String str = (String) entry.getKey();
@@ -107,14 +107,14 @@ public class t1 {
                     }
                 }
             }
-            if (this.f30930e.equals("POST")) {
+            if (this.f31300e.equals("POST")) {
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
                 PrintWriter printWriter = null;
                 PrintWriter printWriter2 = null;
                 try {
                     OutputStream outputStream = httpURLConnection.getOutputStream();
-                    byte[] bArr = this.f30927b;
+                    byte[] bArr = this.f31297b;
                     if (bArr == null) {
                         PrintWriter printWriter3 = new PrintWriter((Writer) new OutputStreamWriter(outputStream, "UTF-8"), true);
                         try {
@@ -141,10 +141,10 @@ public class t1 {
                     th = th2;
                 }
             }
-            this.f30931f = httpURLConnection.getResponseCode();
+            this.f31301f = httpURLConnection.getResponseCode();
             httpURLConnection.getContentLength();
             if (httpURLConnection.getHeaderFields() != null) {
-                this.f30929d = httpURLConnection.getHeaderFields();
+                this.f31299d = httpURLConnection.getHeaderFields();
             }
             try {
                 String contentEncoding = httpURLConnection.getContentEncoding();
@@ -158,7 +158,7 @@ public class t1 {
             BufferedInputStream bufferedInputStream = new BufferedInputStream(errorStream);
             byte[] bArr2 = new byte[4096];
             int i2 = 0;
-            while (!this.f30932g && i2 != -1) {
+            while (!this.f31302g && i2 != -1) {
                 i2 = bufferedInputStream.read(bArr2);
                 if (i2 > 0) {
                     byteArrayOutputStream.write(bArr2, 0, i2);
@@ -167,7 +167,7 @@ public class t1 {
             httpURLConnection.disconnect();
             byteArrayOutputStream.flush();
             errorStream.close();
-            return new w1(this.f30931f, byteArrayOutputStream.toByteArray(), this.f30929d);
+            return new w1(this.f31301f, byteArrayOutputStream.toByteArray(), this.f31299d);
         }
         return (w1) invokeV.objValue;
     }

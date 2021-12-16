@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StatusBarUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_BAR_DEFAULT_HEIGHT = 25;
@@ -132,10 +132,10 @@ public class StatusBarUtils {
             public final /* synthetic */ View a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ViewGroup.LayoutParams f33205b;
+            public final /* synthetic */ ViewGroup.LayoutParams f33575b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Context f33206c;
+            public final /* synthetic */ Context f33576c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -153,8 +153,8 @@ public class StatusBarUtils {
                     }
                 }
                 this.a = view;
-                this.f33205b = layoutParams;
-                this.f33206c = context;
+                this.f33575b = layoutParams;
+                this.f33576c = context;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -164,10 +164,10 @@ public class StatusBarUtils {
                     return;
                 }
                 this.a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                this.f33205b.height = this.a.getHeight() + StatusBarUtils.getStatusBarHeight(this.f33206c);
+                this.f33575b.height = this.a.getHeight() + StatusBarUtils.getStatusBarHeight(this.f33576c);
                 View view2 = this.a;
-                view2.setPadding(view2.getPaddingLeft(), this.a.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f33206c), this.a.getPaddingRight(), this.a.getPaddingBottom());
-                this.a.setLayoutParams(this.f33205b);
+                view2.setPadding(view2.getPaddingLeft(), this.a.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f33576c), this.a.getPaddingRight(), this.a.getPaddingBottom());
+                this.a.setLayoutParams(this.f33575b);
             }
         });
     }

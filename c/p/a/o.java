@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBMediaView;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public u a;
 
     /* renamed from: b  reason: collision with root package name */
-    public s f30866b;
+    public s f31236b;
 
     public o(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class o {
         }
         u uVar = new u(context, str);
         this.a = uVar;
-        uVar.f30947f = new k(this);
+        uVar.f31317f = new k(this);
     }
 
     public void a() {
@@ -46,8 +46,8 @@ public class o {
                     this.a.b();
                     this.a = null;
                 }
-                if (this.f30866b != null) {
-                    this.f30866b = null;
+                if (this.f31236b != null) {
+                    this.f31236b = null;
                 }
             } catch (Exception unused) {
             }
@@ -68,7 +68,7 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             u uVar = this.a;
-            return (uVar == null || !uVar.f()) ? "" : uVar.f30944c.getLoad_type();
+            return (uVar == null || !uVar.f()) ? "" : uVar.f31314c.getLoad_type();
         }
         return (String) invokeV.objValue;
     }

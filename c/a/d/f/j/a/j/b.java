@@ -1,6 +1,6 @@
 package c.a.d.f.j.a.j;
 
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,7 +24,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f2457b;
+    public static b f2421b;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, c.a.d.f.j.a.j.a> a;
 
@@ -102,14 +102,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2457b == null) {
+            if (f2421b == null) {
                 synchronized (b.class) {
-                    if (f2457b == null) {
-                        f2457b = new b();
+                    if (f2421b == null) {
+                        f2421b = new b();
                     }
                 }
             }
-            return f2457b;
+            return f2421b;
         }
         return (b) invokeV.objValue;
     }
@@ -173,7 +173,7 @@ public class b {
             return (c.a.d.f.j.a.j.a) invokeLL.objValue;
         }
         InputStreamReader inputStreamReader = null;
-        if (k.isEmpty(str)) {
+        if (l.isEmpty(str)) {
             return null;
         }
         cVar.i(true);
@@ -377,13 +377,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             c cVar = new c();
-            if (k.isEmpty(str)) {
+            if (l.isEmpty(str)) {
                 return cVar;
             }
             c.a.d.f.j.a.j.a aVar = this.a.get(str);
             if (aVar != null && !aVar.c(System.currentTimeMillis()) && aVar.a() != null && aVar.a().size() > 0) {
                 for (int i2 = 0; i2 < aVar.a().size(); i2++) {
-                    if (!k.isEquals(str2, aVar.a().get(i2))) {
+                    if (!l.isEquals(str2, aVar.a().get(i2))) {
                         cVar.j(i2);
                         cVar.g(aVar.a().get(i2));
                         return cVar;
@@ -404,7 +404,7 @@ public class b {
                     c2.d(300L);
                     this.a.put(str, c2);
                     for (int i4 = 0; i4 < c2.a().size(); i4++) {
-                        if (!k.isEquals(str2, c2.a().get(i3))) {
+                        if (!l.isEquals(str2, c2.a().get(i3))) {
                             cVar.j(i4);
                             cVar.g(c2.a().get(i4));
                             return cVar;

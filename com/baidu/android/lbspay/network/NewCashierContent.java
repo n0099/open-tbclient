@@ -16,7 +16,7 @@ import com.dxmpay.apollon.beans.IBeanResponse;
 import com.dxmpay.apollon.utils.JsonUtils;
 import java.io.Serializable;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NewCashierContent implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6404441585155615479L;
@@ -35,7 +35,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
     public String tn;
     public String token;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Brand implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -58,7 +58,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CashierChannel implements IBaseChannel, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -231,7 +231,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CashierChannelCoupon implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8163949050735544670L;
@@ -268,7 +268,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CashierChannels implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -293,7 +293,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CashierOrder implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -316,7 +316,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CashierPay implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -340,7 +340,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CommonMarketing implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -363,7 +363,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CommonUsedCard implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -398,7 +398,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface IBaseChannel {
         String getActiveIcon();
 
@@ -437,7 +437,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         boolean isShow();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ReqField implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;

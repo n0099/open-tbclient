@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.ProtocolException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RedirectUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_PERMANENT_REDIRECT = 308;

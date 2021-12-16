@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BdListViewHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class HeadType {
         public static final /* synthetic */ HeadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -87,7 +87,7 @@ public class BdListViewHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -140,7 +140,7 @@ public class BdListViewHelper {
                 return;
             }
         }
-        a = l.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
+        a = m.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
     }
 
     public static int a(HeadType headType) {
@@ -153,15 +153,15 @@ public class BdListViewHelper {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
-                            return UtilHelper.getLightStatusBarHeight() + l.f(context, R.dimen.ds88);
+                            return UtilHelper.getLightStatusBarHeight() + m.f(context, R.dimen.ds88);
                         }
-                        return l.f(context, R.dimen.ds56);
+                        return m.f(context, R.dimen.ds56);
                     }
-                    return UtilHelper.getLightStatusBarHeight() + l.f(context, R.dimen.ds168);
+                    return UtilHelper.getLightStatusBarHeight() + m.f(context, R.dimen.ds168);
                 }
-                return UtilHelper.getLightStatusBarHeight() + l.f(context, R.dimen.ds176);
+                return UtilHelper.getLightStatusBarHeight() + m.f(context, R.dimen.ds176);
             }
-            return UtilHelper.getLightStatusBarHeight() + l.f(context, R.dimen.ds88);
+            return UtilHelper.getLightStatusBarHeight() + m.f(context, R.dimen.ds88);
         }
         return invokeL.intValue;
     }
@@ -178,10 +178,10 @@ public class BdListViewHelper {
             }
             if (HeadType.DEFAULT == headType) {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                f2 = l.f(context, R.dimen.ds170);
+                f2 = m.f(context, R.dimen.ds170);
             } else {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                f2 = l.f(context, R.dimen.ds240);
+                f2 = m.f(context, R.dimen.ds240);
             }
             return lightStatusBarHeight + f2;
         }
@@ -198,9 +198,9 @@ public class BdListViewHelper {
         if (z) {
             layoutParams.height = a(headType);
         } else if (HeadType.DEFAULT == headType) {
-            layoutParams.height = UtilHelper.getLightStatusBarHeight() + l.f(context, R.dimen.ds170);
+            layoutParams.height = UtilHelper.getLightStatusBarHeight() + m.f(context, R.dimen.ds170);
         } else {
-            layoutParams.height = UtilHelper.getLightStatusBarHeight() + l.f(context, R.dimen.ds240);
+            layoutParams.height = UtilHelper.getLightStatusBarHeight() + m.f(context, R.dimen.ds240);
         }
         view.setLayoutParams(layoutParams);
     }

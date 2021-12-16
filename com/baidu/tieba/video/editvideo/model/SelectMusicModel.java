@@ -2,9 +2,9 @@ package com.baidu.tieba.video.editvideo.model;
 
 import android.text.TextUtils;
 import c.a.d.a.f;
-import c.a.d.f.p.j;
-import c.a.r0.h4.k.h;
-import c.a.r0.h4.k.i;
+import c.a.d.f.p.k;
+import c.a.s0.j4.k.h;
+import c.a.s0.j4.k.i;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -29,21 +29,21 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SelectMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.h4.i.b f49688e;
+    public c.a.s0.j4.i.b f50204e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f49689f;
+    public TbPageContext f50205f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f49690g;
+    public final HttpMessageListener f50206g;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class VideoSugMusicResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,23 +97,23 @@ public class SelectMusicModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends BdAsyncTask<Void, Integer, i> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f49691b;
+        public final /* synthetic */ boolean f50207b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f49692c;
+        public final /* synthetic */ String f50208c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f49693d;
+        public final /* synthetic */ String f50209d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectMusicModel f49694e;
+        public final /* synthetic */ SelectMusicModel f50210e;
 
         public a(SelectMusicModel selectMusicModel, String str, boolean z, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -130,11 +130,11 @@ public class SelectMusicModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f49694e = selectMusicModel;
+            this.f50210e = selectMusicModel;
             this.a = str;
-            this.f49691b = z;
-            this.f49692c = str2;
-            this.f49693d = str3;
+            this.f50207b = z;
+            this.f50208c = str2;
+            this.f50209d = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -144,10 +144,10 @@ public class SelectMusicModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                if (TextUtils.isEmpty(this.a) && !this.f49691b) {
-                    return h.e().g(this.f49692c, this.f49693d);
+                if (TextUtils.isEmpty(this.a) && !this.f50207b) {
+                    return h.e().g(this.f50208c, this.f50209d);
                 }
-                return h.e().h(this.f49692c, this.a, this.f49693d, this.f49691b);
+                return h.e().h(this.f50208c, this.a, this.f50209d, this.f50207b);
             }
             return (i) invokeL.objValue;
         }
@@ -160,15 +160,15 @@ public class SelectMusicModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar) == null) {
                 super.onPostExecute(iVar);
                 if (iVar == null || iVar.a != 0) {
-                    this.f49694e.f49688e.onSaveMusicVideo(null, iVar.a, iVar.f18086b);
+                    this.f50210e.f50204e.onSaveMusicVideo(null, iVar.a, iVar.f18735b);
                 } else {
-                    this.f49694e.f49688e.onSaveMusicVideo(this.f49693d, -4399, "");
+                    this.f50210e.f50204e.onSaveMusicVideo(this.f50209d, -4399, "");
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -204,13 +204,13 @@ public class SelectMusicModel extends BdBaseModel {
                 if (videoSugMusicResponseMessage.musicDatas == null) {
                     return;
                 }
-                this.a.f49688e.setMusicData(videoSugMusicResponseMessage.musicDatas);
+                this.a.f50204e.setMusicData(videoSugMusicResponseMessage.musicDatas);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectMusicModel(TbPageContext tbPageContext, c.a.r0.h4.i.b bVar) {
+    public SelectMusicModel(TbPageContext tbPageContext, c.a.s0.j4.i.b bVar) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -227,13 +227,13 @@ public class SelectMusicModel extends BdBaseModel {
                 return;
             }
         }
-        this.f49690g = new b(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
-        this.f49689f = tbPageContext;
-        this.f49688e = bVar;
+        this.f50206g = new b(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
+        this.f50205f = tbPageContext;
+        this.f50204e = bVar;
         y();
-        this.f49690g.setTag(getUniqueId());
-        this.f49690g.setSelfListener(true);
-        registerListener(this.f49690g);
+        this.f50206g.setTag(getUniqueId());
+        this.f50206g.setSelfListener(true);
+        registerListener(this.f50206g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -260,8 +260,8 @@ public class SelectMusicModel extends BdBaseModel {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!j.z()) {
-                this.f49689f.showToast(R.string.no_network);
+            if (!k.z()) {
+                this.f50205f.showToast(R.string.no_network);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC));
             }

@@ -9,7 +9,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
 import c.a.d.g.a.g;
 import c.a.d.g.a.j;
 import c.a.d.g.a.m;
@@ -24,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ChatClipImageItemView extends TbImageView implements j.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +34,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     public j pathClipDrawer;
     public int position;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void a(Canvas canvas);
     }
@@ -231,10 +230,10 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            int d2 = l.d(getContext(), 4.0f);
-            int d3 = l.d(getContext(), 12.0f);
-            int d4 = l.d(getContext(), 6.0f);
-            int d5 = l.d(getContext(), 10.0f);
+            int d2 = c.a.d.f.p.m.d(getContext(), 4.0f);
+            int d3 = c.a.d.f.p.m.d(getContext(), 12.0f);
+            int d4 = c.a.d.f.p.m.d(getContext(), 6.0f);
+            int d5 = c.a.d.f.p.m.d(getContext(), 10.0f);
             float f5 = d4;
             float f6 = 2.0f * f4;
             float f7 = (f2 - f5) - f6;

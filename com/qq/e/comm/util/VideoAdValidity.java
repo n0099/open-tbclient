@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class VideoAdValidity {
     public static /* synthetic */ Interceptable $ic;
     public static final VideoAdValidity NONE_CACHE;
@@ -17,7 +17,7 @@ public final class VideoAdValidity {
     public static final VideoAdValidity VALID;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ VideoAdValidity[] f60890b;
+    public static final /* synthetic */ VideoAdValidity[] f61471b;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -39,7 +39,7 @@ public final class VideoAdValidity {
         SHOWED = new VideoAdValidity("SHOWED", 2, "已经展示的广告");
         VideoAdValidity videoAdValidity = new VideoAdValidity("NONE_CACHE", 3, "视频未缓存的广告");
         NONE_CACHE = videoAdValidity;
-        f60890b = new VideoAdValidity[]{VALID, OVERDUE, SHOWED, videoAdValidity};
+        f61471b = new VideoAdValidity[]{VALID, OVERDUE, SHOWED, videoAdValidity};
     }
 
     public VideoAdValidity(String str, int i2, String str2) {
@@ -72,7 +72,7 @@ public final class VideoAdValidity {
     public static VideoAdValidity[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (VideoAdValidity[]) f60890b.clone() : (VideoAdValidity[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (VideoAdValidity[]) f61471b.clone() : (VideoAdValidity[]) invokeV.objValue;
     }
 
     public String getMessage() {

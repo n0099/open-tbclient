@@ -15,18 +15,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetClientConfig.DataRes;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ClientConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.q.a f40864e;
+    public c.a.r0.q.a f41353e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.d.c.g.a f40865f;
+    public final c.a.d.c.g.a f41354f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,16 +59,16 @@ public class ClientConfigModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (!this.a.z(responsedMessage)) {
-                    if (this.a.f40864e != null) {
-                        this.a.f40864e.onError("");
+                    if (this.a.f41353e != null) {
+                        this.a.f41353e.onError("");
                     }
                 } else if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
                         this.a.A(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                     } else if (responsedMessage instanceof ClientConfigSocketResponse) {
                         this.a.A(((ClientConfigSocketResponse) responsedMessage).getData());
-                    } else if (this.a.f40864e != null) {
-                        this.a.f40864e.onError("");
+                    } else if (this.a.f41353e != null) {
+                        this.a.f41353e.onError("");
                     }
                 } else {
                     String errorString = responsedMessage.getErrorString();
@@ -76,8 +76,8 @@ public class ClientConfigModel extends BdBaseModel {
                     if (StringUtils.isNull(errorString)) {
                         errorString = string;
                     }
-                    if (this.a.f40864e != null) {
-                        this.a.f40864e.onError(errorString);
+                    if (this.a.f41353e != null) {
+                        this.a.f41353e.onError(errorString);
                     }
                 }
             }
@@ -85,7 +85,7 @@ public class ClientConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, c.a.q0.q.a aVar) {
+    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, c.a.r0.q.a aVar) {
         super(bdBaseFragmentActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -103,8 +103,8 @@ public class ClientConfigModel extends BdBaseModel {
             }
         }
         a aVar2 = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.f40865f = aVar2;
-        this.f40864e = aVar;
+        this.f41354f = aVar2;
+        this.f41353e = aVar;
         registerListener(aVar2);
     }
 
@@ -112,13 +112,13 @@ public class ClientConfigModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
             if (dataRes == null) {
-                if (this.f40864e != null) {
-                    this.f40864e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
+                if (this.f41353e != null) {
+                    this.f41353e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
                     return;
                 }
                 return;
             }
-            c.a.q0.q.a aVar = this.f40864e;
+            c.a.r0.q.a aVar = this.f41353e;
             if (aVar != null) {
                 aVar.a(dataRes);
             }

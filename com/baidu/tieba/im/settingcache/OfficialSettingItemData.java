@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class OfficialSettingItemData extends PersonalSettingItemData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2986229944930321503L;

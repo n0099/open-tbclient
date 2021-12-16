@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Set<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f58133b;
+    public Set<String> f58714b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class b {
             }
         }
         this.a = new HashSet();
-        this.f58133b = new HashSet();
+        this.f58714b = new HashSet();
     }
 
     public synchronized void a(String[] strArr, String[] strArr2) {
@@ -55,7 +55,7 @@ public class b {
                 if (strArr2 != null && strArr2.length > 0) {
                     for (String str2 : strArr2) {
                         if (!TextUtils.isEmpty(str2)) {
-                            this.f58133b.add(str2);
+                            this.f58714b.add(str2);
                         }
                     }
                 }
@@ -82,7 +82,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                strArr = (String[]) this.f58133b.toArray(new String[this.f58133b.size()]);
+                strArr = (String[]) this.f58714b.toArray(new String[this.f58714b.size()]);
             }
             return strArr;
         }

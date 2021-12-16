@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.j0;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static d a;
@@ -116,7 +116,7 @@ public final class d {
             String[] strArr = {"/system/bin/", "/system/xbin/", "/system/sbin/", "/sbin/", "/vendor/bin/"};
             for (int i2 = 0; i2 < 5; i2++) {
                 try {
-                    if (new File(strArr[i2] + j0.f56676b).exists()) {
+                    if (new File(strArr[i2] + j0.f57257b).exists()) {
                         return true;
                     }
                 } catch (Exception unused) {

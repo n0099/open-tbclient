@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ScheduleStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUSINESS_PRIVATE_STICKINESS = "{\"bdwindow\": {\"high_device_stickiness\": 0.0001,\"mid_device_stickiness\": 0.005,\"low_device_stickiness\": 0.01},\"swan\": {\"high_device_stickiness\": 0.0005,\"mid_device_stickiness\": 0.025,\"low_device_stickiness\": 0.05}}";
@@ -53,7 +53,7 @@ public class ScheduleStrategy {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.launch.ScheduleStrategy$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$launch$ScheduleStrategy$DeviceType;
         public static /* synthetic */ Interceptable $ic;
@@ -90,7 +90,7 @@ public class ScheduleStrategy {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DeviceType {
         public static final /* synthetic */ DeviceType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

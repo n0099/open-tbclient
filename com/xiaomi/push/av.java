@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class av implements ar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,13 +24,13 @@ public class av implements ar {
     public Method f141a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f62725b;
+    public Method f63306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f62726c;
+    public Method f63307c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f62727d;
+    public Method f63308d;
 
     public av(Context context) {
         Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class av implements ar {
             }
         }
         this.f141a = null;
-        this.f62725b = null;
-        this.f62726c = null;
-        this.f62727d = null;
+        this.f63306b = null;
+        this.f63307c = null;
+        this.f63308d = null;
         this.a = context;
         a(context);
     }
@@ -85,9 +85,9 @@ public class av implements ar {
                 this.f139a = a;
                 this.f140a = a.newInstance();
                 this.f141a = this.f139a.getMethod("getUDID", Context.class);
-                this.f62725b = this.f139a.getMethod("getOAID", Context.class);
-                this.f62726c = this.f139a.getMethod("getVAID", Context.class);
-                this.f62727d = this.f139a.getMethod("getAAID", Context.class);
+                this.f63306b = this.f139a.getMethod("getOAID", Context.class);
+                this.f63307c = this.f139a.getMethod("getVAID", Context.class);
+                this.f63308d = this.f139a.getMethod("getAAID", Context.class);
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a("miui load class error", e2);
             }
@@ -123,20 +123,20 @@ public class av implements ar {
     public String mo201b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(this.a, this.f62725b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(this.a, this.f63306b) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(this.a, this.f62726c) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(this.a, this.f63307c) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a(this.a, this.f62727d) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a(this.a, this.f63308d) : (String) invokeV.objValue;
     }
 }

@@ -12,28 +12,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface l extends IInterface {
     void a(DownloadInfo downloadInfo) throws RemoteException;
 
     boolean b(DownloadInfo downloadInfo) throws RemoteException;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a extends Binder implements l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.l$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C2125a implements l {
+        /* loaded from: classes3.dex */
+        public static class C2186a implements l {
             public static /* synthetic */ Interceptable $ic;
             public static l a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f61701b;
+            public IBinder f62282b;
 
-            public C2125a(IBinder iBinder) {
+            public C2186a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +48,7 @@ public interface l extends IInterface {
                         return;
                     }
                 }
-                this.f61701b = iBinder;
+                this.f62282b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -65,7 +65,7 @@ public interface l extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f61701b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f62282b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             a.a().a(downloadInfo);
                         } else {
                             obtain2.readException();
@@ -81,7 +81,7 @@ public interface l extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61701b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62282b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -99,7 +99,7 @@ public interface l extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f61701b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f62282b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().b(downloadInfo);
                         }
                         obtain2.readException();
@@ -140,7 +140,7 @@ public interface l extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof l)) {
                     return (l) queryLocalInterface;
                 }
-                return new C2125a(iBinder);
+                return new C2186a(iBinder);
             }
             return (l) invokeL.objValue;
         }
@@ -182,7 +182,7 @@ public interface l extends IInterface {
         public static l a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2125a.a : (l) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2186a.a : (l) invokeV.objValue;
         }
     }
 }

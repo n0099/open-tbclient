@@ -24,7 +24,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,10 +38,10 @@ public class h {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f61437b;
+                public final /* synthetic */ Context f62018b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.downloadlib.addownload.b.e f61438c;
+                public final /* synthetic */ com.ss.android.downloadlib.addownload.b.e f62019c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -59,8 +59,8 @@ public class h {
                         }
                     }
                     this.a = str;
-                    this.f61437b = context;
-                    this.f61438c = eVar;
+                    this.f62018b = context;
+                    this.f62019c = eVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -75,8 +75,8 @@ public class h {
                         l.a(jSONObject2, "p", this.a);
                         l.a(jSONObject2, "i", Build.VERSION.INCREMENTAL);
                         l.a(jSONObject2, "m", Build.MODEL);
-                        l.a(jSONObject2, "im", com.ss.android.downloadlib.a.a.b.a(this.f61437b));
-                        l.a(jSONObject2, "d", com.ss.android.downloadlib.a.a.b.b(this.f61437b));
+                        l.a(jSONObject2, "im", com.ss.android.downloadlib.a.a.b.a(this.f62018b));
+                        l.a(jSONObject2, "d", com.ss.android.downloadlib.a.a.b.b(this.f62018b));
                         l.a(jSONObject2, "t", "m");
                         byte[] bytes = jSONObject2.toString().getBytes();
                         com.ss.android.downloadlib.addownload.j.d().a(a, com.ss.android.downloadlib.addownload.j.q().a(bytes, bytes.length), "application/octet-stream;tt-data=a", 0, new q(this, jSONObject, i2, optString) { // from class: com.ss.android.downloadlib.g.h.1.1
@@ -85,13 +85,13 @@ public class h {
                             public final /* synthetic */ JSONObject a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ JSONObject f61439b;
+                            public final /* synthetic */ JSONObject f62020b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ String f61440c;
+                            public final /* synthetic */ String f62021c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f61441d;
+                            public final /* synthetic */ AnonymousClass1 f62022d;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -108,18 +108,18 @@ public class h {
                                         return;
                                     }
                                 }
-                                this.f61441d = this;
+                                this.f62022d = this;
                                 this.a = jSONObject;
-                                this.f61439b = i2;
-                                this.f61440c = optString;
+                                this.f62020b = i2;
+                                this.f62021c = optString;
                             }
 
                             @Override // com.ss.android.download.api.config.q
                             public void a(String str2) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, str2) == null) {
-                                    AnonymousClass1 anonymousClass1 = this.f61441d;
-                                    h.b(anonymousClass1.f61437b, anonymousClass1.a, str2, anonymousClass1.f61438c, this.a, this.f61439b, this.f61440c);
+                                    AnonymousClass1 anonymousClass1 = this.f62022d;
+                                    h.b(anonymousClass1.f62018b, anonymousClass1.a, str2, anonymousClass1.f62019c, this.a, this.f62020b, this.f62021c);
                                 }
                             }
 
@@ -127,10 +127,10 @@ public class h {
                             public void a(Throwable th) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                                    Context context2 = this.f61441d.f61437b;
-                                    com.ss.android.downloadlib.b.a.a(h.a(context2, Uri.parse(BaseConstants.MARKET_PREFIX + this.f61441d.a)), this.f61441d.f61438c, true);
+                                    Context context2 = this.f62022d.f62018b;
+                                    com.ss.android.downloadlib.b.a.a(h.a(context2, Uri.parse(BaseConstants.MARKET_PREFIX + this.f62022d.a)), this.f62022d.f62019c, true);
                                     l.a(this.a, "ttdownloader_message", th != null ? th.getMessage() : StringUtil.NULL_STRING);
-                                    h.b(this.f61441d.f61438c, this.a, 4, 1);
+                                    h.b(this.f62022d.f62019c, this.a, 4, 1);
                                 }
                             }
                         });
@@ -304,10 +304,10 @@ public class h {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f61442b;
+                public final /* synthetic */ String f62023b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.downloadlib.addownload.b.e f61443c;
+                public final /* synthetic */ com.ss.android.downloadlib.addownload.b.e f62024c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -325,8 +325,8 @@ public class h {
                         }
                     }
                     this.a = context;
-                    this.f61442b = str;
-                    this.f61443c = eVar;
+                    this.f62023b = str;
+                    this.f62024c = eVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -334,7 +334,7 @@ public class h {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         Context context2 = this.a;
-                        com.ss.android.downloadlib.b.a.a(h.a(context2, Uri.parse(BaseConstants.MARKET_PREFIX + this.f61442b)), this.f61443c, true);
+                        com.ss.android.downloadlib.b.a.a(h.a(context2, Uri.parse(BaseConstants.MARKET_PREFIX + this.f62023b)), this.f62024c, true);
                         JSONObject jSONObject = new JSONObject();
                         try {
                             JSONObject i2 = com.ss.android.downloadlib.addownload.j.i();
@@ -342,14 +342,14 @@ public class h {
                             com.ss.android.downloadlib.a.b.a.a().a(this.a, true);
                             com.ss.android.downloadlib.a.b.b bVar = new com.ss.android.downloadlib.a.b.b();
                             bVar.a = 1;
-                            bVar.f61154b = 0;
-                            bVar.f61155c = String.format(com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("v"), i2.optString("s")), this.f61442b);
+                            bVar.f61735b = 0;
+                            bVar.f61736c = String.format(com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("v"), i2.optString("s")), this.f62023b);
                             com.ss.android.downloadlib.a.b.a.a().a(bVar, (com.ss.android.downloadlib.a.b.d) null);
                             com.ss.android.downloadlib.a.b.a.a().b();
-                            h.b(this.f61443c, jSONObject, -1, 2);
+                            h.b(this.f62024c, jSONObject, -1, 2);
                         } catch (Throwable th) {
                             th.printStackTrace();
-                            h.b(this.f61443c, jSONObject, 1, 2);
+                            h.b(this.f62024c, jSONObject, 1, 2);
                         }
                     }
                 }
@@ -385,10 +385,10 @@ public class h {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f61444b;
+                public final /* synthetic */ Context f62025b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.downloadlib.addownload.b.e f61445c;
+                public final /* synthetic */ com.ss.android.downloadlib.addownload.b.e f62026c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -406,8 +406,8 @@ public class h {
                         }
                     }
                     this.a = str;
-                    this.f61444b = context;
-                    this.f61445c = eVar;
+                    this.f62025b = context;
+                    this.f62026c = eVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -428,7 +428,7 @@ public class h {
                             public final /* synthetic */ JSONObject a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass3 f61446b;
+                            public final /* synthetic */ AnonymousClass3 f62027b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -445,7 +445,7 @@ public class h {
                                         return;
                                     }
                                 }
-                                this.f61446b = this;
+                                this.f62027b = this;
                                 this.a = jSONObject;
                             }
 
@@ -453,8 +453,8 @@ public class h {
                             public void a(String str2) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, str2) == null) {
-                                    AnonymousClass3 anonymousClass3 = this.f61446b;
-                                    h.b(anonymousClass3.f61444b, anonymousClass3.a, str2, anonymousClass3.f61445c, this.a);
+                                    AnonymousClass3 anonymousClass3 = this.f62027b;
+                                    h.b(anonymousClass3.f62025b, anonymousClass3.a, str2, anonymousClass3.f62026c, this.a);
                                 }
                             }
 
@@ -462,10 +462,10 @@ public class h {
                             public void a(Throwable th) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                                    Context context2 = this.f61446b.f61444b;
-                                    com.ss.android.downloadlib.b.a.a(h.a(context2, Uri.parse(BaseConstants.MARKET_PREFIX + this.f61446b.a)), this.f61446b.f61445c, true);
+                                    Context context2 = this.f62027b.f62025b;
+                                    com.ss.android.downloadlib.b.a.a(h.a(context2, Uri.parse(BaseConstants.MARKET_PREFIX + this.f62027b.a)), this.f62027b.f62026c, true);
                                     l.a(this.a, "ttdownloader_message", th != null ? th.getMessage() : StringUtil.NULL_STRING);
-                                    h.b(this.f61446b.f61445c, this.a, 7, 5);
+                                    h.b(this.f62027b.f62026c, this.a, 7, 5);
                                 }
                             }
                         });
@@ -498,7 +498,7 @@ public class h {
                 if (com.ss.android.socialbase.appdownloader.f.d.f() && l.d(context, "com.sec.android.app.samsungapps")) {
                     return d(context, str);
                 }
-                if (eVar.f61223b.isAd() && eVar.f61225d.enableAM()) {
+                if (eVar.f61804b.isAd() && eVar.f61806d.enableAM()) {
                     JSONArray optJSONArray = com.ss.android.downloadlib.addownload.j.i().optJSONArray("am_plans");
                     if (com.ss.android.socialbase.appdownloader.f.d.b() && com.ss.android.socialbase.appdownloader.f.a.a(optJSONArray, "am_0")) {
                         b(context, eVar, str);

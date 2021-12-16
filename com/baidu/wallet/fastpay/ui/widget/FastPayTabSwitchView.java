@@ -19,37 +19,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BeanConstants;
 import com.baidu.wallet.utils.AccessibilityUtils;
 @SuppressLint({"NewApi"})
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class FastPayTabSwitchView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RelativeLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f52527b;
+    public RelativeLayout f53107b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f52528c;
+    public TextView f53108c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f52529d;
+    public TextView f53109d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f52530e;
+    public TextView f53110e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f52531f;
+    public TextView f53111f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f52532g;
+    public a f53112g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f52533h;
+    public boolean f53113h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f52534i;
+    public boolean f53114i;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface a {
         void a();
 
@@ -74,21 +74,21 @@ public class FastPayTabSwitchView extends LinearLayout {
                 return;
             }
         }
-        this.f52533h = true;
-        this.f52534i = BeanConstants.CHANNEL_ID.equals("baiduapp");
+        this.f53113h = true;
+        this.f53114i = BeanConstants.CHANNEL_ID.equals("baiduapp");
         a();
     }
 
     public boolean isFirstSelected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52533h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53113h : invokeV.booleanValue;
     }
 
     public void setOnTabChangedListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f52532g = aVar;
+            this.f53112g = aVar;
         }
     }
 
@@ -97,22 +97,22 @@ public class FastPayTabSwitchView extends LinearLayout {
         int color2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            TextView textView = this.f52529d;
+            TextView textView = this.f53109d;
             if (z) {
-                color = ResUtils.getColor(getContext(), this.f52534i ? "bd_wallet_fp_fix_tip" : "bd_wallet_black");
+                color = ResUtils.getColor(getContext(), this.f53114i ? "bd_wallet_fp_fix_tip" : "bd_wallet_black");
             } else {
-                color = ResUtils.getColor(getContext(), this.f52534i ? "bd_wallet_black" : "wallet_fp_main_color");
+                color = ResUtils.getColor(getContext(), this.f53114i ? "bd_wallet_black" : "wallet_fp_main_color");
             }
             textView.setTextColor(color);
-            this.f52531f.setVisibility(z ? 4 : 0);
-            TextView textView2 = this.f52528c;
+            this.f53111f.setVisibility(z ? 4 : 0);
+            TextView textView2 = this.f53108c;
             if (z) {
-                color2 = ResUtils.getColor(getContext(), this.f52534i ? "bd_wallet_black" : "wallet_fp_main_color");
+                color2 = ResUtils.getColor(getContext(), this.f53114i ? "bd_wallet_black" : "wallet_fp_main_color");
             } else {
-                color2 = ResUtils.getColor(getContext(), this.f52534i ? "bd_wallet_fp_fix_tip" : "bd_wallet_black");
+                color2 = ResUtils.getColor(getContext(), this.f53114i ? "bd_wallet_fp_fix_tip" : "bd_wallet_black");
             }
             textView2.setTextColor(color2);
-            this.f52530e.setVisibility(z ? 0 : 4);
+            this.f53110e.setVisibility(z ? 0 : 4);
         }
     }
 
@@ -147,21 +147,21 @@ public class FastPayTabSwitchView extends LinearLayout {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         RelativeLayout relativeLayout = this.a.a;
-                        AccessibilityUtils.setContentDescription(relativeLayout, ((Object) this.a.f52528c.getText()) + "已选中");
-                        RelativeLayout relativeLayout2 = this.a.f52527b;
-                        AccessibilityUtils.setContentDescription(relativeLayout2, ((Object) this.a.f52529d.getText()) + "未选中");
-                        if (this.a.f52533h) {
+                        AccessibilityUtils.setContentDescription(relativeLayout, ((Object) this.a.f53108c.getText()) + "已选中");
+                        RelativeLayout relativeLayout2 = this.a.f53107b;
+                        AccessibilityUtils.setContentDescription(relativeLayout2, ((Object) this.a.f53109d.getText()) + "未选中");
+                        if (this.a.f53113h) {
                             return;
                         }
-                        this.a.f52533h = true;
+                        this.a.f53113h = true;
                         this.a.setTabChange(true);
-                        if (this.a.f52532g != null) {
-                            this.a.f52532g.a();
+                        if (this.a.f53112g != null) {
+                            this.a.f53112g.a();
                         }
                     }
                 }
             });
-            this.f52527b.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.fastpay.ui.widget.FastPayTabSwitchView.2
+            this.f53107b.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.fastpay.ui.widget.FastPayTabSwitchView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FastPayTabSwitchView a;
@@ -188,15 +188,15 @@ public class FastPayTabSwitchView extends LinearLayout {
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        RelativeLayout relativeLayout = this.a.f52527b;
-                        AccessibilityUtils.setContentDescription(relativeLayout, ((Object) this.a.f52529d.getText()) + "已选中");
+                        RelativeLayout relativeLayout = this.a.f53107b;
+                        AccessibilityUtils.setContentDescription(relativeLayout, ((Object) this.a.f53109d.getText()) + "已选中");
                         RelativeLayout relativeLayout2 = this.a.a;
-                        AccessibilityUtils.setContentDescription(relativeLayout2, ((Object) this.a.f52528c.getText()) + "未选中");
-                        if (this.a.f52533h) {
-                            this.a.f52533h = false;
+                        AccessibilityUtils.setContentDescription(relativeLayout2, ((Object) this.a.f53108c.getText()) + "未选中");
+                        if (this.a.f53113h) {
+                            this.a.f53113h = false;
                             this.a.setTabChange(false);
-                            if (this.a.f52532g != null) {
-                                this.a.f52532g.b();
+                            if (this.a.f53112g != null) {
+                                this.a.f53112g.b();
                             }
                         }
                     }
@@ -208,18 +208,18 @@ public class FastPayTabSwitchView extends LinearLayout {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), this.f52534i ? "wallet_fp_tab_switch_baiduapp" : "wallet_fp_tab_switch"), this);
+            LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), this.f53114i ? "wallet_fp_tab_switch_baiduapp" : "wallet_fp_tab_switch"), this);
             this.a = (RelativeLayout) findViewById(ResUtils.id(getContext(), "wallet_mobile_switch_fastpay"));
-            this.f52527b = (RelativeLayout) findViewById(ResUtils.id(getContext(), "wallet_mobile_switch_traffic"));
-            this.f52529d = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_traffic_tv"));
-            this.f52531f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_traffic_line"));
-            this.f52528c = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fastpay_tv"));
-            this.f52530e = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fastpay_line"));
-            setTabChange(this.f52533h);
+            this.f53107b = (RelativeLayout) findViewById(ResUtils.id(getContext(), "wallet_mobile_switch_traffic"));
+            this.f53109d = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_traffic_tv"));
+            this.f53111f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_traffic_line"));
+            this.f53108c = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fastpay_tv"));
+            this.f53110e = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fastpay_line"));
+            setTabChange(this.f53113h);
             RelativeLayout relativeLayout = this.a;
-            AccessibilityUtils.setContentDescription(relativeLayout, ((Object) this.f52528c.getText()) + "已选中");
-            RelativeLayout relativeLayout2 = this.f52527b;
-            AccessibilityUtils.setContentDescription(relativeLayout2, ((Object) this.f52529d.getText()) + "未选中");
+            AccessibilityUtils.setContentDescription(relativeLayout, ((Object) this.f53108c.getText()) + "已选中");
+            RelativeLayout relativeLayout2 = this.f53107b;
+            AccessibilityUtils.setContentDescription(relativeLayout2, ((Object) this.f53109d.getText()) + "未选中");
             b();
         }
     }
@@ -243,8 +243,8 @@ public class FastPayTabSwitchView extends LinearLayout {
                 return;
             }
         }
-        this.f52533h = true;
-        this.f52534i = BeanConstants.CHANNEL_ID.equals("baiduapp");
+        this.f53113h = true;
+        this.f53114i = BeanConstants.CHANNEL_ID.equals("baiduapp");
         a();
     }
 
@@ -267,8 +267,8 @@ public class FastPayTabSwitchView extends LinearLayout {
                 return;
             }
         }
-        this.f52533h = true;
-        this.f52534i = BeanConstants.CHANNEL_ID.equals("baiduapp");
+        this.f53113h = true;
+        this.f53114i = BeanConstants.CHANNEL_ID.equals("baiduapp");
         a();
     }
 }

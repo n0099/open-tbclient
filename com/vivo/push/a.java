@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62416b;
+    public String f62997b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62417c;
+    public String f62998c;
 
     public a(String str, String str2, Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public final class a {
                 return;
             }
         }
-        this.f62416b = str;
-        this.f62417c = str2;
+        this.f62997b = str;
+        this.f62998c = str2;
         this.a = bundle;
     }
 
@@ -221,6 +221,6 @@ public final class a {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62416b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62997b : (String) invokeV.objValue;
     }
 }

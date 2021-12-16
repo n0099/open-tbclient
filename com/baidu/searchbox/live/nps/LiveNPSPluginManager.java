@@ -8,8 +8,8 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.d.a.a;
-import c.a.c0.f.b;
+import c.a.d0.d.a.a;
+import c.a.d0.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.main.invoke.IInvokeCallback;
@@ -49,7 +49,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LiveNPSPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LIVE_SHOW_ADMIN_LIST = "LIVE_SHOW_ADMIN_LIST";
@@ -108,12 +108,12 @@ public class LiveNPSPluginManager {
     public ToastService toastService;
     public UBCManager ubcManager;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface PluginLoadCallback {
         void onResult(int i2, String str, Object obj, String str2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static LiveNPSPluginManager instance;
@@ -169,7 +169,7 @@ public class LiveNPSPluginManager {
     public static String bundleToJsonStr(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, map)) == null) {
             if (map == null || map.isEmpty()) {
                 return "";
             }
@@ -188,7 +188,7 @@ public class LiveNPSPluginManager {
 
     private void checkHandler() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65565, this) == null) && this.mMainHandler == null) {
+        if ((interceptable == null || interceptable.invokeV(65567, this) == null) && this.mMainHandler == null) {
             this.mMainHandler = new Handler(Looper.getMainLooper());
         }
     }
@@ -196,7 +196,7 @@ public class LiveNPSPluginManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void checkYYEntranceIsLoaded(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65566, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65568, this, context, str) == null) {
             if (getPluginInstallVersion() >= 500500000) {
                 boolean isLoaded = this.mLiveNPSPlugin.getYYLiveEntry().isLoaded();
                 dLog("checkYYEntranceIsLoaded，url = " + str + ",  isLoaded = " + isLoaded);
@@ -251,13 +251,13 @@ public class LiveNPSPluginManager {
     private int compareVersion(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65567, this, i2, i3)) == null) ? (i2 / 1000) - (i3 / 1000) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65569, this, i2, i3)) == null) ? (i2 / 1000) - (i3 / 1000) : invokeII.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dLog(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65568, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65570, this, str) == null) {
             NpsLoadChainLog.getInstance().dLog(str);
         }
     }
@@ -265,7 +265,7 @@ public class LiveNPSPluginManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void downloadUpdatePackage() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65569, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65571, this) == null) {
             NPSPackageManager.getInstance().downloadUpdatePackage(NPS_PLUGIN_PKG_NAME, new a(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.30
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -289,20 +289,20 @@ public class LiveNPSPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.c0.d.a.a
+                @Override // c.a.d0.d.a.a
                 public void onProgress(long j2, long j3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
                     }
                 }
 
-                @Override // c.a.c0.d.a.a
+                @Override // c.a.d0.d.a.a
                 public void onResult(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                     }
                 }
-            }, new c.a.c0.f.a(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.31
+            }, new c.a.d0.f.a(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.31
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -325,7 +325,7 @@ public class LiveNPSPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.c0.f.a
+                @Override // c.a.d0.f.a
                 public void checkAuthorization(IBundleInfo iBundleInfo, int i2, b bVar) {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i2, bVar) == null) || bVar == null) {
@@ -340,13 +340,13 @@ public class LiveNPSPluginManager {
     public static LiveNPSPluginManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) ? SingletonHolder.instance : (LiveNPSPluginManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? SingletonHolder.instance : (LiveNPSPluginManager) invokeV.objValue;
     }
 
     public static String getParamsStr(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return str;
             }
@@ -363,7 +363,7 @@ public class LiveNPSPluginManager {
     public int getPluginInstallVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65572, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65574, this)) == null) {
             BundleInfo bundleInfo = NPSPackageManager.getInstance().getBundleInfo(NPS_PLUGIN_PKG_NAME);
             if (bundleInfo == null) {
                 return 0;
@@ -377,7 +377,7 @@ public class LiveNPSPluginManager {
     public boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65573, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65575, this)) == null) {
             AppInfoService appInfoService = this.appService;
             if (appInfoService != null) {
                 return appInfoService.isDebug();
@@ -391,7 +391,7 @@ public class LiveNPSPluginManager {
         Flow flow;
         Flow flow2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65574, this, new Object[]{Boolean.valueOf(z), str, pluginLoadCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65576, this, new Object[]{Boolean.valueOf(z), str, pluginLoadCallback}) == null) {
             this.mCurrentCallback = pluginLoadCallback;
             String str2 = "NPS load from=" + str;
             IInvokeCallback iInvokeCallback = new IInvokeCallback(this, str, pluginLoadCallback) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.32
@@ -763,10 +763,10 @@ public class LiveNPSPluginManager {
                             if (this.val$enterPage) {
                                 if (i2 == 34) {
                                     if (this.this$0.loadingCallback == null) {
-                                        this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_installing, 0);
+                                        this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_installing, 0);
                                     }
                                 } else {
-                                    this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                    this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                                 }
                             }
                             if (this.this$0.ubcManager != null && this.this$0.pageFlow != null) {
@@ -800,7 +800,7 @@ public class LiveNPSPluginManager {
     public void logCancelJoinLive(String str, boolean z) {
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65575, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65577, this, str, z) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("from", "live");
@@ -831,7 +831,7 @@ public class LiveNPSPluginManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void logPluginEnd(String str, int i2, boolean z, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65576, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), str2, str3, str4}) == null) || this.ubcManager == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65578, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), str2, str3, str4}) == null) || this.ubcManager == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -858,7 +858,7 @@ public class LiveNPSPluginManager {
 
     private void logPluginLoad(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65577, this, str, str2) == null) || this.ubcManager == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65579, this, str, str2) == null) || this.ubcManager == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -878,14 +878,14 @@ public class LiveNPSPluginManager {
     private void logPluginVersionCode() {
         BundleInfo bundleInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65578, this) == null) && NPSPackageManager.getInstance().getBundleStatus(NPS_PLUGIN_PKG_NAME) == 43 && (bundleInfo = NPSPackageManager.getInstance().getBundleInfo(NPS_PLUGIN_PKG_NAME)) != null) {
+        if ((interceptable == null || interceptable.invokeV(65580, this) == null) && NPSPackageManager.getInstance().getBundleStatus(NPS_PLUGIN_PKG_NAME) == 43 && (bundleInfo = NPSPackageManager.getInstance().getBundleInfo(NPS_PLUGIN_PKG_NAME)) != null) {
             String str = "NPS Installed live plugin version code " + bundleInfo.getVersionCode();
         }
     }
 
     private void npsLoadChainInitMedia() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65581, this) == null) {
             NpsLoadChainLog.getInstance().initAndStart();
             NpsLoadChainLog.getInstance().setEntry("YY-Media");
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
@@ -895,7 +895,7 @@ public class LiveNPSPluginManager {
 
     private void npsLoadChainInitOther() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65582, this) == null) {
             NpsLoadChainLog.getInstance().initAndStart();
             NpsLoadChainLog.getInstance().setEntry("YY-Other");
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
@@ -905,7 +905,7 @@ public class LiveNPSPluginManager {
 
     private void npsLoadChainInitStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65583, this) == null) {
             NpsLoadChainLog.getInstance().initAndStart();
             NpsLoadChainLog.getInstance().setEntry("YY-StartLive");
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
@@ -916,7 +916,7 @@ public class LiveNPSPluginManager {
     public static Map<String, String> paramsJsonToMap(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, jSONObject)) == null) {
             if (jSONObject == null) {
                 return null;
             }
@@ -941,7 +941,7 @@ public class LiveNPSPluginManager {
     private String parseEntry(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65583, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65585, this, str)) == null) {
             HashMap<String, String> stringToMap = stringToMap(getParamsStr(str));
             boolean containsKey = stringToMap.containsKey("params");
             Map map = stringToMap;
@@ -972,12 +972,74 @@ public class LiveNPSPluginManager {
         return (String) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v7. Raw type applied. Possible types: java.util.Map<java.lang.String, java.lang.String> */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Multi-variable type inference failed */
+    public Map<String, String> parseYYLiveParamMap(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65586, this, str)) == null) {
+            HashMap hashMap = new HashMap();
+            HashMap<String, String> stringToMap = stringToMap(getParamsStr(str));
+            boolean containsKey = stringToMap.containsKey("params");
+            Map map = stringToMap;
+            if (containsKey) {
+                try {
+                    map = paramsJsonToMap(new JSONObject(stringToMap.get("params")));
+                } catch (Exception unused) {
+                    map = null;
+                }
+            }
+            if (map != null) {
+                String str2 = map.get("sid");
+                String str3 = map.get("ssid");
+                String str4 = map.get("anchorUid");
+                String str5 = map.get("templateId");
+                String str6 = map.get("streamInfo");
+                if (str.contains("isMix=1")) {
+                    hashMap.put("PreJoinChannelType", "mix");
+                } else {
+                    hashMap.put("PreJoinChannelType", "startYYLive");
+                }
+                hashMap.put("PreJoinChannelSid", str2);
+                hashMap.put("PreJoinChannelSsid", str3);
+                hashMap.put("PreJoinChannelTemplateId", str5);
+                hashMap.put("PreJoinChannelAnchorId", str4);
+                hashMap.put("PreJoinChannelStreamInfo", str6);
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Type inference failed for r5v6. Raw type applied. Possible types: java.util.Map<java.lang.String, java.lang.String> */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Multi-variable type inference failed */
+    public String parserYYSchemaUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65587, this, str)) == null) {
+            HashMap<String, String> stringToMap = stringToMap(getParamsStr(str));
+            boolean containsKey = stringToMap.containsKey("params");
+            Map map = stringToMap;
+            if (containsKey) {
+                try {
+                    map = paramsJsonToMap(new JSONObject(stringToMap.get("params")));
+                } catch (Exception unused) {
+                    map = null;
+                }
+            }
+            return map != null ? map.get("url") : "";
+        }
+        return (String) invokeL.objValue;
+    }
+
     /* JADX DEBUG: Type inference failed for r0v11. Raw type applied. Possible types: java.util.Map<java.lang.String, java.lang.String> */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
     public void realJumpToYYLiveActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65584, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65588, this, context, str) == null) {
             if (str.contains("&isMix=")) {
                 HashMap<String, String> stringToMap = stringToMap(getParamsStr(str));
                 boolean containsKey = stringToMap.containsKey("params");
@@ -1008,7 +1070,7 @@ public class LiveNPSPluginManager {
     private void showLoading() {
         LiveNpsLoadingCallback liveNpsLoadingCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65585, this) == null) || (liveNpsLoadingCallback = this.loadingCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65589, this) == null) || (liveNpsLoadingCallback = this.loadingCallback) == null) {
             return;
         }
         liveNpsLoadingCallback.onLoadingStart();
@@ -1018,7 +1080,7 @@ public class LiveNPSPluginManager {
     public void showNormalToast(int i2, int i3) {
         ToastService toastService;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65586, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(65590, this, i2, i3) == null) {
             if (Looper.myLooper() != Looper.getMainLooper()) {
                 this.handler.post(new Runnable(this, i2, i3) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.40
                     public static /* synthetic */ Interceptable $ic;
@@ -1070,7 +1132,7 @@ public class LiveNPSPluginManager {
     public void stopLoading(int i2) {
         LiveNpsLoadingCallback liveNpsLoadingCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65588, this, i2) == null) || (liveNpsLoadingCallback = this.loadingCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65592, this, i2) == null) || (liveNpsLoadingCallback = this.loadingCallback) == null) {
             return;
         }
         liveNpsLoadingCallback.onLoadingEnd(i2);
@@ -1079,7 +1141,7 @@ public class LiveNPSPluginManager {
     public static HashMap<String, String> stringToMap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -1175,7 +1237,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
@@ -1234,7 +1296,7 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
                             }
@@ -1248,12 +1310,13 @@ public class LiveNPSPluginManager {
     }
 
     public void dispatchHostEvent(@NonNull Context context, @NonNull String str, Map<String, Object> map) {
-        ILiveNPSPlugin iLiveNPSPlugin;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, context, str, map) == null) || (iLiveNPSPlugin = this.mLiveNPSPlugin) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, context, str, map) == null) || this.mLiveNPSPlugin == null) {
             return;
         }
-        iLiveNPSPlugin.dispatchHostEvent(context, str, map);
+        if (map != null && !TextUtils.isEmpty(str) && context != null) {
+            this.mLiveNPSPlugin.dispatchHostEvent(context, str, map);
+        }
         if (this.mLiveNPSPlugin.getLiveShowEntry() != null) {
             this.mLiveNPSPlugin.getLiveShowEntry().dispatchHostEvent(context, str, map);
         }
@@ -1322,7 +1385,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
@@ -1350,7 +1413,7 @@ public class LiveNPSPluginManager {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
             npsLoadChainLog.setPluginVersion(getPluginInstallVersion() + "");
             if (this.mLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, YY_LIVE_ROUTER, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.29
+                loadNPSPluginImpl(true, YY_LIVE_ROUTER, new PluginLoadCallback(this, str, context) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.29
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -1362,7 +1425,7 @@ public class LiveNPSPluginManager {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, context, str};
+                            Object[] objArr = {this, str, context};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -1373,8 +1436,8 @@ public class LiveNPSPluginManager {
                             }
                         }
                         this.this$0 = this;
-                        this.val$context = context;
                         this.val$url = str;
+                        this.val$context = context;
                     }
 
                     @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
@@ -1425,8 +1488,13 @@ public class LiveNPSPluginManager {
                                         } else if ("load".equals(this.val$loadType)) {
                                             YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "load");
                                         }
+                                        AnonymousClass29 anonymousClass29 = this.this$1;
+                                        String parserYYSchemaUrl = anonymousClass29.this$0.parserYYSchemaUrl(anonymousClass29.val$url);
+                                        YYStaticConfig.conf.put("PreJoinChannelType", "Schema");
+                                        YYStaticConfig.conf.put("PreJoinChannelSchemaUrl", parserYYSchemaUrl);
+                                        this.this$1.this$0.dLog("schemaUrl = " + parserYYSchemaUrl);
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                                             return;
                                         }
                                         try {
@@ -1447,6 +1515,12 @@ public class LiveNPSPluginManager {
                 YYStaticConfig.conf = new HashMap<>();
             }
             YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "direct");
+            if (this.mLiveNPSPlugin.getYYLiveEntry() != null && !this.mLiveNPSPlugin.getYYLiveEntry().isLoaded()) {
+                String parserYYSchemaUrl = parserYYSchemaUrl(str);
+                YYStaticConfig.conf.put("PreJoinChannelType", "Schema");
+                YYStaticConfig.conf.put("PreJoinChannelSchemaUrl", parserYYSchemaUrl);
+                dLog("not load, schemaUrl = " + parserYYSchemaUrl);
+            }
             this.mLiveNPSPlugin.getYYLiveEntry().dispatchYYLiveRouter(context, str);
         }
     }
@@ -1506,7 +1580,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             this.val$callback.getFileSize(0L);
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
                             }
@@ -1566,7 +1640,7 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
                             }
@@ -1628,7 +1702,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             this.val$callback.getFileSize(0L);
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
                             }
@@ -1755,7 +1829,7 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
                             }
@@ -1821,7 +1895,7 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                         }
                     }
                 });
@@ -1891,7 +1965,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
@@ -1992,7 +2066,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
@@ -2099,7 +2173,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
@@ -2165,7 +2239,7 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i3;
                             }
@@ -2227,7 +2301,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
@@ -2294,7 +2368,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str5 = "load live nps plugin error=" + i2;
@@ -2361,7 +2435,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i3;
@@ -2433,7 +2507,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
@@ -2494,7 +2568,7 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str5 = "load live nps plugin error=" + i2;
                             }
@@ -2556,7 +2630,7 @@ public class LiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                            this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             if (this.this$0.isDebug()) {
                                 String str5 = "load live nps plugin error=" + i2;
                             }
@@ -2618,7 +2692,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
@@ -2683,7 +2757,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
@@ -2748,7 +2822,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
@@ -2815,7 +2889,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str5 = "load live nps plugin error=" + i2;
@@ -2880,7 +2954,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
@@ -2943,7 +3017,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str3 = "load live nps plugin error=" + i2;
@@ -3032,7 +3106,7 @@ public class LiveNPSPluginManager {
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         String str5 = "finish load class t=" + System.currentTimeMillis();
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                                             return;
                                         }
                                         try {
@@ -3128,7 +3202,7 @@ public class LiveNPSPluginManager {
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         String str5 = "finish load class t=" + System.currentTimeMillis();
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                                             return;
                                         }
                                         try {
@@ -3166,7 +3240,7 @@ public class LiveNPSPluginManager {
             NpsLoadChainLog.getInstance().setEntry(parseEntry(str));
             NpsLoadChainLog.getInstance().setPluginVersion(getPluginInstallVersion() + "");
             if (this.mLiveNPSPlugin == null) {
-                loadNPSPluginImpl(true, YY_ENTER_LIVE_ROOM, new PluginLoadCallback(this, context, str) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.25
+                loadNPSPluginImpl(true, YY_ENTER_LIVE_ROOM, new PluginLoadCallback(this, str, context) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.25
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -3178,7 +3252,7 @@ public class LiveNPSPluginManager {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, context, str};
+                            Object[] objArr = {this, str, context};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -3189,8 +3263,8 @@ public class LiveNPSPluginManager {
                             }
                         }
                         this.this$0 = this;
-                        this.val$context = context;
                         this.val$url = str;
+                        this.val$context = context;
                     }
 
                     @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
@@ -3201,7 +3275,7 @@ public class LiveNPSPluginManager {
                             this.this$0.dLog("startYYLiveActivity.PluginLoadCallback.onResult()，retCode = " + i2 + ", retMsg = " + str3 + ", retObject = " + obj + ", loadType = " + str4);
                             if (i2 != 14) {
                                 if (!this.this$0.isLoadingCanceled) {
-                                    this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                    this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                                 }
                                 if (this.this$0.isDebug()) {
                                     String str6 = "load live nps plugin error=" + i2;
@@ -3220,6 +3294,9 @@ public class LiveNPSPluginManager {
                                 } else if ("load".equals(str4)) {
                                     YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "load");
                                 }
+                                Map<? extends String, ? extends Object> parseYYLiveParamMap = this.this$0.parseYYLiveParamMap(this.val$url);
+                                this.this$0.dLog("parseYYLiveParamMap " + parseYYLiveParamMap);
+                                YYStaticConfig.conf.putAll(parseYYLiveParamMap);
                                 this.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
                                 if (!this.this$0.isLoadingCanceled) {
                                     if (this.this$0.mLiveNPSPlugin.getYYLiveEntry() != null) {
@@ -3262,6 +3339,11 @@ public class LiveNPSPluginManager {
                         th.printStackTrace();
                     }
                     this.pageFlow = null;
+                }
+                if (!this.mLiveNPSPlugin.getYYLiveEntry().isLoaded()) {
+                    Map<String, String> parseYYLiveParamMap = parseYYLiveParamMap(str);
+                    dLog("not load parseYYLiveParamMap " + parseYYLiveParamMap);
+                    YYStaticConfig.conf.putAll(parseYYLiveParamMap);
                 }
                 checkYYEntranceIsLoaded(context, str);
             }
@@ -3323,7 +3405,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str5 = "load live nps plugin error=" + i2;
@@ -3388,7 +3470,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str4 = "load live nps plugin error=" + i2;
@@ -3425,7 +3507,7 @@ public class LiveNPSPluginManager {
 
     private void startLiveMediaActivity(Context context, String str, String str2, String str3, Uri uri, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65587, this, new Object[]{context, str, str2, str3, uri, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65591, this, new Object[]{context, str, str2, str3, uri, Boolean.valueOf(z)}) == null) {
             if (!z) {
                 npsLoadChainInitMedia();
             }
@@ -3486,7 +3568,7 @@ public class LiveNPSPluginManager {
                                 }
                             }
                             if (!this.this$0.isLoadingCanceled) {
-                                this.this$0.showNormalToast(c.a.w.g.a.liveshow_plugin_impl_load_fail, 0);
+                                this.this$0.showNormalToast(c.a.x.i.a.liveshow_plugin_impl_load_fail, 0);
                             }
                             if (this.this$0.isDebug()) {
                                 String str6 = "load live nps plugin error=" + i2;
@@ -3496,6 +3578,9 @@ public class LiveNPSPluginManager {
                 });
             } else if (iLiveNPSPlugin.getLiveMediaEntry() != null) {
                 this.mLiveNPSPlugin.getLiveMediaEntry().enterLiveRoom(context, str, str2, str3, uri);
+            }
+            if (isDebug()) {
+                logPluginVersionCode();
             }
         }
     }

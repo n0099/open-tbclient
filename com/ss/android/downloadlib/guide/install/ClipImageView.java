@@ -13,23 +13,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ClipImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f61450b;
+    public Path f62031b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RectF f61451c;
+    public RectF f62032c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f61452d;
+    public Paint f62033d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float[] f61453e;
+    public float[] f62034e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ClipImageView(Context context) {
@@ -56,8 +56,8 @@ public class ClipImageView extends ImageView {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f61450b = new Path();
-            this.f61451c = new RectF();
+            this.f62031b = new Path();
+            this.f62032c = new RectF();
         }
     }
 
@@ -66,17 +66,17 @@ public class ClipImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             if (this.a) {
-                this.f61450b.reset();
-                this.f61451c.set(0.0f, 0.0f, getWidth(), getHeight());
-                float[] fArr = this.f61453e;
+                this.f62031b.reset();
+                this.f62032c.set(0.0f, 0.0f, getWidth(), getHeight());
+                float[] fArr = this.f62034e;
                 if (fArr != null) {
-                    this.f61450b.addRoundRect(this.f61451c, fArr, Path.Direction.CW);
+                    this.f62031b.addRoundRect(this.f62032c, fArr, Path.Direction.CW);
                 }
                 canvas.setDrawFilter(new PaintFlagsDrawFilter(0, 3));
-                canvas.clipPath(this.f61450b);
-                Paint paint = this.f61452d;
+                canvas.clipPath(this.f62031b);
+                Paint paint = this.f62033d;
                 if (paint != null) {
-                    canvas.drawPath(this.f61450b, paint);
+                    canvas.drawPath(this.f62031b, paint);
                 }
             }
             super.onDraw(canvas);
@@ -88,9 +88,9 @@ public class ClipImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             Paint paint = new Paint(1);
-            this.f61452d = paint;
+            this.f62033d = paint;
             paint.setStyle(Paint.Style.FILL);
-            this.f61452d.setColor(i2);
+            this.f62033d.setColor(i2);
         }
     }
 
@@ -104,7 +104,7 @@ public class ClipImageView extends ImageView {
     public void setRadius(float[] fArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, fArr) == null) && fArr != null && fArr.length == 8) {
-            this.f61453e = fArr;
+            this.f62034e = fArr;
         }
     }
 

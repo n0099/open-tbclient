@@ -10,7 +10,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", "Landroid/os/HandlerThread;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class CacheManager$cacheThread$2 extends Lambda implements Function0<HandlerThread> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public final class CacheManager$cacheThread$2 extends Lambda implements Function
             HandlerThread handlerThread = new HandlerThread("AkDanmaku-Cache");
             CacheManager cacheManager = this.this$0;
             handlerThread.start();
-            cacheManager.f43326c = true;
+            cacheManager.f43817c = true;
             return handlerThread;
         }
         return (HandlerThread) invokeV.objValue;

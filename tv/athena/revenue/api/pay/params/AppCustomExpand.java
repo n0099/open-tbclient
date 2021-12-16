@@ -3,11 +3,13 @@ package tv.athena.revenue.api.pay.params;
 import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AppCustomExpand {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,5 +29,14 @@ public class AppCustomExpand {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "AppCustomExpand{appClientExpand=" + this.appClientExpand + "appServerExpand=" + this.appServerExpand + ", iAppServerExpand='" + this.iAppServerExpand + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ByteString implements Serializable, Comparable<ByteString> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ByteString EMPTY;

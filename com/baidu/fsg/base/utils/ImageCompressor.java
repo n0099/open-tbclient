@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ImageCompressor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int UNCONSTRAINED = -1;

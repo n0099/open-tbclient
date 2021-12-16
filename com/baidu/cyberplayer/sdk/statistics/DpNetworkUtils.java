@@ -5,20 +5,16 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-import android.os.Build;
-import android.os.Process;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.s;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class DpNetworkUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,17 +33,50 @@ public class DpNetworkUtils {
         }
     }
 
-    public static String a(Context context) {
+    public static int a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                if (telephonyManager == null) {
+                    return 0;
+                }
+                String simOperator = telephonyManager.getSimOperator();
+                if (TextUtils.isEmpty(simOperator)) {
+                    return 0;
+                }
+                if (!"46000".equals(simOperator) && !"46002".equals(simOperator) && !"46007".equals(simOperator) && !"46008".equals(simOperator)) {
+                    if (!"46001".equals(simOperator) && !"46006".equals(simOperator) && !"46009".equals(simOperator)) {
+                        if (!"46003".equals(simOperator) && !"46005".equals(simOperator)) {
+                            if (!"46011".equals(simOperator)) {
+                                return 99;
+                            }
+                        }
+                        return 2;
+                    }
+                    return 3;
+                }
+                return 1;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static String b(Context context) {
         InterceptResult invokeL;
         WifiInfo connectionInfo;
         int rssi;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            NetworkInfo b2 = b(context);
-            if (b2 != null) {
-                int type = b2.getType();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            NetworkInfo netWorkInfo = getNetWorkInfo(context);
+            if (netWorkInfo != null) {
+                int type = netWorkInfo.getType();
                 if (type == 0) {
-                    String extraInfo = b2.getExtraInfo();
+                    String extraInfo = netWorkInfo.getExtraInfo();
                     return TextUtils.isEmpty(extraInfo) ? "Disconnect" : extraInfo;
                 } else if (type == 1) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
@@ -64,22 +93,11 @@ public class DpNetworkUtils {
         return (String) invokeL.objValue;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.VERSION.SDK_INT >= 23 : invokeV.booleanValue;
-    }
-
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) ? str != null && context.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeLL.booleanValue;
-    }
-
-    public static NetworkInfo b(Context context) {
+    @Keep
+    public static NetworkInfo getNetWorkInfo(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (context == null) {
                 return null;
             }
@@ -95,110 +113,54 @@ public class DpNetworkUtils {
         return (NetworkInfo) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:23:0x003a  */
-    /* JADX WARN: Removed duplicated region for block: B:37:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean c(Context context) {
+    @Keep
+    public static int getNetworkConnectType(NetworkInfo networkInfo) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, context)) != null) {
-            return invokeL.booleanValue;
-        }
-        boolean z2 = true;
-        if (!a()) {
-            return true;
-        }
-        if (context == null) {
-            return false;
-        }
-        try {
-            if (!a(context, "android.permission.CALL_PHONE") && !a(context, "android.permission.MODIFY_PHONE_STATE") && !a(context, s.f56838c) && !a(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
-                z = false;
-                if (Build.VERSION.SDK_INT < 16) {
-                    if (!z) {
-                        if (!a(context, "android.permission.READ_CALL_LOG")) {
-                            z2 = false;
-                        }
-                    }
-                    return z2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, networkInfo)) == null) {
+            if (networkInfo == null || networkInfo.getState() != NetworkInfo.State.CONNECTED) {
+                return 0;
+            }
+            if (networkInfo.getType() != 0) {
+                if (networkInfo.getType() == 1) {
+                    return 100;
                 }
-                return z;
+                return networkInfo.getType() == 9 ? 101 : 999;
             }
-            z = true;
-            if (Build.VERSION.SDK_INT < 16) {
+            switch (networkInfo.getSubtype()) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                    return 2;
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                    return 3;
+                case 13:
+                    return 4;
+                default:
+                    return 1;
             }
-        } catch (Throwable unused) {
-            return false;
         }
+        return invokeL.intValue;
     }
 
     @Keep
     public static String getNetworkStatisticsData(Context context) {
         InterceptResult invokeL;
-        int i2;
-        TelephonyManager telephonyManager;
-        String subscriberId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            NetworkInfo b2 = b(context);
-            int i3 = 3;
-            if (b2 == null || b2.getState() != NetworkInfo.State.CONNECTED) {
-                i2 = 0;
-            } else if (b2.getType() == 0) {
-                switch (b2.getSubtype()) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                        i2 = 2;
-                        break;
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        i2 = 3;
-                        break;
-                    case 13:
-                        i2 = 4;
-                        break;
-                    default:
-                        i2 = 1;
-                        break;
-                }
-            } else {
-                i2 = b2.getType() == 1 ? 100 : b2.getType() == 9 ? 101 : 999;
-            }
-            int i4 = 99;
-            try {
-                if (!c(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = telephonyManager.getSubscriberId()) == null) {
-                    i3 = 0;
-                } else {
-                    if (!subscriberId.startsWith("46000") && !subscriberId.startsWith("46002") && !subscriberId.startsWith("46007") && !subscriberId.startsWith("46008")) {
-                        if (!subscriberId.startsWith("46001") && !subscriberId.startsWith("46006") && !subscriberId.startsWith("46009")) {
-                            if (!subscriberId.startsWith("46003") && !subscriberId.startsWith("46005")) {
-                                if (!subscriberId.startsWith("460011")) {
-                                    i3 = 99;
-                                }
-                            }
-                            i3 = 2;
-                        }
-                    }
-                    i3 = 1;
-                }
-                i4 = i3;
-            } catch (Throwable th) {
-                CyberLog.e("DpNetworkUtils", "network changed: " + th);
-            }
-            return i2 + "_" + i4;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            int networkConnectType = getNetworkConnectType(getNetWorkInfo(context));
+            int a = a(context);
+            return networkConnectType + "_" + a;
         }
         return (String) invokeL.objValue;
     }

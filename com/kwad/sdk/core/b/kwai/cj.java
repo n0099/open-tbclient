@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.webview.jshandler.b;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class cj implements com.kwad.sdk.core.d<b.C2032b> {
+/* loaded from: classes3.dex */
+public class cj implements com.kwad.sdk.core.d<b.C2093b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,27 +29,27 @@ public class cj implements com.kwad.sdk.core.d<b.C2032b> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
-    public void a(b.C2032b c2032b, JSONObject jSONObject) {
+    public void a(b.C2093b c2093b, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2032b, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2093b, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        c2032b.a = jSONObject.optString("payload");
+        c2093b.a = jSONObject.optString("payload");
         if (jSONObject.opt("payload") == JSONObject.NULL) {
-            c2032b.a = "";
+            c2093b.a = "";
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
-    public JSONObject b(b.C2032b c2032b, JSONObject jSONObject) {
+    public JSONObject b(b.C2093b c2093b, JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, c2032b, jSONObject)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, c2093b, jSONObject)) == null) {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.t.a(jSONObject, "payload", c2032b.a);
+            com.kwad.sdk.utils.t.a(jSONObject, "payload", c2093b.a);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

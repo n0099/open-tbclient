@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class x<E> extends u<E> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final long f63912k;
+    public static final long f64493k;
     public transient /* synthetic */ FieldHolder $fh;
     public long producerIndex;
 
@@ -29,7 +29,7 @@ public abstract class x<E> extends u<E> {
                 return;
             }
         }
-        f63912k = f0.a(x.class, "producerIndex");
+        f64493k = f0.a(x.class, "producerIndex");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

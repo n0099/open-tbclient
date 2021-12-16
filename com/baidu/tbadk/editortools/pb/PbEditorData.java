@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PbEditorData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_PB = 0;
@@ -25,7 +25,7 @@ public class PbEditorData implements Serializable {
     public WriteImagesInfo mWriteImagesInfo;
     public boolean openVoiceRecordButton;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class ThreadData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

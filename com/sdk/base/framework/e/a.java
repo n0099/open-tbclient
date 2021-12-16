@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.OutputStream;
 import java.io.PushbackInputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a extends d {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f61003b;
+    public static final byte[] f61584b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f61004c;
+    public byte[] f61585c;
 
     static {
         InterceptResult invokeClinit;
@@ -35,12 +35,12 @@ public final class a extends d {
             }
         }
         a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
-        f61003b = new byte[256];
+        f61584b = new byte[256];
         for (int i2 = 0; i2 < 255; i2++) {
-            f61003b[i2] = -1;
+            f61584b[i2] = -1;
         }
         for (int i3 = 0; i3 < 64; i3++) {
-            f61003b[a[i3]] = (byte) i3;
+            f61584b[a[i3]] = (byte) i3;
         }
     }
 
@@ -57,7 +57,7 @@ public final class a extends d {
                 return;
             }
         }
-        this.f61004c = new byte[4];
+        this.f61585c = new byte[4];
     }
 
     /* JADX WARN: Removed duplicated region for block: B:40:0x0085  */
@@ -86,7 +86,7 @@ public final class a extends d {
                 throw new c();
             }
             if (read != 10 && read != 13) {
-                byte[] bArr = this.f61004c;
+                byte[] bArr = this.f61585c;
                 bArr[0] = (byte) read;
                 int i4 = i2 - 1;
                 int i5 = 0;
@@ -105,10 +105,10 @@ public final class a extends d {
                 if (i4 == -1) {
                     throw new c();
                 }
-                if (i2 > 3 && this.f61004c[3] == 61) {
+                if (i2 > 3 && this.f61585c[3] == 61) {
                     i2 = 3;
                 }
-                if (i2 > 2 && this.f61004c[2] == 61) {
+                if (i2 > 2 && this.f61585c[2] == 61) {
                     i2 = 2;
                 }
                 if (i2 != 2) {
@@ -134,15 +134,15 @@ public final class a extends d {
                             outputStream.write((byte) i3);
                             return;
                         }
-                        b6 = f61003b[this.f61004c[3] & 255];
+                        b6 = f61584b[this.f61585c[3] & 255];
                     }
                     b2 = b6;
-                    b6 = f61003b[this.f61004c[2] & 255];
+                    b6 = f61584b[this.f61585c[2] & 255];
                 } else {
                     b2 = -1;
                 }
-                byte[] bArr2 = f61003b;
-                byte[] bArr3 = this.f61004c;
+                byte[] bArr2 = f61584b;
+                byte[] bArr3 = this.f61585c;
                 b3 = bArr2[bArr3[1] & 255];
                 byte b7 = b2;
                 b4 = b6;

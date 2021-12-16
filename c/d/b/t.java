@@ -2,10 +2,10 @@ package c.d.b;
 
 import java.io.IOException;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface t {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         b0 a(z zVar) throws IOException;
 

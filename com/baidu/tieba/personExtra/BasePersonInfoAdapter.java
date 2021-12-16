@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<BaseFragment> f48204b;
+    public ArrayList<BaseFragment> f48711b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
@@ -39,12 +39,12 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f48204b = new ArrayList<>();
+        this.f48711b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         BaseFragment createPersonalFramget = createPersonalFramget();
         createPersonalFramget.setArguments(bundle);
-        this.f48204b.add(createPersonalFramget);
+        this.f48711b.add(createPersonalFramget);
         if (z) {
             this.a = new int[]{0};
             return;
@@ -53,7 +53,7 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
         bundle2.putInt("page_type", 1);
         BaseFragment createPersonalFramget2 = createPersonalFramget();
         createPersonalFramget2.setArguments(bundle2);
-        this.f48204b.add(createPersonalFramget2);
+        this.f48711b.add(createPersonalFramget2);
         this.a = new int[]{0, 1};
     }
 
@@ -74,7 +74,7 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
             if (i2 >= this.a.length || i2 < 0) {
                 return null;
             }
-            return this.f48204b.get(i2);
+            return this.f48711b.get(i2);
         }
         return (Fragment) invokeI.objValue;
     }

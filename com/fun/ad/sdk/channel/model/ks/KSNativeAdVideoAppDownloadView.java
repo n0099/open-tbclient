@@ -25,28 +25,28 @@ import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KSNativeAdVideoAppDownloadView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f55694b;
+    public TextView f56275b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f55695c;
+    public FrameLayout f56276c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f55696d;
+    public ImageView f56277d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f55697e;
+    public ImageView f56278e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f55698f;
+    public TextView f56279f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f55699g;
+    public Button f56280g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdVideoAppDownloadView(Context context) {
@@ -117,7 +117,7 @@ public class KSNativeAdVideoAppDownloadView extends x {
         if (interceptable == null || interceptable.invokeL(1048576, this, ksNativeAd) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this);
-            arrayList.add(this.f55699g);
+            arrayList.add(this.f56280g);
             this.a.clear();
             this.a.addAll(arrayList);
             View videoView = ksNativeAd.getVideoView(getContext(), new KsAdVideoPlayConfig.Builder().videoSoundEnable(FunAdSdk.getFunAdConfig().isVideoSoundEnable).dataFlowAutoStart(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart).build());
@@ -126,20 +126,20 @@ public class KSNativeAdVideoAppDownloadView extends x {
                 ((ViewGroup) videoView.getParent()).removeView(videoView);
             }
             if (videoView != null) {
-                this.f55695c.removeAllViews();
-                this.f55695c.addView(videoView);
+                this.f56276c.removeAllViews();
+                this.f56276c.addView(videoView);
             }
-            this.f55696d.setImageBitmap(getSdkLogo());
-            this.f55694b.setText(ksNativeAd.getAdDescription());
+            this.f56277d.setImageBitmap(getSdkLogo());
+            this.f56275b.setText(ksNativeAd.getAdDescription());
             if (TextUtils.isEmpty(ksNativeAd.getAppIconUrl())) {
-                this.f55697e.setVisibility(8);
+                this.f56278e.setVisibility(8);
             } else {
-                this.f55697e.setVisibility(0);
-                GlideHelper.get().load(getContext(), ksNativeAd.getAppIconUrl(), this.f55697e);
+                this.f56278e.setVisibility(0);
+                GlideHelper.get().load(getContext(), ksNativeAd.getAppIconUrl(), this.f56278e);
             }
-            this.f55698f.setText(ksNativeAd.getAppName());
-            this.f55699g.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new y(ksNativeAd.getActionDescription(), this.f55699g));
+            this.f56279f.setText(ksNativeAd.getAppName());
+            this.f56280g.setText(ksNativeAd.getActionDescription());
+            ksNativeAd.setDownloadListener(new y(ksNativeAd.getActionDescription(), this.f56280g));
         }
     }
 
@@ -148,12 +148,12 @@ public class KSNativeAdVideoAppDownloadView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f55694b = (TextView) findViewById(R.id.ad_description);
-            this.f55695c = (FrameLayout) findViewById(R.id.ad_video);
-            this.f55696d = (ImageView) findViewById(R.id.ad_logo);
-            this.f55697e = (ImageView) findViewById(R.id.ad_app_icon);
-            this.f55698f = (TextView) findViewById(R.id.ad_app_title);
-            this.f55699g = (Button) findViewById(R.id.ad_app_download);
+            this.f56275b = (TextView) findViewById(R.id.ad_description);
+            this.f56276c = (FrameLayout) findViewById(R.id.ad_video);
+            this.f56277d = (ImageView) findViewById(R.id.ad_logo);
+            this.f56278e = (ImageView) findViewById(R.id.ad_app_icon);
+            this.f56279f = (TextView) findViewById(R.id.ad_app_title);
+            this.f56280g = (Button) findViewById(R.id.ad_app_download);
         }
     }
 
@@ -162,11 +162,11 @@ public class KSNativeAdVideoAppDownloadView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f55695c.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f56276c.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
             layoutParams.height = (int) (i6 / 1.78f);
-            this.f55695c.setLayoutParams(layoutParams);
+            this.f56276c.setLayoutParams(layoutParams);
         }
     }
 }

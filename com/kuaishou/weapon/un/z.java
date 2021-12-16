@@ -14,16 +14,16 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class z {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "/proc/cpuinfo";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f56920b = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq";
+    public static final String f57501b = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f56921c = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq";
+    public static final String f57502c = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq";
     public transient /* synthetic */ FieldHolder $fh;
 
     public z() {
@@ -164,7 +164,7 @@ public class z {
             return invokeV.intValue;
         }
         try {
-            fileReader = new FileReader(f56920b);
+            fileReader = new FileReader(f57501b);
             try {
                 bufferedReader = new BufferedReader(fileReader);
                 try {
@@ -227,7 +227,7 @@ public class z {
             return invokeV.intValue;
         }
         try {
-            fileReader = new FileReader(f56921c);
+            fileReader = new FileReader(f57502c);
             try {
                 bufferedReader = new BufferedReader(fileReader);
                 try {

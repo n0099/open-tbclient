@@ -2,7 +2,7 @@ package com.baidu.live.business.model.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.w.e.g.j;
+import c.a.x.g.g.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LiveBannerEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<LiveBannerEntity> CREATOR;
@@ -28,6 +28,7 @@ public class LiveBannerEntity implements Parcelable {
     public LiveHostInfo hostInfo;
     public LeftLableInfo leftLabel;
     public int liveStatus;
+    public String materialId;
     public String name;
     public boolean needLogShow;
     public String nid;
@@ -37,8 +38,8 @@ public class LiveBannerEntity implements Parcelable {
     public long startTime;
     public LiveStatInfo statInfo;
 
-    /* loaded from: classes8.dex */
-    public static class a implements Parcelable.Creator<LiveBannerEntity> {
+    /* loaded from: classes10.dex */
+    public class a implements Parcelable.Creator<LiveBannerEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,7 +76,7 @@ public class LiveBannerEntity implements Parcelable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,6 +166,7 @@ public class LiveBannerEntity implements Parcelable {
         this.nid = jSONObject.optString("nid");
         this.roomId = jSONObject.optString("room_Id");
         this.audienceCount = jSONObject.optInt("audience_count");
+        this.materialId = jSONObject.optString("material_id");
         this.liveStatus = jSONObject.optInt(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS);
         this.startTime = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
         this.endTime = jSONObject.optLong("end_time");

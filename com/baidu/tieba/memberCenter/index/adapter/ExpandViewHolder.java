@@ -2,8 +2,8 @@ package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.q0.w0.a;
-import c.a.r0.e2.c.k.f;
+import c.a.r0.w0.a;
+import c.a.s0.f2.c.k.f;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ExpandViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragmentActivity f46958b;
+    public BaseFragmentActivity f47457b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f46959c;
+    public TextView f47458c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f46960d;
+    public TbImageView f47459d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ExpandViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -48,15 +48,15 @@ public class ExpandViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view;
-        this.f46958b = baseFragmentActivity;
-        this.f46959c = (TextView) view.findViewById(R.id.expand_text);
-        this.f46960d = (TbImageView) this.a.findViewById(R.id.expand_icon);
+        this.f47457b = baseFragmentActivity;
+        this.f47458c = (TextView) view.findViewById(R.id.expand_text);
+        this.f47459d = (TbImageView) this.a.findViewById(R.id.expand_icon);
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a.a(this.f46958b.getPageContext(), this.a);
+            a.a(this.f47457b.getPageContext(), this.a);
         }
     }
 
@@ -76,18 +76,18 @@ public class ExpandViewHolder extends TypeAdapter.ViewHolder {
             z2 = false;
         }
         if (z2) {
-            this.f46959c.setVisibility(0);
-            this.f46960d.setVisibility(0);
+            this.f47458c.setVisibility(0);
+            this.f47459d.setVisibility(0);
             if (z) {
-                this.f46959c.setText(R.string.unexpand_text);
-                SkinManager.setImageResource(this.f46960d, R.drawable.ic_shop_up);
+                this.f47458c.setText(R.string.unexpand_text);
+                SkinManager.setImageResource(this.f47459d, R.drawable.ic_shop_up);
             } else {
-                this.f46959c.setText(R.string.expand);
-                SkinManager.setImageResource(this.f46960d, R.drawable.ic_shop_down);
+                this.f47458c.setText(R.string.expand);
+                SkinManager.setImageResource(this.f47459d, R.drawable.ic_shop_down);
             }
         } else {
-            this.f46959c.setVisibility(8);
-            this.f46960d.setVisibility(8);
+            this.f47458c.setVisibility(8);
+            this.f47459d.setVisibility(8);
         }
         onChangeSkinType();
     }

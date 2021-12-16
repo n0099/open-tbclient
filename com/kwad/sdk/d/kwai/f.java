@@ -15,46 +15,46 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.video.videoview.a;
 import com.kwad.sdk.utils.ax;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends b implements a.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static long a = 1000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f58282b;
+    public c f58863b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f58283c;
+    public AdTemplate f58864c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public a f58284d;
+    public a f58865d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58285e;
+    public int f58866e;
 
     /* renamed from: com.kwad.sdk.d.kwai.f$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58286b;
+        public int f58867b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f58287c;
+        public boolean f58868c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f58288d;
+        public boolean f58869d;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -72,9 +72,9 @@ public class f extends b implements a.b {
                 }
             }
             this.a = fVar;
-            this.f58286b = Integer.MIN_VALUE;
-            this.f58287c = false;
-            this.f58288d = false;
+            this.f58867b = Integer.MIN_VALUE;
+            this.f58868c = false;
+            this.f58869d = false;
         }
 
         public /* synthetic */ a(f fVar, AnonymousClass1 anonymousClass1) {
@@ -84,33 +84,33 @@ public class f extends b implements a.b {
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f58288d = z;
+                this.f58869d = z;
             }
         }
 
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.f58287c = z;
+                this.f58868c = z;
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f58288d) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f58869d) {
                 return;
             }
-            if (!this.f58287c) {
-                if (this.f58286b == Integer.MIN_VALUE) {
-                    this.f58286b = this.a.f58285e;
+            if (!this.f58868c) {
+                if (this.f58867b == Integer.MIN_VALUE) {
+                    this.f58867b = this.a.f58866e;
                 }
-                if (this.f58286b < 0) {
+                if (this.f58867b < 0) {
                     return;
                 }
-                com.kwad.sdk.core.d.a.a("InterstitialPlayablePresenter", this.a.toString() + ", this: " + toString() + " PlayableTimerRunnable run : " + this.f58286b);
-                this.a.b(this.f58286b);
-                this.f58286b = this.f58286b + (-1);
+                com.kwad.sdk.core.d.a.a("InterstitialPlayablePresenter", this.a.toString() + ", this: " + toString() + " PlayableTimerRunnable run : " + this.f58867b);
+                this.a.b(this.f58867b);
+                this.f58867b = this.f58867b + (-1);
             }
             ax.a(this, null, f.a);
         }
@@ -150,29 +150,29 @@ public class f extends b implements a.b {
         c cVar;
         com.kwad.sdk.d.a.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) || (bVar = (cVar = this.f58282b).f58252e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) || (bVar = (cVar = this.f58863b).f58833e) == null) {
             return;
         }
         if (i2 != 0) {
             bVar.a(true, i2);
         } else if (cVar.d()) {
         } else {
-            this.f58282b.a(q(), this.f58283c);
+            this.f58863b.a(q(), this.f58864c);
             r();
-            c cVar2 = this.f58282b;
-            cVar2.a(true, cVar2.f58256i);
+            c cVar2 = this.f58863b;
+            cVar2.a(true, cVar2.f58837i);
         }
     }
 
     private void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            com.kwad.sdk.core.video.videoview.b bVar = this.f58282b.f58256i;
+            com.kwad.sdk.core.video.videoview.b bVar = this.f58863b.f58837i;
             if (bVar != null) {
                 bVar.k();
             }
-            this.f58282b.f58250c.dismiss();
-            KsInterstitialAd.AdInteractionListener adInteractionListener = this.f58282b.f58249b;
+            this.f58863b.f58831c.dismiss();
+            KsInterstitialAd.AdInteractionListener adInteractionListener = this.f58863b.f58830b;
             if (adInteractionListener != null) {
                 adInteractionListener.onAdClosed();
             }
@@ -186,29 +186,29 @@ public class f extends b implements a.b {
             super.a();
             com.kwad.sdk.core.d.a.a("InterstitialPlayablePresenter", this + " onBind");
             c cVar = (c) p();
-            this.f58282b = cVar;
+            this.f58863b = cVar;
             AdTemplate adTemplate = cVar.a;
-            this.f58283c = adTemplate;
+            this.f58864c = adTemplate;
             AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
             long j3 = j2.adInsertScreenInfo.autoCloseTime;
             if (j3 > 0) {
-                this.f58285e = (int) Math.min(com.kwad.sdk.core.config.b.a(j2), j3);
+                this.f58866e = (int) Math.min(com.kwad.sdk.core.config.b.a(j2), j3);
             } else {
-                this.f58285e = com.kwad.sdk.core.config.b.a(j2);
+                this.f58866e = com.kwad.sdk.core.config.b.a(j2);
             }
-            com.kwad.sdk.d.a.b bVar = this.f58282b.f58252e;
+            com.kwad.sdk.d.a.b bVar = this.f58863b.f58833e;
             if (bVar != null) {
                 bVar.a(true, -1);
             }
             if (!com.kwad.sdk.core.response.a.a.P(j2)) {
                 a aVar = new a(this, null);
-                this.f58284d = aVar;
+                this.f58865d = aVar;
                 ax.a(aVar, null, 1000L);
                 return;
             }
-            this.f58285e = (int) Math.min(this.f58285e, com.kwad.sdk.core.response.a.a.b(j2));
-            this.f58284d = null;
-            this.f58282b.a(this);
+            this.f58866e = (int) Math.min(this.f58866e, com.kwad.sdk.core.response.a.a.b(j2));
+            this.f58865d = null;
+            this.f58863b.a(this);
         }
     }
 
@@ -216,7 +216,7 @@ public class f extends b implements a.b {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            b(this.f58285e - ((int) (j2 / 1000)));
+            b(this.f58866e - ((int) (j2 / 1000)));
         }
     }
 
@@ -233,12 +233,12 @@ public class f extends b implements a.b {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.c();
             com.kwad.sdk.core.d.a.a("InterstitialPlayablePresenter", this + " onUnbind");
-            this.f58282b.b(this);
-            a aVar = this.f58284d;
+            this.f58863b.b(this);
+            a aVar = this.f58865d;
             if (aVar != null) {
                 aVar.a(true);
-                ax.b(this.f58284d);
-                this.f58284d = null;
+                ax.b(this.f58865d);
+                this.f58865d = null;
             }
         }
     }
@@ -262,7 +262,7 @@ public class f extends b implements a.b {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f58282b.a(q(), this.f58283c);
+            this.f58863b.a(q(), this.f58864c);
             r();
         }
     }
@@ -272,7 +272,7 @@ public class f extends b implements a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.g();
-            a aVar = this.f58284d;
+            a aVar = this.f58865d;
             if (aVar != null) {
                 aVar.b(false);
             }
@@ -284,7 +284,7 @@ public class f extends b implements a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.h();
-            a aVar = this.f58284d;
+            a aVar = this.f58865d;
             if (aVar != null) {
                 aVar.b(true);
             }

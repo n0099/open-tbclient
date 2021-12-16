@@ -26,14 +26,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58183b;
+    public String f58764b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public abstract class b {
                 return;
             }
         }
-        this.f58183b = "";
+        this.f58764b = "";
     }
 
     private String a(String str) {
@@ -202,7 +202,7 @@ public abstract class b {
                     h.b(file8.getPath());
                 }
                 h.b(file5.getPath());
-                f.b(com.kwad.sdk.crash.b.b.f58154b);
+                f.b(com.kwad.sdk.crash.b.b.f58735b);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
             }
@@ -301,15 +301,15 @@ public abstract class b {
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         bufferedReader = bufferedReader2;
-                        str = this.f58183b + e + StringUtils.LF;
-                        this.f58183b = str;
+                        str = this.f58764b + e + StringUtils.LF;
+                        this.f58764b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (IOException e3) {
                         e = e3;
                         bufferedReader = bufferedReader2;
-                        str = this.f58183b + e + StringUtils.LF;
-                        this.f58183b = str;
+                        str = this.f58764b + e + StringUtils.LF;
+                        this.f58764b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (Throwable th) {

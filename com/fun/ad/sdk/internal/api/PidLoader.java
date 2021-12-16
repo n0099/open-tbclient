@@ -11,7 +11,7 @@ import com.fun.ad.sdk.FunNativeAdInflater;
 import com.fun.ad.sdk.FunSplashAd;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface PidLoader {
     void addListener(f fVar);
 

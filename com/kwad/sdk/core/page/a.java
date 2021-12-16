@@ -20,23 +20,23 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.core.webview.jshandler.p;
 import com.kwad.sdk.widget.e;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.h.b implements p.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AdBaseFrameLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f57531b;
+    public e f58112b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f57532c;
+    public AdTemplate f58113c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f57533d;
+    public com.kwad.sdk.core.download.a.b f58114d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f57534e;
+    public boolean f58115e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class a extends com.kwad.sdk.h.b implements p.b {
                 return;
             }
         }
-        this.f57534e = true;
+        this.f58115e = true;
     }
 
     public static void a(Context context, AdTemplate adTemplate) {
@@ -72,9 +72,9 @@ public class a extends com.kwad.sdk.h.b implements p.b {
                 return;
             }
             try {
-                this.f57532c = new AdTemplate();
-                this.f57532c.parseJson(new JSONObject(stringExtra));
-                this.f57533d = new com.kwad.sdk.core.download.a.b(this.f57532c);
+                this.f58113c = new AdTemplate();
+                this.f58113c.parseJson(new JSONObject(stringExtra));
+                this.f58114d = new com.kwad.sdk.core.download.a.b(this.f58113c);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.b(e2);
             }
@@ -87,7 +87,7 @@ public class a extends com.kwad.sdk.h.b implements p.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             com.kwad.sdk.core.d.a.a("AdPlayableActivityProxy", "updatePageStatus status: " + aVar);
-            if (aVar.a != 1 || (eVar = this.f57531b) == null) {
+            if (aVar.a != 1 || (eVar = this.f58112b) == null) {
                 return;
             }
             eVar.c();
@@ -110,10 +110,10 @@ public class a extends com.kwad.sdk.h.b implements p.b {
             a(getIntent());
             this.a = (AdBaseFrameLayout) findViewById(R.id.ksad_playable_activity_root);
             e eVar = new e((KsAdWebView) findViewById(R.id.ksad_playable_webview));
-            this.f57531b = eVar;
-            eVar.a(this.f57532c, this.a, this.f57533d);
-            this.f57531b.a(this);
-            this.f57531b.b();
+            this.f58112b = eVar;
+            eVar.a(this.f58113c, this.a, this.f58114d);
+            this.f58112b.a(this);
+            this.f58112b.b();
         }
     }
 
@@ -122,7 +122,7 @@ public class a extends com.kwad.sdk.h.b implements p.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            this.f57531b.a((p.b) null);
+            this.f58112b.a((p.b) null);
         }
     }
 

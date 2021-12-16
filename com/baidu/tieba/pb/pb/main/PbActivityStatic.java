@@ -7,15 +7,15 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.q0.a.w;
-import c.a.q0.d1.t0;
-import c.a.q0.d1.u0;
-import c.a.q0.d1.v;
-import c.a.r0.q2.u.f.n0;
-import c.a.r0.q2.u.f.o;
-import c.a.r0.q2.u.f.r0;
-import c.a.r0.q2.u.f.w0;
+import c.a.d.f.p.m;
+import c.a.r0.a.w;
+import c.a.r0.d1.w0;
+import c.a.r0.d1.x;
+import c.a.r0.d1.x0;
+import c.a.s0.s2.l;
+import c.a.s0.s2.u.f.n0;
+import c.a.s0.s2.u.f.o;
+import c.a.s0.s2.u.f.r0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -43,6 +43,7 @@ import com.baidu.tbadk.core.atomData.PbCommentFloatActivityConfig;
 import com.baidu.tbadk.core.atomData.PbFullScreenEditorActivityConfig;
 import com.baidu.tbadk.core.atomData.PbSearchEmotionActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -65,6 +66,7 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
 import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,17 +74,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PbActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public static BdAsyncTaskParallel a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,10 +113,10 @@ public class PbActivityStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.a.q0.u.i iVar;
+            c.a.r0.u.i iVar;
             String a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.q0.u.i) || (a = (iVar = (c.a.q0.u.i) customResponsedMessage.getData()).a()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.r0.u.i) || (a = (iVar = (c.a.r0.u.i) customResponsedMessage.getData()).a()) == null) {
                 return;
             }
             try {
@@ -130,18 +133,18 @@ public class PbActivityStatic {
                 if (!StringUtils.isNull(queryParameter3)) {
                     int e2 = c.a.d.f.m.b.e(queryParameter3, 0);
                     if (iVar.b() != null) {
-                        v.a(queryParameter2, queryParameter, queryParameter4, e2, iVar.b(), baijiahaoData);
+                        x.a(queryParameter2, queryParameter, queryParameter4, e2, iVar.b(), baijiahaoData);
                     } else {
-                        v.a(queryParameter2, queryParameter, queryParameter4, e2, iVar.b(), baijiahaoData);
+                        x.a(queryParameter2, queryParameter, queryParameter4, e2, iVar.b(), baijiahaoData);
                     }
                 } else {
                     if (StringUtils.isNull(queryParameter2)) {
                         queryParameter2 = "0";
                     }
                     if (iVar.b() != null) {
-                        v.a(queryParameter2, queryParameter, queryParameter4, 0, iVar.b(), baijiahaoData);
+                        x.a(queryParameter2, queryParameter, queryParameter4, 0, iVar.b(), baijiahaoData);
                     } else {
-                        v.a(queryParameter2, queryParameter, queryParameter4, 0, iVar.b(), baijiahaoData);
+                        x.a(queryParameter2, queryParameter, queryParameter4, 0, iVar.b(), baijiahaoData);
                     }
                 }
             } catch (Exception e3) {
@@ -150,8 +153,8 @@ public class PbActivityStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static class b implements c.a.q0.e.e {
+    /* loaded from: classes12.dex */
+    public static class b implements c.a.r0.e.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -169,17 +172,17 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // c.a.q0.e.e
+        @Override // c.a.r0.e.e
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = c.a.q0.e.d.a(context);
+                TextView a = c.a.r0.e.d.a(context);
                 if (a != null) {
                     FloatingLayout.LayoutParams layoutParams = new FloatingLayout.LayoutParams(-2, -2);
                     ((LinearLayout.LayoutParams) layoutParams).gravity = 16;
-                    SkinManager.setViewTextColor(a, c.a.r0.q2.f.CAM_X0302);
-                    layoutParams.setMargins(l.f(context, c.a.r0.q2.g.ds8), l.f(context, c.a.r0.q2.g.ds4), 0, 0);
+                    SkinManager.setViewTextColor(a, c.a.s0.s2.f.CAM_X0302);
+                    layoutParams.setMargins(m.f(context, c.a.s0.s2.g.ds8), m.f(context, c.a.s0.s2.g.ds4), 0, 0);
                     a.setLayoutParams(layoutParams);
                 }
                 return a;
@@ -188,8 +191,8 @@ public class PbActivityStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static class c implements c.a.q0.e.e {
+    /* loaded from: classes12.dex */
+    public static class c implements c.a.r0.e.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -207,16 +210,16 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // c.a.q0.e.e
+        @Override // c.a.r0.e.e
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = c.a.q0.e.d.a(context);
+                TextView a = c.a.r0.e.d.a(context);
                 if (a != null) {
-                    SkinManager.setViewTextColor(a, c.a.r0.q2.f.CAM_X0302);
+                    SkinManager.setViewTextColor(a, c.a.s0.s2.f.CAM_X0302);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    layoutParams.setMargins(l.f(context, c.a.r0.q2.g.ds8), l.f(context, c.a.r0.q2.g.ds2), 0, 0);
+                    layoutParams.setMargins(m.f(context, c.a.s0.s2.g.ds8), m.f(context, c.a.s0.s2.g.ds2), 0, 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }
@@ -226,8 +229,8 @@ public class PbActivityStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static class d implements c.a.q0.e.e {
+    /* loaded from: classes12.dex */
+    public static class d implements c.a.r0.e.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -245,16 +248,16 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // c.a.q0.e.e
+        @Override // c.a.r0.e.e
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = c.a.q0.e.d.a(context);
+                TextView a = c.a.r0.e.d.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    SkinManager.setViewTextColor(a, c.a.r0.q2.f.CAM_X0302);
-                    layoutParams.setMargins(l.f(context, c.a.r0.q2.g.ds8), l.f(context, c.a.r0.q2.g.ds2), 0, 0);
+                    SkinManager.setViewTextColor(a, c.a.s0.s2.f.CAM_X0302);
+                    layoutParams.setMargins(m.f(context, c.a.s0.s2.g.ds8), m.f(context, c.a.s0.s2.g.ds2), 0, 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }
@@ -264,8 +267,8 @@ public class PbActivityStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static class e implements c.a.q0.e.e {
+    /* loaded from: classes12.dex */
+    public static class e implements c.a.r0.e.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -283,16 +286,16 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // c.a.q0.e.e
+        @Override // c.a.r0.e.e
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = c.a.q0.e.d.a(context);
+                TextView a = c.a.r0.e.d.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    SkinManager.setViewTextColor(a, c.a.r0.q2.f.CAM_X0302);
-                    layoutParams.setMargins(l.f(context, c.a.r0.q2.g.ds8), l.f(context, c.a.r0.q2.g.ds2), 0, 0);
+                    SkinManager.setViewTextColor(a, c.a.s0.s2.f.CAM_X0302);
+                    layoutParams.setMargins(m.f(context, c.a.s0.s2.g.ds8), m.f(context, c.a.s0.s2.g.ds2), 0, 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }
@@ -302,7 +305,7 @@ public class PbActivityStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class f implements CustomMessageTask.CustomRunnable<PbActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -339,7 +342,7 @@ public class PbActivityStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class g extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -364,14 +367,14 @@ public class PbActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                u0.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
+                x0.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
                 return null;
             }
             return (Void) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class h implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -393,8 +396,8 @@ public class PbActivityStatic {
             this.a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:198:0x039e  */
-        /* JADX WARN: Removed duplicated region for block: B:200:0x03a4 A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:207:0x03ef  */
+        /* JADX WARN: Removed duplicated region for block: B:209:0x03f5 A[RETURN] */
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -425,20 +428,35 @@ public class PbActivityStatic {
             Matcher matcher = this.a.matcher(lowerCase);
             String str3 = "push";
             if (!Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1").matcher(lowerCase).find() && !lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_BAIJIAHAO_PB)) {
-                if (lowerCase.contains("unidispatch/pb")) {
+                if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains("unidispatch/pb")) {
                     Uri parse = Uri.parse(lowerCase);
                     if (parse != null) {
-                        String queryParameter = parse.getQueryParameter(c.a.q0.a.g.Z);
+                        String queryParameter = parse.getQueryParameter(c.a.r0.a.g.Z);
                         if (!StringUtils.isNull(queryParameter)) {
                             TbSingleton.getInstance().setFromWhichSearchSource(queryParameter);
                         }
                     }
-                    PbActivityConfig pbActivityConfig = new PbActivityConfig(tbPageContext.getPageActivity());
-                    pbActivityConfig.setUri(Uri.parse(lowerCase));
-                    if (lowerCase != null && lowerCase.contains(UrlSchemaHelper.FROM_YUN_PUSH)) {
-                        pbActivityConfig.setStartFrom(7);
+                    if (parse != null) {
+                        String queryParameter2 = parse.getQueryParameter("obj_param1");
+                        if (!c.a.r0.a.g.g0.equals(queryParameter2) && !"2".equals(queryParameter2)) {
+                            PbActivityConfig pbActivityConfig = new PbActivityConfig(tbPageContext.getPageActivity());
+                            pbActivityConfig.setUri(Uri.parse(lowerCase));
+                            if (lowerCase != null && lowerCase.contains(UrlSchemaHelper.FROM_YUN_PUSH)) {
+                                pbActivityConfig.setStartFrom(7);
+                            }
+                            tbPageContext.sendMessage(new CustomMessage(2004001, pbActivityConfig));
+                        } else {
+                            String queryParameter3 = parse.getQueryParameter("tid");
+                            ArrayList arrayList = new ArrayList();
+                            VideoItemData videoItemData = new VideoItemData();
+                            videoItemData.thread_id = queryParameter3;
+                            arrayList.add(videoItemData);
+                            VideoRecommentPlayActivityConfig videoRecommentPlayActivityConfig = new VideoRecommentPlayActivityConfig(tbPageContext.getPageActivity(), arrayList, null, VideoRecommentPlayActivityConfig.FROM_PB_VIDEO_SCHEME);
+                            videoRecommentPlayActivityConfig.setParamIsVertail(true);
+                            videoRecommentPlayActivityConfig.setUri(parse);
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
+                        }
                     }
-                    tbPageContext.sendMessage(new CustomMessage(2004001, pbActivityConfig));
                     return 0;
                 }
                 String str4 = "";
@@ -467,12 +485,12 @@ public class PbActivityStatic {
                         if (TbadkCoreApplication.getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
                             return 3;
                         }
-                        l.L(tbPageContext.getPageActivity(), c.a.r0.q2.l.manga_plugin_not_install_tip);
+                        m.L(tbPageContext.getPageActivity(), l.manga_plugin_not_install_tip);
                         return 0;
                     } else if (TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
                         return 3;
                     } else {
-                        l.L(tbPageContext.getPageActivity(), c.a.r0.q2.l.book_plugin_not_install_tip);
+                        m.L(tbPageContext.getPageActivity(), l.book_plugin_not_install_tip);
                         return 0;
                     }
                 }
@@ -493,7 +511,7 @@ public class PbActivityStatic {
                                 }
                             }
                         }
-                        z6 = c.a.d.f.m.b.b(t0.c(lowerCase, "is_from_push="), false);
+                        z6 = c.a.d.f.m.b.b(w0.c(lowerCase, "is_from_push="), false);
                     } else {
                         z6 = false;
                     }
@@ -514,7 +532,7 @@ public class PbActivityStatic {
                     }
                     str2 = group;
                     if (lowerCase != null) {
-                        String c3 = t0.c(lowerCase, "sttype=");
+                        String c3 = w0.c(lowerCase, "sttype=");
                         if (!StringUtils.isNull(c3)) {
                             str7 = c3;
                         }
@@ -578,7 +596,7 @@ public class PbActivityStatic {
                             } else if (!lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) || !lowerCase.contains("kz=")) {
                                 return 3;
                             } else {
-                                c2 = t0.c(lowerCase, "kz=");
+                                c2 = w0.c(lowerCase, "kz=");
                                 z = false;
                             }
                             z2 = false;
@@ -593,8 +611,8 @@ public class PbActivityStatic {
                             } else {
                                 createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(c2, str4, str7);
                             }
-                            if (lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(t0.c(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
-                                createNormalCfg.setUserName(t0.c(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
+                            if (lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(w0.c(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
+                                createNormalCfg.setUserName(w0.c(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
                             }
                             createNormalCfg.setVideo_source(str3);
                             if (z3) {
@@ -625,7 +643,7 @@ public class PbActivityStatic {
                             if (z2) {
                                 return 3;
                             }
-                            tbPageContext.showToast(c.a.r0.q2.l.page_not_found);
+                            tbPageContext.showToast(l.page_not_found);
                             return 1;
                         }
                     }
@@ -640,13 +658,13 @@ public class PbActivityStatic {
                 if (z2) {
                 }
             } else {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001609, new c.a.q0.u.i(tbPageContext, lowerCase)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001609, new c.a.r0.u.i(tbPageContext, lowerCase)));
                 return 0;
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class i implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -666,20 +684,20 @@ public class PbActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<c.a.r0.b4.a> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<c.a.s0.d4.a> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921343, new c.a.r0.q2.u.g.a(customMessage.getData()));
+                return new CustomResponsedMessage<>(2921343, new c.a.s0.s2.u.g.a(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class j extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -715,16 +733,16 @@ public class PbActivityStatic {
                 }
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null) {
-                        for (c.a.q0.u.l lVar : TiePlusHelper.x) {
-                            if (!StringUtils.isNull(lVar.f13652f) && lVar.f13652f.equals(downloadData.getId())) {
+                        for (c.a.r0.u.l lVar : TiePlusHelper.w) {
+                            if (!StringUtils.isNull(lVar.f13992f) && lVar.f13992f.equals(downloadData.getId())) {
                                 int status = downloadData.getStatus();
                                 if (status != 0) {
                                     if (status == 1) {
-                                        lVar.f13651e = false;
+                                        lVar.f13991e = false;
                                     }
-                                } else if (!lVar.f13651e) {
-                                    lVar.f13651e = true;
-                                    TiePlusStat.e(lVar.a, lVar.f13648b, lVar.f13649c, lVar.f13650d);
+                                } else if (!lVar.f13991e) {
+                                    lVar.f13991e = true;
+                                    TiePlusStat.e(lVar.a, lVar.f13988b, lVar.f13989c, lVar.f13990d);
                                 }
                             }
                         }
@@ -772,7 +790,7 @@ public class PbActivityStatic {
         gVar.execute(new Void[0]);
         ItemCardHelper.t();
         ItemCardHelper.s();
-        c.a.q0.j0.b.a(c.a.q0.j0.e.b.a, new n0());
+        c.a.r0.j0.b.a(c.a.r0.j0.e.b.a, new n0());
     }
 
     public PbActivityStatic() {
@@ -792,10 +810,10 @@ public class PbActivityStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            c.a.q0.e.c.b().c(2, new b());
-            c.a.q0.e.c.b().c(3, new c());
-            c.a.q0.e.c.b().c(4, new d());
-            c.a.q0.e.c.b().c(6, new e());
+            c.a.r0.e.c.b().c(2, new b());
+            c.a.r0.e.c.b().c(3, new c());
+            c.a.r0.e.c.b().c(4, new d());
+            c.a.r0.e.c.b().c(6, new e());
         }
     }
 
@@ -838,8 +856,8 @@ public class PbActivityStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
-            c.a.q0.z0.b h2 = c.a.r0.t3.f0.a.h(302002, SubPbSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = c.a.r0.t3.f0.a.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
+            c.a.r0.z0.b h2 = c.a.s0.v3.f0.a.h(302002, SubPbSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = c.a.s0.v3.f0.a.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
             h2.setParallel(a);
             c2.setParallel(a);
         }
@@ -865,7 +883,7 @@ public class PbActivityStatic {
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            c.a.r0.t3.f0.a.b(2004003, w0.class);
+            c.a.s0.v3.f0.a.b(2004003, c.a.s0.s2.u.f.w0.class);
         }
     }
 
@@ -879,8 +897,8 @@ public class PbActivityStatic {
     public static void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            c.a.r0.t3.f0.a.h(302001, pbPageSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, c.a.r0.t3.f0.a.a("c/f/pb/page", 302001));
+            c.a.s0.v3.f0.a.h(302001, pbPageSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, c.a.s0.v3.f0.a.a("c/f/pb/page", 302001));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

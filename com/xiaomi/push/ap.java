@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ap implements ar {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -37,12 +37,12 @@ public class ap implements ar {
     public volatile String f127a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile String f62715b;
+    public volatile String f63296b;
 
     /* renamed from: b  reason: collision with other field name */
     public volatile boolean f128b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class ap implements ar {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,7 +180,7 @@ public class ap implements ar {
         this.f123a = 0;
         this.f127a = null;
         this.f128b = false;
-        this.f62715b = null;
+        this.f63296b = null;
         this.f126a = new Object();
         this.f124a = context;
         a();
@@ -325,14 +325,14 @@ public class ap implements ar {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f62715b == null) {
+            if (this.f63296b == null) {
                 synchronized (this) {
-                    if (this.f62715b == null) {
-                        this.f62715b = a(this.f124a);
+                    if (this.f63296b == null) {
+                        this.f63296b = a(this.f124a);
                     }
                 }
             }
-            return this.f62715b;
+            return this.f63296b;
         }
         return (String) invokeV.objValue;
     }

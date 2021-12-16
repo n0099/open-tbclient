@@ -2,7 +2,7 @@ package com.kwad.yoga;
 
 import com.kwad.proguard.annotations.DoNotStrip;
 @DoNotStrip
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface YogaMeasureFunction {
     @DoNotStrip
     long measure(YogaNode yogaNode, float f2, YogaMeasureMode yogaMeasureMode, float f3, YogaMeasureMode yogaMeasureMode2);

@@ -14,16 +14,16 @@ import java.io.FileFilter;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f28983b;
+    public static long f29353b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class b {
         FileReader fileReader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f28983b == 0) {
+            if (f29353b == 0) {
                 FileReader fileReader2 = null;
                 try {
                     try {
@@ -119,8 +119,8 @@ public class b {
                     if (fileReader2 != null) {
                         fileReader2.close();
                     }
-                    f28983b = r1;
-                    return f28983b;
+                    f29353b = r1;
+                    return f29353b;
                 } catch (Throwable th2) {
                     th = th2;
                     fileReader2 = fileReader;
@@ -132,9 +132,9 @@ public class b {
                     }
                     throw th;
                 }
-                f28983b = r1;
+                f29353b = r1;
             }
-            return f28983b;
+            return f29353b;
         }
         return invokeV.longValue;
     }

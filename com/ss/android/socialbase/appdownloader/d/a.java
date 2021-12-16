@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.appdownloader.c.k;
 import com.ss.android.socialbase.appdownloader.c.l;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.ss.android.socialbase.appdownloader.c.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlertDialog.Builder a;
 
     /* renamed from: com.ss.android.socialbase.appdownloader.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2110a implements k {
+    /* loaded from: classes3.dex */
+    public static class C2171a implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AlertDialog a;
 
-        public C2110a(AlertDialog.Builder builder) {
+        public C2171a(AlertDialog.Builder builder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,6 +161,6 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
     public k a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2110a(this.a) : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2171a(this.a) : (k) invokeV.objValue;
     }
 }

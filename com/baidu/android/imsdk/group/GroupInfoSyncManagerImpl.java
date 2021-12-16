@@ -23,7 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GroupInfoSyncManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_FANSGROUPLIST_STATE = "get_all_fansgrouplist_state";

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.listview.TKPagerIndicatorDecoration;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TKNumberIndicator implements TKPagerIndicatorDecoration.IIndicatorRender {
     public static /* synthetic */ Interceptable $ic;
     public static final float DP;

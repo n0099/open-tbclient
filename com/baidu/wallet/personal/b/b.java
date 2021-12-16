@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static HashMap<String, NinePatchDrawable> a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f54057b = "b";
+    public static final String f54637b = "b";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -105,7 +105,7 @@ public class b {
             try {
                 return Color.parseColor(str);
             } catch (Exception e2) {
-                LogUtil.d(f54057b, e2.getMessage());
+                LogUtil.d(f54637b, e2.getMessage());
                 return color;
             }
         }

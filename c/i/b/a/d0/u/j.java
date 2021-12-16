@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class j extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public byte[] f29661i;
+    public byte[] f30031i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f29662j;
+    public int f30032j;
 
     /* renamed from: k  reason: collision with root package name */
-    public volatile boolean f29663k;
+    public volatile boolean f30033k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(c.i.b.a.h0.e eVar, c.i.b.a.h0.g gVar, int i2, Format format, int i3, Object obj, byte[] bArr) {
@@ -43,28 +43,28 @@ public abstract class j extends c {
                 return;
             }
         }
-        this.f29661i = bArr;
+        this.f30031i = bArr;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29663k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30033k : invokeV.booleanValue;
     }
 
     @Override // c.i.b.a.d0.u.c
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29662j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30032j : invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final void cancelLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f29663k = true;
+            this.f30033k = true;
         }
     }
 
@@ -73,17 +73,17 @@ public abstract class j extends c {
     public byte[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29661i : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30031i : (byte[]) invokeV.objValue;
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            byte[] bArr = this.f29661i;
+            byte[] bArr = this.f30031i;
             if (bArr == null) {
-                this.f29661i = new byte[16384];
-            } else if (bArr.length < this.f29662j + 16384) {
-                this.f29661i = Arrays.copyOf(bArr, bArr.length + 16384);
+                this.f30031i = new byte[16384];
+            } else if (bArr.length < this.f30032j + 16384) {
+                this.f30031i = Arrays.copyOf(bArr, bArr.length + 16384);
             }
         }
     }
@@ -93,21 +93,21 @@ public abstract class j extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             try {
-                this.f29637h.a(this.a);
+                this.f30007h.a(this.a);
                 int i2 = 0;
-                this.f29662j = 0;
-                while (i2 != -1 && !this.f29663k) {
+                this.f30032j = 0;
+                while (i2 != -1 && !this.f30033k) {
                     f();
-                    i2 = this.f29637h.read(this.f29661i, this.f29662j, 16384);
+                    i2 = this.f30007h.read(this.f30031i, this.f30032j, 16384);
                     if (i2 != -1) {
-                        this.f29662j += i2;
+                        this.f30032j += i2;
                     }
                 }
-                if (!this.f29663k) {
-                    d(this.f29661i, this.f29662j);
+                if (!this.f30033k) {
+                    d(this.f30031i, this.f30032j);
                 }
             } finally {
-                v.h(this.f29637h);
+                v.h(this.f30007h);
             }
         }
     }

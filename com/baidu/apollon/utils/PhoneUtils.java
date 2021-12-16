@@ -63,40 +63,40 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f33260b;
+    public static final Pattern f33630b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f33261c;
+    public static final Pattern f33631c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f33262d;
+    public static final Pattern f33632d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f33263e = "PhoneUtils";
+    public static final String f33633e = "PhoneUtils";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f33264f = "_pay.preferences";
+    public static final String f33634f = "_pay.preferences";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f33265g = "cuid_1";
+    public static final String f33635g = "cuid_1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f33266h = "cuid_2";
+    public static final String f33636h = "cuid_2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f33267i = "wime";
+    public static final String f33637i = "wime";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f33268j = "identity_code";
+    public static final String f33638j = "identity_code";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f33269k = "phone_number";
+    public static final String f33639k = "phone_number";
     public static final String l = "card_no";
     public static final String m = "valid_date";
     public static final String n = "cvv2";
@@ -109,7 +109,7 @@ public final class PhoneUtils {
     public static String u;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -122,7 +122,7 @@ public final class PhoneUtils {
         public static final String a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f33270b = "features";
+        public static final String f33640b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -151,7 +151,7 @@ public final class PhoneUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -193,9 +193,9 @@ public final class PhoneUtils {
         }
         q = new ArrayList<>();
         a = Pattern.compile("((\\d|[A-F]){32}).*");
-        f33260b = Pattern.compile("((\\d|[a-f]){32}).*");
-        f33261c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-        f33262d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+        f33630b = Pattern.compile("((\\d|[a-f]){32}).*");
+        f33631c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f33632d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
         q.add("card_no");
         q.add("valid_date");
         q.add("cvv2");
@@ -349,11 +349,11 @@ public final class PhoneUtils {
             if (cuid == null) {
                 return null;
             }
-            if (f33261c.matcher(cuid).matches()) {
+            if (f33631c.matcher(cuid).matches()) {
                 str2 = matcher.group(1) + matcher.group(3);
             }
             if (str2 == null) {
-                if (f33262d.matcher(cuid).matches()) {
+                if (f33632d.matcher(cuid).matches()) {
                     str = matcher2.group(1) + matcher2.group(3);
                 } else {
                     str = "";
@@ -373,12 +373,12 @@ public final class PhoneUtils {
         if (interceptable != null && (invokeL = interceptable.invokeL(65549, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (Build.VERSION.SDK_INT >= 29 || !PermissionManager.checkCallingPermission(context, s.f56838c)) {
+        if (Build.VERSION.SDK_INT >= 29 || !PermissionManager.checkCallingPermission(context, s.f57419c)) {
             return "";
         }
         format = String.format("%s_%s_%s", 0, 0, 0);
         try {
-            if ((hasPermission(context, s.f56842g) || hasPermission(context, s.f56843h)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
+            if ((hasPermission(context, s.f57423g) || hasPermission(context, s.f57424h)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
                 if (cellLocation instanceof GsmCellLocation) {
                     GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                     return String.format("%s_%s_%s", String.format("%d", Integer.valueOf(gsmCellLocation.getCid())), String.format("%d", Integer.valueOf(gsmCellLocation.getLac())), 0);
@@ -398,7 +398,7 @@ public final class PhoneUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             try {
-                if (hasPermission(context, s.f56842g)) {
+                if (hasPermission(context, s.f57423g)) {
                     Location lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps");
                     LogUtil.d("PhoneUtils", "location: " + lastKnownLocation);
                     return lastKnownLocation != null ? String.format("%s:%s", Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude())) : "";
@@ -451,7 +451,7 @@ public final class PhoneUtils {
         LocationManager locationManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, comparator)) == null) {
-            if (hasPermission(context, s.f56842g) && (locationManager = (LocationManager) context.getApplicationContext().getSystemService("location")) != null) {
+            if (hasPermission(context, s.f57423g) && (locationManager = (LocationManager) context.getApplicationContext().getSystemService("location")) != null) {
                 List<String> allProviders = locationManager.getAllProviders();
                 Location[] locationArr = new Location[allProviders.size()];
                 for (int i2 = 0; i2 < allProviders.size(); i2++) {
@@ -766,7 +766,7 @@ public final class PhoneUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
             String str = "";
             try {
-                if (hasPermission(context, s.f56839d)) {
+                if (hasPermission(context, s.f57420d)) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     if (wifiManager.isWifiEnabled()) {
                         int i2 = Integer.MAX_VALUE;
@@ -893,7 +893,7 @@ public final class PhoneUtils {
             Matcher matcher = a.matcher(deviceID);
             String group = matcher.matches() ? matcher.group(1) : null;
             if (group == null) {
-                Matcher matcher2 = f33260b.matcher(deviceID);
+                Matcher matcher2 = f33630b.matcher(deviceID);
                 return matcher2.matches() ? matcher2.group(1) : "";
             }
             return group;

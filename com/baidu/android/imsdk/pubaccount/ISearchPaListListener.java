@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.pubaccount;
 
 import com.baidu.android.imsdk.IMListener;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface ISearchPaListListener extends IMListener {
     void onSearchPaListResult(int i2, String str, List<PaInfo> list);
 }

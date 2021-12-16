@@ -2,13 +2,13 @@ package com.baidu.searchbox.task.item;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.a.q0.d1.a0;
-import c.a.q0.s.k;
-import c.a.q0.s.q.z0;
-import c.a.q0.t.j.c;
-import c.a.q0.z0.a;
-import c.a.r0.h4.h;
-import c.a.r0.y3.d;
+import c.a.r0.d1.c0;
+import c.a.r0.s.l;
+import c.a.r0.s.r.z0;
+import c.a.r0.t.j.c;
+import c.a.r0.z0.a;
+import c.a.s0.a4.d;
+import c.a.s0.j4.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class InitAllTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,9 +104,9 @@ public class InitAllTask extends LaunchTask {
                 c.a.d.f.i.a.n().j(false);
             }
             try {
-                a0.b().e();
+                c0.b().e();
                 if (TbadkCoreApplication.getInst().isMainProcess(false, AppRuntime.getAppContext())) {
-                    c.a.q0.g.a.d().f();
+                    c.a.r0.g.a.d().f();
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -127,7 +127,7 @@ public class InitAllTask extends LaunchTask {
     private void initAppSettings() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            k.c().f();
+            l.c().f();
         }
     }
 
@@ -163,7 +163,7 @@ public class InitAllTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            c.a.q0.t.e.d dVar = new c.a.q0.t.e.d();
+            c.a.r0.t.e.d dVar = new c.a.r0.t.e.d();
             dVar.e(loadString);
             c a = c.a();
             a.g(dVar.b() == 1);

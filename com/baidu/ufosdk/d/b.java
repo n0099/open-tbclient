@@ -13,17 +13,17 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51536b;
+    public String f52085b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f51537c;
+    public String f52086c;
 
     public b(String str, Class cls) {
         String a;
@@ -45,11 +45,11 @@ public final class b {
             if (TextUtils.isEmpty(str)) {
                 throw new Exception("injected name can not be null");
             }
-            this.f51536b = str;
+            this.f52085b = str;
             this.a = new HashMap();
             Method[] declaredMethods = cls.getDeclaredMethods();
             StringBuilder sb = new StringBuilder("javascript:(function(b){console.log(\"");
-            sb.append(this.f51536b);
+            sb.append(this.f52085b);
             sb.append(" initialization begin\");");
             sb.append("var a={queue:[],callback:function(){");
             sb.append("var d=Array.prototype.slice.call(arguments,0);");
@@ -61,22 +61,22 @@ public final class b {
                 }
             }
             sb.append("function(){var f=Array.prototype.slice.call(arguments,0);if(f.length<1){throw\"");
-            sb.append(this.f51536b);
+            sb.append(this.f52085b);
             sb.append(" call error, message:miss method name\"}var e=[];for(var h=1;h<f.length;h++)");
             sb.append("{var c=f[h];var j=typeof c;e[e.length]=j;if(j==\"function\")");
             sb.append("{var d=a.queue.length;a.queue[d]=c;f[h]=d}}");
             sb.append("var g=JSON.parse(prompt(JSON.stringify({method:f.shift(),types:e,args:f})));");
             sb.append("if(g.code!=200){throw\"");
-            sb.append(this.f51536b);
+            sb.append(this.f52085b);
             sb.append(" call error, code:\"+g.code+\", message:\"+g.result}return g.result};");
             sb.append("Object.getOwnPropertyNames(a).forEach(function(d){var c=a[d];");
             sb.append("if(typeof c===\"function\"&&d!==\"callback\"){a[d]=function(){");
             sb.append("return c.apply(a,[d].concat(Array.prototype.slice.call(arguments,0)))}}});b.");
-            sb.append(this.f51536b);
+            sb.append(this.f52085b);
             sb.append("=a;console.log(\"");
-            sb.append(this.f51536b);
+            sb.append(this.f52085b);
             sb.append(" initialization end\")})(window);");
-            this.f51537c = sb.toString();
+            this.f52086c = sb.toString();
         } catch (Exception e2) {
             com.baidu.ufosdk.f.c.d("JsCallJava--> init js error:" + e2.getMessage());
         }
@@ -96,7 +96,7 @@ public final class b {
                 }
             }
             String format = String.format("{\"code\": %d, \"result\": %s}", Integer.valueOf(i2), str2);
-            com.baidu.ufosdk.f.c.a("JsCallJava--> " + this.f51536b + " call json: " + str + " result:" + format);
+            com.baidu.ufosdk.f.c.a("JsCallJava--> " + this.f52085b + " call json: " + str + " result:" + format);
             return format;
         }
         return (String) invokeLIL.objValue;
@@ -153,7 +153,7 @@ public final class b {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51537c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52086c : (String) invokeV.objValue;
     }
 
     public final String a(WebView webView, String str) {
@@ -204,7 +204,7 @@ public final class b {
                             objArr[i5] = obj;
                         } else if ("function".equals(optString)) {
                             string = string + "_F";
-                            objArr[i2 + 1] = new c(webView, this.f51536b, jSONArray2.getInt(i2));
+                            objArr[i2 + 1] = new c(webView, this.f52085b, jSONArray2.getInt(i2));
                         } else {
                             string = string + "_P";
                         }

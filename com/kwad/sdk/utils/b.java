@@ -14,23 +14,23 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile b f59630e;
+    public static volatile b f60211e;
     public transient /* synthetic */ FieldHolder $fh;
     public j a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<WeakReference<j.a>> f59631b;
+    public List<WeakReference<j.a>> f60212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f59632c;
+    public boolean f60213c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f59633d;
+    public boolean f60214d;
 
     public b(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class b {
                 return;
             }
         }
-        this.f59631b = new ArrayList();
-        this.f59632c = false;
-        this.f59633d = false;
+        this.f60212b = new ArrayList();
+        this.f60213c = false;
+        this.f60214d = false;
         b(context);
     }
 
@@ -57,14 +57,14 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f59630e == null) {
+            if (f60211e == null) {
                 synchronized (b.class) {
-                    if (f59630e == null) {
-                        f59630e = new b(context.getApplicationContext());
+                    if (f60211e == null) {
+                        f60211e = new b(context.getApplicationContext());
                     }
                 }
             }
-            return f59630e;
+            return f60211e;
         }
         return (b) invokeL.objValue;
     }
@@ -72,7 +72,7 @@ public class b {
     private void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
-            this.f59632c = false;
+            this.f60213c = false;
             j jVar = new j(context);
             this.a = jVar;
             jVar.a(new j.a(this) { // from class: com.kwad.sdk.utils.b.1
@@ -103,7 +103,7 @@ public class b {
                     j.a aVar;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Iterator it = this.a.f59631b.iterator();
+                        Iterator it = this.a.f60212b.iterator();
                         while (it.hasNext()) {
                             WeakReference weakReference = (WeakReference) it.next();
                             if (weakReference == null || (aVar = (j.a) weakReference.get()) == null) {
@@ -112,7 +112,7 @@ public class b {
                                 aVar.a();
                             }
                         }
-                        this.a.f59633d = true;
+                        this.a.f60214d = true;
                     }
                 }
 
@@ -121,7 +121,7 @@ public class b {
                     j.a aVar;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        Iterator it = this.a.f59631b.iterator();
+                        Iterator it = this.a.f60212b.iterator();
                         while (it.hasNext()) {
                             WeakReference weakReference = (WeakReference) it.next();
                             if (weakReference == null || (aVar = (j.a) weakReference.get()) == null) {
@@ -139,7 +139,7 @@ public class b {
     public void a(j.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f59631b.add(new WeakReference<>(aVar));
+            this.f60212b.add(new WeakReference<>(aVar));
         }
     }
 
@@ -148,23 +148,23 @@ public class b {
         if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.a == null) {
             return;
         }
-        if (z || !this.f59632c) {
+        if (z || !this.f60213c) {
             this.a.a();
-            this.f59632c = true;
-            this.f59633d = false;
+            this.f60213c = true;
+            this.f60214d = false;
         }
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59633d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60214d : invokeV.booleanValue;
     }
 
     public void b(j.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            Iterator<WeakReference<j.a>> it = this.f59631b.iterator();
+            Iterator<WeakReference<j.a>> it = this.f60212b.iterator();
             while (it.hasNext()) {
                 WeakReference<j.a> next = it.next();
                 if (next == null || next.get() == aVar) {

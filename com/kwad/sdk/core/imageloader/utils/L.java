@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.core.ImageLoader;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class L {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_FORMAT = "%1$s\n%2$s";

@@ -1,7 +1,7 @@
 package com.tachikoma.core.api;
 
 import com.kwad.v8.V8Function;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IWebCardBridgeInner {
     void close();
 

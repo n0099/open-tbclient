@@ -31,8 +31,7 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import kotlinx.coroutines.DebugKt;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_NUM = 4;
@@ -65,12 +64,12 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
     public byte[] rotatedFrame;
     public SurfaceHolder surfaceHolder;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface Callback {
         void onFrame(byte[] bArr, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public class LooperThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +105,7 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class MyHandler extends Handler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FRAME_INTERVAL = 200;
@@ -691,7 +690,7 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.camera != null && (parameters = this.camera.getParameters()) != null && parameters.getSupportedFocusModes() != null && parameters.getFocusMode() != null && parameters.getSupportedFocusModes().contains(DebugKt.DEBUG_PROPERTY_VALUE_AUTO) && parameters.getFocusMode().equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO)) {
+                if (this.camera != null && (parameters = this.camera.getParameters()) != null && parameters.getSupportedFocusModes() != null && parameters.getFocusMode() != null && parameters.getSupportedFocusModes().contains("auto") && parameters.getFocusMode().equals("auto")) {
                     this.camera.autoFocus(null);
                 }
             } catch (Exception e2) {
@@ -740,7 +739,7 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             try {
-                if (this.camera != null && (parameters = this.camera.getParameters()) != null && parameters.getSupportedFocusModes() != null && parameters.getFocusMode() != null && parameters.getSupportedFocusModes().contains(DebugKt.DEBUG_PROPERTY_VALUE_AUTO) && parameters.getFocusMode().equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO)) {
+                if (this.camera != null && (parameters = this.camera.getParameters()) != null && parameters.getSupportedFocusModes() != null && parameters.getFocusMode() != null && parameters.getSupportedFocusModes().contains("auto") && parameters.getFocusMode().equals("auto")) {
                     ArrayList arrayList = new ArrayList();
                     int clamp = clamp((int) (((f2 / getWidth()) * 2000.0f) - 1000.0f), -1000, getWidth() - this.focusAreaSize);
                     int clamp2 = clamp((int) (((f3 / getHeight()) * 2000.0f) - 1000.0f), -1000, getHeight() - this.focusAreaSize);
@@ -750,7 +749,7 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
                     LogUtil.d(str2, "left" + clamp + "top" + clamp2);
                     arrayList.add(new Camera.Area(new Rect(clamp, clamp2, this.focusAreaSize + clamp, this.focusAreaSize + clamp2), 1000));
                     this.camera.cancelAutoFocus();
-                    parameters.setFocusMode(DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
+                    parameters.setFocusMode("auto");
                     parameters.setFocusAreas(arrayList);
                     this.camera.setParameters(parameters);
                     this.camera.autoFocus(this.mFocusCallback);

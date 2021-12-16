@@ -11,7 +11,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class WriteHistroyDataReqIdl extends Message {
     public static /* synthetic */ Interceptable $ic;
     public static final List<ConnectPointData> DEFAULT_CONNECT_POINT_LIST;
@@ -19,7 +19,7 @@ public final class WriteHistroyDataReqIdl extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<ConnectPointData> connect_point_list;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static final class Builder extends Message.Builder<WriteHistroyDataReqIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public final class WriteHistroyDataReqIdl extends Message {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

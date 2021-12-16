@@ -15,14 +15,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class CacheManager {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Deprecated
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class CacheResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

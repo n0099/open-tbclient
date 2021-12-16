@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SpliceInsertCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SpliceInsertCommand> CREATOR;
@@ -35,7 +35,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
     public final boolean spliceImmediateFlag;
     public final int uniqueProgramId;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<SpliceInsertCommand> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,17 +73,17 @@ public final class SpliceInsertCommand extends SpliceCommand {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f55821b;
+        public final long f56402b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f55822c;
+        public final long f56403c;
 
         public /* synthetic */ b(int i2, long j2, long j3, a aVar) {
             this(i2, j2, j3);
@@ -99,8 +99,8 @@ public final class SpliceInsertCommand extends SpliceCommand {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
                 parcel.writeInt(this.a);
-                parcel.writeLong(this.f55821b);
-                parcel.writeLong(this.f55822c);
+                parcel.writeLong(this.f56402b);
+                parcel.writeLong(this.f56403c);
             }
         }
 
@@ -120,8 +120,8 @@ public final class SpliceInsertCommand extends SpliceCommand {
                 }
             }
             this.a = i2;
-            this.f55821b = j2;
-            this.f55822c = j3;
+            this.f56402b = j2;
+            this.f56403c = j3;
         }
     }
 

@@ -5,11 +5,11 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.a.d;
 import c.a.d.f.l.b;
 import c.a.d.f.l.e;
-import c.a.d.f.p.j;
-import c.a.d.f.p.l;
+import c.a.d.f.p.k;
+import c.a.d.f.p.m;
 import c.a.d.m.d.a;
-import c.a.q0.c0.c;
-import c.a.q0.s.k;
+import c.a.r0.c0.c;
+import c.a.r0.s.l;
 import com.baidu.adp.gif.NSGif;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ImageLoaderProc implements e<a> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GIF_PLAY_LOG_TYPE = "gifplay";
@@ -66,7 +66,7 @@ public class ImageLoaderProc implements e<a> {
                 bVar.a = diskCancelWorker;
             }
             if (d.f().a(aVar)) {
-                int i4 = j.H() ? 500 : 2000;
+                int i4 = k.H() ? 500 : 2000;
                 synchronized (bArr) {
                     try {
                         bArr.wait(i4);
@@ -75,7 +75,7 @@ public class ImageLoaderProc implements e<a> {
                     }
                 }
                 if (aVar.isSuccess()) {
-                    boolean A = l.A(aVar.getData());
+                    boolean A = m.A(aVar.getData());
                     if (A) {
                         aVar.formatData(aVar.getData());
                     }
@@ -84,7 +84,7 @@ public class ImageLoaderProc implements e<a> {
                     }
                     if (A) {
                         BdLog.e("BIGIMAGE gif parse fail ");
-                        c.a.q0.s.a0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
+                        c.a.r0.s.c0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
                     }
                     return new a(BitmapHelper.checkBitmapSize(BitmapHelper.Bytes2Bitmap(aVar.getData()), i2, i3), false, str2);
                 }
@@ -130,7 +130,7 @@ public class ImageLoaderProc implements e<a> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? k.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? l.c().g() : invokeV.booleanValue;
     }
 
     public void storeLocal(String str, byte[] bArr, Object... objArr) {
@@ -211,13 +211,13 @@ public class ImageLoaderProc implements e<a> {
                     boolean needCache = webClient.needCache();
                     if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                         BdLog.e("BIGIMAGE imageLoaderProc too big");
-                        c.a.q0.s.a0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
+                        c.a.r0.s.c0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
                     }
                     if (downloadImageBytes == null && webClient.IsRequestSuccess()) {
                         Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                         if (z && Bytes2Bitmap == null) {
                             TbadkCoreApplication.getInst().incWebpFailureCount();
-                            c.a.q0.s.a0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
+                            c.a.r0.s.c0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
                             downloadImageBytes = webClient.downloadImageBytes(str, false);
                             needCache = webClient.needCache();
                             if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
@@ -228,15 +228,15 @@ public class ImageLoaderProc implements e<a> {
                             synchronized (BitmapHelper.lockForSyncImageDecoder) {
                                 String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2);
                                 c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
-                                boolean A = l.A(downloadImageBytes);
-                                NSGif f2 = (NSGif.f31658f && A) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
+                                boolean A = m.A(downloadImageBytes);
+                                NSGif f2 = (NSGif.f32028f && A) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
                                 if (f2 != null) {
                                     aVar = new a((c.a.d.d.b) f2, Bytes2Bitmap, true);
                                     aVar.y(needCache);
                                 } else {
                                     if (A) {
                                         BdLog.e("BIGIMAGE gif parse fail ");
-                                        c.a.q0.s.a0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
+                                        c.a.r0.s.c0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
                                     }
                                     a aVar2 = new a(BitmapHelper.checkBitmapSize(Bytes2Bitmap, i2, i3), false, str);
                                     aVar2.y(needCache);
@@ -282,7 +282,7 @@ public class ImageLoaderProc implements e<a> {
             boolean needCache2 = webClient.needCache();
             if (webClient.IsRequestSuccess()) {
                 BdLog.e("BIGIMAGE imageLoaderProc too big");
-                c.a.q0.s.a0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
+                c.a.r0.s.c0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
             }
             if (downloadImageBytes == null) {
             }

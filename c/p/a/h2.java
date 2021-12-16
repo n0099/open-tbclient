@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class h2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ k2 f30800e;
+    public final /* synthetic */ k2 f31170e;
 
     public h2(k2 k2Var) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class h2 implements Runnable {
                 return;
             }
         }
-        this.f30800e = k2Var;
+        this.f31170e = k2Var;
     }
 
     @Override // java.lang.Runnable
@@ -36,14 +36,14 @@ public class h2 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                View rootView = this.f30800e.a.getRootView();
+                View rootView = this.f31170e.a.getRootView();
                 if (rootView != null && rootView.getVisibility() == 0 && rootView.isShown()) {
-                    y2 a = c3.a(this.f30800e.f30823b.a);
-                    a.d(new g3(this.f30800e.f30823b.f30959c), this.f30800e.a.getWidth(), this.f30800e.a.getHeight());
+                    y2 a = c3.a(this.f31170e.f31193b.a);
+                    a.d(new g3(this.f31170e.f31193b.f31329c), this.f31170e.a.getWidth(), this.f31170e.a.getHeight());
                     a.m();
-                    r0.n(this.f30800e.f30823b.f30959c);
-                    if (this.f30800e.f30823b.f30962f != null) {
-                        this.f30800e.f30823b.f30962f.onDisplayed();
+                    r0.n(this.f31170e.f31193b.f31329c);
+                    if (this.f31170e.f31193b.f31332f != null) {
+                        this.f31170e.f31193b.f31332f.onDisplayed();
                     }
                 }
             } catch (Exception e2) {

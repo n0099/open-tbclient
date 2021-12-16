@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.t;
 import com.fun.openid.sdk.v;
 import com.zui.deviceidservice.IDeviceidInterface;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class u implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,21 +38,21 @@ public class u implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        t c1976a;
+        t c2037a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             synchronized (this) {
                 v vVar = this.a;
                 int i2 = t.a.a;
                 if (iBinder == null) {
-                    c1976a = null;
+                    c2037a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface(IDeviceidInterface.Stub.DESCRIPTOR);
-                    c1976a = (queryLocalInterface == null || !(queryLocalInterface instanceof t)) ? new t.a.C1976a(iBinder) : (t) queryLocalInterface;
+                    c2037a = (queryLocalInterface == null || !(queryLocalInterface instanceof t)) ? new t.a.C2037a(iBinder) : (t) queryLocalInterface;
                 }
-                vVar.f55777b = c1976a;
+                vVar.f56358b = c2037a;
                 v vVar2 = this.a;
-                v.a aVar = vVar2.f55779d;
+                v.a aVar = vVar2.f56360d;
                 if (aVar != null) {
                     aVar.a("Deviceid Service Connected", vVar2);
                 }
@@ -65,7 +65,7 @@ public class u implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.f55777b = null;
+            this.a.f56358b = null;
         }
     }
 }

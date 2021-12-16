@@ -2,12 +2,12 @@ package com.baidu.tbadk.core.util.httpNet;
 
 import android.os.Build;
 import android.text.TextUtils;
-import c.a.d.f.p.j;
-import c.a.q0.k0.f;
-import c.a.q0.s.e0.b;
-import c.a.q0.s.l.c;
-import c.a.q0.s.l.e;
-import c.a.q0.t.b.a;
+import c.a.d.f.p.k;
+import c.a.r0.k0.f;
+import c.a.r0.s.g0.b;
+import c.a.r0.s.m.c;
+import c.a.r0.s.m.e;
+import c.a.r0.t.b.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.BaseStatisContent;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class HttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BDUSS = "BDUSS";
@@ -133,7 +133,7 @@ public class HttpRequest {
             if (from != null && from.length() > 0) {
                 iNetWorkCore.addPostData("from", from);
             }
-            int I = j.I();
+            int I = k.I();
             iNetWorkCore.addPostData("net_type", String.valueOf(I));
             String a = a.b().a();
             if (TbSingleton.getInstance().isVisitPreviewServer()) {
@@ -183,7 +183,7 @@ public class HttpRequest {
             iNetWorkCore.addPostData(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime()));
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
-            iNetWorkCore.addPostData("is_teenager", c.a.q0.g1.b.c.d() ? "1" : "0");
+            iNetWorkCore.addPostData("is_teenager", c.a.r0.g1.b.c.d() ? "1" : "0");
         }
     }
 

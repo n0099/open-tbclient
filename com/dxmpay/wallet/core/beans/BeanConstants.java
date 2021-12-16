@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class BeanConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_AIF_GET_FP = "/aif/sdk/init";
@@ -81,14 +81,16 @@ public abstract class BeanConstants {
     public static final int SCREEN_ORIENTATION_LANDSCAPE = 0;
     public static final int SCREEN_ORIENTATION_PORTRAIT = 1;
     public static final String SDKINIT_EVENTBUS_EVENTKEY = "dxm_pay_sdk_init_success";
+    public static final String SDKINIT_FAIL_EVENTBUS_EVENTKEY = "dxm_pay_sdk_init_fail";
     public static final String SDK_DOLEAD_FILE_FAEC_MODULE_NAME = "pay_face";
+    public static final String SDK_DOWNLOAD_FILE_OCR_BANKCARD_MODULE_NAME = "ocr_bankcard";
     public static final String SDK_DOWNLOAD_FILE_OCR_MODULE_NAME = "pay_ocr";
     public static final String SDK_ENTER_WALLET_DXM_PAY_SERVICE = "enterWalletDxmPayService";
     public static String SDK_VERSION = "";
     public static final String SWAN_APP_BALANCE_SCHEME_URL = "baiduboxapp://swan/x9dq9aRPQv3nGdGfKONtCemcNEnOnT9q/entry/balance/pages/balance/balance/?_baiduboxapp=%7B%22from%22%3A%22sdk%22%2C%22ext%22%3A%7B%7D%7D&callback=_bdbox_js_275&upgrade=0";
     public static final String SWAN_APP_BANK_CARD_SCHEME_URL = "baiduboxapp://swan/x9dq9aRPQv3nGdGfKONtCemcNEnOnT9q/entry/usercenter/pages/bankcard/list/list/?_baiduboxapp=%7B%22from%22%3A%22from%3Dsdk%22%2C%22ext%22%3A%7B%7D%7D&callback=_bdbox_js_275&upgrade=0";
     public static final String SWAN_APP_TRANSACTION_SCHEME_URL = "baiduboxapp://swan/x9dq9aRPQv3nGdGfKONtCemcNEnOnT9q/entry/usercenter/pages/trans/trans/?_baiduboxapp=%7B%22from%22%3A%22from%3Dsdk%22%2C%22ext%22%3A%7B%7D%7D&callback=_bdbox_js_275&upgrade=0";
-    public static String VERSION_NO = "9.4.5.108";
+    public static String VERSION_NO = "9.5.0.114";
     public static boolean needActAnimation = true;
     public transient /* synthetic */ FieldHolder $fh;
 

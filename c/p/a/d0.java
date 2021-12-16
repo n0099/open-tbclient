@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.activitys.H5OpenActivity;
 import com.win.opensdk.core.Info;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d0 extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,11 +48,11 @@ public class d0 extends WebViewClient {
             if ((TextUtils.isEmpty(scheme) || scheme.equals("http") || scheme.equals("https")) ? false : true) {
                 try {
                     y2 a = c3.a(applicationContext);
-                    a.i(new g3(this.a.f62627d), parse.toString(), 0);
+                    a.i(new g3(this.a.f63208d), parse.toString(), 0);
                     a.m();
                     HashMap hashMap = new HashMap();
                     hashMap.put("__SCHEME__", parse.toString());
-                    Info info = this.a.f62627d;
+                    Info info = this.a.f63208d;
                     if (info != null) {
                         r0.K(r0.i((String) info.getEvents().get(600, ""), "", info.isHo_c_sw(), hashMap));
                     }
@@ -60,7 +60,7 @@ public class d0 extends WebViewClient {
                     return true;
                 } catch (Exception e2) {
                     y2 a2 = c3.a(applicationContext);
-                    a2.i(new g3(this.a.f62627d), e2.getMessage(), 2);
+                    a2.i(new g3(this.a.f63208d), e2.getMessage(), 2);
                     a2.m();
                     e2.printStackTrace();
                 }

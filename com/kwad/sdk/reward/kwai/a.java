@@ -33,49 +33,49 @@ import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.bb;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends d implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f58972b;
+    public int[] f59553b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f58973c;
+    public View f59554c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f58974d;
+    public ImageView f59555d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f58975e;
+    public TextView f59556e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f58976f;
+    public TextView f59557f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f58977g;
+    public TextView f59558g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f58978h;
+    public Button f59559h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public b f58979i;
+    public b f59560i;
 
     /* renamed from: com.kwad.sdk.reward.kwai.a$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AnonymousClass1 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdTemplate a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f58980b;
+        public final /* synthetic */ long f59561b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f58981c;
+        public final /* synthetic */ a f59562c;
 
         public AnonymousClass1(a aVar, AdTemplate adTemplate, long j2) {
             Interceptable interceptable = $ic;
@@ -92,24 +92,24 @@ public class a extends d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f58981c = aVar;
+            this.f59562c = aVar;
             this.a = adTemplate;
-            this.f58980b = j2;
+            this.f59561b = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a aVar = this.f58981c;
-                Animator a = aVar.a(aVar.f58973c);
+                a aVar = this.f59562c;
+                Animator a = aVar.a(aVar.f59554c);
                 a.addListener(new AnimatorListenerAdapter(this, a) { // from class: com.kwad.sdk.reward.kwai.a.1.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Animator a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass1 f58982b;
+                    public final /* synthetic */ AnonymousClass1 f59563b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -126,7 +126,7 @@ public class a extends d implements View.OnClickListener {
                                 return;
                             }
                         }
-                        this.f58982b = this;
+                        this.f59563b = this;
                         this.a = a;
                     }
 
@@ -136,13 +136,13 @@ public class a extends d implements View.OnClickListener {
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
                             super.onAnimationEnd(animator);
                             this.a.removeListener(this);
-                            com.kwad.sdk.core.report.a.c(this.f58982b.a, 169, null);
-                            a aVar2 = this.f58982b.f58981c;
-                            aVar2.a(aVar2.f58974d, this.f58982b.f58980b).start();
+                            com.kwad.sdk.core.report.a.c(this.f59563b.a, 169, null);
+                            a aVar2 = this.f59563b.f59562c;
+                            aVar2.a(aVar2.f59555d, this.f59563b.f59561b).start();
                             ax.a(new Runnable(this) { // from class: com.kwad.sdk.reward.kwai.a.1.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ C20521 a;
+                                public final /* synthetic */ C21131 a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -166,10 +166,10 @@ public class a extends d implements View.OnClickListener {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.a.f58982b.f58981c.b();
+                                        this.a.f59563b.f59562c.b();
                                     }
                                 }
-                            }, null, this.f58982b.f58980b);
+                            }, null, this.f59563b.f59561b);
                         }
                     }
                 });
@@ -179,22 +179,22 @@ public class a extends d implements View.OnClickListener {
     }
 
     /* renamed from: com.kwad.sdk.reward.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2054a {
+    /* loaded from: classes3.dex */
+    public static class C2115a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CharSequence a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CharSequence f58984b;
+        public CharSequence f59565b;
 
         /* renamed from: c  reason: collision with root package name */
-        public CharSequence f58985c;
+        public CharSequence f59566c;
 
         /* renamed from: d  reason: collision with root package name */
-        public CharSequence f58986d;
+        public CharSequence f59567d;
 
-        public C2054a(@NonNull CouponInfo couponInfo) {
+        public C2115a(@NonNull CouponInfo couponInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -210,13 +210,13 @@ public class a extends d implements View.OnClickListener {
                 }
             }
             this.a = couponInfo.displayTitle;
-            this.f58984b = couponInfo.displayValue;
-            this.f58985c = !TextUtils.isEmpty(couponInfo.displayBase) ? String.format("满%s可用", couponInfo.displayBase) : "";
-            this.f58986d = couponInfo.displayActionWords;
+            this.f59565b = couponInfo.displayValue;
+            this.f59566c = !TextUtils.isEmpty(couponInfo.displayBase) ? String.format("满%s可用", couponInfo.displayBase) : "";
+            this.f59567d = couponInfo.displayActionWords;
         }
 
         @Nullable
-        public static C2054a a(AdTemplate adTemplate) {
+        public static C2115a a(AdTemplate adTemplate) {
             InterceptResult invokeL;
             List<CouponInfo> list;
             Interceptable interceptable = $ic;
@@ -227,20 +227,20 @@ public class a extends d implements View.OnClickListener {
                 }
                 return a(aK.couponList.get(0));
             }
-            return (C2054a) invokeL.objValue;
+            return (C2115a) invokeL.objValue;
         }
 
         @Nullable
-        public static C2054a a(CouponInfo couponInfo) {
+        public static C2115a a(CouponInfo couponInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, couponInfo)) == null) {
                 if (couponInfo == null) {
                     return null;
                 }
-                return new C2054a(couponInfo);
+                return new C2115a(couponInfo);
             }
-            return (C2054a) invokeL.objValue;
+            return (C2115a) invokeL.objValue;
         }
 
         public CharSequence a() {
@@ -254,7 +254,7 @@ public class a extends d implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
                 AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(context.getResources().getDimensionPixelSize(R.dimen.ksad_coupon_dialog_value_prefix_text_size));
-                SpannableString spannableString = new SpannableString("¥" + ((Object) this.f58984b));
+                SpannableString spannableString = new SpannableString("¥" + ((Object) this.f59565b));
                 spannableString.setSpan(absoluteSizeSpan, 0, 1, 17);
                 return spannableString;
             }
@@ -264,17 +264,17 @@ public class a extends d implements View.OnClickListener {
         public CharSequence b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f58985c : (CharSequence) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59566c : (CharSequence) invokeV.objValue;
         }
 
         public CharSequence c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58986d : (CharSequence) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59567d : (CharSequence) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a();
 
@@ -296,7 +296,7 @@ public class a extends d implements View.OnClickListener {
                 return;
             }
         }
-        this.f58972b = iArr;
+        this.f59553b = iArr;
         ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.ksad_reward_coupon_dialog, viewGroup, false);
         this.a = viewGroup2;
         a(context, viewGroup2);
@@ -332,37 +332,37 @@ public class a extends d implements View.OnClickListener {
     private void a(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, context, viewGroup) == null) {
-            this.f58973c = viewGroup.findViewById(R.id.ksad_coupon_dialog_card);
-            this.f58974d = (ImageView) viewGroup.findViewById(R.id.ksad_coupon_dialog_bg);
-            this.f58975e = (TextView) viewGroup.findViewById(R.id.ksad_coupon_dialog_title);
-            this.f58976f = (TextView) viewGroup.findViewById(R.id.ksad_coupon_dialog_content);
-            this.f58977g = (TextView) viewGroup.findViewById(R.id.ksad_coupon_dialog_desc);
+            this.f59554c = viewGroup.findViewById(R.id.ksad_coupon_dialog_card);
+            this.f59555d = (ImageView) viewGroup.findViewById(R.id.ksad_coupon_dialog_bg);
+            this.f59556e = (TextView) viewGroup.findViewById(R.id.ksad_coupon_dialog_title);
+            this.f59557f = (TextView) viewGroup.findViewById(R.id.ksad_coupon_dialog_content);
+            this.f59558g = (TextView) viewGroup.findViewById(R.id.ksad_coupon_dialog_desc);
             Button button = (Button) viewGroup.findViewById(R.id.ksad_coupon_dialog_btn_action);
-            this.f58978h = button;
+            this.f59559h = button;
             button.setOnClickListener(this);
         }
     }
 
-    private void a(C2054a c2054a) {
+    private void a(C2115a c2115a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, this, c2054a) == null) || c2054a == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, this, c2115a) == null) || c2115a == null) {
             return;
         }
-        TextView textView = this.f58975e;
+        TextView textView = this.f59556e;
         if (textView != null) {
-            textView.setText(c2054a.a());
+            textView.setText(c2115a.a());
         }
-        TextView textView2 = this.f58976f;
+        TextView textView2 = this.f59557f;
         if (textView2 != null) {
-            textView2.setText(c2054a.a(this.a.getContext()));
+            textView2.setText(c2115a.a(this.a.getContext()));
         }
-        TextView textView3 = this.f58977g;
+        TextView textView3 = this.f59558g;
         if (textView3 != null) {
-            textView3.setText(c2054a.b());
+            textView3.setText(c2115a.b());
         }
-        Button button = this.f58978h;
+        Button button = this.f59559h;
         if (button != null) {
-            button.setText(c2054a.c());
+            button.setText(c2115a.c());
         }
     }
 
@@ -377,14 +377,14 @@ public class a extends d implements View.OnClickListener {
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view, AnimationProperty.SCALE_Y, 1.0f, 0.0f);
             ofFloat.setInterpolator(create);
             ofFloat2.setInterpolator(create);
-            int[] iArr = this.f58972b;
+            int[] iArr = this.f59553b;
             ObjectAnimator objectAnimator2 = null;
             if (iArr == null || iArr.length < 2 || (c2 = bb.c(view)) == null) {
                 objectAnimator = null;
             } else {
                 Interpolator create2 = PathInterpolatorCompat.create(0.33f, 0.0f, 0.83f, 1.0f);
-                objectAnimator2 = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_X, this.f58972b[0] - c2[0]);
-                objectAnimator = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_Y, this.f58972b[1] - c2[1]);
+                objectAnimator2 = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_X, this.f59553b[0] - c2[0]);
+                objectAnimator = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_Y, this.f59553b[1] - c2[1]);
                 objectAnimator2.setInterpolator(create2);
                 objectAnimator.setInterpolator(create2);
             }
@@ -410,14 +410,14 @@ public class a extends d implements View.OnClickListener {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            Animator b2 = b(this.f58973c);
+            Animator b2 = b(this.f59554c);
             b2.addListener(new AnimatorListenerAdapter(this, b2) { // from class: com.kwad.sdk.reward.kwai.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Animator a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f58983b;
+                public final /* synthetic */ a f59564b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -434,7 +434,7 @@ public class a extends d implements View.OnClickListener {
                             return;
                         }
                     }
-                    this.f58983b = this;
+                    this.f59564b = this;
                     this.a = b2;
                 }
 
@@ -444,8 +444,8 @@ public class a extends d implements View.OnClickListener {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
                         super.onAnimationEnd(animator);
                         this.a.removeListener(this);
-                        if (this.f58983b.f58979i != null) {
-                            this.f58983b.f58979i.b();
+                        if (this.f59564b.f59560i != null) {
+                            this.f59564b.f59560i.b();
                         }
                     }
                 }
@@ -466,7 +466,7 @@ public class a extends d implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
             super.a(adTemplate);
-            a(C2054a.a(adTemplate));
+            a(C2115a.a(adTemplate));
             this.a.post(new AnonymousClass1(this, adTemplate, com.kwad.sdk.core.config.b.aN()));
         }
     }
@@ -474,7 +474,7 @@ public class a extends d implements View.OnClickListener {
     public void a(@Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f58979i = bVar;
+            this.f59560i = bVar;
         }
     }
 
@@ -482,7 +482,7 @@ public class a extends d implements View.OnClickListener {
     public void onClick(View view) {
         b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view.equals(this.f58978h) && (bVar = this.f58979i) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view.equals(this.f59559h) && (bVar = this.f59560i) != null) {
             bVar.a();
         }
     }

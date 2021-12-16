@@ -12,7 +12,7 @@ import com.google.android.material.internal.StaticLayoutBuilderCompat;
 import com.kwad.proguard.annotations.DoNotStrip;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @DoNotStrip
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class YogaDirection {
     public static final /* synthetic */ YogaDirection[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

@@ -1,9 +1,9 @@
 package com.baidu.searchbox.task.item;
 
 import android.text.TextUtils;
-import c.a.q0.d1.t0;
-import c.a.q0.m.a;
-import c.a.q0.s.e0.b;
+import c.a.r0.d1.w0;
+import c.a.r0.m.a;
+import c.a.r0.s.g0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class InitAdTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class InitAdTask extends LaunchTask {
             try {
                 MessageManager.getInstance().runTask(new CustomMessage<>(2921620), (Class) null);
                 MessageManager.getInstance().runTask(new CustomMessage<>(2016570), (Class) null);
-                String b2 = t0.b();
+                String b2 = w0.b();
                 if (!TextUtils.isEmpty(b2)) {
                     b.j().x("key_prologue_ad_useragent", b2);
                 }

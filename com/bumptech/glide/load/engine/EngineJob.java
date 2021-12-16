@@ -25,7 +25,7 @@ import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final EngineResourceFactory DEFAULT_FACTORY;
@@ -59,7 +59,7 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
     public boolean useUnlimitedSourceGeneratorPool;
 
     @VisibleForTesting
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class EngineResourceFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class MainThreadCallback implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

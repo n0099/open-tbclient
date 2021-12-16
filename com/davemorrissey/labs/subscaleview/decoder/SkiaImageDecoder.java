@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class SkiaImageDecoder implements ImageDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_PREFIX = "file:///android_asset/";

@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.defs.listener;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ActBakAdditionListener extends ActListener {
     String getBak1();
 

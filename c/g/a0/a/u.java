@@ -12,29 +12,29 @@ import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class u implements TTNativeExpressAd.ExpressAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28671b;
+    public boolean f29041b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ ExpressAdListenerWrapper f28672c;
+    public final /* synthetic */ ExpressAdListenerWrapper f29042c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f28673d;
+    public final /* synthetic */ String f29043d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ TTNativeExpressAd f28674e;
+    public final /* synthetic */ TTNativeExpressAd f29044e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ t.b f28675f;
+    public final /* synthetic */ t.b f29045f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ t f28676g;
+    public final /* synthetic */ t f29046g;
 
     public u(t tVar, ExpressAdListenerWrapper expressAdListenerWrapper, String str, TTNativeExpressAd tTNativeExpressAd, t.b bVar) {
         Interceptable interceptable = $ic;
@@ -51,11 +51,11 @@ public class u implements TTNativeExpressAd.ExpressAdInteractionListener {
                 return;
             }
         }
-        this.f28676g = tVar;
-        this.f28672c = expressAdListenerWrapper;
-        this.f28673d = str;
-        this.f28674e = tTNativeExpressAd;
-        this.f28675f = bVar;
+        this.f29046g = tVar;
+        this.f29042c = expressAdListenerWrapper;
+        this.f29043d = str;
+        this.f29044e = tTNativeExpressAd;
+        this.f29045f = bVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -65,14 +65,14 @@ public class u implements TTNativeExpressAd.ExpressAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
             LogPrinter.d();
-            this.f28676g.onAdClicked(this.f28671b);
-            this.f28671b = true;
-            FunAdInteractionListener funAdInteractionListener = this.f28672c.funListener;
+            this.f29046g.onAdClicked(this.f29041b);
+            this.f29041b = true;
+            FunAdInteractionListener funAdInteractionListener = this.f29042c.funListener;
             if (funAdInteractionListener != null) {
-                String str = this.f28673d;
-                pid = this.f28676g.mPid;
+                String str = this.f29043d;
+                pid = this.f29046g.mPid;
                 String str2 = pid.ssp.type;
-                pid2 = this.f28676g.mPid;
+                pid2 = this.f29046g.mPid;
                 funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
         }
@@ -85,14 +85,14 @@ public class u implements TTNativeExpressAd.ExpressAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
             LogPrinter.d();
-            this.f28676g.onAdShow(this.f28674e, this.a);
+            this.f29046g.onAdShow(this.f29044e, this.a);
             this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.f28672c.funListener;
+            FunAdInteractionListener funAdInteractionListener = this.f29042c.funListener;
             if (funAdInteractionListener != null) {
-                String str = this.f28673d;
-                pid = this.f28676g.mPid;
+                String str = this.f29043d;
+                pid = this.f29046g.mPid;
                 String str2 = pid.ssp.type;
-                pid2 = this.f28676g.mPid;
+                pid2 = this.f29046g.mPid;
                 funAdInteractionListener.onAdShow(str, str2, pid2.pid);
             }
         }
@@ -103,14 +103,14 @@ public class u implements TTNativeExpressAd.ExpressAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view, str, i2) == null) {
             LogPrinter.d();
-            t.b bVar = this.f28675f;
-            if (bVar.f28669c) {
+            t.b bVar = this.f29045f;
+            if (bVar.f29039c) {
                 return;
             }
             int i3 = bVar.a + 1;
             bVar.a = i3;
-            if (i3 == bVar.f28668b) {
-                bVar.f28670d.onAdError(i2, str);
+            if (i3 == bVar.f29038b) {
+                bVar.f29040d.onAdError(i2, str);
             }
         }
     }
@@ -120,16 +120,16 @@ public class u implements TTNativeExpressAd.ExpressAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             LogPrinter.d();
-            this.f28674e.setCanInterruptVideoPlay(true);
-            this.f28676g.f28666i.put(this.f28674e, this.f28672c);
-            t.b bVar = this.f28675f;
-            TTNativeExpressAd tTNativeExpressAd = this.f28674e;
-            if (bVar.f28669c) {
-                bVar.f28670d.cacheOrDestroyAd(tTNativeExpressAd);
+            this.f29044e.setCanInterruptVideoPlay(true);
+            this.f29046g.f29036i.put(this.f29044e, this.f29042c);
+            t.b bVar = this.f29045f;
+            TTNativeExpressAd tTNativeExpressAd = this.f29044e;
+            if (bVar.f29039c) {
+                bVar.f29040d.cacheOrDestroyAd(tTNativeExpressAd);
                 return;
             }
-            bVar.f28670d.onAdLoaded((t) tTNativeExpressAd);
-            bVar.f28669c = true;
+            bVar.f29040d.onAdLoaded((t) tTNativeExpressAd);
+            bVar.f29039c = true;
         }
     }
 }

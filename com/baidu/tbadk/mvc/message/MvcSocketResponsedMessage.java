@@ -2,11 +2,11 @@ package com.baidu.tbadk.mvc.message;
 
 import android.text.TextUtils;
 import c.a.d.f.d.l;
-import c.a.d.f.p.b;
-import c.a.d.f.p.n;
-import c.a.q0.l0.b.d;
-import c.a.q0.l0.b.h;
-import c.a.q0.s.r.a;
+import c.a.d.f.p.c;
+import c.a.d.f.p.o;
+import c.a.r0.l0.b.d;
+import c.a.r0.l0.b.h;
+import c.a.r0.s.s.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -20,7 +20,7 @@ import com.squareup.wire.Wire;
 import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -131,20 +131,20 @@ public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, bArr) == null) {
             Message parseFrom = new Wire(new Class[0]).parseFrom(bArr, getProtobufResponseIdlClass());
-            List<Field> c3 = b.c(parseFrom, Error.class);
+            List<Field> c3 = c.c(parseFrom, Error.class);
             if (c3 == null || c3.size() <= 0) {
                 z = false;
             } else {
                 z = true;
-                Object a = n.a(parseFrom, c3.get(0));
+                Object a = o.a(parseFrom, c3.get(0));
                 if (a instanceof Error) {
                     Error error = (Error) a;
                     setError(error.errorno.intValue());
                     setErrorString(error.usermsg);
                 }
             }
-            if (!z && (c2 = b.c(parseFrom, tbclient.Error.class)) != null && c2.size() > 0) {
-                Object a2 = n.a(parseFrom, c2.get(0));
+            if (!z && (c2 = c.c(parseFrom, tbclient.Error.class)) != null && c2.size() > 0) {
+                Object a2 = o.a(parseFrom, c2.get(0));
                 if (a2 instanceof tbclient.Error) {
                     tbclient.Error error2 = (tbclient.Error) a2;
                     setError(error2.errorno.intValue());

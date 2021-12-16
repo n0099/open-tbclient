@@ -14,14 +14,14 @@ import com.baidu.wallet.paysdk.ui.widget.CertificateMenuView;
 import com.dxmpay.wallet.base.widget.BdMenu;
 import com.dxmpay.wallet.base.widget.BdMenuItem;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class b extends BdMenu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GetCardInfoResponse.CertificateTypeInfo[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CertificateMenuView.b f53975b;
+    public CertificateMenuView.b f54555b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(View view, GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr) {
@@ -48,7 +48,7 @@ public class b extends BdMenu {
     public void a(CertificateMenuView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f53975b = bVar;
+            this.f54555b = bVar;
         }
     }
 
@@ -57,7 +57,7 @@ public class b extends BdMenu {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, list) == null) {
             CertificateMenuView certificateMenuView = (CertificateMenuView) view;
-            certificateMenuView.setCertificertSelectListener(this.f53975b);
+            certificateMenuView.setCertificertSelectListener(this.f54555b);
             certificateMenuView.layoutMenu(this.a);
         }
     }

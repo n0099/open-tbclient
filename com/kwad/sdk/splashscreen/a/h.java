@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.sdk.splashscreen.g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.c f59493b;
+    public com.kwad.sdk.core.download.a.c f60074b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class h extends Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ h f59494b;
+                public final /* synthetic */ h f60075b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -76,7 +76,7 @@ public class h extends Presenter {
                             return;
                         }
                     }
-                    this.f59494b = this;
+                    this.f60075b = this;
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -99,9 +99,9 @@ public class h extends Presenter {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                         super.onDownloadStarted();
-                        Context q = this.f59494b.q();
-                        if (this.f59494b.q() instanceof ResContext) {
-                            q = ((ResContext) this.f59494b.q()).getDelegatedContext();
+                        Context q = this.f60075b.q();
+                        if (this.f60075b.q() instanceof ResContext) {
+                            q = ((ResContext) this.f60075b.q()).getDelegatedContext();
                         }
                         if (q != null) {
                             String b2 = h.b(q);
@@ -136,8 +136,8 @@ public class h extends Presenter {
                     }
                 }
             };
-            this.f59493b = cVar;
-            this.a.f59580g.a(cVar);
+            this.f60074b = cVar;
+            this.a.f60161g.a(cVar);
         }
     }
 
@@ -145,9 +145,9 @@ public class h extends Presenter {
     public void c() {
         com.kwad.sdk.core.download.a.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f59493b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f60074b) == null) {
             return;
         }
-        this.a.f59580g.b(cVar);
+        this.a.f60161g.b(cVar);
     }
 }

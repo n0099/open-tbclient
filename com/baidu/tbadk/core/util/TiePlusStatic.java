@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TiePlusStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class Params {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String CLI_LOCATE = "cli_locate";
@@ -30,7 +30,7 @@ public class TiePlusStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class Values {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CLI_LOCATE_TO_DETAIL = 2;

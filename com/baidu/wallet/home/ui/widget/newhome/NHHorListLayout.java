@@ -32,7 +32,7 @@ import com.baidu.wallet.home.ui.widget.inner.HorizontalListView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class NHHorListLayout extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public static boolean TYPE_TWO_ITEM;
@@ -40,12 +40,12 @@ public class NHHorListLayout extends BaseItemLayout {
     public HorizontalListView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HomeLayoutOneTipView f52712b;
+    public HomeLayoutOneTipView f53292b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f52713c;
+    public a f53293c;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class a extends BaseListAdapter<HomeCfgResponse.DataItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class NHHorListLayout extends BaseItemLayout {
     }
 
     @BindLayout("wallet_home_nh_horlistview_item")
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class b extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.DataItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,23 +97,23 @@ public class NHHorListLayout extends BaseItemLayout {
         @bind("tv_value1")
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f52714b;
+        public TextView f53294b;
         @bind("tv_value2")
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f52715c;
+        public TextView f53295c;
         @bind("tv_value3")
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f52716d;
+        public TextView f53296d;
         @bind("framelayout_content")
 
         /* renamed from: e  reason: collision with root package name */
-        public FrameLayout f52717e;
+        public FrameLayout f53297e;
         @bind("divider_view")
 
         /* renamed from: f  reason: collision with root package name */
-        public View f52718f;
+        public View f53298f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -136,41 +136,41 @@ public class NHHorListLayout extends BaseItemLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, dataItem, i2, context, baseListAdapter) == null) {
                 if (!NHHorListLayout.TYPE_TWO_ITEM) {
-                    this.f52717e.setLayoutParams(new ViewGroup.LayoutParams(DisplayUtils.dip2px(context, 145.0f), DisplayUtils.dip2px(context, 89.0f)));
+                    this.f53297e.setLayoutParams(new ViewGroup.LayoutParams(DisplayUtils.dip2px(context, 145.0f), DisplayUtils.dip2px(context, 89.0f)));
                     ((LinearLayout.LayoutParams) this.a.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 16.0f), 0, 0, 0);
-                    ((LinearLayout.LayoutParams) this.f52718f.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 6.0f), 0, 0, 0);
+                    ((LinearLayout.LayoutParams) this.f53298f.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 6.0f), 0, 0, 0);
                 } else {
                     ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-2, -2);
                     layoutParams.width = (DisplayUtils.getDisplayWidth(context) - (DisplayUtils.dip2px(context, 16.0f) * 3)) / 2;
-                    this.f52717e.setLayoutParams(layoutParams);
+                    this.f53297e.setLayoutParams(layoutParams);
                     ((LinearLayout.LayoutParams) this.a.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 20.0f), 0, 0, 0);
-                    ((LinearLayout.LayoutParams) this.f52718f.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 10.0f), 0, 0, 0);
+                    ((LinearLayout.LayoutParams) this.f53298f.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 10.0f), 0, 0, 0);
                 }
                 this.a.setText(dataItem.name);
                 if (!TextUtils.isEmpty(dataItem.value2)) {
-                    this.f52715c.setText(dataItem.value2);
-                    this.f52715c.setVisibility(0);
+                    this.f53295c.setText(dataItem.value2);
+                    this.f53295c.setVisibility(0);
                 } else {
-                    this.f52715c.setVisibility(8);
+                    this.f53295c.setVisibility(8);
                 }
                 if (!TextUtils.isEmpty(dataItem.value3)) {
-                    this.f52716d.setText(dataItem.value3);
-                    this.f52716d.setVisibility(0);
+                    this.f53296d.setText(dataItem.value3);
+                    this.f53296d.setVisibility(0);
                 } else {
-                    this.f52716d.setVisibility(8);
+                    this.f53296d.setVisibility(8);
                 }
                 if (!TextUtils.isEmpty(dataItem.value1)) {
-                    this.f52714b.setText(dataItem.value1);
-                    this.f52714b.setVisibility(0);
+                    this.f53294b.setText(dataItem.value1);
+                    this.f53294b.setVisibility(0);
                     return;
                 }
-                this.f52714b.setVisibility(8);
+                this.f53294b.setVisibility(8);
             }
         }
     }
 
     @BindLayout("NOT_USE_XML")
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class c extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.DataItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -261,12 +261,12 @@ public class NHHorListLayout extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_horview_layout"), this);
-            this.f52712b = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
+            this.f53292b = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
             HorizontalListView horizontalListView = (HorizontalListView) findViewById(ResUtils.id(getContext(), "hor_listview"));
             this.a = horizontalListView;
             horizontalListView.setDividerWidth(DisplayUtils.dip2px(getContext(), 16.0f));
             a aVar = new a(getContext());
-            this.f52713c = aVar;
+            this.f53293c = aVar;
             this.a.setAdapter((ListAdapter) aVar);
             this.a.setOnItemClickListener(new AdapterView.OnItemClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHHorListLayout.1
                 public static /* synthetic */ Interceptable $ic;
@@ -321,9 +321,9 @@ public class NHHorListLayout extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (!TextUtils.isEmpty(this.mConfigData.getGroup_name())) {
-                this.f52712b.setData(this.mConfigData, getWalletInterface());
+                this.f53292b.setData(this.mConfigData, getWalletInterface());
             } else {
-                this.f52712b.setVisibility(8);
+                this.f53292b.setVisibility(8);
             }
             ArrayList arrayList = new ArrayList();
             if (this.mConfigData.list.length <= 2) {
@@ -341,7 +341,7 @@ public class NHHorListLayout extends BaseItemLayout {
                 dataItem2.empty_view = true;
                 arrayList.add(dataItem2);
             }
-            this.f52713c.initList(arrayList);
+            this.f53293c.initList(arrayList);
         }
     }
 

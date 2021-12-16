@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ac {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, com.kwad.sdk.core.download.a.b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, com.kwad.sdk.core.webview.kwai.c> f59594b;
+    public Map<String, com.kwad.sdk.core.webview.kwai.c> f60175b;
 
     public com.kwad.sdk.core.download.a.b a(String str) {
         InterceptResult invokeL;
@@ -27,7 +27,7 @@ public class ac {
                 bVar.j();
             }
             this.a.clear();
-            this.f59594b.clear();
+            this.f60175b.clear();
         }
     }
 
@@ -41,13 +41,13 @@ public class ac {
     public void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, cVar) == null) {
-            this.f59594b.put(str, cVar);
+            this.f60175b.put(str, cVar);
         }
     }
 
     public com.kwad.sdk.core.webview.kwai.c b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f59594b.get(str) : (com.kwad.sdk.core.webview.kwai.c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f60175b.get(str) : (com.kwad.sdk.core.webview.kwai.c) invokeL.objValue;
     }
 }

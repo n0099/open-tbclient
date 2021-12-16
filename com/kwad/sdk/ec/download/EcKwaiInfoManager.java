@@ -37,7 +37,7 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class EcKwaiInfoManager {
     public static final /* synthetic */ EcKwaiInfoManager[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -61,7 +61,7 @@ public final class EcKwaiInfoManager {
     public int status;
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +153,7 @@ public final class EcKwaiInfoManager {
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ EcKwaiInfoManager f58417b;
+            public final /* synthetic */ EcKwaiInfoManager f58998b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -170,7 +170,7 @@ public final class EcKwaiInfoManager {
                         return;
                     }
                 }
-                this.f58417b = this;
+                this.f58998b = this;
                 this.a = str;
             }
 
@@ -186,7 +186,7 @@ public final class EcKwaiInfoManager {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass5 f58418b;
+                    public final /* synthetic */ AnonymousClass5 f58999b;
 
                     {
                         Interceptable interceptable3 = $ic;
@@ -203,14 +203,14 @@ public final class EcKwaiInfoManager {
                                 return;
                             }
                         }
-                        this.f58418b = this;
+                        this.f58999b = this;
                     }
 
                     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
                     public String a() {
                         InterceptResult invokeV2;
                         Interceptable interceptable3 = $ic;
-                        return (interceptable3 == null || (invokeV2 = interceptable3.invokeV(1048576, this)) == null) ? this.f58418b.a : (String) invokeV2.objValue;
+                        return (interceptable3 == null || (invokeV2 = interceptable3.invokeV(1048576, this)) == null) ? this.f58999b.a : (String) invokeV2.objValue;
                     }
                 } : (d) invokeV.objValue;
             }
@@ -430,7 +430,7 @@ public final class EcKwaiInfoManager {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ EcKwaiInfoManager f58416b;
+                    public final /* synthetic */ EcKwaiInfoManager f58997b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -447,7 +447,7 @@ public final class EcKwaiInfoManager {
                                 return;
                             }
                         }
-                        this.f58416b = this;
+                        this.f58997b = this;
                         this.a = str2;
                     }
 
@@ -455,8 +455,8 @@ public final class EcKwaiInfoManager {
                     public void onDownloadFailed() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f58416b.mHandler.sendEmptyMessage(2);
-                            this.f58416b.onDownloadReport(40);
+                            this.f58997b.mHandler.sendEmptyMessage(2);
+                            this.f58997b.onDownloadReport(40);
                         }
                     }
 
@@ -464,7 +464,7 @@ public final class EcKwaiInfoManager {
                     public void onDownloadFinished() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            this.f58416b.onDownloadReport(32);
+                            this.f58997b.onDownloadReport(32);
                         }
                     }
 
@@ -472,8 +472,8 @@ public final class EcKwaiInfoManager {
                     public void onDownloadStarted() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                            this.f58416b.onDownloadReport(30);
-                            this.f58416b.reportPullNew(this.a);
+                            this.f58997b.onDownloadReport(30);
+                            this.f58997b.reportPullNew(this.a);
                         }
                     }
 
@@ -481,7 +481,7 @@ public final class EcKwaiInfoManager {
                     public void onInstalled() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                            this.f58416b.mHandler.sendEmptyMessage(2);
+                            this.f58997b.mHandler.sendEmptyMessage(2);
                         }
                     }
                 });

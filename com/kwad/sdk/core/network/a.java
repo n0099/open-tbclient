@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.network.g;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a<R extends g> {
     public static /* synthetic */ Interceptable $ic;
     public static final ExecutorService a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Future<?> f57492b;
+    public Future<?> f58073b;
 
     static {
         InterceptResult invokeClinit;
@@ -62,7 +62,7 @@ public abstract class a<R extends g> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                this.f57492b = a.submit(new Runnable(this) { // from class: com.kwad.sdk.core.network.a.1
+                this.f58073b = a.submit(new Runnable(this) { // from class: com.kwad.sdk.core.network.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ a a;
@@ -107,7 +107,7 @@ public abstract class a<R extends g> {
     public void e() {
         Future<?> future;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (future = this.f57492b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (future = this.f58073b) == null) {
             return;
         }
         future.cancel(true);

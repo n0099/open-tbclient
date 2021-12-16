@@ -1,7 +1,7 @@
 package c.a.d.f.n;
 
 import android.content.Context;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,11 +18,11 @@ public class e {
             if (context == null) {
                 return null;
             }
-            if (j.H()) {
+            if (k.H()) {
                 return CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
             }
-            if (j.x()) {
-                int f2 = j.f();
+            if (k.x()) {
+                int f2 = k.f();
                 StringBuilder sb = new StringBuilder();
                 if (f2 == 1) {
                     sb.append('M');
@@ -33,16 +33,16 @@ public class e {
                 } else {
                     sb.append('T');
                 }
-                if (j.E()) {
+                if (k.E()) {
                     sb.append("_WAP_");
                 } else {
                     sb.append("_NET_");
                 }
-                if (j.u()) {
+                if (k.u()) {
                     sb.append("3G");
-                } else if (j.v()) {
+                } else if (k.v()) {
                     sb.append("4G");
-                } else if (j.t()) {
+                } else if (k.t()) {
                     sb.append("2G");
                 } else {
                     sb.append('N');

@@ -1,5 +1,5 @@
 package com.facebook.common.logging;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface LoggingDelegate {
     void d(String str, String str2);
 

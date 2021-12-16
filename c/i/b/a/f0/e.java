@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class e extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SparseArray<Map<t, b>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseBooleanArray f30108b;
+    public final SparseBooleanArray f30478b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30109c;
+    public int f30479c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,22 +51,22 @@ public abstract class e extends h {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final f.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30110b;
+        public final int f30480b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int[] f30111c;
+        public final int[] f30481c;
 
         public f a(t tVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tVar)) == null) ? this.a.a(tVar.a(this.f30110b), this.f30111c) : (f) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tVar)) == null) ? this.a.a(tVar.a(this.f30480b), this.f30481c) : (f) invokeL.objValue;
         }
     }
 
@@ -84,8 +84,8 @@ public abstract class e extends h {
             }
         }
         this.a = new SparseArray<>();
-        this.f30108b = new SparseBooleanArray();
-        this.f30109c = 0;
+        this.f30478b = new SparseBooleanArray();
+        this.f30479c = 0;
     }
 
     public static int e(s[] sVarArr, c.i.b.a.d0.s sVar) throws ExoPlaybackException {
@@ -242,7 +242,7 @@ public abstract class e extends h {
                 if (i8 >= sVarArr.length) {
                     break;
                 }
-                if (this.f30108b.get(i8)) {
+                if (this.f30478b.get(i8)) {
                     k2[i8] = null;
                 } else {
                     t tVar3 = tVarArr[i8];
@@ -257,9 +257,9 @@ public abstract class e extends h {
             a aVar = new a(iArr3, tVarArr, g2, iArr2, tVar2);
             c.i.b.a.t[] tVarArr2 = new c.i.b.a.t[sVarArr.length];
             for (int i9 = 0; i9 < sVarArr.length; i9++) {
-                tVarArr2[i9] = d2[i9] ? c.i.b.a.t.f30347b : null;
+                tVarArr2[i9] = d2[i9] ? c.i.b.a.t.f30717b : null;
             }
-            i(sVarArr, tVarArr, iArr2, tVarArr2, k2, this.f30109c);
+            i(sVarArr, tVarArr, iArr2, tVarArr2, k2, this.f30479c);
             return new i(tVar, d2, new g(k2), aVar, tVarArr2);
         }
         return (i) invokeLL.objValue;
@@ -272,7 +272,7 @@ public abstract class e extends h {
             int length = fVarArr.length;
             boolean[] zArr = new boolean[length];
             for (int i2 = 0; i2 < length; i2++) {
-                zArr[i2] = !this.f30108b.get(i2) && (sVarArr[i2].e() == 5 || fVarArr[i2] != null);
+                zArr[i2] = !this.f30478b.get(i2) && (sVarArr[i2].e() == 5 || fVarArr[i2] != null);
             }
             return zArr;
         }

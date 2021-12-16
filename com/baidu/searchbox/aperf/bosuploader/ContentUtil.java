@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ContentUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_LOCAL_EXPIRED_AT = "localExpireAt";
@@ -104,7 +104,7 @@ public class ContentUtil {
             if (!"0".equals(jSONObject.optString("errno", "-1")) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                 return null;
             }
-            optJSONObject.put(KEY_LOCAL_EXPIRED_AT, System.currentTimeMillis() + (optJSONObject.optLong(RESULT_KEY_EXPIRE) * 1000));
+            optJSONObject.put(KEY_LOCAL_EXPIRED_AT, System.currentTimeMillis() + (optJSONObject.optLong("expire") * 1000));
             return createSTSInfo(optJSONObject);
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -193,7 +193,7 @@ public class ContentUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
-            STSInfo sTSInfo = new STSInfo(jSONObject.optString(RESULT_KEY_AK), jSONObject.optString(RESULT_KEY_SK), jSONObject.optString("token"), jSONObject.optLong(KEY_LOCAL_EXPIRED_AT), jSONObject.optString(RESULT_KEY_EXPIRE), jSONObject.optString(RESULT_KEY_BUCKET), jSONObject.optString(RESULT_KEY_ENDPOINT));
+            STSInfo sTSInfo = new STSInfo(jSONObject.optString(RESULT_KEY_AK), jSONObject.optString(RESULT_KEY_SK), jSONObject.optString("token"), jSONObject.optLong(KEY_LOCAL_EXPIRED_AT), jSONObject.optString("expire"), jSONObject.optString(RESULT_KEY_BUCKET), jSONObject.optString(RESULT_KEY_ENDPOINT));
             sTSInfo.setOrigin(jSONObject.toString());
             return sTSInfo;
         }

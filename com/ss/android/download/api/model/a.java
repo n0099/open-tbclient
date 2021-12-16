@@ -6,44 +6,44 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61071b;
+    public String f61652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61072c;
+    public String f61653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61073d;
+    public String f61654d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61074e;
+    public String f61655e;
 
     /* renamed from: com.ss.android.download.api.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2093a {
+    /* loaded from: classes3.dex */
+    public static class C2154a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61075b;
+        public String f61656b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f61076c;
+        public String f61657c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f61077d;
+        public String f61658d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f61078e;
+        public String f61659e;
 
-        public C2093a() {
+        public C2154a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,44 +57,44 @@ public class a {
             }
         }
 
-        public C2093a a(String str) {
+        public C2154a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 this.a = str;
                 return this;
             }
-            return (C2093a) invokeL.objValue;
+            return (C2154a) invokeL.objValue;
         }
 
-        public C2093a b(String str) {
+        public C2154a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f61075b = str;
+                this.f61656b = str;
                 return this;
             }
-            return (C2093a) invokeL.objValue;
+            return (C2154a) invokeL.objValue;
         }
 
-        public C2093a c(String str) {
+        public C2154a c(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f61077d = str;
+                this.f61658d = str;
                 return this;
             }
-            return (C2093a) invokeL.objValue;
+            return (C2154a) invokeL.objValue;
         }
 
-        public C2093a d(String str) {
+        public C2154a d(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f61078e = str;
+                this.f61659e = str;
                 return this;
             }
-            return (C2093a) invokeL.objValue;
+            return (C2154a) invokeL.objValue;
         }
 
         public a a() {
@@ -104,12 +104,12 @@ public class a {
         }
     }
 
-    public a(C2093a c2093a) {
+    public a(C2154a c2154a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c2093a};
+            Object[] objArr = {c2154a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -119,11 +119,11 @@ public class a {
                 return;
             }
         }
-        this.f61071b = "";
-        this.a = c2093a.a;
-        this.f61071b = c2093a.f61075b;
-        this.f61072c = c2093a.f61076c;
-        this.f61073d = c2093a.f61077d;
-        this.f61074e = c2093a.f61078e;
+        this.f61652b = "";
+        this.a = c2154a.a;
+        this.f61652b = c2154a.f61656b;
+        this.f61653c = c2154a.f61657c;
+        this.f61654d = c2154a.f61658d;
+        this.f61655e = c2154a.f61659e;
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.download.api.config.h;
 import com.ss.android.download.api.config.s;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

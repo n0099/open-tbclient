@@ -3,9 +3,9 @@ package com.baidu.tieba.hottopic.controller;
 import android.content.Intent;
 import android.os.Bundle;
 import c.a.d.a.e;
-import c.a.d.f.p.l;
-import c.a.r0.p1.j.j;
-import c.a.r0.p1.o.d;
+import c.a.d.f.p.m;
+import c.a.s0.q1.j.j;
+import c.a.s0.q1.o.d;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
     public String topicId;
     public CustomMessageListener unLikeForumListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class c extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,7 +167,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     AntiHelper.u(this.a.getActivity(), this.a.likeModel.getErrorString());
                 } else if (StringUtils.isNull(this.a.likeModel.getErrorString())) {
                 } else {
-                    l.M(TbadkCoreApplication.getInst(), this.a.likeModel.getErrorString());
+                    m.M(TbadkCoreApplication.getInst(), this.a.likeModel.getErrorString());
                 }
             }
         }

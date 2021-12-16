@@ -16,13 +16,13 @@ import com.kwad.sdk.core.network.i;
 import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.core.webview.jshandler.w;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static final Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -72,7 +72,7 @@ public class b {
                 public final /* synthetic */ w.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f58117b;
+                public final /* synthetic */ b f58698b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -89,7 +89,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f58117b = this;
+                    this.f58698b = this;
                     this.a = aVar;
                 }
 
@@ -118,7 +118,7 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                         w.a aVar3 = this.a;
-                        return new com.kwad.sdk.core.webview.request.a(aVar3.a, aVar3.f58089b, aVar3.f58090c);
+                        return new com.kwad.sdk.core.webview.request.a(aVar3.a, aVar3.f58670b, aVar3.f58671c);
                     }
                     return (com.kwad.sdk.core.webview.request.a) invokeV.objValue;
                 }
@@ -128,7 +128,7 @@ public class b {
                 public final /* synthetic */ a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f58118b;
+                public final /* synthetic */ b f58699b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -145,7 +145,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f58118b = this;
+                    this.f58699b = this;
                     this.a = aVar2;
                 }
 
@@ -202,10 +202,10 @@ public class b {
                             public final /* synthetic */ int a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ String f58120b;
+                            public final /* synthetic */ String f58701b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f58121c;
+                            public final /* synthetic */ AnonymousClass2 f58702c;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -222,17 +222,17 @@ public class b {
                                         return;
                                     }
                                 }
-                                this.f58121c = this;
+                                this.f58702c = this;
                                 this.a = i2;
-                                this.f58120b = str;
+                                this.f58701b = str;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    com.kwad.sdk.core.d.a.a("WebCardGetDataRequestManager", "load onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.a), this.f58120b));
-                                    this.f58121c.a.a(this.a, this.f58120b);
+                                    com.kwad.sdk.core.d.a.a("WebCardGetDataRequestManager", "load onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.a), this.f58701b));
+                                    this.f58702c.a.a(this.a, this.f58701b);
                                 }
                             }
                         });
@@ -251,7 +251,7 @@ public class b {
                             public final /* synthetic */ WebCardGetDataResponse a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f58119b;
+                            public final /* synthetic */ AnonymousClass2 f58700b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -268,7 +268,7 @@ public class b {
                                         return;
                                     }
                                 }
-                                this.f58119b = this;
+                                this.f58700b = this;
                                 this.a = webCardGetDataResponse;
                             }
 
@@ -276,7 +276,7 @@ public class b {
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.f58119b.a.a(this.a);
+                                    this.f58700b.a.a(this.a);
                                 }
                             }
                         });

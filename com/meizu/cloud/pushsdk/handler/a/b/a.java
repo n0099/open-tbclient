@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,18 +25,18 @@ public class a implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60499b;
+    public int f61080b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f60500c;
+    public int f61081c;
 
     public a() {
     }
 
     public a(Parcel parcel) {
         this.a = parcel.readInt();
-        this.f60499b = parcel.readInt();
-        this.f60500c = parcel.readInt();
+        this.f61080b = parcel.readInt();
+        this.f61081c = parcel.readInt();
     }
 
     public static a a(JSONObject jSONObject) {
@@ -72,11 +72,11 @@ public class a implements Parcelable {
     }
 
     public void b(int i2) {
-        this.f60499b = i2;
+        this.f61080b = i2;
     }
 
     public void c(int i2) {
-        this.f60500c = i2;
+        this.f61081c = i2;
     }
 
     @Override // android.os.Parcelable
@@ -85,13 +85,13 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "Control{pushType=" + this.a + ", cached=" + this.f60499b + ", cacheNum=" + this.f60500c + ExtendedMessageFormat.END_FE;
+        return "Control{pushType=" + this.a + ", cached=" + this.f61080b + ", cacheNum=" + this.f61081c + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.a);
-        parcel.writeInt(this.f60499b);
-        parcel.writeInt(this.f60500c);
+        parcel.writeInt(this.f61080b);
+        parcel.writeInt(this.f61081c);
     }
 }

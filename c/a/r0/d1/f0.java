@@ -1,93 +1,72 @@
 package c.a.r0.d1;
 
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class f0 extends SparseArray<p0> {
+/* loaded from: classes6.dex */
+public class f0 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f15469e;
+    public int f12197e;
 
-    public f0() {
+    /* renamed from: f  reason: collision with root package name */
+    public int f12198f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f12199g;
+
+    public f0(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f15469e = null;
+        this.f12197e = 0;
+        this.f12198f = 0;
+        this.f12199g = null;
+        this.f12197e = i2;
+        this.f12198f = i3;
     }
 
-    public void a(int i2, p0 p0Var) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, p0Var) == null) {
-            if (i2 > 100) {
-                i2 = 100;
-            }
-            put(i2, p0Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f12199g = str;
         }
     }
 
-    public void b() {
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i2 = 0; i2 < size(); i2++) {
-                p0 valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.t(null);
-                    valueAt.g();
-                }
+            super.run();
+            if (TbadkCoreApplication.getInst().checkInterrupt()) {
+                return;
             }
-        }
-    }
-
-    public p0 c(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 > 100) {
-                i2 = 100;
+            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
+            netWork.addPostData("img_num", String.valueOf(this.f12197e));
+            netWork.addPostData("img_total", String.valueOf(this.f12198f));
+            String str = this.f12199g;
+            if (str != null) {
+                netWork.addPostData("img_type", str);
             }
-            return get(i2);
-        }
-        return (p0) invokeI.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (int i2 = 0; i2 < size(); i2++) {
-                p0 valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-            }
-        }
-    }
-
-    public void f(t0 t0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, t0Var) == null) {
-            for (int i2 = 0; i2 < size(); i2++) {
-                p0 valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.t(t0Var);
-                }
-            }
+            netWork.postNetData();
         }
     }
 }

@@ -46,7 +46,7 @@ import java.util.EmptyStackException;
 import java.util.Iterator;
 import java.util.Stack;
 import java.util.Vector;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LangbridgeActivity extends BaseActivity implements d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ID_DLG_BANDOWNLOAD = 1000;
@@ -58,41 +58,41 @@ public class LangbridgeActivity extends BaseActivity implements d {
     public static final String TITLE = "title";
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f53119j;
+    public static int f53699j;
     public transient /* synthetic */ FieldHolder $fh;
     public Stack<c> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53120b;
+    public String f53700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53121c;
+    public boolean f53701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53122d;
+    public String f53702d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53123e;
+    public int f53703e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f53124f;
+    public long f53704f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f53125g;
+    public boolean f53705g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f53126h;
+    public boolean f53706h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f53127i;
+    public View f53707i;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f53128k;
+    public String f53708k;
     public Vector<Application.ActivityLifecycleCallbacks> l;
     public Bundle mParams;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.LangbridgeActivity$2  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -145,7 +145,7 @@ public class LangbridgeActivity extends BaseActivity implements d {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class LifeCycleCbName {
         public static final /* synthetic */ LifeCycleCbName[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -243,12 +243,12 @@ public class LangbridgeActivity extends BaseActivity implements d {
             }
         }
         this.a = new Stack<>();
-        this.f53121c = false;
-        this.f53123e = 0;
-        this.f53124f = 0L;
-        this.f53125g = true;
-        this.f53126h = true;
-        this.f53128k = "";
+        this.f53701c = false;
+        this.f53703e = 0;
+        this.f53704f = 0L;
+        this.f53705g = true;
+        this.f53706h = true;
+        this.f53708k = "";
         this.l = new Vector<>();
     }
 
@@ -260,11 +260,11 @@ public class LangbridgeActivity extends BaseActivity implements d {
             Bundle extras = getIntent().getExtras();
             if (extras != null) {
                 try {
-                    this.f53120b = extras.getString("jump_url");
-                    this.f53121c = extras.getBoolean("shwoshare", false);
-                    this.f53122d = extras.getString("title");
-                    this.f53123e = extras.getInt("baidu.wallet.lightapp.biztype", 0);
-                    this.f53124f = extras.getLong("LANGBRIDGE_HASH", 0L);
+                    this.f53700b = extras.getString("jump_url");
+                    this.f53701c = extras.getBoolean("shwoshare", false);
+                    this.f53702d = extras.getString("title");
+                    this.f53703e = extras.getInt("baidu.wallet.lightapp.biztype", 0);
+                    this.f53704f = extras.getLong("LANGBRIDGE_HASH", 0L);
                     if (extras.containsKey("lifecycleLsnr") && (activityLifecycleCallbacks = (Application.ActivityLifecycleCallbacks) extras.get("lifecycleLsnr")) != null) {
                         a(activityLifecycleCallbacks);
                     }
@@ -273,35 +273,35 @@ public class LangbridgeActivity extends BaseActivity implements d {
             }
             a(j.a());
             if (bundle != null) {
-                this.f53120b = bundle.getString("jump_url");
-                this.f53121c = bundle.getBoolean("shwoshare", false);
-                this.f53122d = bundle.getString("title");
-                this.f53125g = bundle.getBoolean(IS_SHOW_NATIVE_ERROR_PAGE, true);
-                this.f53126h = bundle.getBoolean(IS_SHOW_TITLE_BAR, true);
+                this.f53700b = bundle.getString("jump_url");
+                this.f53701c = bundle.getBoolean("shwoshare", false);
+                this.f53702d = bundle.getString("title");
+                this.f53705g = bundle.getBoolean(IS_SHOW_NATIVE_ERROR_PAGE, true);
+                this.f53706h = bundle.getBoolean(IS_SHOW_TITLE_BAR, true);
             }
-            if (!TextUtils.isEmpty(this.f53120b)) {
-                if (this.f53120b.contains("showShare=1") || this.f53120b.contains("showShare%3d1")) {
-                    this.f53121c = true;
+            if (!TextUtils.isEmpty(this.f53700b)) {
+                if (this.f53700b.contains("showShare=1") || this.f53700b.contains("showShare%3d1")) {
+                    this.f53701c = true;
                 }
-                if (this.f53120b.contains("hideShare=1") || this.f53120b.contains("hideShare%3d1")) {
-                    this.f53121c = false;
+                if (this.f53700b.contains("hideShare=1") || this.f53700b.contains("hideShare%3d1")) {
+                    this.f53701c = false;
                 }
-                if (this.f53120b.contains("hideNativeErrorPage=1") || this.f53120b.contains("hideNativeErrorPage%3d1")) {
-                    this.f53125g = false;
+                if (this.f53700b.contains("hideNativeErrorPage=1") || this.f53700b.contains("hideNativeErrorPage%3d1")) {
+                    this.f53705g = false;
                 }
-                if (this.f53120b.contains("hideTitleBar")) {
-                    this.f53126h = false;
+                if (this.f53700b.contains("hideTitleBar")) {
+                    this.f53706h = false;
                 }
             }
             Bundle bundle2 = new Bundle();
-            bundle2.putBoolean("lang_showshare", this.f53121c);
-            bundle2.putBoolean("lang_showtitle", this.f53126h);
-            bundle2.putBoolean("lang_showerror", this.f53125g);
+            bundle2.putBoolean("lang_showshare", this.f53701c);
+            bundle2.putBoolean("lang_showtitle", this.f53706h);
+            bundle2.putBoolean("lang_showerror", this.f53705g);
             if (extras != null) {
                 bundle2.putBoolean("lang_longtitle", extras.getBoolean("long_title", true));
                 bundle2.putBoolean("lang_icontitle", extras.getBoolean("only_icons"));
             }
-            bundle2.putString("lang_customtitle", this.f53122d);
+            bundle2.putString("lang_customtitle", this.f53702d);
             return bundle2;
         }
         return (Bundle) invokeL.objValue;
@@ -432,21 +432,21 @@ public class LangbridgeActivity extends BaseActivity implements d {
     public long getLangbridgeHash() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f53124f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f53704f : invokeV.longValue;
     }
 
     @Override // com.baidu.wallet.lightapp.multipage.d
     public String getLangbridgeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f53128k : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f53708k : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.lightapp.multipage.d
     public int getLangbridgeStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? f53119j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? f53699j : invokeV.intValue;
     }
 
     @Override // com.baidu.wallet.lightapp.multipage.d
@@ -547,7 +547,7 @@ public class LangbridgeActivity extends BaseActivity implements d {
         c a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_BACK, Arrays.asList(CheckUtils.stripUrlParams(this.f53120b), "" + f53119j));
+            DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_BACK, Arrays.asList(CheckUtils.stripUrlParams(this.f53700b), "" + f53699j));
             if (!((this.a.size() <= 0 || this.a.peek() == null) ? false : !this.a.peek().c()) || (a = a(-1, true)) == null) {
                 return;
             }
@@ -556,13 +556,13 @@ public class LangbridgeActivity extends BaseActivity implements d {
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, com.baidu.wallet.core.SDKBaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
-            int i2 = f53119j;
+            int i2 = f53699j;
             if (i2 < 2) {
-                f53119j = i2 + 1;
+                f53699j = i2 + 1;
             }
             if (getIntent() == null) {
                 finish();
@@ -574,21 +574,21 @@ public class LangbridgeActivity extends BaseActivity implements d {
             super.onCreate(bundle);
             g.a().a(this.a);
             this.mParams = a(bundle);
-            if (TextUtils.isEmpty(this.f53120b)) {
+            if (TextUtils.isEmpty(this.f53700b)) {
                 finish();
                 return;
             }
-            LangbridgeCacheManager.getInstance().handleCreateLangbirdge(this.f53120b, null);
-            a(this.f53120b);
+            LangbridgeCacheManager.getInstance().handleCreateLangbirdge(this.f53700b, null);
+            a(this.f53700b);
             setIsShowMultiWindowTips(true);
             setIsMultiWindowAvailable(false);
             com.baidu.wallet.lightapp.base.a.a().a(getActivity());
             StringBuilder sb = new StringBuilder();
             sb.append((toString() + System.currentTimeMillis()).hashCode());
             sb.append("");
-            this.f53128k = sb.toString();
-            createLangbridgeCell(this.f53120b, true, true, "");
-            LogUtil.i("LangbridgeActivity", "oncreate, mLangbridgeHashStamp = " + this.f53128k);
+            this.f53708k = sb.toString();
+            createLangbridgeCell(this.f53700b, true, true, "");
+            LogUtil.i("LangbridgeActivity", "oncreate, mLangbridgeHashStamp = " + this.f53708k);
             a(LifeCycleCbName.OnCreated, (Bundle) null);
         }
     }
@@ -612,9 +612,9 @@ public class LangbridgeActivity extends BaseActivity implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onDestroy();
-            LangbridgeCacheManager.getInstance().handleFinishLangbirdge(this.f53124f);
+            LangbridgeCacheManager.getInstance().handleFinishLangbirdge(this.f53704f);
             WhiteScreenMonitor.a().b();
-            if (this.f53123e == 12) {
+            if (this.f53703e == 12) {
                 LocalRouter.getInstance(DxmApplicationContextImpl.getApplicationContext(this)).route(this, new RouterRequest().provider("dxmPay").action("enterClearRnAuthBack"), null);
             }
             a(LifeCycleCbName.OnDestroyed, (Bundle) null);
@@ -720,14 +720,14 @@ public class LangbridgeActivity extends BaseActivity implements d {
     public void setContentView(View view, boolean z) {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048601, this, view, z) == null) || view == null || view == (view2 = this.f53127i)) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048601, this, view, z) == null) || view == null || view == (view2 = this.f53707i)) {
             return;
         }
         boolean z2 = view2 != null;
         if (z2) {
-            this.f53127i.startAnimation(ResUtils.getAnimation(this, z ? "wallet_langbridge_slide_to_left" : "wallet_langbridge_slide_to_right"));
+            this.f53707i.startAnimation(ResUtils.getAnimation(this, z ? "wallet_langbridge_slide_to_left" : "wallet_langbridge_slide_to_right"));
         }
-        this.f53127i = view;
+        this.f53707i = view;
         super.setContentView(view);
         if (z2) {
             view.startAnimation(ResUtils.getAnimation(this, z ? "wallet_langbridge_slide_from_right" : "wallet_langbridge_slide_from_left"));
@@ -738,14 +738,14 @@ public class LangbridgeActivity extends BaseActivity implements d {
     public void setLangbridgeStamp(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.f53128k = str;
+            this.f53708k = str;
         }
     }
 
     @Override // com.baidu.wallet.lightapp.multipage.d
     public void setRnAuthResult(int i2, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048603, this, i2, str) == null) && this.f53123e == 12) {
+        if ((interceptable == null || interceptable.invokeIL(1048603, this, i2, str) == null) && this.f53703e == 12) {
             LocalRouter.getInstance(DxmApplicationContextImpl.getApplicationContext(this)).route(this, new RouterRequest().provider("dxmPay").action("enterSetRnAuthResult").data(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, Integer.valueOf(i2)).data("desc", str), null);
         }
     }
@@ -799,7 +799,7 @@ public class LangbridgeActivity extends BaseActivity implements d {
                 if (this.a.size() != 0 && this.a.peek() != null) {
                     return this.a.peek();
                 }
-                if (this.f53123e == 12 && !pop.b().canGoBack()) {
+                if (this.f53703e == 12 && !pop.b().canGoBack()) {
                     setRnAuthResult(2, "实名认证取消");
                 }
                 super.onBackPressed();
@@ -851,7 +851,7 @@ public class LangbridgeActivity extends BaseActivity implements d {
                             cVar = this.a.peek();
                             z2 = false;
                         } else if (this.a.size() == 1 && abs == currentIndex && z) {
-                            if (this.f53123e == 12 && !cVar.b().canGoBack()) {
+                            if (this.f53703e == 12 && !cVar.b().canGoBack()) {
                                 setRnAuthResult(2, "实名认证取消");
                             }
                             super.onBackPressed();

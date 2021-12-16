@@ -7,8 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -61,7 +59,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_API_ARM_V7A = "armeabi-v7a";
@@ -69,22 +67,22 @@ public final class PhoneUtils {
     public static CPUInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<String> f55186b;
+    public static ArrayList<String> f55766b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f55187c;
+    public static final Pattern f55767c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f55188d;
+    public static final Pattern f55768d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f55189e;
+    public static final Pattern f55769e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f55190f;
+    public static final Pattern f55770f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -122,7 +120,7 @@ public final class PhoneUtils {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,16 +160,16 @@ public final class PhoneUtils {
                 return;
             }
         }
-        f55186b = new ArrayList<>();
-        f55187c = Pattern.compile("((\\d|[A-F]){32}).*");
-        f55188d = Pattern.compile("((\\d|[a-f]){32}).*");
-        f55189e = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-        f55190f = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
-        f55186b.add("card_no");
-        f55186b.add("valid_date");
-        f55186b.add("cvv2");
-        f55186b.add("identity_code");
-        f55186b.add("phone_number");
+        f55766b = new ArrayList<>();
+        f55767c = Pattern.compile("((\\d|[A-F]){32}).*");
+        f55768d = Pattern.compile("((\\d|[a-f]){32}).*");
+        f55769e = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f55770f = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+        f55766b.add("card_no");
+        f55766b.add("valid_date");
+        f55766b.add("cvv2");
+        f55766b.add("identity_code");
+        f55766b.add("phone_number");
     }
 
     public PhoneUtils() {
@@ -206,10 +204,10 @@ public final class PhoneUtils {
             if (deviceID == null) {
                 return null;
             }
-            Matcher matcher = f55187c.matcher(deviceID);
+            Matcher matcher = f55767c.matcher(deviceID);
             String group = matcher.matches() ? matcher.group(1) : null;
             if (group == null) {
-                Matcher matcher2 = f55188d.matcher(deviceID);
+                Matcher matcher2 = f55768d.matcher(deviceID);
                 return matcher2.matches() ? matcher2.group(1) : "";
             }
             return group;
@@ -230,7 +228,7 @@ public final class PhoneUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f55186b.contains(str)) {
+            if (f55766b.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -339,11 +337,11 @@ public final class PhoneUtils {
             if (cuid == null) {
                 return null;
             }
-            if (f55189e.matcher(cuid).matches()) {
+            if (f55769e.matcher(cuid).matches()) {
                 str2 = matcher.group(1) + matcher.group(3);
             }
             if (str2 == null) {
-                if (f55190f.matcher(cuid).matches()) {
+                if (f55770f.matcher(cuid).matches()) {
                     str = matcher2.group(1) + matcher2.group(3);
                 } else {
                     str = "";
@@ -363,12 +361,12 @@ public final class PhoneUtils {
         if (interceptable != null && (invokeL = interceptable.invokeL(65549, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (Build.VERSION.SDK_INT >= 29 || !PermissionManager.checkCallingPermission(context, s.f56838c)) {
+        if (Build.VERSION.SDK_INT >= 29 || !PermissionManager.checkCallingPermission(context, s.f57419c)) {
             return "";
         }
         format = String.format("%s_%s_%s", 0, 0, 0);
         try {
-            if ((hasPermission(context, s.f56842g) || hasPermission(context, s.f56843h)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
+            if ((hasPermission(context, s.f57423g) || hasPermission(context, s.f57424h)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
                 if (cellLocation instanceof GsmCellLocation) {
                     GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                     return String.format("%s_%s_%s", String.format("%d", Integer.valueOf(gsmCellLocation.getCid())), String.format("%d", Integer.valueOf(gsmCellLocation.getLac())), 0);
@@ -392,20 +390,7 @@ public final class PhoneUtils {
     public static String getGPSLocation(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            try {
-                if (hasPermission(context, s.f56842g)) {
-                    Location lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps");
-                    LogUtil.d("PhoneUtils", "location: " + lastKnownLocation);
-                    return lastKnownLocation != null ? String.format("%s:%s", Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude())) : "";
-                }
-                return "";
-            } catch (Exception e2) {
-                LogUtil.d("PhoneUtils", "exception is " + e2);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) ? "" : (String) invokeL.objValue;
     }
 
     public static String getIpInfo() {
@@ -702,7 +687,7 @@ public final class PhoneUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
             String str = "";
             try {
-                if (hasPermission(context, s.f56839d)) {
+                if (hasPermission(context, s.f57420d)) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     if (wifiManager.isWifiEnabled()) {
                         int i2 = Integer.MAX_VALUE;

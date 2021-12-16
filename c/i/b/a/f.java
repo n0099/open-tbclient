@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.audio.AudioProcessor;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f implements u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,13 +20,13 @@ public class f implements u {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.i.b.a.z.a<c.i.b.a.z.c> f30065b;
+    public final c.i.b.a.z.a<c.i.b.a.z.c> f30435b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f30066c;
+    public final int f30436c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f30067d;
+    public final long f30437d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public f(Context context, @Nullable c.i.b.a.z.a<c.i.b.a.z.c> aVar) {
@@ -55,11 +55,11 @@ public class f implements u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, handler, eVar, dVar, jVar, dVar2)) == null) {
             ArrayList<r> arrayList = new ArrayList<>();
-            g(this.a, this.f30065b, this.f30067d, handler, eVar, this.f30066c, arrayList);
-            c(this.a, this.f30065b, b(), handler, dVar, this.f30066c, arrayList);
-            f(this.a, jVar, handler.getLooper(), this.f30066c, arrayList);
-            d(this.a, dVar2, handler.getLooper(), this.f30066c, arrayList);
-            e(this.a, handler, this.f30066c, arrayList);
+            g(this.a, this.f30435b, this.f30437d, handler, eVar, this.f30436c, arrayList);
+            c(this.a, this.f30435b, b(), handler, dVar, this.f30436c, arrayList);
+            f(this.a, jVar, handler.getLooper(), this.f30436c, arrayList);
+            d(this.a, dVar2, handler.getLooper(), this.f30436c, arrayList);
+            e(this.a, handler, this.f30436c, arrayList);
             return (r[]) arrayList.toArray(new r[arrayList.size()]);
         }
         return (r[]) invokeLLLLL.objValue;
@@ -205,8 +205,8 @@ public class f implements u {
             }
         }
         this.a = context;
-        this.f30065b = aVar;
-        this.f30066c = i2;
-        this.f30067d = j2;
+        this.f30435b = aVar;
+        this.f30436c = i2;
+        this.f30437d = j2;
     }
 }

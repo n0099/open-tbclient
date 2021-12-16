@@ -15,28 +15,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class RoundAngleRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f44353e;
+    public float f44844e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f44354f;
+    public float f44845f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f44355g;
+    public float f44846g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f44356h;
+    public float f44847h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f44357i;
+    public Paint f44848i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Paint f44358j;
+    public Paint f44849j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundAngleRelativeLayout(Context context) {
@@ -61,24 +61,24 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
 
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f44355g <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f44846g <= 0.0f) {
             return;
         }
         int height = getHeight();
         Path path = new Path();
         float f2 = height;
-        path.moveTo(0.0f, f2 - this.f44355g);
+        path.moveTo(0.0f, f2 - this.f44846g);
         path.lineTo(0.0f, f2);
-        path.lineTo(this.f44355g, f2);
-        float f3 = this.f44355g;
+        path.lineTo(this.f44846g, f2);
+        float f3 = this.f44846g;
         path.arcTo(new RectF(0.0f, f2 - (f3 * 2.0f), f3 * 2.0f, f2), 90.0f, 90.0f);
         path.close();
-        canvas.drawPath(path, this.f44357i);
+        canvas.drawPath(path, this.f44848i);
     }
 
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f44356h <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f44847h <= 0.0f) {
             return;
         }
         int height = getHeight();
@@ -86,52 +86,52 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
         Path path = new Path();
         float f2 = width;
         float f3 = height;
-        path.moveTo(f2 - this.f44356h, f3);
+        path.moveTo(f2 - this.f44847h, f3);
         path.lineTo(f2, f3);
-        path.lineTo(f2, f3 - this.f44356h);
-        float f4 = this.f44356h;
+        path.lineTo(f2, f3 - this.f44847h);
+        float f4 = this.f44847h;
         path.arcTo(new RectF(f2 - (f4 * 2.0f), f3 - (f4 * 2.0f), f2, f3), 0.0f, 90.0f);
         path.close();
-        canvas.drawPath(path, this.f44357i);
+        canvas.drawPath(path, this.f44848i);
     }
 
     public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || this.f44353e <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || this.f44844e <= 0.0f) {
             return;
         }
         Path path = new Path();
-        path.moveTo(0.0f, this.f44353e);
+        path.moveTo(0.0f, this.f44844e);
         path.lineTo(0.0f, 0.0f);
-        path.lineTo(this.f44353e, 0.0f);
-        float f2 = this.f44353e;
+        path.lineTo(this.f44844e, 0.0f);
+        float f2 = this.f44844e;
         path.arcTo(new RectF(0.0f, 0.0f, f2 * 2.0f, f2 * 2.0f), -90.0f, -90.0f);
         path.close();
-        canvas.drawPath(path, this.f44357i);
+        canvas.drawPath(path, this.f44848i);
     }
 
     public final void d(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) || this.f44354f <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) || this.f44845f <= 0.0f) {
             return;
         }
         int width = getWidth();
         Path path = new Path();
         float f2 = width;
-        path.moveTo(f2 - this.f44354f, 0.0f);
+        path.moveTo(f2 - this.f44845f, 0.0f);
         path.lineTo(f2, 0.0f);
-        path.lineTo(f2, this.f44354f);
-        float f3 = this.f44354f;
+        path.lineTo(f2, this.f44845f);
+        float f3 = this.f44845f;
         path.arcTo(new RectF(f2 - (f3 * 2.0f), 0.0f, f2, f3 * 2.0f), 0.0f, -90.0f);
         path.close();
-        canvas.drawPath(path, this.f44357i);
+        canvas.drawPath(path, this.f44848i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            canvas.saveLayer(new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight()), this.f44358j, 31);
+            canvas.saveLayer(new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight()), this.f44849j, 31);
             super.dispatchDraw(canvas);
             c(canvas);
             d(canvas);
@@ -144,24 +144,24 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     public void setBottomLeftRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.f44355g = f2;
+            this.f44846g = f2;
         }
     }
 
     public void setBottomRightRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            this.f44356h = f2;
+            this.f44847h = f2;
         }
     }
 
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.f44353e = f2;
-            this.f44355g = f2;
-            this.f44354f = f2;
-            this.f44356h = f2;
+            this.f44844e = f2;
+            this.f44846g = f2;
+            this.f44845f = f2;
+            this.f44847h = f2;
             invalidate();
         }
     }
@@ -169,14 +169,14 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     public void setTopLeftRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
-            this.f44353e = f2;
+            this.f44844e = f2;
         }
     }
 
     public void setTopRightRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.f44354f = f2;
+            this.f44845f = f2;
         }
     }
 
@@ -221,13 +221,13 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
             }
         }
         Paint paint = new Paint();
-        this.f44357i = paint;
+        this.f44848i = paint;
         paint.setColor(-1);
-        this.f44357i.setAntiAlias(true);
-        this.f44357i.setStyle(Paint.Style.FILL);
-        this.f44357i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f44848i.setAntiAlias(true);
+        this.f44848i.setStyle(Paint.Style.FILL);
+        this.f44848i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         Paint paint2 = new Paint();
-        this.f44358j = paint2;
+        this.f44849j = paint2;
         paint2.setXfermode(null);
     }
 }

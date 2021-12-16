@@ -5,13 +5,15 @@ import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.w.b.f.a;
-import c.a.w.b.f.e;
-import c.a.w.c.a.c;
-import c.a.w.c.a.d;
-import c.a.w.i.f;
+import c.a.x.b.f.a;
+import c.a.x.b.f.e;
+import c.a.x.c.a.c;
+import c.a.x.c.a.d;
+import c.a.x.k.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LeftLableInfo;
@@ -21,23 +23,27 @@ import com.baidu.live.business.model.data.RightLableInfo;
 import com.baidu.live.business.view.LiveStatusAnimView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class Live16Ratio9ItemView extends LiveBaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public SimpleDraweeView f35237f;
+    public SimpleDraweeView f35710f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f35238g;
+    public FrameLayout f35711g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float[] f35239h;
+    public boolean f35712h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float[] f35713i;
     public Context mContext;
     public SimpleDraweeView mCover;
     public TextView mName;
@@ -64,7 +70,7 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                 return;
             }
         }
-        this.f35238g = false;
+        this.f35712h = false;
         a(context);
     }
 
@@ -75,30 +81,38 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
             setNeedRatio(false);
             int c2 = (int) (((a.c(context) - (a.a(context, 12.0f) * 2)) - a.a(context, 7.0f)) / 2.0d);
             View inflate = RelativeLayout.inflate(context, d.live_feed_page_16_9_item_view, this);
-            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_item_cover);
-            this.mCover = simpleDraweeView;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) simpleDraweeView.getLayoutParams();
+            this.mCover = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_item_cover);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(c.live_feed_page_item_cover_rect);
+            this.f35711g = frameLayout;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) frameLayout.getLayoutParams();
             layoutParams.width = c2;
             layoutParams.height = (int) ((c2 * 9) / 16.0d);
-            this.mCover.setLayoutParams(layoutParams);
+            this.f35711g.setLayoutParams(layoutParams);
             this.mUserLable = (LiveStatusAnimView) inflate.findViewById(c.live_feed_page_item_label);
             this.mTitle = (TextView) inflate.findViewById(c.live_feed_page_item_title);
             this.mName = (TextView) inflate.findViewById(c.live_feed_page_item_name);
             this.mUserAvatar = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_item_avatar_iv);
             this.mPersonNum = (TextView) inflate.findViewById(c.live_feed_page_item_count);
-            this.f35237f = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_item_right_lable);
+            this.f35710f = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_item_right_lable);
             float a = a.a(getContext(), 10.0f);
-            this.f35239h = new float[]{a, a, a, a, a, a, a, a};
+            this.f35713i = new float[]{a, a, a, a, a, a, a, a};
         }
+    }
+
+    @Override // com.baidu.live.business.base.LiveBaseItemView
+    public ViewGroup getVideoContainer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35711g : (ViewGroup) invokeV.objValue;
     }
 
     @Override // com.baidu.live.business.base.LiveBaseItemView
     public void onDarkModeChange(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setColor(f.e().a(getContext(), this.mIsImmersion, "color_white2"));
-            gradientDrawable.setCornerRadii(this.f35239h);
+            gradientDrawable.setCornerRadii(this.f35713i);
             setBackgroundDrawable(gradientDrawable);
             SimpleDraweeView simpleDraweeView = this.mCover;
             if (simpleDraweeView != null) {
@@ -126,9 +140,9 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
     @Override // com.baidu.live.business.base.LiveBaseItemView
     public void onViewAttached() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onViewAttached();
-            if (this.f35238g && this.mUserLable.isHasAnim()) {
+            if (this.f35712h && this.mUserLable.isHasAnim()) {
                 this.mUserLable.startAnim();
             }
         }
@@ -137,7 +151,7 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
     @Override // com.baidu.live.business.base.LiveBaseItemView
     public void onViewDetached() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onViewDetached();
             LiveStatusAnimView liveStatusAnimView = this.mUserLable;
             if (liveStatusAnimView != null) {
@@ -149,7 +163,7 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
     @Override // com.baidu.live.business.base.LiveBaseItemView
     public void onViewRecycled() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onViewRecycled();
             LiveStatusAnimView liveStatusAnimView = this.mUserLable;
             if (liveStatusAnimView != null) {
@@ -161,7 +175,7 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
     @Override // com.baidu.live.business.base.LiveBaseItemView
     public void releaseHolder() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.releaseHolder();
             LiveStatusAnimView liveStatusAnimView = this.mUserLable;
             if (liveStatusAnimView != null) {
@@ -174,7 +188,7 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
     public void setData(LiveRoomEntity liveRoomEntity, int i2) {
         LiveStatusAnimView liveStatusAnimView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, liveRoomEntity, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048583, this, liveRoomEntity, i2) == null) {
             this.mUserLable.setIsImmersion(this.mIsImmersion);
             if (liveRoomEntity != null) {
                 this.mCover.setImageURI(liveRoomEntity.cover);
@@ -183,10 +197,10 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                     int i3 = liveRoomEntity.liveStatus;
                     LeftLableInfo leftLableInfo2 = liveRoomEntity.leftLabel;
                     liveStatusAnimView.setData(i3, leftLableInfo2.text, leftLableInfo2.startColor, leftLableInfo2.endColor);
-                    this.f35238g = true;
+                    this.f35712h = true;
                     this.mUserLable.setVisibility(0);
                 } else {
-                    this.f35238g = false;
+                    this.f35712h = false;
                     LiveStatusAnimView liveStatusAnimView2 = this.mUserLable;
                     if (liveStatusAnimView2 != null) {
                         liveStatusAnimView2.setVisibility(8);
@@ -206,15 +220,15 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                 }
                 RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;
                 if (rightLableInfo != null && !TextUtils.isEmpty(rightLableInfo.iconUrl)) {
-                    this.f35237f.setImageURI(liveRoomEntity.rightLabel.iconUrl);
-                    this.f35237f.setVisibility(0);
+                    this.f35710f.setImageURI(liveRoomEntity.rightLabel.iconUrl);
+                    this.f35710f.setVisibility(0);
                 } else {
-                    this.f35237f.setVisibility(8);
+                    this.f35710f.setVisibility(8);
                 }
                 if (this.mIsImmersion) {
                     this.mCover.getHierarchy().setUseGlobalColorFilter(false);
                     this.mUserAvatar.getHierarchy().setUseGlobalColorFilter(false);
-                    this.f35237f.getHierarchy().setUseGlobalColorFilter(false);
+                    this.f35710f.getHierarchy().setUseGlobalColorFilter(false);
                 }
                 onDarkModeChange("day");
             }
@@ -240,7 +254,7 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                 return;
             }
         }
-        this.f35238g = false;
+        this.f35712h = false;
         a(context);
     }
 }

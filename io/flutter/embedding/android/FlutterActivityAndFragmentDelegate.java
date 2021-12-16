@@ -30,7 +30,7 @@ import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.util.ViewUtils;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FlutterActivityAndFragmentDelegate implements ExclusiveAppComponent<Activity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLUTTER_SPLASH_VIEW_FALLBACK_ID = 486947586;
@@ -54,7 +54,7 @@ public class FlutterActivityAndFragmentDelegate implements ExclusiveAppComponent
     @Nullable
     public PlatformPlugin platformPlugin;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface Host extends SplashScreenProvider, FlutterEngineProvider, FlutterEngineConfigurator, PlatformPlugin.PlatformPluginDelegate {
         void cleanUpFlutterEngine(@NonNull FlutterEngine flutterEngine);
 

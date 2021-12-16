@@ -3,7 +3,7 @@ package com.baidu.tieba.ad.statis;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
@@ -20,20 +20,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CustomALSHttpMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final TbHttpMessageTask task;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler mUIHandler;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CustomALSHttpMessage f42624e;
+        public final /* synthetic */ CustomALSHttpMessage f43115e;
 
         public a(CustomALSHttpMessage customALSHttpMessage) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class CustomALSHttpMessage extends HttpMessage {
                     return;
                 }
             }
-            this.f42624e = customALSHttpMessage;
+            this.f43115e = customALSHttpMessage;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(this.f42624e, CustomALSHttpMessage.task);
+                MessageManager.getInstance().sendMessage(this.f43115e, CustomALSHttpMessage.task);
             }
         }
     }
@@ -102,7 +102,7 @@ public class CustomALSHttpMessage extends HttpMessage {
         addParam("productId", "2");
         addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
         addParam(AdUploadHttpRequest.KEY_OS_TYPE, "ANDROID");
-        addParam("net_type", String.valueOf(j.I()));
+        addParam("net_type", String.valueOf(k.I()));
         this.mUIHandler = new Handler(Looper.getMainLooper());
     }
 

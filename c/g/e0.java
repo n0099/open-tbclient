@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e0 f28846b;
+    public static final e0 f29216b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final e0 f28847c;
+    public static final e0 f29217c;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
@@ -33,8 +33,8 @@ public class e0 {
                 return;
             }
         }
-        f28846b = new e0(FastJsonJsonView.DEFAULT_CONTENT_TYPE);
-        f28847c = new e0("text/plain;charset=UTF-8");
+        f29216b = new e0(FastJsonJsonView.DEFAULT_CONTENT_TYPE);
+        f29217c = new e0("text/plain;charset=UTF-8");
     }
 
     public e0(String str) {

@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements com.kwad.sdk.collector.model.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f57136b;
+    public Set<String> f57717b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f57137c;
+    public long f57718c;
 
     public a(b bVar, Set<String> set, long j2) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class a implements com.kwad.sdk.collector.model.a {
             }
         }
         this.a = bVar;
-        this.f57136b = set;
-        this.f57137c = j2;
+        this.f57717b = set;
+        this.f57718c = j2;
     }
 
     public String a() {
@@ -55,7 +55,7 @@ public class a implements com.kwad.sdk.collector.model.a {
     public Set<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57136b : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57717b : (Set) invokeV.objValue;
     }
 
     public b c() {

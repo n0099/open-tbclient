@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @JSONType(orders = {"type", "bbox", "coordinates"}, typeName = "FeatureCollection")
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FeatureCollection extends Geometry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

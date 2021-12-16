@@ -24,13 +24,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TargetApi(24)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class al {
     public static /* synthetic */ Interceptable $ic;
     public static al a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class al {
         public List<b> f893a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<b> f63237b;
+        public List<b> f63818b;
 
         public a(al alVar) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class al {
             }
             this.a = alVar;
             this.f893a = new ArrayList();
-            this.f63237b = new ArrayList();
+            this.f63818b = new ArrayList();
         }
 
         public /* synthetic */ a(al alVar, am amVar) {
@@ -67,7 +67,7 @@ public class al {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,10 +202,10 @@ public class al {
                         if (!TextUtils.isEmpty(key)) {
                             a value = entry.getValue();
                             if (z && key.equals(b2) && !m639b(notification)) {
-                                (m638a(notification) ? value.f63237b : value.f893a).add(new b(this, i2, notification));
+                                (m638a(notification) ? value.f63818b : value.f893a).add(new b(this, i2, notification));
                             }
                             int size = value.f893a.size();
-                            if (value.f63237b.size() <= 0) {
+                            if (value.f63818b.size() <= 0) {
                                 if (z && size >= 2) {
                                     a(context, a2, key, value.f893a.get(0).f894a);
                                 }
@@ -278,7 +278,7 @@ public class al {
                 aVar = new a(this, null);
                 map.put(b2, aVar);
             }
-            (m638a(statusBarNotification.getNotification()) ? aVar.f63237b : aVar.f893a).add(new b(this, statusBarNotification.getId(), statusBarNotification.getNotification()));
+            (m638a(statusBarNotification.getNotification()) ? aVar.f63818b : aVar.f893a).add(new b(this, statusBarNotification.getId(), statusBarNotification.getNotification()));
         }
     }
 

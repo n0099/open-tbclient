@@ -18,31 +18,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KsAutoCloseView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59744b = "%s秒后自动关闭";
+    public static String f60325b = "%s秒后自动关闭";
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f59745c;
+    public TextView f60326c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f59746d;
+    public ImageView f60327d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f59747e;
+    public a f60328e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f59748f;
+    public boolean f60329f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f59749g;
+    public boolean f60330g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -83,8 +83,8 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
             }
         }
         this.a = 10;
-        this.f59748f = true;
-        this.f59749g = false;
+        this.f60329f = true;
+        this.f60330g = false;
         a(context, null, 0);
     }
 
@@ -108,8 +108,8 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
             }
         }
         this.a = 10;
-        this.f59748f = true;
-        this.f59749g = false;
+        this.f60329f = true;
+        this.f60330g = false;
         a(context, attributeSet, 0);
     }
 
@@ -133,8 +133,8 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
             }
         }
         this.a = 10;
-        this.f59748f = true;
-        this.f59749g = false;
+        this.f60329f = true;
+        this.f60330g = false;
         a(context, attributeSet, i2);
     }
 
@@ -159,8 +159,8 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
             }
         }
         this.a = 10;
-        this.f59748f = true;
-        this.f59749g = false;
+        this.f60329f = true;
+        this.f60330g = false;
         a(context, attributeSet, i2);
     }
 
@@ -168,9 +168,9 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65541, this, context, attributeSet, i2) == null) {
             LinearLayout.inflate(context, R.layout.ksad_interstitial_auto_close, this);
-            this.f59745c = (TextView) findViewById(R.id.ksad_auto_close_text);
+            this.f60326c = (TextView) findViewById(R.id.ksad_auto_close_text);
             ImageView imageView = (ImageView) findViewById(R.id.ksad_auto_close_btn);
-            this.f59746d = imageView;
+            this.f60327d = imageView;
             imageView.setOnClickListener(this);
         }
     }
@@ -179,7 +179,7 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65544, this, i2) == null) {
-            this.f59745c.setText(String.format(f59744b, Integer.valueOf(i2)));
+            this.f60326c.setText(String.format(f60325b, Integer.valueOf(i2)));
         }
     }
 
@@ -221,11 +221,11 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.a.f59748f) {
-                    if (!this.a.f59749g) {
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.a.f60329f) {
+                    if (!this.a.f60330g) {
                         if (this.a.a == 0) {
-                            if (this.a.f59747e != null) {
-                                this.a.f59747e.a();
+                            if (this.a.f60328e != null) {
+                                this.a.f60328e.a();
                                 return;
                             }
                             return;
@@ -243,9 +243,9 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f59748f = z;
+            this.f60329f = z;
             int i2 = z ? 0 : 8;
-            TextView textView = this.f59745c;
+            TextView textView = this.f60326c;
             if (textView != null) {
                 textView.setVisibility(i2);
             }
@@ -255,22 +255,22 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && this.f59747e != null && view.equals(this.f59746d)) {
-            this.f59747e.b();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && this.f60328e != null && view.equals(this.f60327d)) {
+            this.f60328e.b();
         }
     }
 
     public void setCountDownPaused(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f59749g = z;
+            this.f60330g = z;
         }
     }
 
     public void setViewListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f59747e = aVar;
+            this.f60328e = aVar;
         }
     }
 }

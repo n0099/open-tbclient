@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
             this.mReporter.recordShowSucceed(z);
             AdRipper adRipper = this.mAdRipper;
             o0 o0Var = this.mReporter.mAdIdent;
-            adRipper.report(a, o0Var.a, o0Var.f28902c);
+            adRipper.report(a, o0Var.a, o0Var.f29272c);
         }
     }
 

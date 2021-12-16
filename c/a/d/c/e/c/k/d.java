@@ -5,7 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 import c.a.d.c.e.c.h;
 import c.a.d.c.e.c.i;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
@@ -22,10 +22,10 @@ public class d {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2252b;
+    public int f2219b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f2253c;
+    public final Handler f2220c;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -62,20 +62,20 @@ public class d {
                 if (message.what != 1) {
                     return;
                 }
-                this.a.f2253c.removeMessages(1);
-                BdLog.i("this is reconn time:" + this.a.f2252b);
+                this.a.f2220c.removeMessages(1);
+                BdLog.i("this is reconn time:" + this.a.f2219b);
                 BdSocketLinkService.startService(true, "time to reconnStragety");
                 d.c(this.a);
-                if (j.z()) {
-                    if (this.a.f2252b >= c.a.d.f.n.m.a.o().q("alert_im", 3)) {
+                if (k.z()) {
+                    if (this.a.f2219b >= c.a.d.f.n.m.a.o().q("alert_im", 3)) {
                         BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                        bdStatisticsManager.alert("alert_im", "Socket_Reconnect_" + String.valueOf(this.a.f2252b) + "_times");
+                        bdStatisticsManager.alert("alert_im", "Socket_Reconnect_" + String.valueOf(this.a.f2219b) + "_times");
                     }
                 }
                 int[] c2 = h.c();
-                if (c2 != null && this.a.f2252b < c2.length) {
-                    BdLog.i("Next will be delay:" + c2[this.a.f2252b]);
-                    this.a.f2253c.sendMessageDelayed(this.a.f2253c.obtainMessage(1), (long) (c2[this.a.f2252b] * 1000));
+                if (c2 != null && this.a.f2219b < c2.length) {
+                    BdLog.i("Next will be delay:" + c2[this.a.f2219b]);
+                    this.a.f2220c.sendMessageDelayed(this.a.f2220c.obtainMessage(1), (long) (c2[this.a.f2219b] * 1000));
                     return;
                 }
                 this.a.f("reconnStragety to the end");
@@ -97,13 +97,13 @@ public class d {
             }
         }
         this.a = false;
-        this.f2252b = 0;
-        this.f2253c = new a(this, Looper.getMainLooper());
+        this.f2219b = 0;
+        this.f2220c = new a(this, Looper.getMainLooper());
     }
 
     public static /* synthetic */ int c(d dVar) {
-        int i2 = dVar.f2252b;
-        dVar.f2252b = i2 + 1;
+        int i2 = dVar.f2219b;
+        dVar.f2219b = i2 + 1;
         return i2;
     }
 
@@ -120,7 +120,7 @@ public class d {
                 f("online failed 5");
             } else if (!this.a) {
                 this.a = true;
-                this.f2253c.removeMessages(1);
+                this.f2220c.removeMessages(1);
                 if (c.a.d.f.r.h.j().l()) {
                     BdLog.d("启动重连策略失败，  WebSocketClient opened");
                     f("in Opened");
@@ -128,13 +128,13 @@ public class d {
                 }
                 d();
                 BdLog.d("启动重连策略");
-                this.f2252b = 0;
+                this.f2219b = 0;
                 int[] c2 = h.c();
                 if (c2 != null && c2.length >= 1) {
                     BdLog.i("start reconnStrategy... the first will be delay" + c2[0]);
                     int i2 = BdSocketLinkService.STOP_RECONN;
-                    i.a("reconn", 0, 0, "reconn", i2, str + " retryTimes=" + String.valueOf(this.f2252b));
-                    Handler handler = this.f2253c;
+                    i.a("reconn", 0, 0, "reconn", i2, str + " retryTimes=" + String.valueOf(this.f2219b));
+                    Handler handler = this.f2220c;
                     handler.sendMessageDelayed(handler.obtainMessage(1), (long) (c2[0] * 1000));
                     return;
                 }
@@ -151,9 +151,9 @@ public class d {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.a) {
             i.a("reconn", 0, 0, IntentConfig.STOP, BdSocketLinkService.STOP_RECONN, str);
             this.a = false;
-            this.f2252b = 0;
+            this.f2219b = 0;
             BdLog.i("stop reconnStrategy");
-            this.f2253c.removeMessages(1);
+            this.f2220c.removeMessages(1);
         }
     }
 }

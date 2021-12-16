@@ -1,34 +1,50 @@
 package j.a.a.e.n;
 
-import android.app.Dialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import j.a.a.e.p.p;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes4.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static void a(Dialog dialog, PayDialogType payDialogType) {
+    /* renamed from: b  reason: collision with root package name */
+    public String f64785b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f64786c;
+
+    public h(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, dialog, payDialogType) == null) {
-            RLog.info("DialogUtils", "onPayFlow closeDialogAndContinueFlow payDialogType:" + payDialogType);
-            if (dialog == null || !dialog.isShowing()) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            dialog.dismiss();
         }
+        this.a = str;
+        this.f64785b = str2;
+        this.f64786c = str3;
     }
 
-    public static void b(Dialog dialog, PayDialogType payDialogType) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, dialog, payDialogType) == null) {
-            RLog.info("DialogUtils", "onPayFlow closeDialogAndInterrupteFlow payDialogType:" + payDialogType);
-            if (dialog == null || !dialog.isShowing()) {
-                return;
-            }
-            dialog.cancel();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "TopUiParams{title='" + this.a + ExtendedMessageFormat.QUOTE + ", rightTitle='" + this.f64785b + ExtendedMessageFormat.QUOTE + ", rightUrl='" + p.a(this.f64786c) + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
+        return (String) invokeV.objValue;
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.image.gif2.GifImageView;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class z4 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ GifImageView f31019e;
+    public final /* synthetic */ GifImageView f31389e;
 
     public z4(GifImageView gifImageView) {
         Interceptable interceptable = $ic;
@@ -29,17 +29,17 @@ public class z4 implements Runnable {
                 return;
             }
         }
-        this.f31019e = gifImageView;
+        this.f31389e = gifImageView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bitmap = this.f31019e.f62641b) == null || bitmap.isRecycled()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bitmap = this.f31389e.f63222b) == null || bitmap.isRecycled()) {
             return;
         }
-        GifImageView gifImageView = this.f31019e;
-        gifImageView.setImageBitmap(gifImageView.f62641b);
+        GifImageView gifImageView = this.f31389e;
+        gifImageView.setImageBitmap(gifImageView.f63222b);
     }
 }

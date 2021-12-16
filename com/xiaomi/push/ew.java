@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ew {
     public static /* synthetic */ Interceptable $ic;
     public static final ew A;
@@ -50,34 +50,34 @@ public final class ew {
     public static final ew ae;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ew f62856b;
+    public static final ew f63437b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ew f62857c;
+    public static final ew f63438c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ew f62858d;
+    public static final ew f63439d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ew f62859e;
+    public static final ew f63440e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ew f62860f;
+    public static final ew f63441f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ew f62861g;
+    public static final ew f63442g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final ew f62862h;
+    public static final ew f63443h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final ew f62863i;
+    public static final ew f63444i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final ew f62864j;
+    public static final ew f63445j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final ew f62865k;
+    public static final ew f63446k;
     public static final ew l;
     public static final ew m;
     public static final ew n;
@@ -112,16 +112,16 @@ public final class ew {
             }
         }
         a = new ew("TCP_CONN_FAIL", 0, 1);
-        f62856b = new ew("TCP_CONN_TIME", 1, 2);
-        f62857c = new ew("PING_RTT", 2, 3);
-        f62858d = new ew("CHANNEL_CON_FAIL", 3, 4);
-        f62859e = new ew("CHANNEL_CON_OK", 4, 5);
-        f62860f = new ew("ICMP_PING_FAIL", 5, 6);
-        f62861g = new ew("ICMP_PING_OK", 6, 7);
-        f62862h = new ew("CHANNEL_ONLINE_RATE", 7, 8);
-        f62863i = new ew("BATCH_TCP_CONN_SUCCESS", 8, 1000);
-        f62864j = new ew("BATCH_TCP_CONN_FAIL", 9, 1001);
-        f62865k = new ew("CHANNEL_STATS_COUNTER", 10, 8000);
+        f63437b = new ew("TCP_CONN_TIME", 1, 2);
+        f63438c = new ew("PING_RTT", 2, 3);
+        f63439d = new ew("CHANNEL_CON_FAIL", 3, 4);
+        f63440e = new ew("CHANNEL_CON_OK", 4, 5);
+        f63441f = new ew("ICMP_PING_FAIL", 5, 6);
+        f63442g = new ew("ICMP_PING_OK", 6, 7);
+        f63443h = new ew("CHANNEL_ONLINE_RATE", 7, 8);
+        f63444i = new ew("BATCH_TCP_CONN_SUCCESS", 8, 1000);
+        f63445j = new ew("BATCH_TCP_CONN_FAIL", 9, 1001);
+        f63446k = new ew("CHANNEL_STATS_COUNTER", 10, 8000);
         l = new ew("GSLB_REQUEST_SUCCESS", 11, 10000);
         m = new ew("GSLB_TCP_NOACCESS", 12, 10101);
         n = new ew("GSLB_TCP_NETUNREACH", 13, 10102);
@@ -169,7 +169,7 @@ public final class ew {
         ad = new ew("CHANNEL_BOSH_EXCEPTION", 55, 40499);
         ew ewVar = new ew("CHANNEL_TIMER_DELAYED", 56, 50001);
         ae = ewVar;
-        f346a = new ew[]{a, f62856b, f62857c, f62858d, f62859e, f62860f, f62861g, f62862h, f62863i, f62864j, f62865k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ewVar};
+        f346a = new ew[]{a, f63437b, f63438c, f63439d, f63440e, f63441f, f63442g, f63443h, f63444i, f63445j, f63446k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ewVar};
     }
 
     public ew(String str, int i2, int i3) {
@@ -203,23 +203,23 @@ public final class ew {
                         case 1:
                             return a;
                         case 2:
-                            return f62856b;
+                            return f63437b;
                         case 3:
-                            return f62857c;
+                            return f63438c;
                         case 4:
-                            return f62858d;
+                            return f63439d;
                         case 5:
-                            return f62859e;
+                            return f63440e;
                         case 6:
-                            return f62860f;
+                            return f63441f;
                         case 7:
-                            return f62861g;
+                            return f63442g;
                         case 8:
-                            return f62862h;
+                            return f63443h;
                         default:
                             switch (i2) {
                                 case 8000:
-                                    return f62865k;
+                                    return f63446k;
                                 case 10000:
                                     return l;
                                 case 10199:

@@ -15,7 +15,7 @@ import com.baidubce.http.RetryPolicy;
 import com.baidubce.util.CheckUtils;
 import com.baidubce.util.JoinerUtils;
 import java.net.InetAddress;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class BceClientConfiguration {
     public static /* synthetic */ Interceptable $ic = null;
     public static String DEFAULT_ACCPET_ENCODING = null;

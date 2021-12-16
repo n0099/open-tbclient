@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.model.ImageDialogModel;
 import com.baidu.wallet.base.widget.dialog.view.ImageDialogAdapter;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class PromptImageDialog extends WalletDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageDialogModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f52249b;
+    public View.OnClickListener f52829b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PromptImageDialog(Context context) {
@@ -41,7 +41,7 @@ public class PromptImageDialog extends WalletDialog {
             }
         }
         this.a = new ImageDialogModel();
-        this.f52249b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
+        this.f52829b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PromptImageDialog a;
@@ -79,7 +79,7 @@ public class PromptImageDialog extends WalletDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             ImageDialogModel imageDialogModel = this.a;
-            imageDialogModel.defaultClickListener = this.f52249b;
+            imageDialogModel.defaultClickListener = this.f52829b;
             setAdapter(new ImageDialogAdapter(imageDialogModel));
         }
     }
@@ -174,7 +174,7 @@ public class PromptImageDialog extends WalletDialog {
             }
         }
         this.a = new ImageDialogModel();
-        this.f52249b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
+        this.f52829b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PromptImageDialog a;

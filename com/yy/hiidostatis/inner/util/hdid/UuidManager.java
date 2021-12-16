@@ -18,7 +18,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UuidManager {
     public static /* synthetic */ Interceptable $ic;
     public static Object LOCK_KEY;

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.ImageView;
 import com.kuaishou.tachikoma.api.model.TKCDNUrl;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IAnimatedImage {
     ImageView getImageViewHost(Context context);
 

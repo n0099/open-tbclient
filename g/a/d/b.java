@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import io.flutter.util.Predicate;
 import io.flutter.view.AccessibilityBridge;
 /* compiled from: lambda */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final /* synthetic */ class b implements Predicate {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ b a = new b();

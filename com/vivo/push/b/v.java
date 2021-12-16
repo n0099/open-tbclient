@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class v extends u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f62447b;
+    public ArrayList<String> f63028b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(int i2) {
@@ -37,7 +37,7 @@ public final class v extends u {
             }
         }
         this.a = null;
-        this.f62447b = null;
+        this.f63028b = null;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -46,7 +46,7 @@ public final class v extends u {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
             aVar.a("content", this.a);
-            aVar.a(GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.f62447b);
+            aVar.a(GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.f63028b);
         }
     }
 
@@ -59,7 +59,7 @@ public final class v extends u {
     public final List<String> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62447b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63028b : (List) invokeV.objValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -75,7 +75,7 @@ public final class v extends u {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
             this.a = aVar.b("content");
-            this.f62447b = aVar.b(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+            this.f63028b = aVar.b(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
         }
     }
 }

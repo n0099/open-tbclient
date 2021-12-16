@@ -34,7 +34,7 @@ import com.kwad.sdk.utils.v;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_LANDING_PAGE_TYPE = "key_landing_page_type";
@@ -51,32 +51,32 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
     public boolean mIsVPlusShown;
     public boolean mNormalMode;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f57522b;
+        public String f58103b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AdTemplate f57523c;
+        public AdTemplate f58104c;
 
         /* renamed from: com.kwad.sdk.core.page.AdWebViewActivityProxy$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C2022a {
+        /* loaded from: classes3.dex */
+        public static class C2083a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f57524b;
+            public String f58105b;
 
             /* renamed from: c  reason: collision with root package name */
-            public AdTemplate f57525c;
+            public AdTemplate f58106c;
 
-            public C2022a() {
+            public C2083a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,40 +90,40 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
                 }
             }
 
-            public C2022a a(AdTemplate adTemplate) {
+            public C2083a a(AdTemplate adTemplate) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adTemplate)) == null) {
-                    this.f57525c = adTemplate;
+                    this.f58106c = adTemplate;
                     return this;
                 }
-                return (C2022a) invokeL.objValue;
+                return (C2083a) invokeL.objValue;
             }
 
-            public C2022a a(String str) {
+            public C2083a a(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                     this.a = str;
                     return this;
                 }
-                return (C2022a) invokeL.objValue;
+                return (C2083a) invokeL.objValue;
             }
 
             public a a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(this.a, this.f57524b, this.f57525c) : (a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(this.a, this.f58105b, this.f58106c) : (a) invokeV.objValue;
             }
 
-            public C2022a b(String str) {
+            public C2083a b(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                    this.f57524b = str;
+                    this.f58105b = str;
                     return this;
                 }
-                return (C2022a) invokeL.objValue;
+                return (C2083a) invokeL.objValue;
             }
         }
 
@@ -143,8 +143,8 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
                 }
             }
             this.a = str;
-            this.f57522b = str2;
-            this.f57523c = adTemplate;
+            this.f58103b = str2;
+            this.f58104c = adTemplate;
         }
     }
 
@@ -197,14 +197,14 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
 
     public static void launch(Context context, a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, aVar) == null) || context == null || TextUtils.isEmpty(aVar.a) || TextUtils.isEmpty(aVar.f57522b)) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, aVar) == null) || context == null || TextUtils.isEmpty(aVar.a) || TextUtils.isEmpty(aVar.f58103b)) {
             return;
         }
         KsAdSDKImpl.putComponentProxy(AdWebViewActivity.class, AdWebViewActivityProxy.class);
         Intent intent = new Intent(context, AdWebViewActivity.class);
         intent.putExtra(KEY_PAGE_TITLE, aVar.a);
-        intent.putExtra(KEY_PAGE_URL, aVar.f57522b);
-        intent.putExtra("key_template_json", aVar.f57523c.toJson().toString());
+        intent.putExtra(KEY_PAGE_URL, aVar.f58103b);
+        intent.putExtra("key_template_json", aVar.f58104c.toJson().toString());
         context.startActivity(intent);
     }
 
@@ -255,7 +255,7 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AdWebViewActivityProxy f57521b;
+                public final /* synthetic */ AdWebViewActivityProxy f58102b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -272,7 +272,7 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
                             return;
                         }
                     }
-                    this.f57521b = this;
+                    this.f58102b = this;
                     this.a = stringExtra;
                 }
 
@@ -281,14 +281,14 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         Rect rect = new Rect();
-                        DisplayMetrics displayMetrics = this.f57521b.getActivity().getResources().getDisplayMetrics();
+                        DisplayMetrics displayMetrics = this.f58102b.getActivity().getResources().getDisplayMetrics();
                         int i2 = displayMetrics.widthPixels;
                         rect.right = i2;
                         rect.left = i2 - (i2 / 4);
                         int i3 = (int) (displayMetrics.heightPixels * 0.83f);
                         rect.bottom = i3;
                         rect.top = i3 - (((i2 / 4) * 16) / 9);
-                        new com.kwad.sdk.splashscreen.b(this.f57521b.getActivity(), this.a, false, null).a(rect);
+                        new com.kwad.sdk.splashscreen.b(this.f58102b.getActivity(), this.a, false, null).a(rect);
                     }
                 }
             });
@@ -467,10 +467,10 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
                 this.landingPageViewHelper = cVar2;
                 cVar2.a(this);
                 cVar = this.landingPageViewHelper;
-                a2 = new c.C2023c().b(com.kwad.sdk.core.response.a.b.j(this.mAdTemplate) ? com.kwad.sdk.core.response.a.b.i(this.mAdTemplate) : com.kwad.sdk.core.response.a.a.G(j2)).a();
+                a2 = new c.C2084c().b(com.kwad.sdk.core.response.a.b.j(this.mAdTemplate) ? com.kwad.sdk.core.response.a.b.i(this.mAdTemplate) : com.kwad.sdk.core.response.a.a.G(j2)).a();
             } else {
                 this.mNormalMode = true;
-                a2 = new c.C2023c().a(true).b(false).a(stringExtra2).b(stringExtra3).a();
+                a2 = new c.C2084c().a(true).b(false).a(stringExtra2).b(stringExtra3).a();
                 c cVar3 = new c(this.mContext, this.mAdTemplate, 1, false);
                 this.landingPageViewHelper = cVar3;
                 cVar3.a(this);

@@ -12,7 +12,7 @@ import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.crash.report.ReportEvent;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class b {
             public final /* synthetic */ List a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f58184b;
+            public final /* synthetic */ b f58765b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -59,7 +59,7 @@ public class b {
                         return;
                     }
                 }
-                this.f58184b = this;
+                this.f58765b = this;
                 this.a = list;
             }
 
@@ -104,7 +104,7 @@ public class b {
             public final /* synthetic */ List a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f58185b;
+            public final /* synthetic */ b f58766b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -121,7 +121,7 @@ public class b {
                         return;
                     }
                 }
-                this.f58185b = this;
+                this.f58766b = this;
                 this.a = list;
             }
 

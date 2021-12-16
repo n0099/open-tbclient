@@ -28,41 +28,41 @@ import com.kwad.sdk.widget.DownloadProgressView;
 import com.kwad.sdk.widget.KSFrameLayout;
 import com.kwad.sdk.widget.KsLogoView;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a extends KSFrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: k  reason: collision with root package name */
-    public static int f58857k = 8;
+    public static int f59438k = 8;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f58858b;
+    public TextView f59439b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f58859c;
+    public TextView f59440c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f58860d;
+    public ImageView f59441d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f58861e;
+    public ImageView f59442e;
 
     /* renamed from: f  reason: collision with root package name */
-    public KsLogoView f58862f;
+    public KsLogoView f59443f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ComplianceTextView f58863g;
+    public ComplianceTextView f59444g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DownloadProgressView f58864h;
+    public DownloadProgressView f59445h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.reflux.b f58865i;
+    public com.kwad.sdk.reflux.b f59446i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a.InterfaceC2042a f58866j;
+    public a.InterfaceC2103a f59447j;
 
     static {
         InterceptResult invokeClinit;
@@ -104,7 +104,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65538, this, context, attributeSet, i2) == null) {
             a(context, attributeSet, i2);
-            DownloadProgressView downloadProgressView = this.f58864h;
+            DownloadProgressView downloadProgressView = this.f59445h;
             if (downloadProgressView != null) {
                 downloadProgressView.setOnClickListener(this);
             }
@@ -115,17 +115,17 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
     public void a(int i2, boolean z) {
         com.kwad.sdk.reflux.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (bVar = this.f58865i) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (bVar = this.f59446i) == null) {
             return;
         }
         AdTemplate c2 = bVar.c();
-        com.kwad.sdk.core.download.a.a.a(new a.C2015a(bb.a(this)).a(c2).a(this.f58865i.n()).a(i2).a(z).a(new a.b(this, c2) { // from class: com.kwad.sdk.reflux.kwai.a.1
+        com.kwad.sdk.core.download.a.a.a(new a.C2076a(bb.a(this)).a(c2).a(this.f59446i.n()).a(i2).a(z).a(new a.b(this, c2) { // from class: com.kwad.sdk.reflux.kwai.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AdTemplate a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f58867b;
+            public final /* synthetic */ a f59448b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -142,7 +142,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f58867b = this;
+                this.f59448b = this;
                 this.a = c2;
             }
 
@@ -150,7 +150,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
             public void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f58867b.a(this.a);
+                    this.f59448b.a(this.a);
                 }
             }
         }));
@@ -172,15 +172,15 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, adTemplate) == null) {
             p.a aVar = new p.a();
-            aVar.f57686g = getTouchCoords();
-            com.kwad.sdk.reflux.b bVar = this.f58865i;
+            aVar.f58267g = getTouchCoords();
+            com.kwad.sdk.reflux.b bVar = this.f59446i;
             if (bVar != null) {
                 aVar.z = bVar.j();
             }
             com.kwad.sdk.core.report.a.a(adTemplate, aVar, (JSONObject) null);
-            a.InterfaceC2042a interfaceC2042a = this.f58866j;
-            if (interfaceC2042a != null) {
-                interfaceC2042a.a();
+            a.InterfaceC2103a interfaceC2103a = this.f59447j;
+            if (interfaceC2103a != null) {
+                interfaceC2103a.a();
             }
         }
     }
@@ -190,38 +190,38 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.f58865i = bVar;
+        this.f59446i = bVar;
         if (this.a != null && bVar.d() != null) {
             this.a.setText(bVar.d());
         }
-        if (this.f58858b != null && bVar.f() != null) {
-            this.f58858b.setText(bVar.f());
+        if (this.f59439b != null && bVar.f() != null) {
+            this.f59439b.setText(bVar.f());
         }
-        if (this.f58859c != null && bVar.g() != null) {
-            this.f58859c.setText(bVar.g());
+        if (this.f59440c != null && bVar.g() != null) {
+            this.f59440c.setText(bVar.g());
         }
         AdTemplate c2 = bVar.c();
         if (c2 != null) {
-            if (this.f58860d != null && bVar.e() != null) {
-                KSImageLoader.loadAppIcon(this.f58860d, bVar.e(), c2, f58857k);
+            if (this.f59441d != null && bVar.e() != null) {
+                KSImageLoader.loadAppIcon(this.f59441d, bVar.e(), c2, f59438k);
             }
-            if (this.f58861e != null && bVar.h() != null) {
-                KSImageLoader.loadImage(this.f58861e, bVar.h(), c2);
+            if (this.f59442e != null && bVar.h() != null) {
+                KSImageLoader.loadImage(this.f59442e, bVar.h(), c2);
             }
-            KsLogoView ksLogoView = this.f58862f;
+            KsLogoView ksLogoView = this.f59443f;
             if (ksLogoView != null) {
                 ksLogoView.a(c2);
             }
-            ComplianceTextView complianceTextView = this.f58863g;
+            ComplianceTextView complianceTextView = this.f59444g;
             if (complianceTextView != null) {
                 complianceTextView.setAdTemplate(c2);
             }
-            DownloadProgressView downloadProgressView = this.f58864h;
+            DownloadProgressView downloadProgressView = this.f59445h;
             if (downloadProgressView != null) {
                 downloadProgressView.a(c2);
             }
             AdInfo j2 = d.j(c2);
-            DownloadProgressView downloadProgressView2 = this.f58864h;
+            DownloadProgressView downloadProgressView2 = this.f59445h;
             if (downloadProgressView2 != null) {
                 downloadProgressView2.a(j2, bVar.l(), bVar.m());
             }
@@ -230,17 +230,17 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
 
     public void c() {
         com.kwad.sdk.reflux.b bVar;
-        a.InterfaceC2042a interfaceC2042a;
+        a.InterfaceC2103a interfaceC2103a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bVar = this.f58865i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bVar = this.f59446i) == null) {
             return;
         }
         AdTemplate c2 = bVar.c();
-        if (!c2.mPvReported && (interfaceC2042a = this.f58866j) != null) {
-            interfaceC2042a.b();
+        if (!c2.mPvReported && (interfaceC2103a = this.f59447j) != null) {
+            interfaceC2103a.b();
         }
         p.a aVar = new p.a();
-        com.kwad.sdk.reflux.b bVar2 = this.f58865i;
+        com.kwad.sdk.reflux.b bVar2 = this.f59446i;
         if (bVar2 != null) {
             aVar.z = bVar2.j();
         }
@@ -251,7 +251,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
-            if (view.equals(this.f58864h)) {
+            if (view.equals(this.f59445h)) {
                 a(1, true);
             } else if (view.equals(this)) {
                 a(2, true);
@@ -259,10 +259,10 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
         }
     }
 
-    public void setAdClickListener(a.InterfaceC2042a interfaceC2042a) {
+    public void setAdClickListener(a.InterfaceC2103a interfaceC2103a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC2042a) == null) {
-            this.f58866j = interfaceC2042a;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC2103a) == null) {
+            this.f59447j = interfaceC2103a;
         }
     }
 }

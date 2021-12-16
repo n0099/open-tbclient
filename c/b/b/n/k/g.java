@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class g extends i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final float[] f27540h;
+    public final float[] f27915h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.b.b.n.a f27541i;
+    public final c.b.b.n.a f27916i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f27542j;
+    public float f27917j;
 
     /* renamed from: k  reason: collision with root package name */
-    public float f27543k;
+    public float f27918k;
     public float l;
     public float m;
     public float n;
@@ -46,8 +46,8 @@ public class g extends i {
                 return;
             }
         }
-        this.f27540h = new float[20];
-        this.f27541i = new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
+        this.f27915h = new float[20];
+        this.f27916i = new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
         this.q = 1.0f;
         this.r = 1.0f;
         this.s = true;
@@ -57,13 +57,13 @@ public class g extends i {
     public void A(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.f27542j += f2;
-            this.f27543k += f3;
+            this.f27917j += f2;
+            this.f27918k += f3;
             if (this.s) {
                 return;
             }
             if (this.p == 0.0f && this.q == 1.0f && this.r == 1.0f) {
-                float[] fArr = this.f27540h;
+                float[] fArr = this.f27915h;
                 fArr[0] = fArr[0] + f2;
                 fArr[1] = fArr[1] + f3;
                 fArr[5] = fArr[5] + f2;
@@ -83,7 +83,7 @@ public class g extends i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             super.a(z, z2);
-            float[] fArr = this.f27540h;
+            float[] fArr = this.f27915h;
             if (z) {
                 float f2 = fArr[3];
                 fArr[3] = fArr[13];
@@ -108,7 +108,7 @@ public class g extends i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
             super.g(f2, f3, f4, f5);
-            float[] fArr = this.f27540h;
+            float[] fArr = this.f27915h;
             fArr[3] = f2;
             fArr[4] = f5;
             fArr[8] = f2;
@@ -147,19 +147,19 @@ public class g extends i {
     public float o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27542j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27917j : invokeV.floatValue;
     }
 
     public float p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27543k : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27918k : invokeV.floatValue;
     }
 
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            float[] fArr = this.f27540h;
+            float[] fArr = this.f27915h;
             if (z) {
                 float f2 = fArr[4];
                 fArr[4] = fArr[19];
@@ -190,24 +190,24 @@ public class g extends i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, gVar) == null) {
             if (gVar != null) {
-                System.arraycopy(gVar.f27540h, 0, this.f27540h, 0, 20);
+                System.arraycopy(gVar.f27915h, 0, this.f27915h, 0, 20);
                 this.a = gVar.a;
-                this.f27572b = gVar.f27572b;
-                this.f27573c = gVar.f27573c;
-                this.f27574d = gVar.f27574d;
-                this.f27575e = gVar.f27575e;
-                this.f27542j = gVar.f27542j;
-                this.f27543k = gVar.f27543k;
+                this.f27947b = gVar.f27947b;
+                this.f27948c = gVar.f27948c;
+                this.f27949d = gVar.f27949d;
+                this.f27950e = gVar.f27950e;
+                this.f27917j = gVar.f27917j;
+                this.f27918k = gVar.f27918k;
                 this.l = gVar.l;
                 this.m = gVar.m;
-                this.f27576f = gVar.f27576f;
-                this.f27577g = gVar.f27577g;
+                this.f27951f = gVar.f27951f;
+                this.f27952g = gVar.f27952g;
                 this.n = gVar.n;
                 this.o = gVar.o;
                 this.p = gVar.p;
                 this.q = gVar.q;
                 this.r = gVar.r;
-                this.f27541i.e(gVar.f27541i);
+                this.f27916i.e(gVar.f27916i);
                 this.s = gVar.s;
                 return;
             }
@@ -218,8 +218,8 @@ public class g extends i {
     public void s(float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            this.f27542j = f2;
-            this.f27543k = f3;
+            this.f27917j = f2;
+            this.f27918k = f3;
             this.l = f4;
             this.m = f5;
             if (this.s) {
@@ -228,7 +228,7 @@ public class g extends i {
             if (this.p == 0.0f && this.q == 1.0f && this.r == 1.0f) {
                 float f6 = f4 + f2;
                 float f7 = f5 + f3;
-                float[] fArr = this.f27540h;
+                float[] fArr = this.f27915h;
                 fArr[0] = f2;
                 fArr[1] = f3;
                 fArr[5] = f2;
@@ -246,9 +246,9 @@ public class g extends i {
     public void t(float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            this.f27541i.d(f2, f3, f4, f5);
-            float f6 = this.f27541i.f();
-            float[] fArr = this.f27540h;
+            this.f27916i.d(f2, f3, f4, f5);
+            float f6 = this.f27916i.f();
+            float[] fArr = this.f27915h;
             fArr[2] = f6;
             fArr[7] = f6;
             fArr[12] = f6;
@@ -259,9 +259,9 @@ public class g extends i {
     public void u(c.b.b.n.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
-            this.f27541i.e(aVar);
+            this.f27916i.e(aVar);
             float f2 = aVar.f();
-            float[] fArr = this.f27540h;
+            float[] fArr = this.f27915h;
             fArr[2] = f2;
             fArr[7] = f2;
             fArr[12] = f2;
@@ -313,11 +313,11 @@ public class g extends i {
                 return;
             }
             if (this.p == 0.0f && this.q == 1.0f && this.r == 1.0f) {
-                float f4 = this.f27542j;
+                float f4 = this.f27917j;
                 float f5 = f2 + f4;
-                float f6 = this.f27543k;
+                float f6 = this.f27918k;
                 float f7 = f3 + f6;
-                float[] fArr = this.f27540h;
+                float[] fArr = this.f27915h;
                 fArr[0] = f4;
                 fArr[1] = f6;
                 fArr[5] = f4;
@@ -368,8 +368,8 @@ public class g extends i {
                 return;
             }
         }
-        this.f27540h = new float[20];
-        this.f27541i = new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
+        this.f27915h = new float[20];
+        this.f27916i = new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
         this.q = 1.0f;
         this.r = 1.0f;
         this.s = true;
@@ -399,8 +399,8 @@ public class g extends i {
                 return;
             }
         }
-        this.f27540h = new float[20];
-        this.f27541i = new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
+        this.f27915h = new float[20];
+        this.f27916i = new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
         this.q = 1.0f;
         this.r = 1.0f;
         this.s = true;
@@ -425,8 +425,8 @@ public class g extends i {
                 return;
             }
         }
-        this.f27540h = new float[20];
-        this.f27541i = new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
+        this.f27915h = new float[20];
+        this.f27916i = new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
         this.q = 1.0f;
         this.r = 1.0f;
         this.s = true;

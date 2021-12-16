@@ -7,35 +7,35 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import c.a.b0.h0.v;
+import c.a.c0.h0.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RoundCornerFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Path f37809e;
+    public Path f38298e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37810f;
+    public int f38299f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f37811g;
+    public int f38300g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37812h;
+    public int f38301h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f37813i;
+    public int f38302i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f37814j;
+    public boolean f38303j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundCornerFrameLayout(Context context) {
@@ -62,20 +62,20 @@ public class RoundCornerFrameLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (getWidth() == this.f37812h && getHeight() == this.f37813i && this.f37811g == this.f37810f) {
+            if (getWidth() == this.f38301h && getHeight() == this.f38302i && this.f38300g == this.f38299f) {
                 return false;
             }
-            this.f37812h = getWidth();
-            this.f37813i = getHeight();
-            this.f37811g = this.f37810f;
-            if (this.f37809e == null) {
+            this.f38301h = getWidth();
+            this.f38302i = getHeight();
+            this.f38300g = this.f38299f;
+            if (this.f38298e == null) {
                 Path path = new Path();
-                this.f37809e = path;
+                this.f38298e = path;
                 path.setFillType(Path.FillType.EVEN_ODD);
             }
-            Path path2 = this.f37809e;
-            RectF rectF = new RectF(0.0f, 0.0f, this.f37812h, this.f37813i);
-            int i2 = this.f37810f;
+            Path path2 = this.f38298e;
+            RectF rectF = new RectF(0.0f, 0.0f, this.f38301h, this.f38302i);
+            int i2 = this.f38299f;
             path2.addRoundRect(rectF, i2, i2, Path.Direction.CW);
             return true;
         }
@@ -98,7 +98,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Path path = new Path();
-            this.f37809e = path;
+            this.f38298e = path;
             path.setFillType(Path.FillType.EVEN_ODD);
         }
     }
@@ -117,9 +117,9 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            if (this.f37814j) {
+            if (this.f38303j) {
                 a();
-                canvas.clipPath(this.f37809e);
+                canvas.clipPath(this.f38298e);
             }
             super.onDraw(canvas);
         }
@@ -128,10 +128,10 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public void setCornerRadius(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            if (this.f37810f != i2) {
-                this.f37810f = i2;
+            if (this.f38299f != i2) {
+                this.f38299f = i2;
             }
-            this.f37814j = this.f37810f > 0;
+            this.f38303j = this.f38299f > 0;
         }
     }
 
@@ -175,7 +175,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f37814j = false;
+        this.f38303j = false;
         b(context, attributeSet, i2);
         c();
     }

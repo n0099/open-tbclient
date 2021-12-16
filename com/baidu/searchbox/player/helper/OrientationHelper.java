@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class OrientationHelper extends OrientationEventListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ORIENTATION_CIRCLE_ANGLE = 360;
@@ -24,7 +24,7 @@ public class OrientationHelper extends OrientationEventListener {
     public int mLastOrientation;
     public IOrientationChange mListener;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface IOrientationChange {
         void onOrientationChanged(int i2);
     }
@@ -59,13 +59,7 @@ public class OrientationHelper extends OrientationEventListener {
     public static boolean isPortrait(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (i2 < 0 || i2 > 23) {
-                return (337 <= i2 && i2 < 360) || Math.abs(i2 + (-180)) <= 23;
-            }
-            return true;
-        }
-        return invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? (i2 >= 0 && i2 <= 23) || (337 <= i2 && i2 < 360) || Math.abs(i2 + (-180)) <= 23 : invokeI.booleanValue;
     }
 
     public static boolean isReverseLandscape(int i2) {
@@ -88,7 +82,7 @@ public class OrientationHelper extends OrientationEventListener {
                 super.enable();
                 return true;
             } catch (Exception e2) {
-                BdVideoLog.e(e2.getMessage());
+                BdVideoLog.w("enableSensor()", e2);
                 return false;
             }
         }

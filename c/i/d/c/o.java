@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class o {
     public static /* synthetic */ Interceptable $ic;
     public static final o a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final o f30579b;
+    public static final o f30949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final o f30580c;
+    public static final o f30950c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,21 +65,21 @@ public abstract class o {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
                 if (i2 < 0) {
-                    return o.f30579b;
+                    return o.f30949b;
                 }
-                return i2 > 0 ? o.f30580c : o.a;
+                return i2 > 0 ? o.f30950c : o.a;
             }
             return (o) invokeI.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b extends o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f30581d;
+        public final int f30951d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(int i2) {
@@ -99,7 +99,7 @@ public abstract class o {
                     return;
                 }
             }
-            this.f30581d = i2;
+            this.f30951d = i2;
         }
 
         @Override // c.i.d.c.o
@@ -113,7 +113,7 @@ public abstract class o {
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30581d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30951d : invokeV.intValue;
         }
     }
 
@@ -131,8 +131,8 @@ public abstract class o {
             }
         }
         a = new a();
-        f30579b = new b(-1);
-        f30580c = new b(1);
+        f30949b = new b(-1);
+        f30950c = new b(1);
     }
 
     public /* synthetic */ o(a aVar) {

@@ -17,19 +17,19 @@ import okio.ForwardingSink;
 import okio.Okio;
 import okio.Sink;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b implements t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a extends ForwardingSink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f28162e;
+        public long f28537e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Sink sink) {
@@ -56,7 +56,7 @@ public final class b implements t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, buffer, j2) == null) {
                 super.write(buffer, j2);
-                this.f28162e += j2;
+                this.f28537e += j2;
             }
         }
     }
@@ -107,7 +107,7 @@ public final class b implements t {
                     BufferedSink buffer = Okio.buffer(aVar3);
                     request.a().e(buffer);
                     buffer.close();
-                    gVar.b().requestBodyEnd(gVar.call(), aVar3.f28162e);
+                    gVar.b().requestBodyEnd(gVar.call(), aVar3.f28537e);
                 } else if (!cVar.m()) {
                     e2.o();
                 }
@@ -135,7 +135,7 @@ public final class b implements t {
             gVar.b().responseHeadersEnd(gVar.call(), c4);
             if (this.a && code == 101) {
                 b0.a n = c4.n();
-                n.b(c.d.b.e0.e.f28090c);
+                n.b(c.d.b.e0.e.f28465c);
                 c2 = n.c();
             } else {
                 b0.a n2 = c4.n();

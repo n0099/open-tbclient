@@ -1,30 +1,153 @@
 package c.a.c0.i;
 
-import com.baidu.nps.utils.ContextHolder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.v8.NodeJS;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final c.a.c0.v.b a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1062757924, "Lc/a/c0/i/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1062757924, "Lc/a/c0/i/a;");
+    /* renamed from: b  reason: collision with root package name */
+    public final Map<String, String> f1757b;
+    @NonNull
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Map<String, Map<String, String>> f1758c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public volatile boolean f1759d;
+
+    public a() {
+        String[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ContextHolder.getApplicationContext().getPackageName() + ".nps.process.kill";
+        this.f1757b = new ConcurrentHashMap(128);
+        this.f1758c = new ConcurrentHashMap(8);
+        this.a = c.a.c0.v.e.a().b("nad.cold.launch.config");
+        for (String str : h.a().a()) {
+            String string = this.a.getString(str, null);
+            if (string != null) {
+                c.a.c0.u.c.e(this.f1757b, str, string);
+            }
+        }
+    }
+
+    @NonNull
+    public Map<String, String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1757b : (Map) invokeV.objValue;
+    }
+
+    @NonNull
+    public Map<String, Map<String, String>> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1758c : (Map) invokeV.objValue;
+    }
+
+    public final void c(@NonNull JSONObject jSONObject) {
+        String[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            this.f1757b.clear();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                c.a.c0.u.c.e(this.f1757b, next, jSONObject.optString(next));
+            }
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.clear();
+            for (String str : h.a().a()) {
+                String str2 = (String) c.a.c0.u.c.b(this.f1757b, str);
+                if (str2 != null) {
+                    edit.putString(str, str2);
+                }
+            }
+            edit.apply();
+            SharedPreferences.Editor edit2 = c.a.c0.v.e.a().b("nad.launch.config.global").edit();
+            edit2.clear();
+            for (String str3 : this.f1757b.keySet()) {
+                String str4 = (String) c.a.c0.u.c.b(this.f1757b, str3);
+                if (str4 != null) {
+                    edit2.putString(str3, str4);
+                }
+            }
+            edit2.apply();
+        }
+    }
+
+    public final void d(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            this.f1758c.clear();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                HashMap hashMap = null;
+                if (!TextUtils.isEmpty(optString)) {
+                    hashMap = new HashMap(8);
+                    JSONObject b2 = c.a.c0.u.b.b(optString);
+                    Iterator<String> keys2 = b2.keys();
+                    while (keys2.hasNext()) {
+                        String next2 = keys2.next();
+                        c.a.c0.u.c.e(hashMap, next2, b2.optString(next2));
+                    }
+                }
+                if (hashMap != null) {
+                    c.a.c0.u.c.e(this.f1758c, next, hashMap);
+                    c.a.c0.v.e a = c.a.c0.v.e.a();
+                    SharedPreferences.Editor edit = a.b("nad.launch.config." + next).edit();
+                    edit.clear();
+                    for (String str : hashMap.keySet()) {
+                        String str2 = (String) hashMap.get(str);
+                        if (str2 != null) {
+                            edit.putString(str, str2);
+                        }
+                    }
+                    edit.apply();
+                }
+            }
+        }
+    }
+
+    public void update(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            String optString = jSONObject.optString(NodeJS.GLOBAL);
+            if (!TextUtils.isEmpty(optString)) {
+                c(c.a.c0.u.b.b(optString));
+            }
+            String optString2 = jSONObject.optString("place_conf");
+            if (TextUtils.isEmpty(optString2)) {
+                return;
+            }
+            d(c.a.c0.u.b.b(optString2));
+        }
     }
 }

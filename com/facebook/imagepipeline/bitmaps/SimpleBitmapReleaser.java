@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.ResourceReleaser;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class SimpleBitmapReleaser implements ResourceReleaser<Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public static SimpleBitmapReleaser sInstance;

@@ -21,7 +21,7 @@ import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.core.SDKBaseActivity;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class LoadingActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_LOGIN_LOADING = 256;
@@ -94,7 +94,7 @@ public class LoadingActivity extends BaseActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, com.baidu.wallet.core.SDKBaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {

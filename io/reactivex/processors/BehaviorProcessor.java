@@ -27,7 +27,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final BehaviorSubscription[] EMPTY;
@@ -42,7 +42,7 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
     public final AtomicReference<Object> value;
     public final Lock writeLock;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class BehaviorSubscription<T> extends AtomicLong implements Subscription, AppendOnlyLinkedArrayList.NonThrowingPredicate<Object> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3293175281126227086L;

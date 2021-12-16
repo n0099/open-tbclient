@@ -30,7 +30,7 @@ import java.util.Map;
 import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleReportConfig;
 import tv.athena.revenue.api.MiddleRevenueConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements j.a.a.b.a {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, MiddleRevenueConfig> a;
@@ -95,7 +95,7 @@ public class b implements j.a.a.b.a {
                     RLog.debug("RevenueService", "addRevenueConfig fail! config == null");
                     return;
                 }
-                RLog.info("RevenueService", "addRevenueConfig versionName:4.3.0-bdpay config:" + middleRevenueConfig.toString());
+                RLog.info("RevenueService", "addRevenueConfig versionName:4.3.9-bdpay212004-SNAPSHOT config:" + middleRevenueConfig.toString());
                 String a2 = a(middleRevenueConfig.getAppId(), middleRevenueConfig.getUseChannel());
                 if (a.get(a2) != null) {
                     RLog.error("RevenueService", "addRevenueConfig fail! duplicate init revenue  appId:" + middleRevenueConfig.getAppId() + " usechanel:" + middleRevenueConfig.getUseChannel(), new Object[0]);

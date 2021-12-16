@@ -1,6 +1,6 @@
 package com.baidu.protect.crypto;
 
-import c.a.h0.a.a;
+import c.a.i0.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WBAESCipherImplement extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class WBAESCipherImplement extends a {
 
     private native long initKeyDataMemory(byte[] bArr, byte[] bArr2);
 
-    @Override // c.a.h0.a.a
+    @Override // c.a.i0.a.a
     public final boolean a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class WBAESCipherImplement extends a {
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.h0.a.a
+    @Override // c.a.i0.a.a
     public final boolean b(byte[] bArr, byte[] bArr2, int i2) throws b {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;

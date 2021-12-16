@@ -21,13 +21,13 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SimpleDateFormat f57225b;
+    public static SimpleDateFormat f57806b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +43,7 @@ public class a {
                 return;
             }
         }
-        f57225b = new SimpleDateFormat("yyyy-MM-dd");
+        f57806b = new SimpleDateFormat("yyyy-MM-dd");
     }
 
     public a() {
@@ -173,7 +173,7 @@ public class a {
             return;
         }
         long j2 = context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).getLong("ksadsdk_local_ad_task_info_date", -1L);
-        if (j2 > 0 && !f57225b.format(new Date(j2)).equals(f57225b.format(new Date()))) {
+        if (j2 > 0 && !f57806b.format(new Date(j2)).equals(f57806b.format(new Date()))) {
             c();
         }
     }

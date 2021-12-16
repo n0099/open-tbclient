@@ -15,7 +15,7 @@ import com.tachikoma.core.utility.FileUtil;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.CharUtils;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class JsonWriter$OutputType {
     public static final /* synthetic */ JsonWriter$OutputType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

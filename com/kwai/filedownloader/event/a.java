@@ -10,14 +10,14 @@ import com.kwai.filedownloader.e.d;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.concurrent.Executor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, LinkedList<c>> f60001b;
+    public final HashMap<String, LinkedList<c>> f60582b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a {
             }
         }
         this.a = com.kwai.filedownloader.e.b.a(10, "EventPool");
-        this.f60001b = new HashMap<>();
+        this.f60582b = new HashMap<>();
     }
 
     private void a(LinkedList<c> linkedList, b bVar) {
@@ -61,10 +61,10 @@ public class a {
             }
             if (bVar != null) {
                 String b2 = bVar.b();
-                LinkedList<c> linkedList = this.f60001b.get(b2);
+                LinkedList<c> linkedList = this.f60582b.get(b2);
                 if (linkedList == null) {
                     synchronized (b2.intern()) {
-                        linkedList = this.f60001b.get(b2);
+                        linkedList = this.f60582b.get(b2);
                         if (linkedList == null) {
                             if (d.a) {
                                 d.c(this, "No listener for this event %s", b2);
@@ -90,12 +90,12 @@ public class a {
                 d.e(this, "setListener %s", str);
             }
             if (cVar != null) {
-                LinkedList<c> linkedList = this.f60001b.get(str);
+                LinkedList<c> linkedList = this.f60582b.get(str);
                 if (linkedList == null) {
                     synchronized (str.intern()) {
-                        linkedList = this.f60001b.get(str);
+                        linkedList = this.f60582b.get(str);
                         if (linkedList == null) {
-                            HashMap<String, LinkedList<c>> hashMap = this.f60001b;
+                            HashMap<String, LinkedList<c>> hashMap = this.f60582b;
                             LinkedList<c> linkedList2 = new LinkedList<>();
                             hashMap.put(str, linkedList2);
                             linkedList = linkedList2;
@@ -127,7 +127,7 @@ public class a {
                 public final /* synthetic */ b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f60002b;
+                public final /* synthetic */ a f60583b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -144,7 +144,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f60002b = this;
+                    this.f60583b = this;
                     this.a = bVar;
                 }
 
@@ -153,7 +153,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f60002b.a(this.a);
+                            this.f60583b.a(this.a);
                         } catch (Exception unused) {
                         }
                     }

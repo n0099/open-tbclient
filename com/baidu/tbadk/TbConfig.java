@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.q0.c0.c;
+import c.a.d.f.p.m;
+import c.a.r0.c0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TbConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABSTRACT_AUTO = 0;
@@ -615,6 +615,7 @@ public class TbConfig {
     public static final String URL_POST_VIDEO_MONITOR_REPORT = "ala/sys/vtlog";
     public static final String URL_PROFESSION_PERMISSION = "c/f/frs/zoneRight";
     public static final String URL_RECOMMEND_FORUM_TEST_CLOSE = "c/f/recommend/testclose";
+    public static final String URL_RECOMMEND_SETTING = "https://tieba.baidu.com/mo/q/personality";
     public static final String URL_RELATE_REC_THREAD = "c/f/forum/relateRecThread";
     public static final String URL_REMOVE_FANS = "c/c/user/removeFans";
     public static final String URL_SEARCH_MAJOR = "c/f/forum/searchMajor";
@@ -719,7 +720,7 @@ public class TbConfig {
     public static boolean sThreadImageMaxInited;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class DownFlowCmd {
         public static /* synthetic */ Interceptable $ic;
         public static HashSet<Integer> sInterruptCMDs;
@@ -793,7 +794,7 @@ public class TbConfig {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class PassConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String APP_ID = "1";
@@ -1123,7 +1124,7 @@ public class TbConfig {
     public static final int getDimens(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i2)) == null) ? l.f(TbadkCoreApplication.getInst().getContext(), i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i2)) == null) ? m.f(TbadkCoreApplication.getInst().getContext(), i2) : invokeI.intValue;
     }
 
     public static int getEmotionContentSize() {
@@ -1373,7 +1374,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(l.k(context) * l.i(context));
+        int sqrt = (int) Math.sqrt(m.k(context) * m.i(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1400,7 +1401,7 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, context)) == null) {
-            int d2 = l.d(context, 427.0f);
+            int d2 = m.d(context, 427.0f);
             if (d2 > 640) {
                 d2 = 640;
             }

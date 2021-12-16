@@ -26,7 +26,7 @@ import com.kwad.sdk.d.kwai.g;
 import com.kwad.sdk.d.kwai.h;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.af;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,32 +34,32 @@ public class a extends FrameLayout {
     public AdTemplate a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f58219b;
+    public boolean f58800b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f58220c;
+    public AdInfo f58801c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsInterstitialAd.AdInteractionListener f58221d;
+    public KsInterstitialAd.AdInteractionListener f58802d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f58222e;
+    public Context f58803e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.d.kwai.b f58223f;
+    public com.kwad.sdk.d.kwai.b f58804f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.d.kwai.c f58224g;
+    public com.kwad.sdk.d.kwai.c f58805g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f58225h;
+    public ViewGroup f58806h;
 
     /* renamed from: i  reason: collision with root package name */
-    public KsAdVideoPlayConfig f58226i;
+    public KsAdVideoPlayConfig f58807i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Dialog f58227j;
+    public Dialog f58808j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(@NonNull Context context) {
@@ -101,15 +101,15 @@ public class a extends FrameLayout {
                 return;
             }
         }
-        this.f58225h = (ViewGroup) FrameLayout.inflate(getContext(), getLayoutId(), this);
-        this.f58222e = context;
+        this.f58806h = (ViewGroup) FrameLayout.inflate(getContext(), getLayoutId(), this);
+        this.f58803e = context;
     }
 
     private b a(Context context, AdInfo adInfo, com.kwad.sdk.d.kwai.c cVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, context, adInfo, cVar)) == null) {
-            boolean a = cVar.a(this.f58222e, adInfo);
+            boolean a = cVar.a(this.f58803e, adInfo);
             b.a aVar = new b.a();
             aVar.a(a);
             boolean z = true;
@@ -131,13 +131,13 @@ public class a extends FrameLayout {
             com.kwad.sdk.d.kwai.c cVar = new com.kwad.sdk.d.kwai.c();
             AdTemplate adTemplate = this.a;
             cVar.a = adTemplate;
-            cVar.f58249b = this.f58221d;
-            cVar.f58250c = this.f58227j;
-            cVar.f58251d = new com.kwad.sdk.core.download.a.b(adTemplate);
-            cVar.f58254g = this.f58226i;
-            cVar.f58253f = this.f58219b;
-            cVar.f58256i = new com.kwad.sdk.core.video.videoview.b(this.f58222e);
-            cVar.f58252e = a(this.f58222e, com.kwad.sdk.core.response.a.d.j(this.a), cVar);
+            cVar.f58830b = this.f58802d;
+            cVar.f58831c = this.f58808j;
+            cVar.f58832d = new com.kwad.sdk.core.download.a.b(adTemplate);
+            cVar.f58835g = this.f58807i;
+            cVar.f58834f = this.f58800b;
+            cVar.f58837i = new com.kwad.sdk.core.video.videoview.b(this.f58803e);
+            cVar.f58833e = a(this.f58803e, com.kwad.sdk.core.response.a.d.j(this.a), cVar);
             return cVar;
         }
         return (com.kwad.sdk.d.kwai.c) invokeV.objValue;
@@ -147,18 +147,18 @@ public class a extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{adTemplate, dialog, ksAdVideoPlayConfig, adInteractionListener, Boolean.valueOf(z)}) == null) {
             this.a = adTemplate;
-            this.f58220c = com.kwad.sdk.core.response.a.d.j(adTemplate);
+            this.f58801c = com.kwad.sdk.core.response.a.d.j(adTemplate);
             adTemplate.realShowType = 2;
-            this.f58226i = ksAdVideoPlayConfig;
-            this.f58227j = dialog;
-            this.f58219b = z;
-            this.f58221d = adInteractionListener;
-            this.f58224g = a();
-            if (this.f58223f == null) {
+            this.f58807i = ksAdVideoPlayConfig;
+            this.f58808j = dialog;
+            this.f58800b = z;
+            this.f58802d = adInteractionListener;
+            this.f58805g = a();
+            if (this.f58804f == null) {
                 com.kwad.sdk.d.kwai.b b2 = b();
-                this.f58223f = b2;
-                b2.c(this.f58225h);
-                this.f58223f.a(this.f58224g);
+                this.f58804f = b2;
+                b2.c(this.f58806h);
+                this.f58804f.a(this.f58805g);
             }
         }
     }
@@ -170,15 +170,15 @@ public class a extends FrameLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             com.kwad.sdk.d.kwai.b bVar = new com.kwad.sdk.d.kwai.b();
             bVar.a((Presenter) new com.kwad.sdk.d.kwai.d());
-            if (com.kwad.sdk.core.response.a.a.P(this.f58220c)) {
+            if (com.kwad.sdk.core.response.a.a.P(this.f58801c)) {
                 bVar.a((Presenter) new g());
             }
             bVar.a((Presenter) new h());
             bVar.a((Presenter) new e());
-            if (com.kwad.sdk.core.response.a.a.D(this.f58220c)) {
+            if (com.kwad.sdk.core.response.a.a.D(this.f58801c)) {
                 bVar.a((Presenter) new com.kwad.sdk.d.kwai.a());
             }
-            if (this.f58224g.a(getContext())) {
+            if (this.f58805g.a(getContext())) {
                 bVar.a((Presenter) new f());
             }
             return bVar;
@@ -189,21 +189,21 @@ public class a extends FrameLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f58223f.g();
+            this.f58804f.g();
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f58223f.h();
+            this.f58804f.h();
         }
     }
 
     public void e() {
         com.kwad.sdk.d.kwai.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bVar = this.f58223f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bVar = this.f58804f) == null) {
             return;
         }
         bVar.j();
@@ -221,7 +221,7 @@ public class a extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDetachedFromWindow();
             e();
-            com.kwad.sdk.d.kwai.c cVar = this.f58224g;
+            com.kwad.sdk.d.kwai.c cVar = this.f58805g;
             if (cVar != null) {
                 cVar.a();
             }
@@ -233,7 +233,7 @@ public class a extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f58224g.c();
+            this.f58805g.c();
         }
     }
 
@@ -248,10 +248,10 @@ public class a extends FrameLayout {
     public void setAdInteractionListener(KsInterstitialAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, adInteractionListener) == null) {
-            this.f58221d = adInteractionListener;
-            com.kwad.sdk.d.kwai.c cVar = this.f58224g;
+            this.f58802d = adInteractionListener;
+            com.kwad.sdk.d.kwai.c cVar = this.f58805g;
             if (cVar != null) {
-                cVar.f58249b = adInteractionListener;
+                cVar.f58830b = adInteractionListener;
             }
         }
     }

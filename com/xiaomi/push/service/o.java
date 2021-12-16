@@ -12,7 +12,7 @@ import com.xiaomi.push.fw;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
 import java.util.Collection;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class o extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,10 +25,10 @@ public class o extends XMPushService.i {
     public byte[] f972a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63286b;
+    public String f63867b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63287c;
+    public String f63868c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(XMPushService xMPushService, String str, String str2, String str3, byte[] bArr) {
@@ -51,8 +51,8 @@ public class o extends XMPushService.i {
         this.a = xMPushService;
         this.f971a = str;
         this.f972a = bArr;
-        this.f63286b = str2;
-        this.f63287c = str3;
+        this.f63867b = str2;
+        this.f63868c = str3;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -70,7 +70,7 @@ public class o extends XMPushService.i {
             l a = m.a((Context) this.a);
             if (a == null) {
                 try {
-                    a = m.a(this.a, this.f971a, this.f63286b, this.f63287c);
+                    a = m.a(this.a, this.f971a, this.f63867b, this.f63868c);
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e2);
                 }
@@ -93,7 +93,7 @@ public class o extends XMPushService.i {
                 return;
             }
             try {
-                if (next.f914a == av.c.f63252c) {
+                if (next.f914a == av.c.f63833c) {
                     y.a(this.a, this.f971a, this.f972a);
                 } else if (next.f914a == av.c.a) {
                     XMPushService xMPushService = this.a;

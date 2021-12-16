@@ -19,26 +19,26 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class p extends com.kwad.sdk.core.network.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57677b;
+    public int f58258b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f57678c;
+    public AdTemplate f58259c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public a f57679d;
+    public a f58260d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f57680e;
+    public JSONObject f58261e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,34 +47,34 @@ public class p extends com.kwad.sdk.core.network.b {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57681b;
+        public int f58262b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f57682c;
+        public int f58263c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f57683d;
+        public int f58264d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f57684e;
+        public int f58265e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f57685f;
+        public int f58266f;
 
         /* renamed from: g  reason: collision with root package name */
-        public z.a f57686g;
+        public z.a f58267g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f57687h;
+        public String f58268h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f57688i;
+        public int f58269i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f57689j;
+        public int f58270j;
 
         /* renamed from: k  reason: collision with root package name */
-        public int f57690k;
+        public int f58271k;
         public String l;
         public String m;
         public int n;
@@ -104,7 +104,7 @@ public class p extends com.kwad.sdk.core.network.b {
                     return;
                 }
             }
-            this.f57684e = -1;
+            this.f58265e = -1;
             this.l = "";
             this.u = 0;
             this.z = -1;
@@ -127,10 +127,10 @@ public class p extends com.kwad.sdk.core.network.b {
                 return;
             }
         }
-        this.f57678c = adTemplate;
-        this.f57677b = i2;
-        this.f57679d = aVar;
-        this.f57680e = jSONObject;
+        this.f58259c = adTemplate;
+        this.f58258b = i2;
+        this.f58260d = aVar;
+        this.f58261e = jSONObject;
     }
 
     private void a(String str, @Nullable a aVar) {
@@ -138,12 +138,12 @@ public class p extends com.kwad.sdk.core.network.b {
         if (!(interceptable == null || interceptable.invokeLL(65537, this, str, aVar) == null) || aVar == null || TextUtils.isEmpty(str)) {
             return;
         }
-        int i2 = aVar.f57681b;
+        int i2 = aVar.f58262b;
         if (i2 != 0) {
             a("itemClickType", i2);
         }
-        if (!TextUtils.isEmpty(aVar.f57687h)) {
-            b("payload", aVar.f57687h);
+        if (!TextUtils.isEmpty(aVar.f58268h)) {
+            b("payload", aVar.f58268h);
         }
         int i3 = aVar.o;
         if (i3 != 0) {
@@ -198,7 +198,7 @@ public class p extends com.kwad.sdk.core.network.b {
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, aVar) == null) || aVar == null || TextUtils.isEmpty(str)) {
             return;
         }
-        int i2 = aVar.f57682c;
+        int i2 = aVar.f58263c;
         if (i2 != 0) {
             a("itemCloseType", i2);
         }
@@ -206,22 +206,22 @@ public class p extends com.kwad.sdk.core.network.b {
         if (i3 > 0) {
             a("photoPlaySecond", i3);
         }
-        int i4 = aVar.f57683d;
+        int i4 = aVar.f58264d;
         if (i4 != 0) {
             a("elementType", i4);
         }
-        if (!TextUtils.isEmpty(aVar.f57687h)) {
-            b("payload", aVar.f57687h);
+        if (!TextUtils.isEmpty(aVar.f58268h)) {
+            b("payload", aVar.f58268h);
         }
-        int i5 = aVar.f57688i;
+        int i5 = aVar.f58269i;
         if (i5 > 0) {
             a("deeplinkType", i5);
         }
-        int i6 = aVar.f57689j;
+        int i6 = aVar.f58270j;
         if (i6 > 0) {
             a("downloadSource", i6);
         }
-        int i7 = aVar.f57690k;
+        int i7 = aVar.f58271k;
         if (i7 > 0) {
             a("isPackageChanged", i7);
         }
@@ -257,11 +257,11 @@ public class p extends com.kwad.sdk.core.network.b {
         if (j2 > 0) {
             a("landingPageLoadedDuration", j2);
         }
-        int i12 = aVar.f57684e;
+        int i12 = aVar.f58265e;
         if (i12 > -1) {
             a("impFailReason", i12);
         }
-        int i13 = aVar.f57685f;
+        int i13 = aVar.f58266f;
         if (i13 > 0) {
             a("winEcpm", i13);
         }
@@ -282,7 +282,7 @@ public class p extends com.kwad.sdk.core.network.b {
         if (i2 != 0) {
             a("initVoiceStatus", i2);
         }
-        a("ecpmType", this.f57678c.mBidEcpm == 0 ? 2 : 1);
+        a("ecpmType", this.f58259c.mBidEcpm == 0 ? 2 : 1);
         if (aVar == null) {
             return;
         }
@@ -290,10 +290,10 @@ public class p extends com.kwad.sdk.core.network.b {
         if (i3 != 0) {
             a("adAggPageSource", i3);
         }
-        if (TextUtils.isEmpty(aVar.f57687h)) {
+        if (TextUtils.isEmpty(aVar.f58268h)) {
             return;
         }
-        b("payload", aVar.f57687h);
+        b("payload", aVar.f58268h);
     }
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
@@ -302,29 +302,29 @@ public class p extends com.kwad.sdk.core.network.b {
         String replaceFirst;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f57678c);
-            int i2 = this.f57677b;
+            AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f58259c);
+            int i2 = this.f58258b;
             if (i2 == 1) {
-                replaceFirst = j2.adBaseInfo.showUrl.replaceFirst("__PR__", String.valueOf((this.f57678c.mBidEcpm == 0 && com.kwad.sdk.core.config.b.ax()) ? com.kwad.sdk.core.response.a.a.F(com.kwad.sdk.core.response.a.d.j(this.f57678c)) : this.f57678c.mBidEcpm)).replaceFirst("__TYPE__", String.valueOf(this.f57678c.mVideoPlayerStatus.mVideoPlayerType)).replaceFirst("__BEHAVIOR__", String.valueOf(this.f57678c.mVideoPlayerStatus.mVideoPlayerBehavior));
-                a(replaceFirst, this.f57678c, this.f57679d);
+                replaceFirst = j2.adBaseInfo.showUrl.replaceFirst("__PR__", String.valueOf((this.f58259c.mBidEcpm == 0 && com.kwad.sdk.core.config.b.ax()) ? com.kwad.sdk.core.response.a.a.F(com.kwad.sdk.core.response.a.d.j(this.f58259c)) : this.f58259c.mBidEcpm)).replaceFirst("__TYPE__", String.valueOf(this.f58259c.mVideoPlayerStatus.mVideoPlayerType)).replaceFirst("__BEHAVIOR__", String.valueOf(this.f58259c.mVideoPlayerStatus.mVideoPlayerBehavior));
+                a(replaceFirst, this.f58259c, this.f58260d);
             } else {
                 AdInfo.AdBaseInfo adBaseInfo = j2.adBaseInfo;
                 if (i2 != 2) {
-                    replaceFirst = adBaseInfo.convUrl.replaceFirst("__ACTION__", String.valueOf(i2)).replaceFirst("__PR__", String.valueOf(this.f57678c.mBidEcpm)).replaceFirst("__TYPE__", String.valueOf(this.f57678c.mVideoPlayerStatus.mVideoPlayerType)).replaceFirst("__BEHAVIOR__", String.valueOf(this.f57678c.mVideoPlayerStatus.mVideoPlayerBehavior));
-                    b(replaceFirst, this.f57679d);
-                    a(this.f57680e);
+                    replaceFirst = adBaseInfo.convUrl.replaceFirst("__ACTION__", String.valueOf(i2)).replaceFirst("__PR__", String.valueOf(this.f58259c.mBidEcpm)).replaceFirst("__TYPE__", String.valueOf(this.f58259c.mVideoPlayerStatus.mVideoPlayerType)).replaceFirst("__BEHAVIOR__", String.valueOf(this.f58259c.mVideoPlayerStatus.mVideoPlayerBehavior));
+                    b(replaceFirst, this.f58260d);
+                    a(this.f58261e);
                     return replaceFirst;
                 }
                 String str = adBaseInfo.clickUrl;
-                a aVar = this.f57679d;
+                a aVar = this.f58260d;
                 if (aVar != null) {
-                    str = z.b(str, aVar.f57686g);
+                    str = z.b(str, aVar.f58267g);
                 }
-                replaceFirst = z.b(str).replaceFirst("__PR__", String.valueOf(this.f57678c.mBidEcpm)).replaceFirst("__TYPE__", String.valueOf(this.f57678c.mVideoPlayerStatus.mVideoPlayerType)).replaceFirst("__BEHAVIOR__", String.valueOf(this.f57678c.mVideoPlayerStatus.mVideoPlayerBehavior));
-                a(replaceFirst, this.f57679d);
+                replaceFirst = z.b(str).replaceFirst("__PR__", String.valueOf(this.f58259c.mBidEcpm)).replaceFirst("__TYPE__", String.valueOf(this.f58259c.mVideoPlayerStatus.mVideoPlayerType)).replaceFirst("__BEHAVIOR__", String.valueOf(this.f58259c.mVideoPlayerStatus.mVideoPlayerBehavior));
+                a(replaceFirst, this.f58260d);
             }
-            b(replaceFirst, this.f57678c, this.f57679d);
-            a(this.f57680e);
+            b(replaceFirst, this.f58259c, this.f58260d);
+            a(this.f58261e);
             return replaceFirst;
         }
         return (String) invokeV.objValue;
@@ -354,7 +354,7 @@ public class p extends com.kwad.sdk.core.network.b {
     public AdTemplate i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57678c : (AdTemplate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58259c : (AdTemplate) invokeV.objValue;
     }
 
     public List<String> j() {
@@ -365,7 +365,7 @@ public class p extends com.kwad.sdk.core.network.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f57678c);
+            AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f58259c);
             if (!j2.adTrackInfoList.isEmpty()) {
                 Iterator<AdInfo.AdTrackInfo> it = j2.adTrackInfoList.iterator();
                 while (true) {
@@ -375,13 +375,13 @@ public class p extends com.kwad.sdk.core.network.b {
                         break;
                     }
                     adTrackInfo = it.next();
-                    if (adTrackInfo.type == this.f57677b && adTrackInfo.urls != null) {
+                    if (adTrackInfo.type == this.f58258b && adTrackInfo.urls != null) {
                         break;
                     }
                 }
                 if (adTrackInfo != null) {
-                    if (adTrackInfo.type == 2 && (aVar2 = this.f57679d) != null) {
-                        aVar = aVar2.f57686g;
+                    if (adTrackInfo.type == 2 && (aVar2 = this.f58260d) != null) {
+                        aVar = aVar2.f58267g;
                     }
                     for (String str : adTrackInfo.urls) {
                         arrayList.add(z.a(str, aVar));

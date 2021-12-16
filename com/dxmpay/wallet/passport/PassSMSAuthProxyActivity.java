@@ -14,7 +14,7 @@ import com.baidu.wallet.api.WalletApiExtListener;
 import com.dxmpay.wallet.api.BaiduWalletDelegate;
 import com.dxmpay.wallet.core.BaseActivity;
 import com.dxmpay.wallet.paysdk.datamodel.SdkInitResponse;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class PassSMSAuthProxyActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public static WalletApiExtListener.ThirdPartyLoginListener callback;

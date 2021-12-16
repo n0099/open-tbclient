@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public final class a implements a.InterfaceC1757a<c> {
+/* loaded from: classes10.dex */
+public final class a implements a.InterfaceC1816a<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
@@ -33,16 +33,16 @@ public final class a implements a.InterfaceC1757a<c> {
         this.a = context;
     }
 
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC1757a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC1816a
     public void a(HttpClient.HttpStateError httpStateError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            int i2 = b.f36288b[httpStateError.ordinal()];
+            int i2 = b.f36777b[httpStateError.ordinal()];
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC1757a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC1816a
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) && cVar != null && b.a[cVar.a().ordinal()] == 4 && cVar.c() == 1) {

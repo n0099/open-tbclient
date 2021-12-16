@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class e implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public final class e implements d {
     public long a(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? this.a.f28994d[i2] : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? this.a.f29364d[i2] : invokeCommon.longValue;
     }
 
     @Override // c.i.b.a.d0.v.d
@@ -67,7 +67,7 @@ public final class e implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             c.i.b.a.a0.a aVar = this.a;
-            return new c.i.b.a.d0.v.g.f(null, aVar.f28993c[i2], aVar.f28992b[i2]);
+            return new c.i.b.a.d0.v.g.f(null, aVar.f29363c[i2], aVar.f29362b[i2]);
         }
         return (c.i.b.a.d0.v.g.f) invokeI.objValue;
     }
@@ -76,7 +76,7 @@ public final class e implements d {
     public long f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.a.f28995e[i2] : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.a.f29365e[i2] : invokeI.longValue;
     }
 
     @Override // c.i.b.a.d0.v.d

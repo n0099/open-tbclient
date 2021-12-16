@@ -7,11 +7,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface g {
     public static final g a = new a();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a implements g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

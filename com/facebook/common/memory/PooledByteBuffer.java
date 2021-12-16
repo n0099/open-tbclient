@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface PooledByteBuffer extends Closeable {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class ClosedException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

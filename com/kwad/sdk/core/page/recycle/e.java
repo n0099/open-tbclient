@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.sdk.core.download.a.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f57603b;
+    public RecyclerView f58184b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f57604c;
+    public AdTemplate f58185c;
 
     public e(AdTemplate adTemplate, com.kwad.sdk.core.download.a.b bVar, RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class e {
                 return;
             }
         }
-        this.f57604c = adTemplate;
+        this.f58185c = adTemplate;
         this.a = bVar;
-        this.f57603b = recyclerView;
+        this.f58184b = recyclerView;
     }
 }

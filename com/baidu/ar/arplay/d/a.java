@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public C1699a fZ;
+    public C1738a fZ;
     public boolean ga;
 
     /* renamed from: com.baidu.ar.arplay.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C1699a {
+    /* loaded from: classes9.dex */
+    public static class C1738a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int dM;
@@ -31,7 +31,7 @@ public class a extends WebView {
         public String url;
         public int width;
 
-        public C1699a() {
+        public C1738a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -125,10 +125,10 @@ public class a extends WebView {
         });
     }
 
-    public C1699a getWebViewData() {
+    public C1738a getWebViewData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fZ : (C1699a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fZ : (C1738a) invokeV.objValue;
     }
 
     @Override // android.webkit.WebView, android.view.View
@@ -145,10 +145,10 @@ public class a extends WebView {
         }
     }
 
-    public void setWebViewData(C1699a c1699a) {
+    public void setWebViewData(C1738a c1738a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c1699a) == null) {
-            this.fZ = c1699a;
+        if (interceptable == null || interceptable.invokeL(1048580, this, c1738a) == null) {
+            this.fZ = c1738a;
         }
     }
 }

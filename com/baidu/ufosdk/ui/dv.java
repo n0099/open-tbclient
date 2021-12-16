@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.ReportCallback;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class dv extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,20 +86,20 @@ public final class dv extends Handler {
                 this.a.y = Boolean.FALSE;
                 str6 = this.a.z;
                 if (!TextUtils.isEmpty(str6)) {
-                    str9 = this.a.f51629g;
+                    str9 = this.a.f52178g;
                     if (TextUtils.isEmpty(str9)) {
-                        editor6 = this.a.f51624b;
+                        editor6 = this.a.f52173b;
                         str10 = this.a.z;
                         editor6.putString(str10, "");
                     }
                 }
-                str7 = this.a.f51629g;
+                str7 = this.a.f52178g;
                 if (!TextUtils.isEmpty(str7)) {
-                    editor5 = this.a.f51624b;
-                    str8 = this.a.f51629g;
+                    editor5 = this.a.f52173b;
+                    str8 = this.a.f52178g;
                     editor5.putString(str8, "");
                 }
-                editor4 = this.a.f51624b;
+                editor4 = this.a.f52173b;
                 editor4.commit();
                 view4 = this.a.A;
                 view4.setVisibility(8);
@@ -141,20 +141,20 @@ public final class dv extends Handler {
                 this.a.y = Boolean.FALSE;
                 str = this.a.z;
                 if (!TextUtils.isEmpty(str)) {
-                    str4 = this.a.f51629g;
+                    str4 = this.a.f52178g;
                     if (TextUtils.isEmpty(str4)) {
-                        editor3 = this.a.f51624b;
+                        editor3 = this.a.f52173b;
                         str5 = this.a.z;
                         editor3.putString(str5, "");
                     }
                 }
-                str2 = this.a.f51629g;
+                str2 = this.a.f52178g;
                 if (!TextUtils.isEmpty(str2)) {
-                    editor2 = this.a.f51624b;
-                    str3 = this.a.f51629g;
+                    editor2 = this.a.f52173b;
+                    str3 = this.a.f52178g;
                     editor2.putString(str3, "");
                 }
-                editor = this.a.f51624b;
+                editor = this.a.f52173b;
                 editor.commit();
                 view2 = this.a.A;
                 view2.setVisibility(8);

@@ -21,16 +21,16 @@ public class b extends ImageSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2882e;
+    public int f2846e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2883f;
+    public int f2847f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WeakReference<Drawable> f2884g;
+    public WeakReference<Drawable> f2848g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2885h;
+    public int f2849h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, Bitmap bitmap, int i2) {
@@ -57,11 +57,11 @@ public class b extends ImageSpan {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.f2884g;
+            WeakReference<Drawable> weakReference = this.f2848g;
             Drawable drawable = weakReference != null ? weakReference.get() : null;
             if (drawable == null) {
                 Drawable drawable2 = getDrawable();
-                this.f2884g = new WeakReference<>(drawable2);
+                this.f2848g = new WeakReference<>(drawable2);
                 return drawable2;
             }
             return drawable;
@@ -72,7 +72,7 @@ public class b extends ImageSpan {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f2883f = i2;
+            this.f2847f = i2;
         }
     }
 
@@ -82,7 +82,7 @@ public class b extends ImageSpan {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) {
             Drawable a = a();
             canvas.save();
-            canvas.translate(f2 + this.f2883f, ((i6 - a.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - paint.getFontMetricsInt().top) / 2) - ((a.getBounds().top + a.getBounds().bottom) / 2))) + this.f2885h);
+            canvas.translate(f2 + this.f2847f, ((i6 - a.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - paint.getFontMetricsInt().top) / 2) - ((a.getBounds().top + a.getBounds().bottom) / 2))) + this.f2849h);
             a.draw(canvas);
             canvas.restore();
         }
@@ -92,7 +92,7 @@ public class b extends ImageSpan {
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i2, int i3, @Nullable Paint.FontMetricsInt fontMetricsInt) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) ? super.getSize(paint, charSequence, i2, i3, fontMetricsInt) + this.f2883f + this.f2882e : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) ? super.getSize(paint, charSequence, i2, i3, fontMetricsInt) + this.f2847f + this.f2846e : invokeCommon.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

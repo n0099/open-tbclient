@@ -22,21 +22,21 @@ import rx.internal.util.InternalObservableUtils;
 import rx.internal.util.ScalarSynchronousObservable;
 import rx.internal.util.UtilityFunctions;
 import rx.schedulers.Schedulers;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final a<T> f63631e;
+    public final a<T> f64212e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a<T> extends i.n.b<j<? super T>> {
         @Override // i.n.b
         /* synthetic */ void call(T t);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b<R, T> extends i.n.f<j<? super R>, j<? super T>> {
         @Override // i.n.f
         /* synthetic */ R call(T t);
@@ -57,7 +57,7 @@ public class d<T> {
                 return;
             }
         }
-        this.f63631e = aVar;
+        this.f64212e = aVar;
     }
 
     public static d<Long> B(long j2, TimeUnit timeUnit) {
@@ -119,13 +119,13 @@ public class d<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, jVar, dVar)) == null) {
             if (jVar != null) {
-                if (dVar.f63631e != null) {
+                if (dVar.f64212e != null) {
                     jVar.d();
                     if (!(jVar instanceof i.q.c)) {
                         jVar = new i.q.c(jVar);
                     }
                     try {
-                        i.r.c.p(dVar, dVar.f63631e).call(jVar);
+                        i.r.c.p(dVar, dVar.f64212e).call(jVar);
                         return i.r.c.o(jVar);
                     } catch (Throwable th) {
                         i.m.a.e(th);
@@ -163,7 +163,7 @@ public class d<T> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar)) == null) {
             try {
                 jVar.d();
-                i.r.c.p(this, this.f63631e).call(jVar);
+                i.r.c.p(this, this.f64212e).call(jVar);
                 return i.r.c.o(jVar);
             } catch (Throwable th) {
                 i.m.a.e(th);
@@ -204,7 +204,7 @@ public class d<T> {
     public final <R> d<R> g(b<? extends R, ? super T> bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) ? a(new i.o.a.f(this.f63631e, bVar)) : (d) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) ? a(new i.o.a.f(this.f64212e, bVar)) : (d) invokeL.objValue;
     }
 
     public final <R> d<R> h(i.n.f<? super T, ? extends R> fVar) {
@@ -216,7 +216,7 @@ public class d<T> {
     public final d<T> k(g gVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, gVar)) == null) ? l(gVar, i.o.d.f.f63860g) : (d) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, gVar)) == null) ? l(gVar, i.o.d.f.f64441g) : (d) invokeL.objValue;
     }
 
     public final d<T> l(g gVar, int i2) {

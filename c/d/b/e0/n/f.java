@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Class<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f28363b;
+    public final String f28738b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Class[] f28364c;
+    public final Class[] f28739c;
 
     public f(Class<?> cls, String str, Class... clsArr) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class f<T> {
             }
         }
         this.a = cls;
-        this.f28363b = str;
-        this.f28364c = clsArr;
+        this.f28738b = str;
+        this.f28739c = clsArr;
     }
 
     public static Method b(Class<?> cls, String str, Class[] clsArr) {
@@ -65,9 +65,9 @@ public class f<T> {
         Class<?> cls2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            String str = this.f28363b;
+            String str = this.f28738b;
             if (str != null) {
-                Method b2 = b(cls, str, this.f28364c);
+                Method b2 = b(cls, str, this.f28739c);
                 if (b2 == null || (cls2 = this.a) == null || cls2.isAssignableFrom(b2.getReturnType())) {
                     return b2;
                 }
@@ -92,7 +92,7 @@ public class f<T> {
                     throw assertionError;
                 }
             }
-            throw new AssertionError("Method " + this.f28363b + " not supported for object " + t);
+            throw new AssertionError("Method " + this.f28738b + " not supported for object " + t);
         }
         return invokeLL.objValue;
     }

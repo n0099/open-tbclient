@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static b a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread f31196b;
+    public Thread f31566b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<Runnable> f31197c;
+    public LinkedList<Runnable> f31567c;
 
     static {
         InterceptResult invokeClinit;
@@ -49,8 +49,8 @@ public final class b {
                 return;
             }
         }
-        this.f31196b = null;
-        this.f31197c = new LinkedList<>();
+        this.f31566b = null;
+        this.f31567c = new LinkedList<>();
     }
 
     public static b a() {
@@ -63,10 +63,10 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
             synchronized (this) {
-                this.f31197c.add(runnable);
-                if (this.f31196b == null) {
+                this.f31567c.add(runnable);
+                if (this.f31566b == null) {
                     Thread thread = new Thread(new c(this));
-                    this.f31196b = thread;
+                    this.f31566b = thread;
                     thread.start();
                 }
             }

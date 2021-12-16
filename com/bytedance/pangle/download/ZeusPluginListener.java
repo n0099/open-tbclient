@@ -2,7 +2,7 @@ package com.bytedance.pangle.download;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface ZeusPluginListener {
     public static final int CODE_DOWNLOAD_FAILED = 13;
     public static final int CODE_DOWNLOAD_PROGRESS = 11;

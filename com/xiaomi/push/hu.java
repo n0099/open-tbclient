@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class hu implements iq<hu, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final iy a;
@@ -22,19 +22,19 @@ public class hu implements iq<hu, Object>, Serializable, Cloneable {
     public static final jg f561a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f63055b;
+    public static final iy f63636b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f63056c;
+    public static final iy f63637c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f63057d;
+    public static final iy f63638d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f63058e;
+    public static final iy f63639e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f63059f;
+    public static final iy f63640f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -73,11 +73,11 @@ public class hu implements iq<hu, Object>, Serializable, Cloneable {
         }
         f561a = new jg("Target");
         a = new iy("", (byte) 10, (short) 1);
-        f63055b = new iy("", (byte) 11, (short) 2);
-        f63056c = new iy("", (byte) 11, (short) 3);
-        f63057d = new iy("", (byte) 11, (short) 4);
-        f63058e = new iy("", (byte) 2, (short) 5);
-        f63059f = new iy("", (byte) 11, (short) 7);
+        f63636b = new iy("", (byte) 11, (short) 2);
+        f63637c = new iy("", (byte) 11, (short) 3);
+        f63638d = new iy("", (byte) 11, (short) 4);
+        f63639e = new iy("", (byte) 2, (short) 5);
+        f63640f = new iy("", (byte) 11, (short) 7);
     }
 
     public hu() {
@@ -299,27 +299,27 @@ public class hu implements iq<hu, Object>, Serializable, Cloneable {
             jbVar.a(this.f562a);
             jbVar.b();
             if (this.f563a != null) {
-                jbVar.a(f63055b);
+                jbVar.a(f63636b);
                 jbVar.a(this.f563a);
                 jbVar.b();
             }
             if (this.f566b != null && c()) {
-                jbVar.a(f63056c);
+                jbVar.a(f63637c);
                 jbVar.a(this.f566b);
                 jbVar.b();
             }
             if (this.f567c != null && d()) {
-                jbVar.a(f63057d);
+                jbVar.a(f63638d);
                 jbVar.a(this.f567c);
                 jbVar.b();
             }
             if (e()) {
-                jbVar.a(f63058e);
+                jbVar.a(f63639e);
                 jbVar.a(this.f565a);
                 jbVar.b();
             }
             if (this.f568d != null && f()) {
-                jbVar.a(f63059f);
+                jbVar.a(f63640f);
                 jbVar.a(this.f568d);
                 jbVar.b();
             }

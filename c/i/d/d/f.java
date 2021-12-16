@@ -4,7 +4,7 @@ import com.google.common.hash.Funnel;
 import com.google.common.hash.HashCode;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface f extends j {
     @Override // c.i.d.d.j
     f a(int i2);

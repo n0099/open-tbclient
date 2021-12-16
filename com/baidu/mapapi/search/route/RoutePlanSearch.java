@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.platform.core.d.e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36197b;
+    public boolean f36686b;
 
     public RoutePlanSearch() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
                 return;
             }
         }
-        this.f36197b = false;
+        this.f36686b = false;
         this.a = new com.baidu.platform.core.d.j();
     }
 
@@ -67,10 +67,10 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f36197b) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f36686b) {
             return;
         }
-        this.f36197b = true;
+        this.f36686b = true;
         this.a.a();
         BMapManager.destroy();
     }

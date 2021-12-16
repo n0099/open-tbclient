@@ -2,9 +2,9 @@ package com.baidu.tieba.frs.loadmore;
 
 import android.text.TextUtils;
 import c.a.d.m.e.n;
-import c.a.q0.s.q.d2;
-import c.a.q0.s.q.p0;
-import c.a.r0.h3.l0.b;
+import c.a.r0.s.r.d2;
+import c.a.r0.s.r.p0;
+import c.a.s0.j3.l0.b;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,7 +27,7 @@ import tbclient.ThreadInfo;
 import tbclient.ThreadList.DataRes;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

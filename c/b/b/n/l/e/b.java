@@ -10,18 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b extends c.b.b.n.l.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final long f27597i;
+    public static final long f27972i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final long f27598j;
+    public static final long f27973j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final long f27599k;
+    public static final long f27974k;
     public static final long l;
     public static final long m;
     public static final long n;
@@ -30,7 +30,7 @@ public class b extends c.b.b.n.l.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.b.b.n.a f27600h;
+    public final c.b.b.n.a f27975h;
 
     static {
         InterceptResult invokeClinit;
@@ -45,15 +45,15 @@ public class b extends c.b.b.n.l.a {
                 return;
             }
         }
-        f27597i = c.b.b.n.l.a.d("diffuseColor");
-        f27598j = c.b.b.n.l.a.d("specularColor");
-        f27599k = c.b.b.n.l.a.d("ambientColor");
+        f27972i = c.b.b.n.l.a.d("diffuseColor");
+        f27973j = c.b.b.n.l.a.d("specularColor");
+        f27974k = c.b.b.n.l.a.d("ambientColor");
         l = c.b.b.n.l.a.d("emissiveColor");
         m = c.b.b.n.l.a.d("reflectionColor");
         n = c.b.b.n.l.a.d("ambientLightColor");
         long d2 = c.b.b.n.l.a.d("fogColor");
         o = d2;
-        p = d2 | f27599k | f27597i | f27598j | l | m | n;
+        p = d2 | f27974k | f27972i | f27973j | l | m | n;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -74,7 +74,7 @@ public class b extends c.b.b.n.l.a {
                 return;
             }
         }
-        this.f27600h = new c.b.b.n.a();
+        this.f27975h = new c.b.b.n.a();
         if (!f(j2)) {
             throw new GdxRuntimeException("Invalid type specified");
         }
@@ -93,9 +93,9 @@ public class b extends c.b.b.n.l.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            long j2 = this.f27579e;
-            long j3 = aVar.f27579e;
-            return j2 != j3 ? (int) (j2 - j3) : ((b) aVar).f27600h.g() - this.f27600h.g();
+            long j2 = this.f27954e;
+            long j3 = aVar.f27954e;
+            return j2 != j3 ? (int) (j2 - j3) : ((b) aVar).f27975h.g() - this.f27975h.g();
         }
         return invokeL.intValue;
     }
@@ -104,7 +104,7 @@ public class b extends c.b.b.n.l.a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * CyberPlayerManager.DP_MSG_INFO_CACHE_DURATION) + this.f27600h.g() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * CyberPlayerManager.DP_MSG_INFO_CACHE_DURATION) + this.f27975h.g() : invokeV.intValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -126,7 +126,7 @@ public class b extends c.b.b.n.l.a {
             }
         }
         if (aVar != null) {
-            this.f27600h.e(aVar);
+            this.f27975h.e(aVar);
         }
     }
 }

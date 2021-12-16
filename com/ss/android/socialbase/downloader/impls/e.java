@@ -17,12 +17,12 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static com.ss.android.socialbase.downloader.h.d f61935b;
+    public static com.ss.android.socialbase.downloader.h.d f62516b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public e() {
@@ -38,7 +38,7 @@ public class e extends a {
                 return;
             }
         }
-        f61935b = new com.ss.android.socialbase.downloader.h.d();
+        f62516b = new com.ss.android.socialbase.downloader.h.d();
     }
 
     public static void c(List<Callable<Object>> list) throws InterruptedException {
@@ -106,7 +106,7 @@ public class e extends a {
         DownloadInfo d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.h.d dVar = f61935b;
+            com.ss.android.socialbase.downloader.h.d dVar = f62516b;
             if (dVar == null || !dVar.a(i2) || (d2 = d(i2)) == null) {
                 return false;
             }
@@ -123,7 +123,7 @@ public class e extends a {
     public void b(int i2) {
         com.ss.android.socialbase.downloader.h.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (dVar = f61935b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (dVar = f62516b) == null) {
             return;
         }
         dVar.c(i2);
@@ -134,7 +134,7 @@ public class e extends a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.h.d dVar = f61935b;
+            com.ss.android.socialbase.downloader.h.d dVar = f62516b;
             if (dVar == null) {
                 return null;
             }
@@ -147,7 +147,7 @@ public class e extends a {
     public void a(com.ss.android.socialbase.downloader.h.c cVar) {
         com.ss.android.socialbase.downloader.h.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) || (dVar = f61935b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) || (dVar = f62516b) == null) {
             return;
         }
         dVar.b(cVar);
@@ -160,21 +160,21 @@ public class e extends a {
             return;
         }
         com.ss.android.socialbase.downloader.c.a.b("DownloadTask", "start doDownload for task : " + i2);
-        f61935b.a(new com.ss.android.socialbase.downloader.h.c(downloadTask, this.a));
+        f62516b.a(new com.ss.android.socialbase.downloader.h.c(downloadTask, this.a));
     }
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public List<Integer> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f61935b.a() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f62516b.a() : (List) invokeV.objValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public void a(int i2, long j2) {
         com.ss.android.socialbase.downloader.h.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (dVar = f61935b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (dVar = f62516b) == null) {
             return;
         }
         dVar.a(i2, j2);

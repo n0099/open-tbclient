@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class t5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30940b;
+    public String f31310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30941c;
+    public String f31311c;
 
     /* renamed from: d  reason: collision with root package name */
-    public q1 f30942d;
+    public q1 f31312d;
 
     public t5(Context context) {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class t5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q1Var)) == null) {
-            this.f30942d = q1Var;
+            this.f31312d = q1Var;
             return this;
         }
         return (t5) invokeL.objValue;
@@ -53,7 +53,7 @@ public class t5 {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f30941c = x5.f30997d + x5.f30999f;
+            this.f31311c = x5.f31367d + x5.f31369f;
             x5.b(this);
         }
     }
@@ -61,7 +61,7 @@ public class t5 {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f30941c = x5.f30997d + x5.f31003j;
+            this.f31311c = x5.f31367d + x5.f31373j;
             x5.b(this);
         }
     }
@@ -69,7 +69,7 @@ public class t5 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f30941c = x5.f30997d + x5.f31000g;
+            this.f31311c = x5.f31367d + x5.f31370g;
             x5.b(this);
         }
     }
@@ -77,7 +77,7 @@ public class t5 {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f30941c = x5.f30997d + x5.f30998e;
+            this.f31311c = x5.f31367d + x5.f31368e;
             x5.b(this);
         }
     }
@@ -85,7 +85,7 @@ public class t5 {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f30941c = x5.f30997d + x5.f31002i;
+            this.f31311c = x5.f31367d + x5.f31372i;
             x5.b(this);
         }
     }
@@ -93,7 +93,7 @@ public class t5 {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f30941c = x5.f30997d + x5.f31001h;
+            this.f31311c = x5.f31367d + x5.f31371h;
             x5.b(this);
         }
     }

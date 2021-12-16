@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.a.kwai.c;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends c.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public final f f56957j;
+    public final f f57538j;
 
     public d(boolean z, f fVar) {
         Interceptable interceptable = $ic;
@@ -33,37 +33,37 @@ public class d extends c.b {
             }
         }
         this.a = z;
-        this.f56957j = fVar;
+        this.f57538j = fVar;
         ByteBuffer allocate = ByteBuffer.allocate(4);
         allocate.order(z ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-        this.f56946b = fVar.d(allocate, 16L);
-        this.f56947c = fVar.c(allocate, 28L);
-        this.f56948d = fVar.c(allocate, 32L);
-        this.f56949e = fVar.d(allocate, 42L);
-        this.f56950f = fVar.d(allocate, 44L);
-        this.f56951g = fVar.d(allocate, 46L);
-        this.f56952h = fVar.d(allocate, 48L);
-        this.f56953i = fVar.d(allocate, 50L);
+        this.f57527b = fVar.d(allocate, 16L);
+        this.f57528c = fVar.c(allocate, 28L);
+        this.f57529d = fVar.c(allocate, 32L);
+        this.f57530e = fVar.d(allocate, 42L);
+        this.f57531f = fVar.d(allocate, 44L);
+        this.f57532g = fVar.d(allocate, 46L);
+        this.f57533h = fVar.d(allocate, 48L);
+        this.f57534i = fVar.d(allocate, 50L);
     }
 
     @Override // com.kwad.a.kwai.c.b
     public c.a a(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? new a(this.f56957j, this, j2, i2) : (c.a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? new a(this.f57538j, this, j2, i2) : (c.a) invokeCommon.objValue;
     }
 
     @Override // com.kwad.a.kwai.c.b
-    public c.AbstractC2002c a(long j2) {
+    public c.AbstractC2063c a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? new g(this.f56957j, this, j2) : (c.AbstractC2002c) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? new g(this.f57538j, this, j2) : (c.AbstractC2063c) invokeJ.objValue;
     }
 
     @Override // com.kwad.a.kwai.c.b
     public c.d a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new i(this.f56957j, this, i2) : (c.d) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new i(this.f57538j, this, i2) : (c.d) invokeI.objValue;
     }
 }

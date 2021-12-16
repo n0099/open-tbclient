@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.Charset;
 import java.nio.charset.IllegalCharsetNameException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CharEncoding {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ISO_8859_1 = "ISO-8859-1";

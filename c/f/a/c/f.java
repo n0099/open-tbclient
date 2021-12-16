@@ -12,7 +12,7 @@ import com.dxmpay.apollon.eventbus.EventBusException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Class<?>, Method> a;

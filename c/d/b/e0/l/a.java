@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import okio.Buffer;
 import okio.BufferedSink;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Buffer f28332e;
+    public final Buffer f28707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f28333f;
+    public long f28708f;
 
     public a(long j2) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public final class a extends d {
             }
         }
         Buffer buffer = new Buffer();
-        this.f28332e = buffer;
-        this.f28333f = -1L;
+        this.f28707e = buffer;
+        this.f28708f = -1L;
         f(buffer, j2);
     }
 
@@ -46,14 +46,14 @@ public final class a extends d {
     public long a() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28333f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28708f : invokeV.longValue;
     }
 
     @Override // c.d.b.a0
     public void e(BufferedSink bufferedSink) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bufferedSink) == null) {
-            this.f28332e.copyTo(bufferedSink.buffer(), 0L, this.f28332e.size());
+            this.f28707e.copyTo(bufferedSink.buffer(), 0L, this.f28707e.size());
         }
     }
 
@@ -66,10 +66,10 @@ public final class a extends d {
                 return zVar;
             }
             h().close();
-            this.f28333f = this.f28332e.size();
+            this.f28708f = this.f28707e.size();
             z.a g2 = zVar.g();
             g2.f("Transfer-Encoding");
-            g2.c("Content-Length", Long.toString(this.f28332e.size()));
+            g2.c("Content-Length", Long.toString(this.f28707e.size()));
             return g2.b();
         }
         return (z) invokeL.objValue;

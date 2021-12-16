@@ -39,20 +39,20 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TachikomaApi {
     public static /* synthetic */ Interceptable $ic;
     public static final TachikomaApi instance;
     public transient /* synthetic */ FieldHolder $fh;
     public Application mApplication;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TKInitParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Map<String, Object> config;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

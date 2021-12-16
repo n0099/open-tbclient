@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.LogUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f33823b;
+    public final /* synthetic */ d f34291b;
 
     public e(d dVar, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class e extends Thread {
                 return;
             }
         }
-        this.f33823b = dVar;
+        this.f34291b = dVar;
         this.a = bArr;
     }
 
@@ -42,8 +42,8 @@ public class e extends Thread {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.run();
             try {
-                this.f33823b.a();
-                bVar = this.f33823b.f33822d;
+                this.f34291b.a();
+                bVar = this.f34291b.f34290d;
                 bVar.a(this.a);
             } catch (Exception e2) {
                 LogUtil.logE(LogUtils.TAG, Log.getStackTraceString(e2));

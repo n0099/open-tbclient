@@ -1,20 +1,43 @@
 package c.a.f0;
 
+import android.os.Bundle;
+import com.baidu.payment.PaymentManager;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 /* loaded from: classes.dex */
-public final class c {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int loading_rotate = 2130772132;
-    public static final int poly_sdk_common_dialog_fragment_in = 2130772211;
-    public static final int poly_sdk_common_dialog_fragment_out = 2130772212;
-    public static final int popupwindow_grow_fade_in = 2130772217;
-    public static final int popupwindow_grow_fade_in_from_bottom = 2130772218;
-    public static final int popupwindow_shrink_fade_out = 2130772219;
-    public static final int popupwindow_shrink_fade_out_from_bottom = 2130772220;
-    public static final int slide_in_bottom = 2130772275;
-    public static final int slide_left_2_right = 2130772276;
-    public static final int slide_out_bottom = 2130772277;
-    public static final int slide_right_2_left = 2130772278;
+public class c {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
+            if (bundle == null) {
+                PaymentManager.i(3, "闪付返回信息为空");
+                return;
+            }
+            String string = bundle.getString(EnterDxmPayServiceAction.SERVICE_STATUS_CODE);
+            try {
+                PaymentManager.i(Integer.parseInt(string), bundle.getString("payInfo"));
+            } catch (NumberFormatException e2) {
+                PaymentManager.i(3, e2.getMessage());
+            }
+        }
+    }
+
+    public static void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
+            a.a().g(bundle);
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
+            a.a().h("");
+        }
+    }
 }

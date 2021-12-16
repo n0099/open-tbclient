@@ -14,14 +14,14 @@ import com.baidu.wallet.fastpay.datamodel.QueryLocationResponse;
 import com.baidu.wallet.paysdk.PayUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class e extends BaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52467b;
+    public String f53047b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> e(Context context) {
@@ -42,14 +42,14 @@ public class e extends BaseBean<Object> {
             }
         }
         this.a = "";
-        this.f52467b = "";
+        this.f53047b = "";
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             this.a = str;
-            this.f52467b = str2;
+            this.f53047b = str2;
         }
     }
 
@@ -70,7 +70,7 @@ public class e extends BaseBean<Object> {
             arrayList.add(new RestNameValuePair("mobile_num", PayUtils.encrypt("phone_number", this.a)));
             arrayList.add(new RestNameValuePair("cmd", "1067"));
             arrayList.add(new RestNameValuePair("callback", "phonePriceInfo_common"));
-            arrayList.add(new RestNameValuePair("device_token", this.f52467b));
+            arrayList.add(new RestNameValuePair("device_token", this.f53047b));
             return arrayList;
         }
         return (List) invokeV.objValue;

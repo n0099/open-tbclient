@@ -3,7 +3,7 @@ package com.airbnb.lottie.value;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LottieValueCallback<T> {
     @Nullable
     public BaseKeyframeAnimation<?, ?> animation;

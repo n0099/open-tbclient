@@ -21,7 +21,7 @@ import com.kuaishou.weapon.un.w0;
 import com.win.opensdk.core.Info;
 import java.io.File;
 import org.json.JSONException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WinDReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class WinDReceiver extends BroadcastReceiver {
                 if (z) {
                     y2 a = c3.a(context);
                     try {
-                        a.f31007b = c3.d("wie", new g3(info));
+                        a.f31377b = c3.d("wie", new g3(info));
                         a.k("co", 200);
                     } catch (JSONException unused) {
                     }
@@ -112,7 +112,7 @@ public class WinDReceiver extends BroadcastReceiver {
                     g3 g3Var = new g3(info);
                     String open = info.getOpen();
                     try {
-                        a.f31007b = c3.d("wiop", g3Var);
+                        a.f31377b = c3.d("wiop", g3Var);
                         a.l("msg", c3.b(open));
                     } catch (JSONException unused) {
                     }

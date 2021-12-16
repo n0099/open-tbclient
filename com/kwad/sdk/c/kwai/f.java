@@ -8,23 +8,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57084b;
+    public String f57665b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f57085c;
+    public List<String> f57666c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57086d;
+    public String f57667d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57087e;
+    public String f57668e;
 
     public f(String str) {
         Interceptable interceptable = $ic;
@@ -43,17 +43,17 @@ public class f {
         }
         Uri parse = Uri.parse(str);
         this.a = parse.getHost();
-        this.f57084b = parse.getScheme();
-        this.f57085c = parse.getPathSegments();
-        this.f57087e = parse.getQueryParameter("sceneId");
-        this.f57086d = parse.getPath();
+        this.f57665b = parse.getScheme();
+        this.f57666c = parse.getPathSegments();
+        this.f57668e = parse.getQueryParameter("sceneId");
+        this.f57667d = parse.getPath();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a + this.f57086d;
+            return this.a + this.f57667d;
         }
         return (String) invokeV.objValue;
     }
@@ -61,18 +61,18 @@ public class f {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57087e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57668e : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<String> list = this.f57085c;
+            List<String> list = this.f57666c;
             if (list == null || list.size() <= 0) {
                 return null;
             }
-            List<String> list2 = this.f57085c;
+            List<String> list2 = this.f57666c;
             return list2.get(list2.size() - 1);
         }
         return (String) invokeV.objValue;

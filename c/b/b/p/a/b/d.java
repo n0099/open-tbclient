@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d extends a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f27764h;
+    public g f28139h;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class d extends a implements b {
     public void o(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) {
-            this.f27764h = gVar;
+            this.f28139h = gVar;
             j(gVar.n());
             h(gVar.k());
         }
@@ -44,7 +44,7 @@ public class d extends a implements b {
         g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            g gVar2 = this.f27764h;
+            g gVar2 = this.f28139h;
             if (gVar2 instanceof h.b) {
                 gVar = new h.b((h.b) gVar2);
             } else {

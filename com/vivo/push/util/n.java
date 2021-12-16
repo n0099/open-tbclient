@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class n implements o {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -193,7 +193,7 @@ public final class n implements o {
     public static void a(Context context, com.vivo.push.b.p pVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, context, pVar, str) == null) {
-            if (str.contains(com.baidu.fsg.base.a.f34139g) || str.equals(s.b(context))) {
+            if (str.contains(com.baidu.fsg.base.a.f34607g) || str.equals(s.b(context))) {
                 com.vivo.push.a.a.a(context, pVar, str);
             }
         }

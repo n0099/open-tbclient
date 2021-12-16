@@ -29,18 +29,20 @@ import kotlin.Unit;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000 \u0003:\u0002\u0004\u0003B\u0007¢\u0006\u0004\b\u0001\u0010\u0002¨\u0006\u0005"}, d2 = {"Lcom/baidu/searchbox/floating/FloatView;", "<init>", "()V", "Companion", "Builder", "lib-player-floating_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+import kotlin.jvm.internal.Intrinsics;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000 \u0003:\u0002\u0004\u0003B\u0007¢\u0006\u0004\b\u0001\u0010\u0002¨\u0006\u0005"}, d2 = {"Lcom/baidu/searchbox/floating/FloatView;", "<init>", "()V", "Companion", "Builder", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes10.dex */
 public final class FloatView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
     public static final String TAG = "FloatView";
+    public static List<String> defaultFilters;
     public static boolean isClickCloseButton;
     public static boolean isRegisterLifecycle;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000`\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u0000B\u000f\u0012\u0006\u0010\u0006\u001a\u00020*¢\u0006\u0004\b0\u00101J\u0015\u0010\u0003\u001a\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0003\u0010\u0004J\u0015\u0010\u0007\u001a\u00020\u00002\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\n\u001a\u00020\tH\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u001b\u0010\u000e\u001a\u00020\u00002\f\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\r0\f¢\u0006\u0004\b\u000e\u0010\u000fJ\u0015\u0010\u0012\u001a\u00020\u00002\u0006\u0010\u0011\u001a\u00020\u0010¢\u0006\u0004\b\u0012\u0010\u0013J\u0015\u0010\u0016\u001a\u00020\u00002\u0006\u0010\u0015\u001a\u00020\u0014¢\u0006\u0004\b\u0016\u0010\u0017J\u0015\u0010\u001a\u001a\u00020\u00002\u0006\u0010\u0019\u001a\u00020\u0018¢\u0006\u0004\b\u001a\u0010\u001bJ\u0017\u0010\u001e\u001a\u00020\u00002\b\u0010\u001d\u001a\u0004\u0018\u00010\u001c¢\u0006\u0004\b\u001e\u0010\u001fJ\u001d\u0010#\u001a\u00020\u00002\u0006\u0010!\u001a\u00020 2\u0006\u0010\"\u001a\u00020 ¢\u0006\u0004\b#\u0010$J\r\u0010%\u001a\u00020\t¢\u0006\u0004\b%\u0010\u000bJ\u0015\u0010(\u001a\u00020\u00002\u0006\u0010'\u001a\u00020&¢\u0006\u0004\b(\u0010)R\u0019\u0010\u0006\u001a\u00020*8\u0006@\u0006¢\u0006\f\n\u0004\b\u0006\u0010+\u001a\u0004\b,\u0010-R\u0016\u0010.\u001a\u00020\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010/¨\u00062"}, d2 = {"Lcom/baidu/searchbox/floating/FloatView$Builder;", "Lcom/baidu/searchbox/floating/listener/FloatViewListener;", "listener", "addFloatListener", "(Lcom/baidu/searchbox/floating/listener/FloatViewListener;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "Lcom/baidu/searchbox/floating/IFloating;", "context", "bindContext", "(Lcom/baidu/searchbox/floating/IFloating;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "", "createFloatView", "()V", "", "", "filters", "(Ljava/util/List;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "Lcom/baidu/searchbox/floating/animator/FloatViewAnimator;", ShaderParams.VALUE_TYPE_ANIMATOR, "setAnimator", "(Lcom/baidu/searchbox/floating/animator/FloatViewAnimator;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "Lcom/baidu/searchbox/floating/config/Config;", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "setConfig", "(Lcom/baidu/searchbox/floating/config/Config;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "", c.l, "setDragEnable", "(Z)Lcom/baidu/searchbox/floating/FloatView$Builder;", "Landroid/view/View;", "floatingView", "setFloatingView", "(Landroid/view/View;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "", "x", "y", "setLocation", "(II)Lcom/baidu/searchbox/floating/FloatView$Builder;", "show", "Landroid/app/Notification;", ActionJsonData.TAG_NOTIFICATION, "startForeground", "(Landroid/app/Notification;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "Landroid/content/Context;", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "mConfig", "Lcom/baidu/searchbox/floating/config/Config;", "<init>", "(Landroid/content/Context;)V", "lib-player-floating_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes9.dex */
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000`\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u0000B\u000f\u0012\u0006\u0010\u0006\u001a\u00020*¢\u0006\u0004\b0\u00101J\u0015\u0010\u0003\u001a\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0003\u0010\u0004J\u0015\u0010\u0007\u001a\u00020\u00002\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\n\u001a\u00020\tH\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u001b\u0010\u000e\u001a\u00020\u00002\f\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\r0\f¢\u0006\u0004\b\u000e\u0010\u000fJ\u0015\u0010\u0012\u001a\u00020\u00002\u0006\u0010\u0011\u001a\u00020\u0010¢\u0006\u0004\b\u0012\u0010\u0013J\u0015\u0010\u0016\u001a\u00020\u00002\u0006\u0010\u0015\u001a\u00020\u0014¢\u0006\u0004\b\u0016\u0010\u0017J\u0015\u0010\u001a\u001a\u00020\u00002\u0006\u0010\u0019\u001a\u00020\u0018¢\u0006\u0004\b\u001a\u0010\u001bJ\u0017\u0010\u001e\u001a\u00020\u00002\b\u0010\u001d\u001a\u0004\u0018\u00010\u001c¢\u0006\u0004\b\u001e\u0010\u001fJ\u001d\u0010#\u001a\u00020\u00002\u0006\u0010!\u001a\u00020 2\u0006\u0010\"\u001a\u00020 ¢\u0006\u0004\b#\u0010$J\r\u0010%\u001a\u00020\t¢\u0006\u0004\b%\u0010\u000bJ\u0015\u0010(\u001a\u00020\u00002\u0006\u0010'\u001a\u00020&¢\u0006\u0004\b(\u0010)R\u0019\u0010\u0006\u001a\u00020*8\u0006@\u0006¢\u0006\f\n\u0004\b\u0006\u0010+\u001a\u0004\b,\u0010-R\u0016\u0010.\u001a\u00020\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010/¨\u00062"}, d2 = {"Lcom/baidu/searchbox/floating/FloatView$Builder;", "Lcom/baidu/searchbox/floating/listener/FloatViewListener;", "listener", "addFloatListener", "(Lcom/baidu/searchbox/floating/listener/FloatViewListener;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "Lcom/baidu/searchbox/floating/IFloating;", "context", "bindContext", "(Lcom/baidu/searchbox/floating/IFloating;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "", "createFloatView", "()V", "", "", "filters", "(Ljava/util/List;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "Lcom/baidu/searchbox/floating/animator/FloatViewAnimator;", ShaderParams.VALUE_TYPE_ANIMATOR, "setAnimator", "(Lcom/baidu/searchbox/floating/animator/FloatViewAnimator;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "Lcom/baidu/searchbox/floating/config/Config;", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "setConfig", "(Lcom/baidu/searchbox/floating/config/Config;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "", c.l, "setDragEnable", "(Z)Lcom/baidu/searchbox/floating/FloatView$Builder;", "Landroid/view/View;", "floatingView", "setFloatingView", "(Landroid/view/View;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "", "x", "y", "setLocation", "(II)Lcom/baidu/searchbox/floating/FloatView$Builder;", "show", "Landroid/app/Notification;", ActionJsonData.TAG_NOTIFICATION, "startForeground", "(Landroid/app/Notification;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "Landroid/content/Context;", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "mConfig", "Lcom/baidu/searchbox/floating/config/Config;", "<init>", "(Landroid/content/Context;)V", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes10.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,6 +64,7 @@ public final class FloatView {
                     return;
                 }
             }
+            Intrinsics.checkNotNullParameter(context, "context");
             this.context = context;
             this.mConfig = new Config();
         }
@@ -73,32 +76,38 @@ public final class FloatView {
             }
         }
 
-        public final Builder addFloatListener(FloatViewListener floatViewListener) {
+        public final Builder addFloatListener(FloatViewListener listener) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, floatViewListener)) == null) {
-                this.mConfig.getFloatViewListeners().add(floatViewListener);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listener)) == null) {
+                Intrinsics.checkNotNullParameter(listener, "listener");
+                this.mConfig.getFloatViewListeners().add(listener);
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public final Builder bindContext(IFloating iFloating) {
+        public final Builder bindContext(IFloating context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iFloating)) == null) {
-                this.mConfig.setFloatingContext(iFloating);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                this.mConfig.setFloatingContext(context);
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public final Builder filters(List<String> list) {
+        public final Builder filters(List<String> filters) {
             InterceptResult invokeL;
+            List list;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-                this.mConfig.getFilter().clear();
-                this.mConfig.getFilter().addAll(list);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, filters)) == null) {
+                Intrinsics.checkNotNullParameter(filters, "filters");
+                if (this.mConfig.getFilter().size() == 0 && (list = FloatView.defaultFilters) != null) {
+                    this.mConfig.getFilter().addAll(list);
+                }
+                this.mConfig.getFilter().addAll(filters);
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -110,11 +119,12 @@ public final class FloatView {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.context : (Context) invokeV.objValue;
         }
 
-        public final Builder setAnimator(FloatViewAnimator floatViewAnimator) {
+        public final Builder setAnimator(FloatViewAnimator animator) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, floatViewAnimator)) == null) {
-                this.mConfig.setAnimator(floatViewAnimator);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, animator)) == null) {
+                Intrinsics.checkNotNullParameter(animator, "animator");
+                this.mConfig.setAnimator(animator);
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -124,6 +134,7 @@ public final class FloatView {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, config)) == null) {
+                Intrinsics.checkNotNullParameter(config, "config");
                 this.mConfig = config;
                 return this;
             }
@@ -185,6 +196,7 @@ public final class FloatView {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, notification)) == null) {
+                Intrinsics.checkNotNullParameter(notification, "notification");
                 this.mConfig.setNotification(notification);
                 this.mConfig.setForeground(true);
                 return this;
@@ -193,8 +205,8 @@ public final class FloatView {
         }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u000b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b%\u0010&J!\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u00012\b\b\u0002\u0010\u0004\u001a\u00020\u0003H\u0007¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\f\u001a\u0004\u0018\u00010\u000b¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000e\u001a\u00020\u0003H\u0007¢\u0006\u0004\b\u000e\u0010\u000fJ\u0015\u0010\u0010\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0012\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0012\u0010\u0011J\u001b\u0010\u0015\u001a\u00020\u00052\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00050\u0013¢\u0006\u0004\b\u0015\u0010\u0016J\u0015\u0010\u0017\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0017\u0010\u0011J\u001b\u0010\u0018\u001a\u00020\u00052\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00050\u0013¢\u0006\u0004\b\u0018\u0010\u0016J\u0017\u0010\u001a\u001a\u00020\u00192\u0006\u0010\u0002\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u001a\u0010\u001bR\u0016\u0010\u001d\u001a\u00020\u001c8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001d\u0010\u001eR\"\u0010\u001f\u001a\u00020\u00038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001f\u0010 \u001a\u0004\b\u001f\u0010\u000f\"\u0004\b!\u0010\"R\"\u0010#\u001a\u00020\u00038\u0002@\u0002X\u0082\u000e¢\u0006\u0012\n\u0004\b#\u0010 \u001a\u0004\b#\u0010\u000f\"\u0004\b$\u0010\"¨\u0006'"}, d2 = {"Lcom/baidu/searchbox/floating/FloatView$Companion;", "Landroid/content/Context;", "context", "", "immediately", "", "dismissAppFloatView", "(Landroid/content/Context;Z)V", "Landroid/view/View;", "getAppContentView", "()Landroid/view/View;", "Lcom/baidu/searchbox/floating/IFloating;", "getAppPlayerContext", "()Lcom/baidu/searchbox/floating/IFloating;", "hasFloatView", "()Z", "hideAppFloatView", "(Landroid/content/Context;)V", "invalidate", "Lkotlin/Function0;", "lifeCycle", "registerLifeCycle", "(Lkotlin/Function0;)V", "showAppFloatView", "unregisterLifecycle", "Lcom/baidu/searchbox/floating/FloatView$Builder;", "with", "(Landroid/content/Context;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "", "TAG", "Ljava/lang/String;", "isClickCloseButton", "Z", "setClickCloseButton", "(Z)V", "isRegisterLifecycle", "setRegisterLifecycle", "<init>", "()V", "lib-player-floating_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes9.dex */
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000e\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b*\u0010+J!\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u00012\b\b\u0002\u0010\u0004\u001a\u00020\u0003H\u0007¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\f\u001a\u0004\u0018\u00010\u000b¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000e\u001a\u00020\u0003H\u0007¢\u0006\u0004\b\u000e\u0010\u000fJ\u0015\u0010\u0010\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0012\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0012\u0010\u0011J\u001b\u0010\u0015\u001a\u00020\u00052\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00050\u0013¢\u0006\u0004\b\u0015\u0010\u0016J\u001d\u0010\u001a\u001a\u00020\u00052\u000e\u0010\u0019\u001a\n\u0012\u0004\u0012\u00020\u0018\u0018\u00010\u0017¢\u0006\u0004\b\u001a\u0010\u001bJ\u0015\u0010\u001c\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u001c\u0010\u0011J\u001b\u0010\u001d\u001a\u00020\u00052\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00050\u0013¢\u0006\u0004\b\u001d\u0010\u0016J\u0017\u0010\u001f\u001a\u00020\u001e2\u0006\u0010\u0002\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u001f\u0010 R\u0016\u0010!\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b!\u0010\"R\u001e\u0010#\u001a\n\u0012\u0004\u0012\u00020\u0018\u0018\u00010\u00178\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\"\u0010%\u001a\u00020\u00038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b%\u0010&\u001a\u0004\b%\u0010\u000f\"\u0004\b'\u0010(R\u0016\u0010)\u001a\u00020\u00038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010&¨\u0006,"}, d2 = {"Lcom/baidu/searchbox/floating/FloatView$Companion;", "Landroid/content/Context;", "context", "", "immediately", "", "dismissAppFloatView", "(Landroid/content/Context;Z)V", "Landroid/view/View;", "getAppContentView", "()Landroid/view/View;", "Lcom/baidu/searchbox/floating/IFloating;", "getAppPlayerContext", "()Lcom/baidu/searchbox/floating/IFloating;", "hasFloatView", "()Z", "hideAppFloatView", "(Landroid/content/Context;)V", "invalidate", "Lkotlin/Function0;", "lifeCycle", "registerLifeCycle", "(Lkotlin/Function0;)V", "", "", "filters", "setDefaultBlockFilter", "(Ljava/util/List;)V", "showAppFloatView", "unregisterLifecycle", "Lcom/baidu/searchbox/floating/FloatView$Builder;", "with", "(Landroid/content/Context;)Lcom/baidu/searchbox/floating/FloatView$Builder;", "TAG", "Ljava/lang/String;", "defaultFilters", "Ljava/util/List;", "isClickCloseButton", "Z", "setClickCloseButton", "(Z)V", "isRegisterLifecycle", "<init>", "()V", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,31 +225,18 @@ public final class FloatView {
             }
         }
 
-        @JvmStatic
-        public static /* bridge */ /* synthetic */ void dismissAppFloatView$default(Companion companion, Context context, boolean z, int i2, Object obj) {
+        public static /* synthetic */ void dismissAppFloatView$default(Companion companion, Context context, boolean z, int i2, Object obj) {
             if ((i2 & 2) != 0) {
                 z = false;
             }
             companion.dismissAppFloatView(context, z);
         }
 
-        private final boolean isRegisterLifecycle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? FloatView.isRegisterLifecycle : invokeV.booleanValue;
-        }
-
-        private final void setRegisterLifecycle(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
-                FloatView.isRegisterLifecycle = z;
-            }
-        }
-
         @JvmStatic
         public final void dismissAppFloatView(Context context, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
                 FloatViewService.Companion.dismiss(context, z);
             }
         }
@@ -287,6 +286,7 @@ public final class FloatView {
         public final void hideAppFloatView(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
                 FloatViewService.Companion.setVisible(context, false);
             }
         }
@@ -294,6 +294,7 @@ public final class FloatView {
         public final void invalidate(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
                 FloatViewService.Companion.invalidate(context);
             }
         }
@@ -304,13 +305,16 @@ public final class FloatView {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? FloatView.isClickCloseButton : invokeV.booleanValue;
         }
 
-        public final void registerLifeCycle(Function0<Unit> function0) {
+        public final void registerLifeCycle(Function0<Unit> lifeCycle) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048583, this, function0) == null) || isRegisterLifecycle()) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048583, this, lifeCycle) == null) {
+                Intrinsics.checkNotNullParameter(lifeCycle, "lifeCycle");
+                if (FloatView.isRegisterLifecycle) {
+                    return;
+                }
+                FloatView.isRegisterLifecycle = true;
+                lifeCycle.invoke();
             }
-            setRegisterLifecycle(true);
-            function0.invoke();
         }
 
         public final void setClickCloseButton(boolean z) {
@@ -320,18 +324,29 @@ public final class FloatView {
             }
         }
 
+        public final void setDefaultBlockFilter(List<String> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+                FloatView.defaultFilters = list;
+            }
+        }
+
         public final void showAppFloatView(Context context) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
+            if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
                 FloatViewService.Companion.setVisible(context, true);
             }
         }
 
-        public final void unregisterLifecycle(Function0<Unit> function0) {
+        public final void unregisterLifecycle(Function0<Unit> lifeCycle) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048586, this, function0) == null) && isRegisterLifecycle()) {
-                setRegisterLifecycle(false);
-                function0.invoke();
+            if (interceptable == null || interceptable.invokeL(1048587, this, lifeCycle) == null) {
+                Intrinsics.checkNotNullParameter(lifeCycle, "lifeCycle");
+                if (FloatView.isRegisterLifecycle) {
+                    FloatView.isRegisterLifecycle = false;
+                    lifeCycle.invoke();
+                }
             }
         }
 
@@ -339,7 +354,11 @@ public final class FloatView {
         public final Builder with(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) ? new Builder(context) : (Builder) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return new Builder(context);
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -380,7 +399,7 @@ public final class FloatView {
     @JvmStatic
     public static final void dismissAppFloatView(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65542, null, context, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65544, null, context, z) == null) {
             Companion.dismissAppFloatView(context, z);
         }
     }
@@ -389,13 +408,13 @@ public final class FloatView {
     public static final boolean hasFloatView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Companion.hasFloatView() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? Companion.hasFloatView() : invokeV.booleanValue;
     }
 
     @JvmStatic
     public static final Builder with(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? Companion.with(context) : (Builder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) ? Companion.with(context) : (Builder) invokeL.objValue;
     }
 }

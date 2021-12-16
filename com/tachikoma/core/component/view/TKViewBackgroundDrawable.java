@@ -78,7 +78,7 @@ public class TKViewBackgroundDrawable extends Drawable {
     public RectF mTempRectForCenterDrawPath;
 
     /* renamed from: com.tachikoma.core.component.view.TKViewBackgroundDrawable$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$tachikoma$core$component$view$TKViewBackgroundDrawable$BorderStyle;
         public static /* synthetic */ Interceptable $ic;

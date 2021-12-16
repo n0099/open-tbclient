@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import c.a.d.f.p.h;
+import c.a.d.f.p.i;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class StringU {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -31,7 +31,7 @@ public class StringU {
             }
         }
         try {
-            boolean h2 = h.d().h("stringu", 2);
+            boolean h2 = i.d().h("stringu", 2);
             a = h2;
             if (h2) {
                 a("stringu_so_load_success", null);
@@ -68,7 +68,7 @@ public class StringU {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0033  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0035  */
     /* JADX WARN: Removed duplicated region for block: B:31:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

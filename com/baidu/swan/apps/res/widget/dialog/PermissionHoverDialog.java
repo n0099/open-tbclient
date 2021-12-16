@@ -12,10 +12,10 @@ import android.view.Window;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.p0.a.e;
-import c.a.p0.a.f;
-import c.a.p0.a.g;
-import c.a.p0.a.i;
+import c.a.q0.a.e;
+import c.a.q0.a.f;
+import c.a.q0.a.g;
+import c.a.q0.a.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.widget.dialog.SwanAppAlertDialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,50 +23,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PermissionHoverDialog extends SwanAppAlertDialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NOT_TIP_IS_CHECKED = 1;
     public static final int NOT_TIP_NOT_CHECKED = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a extends SwanAppAlertDialog.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f39988f;
+        public TextView f40477f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f39989g;
+        public TextView f40478g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f39990h;
+        public TextView f40479h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TextView f39991i;
+        public TextView f40480i;
 
         /* renamed from: j  reason: collision with root package name */
-        public LinearLayout f39992j;
+        public LinearLayout f40481j;
 
         /* renamed from: k  reason: collision with root package name */
-        public LinearLayout f39993k;
+        public LinearLayout f40482k;
         public CheckBox l;
 
         /* renamed from: com.baidu.swan.apps.res.widget.dialog.PermissionHoverDialog$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public class DialogInterface$OnKeyListenerC1802a implements DialogInterface.OnKeyListener {
+        /* loaded from: classes11.dex */
+        public class DialogInterface$OnKeyListenerC1861a implements DialogInterface.OnKeyListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f39994e;
+            public final /* synthetic */ DialogInterface.OnClickListener f40483e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f39995f;
+            public final /* synthetic */ a f40484f;
 
-            public DialogInterface$OnKeyListenerC1802a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public DialogInterface$OnKeyListenerC1861a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,8 +81,8 @@ public class PermissionHoverDialog extends SwanAppAlertDialog {
                         return;
                     }
                 }
-                this.f39995f = aVar;
-                this.f39994e = onClickListener;
+                this.f40484f = aVar;
+                this.f40483e = onClickListener;
             }
 
             @Override // android.content.DialogInterface.OnKeyListener
@@ -91,8 +91,8 @@ public class PermissionHoverDialog extends SwanAppAlertDialog {
                 DialogInterface.OnClickListener onClickListener;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i2, keyEvent)) == null) {
-                    if (keyEvent.getAction() == 1 && i2 == 4 && keyEvent.getRepeatCount() == 0 && (onClickListener = this.f39994e) != null) {
-                        onClickListener.onClick(dialogInterface, this.f39995f.c0());
+                    if (keyEvent.getAction() == 1 && i2 == 4 && keyEvent.getRepeatCount() == 0 && (onClickListener = this.f40483e) != null) {
+                        onClickListener.onClick(dialogInterface, this.f40484f.c0());
                         return true;
                     }
                     return false;
@@ -101,16 +101,16 @@ public class PermissionHoverDialog extends SwanAppAlertDialog {
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f39996e;
+            public final /* synthetic */ DialogInterface.OnClickListener f40485e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f39997f;
+            public final /* synthetic */ a f40486f;
 
             public b(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
@@ -127,32 +127,32 @@ public class PermissionHoverDialog extends SwanAppAlertDialog {
                         return;
                     }
                 }
-                this.f39997f = aVar;
-                this.f39996e = onClickListener;
+                this.f40486f = aVar;
+                this.f40485e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 DialogInterface.OnClickListener onClickListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f39996e) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f40485e) == null) {
                     return;
                 }
-                a aVar = this.f39997f;
-                onClickListener.onClick(aVar.f40004b, aVar.c0());
+                a aVar = this.f40486f;
+                onClickListener.onClick(aVar.f40493b, aVar.c0());
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class c implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f39998e;
+            public final /* synthetic */ DialogInterface.OnClickListener f40487e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f39999f;
+            public final /* synthetic */ a f40488f;
 
             public c(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
@@ -169,29 +169,29 @@ public class PermissionHoverDialog extends SwanAppAlertDialog {
                         return;
                     }
                 }
-                this.f39999f = aVar;
-                this.f39998e = onClickListener;
+                this.f40488f = aVar;
+                this.f40487e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 DialogInterface.OnClickListener onClickListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f39998e) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f40487e) == null) {
                     return;
                 }
-                a aVar = this.f39999f;
-                onClickListener.onClick(aVar.f40004b, aVar.c0());
+                a aVar = this.f40488f;
+                onClickListener.onClick(aVar.f40493b, aVar.c0());
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class d implements DialogInterface.OnShowListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnShowListener f40000e;
+            public final /* synthetic */ DialogInterface.OnShowListener f40489e;
 
             public d(a aVar, DialogInterface.OnShowListener onShowListener) {
                 Interceptable interceptable = $ic;
@@ -208,27 +208,27 @@ public class PermissionHoverDialog extends SwanAppAlertDialog {
                         return;
                     }
                 }
-                this.f40000e = onShowListener;
+                this.f40489e = onShowListener;
             }
 
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
                 DialogInterface.OnShowListener onShowListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (onShowListener = this.f40000e) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (onShowListener = this.f40489e) == null) {
                     return;
                 }
                 onShowListener.onShow(dialogInterface);
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class e implements DialogInterface.OnDismissListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnDismissListener f40001e;
+            public final /* synthetic */ DialogInterface.OnDismissListener f40490e;
 
             public e(a aVar, DialogInterface.OnDismissListener onDismissListener) {
                 Interceptable interceptable = $ic;
@@ -245,14 +245,14 @@ public class PermissionHoverDialog extends SwanAppAlertDialog {
                         return;
                     }
                 }
-                this.f40001e = onDismissListener;
+                this.f40490e = onDismissListener;
             }
 
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 DialogInterface.OnDismissListener onDismissListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (onDismissListener = this.f40001e) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (onDismissListener = this.f40490e) == null) {
                     return;
                 }
                 onDismissListener.onDismiss(dialogInterface);
@@ -277,21 +277,21 @@ public class PermissionHoverDialog extends SwanAppAlertDialog {
                     return;
                 }
             }
-            n(new c.a.p0.a.a3.h.a());
+            n(new c.a.q0.a.a3.h.a());
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(g.swan_app_auth_hover_dialog, e(), false);
             W(viewGroup);
-            this.f39992j = (LinearLayout) viewGroup.findViewById(f.auth_layout);
-            this.f39990h = (TextView) viewGroup.findViewById(f.auth_negative_button);
-            this.f39991i = (TextView) viewGroup.findViewById(f.auth_positive_button);
-            this.f39993k = (LinearLayout) viewGroup.findViewById(f.know_it_layout);
+            this.f40481j = (LinearLayout) viewGroup.findViewById(f.auth_layout);
+            this.f40479h = (TextView) viewGroup.findViewById(f.auth_negative_button);
+            this.f40480i = (TextView) viewGroup.findViewById(f.auth_positive_button);
+            this.f40482k = (LinearLayout) viewGroup.findViewById(f.know_it_layout);
             this.l = (CheckBox) viewGroup.findViewById(f.hover_dialog_not_tips);
-            this.f39988f = (TextView) viewGroup.findViewById(f.hover_dialog_title);
-            this.f39989g = (TextView) viewGroup.findViewById(f.hover_dialog_tip);
-            this.l.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(c.a.p0.a.e.swanapp_hover_dialog_tip_selector), (Drawable) null, (Drawable) null, (Drawable) null);
-            this.f39993k.setVisibility(8);
-            this.f39992j.setVisibility(0);
+            this.f40477f = (TextView) viewGroup.findViewById(f.hover_dialog_title);
+            this.f40478g = (TextView) viewGroup.findViewById(f.hover_dialog_tip);
+            this.l.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(c.a.q0.a.e.swanapp_hover_dialog_tip_selector), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.f40482k.setVisibility(8);
+            this.f40481j.setVisibility(0);
             this.l.setVisibility(0);
-            this.f40004b.setCancelable(false);
+            this.f40493b.setCancelable(false);
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.SwanAppAlertDialog.a
@@ -328,7 +328,7 @@ public class PermissionHoverDialog extends SwanAppAlertDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f39989g.setText(str);
+                this.f40478g.setText(str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -338,7 +338,7 @@ public class PermissionHoverDialog extends SwanAppAlertDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f39988f.setText(str);
+                this.f40477f.setText(str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -348,7 +348,7 @@ public class PermissionHoverDialog extends SwanAppAlertDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, onClickListener)) == null) {
-                this.f39990h.setOnClickListener(new b(this, onClickListener));
+                this.f40479h.setOnClickListener(new b(this, onClickListener));
                 return this;
             }
             return (a) invokeL.objValue;
@@ -358,7 +358,7 @@ public class PermissionHoverDialog extends SwanAppAlertDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, onClickListener)) == null) {
-                super.M(new DialogInterface$OnKeyListenerC1802a(this, onClickListener));
+                super.M(new DialogInterface$OnKeyListenerC1861a(this, onClickListener));
                 return this;
             }
             return (a) invokeL.objValue;
@@ -388,7 +388,7 @@ public class PermissionHoverDialog extends SwanAppAlertDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, onClickListener)) == null) {
-                this.f39991i.setOnClickListener(new c(this, onClickListener));
+                this.f40480i.setOnClickListener(new c(this, onClickListener));
                 return this;
             }
             return (a) invokeL.objValue;

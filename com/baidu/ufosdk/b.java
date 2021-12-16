@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static int A = -1;
@@ -48,34 +48,34 @@ public final class b {
     public static int ai = 600;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f51513b = "";
+    public static String f52062b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f51514c = "";
+    public static String f52063c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f51515d = "";
+    public static String f52064d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f51516e = 0;
+    public static int f52065e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f51517f = "";
+    public static String f52066f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static Bitmap f51518g = null;
+    public static Bitmap f52067g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f51519h = "";
+    public static String f52068h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f51520i = "";
+    public static String f52069i = "";
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f51521j = 0;
+    public static int f52070j = 0;
 
     /* renamed from: k  reason: collision with root package name */
-    public static int f51522k = 0;
+    public static int f52071k = 0;
     public static String l = "";
     public static String m = "";
     public static String n = "";

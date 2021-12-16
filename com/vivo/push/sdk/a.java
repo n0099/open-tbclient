@@ -22,22 +22,22 @@ import com.vivo.push.util.s;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a extends aa {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f62524c;
+    public static a f63105c;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final List<Integer> f62525f;
+    public static final List<Integer> f63106f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f62526d;
+    public Handler f63107d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f62527e;
+    public String f63108e;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public final class a extends aa {
                 return;
             }
         }
-        f62525f = Arrays.asList(3);
+        f63106f = Arrays.asList(3);
     }
 
     public a() {
@@ -68,7 +68,7 @@ public final class a extends aa {
                 return;
             }
         }
-        this.f62526d = new Handler(Looper.getMainLooper());
+        this.f63107d = new Handler(Looper.getMainLooper());
     }
 
     public static synchronized a a() {
@@ -77,10 +77,10 @@ public final class a extends aa {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f62524c == null) {
-                    f62524c = new a();
+                if (f63105c == null) {
+                    f63105c = new a();
                 }
-                aVar = f62524c;
+                aVar = f63105c;
             }
             return aVar;
         }
@@ -90,7 +90,7 @@ public final class a extends aa {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f62527e = null;
+            this.f63108e = null;
         }
     }
 
@@ -105,13 +105,13 @@ public final class a extends aa {
                     intExtra = intent.getIntExtra("method", -1);
                 }
                 String packageName = this.a.getPackageName();
-                if (f62525f.contains(Integer.valueOf(intExtra)) && s.b(this.a, packageName) && !s.d(this.a)) {
+                if (f63106f.contains(Integer.valueOf(intExtra)) && s.b(this.a, packageName) && !s.d(this.a)) {
                     return;
                 }
                 String action = intent.getAction();
-                if (TextUtils.isEmpty(this.f62527e)) {
+                if (TextUtils.isEmpty(this.f63108e)) {
                     String a = a(this.a, packageName, action);
-                    this.f62527e = a;
+                    this.f63108e = a;
                     if (TextUtils.isEmpty(a)) {
                         p.d("CommandWorker", " reflectReceiver error: receiver for: " + action + " not found, package: " + packageName);
                         intent.setPackage(packageName);
@@ -120,11 +120,11 @@ public final class a extends aa {
                     }
                 }
                 try {
-                    Class<?> cls = Class.forName(this.f62527e);
+                    Class<?> cls = Class.forName(this.f63108e);
                     Object newInstance = cls.getConstructor(new Class[0]).newInstance(new Object[0]);
                     Method method = cls.getMethod("onReceive", Context.class, Intent.class);
-                    intent.setClassName(packageName, this.f62527e);
-                    this.f62526d.post(new b(this, method, newInstance, new Object[]{this.a.getApplicationContext(), intent}));
+                    intent.setClassName(packageName, this.f63108e);
+                    this.f63107d.post(new b(this, method, newInstance, new Object[]{this.a.getApplicationContext(), intent}));
                     return;
                 } catch (Exception e2) {
                     p.b("CommandWorker", "reflect e: ", e2);

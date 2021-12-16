@@ -35,40 +35,40 @@ import java.util.Enumeration;
 import java.util.Random;
 import java.util.UUID;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "armeabi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34566b = "armeabi-v7a";
+    public static final String f35034b = "armeabi-v7a";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34567c = "x86";
+    public static final String f35035c = "x86";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34568d = "arm64-v8a";
+    public static final String f35036d = "arm64-v8a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f34569e = 480;
+    public static final int f35037e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f34570f = 480;
+    public static final int f35038f = 480;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f34571g = 192;
+    public static final int f35039g = 192;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f34572h = 480;
+    public static final int f35040h = 480;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f34573i = 620;
+    public static final int f35041i = 620;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f34574j = 728;
+    public static final int f35042j = 728;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f34575k = 750;
+    public static final int f35043k = 750;
     public static final int l = 1335;
     public static final String m = "SapiBiometricUtil";
     public transient /* synthetic */ FieldHolder $fh;

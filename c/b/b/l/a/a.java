@@ -6,7 +6,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import c.b.b.q.g0;
 import com.badlogic.gdx.Application;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface a extends Application {
     Window getApplicationWindow();
 

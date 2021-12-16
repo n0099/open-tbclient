@@ -3,6 +3,7 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import com.baidu.searchbox.player.widget.BdPlayerProgressView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class au {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +47,7 @@ public class au {
                 String[] split = str.split("-");
                 if (split.length == 2) {
                     MiPushClient.addAcceptTime(context, split[0], split[1]);
-                    if ("00:00".equals(split[0]) && "00:00".equals(split[1])) {
+                    if (BdPlayerProgressView.DEFAULT_TIME_TEXT.equals(split[0]) && BdPlayerProgressView.DEFAULT_TIME_TEXT.equals(split[1])) {
                         b.m163a(context).a(true);
                     } else {
                         b.m163a(context).a(false);

@@ -20,13 +20,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "utf-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34266b = "c82c403505338808201aad86f8194734";
+    public static final String f34734b = "c82c403505338808201aad86f8194734";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ec {
     public static /* synthetic */ Interceptable $ic;
     public static final ec a;
@@ -17,13 +17,13 @@ public final class ec {
     public static final /* synthetic */ ec[] f323a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ec f62839b;
+    public static final ec f63420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ec f62840c;
+    public static final ec f63421c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ec f62841d;
+    public static final ec f63422d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -43,11 +43,11 @@ public final class ec {
             }
         }
         a = new ec("ACTIVITY", 0, "activity");
-        f62839b = new ec("SERVICE_ACTION", 1, "service_action");
-        f62840c = new ec("SERVICE_COMPONENT", 2, "service_component");
+        f63420b = new ec("SERVICE_ACTION", 1, "service_action");
+        f63421c = new ec("SERVICE_COMPONENT", 2, "service_component");
         ec ecVar = new ec("PROVIDER", 3, "provider");
-        f62841d = ecVar;
-        f323a = new ec[]{a, f62839b, f62840c, ecVar};
+        f63422d = ecVar;
+        f323a = new ec[]{a, f63420b, f63421c, ecVar};
     }
 
     public ec(String str, int i2, String str2) {

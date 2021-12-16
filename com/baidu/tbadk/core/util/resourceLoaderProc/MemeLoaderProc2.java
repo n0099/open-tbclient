@@ -6,10 +6,10 @@ import c.a.d.f.a.d;
 import c.a.d.f.a.f.c;
 import c.a.d.f.l.b;
 import c.a.d.f.l.e;
-import c.a.d.f.p.j;
-import c.a.d.f.p.l;
+import c.a.d.f.p.k;
+import c.a.d.f.p.m;
 import c.a.d.m.d.a;
-import c.a.q0.s.k;
+import c.a.r0.s.l;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MemeLoaderProc2 implements e<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +106,7 @@ public class MemeLoaderProc2 implements e<a> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? k.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? l.c().g() : invokeV.booleanValue;
     }
 
     public void setIsShare(boolean z) {
@@ -158,7 +158,7 @@ public class MemeLoaderProc2 implements e<a> {
             if (aVar.u()) {
                 aVar.A(i2);
                 aVar.z(i3);
-                c.a.q0.c0.c.k().d(str, aVar);
+                c.a.r0.c0.c.k().d(str, aVar);
             }
         }
     }
@@ -184,7 +184,7 @@ public class MemeLoaderProc2 implements e<a> {
                 bVar.a = diskCancelWorker;
             }
             if (d.f().a(cVar)) {
-                int i4 = j.H() ? 300 : 2000;
+                int i4 = k.H() ? 300 : 2000;
                 synchronized (bArr) {
                     try {
                         bArr.wait(i4);
@@ -208,7 +208,7 @@ public class MemeLoaderProc2 implements e<a> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) {
-            a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, c.a.q0.c0.c.k().m(str), i2, i3);
+            a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, c.a.r0.c0.c.k().m(str), i2, i3);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }
@@ -229,8 +229,8 @@ public class MemeLoaderProc2 implements e<a> {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            int d2 = i2 == 0 ? l.d(TbadkCoreApplication.getInst().getApp(), 105.0f) : i2;
-            int d3 = i3 == 0 ? l.d(TbadkCoreApplication.getInst().getApp(), 105.0f) : i3;
+            int d2 = i2 == 0 ? m.d(TbadkCoreApplication.getInst().getApp(), 105.0f) : i2;
+            int d3 = i3 == 0 ? m.d(TbadkCoreApplication.getInst().getApp(), 105.0f) : i3;
             boolean z = true;
             if (!this.isShare) {
                 if (TbadkCoreApplication.getInst().getCapabilityOfWebp() && SwitchManager.getInstance().findType(WebpSwitch.WEBP_ENABLE) == 1) {
@@ -251,9 +251,9 @@ public class MemeLoaderProc2 implements e<a> {
             byte[] downloadImageBytes = webClient.downloadImageBytes(str4, !this.isFromCDN);
             boolean needCache = webClient.needCache();
             if (downloadImageBytes != null || webClient.getResponse().a) {
-                c.a.q0.c0.c.k().i(TbConfig.getPbImageSize() + (downloadImageBytes != null ? downloadImageBytes.length : 0));
+                c.a.r0.c0.c.k().i(TbConfig.getPbImageSize() + (downloadImageBytes != null ? downloadImageBytes.length : 0));
                 Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
-                if (!webClient.isGif && !l.A(downloadImageBytes)) {
+                if (!webClient.isGif && !m.A(downloadImageBytes)) {
                     z = false;
                 }
                 return storeBitmap(str4, str2, bVar, null, checkBitmapSize(Bytes2Bitmap, d2, d3), z, webClient, downloadImageBytes, needCache);

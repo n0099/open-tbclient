@@ -13,7 +13,7 @@ import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.Comparator;
 import org.apache.commons.lang3.ArrayUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CompareToBuilder implements Builder<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

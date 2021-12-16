@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class h0 implements TTRewardVideoAd.RewardAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28629b;
+    public boolean f28999b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ TTRewardVideoAd f28630c;
+    public final /* synthetic */ TTRewardVideoAd f29000c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ g0 f28631d;
+    public final /* synthetic */ g0 f29001d;
 
     public h0(g0 g0Var, TTRewardVideoAd tTRewardVideoAd) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class h0 implements TTRewardVideoAd.RewardAdInteractionListener {
                 return;
             }
         }
-        this.f28631d = g0Var;
-        this.f28630c = tTRewardVideoAd;
+        this.f29001d = g0Var;
+        this.f29000c = tTRewardVideoAd;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
@@ -46,7 +46,7 @@ public class h0 implements TTRewardVideoAd.RewardAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.f28631d.onAdClose();
+            this.f29001d.onAdClose();
         }
     }
 
@@ -55,7 +55,7 @@ public class h0 implements TTRewardVideoAd.RewardAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            this.f28631d.onAdShow(this.f28630c, this.a);
+            this.f29001d.onAdShow(this.f29000c, this.a);
             this.a = true;
         }
     }
@@ -65,8 +65,8 @@ public class h0 implements TTRewardVideoAd.RewardAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LogPrinter.d();
-            this.f28631d.onAdClicked(this.f28629b);
-            this.f28629b = true;
+            this.f29001d.onAdClicked(this.f28999b);
+            this.f28999b = true;
         }
     }
 
@@ -75,7 +75,7 @@ public class h0 implements TTRewardVideoAd.RewardAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, Integer.valueOf(i3), str2}) == null) {
             LogPrinter.d("onRewardVerify rewardVerify:%b rewardAmount:%d rewardName:%s errCode:%d errMsg:%s", Boolean.valueOf(z), Integer.valueOf(i2), str, Integer.valueOf(i3), str2);
-            this.f28631d.onRewardedVideo(z);
+            this.f29001d.onRewardedVideo(z);
         }
     }
 
@@ -100,7 +100,7 @@ public class h0 implements TTRewardVideoAd.RewardAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             LogPrinter.d();
-            this.f28631d.onAdError(0, "F:onVideoError");
+            this.f29001d.onAdError(0, "F:onVideoError");
         }
     }
 }

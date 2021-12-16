@@ -14,7 +14,7 @@ import com.facebook.common.references.ResourceReleaser;
 import java.util.Map;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class FlexByteArrayPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class FlexByteArrayPool {
     public final ResourceReleaser<byte[]> mResourceReleaser;
 
     @VisibleForTesting
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class SoftRefByteArrayPool extends GenericByteArrayPool {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -8,20 +8,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u00002\u00020\u0001:\u0001\u000bB\u0007¢\u0006\u0004\b\t\u0010\nJ'\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0006\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\b¨\u0006\f"}, d2 = {"Lcom/baidu/searchbox/floating/animator/RectEvaluator;", "Landroid/animation/TypeEvaluator;", "", "fraction", "Lcom/baidu/searchbox/floating/animator/RectEvaluator$ViewRect;", "start", "end", "evaluate", "(FLcom/baidu/searchbox/floating/animator/RectEvaluator$ViewRect;Lcom/baidu/searchbox/floating/animator/RectEvaluator$ViewRect;)Lcom/baidu/searchbox/floating/animator/RectEvaluator$ViewRect;", "<init>", "()V", "ViewRect", "lib-player-floating_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+import kotlin.jvm.internal.Intrinsics;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u00002\u00020\u0001:\u0001\u000bB\u0007¢\u0006\u0004\b\t\u0010\nJ'\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0006\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\b¨\u0006\f"}, d2 = {"Lcom/baidu/searchbox/floating/animator/RectEvaluator;", "Landroid/animation/TypeEvaluator;", "", "fraction", "Lcom/baidu/searchbox/floating/animator/RectEvaluator$ViewRect;", "start", "end", "evaluate", "(FLcom/baidu/searchbox/floating/animator/RectEvaluator$ViewRect;Lcom/baidu/searchbox/floating/animator/RectEvaluator$ViewRect;)Lcom/baidu/searchbox/floating/animator/RectEvaluator$ViewRect;", "<init>", "()V", "ViewRect", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes10.dex */
 public final class RectEvaluator implements TypeEvaluator<ViewRect> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\r\u0018\u0000B'\u0012\u0006\u0010\b\u001a\u00020\u0001\u0012\u0006\u0010\n\u001a\u00020\u0001\u0012\u0006\u0010\u0006\u001a\u00020\u0001\u0012\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\f\u0010\rR\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005R\u0019\u0010\u0006\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0006\u0010\u0003\u001a\u0004\b\u0007\u0010\u0005R\u0019\u0010\b\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\b\u0010\u0003\u001a\u0004\b\t\u0010\u0005R\u0019\u0010\n\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\n\u0010\u0003\u001a\u0004\b\u000b\u0010\u0005¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/floating/animator/RectEvaluator$ViewRect;", "", "h", "I", "getH", "()I", "w", "getW", "x", "getX", "y", "getY", "<init>", "(IIII)V", "lib-player-floating_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes9.dex */
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\r\u0018\u0000B'\u0012\u0006\u0010\b\u001a\u00020\u0001\u0012\u0006\u0010\n\u001a\u00020\u0001\u0012\u0006\u0010\u0006\u001a\u00020\u0001\u0012\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\f\u0010\rR\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005R\u0019\u0010\u0006\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0006\u0010\u0003\u001a\u0004\b\u0007\u0010\u0005R\u0019\u0010\b\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\b\u0010\u0003\u001a\u0004\b\t\u0010\u0005R\u0019\u0010\n\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\n\u0010\u0003\u001a\u0004\b\u000b\u0010\u0005¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/floating/animator/RectEvaluator$ViewRect;", "", "h", "I", "getH", "()I", "w", "getW", "x", "getX", "y", "getY", "<init>", "(IIII)V", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes10.dex */
     public static final class ViewRect {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f38957h;
+        public final int f39446h;
         public final int w;
         public final int x;
         public final int y;
@@ -44,13 +45,13 @@ public final class RectEvaluator implements TypeEvaluator<ViewRect> {
             this.x = i2;
             this.y = i3;
             this.w = i4;
-            this.f38957h = i5;
+            this.f39446h = i5;
         }
 
         public final int getH() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38957h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39446h : invokeV.intValue;
         }
 
         public final int getW() {
@@ -88,9 +89,14 @@ public final class RectEvaluator implements TypeEvaluator<ViewRect> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
-    public ViewRect evaluate(float f2, ViewRect viewRect, ViewRect viewRect2) {
+    public ViewRect evaluate(float f2, ViewRect start, ViewRect end) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), viewRect, viewRect2})) == null) ? new ViewRect((int) (viewRect.getX() + ((viewRect2.getX() - viewRect.getX()) * f2)), (int) (viewRect.getY() + ((viewRect2.getY() - viewRect.getY()) * f2)), (int) (viewRect.getW() + ((viewRect2.getW() - viewRect.getW()) * f2)), (int) (viewRect.getH() + (f2 * (viewRect2.getH() - viewRect.getH())))) : (ViewRect) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), start, end})) == null) {
+            Intrinsics.checkNotNullParameter(start, "start");
+            Intrinsics.checkNotNullParameter(end, "end");
+            return new ViewRect((int) (start.getX() + ((end.getX() - start.getX()) * f2)), (int) (start.getY() + ((end.getY() - start.getY()) * f2)), (int) (start.getW() + ((end.getW() - start.getW()) * f2)), (int) (start.getH() + (f2 * (end.getH() - start.getH()))));
+        }
+        return (ViewRect) invokeCommon.objValue;
     }
 }

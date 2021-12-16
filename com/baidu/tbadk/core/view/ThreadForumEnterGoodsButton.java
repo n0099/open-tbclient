@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.q0.s.q.d2;
-import c.a.q0.s.u.c;
-import c.a.r0.d1.w2.e;
+import c.a.d.f.p.m;
+import c.a.r0.s.r.d2;
+import c.a.r0.s.v.c;
+import c.a.s0.d1.w2.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_CARD = 0;
@@ -39,25 +39,25 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
     public final int DEFAULT_FROM;
 
     /* renamed from: e  reason: collision with root package name */
-    public d2 f41301e;
+    public d2 f41792e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f41302f;
+    public Context f41793f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f41303g;
+    public View f41794g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41304h;
+    public int f41795h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f41305i;
+    public TextView f41796i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Drawable f41306j;
+    public Drawable f41797j;
 
     /* renamed from: k  reason: collision with root package name */
-    public View.OnClickListener f41307k;
+    public View.OnClickListener f41798k;
     public int l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -79,7 +79,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             }
         }
         this.DEFAULT_FROM = 0;
-        this.f41304h = 0;
+        this.f41795h = 0;
         this.l = 3;
         c(context);
     }
@@ -87,7 +87,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i2 = this.f41304h;
+            int i2 = this.f41795h;
             if (i2 == 2) {
                 b("c13966", 1);
             } else if (i2 == 1) {
@@ -99,14 +99,14 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
     public final void b(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
-            TiebaStatic.log(new StatisticItem(str).param("obj_locate", i2).param("fid", this.f41301e.U()).param("fname", this.f41301e.a0()).param("tid", this.f41301e.v1()));
+            TiebaStatic.log(new StatisticItem(str).param("obj_locate", i2).param("fid", this.f41792e.U()).param("fname", this.f41792e.a0()).param("tid", this.f41792e.v1()));
         }
     }
 
     public void bindData(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) {
-            this.f41301e = d2Var;
+            this.f41792e = d2Var;
             if (d2Var != null) {
                 String string = getResources().getString(R.string.frs_goods_tip_content);
                 if (StringUtils.isNull(string)) {
@@ -115,8 +115,8 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
                 }
                 setVisibility(0);
                 d();
-                this.f41305i.setText(string);
-                this.f41305i.setVisibility(0);
+                this.f41796i.setText(string);
+                this.f41796i.setVisibility(0);
                 onChangeSkinType();
                 a();
                 return;
@@ -128,12 +128,12 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f41302f = context;
+            this.f41793f = context;
             setOnClickListener(this);
             View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_button, (ViewGroup) this, true);
-            this.f41303g = inflate;
+            this.f41794g = inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.forum_name_text);
-            this.f41305i = textView;
+            this.f41796i = textView;
             c d2 = c.d(textView);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
@@ -142,30 +142,30 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             d2.n(R.string.J_X01);
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0305);
-            this.f41305i.setCompoundDrawablePadding(l.f(this.f41302f, R.dimen.M_W_X002));
+            this.f41796i.setCompoundDrawablePadding(m.f(this.f41793f, R.dimen.M_W_X002));
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f41305i.setCompoundDrawables(this.f41306j, null, null, null);
+            this.f41796i.setCompoundDrawables(this.f41797j, null, null, null);
         }
     }
 
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f41301e == null || this.l == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f41792e == null || this.l == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             return;
         }
         this.l = skinType;
         int color = SkinManager.getColor(R.color.CAM_X0305);
-        SkinManager.setViewTextColorWithClickState(this.f41305i, color);
+        SkinManager.setViewTextColorWithClickState(this.f41796i, color);
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_good12, color, WebPManager.ResourceStateType.NORMAL_PRESS);
-        this.f41306j = pureDrawable;
+        this.f41797j = pureDrawable;
         if (pureDrawable != null) {
-            this.f41306j.setBounds(0, 0, l.f(this.f41302f, R.dimen.T_X09), l.f(this.f41302f, R.dimen.T_X09));
+            this.f41797j.setBounds(0, 0, m.f(this.f41793f, R.dimen.T_X09), m.f(this.f41793f, R.dimen.T_X09));
         }
         d();
     }
@@ -173,27 +173,27 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, view) == null) || StringUtils.isNull(this.f41301e.a0())) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, view) == null) || StringUtils.isNull(this.f41792e.a0())) {
             return;
         }
-        view.setTag(this.f41301e);
-        int i2 = this.f41304h;
+        view.setTag(this.f41792e);
+        int i2 = this.f41795h;
         if (i2 == 0) {
-            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f41302f).createNormalCfg(this.f41301e.a0(), FrsActivityConfig.FROM_PB_OR_PERSON);
+            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f41793f).createNormalCfg(this.f41792e.a0(), FrsActivityConfig.FROM_PB_OR_PERSON);
             createNormalCfg.setCallFrom(14);
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
         } else if (i2 == 1) {
             b("c13967", 2);
-            FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(this.f41302f).createNormalCfg(this.f41301e.a0(), FrsActivityConfig.FROM_PB_OR_PERSON);
+            FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(this.f41793f).createNormalCfg(this.f41792e.a0(), FrsActivityConfig.FROM_PB_OR_PERSON);
             createNormalCfg2.setCallFrom(14);
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg2));
         } else if (i2 == 2) {
             b("c13967", 1);
             e eVar = new e();
-            eVar.f16144e = 3;
+            eVar.f16554e = 3;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, eVar));
         }
-        View.OnClickListener onClickListener = this.f41307k;
+        View.OnClickListener onClickListener = this.f41798k;
         if (onClickListener != null) {
             onClickListener.onClick(view);
         }
@@ -202,14 +202,14 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
     public void setAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.f41307k = onClickListener;
+            this.f41798k = onClickListener;
         }
     }
 
     public void setFrom(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f41304h = i2;
+            this.f41795h = i2;
         }
     }
 
@@ -233,7 +233,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             }
         }
         this.DEFAULT_FROM = 0;
-        this.f41304h = 0;
+        this.f41795h = 0;
         this.l = 3;
         c(context);
     }

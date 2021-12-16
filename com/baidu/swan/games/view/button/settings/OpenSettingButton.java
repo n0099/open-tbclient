@@ -2,10 +2,10 @@ package com.baidu.swan.games.view.button.settings;
 
 import android.content.Context;
 import android.view.View;
-import c.a.p0.a.c2.b.f.e;
-import c.a.p0.a.g1.f;
-import c.a.p0.a.h;
-import c.a.p0.a.h0.g.g;
+import c.a.q0.a.c2.b.f.e;
+import c.a.q0.a.g1.f;
+import c.a.q0.a.h;
+import c.a.q0.a.h0.g.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class OpenSettingButton extends ApiButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class OpenSettingButton extends ApiButton {
                 return;
             }
             g.b i2 = V.i("navigateTo");
-            i2.n(g.f5496g, g.f5498i);
+            i2.n(g.f5805g, g.f5807i);
             i2.k("authority", null).a();
         }
     }

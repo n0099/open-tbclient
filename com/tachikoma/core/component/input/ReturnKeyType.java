@@ -3,7 +3,7 @@ package com.tachikoma.core.component.input;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public @interface ReturnKeyType {
     public static final String DONE = "done";
     public static final String GO = "go";

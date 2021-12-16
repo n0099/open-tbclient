@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ActivitySpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHECK_AND_SEND_ACTIVE_CONFIG_DURATION = "checkAndSendActiveConfig";
@@ -446,7 +446,7 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
             hashMap.put(NEW_LOGO_ONDESTROY_DURATION, String.valueOf(j12));
             hashMap.put(NEWLOGO_TO_MAIN_GAP, String.valueOf(j18));
             hashMap.put("onCreate", String.valueOf(j20));
-            hashMap.put(MAINACTIVITY_SUPER_ONCREATE_DURAION, String.valueOf(j21));
+            hashMap.put("superOnCreate", String.valueOf(j21));
             hashMap.put(INIT_HOME_FRAGMENT_CONTROLLER_DURATION, String.valueOf(j22));
             hashMap.put(CHECK_PLUGIN_ENTRANCE_STATE_DURATION, String.valueOf(j23));
             hashMap.put(REG_RECEIVER_DURATION, String.valueOf(j24));

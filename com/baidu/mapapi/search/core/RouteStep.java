@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RouteStep implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<RouteStep> CREATOR;
@@ -22,10 +22,10 @@ public class RouteStep implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36081b;
+    public int f36570b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36082c;
+    public String f36571c;
     public List<LatLng> mWayPoints;
 
     static {
@@ -74,8 +74,8 @@ public class RouteStep implements Parcelable {
             }
         }
         this.a = parcel.readInt();
-        this.f36081b = parcel.readInt();
-        this.f36082c = parcel.readString();
+        this.f36570b = parcel.readInt();
+        this.f36571c = parcel.readString();
         ArrayList arrayList = new ArrayList();
         this.mWayPoints = arrayList;
         parcel.readList(arrayList, LatLng.class.getClassLoader());
@@ -103,13 +103,13 @@ public class RouteStep implements Parcelable {
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36081b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36570b : invokeV.intValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36082c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36571c : (String) invokeV.objValue;
     }
 
     public List<LatLng> getWayPoints() {
@@ -128,14 +128,14 @@ public class RouteStep implements Parcelable {
     public void setDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f36081b = i2;
+            this.f36570b = i2;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f36082c = str;
+            this.f36571c = str;
         }
     }
 
@@ -151,8 +151,8 @@ public class RouteStep implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
             parcel.writeInt(this.a);
-            parcel.writeInt(this.f36081b);
-            parcel.writeString(this.f36082c);
+            parcel.writeInt(this.f36570b);
+            parcel.writeString(this.f36571c);
             parcel.writeList(this.mWayPoints);
         }
     }

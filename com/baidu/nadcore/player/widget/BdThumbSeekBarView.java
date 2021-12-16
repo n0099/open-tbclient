@@ -12,10 +12,10 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.h0.o;
-import c.a.b0.h0.q;
-import c.a.b0.s.v0.d;
-import c.a.b0.s.v0.h;
+import c.a.c0.h0.o;
+import c.a.c0.h0.q;
+import c.a.c0.s.v0.d;
+import c.a.c0.s.v0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BdThumbSeekBarView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PLAYED_PAINT_COLOR = -16738561;
@@ -32,25 +32,25 @@ public class BdThumbSeekBarView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdSeeBarStatus f37670e;
+    public BdSeeBarStatus f38159e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f37671f;
+    public final Paint f38160f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f37672g;
+    public final int f38161g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f37673h;
+    public final int f38162h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f37674i;
+    public final int f38163i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f37675j;
+    public final int f38164j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final int f37676k;
+    public final int f38165k;
     public Bitmap l;
     public final int m;
     public boolean mIsDragable;
@@ -67,7 +67,7 @@ public class BdThumbSeekBarView extends View {
     public SeekBarDirect x;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class BdSeeBarStatus {
         public static final /* synthetic */ BdSeeBarStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -127,7 +127,7 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class BdSeekBarStyle {
         public static final /* synthetic */ BdSeekBarStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -187,7 +187,7 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class SeekBarDirect {
         public static final /* synthetic */ SeekBarDirect[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -246,7 +246,7 @@ public class BdThumbSeekBarView extends View {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -278,7 +278,7 @@ public class BdThumbSeekBarView extends View {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a(BdThumbSeekBarView bdThumbSeekBarView);
 
@@ -316,21 +316,21 @@ public class BdThumbSeekBarView extends View {
                 if (i2 != 2) {
                     return;
                 }
-                this.w.top = (((getMeasuredHeight() - this.f37676k) + getPaddingTop()) - getPaddingBottom()) >> 1;
+                this.w.top = (((getMeasuredHeight() - this.f38165k) + getPaddingTop()) - getPaddingBottom()) >> 1;
                 RectF rectF = this.w;
-                rectF.bottom = rectF.top + this.f37676k;
+                rectF.bottom = rectF.top + this.f38165k;
             } else if (this.x == SeekBarDirect.Horizontal) {
                 this.w.left = getPaddingLeft();
                 this.w.right = getMeasuredWidth() - getPaddingRight();
-                this.w.top = (((getMeasuredHeight() - this.f37674i) + getPaddingTop()) - getPaddingBottom()) >> 1;
+                this.w.top = (((getMeasuredHeight() - this.f38163i) + getPaddingTop()) - getPaddingBottom()) >> 1;
                 RectF rectF2 = this.w;
-                rectF2.bottom = rectF2.top + this.f37674i;
+                rectF2.bottom = rectF2.top + this.f38163i;
             } else {
                 this.w.top = getPaddingTop();
                 this.w.bottom = getMeasuredHeight() - getPaddingBottom();
-                this.w.left = (((getMeasuredWidth() - this.f37674i) + getPaddingLeft()) - getPaddingRight()) >> 1;
+                this.w.left = (((getMeasuredWidth() - this.f38163i) + getPaddingLeft()) - getPaddingRight()) >> 1;
                 RectF rectF3 = this.w;
-                rectF3.right = rectF3.left + this.f37674i;
+                rectF3.right = rectF3.left + this.f38163i;
             }
         }
     }
@@ -366,7 +366,7 @@ public class BdThumbSeekBarView extends View {
             int mode = View.MeasureSpec.getMode(i2);
             int size = View.MeasureSpec.getSize(i2);
             int width = this.l.getWidth() + getPaddingLeft() + getPaddingRight();
-            int i3 = this.f37675j;
+            int i3 = this.f38164j;
             int i4 = width + i3;
             if (mode == Integer.MIN_VALUE) {
                 if (i4 - i3 > size) {
@@ -401,23 +401,23 @@ public class BdThumbSeekBarView extends View {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             int paddingLeft = getPaddingLeft();
             if (paddingLeft <= 0) {
-                paddingLeft = this.f37672g;
+                paddingLeft = this.f38161g;
             }
             int paddingTop = getPaddingTop();
             if (paddingTop <= 0) {
-                paddingTop = this.f37672g;
+                paddingTop = this.f38161g;
             }
             int paddingRight = getPaddingRight();
             if (paddingRight <= 0) {
                 if (this.o) {
-                    paddingRight = this.f37672g + this.f37673h;
+                    paddingRight = this.f38161g + this.f38162h;
                 } else {
-                    paddingRight = this.f37672g;
+                    paddingRight = this.f38161g;
                 }
             }
             int paddingBottom = getPaddingBottom();
             if (paddingBottom <= 0) {
-                paddingBottom = this.f37672g;
+                paddingBottom = this.f38161g;
             }
             setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
@@ -454,9 +454,9 @@ public class BdThumbSeekBarView extends View {
             int i2 = a.a[this.u.ordinal()];
             if (i2 == 1) {
                 if (this.o) {
-                    this.f37671f.setColor(-2130706433);
+                    this.f38160f.setColor(com.baidu.searchbox.player.widget.BdThumbSeekBarView.UI_DRAG_TRACE_COLOR);
                 }
-                canvas.drawRect(this.w, this.f37671f);
+                canvas.drawRect(this.w, this.f38160f);
                 RectF rectF = this.w;
                 float f2 = rectF.left;
                 float abs = Math.abs(rectF.right - f2);
@@ -495,18 +495,18 @@ public class BdThumbSeekBarView extends View {
                             if ((this.l.getWidth() + width2) - this.m > f7) {
                                 width = (f7 - this.l.getWidth()) + this.m;
                             }
-                            if (this.f37670e != BdSeeBarStatus.Seek) {
+                            if (this.f38159e != BdSeeBarStatus.Seek) {
                                 canvas.drawBitmap(this.n, width2, ((((getMeasuredHeight() - this.n.getHeight()) + getPaddingTop()) - getPaddingBottom()) >> 1) + ((int) (0 * 1.5f)), (Paint) null);
                             } else {
                                 canvas.drawBitmap(this.l, Math.max(width2, -this.m), ((((getMeasuredHeight() - this.l.getHeight()) + getPaddingTop()) - getPaddingBottom()) >> 1) + 0, (Paint) null);
                             }
                         }
                         width2 = (int) width;
-                        if (this.f37670e != BdSeeBarStatus.Seek) {
+                        if (this.f38159e != BdSeeBarStatus.Seek) {
                         }
                     } else {
                         int height = (int) (this.w.top - (this.l.getHeight() >> 1));
-                        if (this.f37670e == BdSeeBarStatus.Seek) {
+                        if (this.f38159e == BdSeeBarStatus.Seek) {
                             canvas.drawBitmap(this.n, (((getMeasuredWidth() - this.n.getWidth()) + getPaddingLeft()) - getPaddingRight()) >> 1, height, (Paint) null);
                         } else {
                             canvas.drawBitmap(this.l, (((getMeasuredWidth() - this.l.getWidth()) + getPaddingLeft()) - getPaddingRight()) >> 1, height, (Paint) null);
@@ -514,11 +514,11 @@ public class BdThumbSeekBarView extends View {
                     }
                 }
             } else if (i2 == 2) {
-                this.f37671f.setColor(1291845632);
+                this.f38160f.setColor(1291845632);
                 RectF rectF7 = this.w;
-                int i4 = this.f37676k;
-                canvas.drawRoundRect(rectF7, i4 >> 1, i4, this.f37671f);
-                this.f37671f.setColor(-16366706);
+                int i4 = this.f38165k;
+                canvas.drawRoundRect(rectF7, i4 >> 1, i4, this.f38160f);
+                this.f38160f.setColor(com.baidu.searchbox.player.widget.BdThumbSeekBarView.UI_SELECT_COLOR_START);
                 float f8 = this.p;
                 if (f8 > 0.1f) {
                     float f9 = this.q;
@@ -527,10 +527,10 @@ public class BdThumbSeekBarView extends View {
                 }
                 RectF rectF9 = this.w;
                 rectF9.right = rectF9.left + r1;
-                int i5 = this.f37676k;
-                canvas.drawRoundRect(rectF9, i5 >> 1, i5, this.f37671f);
+                int i5 = this.f38165k;
+                canvas.drawRoundRect(rectF9, i5 >> 1, i5, this.f38160f);
                 Bitmap bitmap = this.l;
-                canvas.drawBitmap(bitmap, this.w.right - (bitmap.getWidth() >> 1), (int) (this.w.top + ((this.f37676k - this.l.getHeight()) >> 1)), (Paint) null);
+                canvas.drawBitmap(bitmap, this.w.right - (bitmap.getWidth() >> 1), (int) (this.w.top + ((this.f38165k - this.l.getHeight()) >> 1)), (Paint) null);
             }
             a();
         }
@@ -592,7 +592,7 @@ public class BdThumbSeekBarView extends View {
                 }
                 b bVar = this.v;
                 if (bVar != null) {
-                    this.f37670e = BdSeeBarStatus.Seek;
+                    this.f38159e = BdSeeBarStatus.Seek;
                     bVar.b(this, (int) this.q, true);
                 }
                 int action = motionEvent.getAction();
@@ -605,14 +605,14 @@ public class BdThumbSeekBarView extends View {
                     b bVar2 = this.v;
                     if (bVar2 != null) {
                         bVar2.c(this);
-                        this.f37670e = BdSeeBarStatus.None;
+                        this.f38159e = BdSeeBarStatus.None;
                     }
                     getParent().requestDisallowInterceptTouchEvent(false);
                 } else {
                     b bVar3 = this.v;
                     if (bVar3 != null) {
                         bVar3.a(this);
-                        this.f37670e = BdSeeBarStatus.Seek;
+                        this.f38159e = BdSeeBarStatus.Seek;
                     }
                     getParent().requestDisallowInterceptTouchEvent(true);
                 }
@@ -678,7 +678,7 @@ public class BdThumbSeekBarView extends View {
     public void setProgressBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f37671f.setColor(i2);
+            this.f38160f.setColor(i2);
         }
     }
 
@@ -845,16 +845,16 @@ public class BdThumbSeekBarView extends View {
                 return;
             }
         }
-        this.f37670e = BdSeeBarStatus.None;
+        this.f38159e = BdSeeBarStatus.None;
         this.o = true;
         this.x = SeekBarDirect.Horizontal;
         this.mIsDragable = true;
         setClickable(true);
         this.u = bdSeekBarStyle;
         Paint paint = new Paint();
-        this.f37671f = paint;
+        this.f38160f = paint;
         paint.setAntiAlias(true);
-        this.f37671f.setColor(getResources().getColor(o.nad_bdvideoplayer_seek_bar_bg_color));
+        this.f38160f.setColor(getResources().getColor(o.nad_bdvideoplayer_seek_bar_bg_color));
         Paint paint2 = new Paint();
         this.s = paint2;
         paint2.setAntiAlias(true);
@@ -875,11 +875,11 @@ public class BdThumbSeekBarView extends View {
         }
         this.w = new RectF();
         float f2 = getResources().getDisplayMetrics().density;
-        this.f37672g = (int) (0.0f * f2);
-        this.f37673h = (int) (5.0f * f2);
-        this.f37674i = (int) ((i3 * f2) + 0.5d);
-        this.f37675j = (int) (50.0f * f2);
-        this.f37676k = (int) (f2 * 3.0f);
-        h.b("BdThumbSeekBarView", "mUITraceHeight: " + this.f37674i);
+        this.f38161g = (int) (0.0f * f2);
+        this.f38162h = (int) (5.0f * f2);
+        this.f38163i = (int) ((i3 * f2) + 0.5d);
+        this.f38164j = (int) (50.0f * f2);
+        this.f38165k = (int) (f2 * 3.0f);
+        h.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.f38163i);
     }
 }

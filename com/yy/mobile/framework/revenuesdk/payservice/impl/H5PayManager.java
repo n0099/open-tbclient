@@ -21,10 +21,11 @@ import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderStatusResult;
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReqParams;
+import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class H5PayManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int QUERY_RESULT_FAIL = 2;
@@ -35,6 +36,7 @@ public class H5PayManager {
     public static H5PayManager instance;
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference<Activity> mAct;
+    public IH5PayActivityVisit mH5PayActivityVisit;
     public Handler mHandler;
     public Map<String, H5PayVerifyTask> mOrderVerifyTaskMap;
     public Class mPayWebViewActivityClass;
@@ -84,7 +86,11 @@ public class H5PayManager {
                         intent.putExtra(H5PayConstant.EXTRA_URL, h5PayParams.payBackBean.getPayLoad());
                         intent.putExtra(H5PayConstant.EXTRA_APP_ID, h5PayParams.appId);
                         intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, h5PayParams.usedChannel);
+                        intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_TYPE_ID, h5PayParams.payFlowTypeId);
                         if (this.mAct.get() != null) {
+                            if (this.mH5PayActivityVisit != null) {
+                                this.mH5PayActivityVisit.notifyPayFlowActivityVisit("H5Pay:" + str, h5PayParams.appId, h5PayParams.usedChannel, h5PayParams.payFlowTypeId);
+                            }
                             this.mAct.get().startActivity(intent);
                         } else {
                             removeOrderVerifyTask(str);
@@ -356,12 +362,13 @@ public class H5PayManager {
         }
     }
 
-    public synchronized void setYYPayWebviewActClass(Class cls) {
+    public synchronized void setYYPayWebviewActClass(Class cls, IH5PayActivityVisit iH5PayActivityVisit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cls) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, cls, iH5PayActivityVisit) == null) {
             synchronized (this) {
-                RLog.info(TAG, "setYYPayWebviewActClass payWebviewActClass:" + cls);
+                RLog.info(TAG, "setYYPayWebviewActClass payWebviewActClass:" + cls + " h5PayActivityVisit:" + iH5PayActivityVisit);
                 this.mPayWebViewActivityClass = cls;
+                this.mH5PayActivityVisit = iH5PayActivityVisit;
             }
         }
     }

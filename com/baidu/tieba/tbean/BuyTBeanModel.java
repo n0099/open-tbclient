@@ -3,7 +3,7 @@ package com.baidu.tieba.tbean;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.r0.t3.j0.g;
+import c.a.s0.v3.j0.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -31,7 +31,7 @@ import java.util.List;
 import tbclient.GetIconList.Custom;
 import tbclient.GetIconList.IconInfo;
 import tbclient.GetIconList.UserInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_BIG_TBEAN_WALLET_H5 = "tbmall/getPayUrl";
@@ -40,24 +40,24 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BuyTBeanActivity f49391e;
+    public BuyTBeanActivity f49907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f49392f;
+    public e f49908f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<c.a.r0.v3.e.b> f49393g;
+    public List<c.a.s0.x3.e.b> f49909g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<c.a.r0.v3.e.a> f49394h;
+    public List<c.a.s0.x3.e.a> f49910h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.v3.e.c f49395i;
+    public c.a.s0.x3.e.c f49911i;
 
     /* renamed from: j  reason: collision with root package name */
-    public UserInfo f49396j;
+    public UserInfo f49912j;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,34 +90,34 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
                 if (socketResponsedMessage == null || !(socketResponsedMessage instanceof GetYinJiResponseMessage)) {
-                    this.a.f49392f.onFailed(this.a.f49391e.getPageContext().getString(R.string.neterror));
+                    this.a.f49908f.onFailed(this.a.f49907e.getPageContext().getString(R.string.neterror));
                     return;
                 }
                 GetYinJiResponseMessage getYinJiResponseMessage = (GetYinJiResponseMessage) socketResponsedMessage;
                 if (getYinJiResponseMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(getYinJiResponseMessage.getErrorString())) {
-                        this.a.f49392f.onFailed(getYinJiResponseMessage.getErrorString());
+                        this.a.f49908f.onFailed(getYinJiResponseMessage.getErrorString());
                     } else {
-                        this.a.f49392f.onFailed(this.a.f49391e.getPageContext().getString(R.string.neterror));
+                        this.a.f49908f.onFailed(this.a.f49907e.getPageContext().getString(R.string.neterror));
                     }
-                    if (this.a.f49391e == null || getYinJiResponseMessage.getError() != 1990055) {
+                    if (this.a.f49907e == null || getYinJiResponseMessage.getError() != 1990055) {
                         return;
                     }
-                    this.a.f49391e.finish();
+                    this.a.f49907e.finish();
                     return;
                 }
-                this.a.f49396j = getYinJiResponseMessage.getUserInfo();
+                this.a.f49912j = getYinJiResponseMessage.getUserInfo();
                 this.a.A(getYinJiResponseMessage);
                 if (getYinJiResponseMessage.getUserInfo() == null || ListUtils.isEmpty(getYinJiResponseMessage.getIconInfoList())) {
-                    this.a.f49392f.onFailed(this.a.f49391e.getPageContext().getString(R.string.no_data_tip));
+                    this.a.f49908f.onFailed(this.a.f49907e.getPageContext().getString(R.string.no_data_tip));
                 } else {
-                    this.a.f49392f.onSuccess();
+                    this.a.f49908f.onSuccess();
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,14 +150,14 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof GetBigTbeanWalletH5ResponseMessage)) {
                 GetBigTbeanWalletH5ResponseMessage getBigTbeanWalletH5ResponseMessage = (GetBigTbeanWalletH5ResponseMessage) httpResponsedMessage;
-                if (getBigTbeanWalletH5ResponseMessage.getError() == 0 && this.a.f49392f != null) {
-                    this.a.f49392f.onGetWalletUrl(getBigTbeanWalletH5ResponseMessage.url);
+                if (getBigTbeanWalletH5ResponseMessage.getError() == 0 && this.a.f49908f != null) {
+                    this.a.f49908f.onGetWalletUrl(getBigTbeanWalletH5ResponseMessage.url);
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class c extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,34 +190,34 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof GetYinJiHttpResponseMessage)) {
-                    this.a.f49392f.onFailed(this.a.f49391e.getPageContext().getString(R.string.neterror));
+                    this.a.f49908f.onFailed(this.a.f49907e.getPageContext().getString(R.string.neterror));
                     return;
                 }
                 GetYinJiHttpResponseMessage getYinJiHttpResponseMessage = (GetYinJiHttpResponseMessage) httpResponsedMessage;
                 if (getYinJiHttpResponseMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(getYinJiHttpResponseMessage.getErrorString())) {
-                        this.a.f49392f.onFailed(getYinJiHttpResponseMessage.getErrorString());
+                        this.a.f49908f.onFailed(getYinJiHttpResponseMessage.getErrorString());
                     } else {
-                        this.a.f49392f.onFailed(this.a.f49391e.getPageContext().getString(R.string.neterror));
+                        this.a.f49908f.onFailed(this.a.f49907e.getPageContext().getString(R.string.neterror));
                     }
-                    if (this.a.f49391e == null || getYinJiHttpResponseMessage.getError() != 1990055) {
+                    if (this.a.f49907e == null || getYinJiHttpResponseMessage.getError() != 1990055) {
                         return;
                     }
-                    this.a.f49391e.finish();
+                    this.a.f49907e.finish();
                     return;
                 }
-                this.a.f49396j = getYinJiHttpResponseMessage.getUserInfo();
+                this.a.f49912j = getYinJiHttpResponseMessage.getUserInfo();
                 this.a.A(getYinJiHttpResponseMessage);
                 if (getYinJiHttpResponseMessage.getUserInfo() == null || ListUtils.isEmpty(getYinJiHttpResponseMessage.getIconInfoList())) {
-                    this.a.f49392f.onFailed(this.a.f49391e.getPageContext().getString(R.string.no_data_tip));
+                    this.a.f49908f.onFailed(this.a.f49907e.getPageContext().getString(R.string.no_data_tip));
                 } else {
-                    this.a.f49392f.onSuccess();
+                    this.a.f49908f.onSuccess();
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class d extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,8 +250,8 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseGetPayinfoMessage) || httpResponsedMessage.getCmd() != 1001505) {
-                    if (this.a.f49391e != null) {
-                        this.a.f49391e.showToast(R.string.neterror);
+                    if (this.a.f49907e != null) {
+                        this.a.f49907e.showToast(R.string.neterror);
                         return;
                     }
                     return;
@@ -262,42 +262,42 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 HttpMessage httpMessage = (HttpMessage) responseGetPayinfoMessage.getOrginalMessage();
                 if (statusCode == 200 && error == 0) {
                     if (responseGetPayinfoMessage.getPayInfoResultData() == null) {
-                        if (this.a.f49391e != null) {
-                            this.a.f49391e.showToast(R.string.buy_tbean_failed_tip);
+                        if (this.a.f49907e != null) {
+                            this.a.f49907e.showToast(R.string.buy_tbean_failed_tip);
                             return;
                         }
                     } else {
                         int pay_status = responseGetPayinfoMessage.getPayInfoResultData().getPay_status();
                         if (pay_status != 0) {
-                            if (this.a.f49391e != null) {
-                                this.a.f49391e.showToast(R.string.buy_tbean_failed_tip);
+                            if (this.a.f49907e != null) {
+                                this.a.f49907e.showToast(R.string.buy_tbean_failed_tip);
                                 return;
                             }
                         } else {
-                            c.a.r0.v3.c.a("c10297");
+                            c.a.s0.x3.c.a("c10297");
                             String str = httpMessage.getExtra() instanceof String ? (String) httpMessage.getExtra() : "";
                             g gVar = new g();
                             gVar.d(str);
                             gVar.c(pay_status);
-                            gVar.b(this.a.f49391e.isFromDecreaseGiftStepStrategy());
+                            gVar.b(this.a.f49907e.isFromDecreaseGiftStepStrategy());
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001227, gVar));
-                            if (this.a.f49391e != null) {
-                                this.a.f49391e.finish();
+                            if (this.a.f49907e != null) {
+                                this.a.f49907e.finish();
                                 return;
                             }
                         }
                     }
                 }
                 if (!TextUtils.isEmpty(responseGetPayinfoMessage.getErrorString())) {
-                    this.a.f49391e.showToast(responseGetPayinfoMessage.getErrorString());
+                    this.a.f49907e.showToast(responseGetPayinfoMessage.getErrorString());
                 } else {
-                    this.a.f49391e.showToast(R.string.neterror);
+                    this.a.f49907e.showToast(R.string.neterror);
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface e {
         void onFailed(String str);
 
@@ -324,86 +324,86 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 return;
             }
         }
-        this.f49393g = new LinkedList();
-        this.f49394h = new LinkedList();
-        this.f49391e = buyTBeanActivity;
-        this.f49392f = eVar;
+        this.f49909g = new LinkedList();
+        this.f49910h = new LinkedList();
+        this.f49907e = buyTBeanActivity;
+        this.f49908f = eVar;
     }
 
-    public final void A(c.a.r0.v3.f.a aVar) {
+    public final void A(c.a.s0.x3.f.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || aVar.getUserInfo() == null || ListUtils.isEmpty(aVar.getIconInfoList())) {
             return;
         }
-        List<c.a.r0.v3.e.b> list = this.f49393g;
+        List<c.a.s0.x3.e.b> list = this.f49909g;
         if (list != null) {
             list.clear();
         }
-        List<c.a.r0.v3.e.a> list2 = this.f49394h;
+        List<c.a.s0.x3.e.a> list2 = this.f49910h;
         if (list2 != null) {
             list2.clear();
         }
-        ArrayList<c.a.r0.v3.e.a> arrayList = new ArrayList();
+        ArrayList<c.a.s0.x3.e.a> arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         if (!ListUtils.isEmpty(aVar.getCustomList())) {
             for (Custom custom : aVar.getCustomList()) {
                 if (custom.is_custom_price.intValue() == 1) {
-                    c.a.r0.v3.e.c cVar = new c.a.r0.v3.e.c();
-                    cVar.f24951e = custom;
+                    c.a.s0.x3.e.c cVar = new c.a.s0.x3.e.c();
+                    cVar.f25874e = custom;
                     arrayList2.add(cVar);
                 } else if (custom.is_custom_price.intValue() == 0) {
-                    c.a.r0.v3.e.a aVar2 = new c.a.r0.v3.e.a();
-                    aVar2.f24945e = custom;
+                    c.a.s0.x3.e.a aVar2 = new c.a.s0.x3.e.a();
+                    aVar2.f25868e = custom;
                     arrayList.add(aVar2);
                 }
             }
         }
         if (!ListUtils.isEmpty(arrayList)) {
-            for (c.a.r0.v3.e.a aVar3 : arrayList) {
-                aVar3.f24946f = aVar.getSetting();
-                this.f49394h.add(aVar3);
+            for (c.a.s0.x3.e.a aVar3 : arrayList) {
+                aVar3.f25869f = aVar.getSetting();
+                this.f49910h.add(aVar3);
             }
         }
         if (!ListUtils.isEmpty(aVar.getIconInfoList())) {
             for (IconInfo iconInfo : aVar.getIconInfoList()) {
-                c.a.r0.v3.e.b bVar = new c.a.r0.v3.e.b();
-                bVar.f24949f = iconInfo;
+                c.a.s0.x3.e.b bVar = new c.a.s0.x3.e.b();
+                bVar.f25872f = iconInfo;
                 aVar.getUserInfo();
-                bVar.f24948e = aVar.getSetting();
-                this.f49393g.add(bVar);
+                bVar.f25871e = aVar.getSetting();
+                this.f49909g.add(bVar);
             }
         }
         if (ListUtils.isEmpty(arrayList2)) {
             return;
         }
-        c.a.r0.v3.e.c cVar2 = (c.a.r0.v3.e.c) ListUtils.getItem(arrayList2, 0);
-        this.f49395i = cVar2;
-        cVar2.f24953g = aVar.getSetting();
-        this.f49395i.f24952f = aVar.getUserInfo();
+        c.a.s0.x3.e.c cVar2 = (c.a.s0.x3.e.c) ListUtils.getItem(arrayList2, 0);
+        this.f49911i = cVar2;
+        cVar2.f25876g = aVar.getSetting();
+        this.f49911i.f25875f = aVar.getUserInfo();
     }
 
-    public List<c.a.r0.v3.e.b> B() {
+    public List<c.a.s0.x3.e.b> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49393g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49909g : (List) invokeV.objValue;
     }
 
-    public List<c.a.r0.v3.e.a> C() {
+    public List<c.a.s0.x3.e.a> C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49394h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49910h : (List) invokeV.objValue;
     }
 
-    public c.a.r0.v3.e.c D() {
+    public c.a.s0.x3.e.c D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49395i : (c.a.r0.v3.e.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49911i : (c.a.s0.x3.e.c) invokeV.objValue;
     }
 
     public UserInfo E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49396j : (UserInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49912j : (UserInfo) invokeV.objValue;
     }
 
     public void F() {

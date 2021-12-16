@@ -7,32 +7,32 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class Gradient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f35800b;
+    public final int[] f36289b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final float[] f35801c;
+    public final float[] f36290c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Gradient a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f35802b;
+        public final int f36291b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f35803c;
+        public final int f36292c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final float f35804d;
+        public final float f36293d;
 
         public a(Gradient gradient, int i2, int i3, float f2) {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public class Gradient {
                 }
             }
             this.a = gradient;
-            this.f35802b = i2;
-            this.f35803c = i3;
-            this.f35804d = f2;
+            this.f36291b = i2;
+            this.f36292c = i3;
+            this.f36293d = f2;
         }
 
         public /* synthetic */ a(Gradient gradient, int i2, int i3, float f2, i iVar) {
@@ -112,10 +112,10 @@ public class Gradient {
         }
         this.a = i2;
         int[] iArr2 = new int[iArr.length];
-        this.f35800b = iArr2;
-        this.f35801c = new float[fArr.length];
+        this.f36289b = iArr2;
+        this.f36290c = new float[fArr.length];
         System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
-        System.arraycopy(fArr, 0, this.f35801c, 0, fArr.length);
+        System.arraycopy(fArr, 0, this.f36290c, 0, fArr.length);
     }
 
     public static int a(int i2, int i3, float f2) {
@@ -146,24 +146,24 @@ public class Gradient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             HashMap<Integer, a> hashMap = new HashMap<>();
-            if (this.f35801c[0] != 0.0f) {
-                hashMap.put(0, new a(this, Color.argb(0, Color.red(this.f35800b[0]), Color.green(this.f35800b[0]), Color.blue(this.f35800b[0])), this.f35800b[0], this.a * this.f35801c[0], null));
+            if (this.f36290c[0] != 0.0f) {
+                hashMap.put(0, new a(this, Color.argb(0, Color.red(this.f36289b[0]), Color.green(this.f36289b[0]), Color.blue(this.f36289b[0])), this.f36289b[0], this.a * this.f36290c[0], null));
             }
-            for (int i2 = 1; i2 < this.f35800b.length; i2++) {
+            for (int i2 = 1; i2 < this.f36289b.length; i2++) {
                 int i3 = i2 - 1;
-                Integer valueOf = Integer.valueOf((int) (this.a * this.f35801c[i3]));
-                int[] iArr = this.f35800b;
+                Integer valueOf = Integer.valueOf((int) (this.a * this.f36290c[i3]));
+                int[] iArr = this.f36289b;
                 int i4 = iArr[i3];
                 int i5 = iArr[i2];
-                float[] fArr = this.f35801c;
+                float[] fArr = this.f36290c;
                 hashMap.put(valueOf, new a(this, i4, i5, (fArr[i2] - fArr[i3]) * this.a, null));
             }
-            float[] fArr2 = this.f35801c;
+            float[] fArr2 = this.f36290c;
             if (fArr2[fArr2.length - 1] != 1.0f) {
                 int length = fArr2.length - 1;
                 Integer valueOf2 = Integer.valueOf((int) (this.a * fArr2[length]));
-                int[] iArr2 = this.f35800b;
-                hashMap.put(valueOf2, new a(this, iArr2[length], iArr2[length], this.a * (1.0f - this.f35801c[length]), null));
+                int[] iArr2 = this.f36289b;
+                hashMap.put(valueOf2, new a(this, iArr2[length], iArr2[length], this.a * (1.0f - this.f36290c[length]), null));
             }
             return hashMap;
         }
@@ -183,7 +183,7 @@ public class Gradient {
                     aVar = a2.get(Integer.valueOf(i3));
                     i2 = i3;
                 }
-                iArr[i3] = a(aVar.f35802b, aVar.f35803c, (i3 - i2) / aVar.f35804d);
+                iArr[i3] = a(aVar.f36291b, aVar.f36292c, (i3 - i2) / aVar.f36293d);
             }
             if (d2 != 1.0d) {
                 for (int i4 = 0; i4 < this.a; i4++) {

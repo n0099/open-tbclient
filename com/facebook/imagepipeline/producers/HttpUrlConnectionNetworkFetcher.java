@@ -19,7 +19,7 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchState> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_DEFAULT_TIMEOUT = 30000;

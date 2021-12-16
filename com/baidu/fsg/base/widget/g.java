@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class g implements View.OnTouchListener {
                 if (motionEvent.getAction() != 2) {
                     return false;
                 }
-                imageButton = this.a.f34462k;
+                imageButton = this.a.f34930k;
                 if (imageButton.isPressed()) {
                     return false;
                 }

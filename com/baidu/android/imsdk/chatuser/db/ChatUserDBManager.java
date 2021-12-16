@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ChatUserDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ChatUserDBManager";
@@ -698,10 +698,11 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0083 A[Catch: all -> 0x0087, TryCatch #2 {, blocks: (B:6:0x0007, B:8:0x0013, B:17:0x0066, B:18:0x0069, B:28:0x007a, B:29:0x007d, B:34:0x0083, B:35:0x0086), top: B:45:0x0007 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x006e */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r11v0 */
+    /* JADX WARN: Type inference failed for: r11v1 */
+    /* JADX WARN: Type inference failed for: r11v2, types: [android.database.Cursor] */
     public List<ChatSession> getShieldUsers() {
         InterceptResult invokeV;
         Cursor cursor;
@@ -712,14 +713,14 @@ public class ChatUserDBManager extends DBBase {
         synchronized (DBBase.mSyncLock) {
             ArrayList arrayList = new ArrayList();
             SQLiteDatabase openDatabase = openDatabase();
-            Cursor cursor2 = null;
-            if (openDatabase == null) {
-                return null;
-            }
+            ?? r11 = 0;
             try {
-                cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, null, "shield = ?", new String[]{String.valueOf(1)}, null, null, null, null);
-                while (cursor != null) {
-                    try {
+                if (openDatabase == null) {
+                    return null;
+                }
+                try {
+                    cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, null, "shield = ?", new String[]{String.valueOf(1)}, null, null, null, null);
+                    while (cursor != null) {
                         try {
                             if (!cursor.moveToNext()) {
                                 break;
@@ -733,28 +734,25 @@ public class ChatUserDBManager extends DBBase {
                             }
                             return null;
                         }
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor2 = cursor;
-                        if (cursor2 != null) {
-                            cursor2.close();
-                        }
-                        throw th;
                     }
+                    LogUtils.d(TAG, "whereClause :shield = ?, users :" + arrayList.size());
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return arrayList;
+                } catch (Exception e3) {
+                    e = e3;
+                    cursor = null;
+                } catch (Throwable th) {
+                    th = th;
+                    if (r11 != 0) {
+                        r11.close();
+                    }
+                    throw th;
                 }
-                LogUtils.d(TAG, "whereClause :shield = ?, users :" + arrayList.size());
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return arrayList;
-            } catch (Exception e3) {
-                e = e3;
-                cursor = null;
             } catch (Throwable th2) {
                 th = th2;
-                if (cursor2 != null) {
-                }
-                throw th;
+                r11 = openDatabase;
             }
         }
     }

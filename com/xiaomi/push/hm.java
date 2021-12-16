@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class hm {
     public static /* synthetic */ Interceptable $ic;
     public static final hm a;
@@ -18,13 +18,13 @@ public final class hm {
     public static final /* synthetic */ hm[] f501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hm f63010b;
+    public static final hm f63591b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hm f63011c;
+    public static final hm f63592c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hm f63012d;
+    public static final hm f63593d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -44,11 +44,11 @@ public final class hm {
             }
         }
         a = new hm("INT", 0, 1);
-        f63010b = new hm("LONG", 1, 2);
-        f63011c = new hm("STRING", 2, 3);
+        f63591b = new hm("LONG", 1, 2);
+        f63592c = new hm("STRING", 2, 3);
         hm hmVar = new hm("BOOLEAN", 3, 4);
-        f63012d = hmVar;
-        f501a = new hm[]{a, f63010b, f63011c, hmVar};
+        f63593d = hmVar;
+        f501a = new hm[]{a, f63591b, f63592c, hmVar};
     }
 
     public hm(String str, int i2, int i3) {
@@ -82,11 +82,11 @@ public final class hm {
                         if (i2 != 4) {
                             return null;
                         }
-                        return f63012d;
+                        return f63593d;
                     }
-                    return f63011c;
+                    return f63592c;
                 }
-                return f63010b;
+                return f63591b;
             }
             return a;
         }

@@ -4,14 +4,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57135b;
+    public int f57716b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -27,6 +27,6 @@ public class f extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk
             }
         }
         this.a = -1;
-        this.f57135b = -1;
+        this.f57716b = -1;
     }
 }

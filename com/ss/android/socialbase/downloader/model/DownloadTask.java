@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -207,7 +207,7 @@ public class DownloadTask {
                 this.downloadInfo.setAddListenerToSameTask(true);
             }
             addListenerToDownloadingSameTask(f.a);
-            addListenerToDownloadingSameTask(f.f61676b);
+            addListenerToDownloadingSameTask(f.f62257b);
             com.ss.android.socialbase.downloader.d.a.a(this.monitorDepend, this.downloadInfo, new BaseException(1003, "has another same task, add Listener to old task"), 0);
         }
     }
@@ -231,7 +231,7 @@ public class DownloadTask {
                 public final /* synthetic */ p a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ DownloadTask f61990b;
+                public final /* synthetic */ DownloadTask f62571b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -248,7 +248,7 @@ public class DownloadTask {
                             return;
                         }
                     }
-                    this.f61990b = this;
+                    this.f62571b = this;
                     this.a = pVar;
                 }
 
@@ -256,7 +256,7 @@ public class DownloadTask {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int download = this.f61990b.download();
+                        int download = this.f62571b.download();
                         p pVar2 = this.a;
                         if (pVar2 != null) {
                             pVar2.a(download);
@@ -275,7 +275,7 @@ public class DownloadTask {
             synchronized (this) {
                 IDownloadListener singleDownloadListener = getSingleDownloadListener(f.a);
                 if (singleDownloadListener == null) {
-                    singleDownloadListener = getSingleDownloadListener(f.f61676b);
+                    singleDownloadListener = getSingleDownloadListener(f.f62257b);
                 }
                 if (singleDownloadListener != null) {
                     this.hashCodeForSameTask = singleDownloadListener.hashCode();
@@ -707,10 +707,10 @@ public class DownloadTask {
             if (fVar == f.a) {
                 return this.mainThreadListeners;
             }
-            if (fVar == f.f61676b) {
+            if (fVar == f.f62257b) {
                 return this.subThreadListeners;
             }
-            if (fVar == f.f61677c) {
+            if (fVar == f.f62258c) {
                 return this.notificationListeners;
             }
             return null;
@@ -1079,9 +1079,9 @@ public class DownloadTask {
                 synchronized (this.notificationListeners) {
                     this.notificationListeners.put(i2, iDownloadListener);
                 }
-                this.singleListenerMap.put(f.f61677c, iDownloadListener);
+                this.singleListenerMap.put(f.f62258c, iDownloadListener);
                 synchronized (this.singleListenerHashCodeMap) {
-                    this.singleListenerHashCodeMap.put(i2, f.f61677c);
+                    this.singleListenerHashCodeMap.put(i2, f.f62258c);
                 }
             }
             return this;
@@ -1238,11 +1238,11 @@ public class DownloadTask {
                 synchronized (this.mainThreadListeners) {
                     copyListeners(this.mainThreadListeners, sparseArray);
                 }
-            } else if (fVar == f.f61676b) {
+            } else if (fVar == f.f62257b) {
                 synchronized (this.subThreadListeners) {
                     copyListeners(this.subThreadListeners, sparseArray);
                 }
-            } else if (fVar == f.f61677c) {
+            } else if (fVar == f.f62258c) {
                 synchronized (this.notificationListeners) {
                     copyListeners(this.notificationListeners, sparseArray);
                 }
@@ -1300,9 +1300,9 @@ public class DownloadTask {
                 synchronized (this.subThreadListeners) {
                     this.subThreadListeners.put(i2, iDownloadListener);
                 }
-                this.singleListenerMap.put(f.f61676b, iDownloadListener);
+                this.singleListenerMap.put(f.f62257b, iDownloadListener);
                 synchronized (this.singleListenerHashCodeMap) {
-                    this.singleListenerHashCodeMap.put(i2, f.f61676b);
+                    this.singleListenerHashCodeMap.put(i2, f.f62257b);
                 }
             }
             return this;

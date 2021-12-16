@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.GeolocationPermissions;
 import java.util.Set;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class GeolocationPermissionsImpl extends GeolocationPermissions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class CallbackWrapper implements GeolocationPermissions.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

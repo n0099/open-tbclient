@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f30696b;
+    public final float f31066b;
 
     public a(float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class a {
             }
         }
         this.a = f2;
-        this.f30696b = f3;
+        this.f31066b = f3;
     }
 
     public final float a() {
@@ -43,6 +43,6 @@ public final class a {
     public final float b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30696b : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31066b : invokeV.floatValue;
     }
 }

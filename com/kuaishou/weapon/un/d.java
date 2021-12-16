@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.k;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String A = "wpcf";
@@ -76,38 +76,38 @@ public class d {
     public static final String c1 = "plc001_nc_w";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f56616d = "w_t";
+    public static final String f57197d = "w_t";
     public static final String d0 = "plc001_pd_pg_ps";
     public static final String d1 = "plc001_ac_a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f56617e = "w_t_r";
+    public static final String f57198e = "w_t_r";
     public static final String e0 = "plc001_pd_pt_pi";
     public static final String e1 = "plc001_ac_r";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f56618f = "w_t_u";
+    public static final String f57199f = "w_t_u";
     public static final String f0 = "plc001_pd_pk_pc";
     public static final String f1 = "plc001_pd_bss";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f56619g = "w_t_d";
+    public static final String f57200g = "w_t_d";
     public static final String g0 = "plc001_pd_ph_ps";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f56620h = "w_t_d_n";
+    public static final String f57201h = "w_t_d_n";
     public static final String h0 = "wlpit";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f56621i = "wwv";
+    public static final String f57202i = "wwv";
     public static final String i0 = "l_p_i_s";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f56622j = "wlpauct";
+    public static final String f57203j = "wlpauct";
     public static final String j0 = "plc001_p_i";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f56623k = "wnpauct";
+    public static final String f57204k = "wnpauct";
     public static final String k0 = "plc001_a_v_s";
     public static final String l = "wiipaot";
     public static final String l0 = "plc001_a_s_s";
@@ -143,10 +143,10 @@ public class d {
     public SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f56624b;
+    public SharedPreferences.Editor f57205b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f56625c;
+    public Context f57206c;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -166,8 +166,8 @@ public class d {
         try {
             SharedPreferences sharedPreferences = context.getSharedPreferences(r1.o, 4);
             this.a = sharedPreferences;
-            this.f56624b = sharedPreferences.edit();
-            this.f56625c = context;
+            this.f57205b = sharedPreferences.edit();
+            this.f57206c = context;
         } catch (Throwable th) {
             l1.a(th);
         }
@@ -189,10 +189,10 @@ public class d {
             }
         }
         try {
-            this.f56625c = context;
+            this.f57206c = context;
             SharedPreferences sharedPreferences = context.getSharedPreferences(str, 4);
             this.a = sharedPreferences;
-            this.f56624b = sharedPreferences.edit();
+            this.f57205b = sharedPreferences.edit();
         } catch (Throwable unused) {
         }
     }
@@ -234,16 +234,16 @@ public class d {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f56624b.putInt(X0, i2);
-            this.f56624b.apply();
+            this.f57205b.putInt(X0, i2);
+            this.f57205b.apply();
         }
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.f56624b.putLong(U0, j2);
-            this.f56624b.apply();
+            this.f57205b.putLong(U0, j2);
+            this.f57205b.apply();
         }
     }
 
@@ -259,8 +259,8 @@ public class d {
     public void a(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j2) == null) {
-            this.f56624b.putLong(str, j2);
-            this.f56624b.apply();
+            this.f57205b.putLong(str, j2);
+            this.f57205b.apply();
         }
     }
 
@@ -336,9 +336,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, bool) == null) {
             try {
-                if (this.f56624b != null) {
-                    this.f56624b.putBoolean(str, bool.booleanValue());
-                    this.f56624b.apply();
+                if (this.f57205b != null) {
+                    this.f57205b.putBoolean(str, bool.booleanValue());
+                    this.f57205b.apply();
                 }
             } catch (Exception unused) {
             }
@@ -349,7 +349,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             if (list == null || list.size() == 0) {
-                this.f56624b.putString(y, "");
+                this.f57205b.putString(y, "");
             } else {
                 StringBuilder sb = new StringBuilder();
                 for (int i2 = 0; i2 < list.size(); i2++) {
@@ -358,17 +358,17 @@ public class d {
                         sb.append("-");
                     }
                 }
-                this.f56624b.putString("glspk", sb.toString());
+                this.f57205b.putString("glspk", sb.toString());
             }
-            this.f56624b.apply();
+            this.f57205b.apply();
         }
     }
 
     public void a(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z2) == null) {
-            this.f56624b.putBoolean(n, z2);
-            this.f56624b.apply();
+            this.f57205b.putBoolean(n, z2);
+            this.f57205b.apply();
         }
     }
 
@@ -376,7 +376,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, iArr) == null) {
             if (iArr == null || iArr.length == 0) {
-                this.f56624b.putString(x, "");
+                this.f57205b.putString(x, "");
             } else {
                 StringBuilder sb = new StringBuilder();
                 for (int i2 = 0; i2 < iArr.length; i2++) {
@@ -385,9 +385,9 @@ public class d {
                         sb.append("-");
                     }
                 }
-                this.f56624b.putString("hcpk", sb.toString());
+                this.f57205b.putString("hcpk", sb.toString());
             }
-            this.f56624b.apply();
+            this.f57205b.apply();
         }
     }
 
@@ -428,8 +428,8 @@ public class d {
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            this.f56624b.putLong(V0, j2);
-            this.f56624b.apply();
+            this.f57205b.putLong(V0, j2);
+            this.f57205b.apply();
         }
     }
 
@@ -447,8 +447,8 @@ public class d {
         if (!(interceptable == null || interceptable.invokeLL(1048594, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f56624b.putString(str, str2);
-        this.f56624b.apply();
+        this.f57205b.putString(str, str2);
+        this.f57205b.apply();
     }
 
     public void b(String str, String str2, boolean z2) {
@@ -459,8 +459,8 @@ public class d {
         if (z2) {
             str2 = k1.c(str2.getBytes(), 2);
         }
-        this.f56624b.putString(str, str2);
-        this.f56624b.apply();
+        this.f57205b.putString(str, str2);
+        this.f57205b.apply();
     }
 
     public boolean b(String str) {
@@ -484,8 +484,8 @@ public class d {
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
-            this.f56624b.putLong(W0, j2);
-            this.f56624b.apply();
+            this.f57205b.putLong(W0, j2);
+            this.f57205b.apply();
         }
     }
 
@@ -493,8 +493,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048600, this, str, i2) == null) {
             try {
-                this.f56624b.putInt(str, i2);
-                this.f56624b.apply();
+                this.f57205b.putInt(str, i2);
+                this.f57205b.apply();
             } catch (Throwable unused) {
             }
         }
@@ -503,9 +503,9 @@ public class d {
     public void c(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, str, str2) == null) {
-            SharedPreferences.Editor editor = this.f56624b;
+            SharedPreferences.Editor editor = this.f57205b;
             editor.putString("as", str + "-" + str2);
-            this.f56624b.apply();
+            this.f57205b.apply();
         }
     }
 
@@ -518,8 +518,8 @@ public class d {
     public void d(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048603, this, j2) == null) {
-            this.f56624b.putLong(Y0, j2);
-            this.f56624b.apply();
+            this.f57205b.putLong(Y0, j2);
+            this.f57205b.apply();
         }
     }
 
@@ -551,8 +551,8 @@ public class d {
     public void e(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048607, this, j2) == null) {
-            this.f56624b.putLong(S0, j2);
-            this.f56624b.apply();
+            this.f57205b.putLong(S0, j2);
+            this.f57205b.apply();
         }
     }
 
@@ -565,8 +565,8 @@ public class d {
     public void f(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048609, this, j2) == null) {
-            this.f56624b.putLong(T0, j2);
-            this.f56624b.apply();
+            this.f57205b.putLong(T0, j2);
+            this.f57205b.apply();
         }
     }
 
@@ -638,7 +638,7 @@ public class d {
     public SharedPreferences.Editor l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f56624b : (SharedPreferences.Editor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f57205b : (SharedPreferences.Editor) invokeV.objValue;
     }
 
     public SharedPreferences m() {

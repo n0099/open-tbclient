@@ -21,11 +21,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.s.s.a;
-import c.a.r0.h4.j.a;
-import c.a.r0.h4.l.f;
-import c.a.r0.h4.l.g;
-import c.a.r0.h4.l.k;
+import c.a.r0.s.t.a;
+import c.a.s0.j4.j.a;
+import c.a.s0.j4.l.f;
+import c.a.s0.j4.l.g;
+import c.a.s0.j4.l.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -85,7 +85,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RecordVideoActivity extends BaseActivity implements VideoEffectButtonLayout.a, VideoControllerLayout.f, VideoEffectLayout.h, g.l, RecordTabLayout.c, RecordLayout.a, GLVideoPreviewView.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TAB_PHOTO = 1;
@@ -93,7 +93,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
     public transient /* synthetic */ FieldHolder $fh;
     public int bottomTabShowType;
     public CustomMessageListener mAfterJumpWriteActivityListener;
-    public c.a.q0.s.s.a mAlertDialog;
+    public c.a.r0.s.t.a mAlertDialog;
     public ImageView mCameraSwitch;
     public ImageView mClose;
     public final CustomMessageListener mCloseListener;
@@ -115,19 +115,19 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
     public boolean mIsProcessFaceIdentifyFail;
     public boolean mIsRecordingState;
     public TextView mMinTimeTips;
-    public c.a.r0.h4.l.i mMusicController;
+    public c.a.s0.j4.l.i mMusicController;
     public SelectMusicModel mMusicModel;
-    public a.InterfaceC1067a mOnLocalVideoLoadedListener;
-    public c.a.r0.g2.g mPostMonitorManager;
-    public c.a.r0.h4.l.g mPreviewController;
+    public a.InterfaceC1124a mOnLocalVideoLoadedListener;
+    public c.a.s0.h2.g mPostMonitorManager;
+    public c.a.s0.j4.l.g mPreviewController;
     public View mProgressView;
-    public c.a.r0.h4.l.h mRecordController;
+    public c.a.s0.j4.l.h mRecordController;
     public RecordLayout mRootLayout;
     public RoundProgressBar mRoundProgressBar;
     public ObjectAnimator mShowTabAnimator;
     public AnimatorSet mStartRecodingAnimatorSet;
     public View mStatusBarView;
-    public c.a.r0.h4.l.k mStickerManager;
+    public c.a.s0.j4.l.k mStickerManager;
     public AnimatorSet mStopRecodingAnimatorSet;
     public PreviewViewContainer mSurfaceContainer;
     public RecordTabLayout mTabLayout;
@@ -136,9 +136,9 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
     public TextView mTvCountDown;
     public String mVideoTitle;
     public WriteImagesInfo mWriteImagesInfo;
-    public c.a.r0.h4.l.b mZoomHelper;
+    public c.a.s0.j4.l.b mZoomHelper;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements f.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             this.a = recordVideoActivity;
         }
 
-        @Override // c.a.r0.h4.l.f.a
+        @Override // c.a.s0.j4.l.f.a
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -199,13 +199,13 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         }
     }
 
-    /* loaded from: classes11.dex */
-    public class b extends c.a.r0.h4.l.l {
+    /* loaded from: classes12.dex */
+    public class b extends c.a.s0.j4.l.l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RecordVideoActivity f49792f;
+        public final /* synthetic */ RecordVideoActivity f50308f;
 
         public b(RecordVideoActivity recordVideoActivity) {
             Interceptable interceptable = $ic;
@@ -222,32 +222,32 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                     return;
                 }
             }
-            this.f49792f = recordVideoActivity;
+            this.f50308f = recordVideoActivity;
         }
 
-        @Override // c.a.r0.h4.l.l, android.animation.Animator.AnimatorListener
+        @Override // c.a.s0.j4.l.l, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f18172e) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f18821e) {
                 return;
             }
-            this.f49792f.mTabLayout.setVisibility(8);
+            this.f50308f.mTabLayout.setVisibility(8);
         }
     }
 
-    /* loaded from: classes11.dex */
-    public class c extends BdAsyncTask<Void, Void, c.a.r0.h4.k.i> {
+    /* loaded from: classes12.dex */
+    public class c extends BdAsyncTask<Void, Void, c.a.s0.j4.k.i> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f49793b;
+        public Handler f50309b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ RecordVideoActivity f49794c;
+        public final /* synthetic */ RecordVideoActivity f50310c;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         public class a extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -281,7 +281,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && (i2 = (cVar = this.a).a) >= 0) {
                     cVar.a = (i2 + 5) % 100;
-                    cVar.f49794c.mRoundProgressBar.updateProgress(this.a.a);
+                    cVar.f50310c.mRoundProgressBar.updateProgress(this.a.a);
                     this.a.d();
                 }
             }
@@ -302,66 +302,66 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                     return;
                 }
             }
-            this.f49794c = recordVideoActivity;
-            this.f49793b = new a(this, Looper.getMainLooper());
+            this.f50310c = recordVideoActivity;
+            this.f50309b = new a(this, Looper.getMainLooper());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public c.a.r0.h4.k.i doInBackground(Void... voidArr) {
+        public c.a.s0.j4.k.i doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 d();
-                c.a.r0.h4.l.i iVar = this.f49794c.mMusicController;
-                boolean z = iVar == null || TextUtils.isEmpty(iVar.g()) || !new File(this.f49794c.mMusicController.g()).exists();
-                if (this.f49794c.mPreviewController.q.size() > 1) {
-                    c.a.r0.h4.k.h e2 = c.a.r0.h4.k.h.e();
-                    c.a.r0.h4.l.g gVar = this.f49794c.mPreviewController;
+                c.a.s0.j4.l.i iVar = this.f50310c.mMusicController;
+                boolean z = iVar == null || TextUtils.isEmpty(iVar.g()) || !new File(this.f50310c.mMusicController.g()).exists();
+                if (this.f50310c.mPreviewController.q.size() > 1) {
+                    c.a.s0.j4.k.h e2 = c.a.s0.j4.k.h.e();
+                    c.a.s0.j4.l.g gVar = this.f50310c.mPreviewController;
                     return e2.i(gVar.q, gVar.g(), z);
                 }
-                File file = new File(this.f49794c.mPreviewController.q.get(0));
+                File file = new File(this.f50310c.mPreviewController.q.get(0));
                 if (file.exists()) {
                     if (z) {
                         try {
-                            FileHelper.copyFileByAbsolutelyPath(file.getPath(), this.f49794c.mPreviewController.g());
+                            FileHelper.copyFileByAbsolutelyPath(file.getPath(), this.f50310c.mPreviewController.g());
                         } catch (Exception e3) {
                             e3.printStackTrace();
                         }
-                        return new c.a.r0.h4.k.i(0, "");
+                        return new c.a.s0.j4.k.i(0, "");
                     }
-                    c.a.r0.h4.k.h e4 = c.a.r0.h4.k.h.e();
-                    c.a.r0.h4.l.g gVar2 = this.f49794c.mPreviewController;
+                    c.a.s0.j4.k.h e4 = c.a.s0.j4.k.h.e();
+                    c.a.s0.j4.l.g gVar2 = this.f50310c.mPreviewController;
                     return e4.i(gVar2.q, gVar2.g(), z);
                 }
                 return null;
             }
-            return (c.a.r0.h4.k.i) invokeL.objValue;
+            return (c.a.s0.j4.k.i) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(c.a.r0.h4.k.i iVar) {
+        public void onPostExecute(c.a.s0.j4.k.i iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar) == null) {
                 this.a = -1;
-                this.f49794c.mHandler.removeMessages(1);
-                this.f49794c.mControllerLayout.resetMusicPos();
+                this.f50310c.mHandler.removeMessages(1);
+                this.f50310c.mControllerLayout.resetMusicPos();
                 if (iVar != null && iVar.a == 0) {
-                    this.f49794c.goToEditVideo();
-                    this.f49794c.recordCompress(102);
-                    this.f49794c.mProgressView.setVisibility(8);
+                    this.f50310c.goToEditVideo();
+                    this.f50310c.recordCompress(102);
+                    this.f50310c.mProgressView.setVisibility(8);
                     return;
                 }
-                RecordVideoActivity recordVideoActivity = this.f49794c;
-                c.a.d.f.p.l.M(recordVideoActivity, recordVideoActivity.getString(R.string.mix_fail));
-                this.f49794c.mProgressView.setVisibility(8);
+                RecordVideoActivity recordVideoActivity = this.f50310c;
+                c.a.d.f.p.m.M(recordVideoActivity, recordVideoActivity.getString(R.string.mix_fail));
+                this.f50310c.mProgressView.setVisibility(8);
                 if (iVar != null) {
-                    this.f49794c.recordVideoRecord(iVar.a, iVar.f18086b);
+                    this.f50310c.recordVideoRecord(iVar.a, iVar.f18735b);
                 }
-                this.f49794c.mRoundProgressBar.updateProgress(0.0f);
+                this.f50310c.mRoundProgressBar.updateProgress(0.0f);
             }
         }
 
@@ -370,17 +370,17 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a < 0) {
                 return;
             }
-            this.f49793b.sendEmptyMessageDelayed(1, 50L);
+            this.f50309b.sendEmptyMessageDelayed(1, 50L);
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecordVideoActivity f49795e;
+        public final /* synthetic */ RecordVideoActivity f50311e;
 
         public d(RecordVideoActivity recordVideoActivity) {
             Interceptable interceptable = $ic;
@@ -397,19 +397,19 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                     return;
                 }
             }
-            this.f49795e = recordVideoActivity;
+            this.f50311e = recordVideoActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49795e.mGestureGuideView.setVisibility(8);
+                this.f50311e.mGestureGuideView.setVisibility(8);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -446,7 +446,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -484,7 +484,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class g extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -521,8 +521,8 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         }
     }
 
-    /* loaded from: classes11.dex */
-    public class h implements a.InterfaceC1067a {
+    /* loaded from: classes12.dex */
+    public class h implements a.InterfaceC1124a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecordVideoActivity a;
@@ -545,8 +545,8 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             this.a = recordVideoActivity;
         }
 
-        @Override // c.a.r0.h4.j.a.InterfaceC1067a
-        public void a(List<c.a.r0.h4.j.b> list) {
+        @Override // c.a.s0.j4.j.a.InterfaceC1124a
+        public void a(List<c.a.s0.j4.j.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 if (ListUtils.isEmpty(list)) {
@@ -561,7 +561,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class i extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -609,7 +609,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class j implements g.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -633,7 +633,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             this.a = recordVideoActivity;
         }
 
-        @Override // c.a.r0.h4.l.g.k
+        @Override // c.a.s0.j4.l.g.k
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.mControllerLayout.isEffectLayoutVisible()) {
@@ -642,7 +642,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class k implements k.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -666,7 +666,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             this.a = recordVideoActivity;
         }
 
-        @Override // c.a.r0.h4.l.k.b
+        @Override // c.a.s0.j4.l.k.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -674,7 +674,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                     StickerItem stickerItem = new StickerItem();
                     stickerItem.id = -1;
                     this.a.mControllerLayout.selectSticker(stickerItem);
-                    c.a.r0.h4.l.g gVar = this.a.mPreviewController;
+                    c.a.s0.j4.l.g gVar = this.a.mPreviewController;
                     if (gVar != null) {
                         gVar.H(null);
                     }
@@ -695,7 +695,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             }
         }
 
-        @Override // c.a.r0.h4.l.k.b
+        @Override // c.a.s0.j4.l.k.b
         public void b() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.mControllerLayout == null) {
@@ -704,7 +704,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             this.a.mControllerLayout.setDownLoadSticker(null);
         }
 
-        @Override // c.a.r0.h4.l.k.b
+        @Override // c.a.s0.j4.l.k.b
         public void c(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
@@ -717,13 +717,13 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class l implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecordVideoActivity f49796e;
+        public final /* synthetic */ RecordVideoActivity f50312e;
 
         public l(RecordVideoActivity recordVideoActivity) {
             Interceptable interceptable = $ic;
@@ -740,26 +740,26 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                     return;
                 }
             }
-            this.f49796e = recordVideoActivity;
+            this.f50312e = recordVideoActivity;
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // c.a.r0.s.t.a.e
+        public void onClick(c.a.r0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f49796e.finish();
+                this.f50312e.finish();
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class m implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecordVideoActivity f49797e;
+        public final /* synthetic */ RecordVideoActivity f50313e;
 
         public m(RecordVideoActivity recordVideoActivity) {
             Interceptable interceptable = $ic;
@@ -776,11 +776,11 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                     return;
                 }
             }
-            this.f49797e = recordVideoActivity;
+            this.f50313e = recordVideoActivity;
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // c.a.r0.s.t.a.e
+        public void onClick(c.a.r0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -788,14 +788,14 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class n implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AtomicInteger a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ RecordVideoActivity f49798b;
+        public final /* synthetic */ RecordVideoActivity f50314b;
 
         public n(RecordVideoActivity recordVideoActivity, AtomicInteger atomicInteger) {
             Interceptable interceptable = $ic;
@@ -812,7 +812,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                     return;
                 }
             }
-            this.f49798b = recordVideoActivity;
+            this.f50314b = recordVideoActivity;
             this.a = atomicInteger;
         }
 
@@ -820,9 +820,9 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f49798b.mTvCountDown.setVisibility(8);
-                if (this.f49798b.mRecordController.f() == 6) {
-                    this.f49798b.mControllerLayout.onCountDownEnd();
+                this.f50314b.mTvCountDown.setVisibility(8);
+                if (this.f50314b.mRecordController.f() == 6) {
+                    this.f50314b.mControllerLayout.onCountDownEnd();
                 }
             }
         }
@@ -830,11 +830,11 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) && this.f49798b.mRecordController.f() == 6) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) && this.f50314b.mRecordController.f() == 6) {
                 if (this.a.decrementAndGet() > 1) {
-                    this.f49798b.mTvCountDown.setText(String.valueOf(this.a.get() / 2));
+                    this.f50314b.mTvCountDown.setText(String.valueOf(this.a.get() / 2));
                 } else {
-                    this.f49798b.mTvCountDown.setText("");
+                    this.f50314b.mTvCountDown.setText("");
                 }
             }
         }
@@ -842,21 +842,21 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationStart(Animation animation) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) && this.f49798b.mRecordController.f() == 6) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) && this.f50314b.mRecordController.f() == 6) {
                 this.a.set(7);
-                this.f49798b.mTvCountDown.setVisibility(0);
-                this.f49798b.mTvCountDown.setText(String.valueOf(this.a.get() / 2));
+                this.f50314b.mTvCountDown.setVisibility(0);
+                this.f50314b.mTvCountDown.setText(String.valueOf(this.a.get() / 2));
             }
         }
     }
 
-    /* loaded from: classes11.dex */
-    public class o extends c.a.r0.h4.l.l {
+    /* loaded from: classes12.dex */
+    public class o extends c.a.s0.j4.l.l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RecordVideoActivity f49799f;
+        public final /* synthetic */ RecordVideoActivity f50315f;
 
         public o(RecordVideoActivity recordVideoActivity) {
             Interceptable interceptable = $ic;
@@ -873,18 +873,18 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                     return;
                 }
             }
-            this.f49799f = recordVideoActivity;
+            this.f50315f = recordVideoActivity;
         }
 
-        @Override // c.a.r0.h4.l.l, android.animation.Animator.AnimatorListener
+        @Override // c.a.s0.j4.l.l, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f18172e) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f18821e) {
                 return;
             }
-            this.f49799f.mTopControllerLayout.setVisibility(8);
-            this.f49799f.mEffectButtonLayout.setVisibility(8);
-            this.f49799f.mTabLayout.setVisibility(8);
+            this.f50315f.mTopControllerLayout.setVisibility(8);
+            this.f50315f.mEffectButtonLayout.setVisibility(8);
+            this.f50315f.mTabLayout.setVisibility(8);
         }
     }
 
@@ -921,12 +921,12 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         }
         this.mIsNeedToLoadLocalVideo = true;
         this.mAfterJumpWriteActivityListener = new g(this, 2921583);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, c.a.r0.g2.k.class);
-        c.a.r0.g2.k kVar = runTask != null ? (c.a.r0.g2.k) runTask.getData() : null;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, c.a.s0.h2.k.class);
+        c.a.s0.h2.k kVar = runTask != null ? (c.a.s0.h2.k) runTask.getData() : null;
         if (kVar != null) {
             this.mPostMonitorManager = kVar.get();
         }
-        c.a.r0.g2.g gVar = this.mPostMonitorManager;
+        c.a.s0.h2.g gVar = this.mPostMonitorManager;
         if (gVar != null) {
             gVar.g();
         }
@@ -1012,12 +1012,12 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             }
             editVideoActivityConfig.setExtraData(r1, postPrefixData, str2, str);
             editVideoActivityConfig.setFrom(this.mForumWriteData.mFrom);
-            c.a.r0.h4.l.i iVar = this.mMusicController;
+            c.a.s0.j4.l.i iVar = this.mMusicController;
             if (iVar != null) {
                 iVar.f(editVideoActivityConfig);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, editVideoActivityConfig));
-            c.a.r0.g2.g gVar = this.mPostMonitorManager;
+            c.a.s0.h2.g gVar = this.mPostMonitorManager;
             if (gVar != null) {
                 gVar.d();
             }
@@ -1047,7 +1047,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             RecordLayout recordLayout = (RecordLayout) findViewById(R.id.root_layout);
             this.mRootLayout = recordLayout;
             recordLayout.setListener(this);
-            this.mRecordController = new c.a.r0.h4.l.h(this);
+            this.mRecordController = new c.a.s0.j4.l.h(this);
             VideoControllerLayout videoControllerLayout = (VideoControllerLayout) findViewById(R.id.record_controller_layout);
             this.mControllerLayout = videoControllerLayout;
             videoControllerLayout.setRecordController(this.mRecordController);
@@ -1067,7 +1067,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             this.mCountDown = imageView4;
             imageView4.setOnClickListener(this);
             this.mSurfaceContainer = (PreviewViewContainer) findViewById(R.id.video_surface_container);
-            c.a.r0.h4.l.g gVar = new c.a.r0.h4.l.g(this);
+            c.a.s0.j4.l.g gVar = new c.a.s0.j4.l.g(this);
             this.mPreviewController = gVar;
             gVar.I(this);
             this.mPreviewController.D(this);
@@ -1079,7 +1079,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             this.mEffectButtonLayout.setViewChoosed(2, true);
             this.mTvCountDown = (TextView) findViewById(R.id.tv_count_down);
             this.mGestureGuideView = (TextView) findViewById(R.id.gesture_guide_tv);
-            int i2 = ((c.a.d.f.p.l.i(this.mContext) - c.a.d.f.p.l.f(this.mContext, R.dimen.ds336)) / 2) - c.a.d.f.p.l.f(this.mContext, R.dimen.ds150);
+            int i2 = ((c.a.d.f.p.m.i(this.mContext) - c.a.d.f.p.m.f(this.mContext, R.dimen.ds336)) / 2) - c.a.d.f.p.m.f(this.mContext, R.dimen.ds150);
             if (this.mTvCountDown.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                 ((ViewGroup.MarginLayoutParams) this.mTvCountDown.getLayoutParams()).topMargin = i2;
             }
@@ -1092,7 +1092,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             TextView textView = (TextView) findViewById(R.id.min_time_tips);
             this.mMinTimeTips = textView;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) textView.getLayoutParams();
-            layoutParams.leftMargin = ((int) (c.a.d.f.p.l.k(this.mContext) * 0.2d)) - c.a.d.f.p.l.f(this.mContext, R.dimen.ds38);
+            layoutParams.leftMargin = ((int) (c.a.d.f.p.m.k(this.mContext) * 0.2d)) - c.a.d.f.p.m.f(this.mContext, R.dimen.ds38);
             this.mMinTimeTips.setLayoutParams(layoutParams);
             this.mTabLayout = (RecordTabLayout) findViewById(R.id.tab_layout);
             WriteImagesInfo writeImagesInfo = this.mWriteImagesInfo;
@@ -1108,7 +1108,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
     private void loadLocalVideo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65563, this) == null) {
-            c.a.r0.h4.j.a aVar = new c.a.r0.h4.j.a(this);
+            c.a.s0.j4.j.a aVar = new c.a.s0.j4.j.a(this);
             aVar.d(this.mOnLocalVideoLoadedListener);
             aVar.execute(new Void[0]);
         }
@@ -1126,7 +1126,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
 
     /* JADX INFO: Access modifiers changed from: private */
     public void recordCompress(int i2) {
-        c.a.r0.g2.g gVar;
+        c.a.s0.h2.g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(65565, this, i2) == null) || (gVar = this.mPostMonitorManager) == null) {
             return;
@@ -1169,7 +1169,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             return;
         }
         stickerItem.localPath = str;
-        c.a.r0.h4.l.g gVar = this.mPreviewController;
+        c.a.s0.j4.l.g gVar = this.mPreviewController;
         if (gVar != null) {
             gVar.H(stickerItem);
             this.mIsProcessFaceIdentifyFail = true;
@@ -1232,7 +1232,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             ArrayList arrayList = new ArrayList();
             VideoControllerLayout videoControllerLayout = this.mControllerLayout;
             if (videoControllerLayout != null && !ListUtils.isEmpty(videoControllerLayout.getChoosedBeautyList())) {
-                for (c.a.r0.h4.l.d dVar : this.mControllerLayout.getChoosedBeautyList()) {
+                for (c.a.s0.j4.l.d dVar : this.mControllerLayout.getChoosedBeautyList()) {
                     if (dVar != null) {
                         String b2 = dVar.b();
                         if (!TextUtils.isEmpty(b2)) {
@@ -1256,7 +1256,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             ArrayList arrayList = new ArrayList();
             VideoControllerLayout videoControllerLayout = this.mControllerLayout;
             if (videoControllerLayout != null && !ListUtils.isEmpty(videoControllerLayout.getChoosedFilterList())) {
-                for (c.a.r0.h4.l.d dVar : this.mControllerLayout.getChoosedFilterList()) {
+                for (c.a.s0.j4.l.d dVar : this.mControllerLayout.getChoosedFilterList()) {
                     if (dVar != null) {
                         String str = (String) dVar.c();
                         if (!TextUtils.isEmpty(str)) {
@@ -1327,7 +1327,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             if (TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2)) {
                 return;
             }
-            String f2 = c.a.r0.h4.i.f.a.g().f(stringExtra);
+            String f2 = c.a.s0.j4.i.f.a.g().f(stringExtra);
             if (this.mMusicController == null || TextUtils.isEmpty(f2)) {
                 return;
             }
@@ -1340,9 +1340,9 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.r0.h4.l.h hVar = this.mRecordController;
+            c.a.s0.j4.l.h hVar = this.mRecordController;
             if (hVar == null || hVar.f() != 7) {
-                c.a.r0.h4.l.h hVar2 = this.mRecordController;
+                c.a.s0.j4.l.h hVar2 = this.mRecordController;
                 if (hVar2 != null && hVar2.f() == 6) {
                     VideoControllerLayout videoControllerLayout = this.mControllerLayout;
                     if (videoControllerLayout != null) {
@@ -1351,13 +1351,13 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                     onCancelCountDowning();
                     return;
                 }
-                c.a.r0.h4.l.h hVar3 = this.mRecordController;
+                c.a.s0.j4.l.h hVar3 = this.mRecordController;
                 if (hVar3 != null && hVar3.k()) {
                     finish();
                     return;
                 }
                 if (this.mAlertDialog == null) {
-                    c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(getPageContext().getPageActivity());
+                    c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(getPageContext().getPageActivity());
                     this.mAlertDialog = aVar;
                     aVar.setMessageId(R.string.video_quit_confirm);
                     this.mAlertDialog.setPositiveButton(R.string.dialog_ok, new l(this));
@@ -1378,7 +1378,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             this.mCountDowningAnimaton.setAnimationListener(null);
             this.mTvCountDown.clearAnimation();
             this.mTvCountDown.setVisibility(8);
-            c.a.r0.h4.l.i iVar = this.mMusicController;
+            c.a.s0.j4.l.i iVar = this.mMusicController;
             if (iVar != null) {
                 iVar.l();
             }
@@ -1453,7 +1453,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             this.mTvCountDown.setAnimation(this.mCountDowningAnimaton);
             this.mCountDowningAnimaton.startNow();
             this.mControllerLayout.onClickCountDown();
-            c.a.r0.h4.l.i iVar = this.mMusicController;
+            c.a.s0.j4.l.i iVar = this.mMusicController;
             if (iVar != null) {
                 iVar.n();
             }
@@ -1523,7 +1523,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             SelectMusicModel selectMusicModel = new SelectMusicModel(getPageContext(), this.mControllerLayout);
             this.mMusicModel = selectMusicModel;
             selectMusicModel.x();
-            c.a.r0.h4.l.i iVar = new c.a.r0.h4.l.i(this);
+            c.a.s0.j4.l.i iVar = new c.a.s0.j4.l.i(this);
             this.mMusicController = iVar;
             iVar.s(this.mMusicModel);
             this.mRecordController.c(this.mMusicController);
@@ -1533,7 +1533,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             registerListener(this.mAfterJumpWriteActivityListener);
             loadStickers();
             if (Build.VERSION.SDK_INT >= 28 && RomTypeUtil.isOPPO() && TbSingleton.getInstance().isCutoutScreen(this)) {
-                c.a.r0.f4.d.b(1, getWindow().getAttributes(), getWindow());
+                c.a.s0.h4.d.b(1, getWindow().getAttributes(), getWindow());
             }
         }
     }
@@ -1543,7 +1543,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onDestroy();
-            c.a.r0.h4.l.h hVar = this.mRecordController;
+            c.a.s0.j4.l.h hVar = this.mRecordController;
             if (hVar != null && hVar.j()) {
                 this.mRecordController.o();
             }
@@ -1551,7 +1551,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             if (selectMusicModel != null) {
                 selectMusicModel.cancelLoadData();
             }
-            c.a.r0.g2.g gVar = this.mPostMonitorManager;
+            c.a.s0.h2.g gVar = this.mPostMonitorManager;
             if (gVar != null) {
                 gVar.k(BundleOpProvider.METHOD_BUNDLE_RECORD);
             }
@@ -1559,17 +1559,17 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectLayout.h
-    public void onEffectChoosed(c.a.r0.h4.l.d dVar, Object obj) {
+    public void onEffectChoosed(c.a.s0.j4.l.d dVar, Object obj) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048592, this, dVar, obj) == null) || this.mPreviewController == null || dVar == null) {
             return;
         }
         int type = dVar.getType();
         if (type == 1) {
-            if (dVar.c() instanceof c.a.r0.h4.a) {
-                this.mPreviewController.B((c.a.r0.h4.a) dVar.c());
-                TiebaStatic.log(new StatisticItem("c12421").param("obj_id", ((c.a.r0.h4.a) dVar.c()).a));
-                if (((c.a.r0.h4.a) dVar.c()).a == 0) {
+            if (dVar.c() instanceof c.a.s0.j4.a) {
+                this.mPreviewController.B((c.a.s0.j4.a) dVar.c());
+                TiebaStatic.log(new StatisticItem("c12421").param("obj_id", ((c.a.s0.j4.a) dVar.c()).a));
+                if (((c.a.s0.j4.a) dVar.c()).a == 0) {
                     this.mEffectButtonLayout.setViewChoosed(2, false);
                 } else {
                     this.mEffectButtonLayout.setViewChoosed(2, true);
@@ -1605,7 +1605,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
     public void onFaceIdentifyState(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            c.a.r0.h4.l.h hVar = this.mRecordController;
+            c.a.s0.j4.l.h hVar = this.mRecordController;
             if (hVar != null && (hVar.f() == 1 || this.mRecordController.f() == 3 || this.mRecordController.f() == 4)) {
                 if (!z && this.mIsProcessFaceIdentifyFail) {
                     this.mSurfaceContainer.showFaceFailIdentifyView();
@@ -1637,17 +1637,17 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             super.onPause();
             this.mPreviewController.u();
             if (this.mControllerLayout != null) {
-                c.a.r0.h4.l.h hVar = this.mRecordController;
+                c.a.s0.j4.l.h hVar = this.mRecordController;
                 if (hVar != null && hVar.f() == 6) {
                     this.mControllerLayout.stopRecord();
                     onCancelCountDowning();
                 }
-                c.a.r0.h4.l.h hVar2 = this.mRecordController;
+                c.a.s0.j4.l.h hVar2 = this.mRecordController;
                 if (hVar2 != null && hVar2.j()) {
                     this.mControllerLayout.stopRecord();
                 }
             }
-            c.a.r0.h4.l.i iVar = this.mMusicController;
+            c.a.s0.j4.l.i iVar = this.mMusicController;
             if (iVar != null) {
                 iVar.k();
             }
@@ -1696,7 +1696,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onResume();
             this.mPreviewController.v();
-            c.a.r0.h4.l.b k2 = this.mPreviewController.k();
+            c.a.s0.j4.l.b k2 = this.mPreviewController.k();
             this.mZoomHelper = k2;
             if (k2 != null) {
                 k2.c(this.mRecordController);
@@ -1704,7 +1704,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             }
             refreshFlashBtnUI();
             if (this.mStickerManager == null) {
-                c.a.r0.h4.l.k kVar = new c.a.r0.h4.l.k();
+                c.a.s0.j4.l.k kVar = new c.a.s0.j4.l.k();
                 this.mStickerManager = kVar;
                 kVar.k(new k(this));
             }
@@ -1712,7 +1712,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             if (this.mControllerLayout != null && this.mIsNeedToLoadLocalVideo) {
                 loadLocalVideo();
             }
-            c.a.r0.g2.g gVar = this.mPostMonitorManager;
+            c.a.s0.h2.g gVar = this.mPostMonitorManager;
             if (gVar != null) {
                 gVar.e("album");
             }
@@ -1773,7 +1773,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         this.mCurrentSticker = stickerItem;
         this.mStickerManager.j(stickerItem.resource);
         if (stickerItem.id == -1) {
-            c.a.r0.h4.l.g gVar = this.mPreviewController;
+            c.a.s0.j4.l.g gVar = this.mPreviewController;
             if (gVar != null) {
                 gVar.H(null);
                 this.mIsProcessFaceIdentifyFail = false;
@@ -1820,7 +1820,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                     return;
                 }
                 this.mIsRecordingState = false;
-                c.a.r0.h4.l.i iVar = this.mMusicController;
+                c.a.s0.j4.l.i iVar = this.mMusicController;
                 if (iVar != null) {
                     iVar.n();
                 }
@@ -1846,12 +1846,12 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         }
     }
 
-    @Override // c.a.r0.h4.l.g.l
+    @Override // c.a.s0.j4.l.g.l
     public void onSurfaceViewLayoutChange(int i2, int i3) {
         int dimensionPixelOffset;
         int i4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048607, this, i2, i3) == null) || (dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.ds336)) <= 0 || i3 <= 0 || (i4 = (c.a.d.f.p.l.q(this).heightPixels - i3) - dimensionPixelOffset) <= 0) {
+        if (!(interceptable == null || interceptable.invokeII(1048607, this, i2, i3) == null) || (dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.ds336)) <= 0 || i3 <= 0 || (i4 = (c.a.d.f.p.m.q(this).heightPixels - i3) - dimensionPixelOffset) <= 0) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = this.mControllerLayout.getLayoutParams();
@@ -1872,7 +1872,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         }
         int i3 = 2;
         if (i2 == 1) {
-            c.a.r0.h4.l.i iVar = this.mMusicController;
+            c.a.s0.j4.l.i iVar = this.mMusicController;
             if (iVar != null) {
                 iVar.q();
             }
@@ -1902,7 +1902,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
 
     @Override // com.baidu.tieba.video.record.VideoControllerLayout.f
     public void onTakePhoto() {
-        c.a.r0.h4.l.g gVar;
+        c.a.s0.j4.l.g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048609, this) == null) || (gVar = this.mPreviewController) == null) {
             return;

@@ -15,23 +15,23 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class CHCreditItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MaskTextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f52647b;
+    public MaskTextView f53227b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f52648c;
+    public MaskTextView f53228c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f52649d;
+    public MaskTextView f53229d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f52650e;
+    public MaskTextView f53230e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHCreditItem(Context context) {
@@ -68,10 +68,10 @@ public class CHCreditItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_item"), this);
             this.a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines"));
-            this.f52647b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_tip"));
-            this.f52648c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title"));
-            this.f52650e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_lable"));
-            this.f52649d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title_desc"));
+            this.f53227b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_tip"));
+            this.f53228c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title"));
+            this.f53230e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_lable"));
+            this.f53229d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title_desc"));
         }
     }
 
@@ -88,21 +88,21 @@ public class CHCreditItem extends BaseItemView {
         if (!TextUtils.isEmpty(getData().value1) && (maskTextView5 = this.a) != null) {
             maskTextView5.setMaskText(getData().value1);
         }
-        if (!TextUtils.isEmpty(getData().value2) && (maskTextView4 = this.f52647b) != null) {
+        if (!TextUtils.isEmpty(getData().value2) && (maskTextView4 = this.f53227b) != null) {
             maskTextView4.setMaskText(getData().value2);
         }
-        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f52648c) != null) {
+        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f53228c) != null) {
             maskTextView3.setMaskText(getData().name);
         }
-        if (!TextUtils.isEmpty(getData().label) && (maskTextView2 = this.f52650e) != null) {
+        if (!TextUtils.isEmpty(getData().label) && (maskTextView2 = this.f53230e) != null) {
             maskTextView2.setMaskText(getData().label);
         } else {
-            MaskTextView maskTextView6 = this.f52650e;
+            MaskTextView maskTextView6 = this.f53230e;
             if (maskTextView6 != null) {
                 maskTextView6.setVisibility(8);
             }
         }
-        if (TextUtils.isEmpty(getData().value3) || (maskTextView = this.f52649d) == null) {
+        if (TextUtils.isEmpty(getData().value3) || (maskTextView = this.f53229d) == null) {
             return;
         }
         maskTextView.setMaskText(getData().value3);

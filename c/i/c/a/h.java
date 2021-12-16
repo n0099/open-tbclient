@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.InstallActivity;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class h implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f30509e;
+    public final /* synthetic */ InstallActivity f30879e;
 
     public h(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public final class h implements View.OnClickListener {
                 return;
             }
         }
-        this.f30509e = installActivity;
+        this.f30879e = installActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f30509e.finishWithFailure(new UnavailableUserDeclinedInstallationException());
+            this.f30879e.finishWithFailure(new UnavailableUserDeclinedInstallationException());
         }
     }
 }

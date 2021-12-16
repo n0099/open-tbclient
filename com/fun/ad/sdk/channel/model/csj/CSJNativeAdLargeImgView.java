@@ -17,16 +17,16 @@ import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.module.csj.e0;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class CSJNativeAdLargeImgView extends e0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f55638f;
+    public ImageView f56219f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f55639g;
+    public float f56220g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdLargeImgView(Context context) {
@@ -46,7 +46,7 @@ public final class CSJNativeAdLargeImgView extends e0 {
                 return;
             }
         }
-        this.f55639g = 1.78f;
+        this.f56220g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,7 +68,7 @@ public final class CSJNativeAdLargeImgView extends e0 {
                 return;
             }
         }
-        this.f55639g = 1.78f;
+        this.f56220g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -90,7 +90,7 @@ public final class CSJNativeAdLargeImgView extends e0 {
                 return;
             }
         }
-        this.f55639g = 1.78f;
+        this.f56220g = 1.78f;
     }
 
     @Override // com.fun.module.csj.e0
@@ -104,8 +104,8 @@ public final class CSJNativeAdLargeImgView extends e0 {
                 return;
             }
             LogPrinter.d("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight(), new Object[0]);
-            this.f55639g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
-            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f55638f);
+            this.f56220g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
+            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f56219f);
             LogPrinter.d("CSJNativeAdView ttImage url: " + tTImage.getImageUrl(), new Object[0]);
         }
     }
@@ -115,7 +115,7 @@ public final class CSJNativeAdLargeImgView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f55638f = (ImageView) findViewById(R.id.ad_img);
+            this.f56219f = (ImageView) findViewById(R.id.ad_img);
         }
     }
 
@@ -124,11 +124,11 @@ public final class CSJNativeAdLargeImgView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f55638f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f56219f.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f55639g);
-            this.f55638f.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i6 / this.f56220g);
+            this.f56219f.setLayoutParams(layoutParams);
         }
     }
 }

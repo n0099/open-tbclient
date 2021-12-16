@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.tachikoma.api.model.TKBundle;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BundleContextMap {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, TKBundle> sMap;

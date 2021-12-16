@@ -9,20 +9,20 @@ import com.kuaishou.weapon.un.x;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static String a = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f60469b;
+    public HashMap<String, String> f61050b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, Object> f60470c;
+    public HashMap<String, Object> f61051c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f60471d;
+    public HashMap<String, String> f61052d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public Context a = null;
 
@@ -37,9 +37,9 @@ public class b {
     }
 
     public b(a aVar) {
-        this.f60469b = new HashMap<>();
-        this.f60470c = new HashMap<>();
-        this.f60471d = new HashMap<>();
+        this.f61050b = new HashMap<>();
+        this.f61051c = new HashMap<>();
+        this.f61052d = new HashMap<>();
         d();
         e();
         f();
@@ -54,14 +54,14 @@ public class b {
         if ((str == null || obj == null || str.isEmpty()) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f60470c.put(str, obj);
+        this.f61051c.put(str, obj);
     }
 
     private void a(String str, String str2) {
         if (str == null || str2 == null || str.isEmpty() || str2.isEmpty()) {
             return;
         }
-        this.f60471d.put(str, str2);
+        this.f61052d.put(str, str2);
     }
 
     private void d() {
@@ -81,7 +81,7 @@ public class b {
     }
 
     public Map<String, Object> a() {
-        return this.f60470c;
+        return this.f61051c;
     }
 
     public void a(Context context) {
@@ -90,7 +90,7 @@ public class b {
     }
 
     public Map<String, String> b() {
-        return this.f60471d;
+        return this.f61052d;
     }
 
     public void b(Context context) {
@@ -108,7 +108,7 @@ public class b {
     }
 
     public Map<String, String> c() {
-        return this.f60469b;
+        return this.f61050b;
     }
 
     public void c(Context context) {

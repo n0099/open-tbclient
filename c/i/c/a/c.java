@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class c extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f30499e;
+    public final Context f30869e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final m f30500f;
+    public final m f30870f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f30501g;
+    public volatile boolean f30871g;
 
     public c(Context context, m mVar) {
         Interceptable interceptable = $ic;
@@ -35,14 +35,14 @@ public final class c extends Thread {
                 return;
             }
         }
-        this.f30499e = context;
-        this.f30500f = mVar;
+        this.f30869e = context;
+        this.f30870f = mVar;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30501g = true;
+            this.f30871g = true;
         }
     }
 
@@ -50,9 +50,9 @@ public final class c extends Thread {
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.f30501g) {
-                if (f.d().h(this.f30499e)) {
-                    this.f30500f.a(com.google.ar.core.p.f55970c);
+            while (!this.f30871g) {
+                if (f.d().h(this.f30869e)) {
+                    this.f30870f.a(com.google.ar.core.p.f56551c);
                     return;
                 }
                 try {

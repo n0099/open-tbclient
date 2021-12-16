@@ -24,7 +24,7 @@ import com.tachikoma.core.IV8Function;
 import com.tachikoma.core.bridge.JSContext;
 import com.tachikoma.core.component.TKBase;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TKViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,12 +32,12 @@ public class TKViewContainer extends FrameLayout {
     public IJS2NativeInvoker mInvoker;
     public TKBase tkView;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IJS2NativeInvoker {
         Object onJSInvokeNativeWithJSONString(String str, String str2, IFunction iFunction);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface INativeCallback {
         Object invoke(List<Object> list);
     }

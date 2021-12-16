@@ -1,42 +1,47 @@
 package j.a.a.e.n;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
-import tv.athena.revenue.payui.activity.PayCommonWebActivity;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+/* loaded from: classes4.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PayType a;
 
-    public static void a(int i2, int i3, PayUIKitConfig payUIKitConfig, Activity activity, String str, String str2) {
+    /* renamed from: b  reason: collision with root package name */
+    public String f64783b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f64784c;
+
+    public f(PayType payType, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), payUIKitConfig, activity, str, str2}) == null) {
-            RLog.info("PayWebActivityUtils", "startPayWebActivity walletshow");
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                if (TextUtils.isEmpty(str)) {
-                    RLog.error("PayWebActivityUtils", "startActivity error url null", new Object[0]);
-                    return;
-                }
-                str2 = (str2 == null || str2.isEmpty()) ? "" : "";
-                Intent intent = new Intent(activity, PayCommonWebActivity.class);
-                intent.putExtra(H5PayConstant.EXTRA_TITLE, str2);
-                intent.putExtra(H5PayConstant.EXTRA_URL, str);
-                intent.putExtra(H5PayConstant.EXTRA_APP_ID, i2);
-                intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, i3);
-                if (str.equals(j.a.a.e.l.e.c(payUIKitConfig))) {
-                    RLog.debug("PayWebActivityUtils", "startPayWebActivity is wallet");
-                    intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 1);
-                }
-                activity.startActivity(intent);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {payType, str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            RLog.error("PayWebActivityUtils", "startPayWebActivity error mPayUIKitConfig null", new Object[0]);
         }
+        this.f64783b = "";
+        this.a = payType;
+        this.f64783b = str;
+        this.f64784c = str2;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64783b : (String) invokeV.objValue;
     }
 }

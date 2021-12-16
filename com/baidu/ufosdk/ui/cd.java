@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class cd implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public final class cd implements Runnable {
                 str3 = this.a.ar;
                 if (str3.length() > 0) {
                     str2 = this.a.ar;
-                    d2 = com.baidu.ufosdk.e.a.d(this.a.getApplicationContext(), this.a.f51607e, str2);
+                    d2 = com.baidu.ufosdk.e.a.d(this.a.getApplicationContext(), this.a.f52156e, str2);
                     if (d2 != null || d2.length() == 0) {
                     }
                     handler = this.a.aK;
@@ -53,7 +53,7 @@ public final class cd implements Runnable {
                 }
             }
             str2 = UfoSDK.appid;
-            d2 = com.baidu.ufosdk.e.a.d(this.a.getApplicationContext(), this.a.f51607e, str2);
+            d2 = com.baidu.ufosdk.e.a.d(this.a.getApplicationContext(), this.a.f52156e, str2);
             if (d2 != null) {
             }
         }

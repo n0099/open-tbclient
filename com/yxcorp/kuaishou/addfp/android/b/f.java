@@ -10,26 +10,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f63368b;
+    public static Context f63949b;
     public transient /* synthetic */ FieldHolder $fh;
     public h a;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Class f63369c;
+    public final Class f63950c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f63370d;
+    public i f63951d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f63371e;
+    public String[] f63952e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f63372f;
+    public String[] f63953f;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -44,11 +44,11 @@ public final class f {
                 return;
             }
         }
-        this.f63371e = null;
-        this.f63372f = null;
-        this.f63369c = b();
+        this.f63952e = null;
+        this.f63953f = null;
+        this.f63950c = b();
         this.a = new h(this);
-        this.f63370d = new i(this);
+        this.f63951d = new i(this);
     }
 
     public /* synthetic */ f(byte b2) {
@@ -65,7 +65,7 @@ public final class f {
             String a = a(str);
             if (a != null && str2 != null) {
                 try {
-                    obj = this.f63369c.getDeclaredMethod("getService", String.class).invoke(null, str);
+                    obj = this.f63950c.getDeclaredMethod("getService", String.class).invoke(null, str);
                     try {
                         Field declaredField = Class.forName(a + "$Stub").getDeclaredField(str2);
                         declaredField.setAccessible(true);
@@ -103,7 +103,7 @@ public final class f {
         f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            f63368b = context;
+            f63949b = context;
             fVar = g.a;
             return fVar;
         }
@@ -120,7 +120,7 @@ public final class f {
             Parcel obtain2 = Parcel.obtain();
             String str2 = null;
             try {
-                ((IBinder) this.f63369c.getDeclaredMethod("getService", String.class).invoke(null, str)).transact(1598968902, obtain, obtain2, 0);
+                ((IBinder) this.f63950c.getDeclaredMethod("getService", String.class).invoke(null, str)).transact(1598968902, obtain, obtain2, 0);
                 str2 = obtain2.readString();
             } finally {
                 try {

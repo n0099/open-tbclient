@@ -7,7 +7,7 @@ import com.baidu.down.statistic.ThreadSpeedStat;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface ICommonRequestHandler {
     void cancelRequest();
 

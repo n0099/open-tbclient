@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.ResContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l extends ContextThemeWrapper implements ResContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ContextThemeWrapper a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Resources.Theme f57029b;
+    public Resources.Theme f57610b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57030c;
+    public int f57611c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(ContextThemeWrapper contextThemeWrapper) {
@@ -44,7 +44,7 @@ public class l extends ContextThemeWrapper implements ResContext {
             }
         }
         this.a = contextThemeWrapper;
-        this.f57030c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
+        this.f57611c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -101,11 +101,11 @@ public class l extends ContextThemeWrapper implements ResContext {
                 e2.printStackTrace();
                 theme = null;
             }
-            Resources.Theme theme2 = this.f57029b;
+            Resources.Theme theme2 = this.f57610b;
             if (theme2 == null || theme2 == theme) {
-                this.f57029b = Wrapper.replaceTheme(theme, this.f57029b, this.f57030c);
+                this.f57610b = Wrapper.replaceTheme(theme, this.f57610b, this.f57611c);
             }
-            return this.f57029b;
+            return this.f57610b;
         }
         return (Resources.Theme) invokeV.objValue;
     }
@@ -122,7 +122,7 @@ public class l extends ContextThemeWrapper implements ResContext {
     public void setTheme(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f57030c = i2;
+            this.f57611c = i2;
             super.setTheme(i2);
         }
     }

@@ -8,6 +8,7 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
@@ -21,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SelectImageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_WRITE_EXTERNAL_STORGE_AND_CAMERA_PERMISSON = 1;
@@ -82,7 +83,7 @@ public class SelectImageHelper {
                 Intent intent = new Intent();
                 intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
                 intent.setAction("android.intent.action.GET_CONTENT");
-                activity.startActivityForResult(intent, 12002);
+                activity.startActivityForResult(intent, TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }

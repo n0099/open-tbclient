@@ -14,26 +14,26 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28556b;
+    public int f28931b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28557c;
+    public String f28932c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<String>> f28558d;
+    public Map<String, List<String>> f28933d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.f.a.g.c.a f28559e;
+    public c.f.a.g.c.a f28934e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f28560f;
+    public InputStream f28935f;
 
     public d(InputStream inputStream, int i2, String str, Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
@@ -51,16 +51,16 @@ public class d implements e {
             }
         }
         this.a = inputStream;
-        this.f28556b = i2;
-        this.f28557c = str;
-        this.f28558d = map;
+        this.f28931b = i2;
+        this.f28932c = str;
+        this.f28933d = map;
     }
 
     @Override // c.f.a.g.d.e
     public String a() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28557c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28932c : (String) invokeV.objValue;
     }
 
     @Override // c.f.a.g.d.e
@@ -81,10 +81,10 @@ public class d implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f28559e == null) {
-                this.f28559e = new c.f.a.g.c.a(this.f28558d, false);
+            if (this.f28934e == null) {
+                this.f28934e = new c.f.a.g.c.a(this.f28933d, false);
             }
-            return this.f28559e;
+            return this.f28934e;
         }
         return (c.f.a.g.c.a) invokeV.objValue;
     }
@@ -100,7 +100,7 @@ public class d implements e {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            InputStream inputStream = this.f28560f;
+            InputStream inputStream = this.f28935f;
             if (inputStream != null) {
                 try {
                     inputStream.close();
@@ -122,7 +122,7 @@ public class d implements e {
     public int f() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28556b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28931b : invokeV.intValue;
     }
 
     public final boolean g() {
@@ -139,10 +139,10 @@ public class d implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            if (this.f28560f == null) {
-                this.f28560f = new GZIPInputStream(inputStream);
+            if (this.f28935f == null) {
+                this.f28935f = new GZIPInputStream(inputStream);
             }
-            return this.f28560f;
+            return this.f28935f;
         }
         return (InputStream) invokeL.objValue;
     }

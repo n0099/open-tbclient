@@ -4,22 +4,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58732h;
+    public int f59313h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f58733i;
+    public int f59314i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f58734j;
+    public int f59315j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f58735k;
+    public int f59316k;
     public int l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -47,15 +47,15 @@ public class h extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            com.kwad.sdk.pngencrypt.k kVar = this.f58700e;
-            if (kVar.f58798f) {
-                this.f58732h = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 0);
-            } else if (kVar.f58799g) {
-                this.l = dVar.f58722d[0] & 255;
+            com.kwad.sdk.pngencrypt.k kVar = this.f59281e;
+            if (kVar.f59379f) {
+                this.f59313h = com.kwad.sdk.pngencrypt.n.b(dVar.f59303d, 0);
+            } else if (kVar.f59380g) {
+                this.l = dVar.f59303d[0] & 255;
             } else {
-                this.f58733i = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 0);
-                this.f58734j = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 2);
-                this.f58735k = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 4);
+                this.f59314i = com.kwad.sdk.pngencrypt.n.b(dVar.f59303d, 0);
+                this.f59315j = com.kwad.sdk.pngencrypt.n.b(dVar.f59303d, 2);
+                this.f59316k = com.kwad.sdk.pngencrypt.n.b(dVar.f59303d, 4);
             }
         }
     }

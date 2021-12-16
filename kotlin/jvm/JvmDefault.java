@@ -14,6 +14,6 @@ import kotlin.annotation.AnnotationTarget;
 @Deprecated(message = "Switch to new -Xjvm-default modes: `all` or `all-compatibility`")
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public @interface JvmDefault {
 }

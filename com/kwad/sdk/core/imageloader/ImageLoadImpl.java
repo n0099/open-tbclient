@@ -34,7 +34,7 @@ import com.kwad.sdk.core.network.m;
 import com.kwad.sdk.utils.aq;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImageLoadImpl implements IImageLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

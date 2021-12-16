@@ -11,13 +11,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class an {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59600b;
+    public static String f60181b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a() {
@@ -36,31 +36,31 @@ public class an {
                 return str2.contains(str);
             }
             String b2 = b("ro.build.version.opporom");
-            f59600b = b2;
+            f60181b = b2;
             if (TextUtils.isEmpty(b2)) {
                 String b3 = b("ro.vivo.os.version");
-                f59600b = b3;
+                f60181b = b3;
                 if (TextUtils.isEmpty(b3)) {
                     String b4 = b("ro.build.version.emui");
-                    f59600b = b4;
+                    f60181b = b4;
                     if (TextUtils.isEmpty(b4)) {
                         String b5 = b("ro.miui.ui.version.name");
-                        f59600b = b5;
+                        f60181b = b5;
                         if (TextUtils.isEmpty(b5)) {
                             String b6 = b(com.kuaishou.weapon.un.g.p);
-                            f59600b = b6;
+                            f60181b = b6;
                             if (TextUtils.isEmpty(b6)) {
                                 String b7 = b("ro.smartisan.version");
-                                f59600b = b7;
+                                f60181b = b7;
                                 if (TextUtils.isEmpty(b7)) {
                                     String upperCase2 = b(com.kuaishou.weapon.un.g.q).toUpperCase();
-                                    String str3 = com.kuaishou.weapon.un.g.f56645j;
-                                    if (!upperCase2.contains(com.kuaishou.weapon.un.g.f56645j)) {
+                                    String str3 = com.kuaishou.weapon.un.g.f57226j;
+                                    if (!upperCase2.contains(com.kuaishou.weapon.un.g.f57226j)) {
                                         String str4 = Build.DISPLAY;
-                                        f59600b = str4;
+                                        f60181b = str4;
                                         str3 = "FLYME";
                                         if (!str4.toUpperCase().contains("FLYME")) {
-                                            f59600b = "unknown";
+                                            f60181b = "unknown";
                                             upperCase = Build.MANUFACTURER.toUpperCase();
                                         }
                                     }
@@ -69,7 +69,7 @@ public class an {
                                 }
                                 upperCase = "SMARTISAN";
                             } else {
-                                upperCase = com.kuaishou.weapon.un.g.f56644i;
+                                upperCase = com.kuaishou.weapon.un.g.f57225i;
                             }
                         } else {
                             upperCase = "MIUI";
@@ -196,10 +196,10 @@ public class an {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (f59600b == null) {
+            if (f60181b == null) {
                 a("");
             }
-            return f59600b;
+            return f60181b;
         }
         return (String) invokeV.objValue;
     }

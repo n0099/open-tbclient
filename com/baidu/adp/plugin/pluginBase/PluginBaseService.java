@@ -27,7 +27,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class PluginBaseService extends PluginContextWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int START_CONTINUATION_MASK = 15;

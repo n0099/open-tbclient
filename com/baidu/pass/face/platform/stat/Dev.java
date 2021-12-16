@@ -21,7 +21,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class Dev {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INSTALLATION = "INSTALLATION";
@@ -50,7 +50,7 @@ public class Dev {
         this.brand = "";
         this.sysVersion = "";
         this.packagename = "";
-        this.sdkVersion = a.f34143k;
+        this.sdkVersion = a.f34611k;
         this.firstRun = false;
     }
 

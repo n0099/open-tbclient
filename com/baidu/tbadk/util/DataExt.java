@@ -35,19 +35,19 @@ import java.util.Map;
 import java.util.Objects;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class DataExt {
     public static /* synthetic */ Interceptable $ic;
     public static final Gson a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class GsonWidget {
         public static /* synthetic */ Interceptable $ic;
         public static final Type a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public static final class BadNumberFix implements JsonDeserializer<Number> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public final class DataExt {
             public final List<String> a;
 
             /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-            /* loaded from: classes9.dex */
+            /* loaded from: classes11.dex */
             public static final class NumberType {
                 public static final /* synthetic */ NumberType[] $VALUES;
                 public static /* synthetic */ Interceptable $ic;
@@ -217,7 +217,7 @@ public final class DataExt {
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public static final class MapDeserializerDoubleAsIntFix implements JsonDeserializer<Map<String, Object>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -290,7 +290,7 @@ public final class DataExt {
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public static class a extends TypeToken<Map<String, Object>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -327,13 +327,13 @@ public final class DataExt {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements ParameterizedType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Class f41937e;
+        public final /* synthetic */ Class f42428e;
 
         public a(Class cls) {
             Interceptable interceptable = $ic;
@@ -350,7 +350,7 @@ public final class DataExt {
                     return;
                 }
             }
-            this.f41937e = cls;
+            this.f42428e = cls;
         }
 
         @Override // java.lang.reflect.ParameterizedType
@@ -358,7 +358,7 @@ public final class DataExt {
         public Type[] getActualTypeArguments() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Type[]{this.f41937e} : (Type[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Type[]{this.f42428e} : (Type[]) invokeV.objValue;
         }
 
         @Override // java.lang.reflect.ParameterizedType
@@ -381,7 +381,7 @@ public final class DataExt {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;

@@ -9,48 +9,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DrawerArgs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f31702b;
+    public boolean f32072b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f31703c;
+    public boolean f32073c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f31704d;
+    public int f32074d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f31705e;
+    public int f32075e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SkinType f31706f;
+    public SkinType f32076f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f31707g;
+    public boolean f32077g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f31708h;
+    public boolean f32078h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f31709i;
+    public boolean f32079i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f31710j;
+    public int f32080j;
 
     /* renamed from: k  reason: collision with root package name */
-    public float f31711k;
+    public float f32081k;
     public Matrix l;
     public int m;
     public boolean n;
     public boolean o;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SkinType {
         public static final /* synthetic */ SkinType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -125,11 +125,11 @@ public class DrawerArgs {
             }
         }
         this.a = new float[8];
-        this.f31706f = SkinType.DAY;
-        this.f31708h = false;
-        this.f31709i = true;
-        this.f31710j = b.a;
-        this.f31711k = 1.0f;
+        this.f32076f = SkinType.DAY;
+        this.f32078h = false;
+        this.f32079i = true;
+        this.f32080j = b.a;
+        this.f32081k = 1.0f;
         this.o = false;
     }
 }

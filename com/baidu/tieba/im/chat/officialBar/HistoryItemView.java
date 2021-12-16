@@ -17,25 +17,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class HistoryItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f45822e;
+    public Context f46321e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbRichTextView f45823f;
+    public TbRichTextView f46322f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f45824g;
+    public TextView f46323g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ChatImageWithTailView f45825h;
+    public ChatImageWithTailView f46324h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f45826i;
+    public LinearLayout f46325i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HistoryItemView(Context context) {
@@ -55,7 +55,7 @@ public class HistoryItemView extends LinearLayout {
                 return;
             }
         }
-        this.f45822e = context;
+        this.f46321e = context;
         a();
     }
 
@@ -63,45 +63,45 @@ public class HistoryItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(this.f45822e).inflate(R.layout.official_history_item, (ViewGroup) this, true);
+            LayoutInflater.from(this.f46321e).inflate(R.layout.official_history_item, (ViewGroup) this, true);
             setClickable(false);
             setFocusable(false);
-            this.f45826i = (LinearLayout) findViewById(R.id.history_container);
-            this.f45824g = (TextView) findViewById(R.id.history_send_time);
-            this.f45823f = (TbRichTextView) findViewById(R.id.history_txt);
-            this.f45825h = (ChatImageWithTailView) findViewById(R.id.history_pic);
-            SkinManager.setBackgroundResource(this.f45826i, R.drawable.selector_history_multi_single_bg);
-            SkinManager.setViewTextColor(this.f45824g, R.color.common_color_10067, 1);
-            this.f45823f.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            this.f45825h.setIsSupportNight(true);
+            this.f46325i = (LinearLayout) findViewById(R.id.history_container);
+            this.f46323g = (TextView) findViewById(R.id.history_send_time);
+            this.f46322f = (TbRichTextView) findViewById(R.id.history_txt);
+            this.f46324h = (ChatImageWithTailView) findViewById(R.id.history_pic);
+            SkinManager.setBackgroundResource(this.f46325i, R.drawable.selector_history_multi_single_bg);
+            SkinManager.setViewTextColor(this.f46323g, R.color.common_color_10067, 1);
+            this.f46322f.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
+            this.f46324h.setIsSupportNight(true);
         }
     }
 
     public void addMultiView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f45826i.setBackgroundDrawable(null);
-            this.f45826i.removeAllViews();
-            this.f45826i.addView(view);
+            this.f46325i.setBackgroundDrawable(null);
+            this.f46325i.removeAllViews();
+            this.f46325i.addView(view);
         }
     }
 
     public ChatImageWithTailView getImageView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45825h : (ChatImageWithTailView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46324h : (ChatImageWithTailView) invokeV.objValue;
     }
 
     public TbRichTextView getRichTextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45823f : (TbRichTextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46322f : (TbRichTextView) invokeV.objValue;
     }
 
     public void setTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f45824g.setText(str);
+            this.f46323g.setText(str);
         }
     }
 
@@ -124,7 +124,7 @@ public class HistoryItemView extends LinearLayout {
                 return;
             }
         }
-        this.f45822e = context;
+        this.f46321e = context;
         a();
     }
 }

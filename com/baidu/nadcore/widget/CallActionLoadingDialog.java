@@ -8,42 +8,42 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import c.a.b0.h0.o;
-import c.a.b0.h0.q;
-import c.a.b0.h0.r;
-import c.a.b0.h0.s;
-import c.a.b0.h0.u;
+import c.a.c0.h0.o;
+import c.a.c0.h0.q;
+import c.a.c0.h0.r;
+import c.a.c0.h0.s;
+import c.a.c0.h0.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CallActionLoadingDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f37791e;
+    public Context f38280e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f37792f;
+    public View f38281f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LoadingProgressBar f37793g;
+    public LoadingProgressBar f38282g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f37794h;
+    public TextView f38283h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f37795i;
+    public String f38284i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f37796j;
+    public boolean f38285j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f37797k;
+    public boolean f38286k;
     public boolean l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,11 +65,11 @@ public class CallActionLoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f37795i = "";
-        this.f37797k = false;
+        this.f38284i = "";
+        this.f38286k = false;
         this.l = false;
-        this.f37791e = context;
-        this.f37796j = a(context);
+        this.f38280e = context;
+        this.f38285j = a(context);
     }
 
     public final boolean a(Context context) {
@@ -81,12 +81,12 @@ public class CallActionLoadingDialog extends Dialog {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f37792f = findViewById(r.root_container);
-            this.f37793g = (LoadingProgressBar) findViewById(r.loading_bar);
+            this.f38281f = findViewById(r.root_container);
+            this.f38282g = (LoadingProgressBar) findViewById(r.loading_bar);
             TextView textView = (TextView) findViewById(r.message);
-            this.f37794h = textView;
-            textView.setText(this.f37795i);
-            setCancelable(this.f37797k);
+            this.f38283h = textView;
+            textView.setText(this.f38284i);
+            setCancelable(this.f38286k);
             setCanceledOnTouchOutside(this.l);
             c();
         }
@@ -95,19 +95,19 @@ public class CallActionLoadingDialog extends Dialog {
     public final void c() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = this.f37791e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = this.f38280e) == null) {
             return;
         }
         Resources resources = context.getResources();
-        View view = this.f37792f;
+        View view = this.f38281f;
         if (view != null) {
             view.setBackground(resources.getDrawable(q.nad_icon_loading_dialog_bg));
         }
-        LoadingProgressBar loadingProgressBar = this.f37793g;
+        LoadingProgressBar loadingProgressBar = this.f38282g;
         if (loadingProgressBar != null) {
             loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(q.nad_loading_animation));
         }
-        TextView textView = this.f37794h;
+        TextView textView = this.f38283h;
         if (textView != null) {
             textView.setTextColor(resources.getColor(o.nad_color_white));
         }
@@ -127,7 +127,7 @@ public class CallActionLoadingDialog extends Dialog {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            this.f37797k = z;
+            this.f38286k = z;
             return this;
         }
         return (CallActionLoadingDialog) invokeZ.objValue;
@@ -147,7 +147,7 @@ public class CallActionLoadingDialog extends Dialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.f37795i = str;
+            this.f38284i = str;
             return this;
         }
         return (CallActionLoadingDialog) invokeL.objValue;
@@ -156,7 +156,7 @@ public class CallActionLoadingDialog extends Dialog {
     @Override // android.app.Dialog
     public void show() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f37796j) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f38285j) {
             try {
                 super.show();
             } catch (Exception e2) {

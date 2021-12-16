@@ -4,30 +4,30 @@ import java.nio.charset.Charset;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static final Pattern a = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f60273b = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
+    public static final Pattern f60854b = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f60274c;
+    public final String f60855c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f60275d;
+    public final String f60856d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f60276e;
+    public final String f60857e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f60277f;
+    public final String f60858f;
 
     public g(String str, String str2, String str3, String str4) {
-        this.f60274c = str;
-        this.f60275d = str2;
-        this.f60276e = str3;
-        this.f60277f = str4;
+        this.f60855c = str;
+        this.f60856d = str2;
+        this.f60857e = str3;
+        this.f60858f = str4;
     }
 
     public static g a(String str) {
@@ -35,7 +35,7 @@ public class g {
         if (matcher.lookingAt()) {
             String lowerCase = matcher.group(1).toLowerCase(Locale.US);
             String lowerCase2 = matcher.group(2).toLowerCase(Locale.US);
-            Matcher matcher2 = f60273b.matcher(str);
+            Matcher matcher2 = f60854b.matcher(str);
             String str2 = null;
             for (int end = matcher.end(); end < str.length(); end = matcher2.end()) {
                 matcher2.region(end, str.length());
@@ -57,11 +57,11 @@ public class g {
     }
 
     public String a() {
-        return this.f60275d;
+        return this.f60856d;
     }
 
     public Charset b() {
-        String str = this.f60277f;
+        String str = this.f60858f;
         if (str != null) {
             return Charset.forName(str);
         }
@@ -69,14 +69,14 @@ public class g {
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof g) && ((g) obj).f60274c.equals(this.f60274c);
+        return (obj instanceof g) && ((g) obj).f60855c.equals(this.f60855c);
     }
 
     public int hashCode() {
-        return this.f60274c.hashCode();
+        return this.f60855c.hashCode();
     }
 
     public String toString() {
-        return this.f60274c;
+        return this.f60855c;
     }
 }

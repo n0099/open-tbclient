@@ -12,26 +12,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object f57830b;
+    public static Object f58411b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, URLPackage> f57831c;
+    public HashMap<String, URLPackage> f58412c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, URLPackage> f57832d;
+    public HashMap<String, URLPackage> f58413d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final URLPackage f57833e;
+    public final URLPackage f58414e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final EntryPackage f57834f;
+    public final EntryPackage f58415f;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class a {
                 return;
             }
         }
-        f57830b = new Object();
+        f58411b = new Object();
     }
 
     public a() {
@@ -62,10 +62,10 @@ public class a {
                 return;
             }
         }
-        this.f57831c = new HashMap<>();
-        this.f57832d = new HashMap<>();
-        this.f57833e = new URLPackage("", 0);
-        this.f57834f = new EntryPackage("", 0);
+        this.f58412c = new HashMap<>();
+        this.f58413d = new HashMap<>();
+        this.f58414e = new URLPackage("", 0);
+        this.f58415f = new EntryPackage("", 0);
     }
 
     public static a a() {
@@ -73,7 +73,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (a == null) {
-                synchronized (f57830b) {
+                synchronized (f58411b) {
                     if (a == null) {
                         a = new a();
                     }
@@ -89,7 +89,7 @@ public class a {
         InterceptResult invokeL;
         URLPackage uRLPackage;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? (TextUtils.isEmpty(str) || (uRLPackage = this.f57831c.get(str)) == null || (uRLPackage instanceof EntryPackage)) ? this.f57833e : uRLPackage : (URLPackage) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? (TextUtils.isEmpty(str) || (uRLPackage = this.f58412c.get(str)) == null || (uRLPackage instanceof EntryPackage)) ? this.f58414e : uRLPackage : (URLPackage) invokeL.objValue;
     }
 
     public EntryPackage b(String str) {
@@ -97,20 +97,20 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                URLPackage uRLPackage = this.f57831c.get(str);
-                int size = this.f57831c.size();
+                URLPackage uRLPackage = this.f58412c.get(str);
+                int size = this.f58412c.size();
                 for (int i2 = 0; uRLPackage != null && !(uRLPackage instanceof EntryPackage) && i2 < size; i2++) {
                     String str2 = uRLPackage.identity;
                     if (TextUtils.isEmpty(str2)) {
                         break;
                     }
-                    uRLPackage = this.f57831c.get(str2);
+                    uRLPackage = this.f58412c.get(str2);
                 }
                 if (uRLPackage instanceof EntryPackage) {
                     return (EntryPackage) uRLPackage;
                 }
             }
-            return this.f57834f;
+            return this.f58415f;
         }
         return (EntryPackage) invokeL.objValue;
     }

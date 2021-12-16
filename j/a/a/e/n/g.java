@@ -1,128 +1,117 @@
 package j.a.a.e.n;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagTagInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import java.util.ArrayList;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes3.dex */
-public class g {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import java.util.HashMap;
+import tv.athena.revenue.api.MiddleReportConfig;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.payui.model.PayFlowType;
+/* loaded from: classes4.dex */
+public class g implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public MiddleRevenueConfig a;
 
-    public static int a(double d2, double d3) {
-        InterceptResult invokeCommon;
+    public g(MiddleRevenueConfig middleRevenueConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3)})) == null) {
-            RLog.info("PayAmountHelper", "countPayAmountMargin targetAmount:" + d2 + " accountAmount:" + d3);
-            double d4 = (d2 - d3) / 100.0d;
-            double d5 = 1.0d;
-            if (d4 > 1.0d) {
-                if (d4 <= 1.0d || d4 > 10.0d) {
-                    if (d4 % 10.0d > 0.0d) {
-                        d4 = (((int) (d4 / 10.0d)) + 1) * 10;
-                    }
-                    d5 = d4;
-                } else {
-                    d5 = Math.ceil(d4);
-                }
-            }
-            RLog.info("PayAmountHelper", "countPayAmountMargin amountMarginCount:" + d5);
-            return (int) d5;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static int b(List<j.a.a.e.l.c> list, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i2)) == null) {
-            for (int i3 = 0; i3 < list.size(); i3++) {
-                if (list.get(i3).b() == i2) {
-                    return i3;
-                }
-            }
-            return -1;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static j.a.a.e.l.c c(List<j.a.a.e.l.c> list, PayUIKitConfig payUIKitConfig, double d2, double d3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, payUIKitConfig, Double.valueOf(d2), Double.valueOf(d3)})) == null) {
-            RLog.info("PayAmountHelper", "createPayAmount targetAmount:" + d2 + " accountAmount:" + d3);
-            if (list == null || list.isEmpty()) {
-                return null;
-            }
-            int a = a(d2, d3);
-            RLog.info("PayAmountHelper", "countPayAmountMargin amountMargin:" + a);
-            int b2 = b(list, a);
-            RLog.info("PayAmountHelper", "findPayAmountPositionFromConfigList position:" + b2);
-            if (b2 >= 0) {
-                d(list, b2);
-            } else {
-                f(list, payUIKitConfig, a);
-            }
-            return list.get(0);
-        }
-        return (j.a.a.e.l.c) invokeCommon.objValue;
-    }
-
-    public static void d(List<j.a.a.e.l.c> list, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, list, i2) == null) {
-            RLog.info("PayAmountHelper", "movePayAmountList position:" + i2);
-            RLog.debug("PayAmountHelper", "movePayAmountList configAmountList:" + list);
-            if (i2 != 0) {
-                list.add(0, list.remove(i2));
-            }
-            if (list.get(0).a.giftBagTagInfos != null && !list.get(0).a.giftBagTagInfos.isEmpty()) {
-                list.get(0).a.giftBagTagInfos.get(0).tag = "推荐";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {middleRevenueConfig};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            list.get(0).a.giftBagTagInfos = new ArrayList();
-            list.get(0).a.giftBagTagInfos.add(giftBagTagInfo);
         }
+        this.a = middleRevenueConfig;
     }
 
-    public static boolean e(j.a.a.e.l.c cVar) {
+    @Override // j.a.a.e.n.b
+    public GetBannerConfigReqParams a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            GetBannerConfigReqParams getBannerConfigReqParams = new GetBannerConfigReqParams();
+            getBannerConfigReqParams.setAppId(this.a.getAppId());
+            getBannerConfigReqParams.setUsedChannel(this.a.getUseChannel());
+            getBannerConfigReqParams.setUid(this.a.getUid());
+            getBannerConfigReqParams.setToken(this.a.getToken());
+            getBannerConfigReqParams.setTokenCallback(this.a.getTokenCallback());
+            return getBannerConfigReqParams;
+        }
+        return (GetBannerConfigReqParams) invokeV.objValue;
+    }
+
+    @Override // j.a.a.e.n.b
+    public j.a.a.b.b.a.a b(PayFlowType payFlowType) {
         InterceptResult invokeL;
-        ProductInfo productInfo;
-        List<GiftBagsInfo> list;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cVar)) == null) ? (cVar == null || (productInfo = cVar.a) == null || (list = productInfo.giftbags) == null || list.isEmpty()) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payFlowType)) == null) {
+            j.a.a.b.b.a.a aVar = new j.a.a.b.b.a.a();
+            aVar.B(this.a.getUid());
+            aVar.y(this.a.getToken());
+            aVar.C(this.a.getUseChannel());
+            aVar.s(this.a.getCurrencyType());
+            aVar.z(this.a.getTokenCallback());
+            String deviceId = this.a.getDeviceId();
+            MiddleReportConfig reportConfig = this.a.getReportConfig();
+            if (TextUtils.isEmpty(deviceId) && reportConfig != null && !TextUtils.isEmpty(reportConfig.getDeviceId())) {
+                deviceId = reportConfig.getDeviceId();
+            }
+            HashMap hashMap = new HashMap();
+            if (deviceId != null) {
+                hashMap.put("deviceId", deviceId);
+            }
+            hashMap.put("chargeScene", payFlowType == PayFlowType.WALLET_PAY_FLOW ? "1" : "0");
+            aVar.t(hashMap);
+            return aVar;
+        }
+        return (j.a.a.b.b.a.a) invokeL.objValue;
     }
 
-    public static void f(List<j.a.a.e.l.c> list, PayUIKitConfig payUIKitConfig, int i2) {
+    @Override // j.a.a.e.n.b
+    public QueryCurrencyReqParams c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, list, payUIKitConfig, i2) == null) {
-            RLog.debug("PayAmountHelper", "replacePayAmountList configAmountList:" + list);
-            if (i2 > 500000) {
-                i2 = 500000;
-            }
-            j.a.a.e.l.c a = b.a(i2 * 100, payUIKitConfig);
-            RLog.info("PayAmountHelper", "createPayAmount customPayAmount:" + a);
-            if (e(list.get(0))) {
-                list.remove(list.size() - 1);
-            } else if (e(list.get(list.size() - 1))) {
-                list.remove(0);
-            } else {
-                list.remove(0);
-            }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            a.a.giftBagTagInfos = new ArrayList();
-            a.a.giftBagTagInfos.add(giftBagTagInfo);
-            list.add(0, a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
+            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.a.getUid());
+            queryCurrencyReqParams.setToken(this.a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
+            queryCurrencyReqParams.setReturnYb(true);
+            return queryCurrencyReqParams;
         }
+        return (QueryCurrencyReqParams) invokeV.objValue;
+    }
+
+    @Override // j.a.a.e.n.b
+    public QueryCurrencyReqParams d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
+            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.a.getUid());
+            queryCurrencyReqParams.setToken(this.a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
+            return queryCurrencyReqParams;
+        }
+        return (QueryCurrencyReqParams) invokeV.objValue;
     }
 }

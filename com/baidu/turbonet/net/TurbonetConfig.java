@@ -14,20 +14,20 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TurbonetConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public JSONObject a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51454b;
+    public String f52003b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f51455c;
+    public boolean f52004c;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public @interface HttpCacheSetting {
     }
 
@@ -44,7 +44,7 @@ public class TurbonetConfig {
                 return;
             }
         }
-        this.f51455c = false;
+        this.f52004c = false;
         this.a = new JSONObject();
     }
 
@@ -77,7 +77,7 @@ public class TurbonetConfig {
                     throw new IllegalArgumentException("Storage path must not be set");
                 }
             } else if (l() != null) {
-                this.f51455c = true;
+                this.f52004c = true;
             } else {
                 throw new IllegalArgumentException("Storage path must be set");
             }
@@ -118,7 +118,7 @@ public class TurbonetConfig {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f51455c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f52004c : invokeV.booleanValue;
     }
 
     public void i(String str, String str2, Object obj) {
@@ -152,7 +152,7 @@ public class TurbonetConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             if (new File(str).isDirectory()) {
-                this.f51454b = str;
+                this.f52003b = str;
                 return;
             }
             throw new IllegalArgumentException("Storage path must be set to existing directory");
@@ -162,6 +162,6 @@ public class TurbonetConfig {
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f51454b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f52003b : (String) invokeV.objValue;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class CmdConfigHttp {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AGREE_ME_HTTP_CMD = 1002211;
@@ -146,6 +146,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_MY_POST = 1003010;
     public static final int CMD_GET_MY_SHELF = 1003092;
     public static final int CMD_GET_NANI_VIDEO = 1003399;
+    public static final int CMD_GET_NEARBY_FRIENDS = 1003520;
     public static final int CMD_GET_ORDER = 1003029;
     public static final int CMD_GET_PB_EMOTION_PID = 1003331;
     public static final int CMD_GET_PB_QUERY_MATCH_EMOTION = 1003369;

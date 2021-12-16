@@ -12,26 +12,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.opensource.svgaplayer.SVGAVideoEntity;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b extends Drawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30662b;
+    public int f31032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView.ScaleType f30663c;
+    public ImageView.ScaleType f31033c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.m.a.f.b f30664d;
+    public final c.m.a.f.b f31034d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SVGAVideoEntity f30665e;
+    public final SVGAVideoEntity f31035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f30666f;
+    public final c f31036f;
 
     public b(SVGAVideoEntity sVGAVideoEntity, c cVar) {
         Interceptable interceptable = $ic;
@@ -48,23 +48,23 @@ public final class b extends Drawable {
                 return;
             }
         }
-        this.f30665e = sVGAVideoEntity;
-        this.f30666f = cVar;
+        this.f31035e = sVGAVideoEntity;
+        this.f31036f = cVar;
         this.a = true;
-        this.f30663c = ImageView.ScaleType.MATRIX;
-        this.f30664d = new c.m.a.f.b(sVGAVideoEntity, cVar);
+        this.f31033c = ImageView.ScaleType.MATRIX;
+        this.f31034d = new c.m.a.f.b(sVGAVideoEntity, cVar);
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30662b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31032b : invokeV.intValue;
     }
 
     public final SVGAVideoEntity b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30665e : (SVGAVideoEntity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31035e : (SVGAVideoEntity) invokeV.objValue;
     }
 
     public final void c(boolean z) {
@@ -78,10 +78,10 @@ public final class b extends Drawable {
 
     public final void d(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f30662b == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f31032b == i2) {
             return;
         }
-        this.f30662b = i2;
+        this.f31032b = i2;
         invalidateSelf();
     }
 
@@ -91,13 +91,13 @@ public final class b extends Drawable {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || this.a || canvas == null) {
             return;
         }
-        this.f30664d.a(canvas, this.f30662b, this.f30663c);
+        this.f31034d.a(canvas, this.f31032b, this.f31033c);
     }
 
     public final void e(ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
-            this.f30663c = scaleType;
+            this.f31033c = scaleType;
         }
     }
 

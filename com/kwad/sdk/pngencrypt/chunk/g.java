@@ -4,16 +4,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58730h;
+    public int f59311h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f58731i;
+    public int f59312i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(com.kwad.sdk.pngencrypt.k kVar) {
@@ -40,8 +40,8 @@ public class g extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f58730h = com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 0);
-            this.f58731i = com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 4);
+            this.f59311h = com.kwad.sdk.pngencrypt.n.c(dVar.f59303d, 0);
+            this.f59312i = com.kwad.sdk.pngencrypt.n.c(dVar.f59303d, 4);
         }
     }
 }

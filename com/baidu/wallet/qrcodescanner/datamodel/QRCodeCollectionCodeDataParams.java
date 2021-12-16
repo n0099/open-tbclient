@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class QRCodeCollectionCodeDataParams implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PayeeParams payee_params;
     public PrecheckResult pre_check_result;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class PayeeInfo implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class QRCodeCollectionCodeDataParams implements NoProguard, Serializable 
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class PayeeParams implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class QRCodeCollectionCodeDataParams implements NoProguard, Serializable 
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class PrecheckResult implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class QRCodeCollectionCodeDataParams implements NoProguard, Serializable 
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class TransferArriveInfo implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class QRCodeCollectionCodeDataParams implements NoProguard, Serializable 
         public String default_type_value;
         public String maintain_explain;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes2.dex */
         public static class TransferArriveType implements NoProguard, Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

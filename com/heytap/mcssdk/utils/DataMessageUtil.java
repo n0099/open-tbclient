@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.PushManager;
 import com.heytap.mcssdk.mode.CommandMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DataMessageUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "type";

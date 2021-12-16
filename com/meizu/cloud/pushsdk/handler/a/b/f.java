@@ -6,7 +6,7 @@ import com.kwad.sdk.api.core.RemoteViewBuilder;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f implements Parcelable {
     public static final Parcelable.Creator<f> CREATOR = new Parcelable.Creator<f>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.f.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -26,28 +26,28 @@ public class f implements Parcelable {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60519b;
+    public String f61100b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f60520c;
+    public boolean f61101c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f60521d;
+    public String f61102d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f60522e;
+    public String f61103e;
 
     public f() {
-        this.f60520c = false;
+        this.f61101c = false;
     }
 
     public f(Parcel parcel) {
-        this.f60520c = false;
+        this.f61101c = false;
         this.a = parcel.readString();
-        this.f60519b = parcel.readString();
-        this.f60520c = parcel.readByte() != 0;
-        this.f60521d = parcel.readString();
-        this.f60522e = parcel.readString();
+        this.f61100b = parcel.readString();
+        this.f61101c = parcel.readByte() != 0;
+        this.f61102d = parcel.readString();
+        this.f61103e = parcel.readString();
     }
 
     public static f a(JSONObject jSONObject) {
@@ -83,31 +83,31 @@ public class f implements Parcelable {
     }
 
     public void a(boolean z) {
-        this.f60520c = z;
+        this.f61101c = z;
     }
 
     public String b() {
-        return this.f60519b;
+        return this.f61100b;
     }
 
     public void b(String str) {
-        this.f60519b = str;
+        this.f61100b = str;
     }
 
     public void c(String str) {
-        this.f60521d = str;
+        this.f61102d = str;
     }
 
     public boolean c() {
-        return this.f60520c;
+        return this.f61101c;
     }
 
     public String d() {
-        return this.f60521d;
+        return this.f61102d;
     }
 
     public void d(String str) {
-        this.f60522e = str;
+        this.f61103e = str;
     }
 
     @Override // android.os.Parcelable
@@ -116,19 +116,19 @@ public class f implements Parcelable {
     }
 
     public String e() {
-        return this.f60522e;
+        return this.f61103e;
     }
 
     public String toString() {
-        return "Statics{taskId='" + this.a + ExtendedMessageFormat.QUOTE + ", time='" + this.f60519b + ExtendedMessageFormat.QUOTE + ", pushExtra=" + this.f60520c + ", deviceId='" + this.f60521d + ExtendedMessageFormat.QUOTE + ", seqId='" + this.f60522e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "Statics{taskId='" + this.a + ExtendedMessageFormat.QUOTE + ", time='" + this.f61100b + ExtendedMessageFormat.QUOTE + ", pushExtra=" + this.f61101c + ", deviceId='" + this.f61102d + ExtendedMessageFormat.QUOTE + ", seqId='" + this.f61103e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.a);
-        parcel.writeString(this.f60519b);
-        parcel.writeByte(this.f60520c ? (byte) 1 : (byte) 0);
-        parcel.writeString(this.f60521d);
-        parcel.writeString(this.f60522e);
+        parcel.writeString(this.f61100b);
+        parcel.writeByte(this.f61101c ? (byte) 1 : (byte) 0);
+        parcel.writeString(this.f61102d);
+        parcel.writeString(this.f61103e);
     }
 }

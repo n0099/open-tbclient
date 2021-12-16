@@ -13,10 +13,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface HttpDataSource extends e {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class InvalidContentTypeException extends HttpDataSourceException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public interface HttpDataSource extends e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class InvalidResponseCodeException extends HttpDataSourceException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public interface HttpDataSource extends e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a implements e.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,14 +110,14 @@ public interface HttpDataSource extends e {
         public abstract HttpDataSource c(b bVar);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Map<String, String> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f55919b;
+        public Map<String, String> f56500b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -141,10 +141,10 @@ public interface HttpDataSource extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 synchronized (this) {
-                    if (this.f55919b == null) {
-                        this.f55919b = Collections.unmodifiableMap(new HashMap(this.a));
+                    if (this.f56500b == null) {
+                        this.f56500b = Collections.unmodifiableMap(new HashMap(this.a));
                     }
-                    map = this.f55919b;
+                    map = this.f56500b;
                 }
                 return map;
             }
@@ -152,7 +152,7 @@ public interface HttpDataSource extends e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class HttpDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TYPE_CLOSE = 3;

@@ -22,32 +22,32 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f57266g;
+    public static volatile a f57847g;
     public transient /* synthetic */ FieldHolder $fh;
     public Future a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f57267b;
+    public File f57848b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ExecutorService f57268c;
+    public final ExecutorService f57849c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PackageManager f57269d;
+    public PackageManager f57850d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f57270e;
+    public final f f57851e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f57271f;
+    public volatile boolean f57852f;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Callable<PackageInfo> f57272h;
+    public final Callable<PackageInfo> f57853h;
 
     public a(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -64,9 +64,9 @@ public class a {
                 return;
             }
         }
-        this.f57268c = b.k();
-        this.f57271f = false;
-        this.f57272h = new Callable<PackageInfo>(this) { // from class: com.kwad.sdk.core.diskcache.a.1
+        this.f57849c = b.k();
+        this.f57852f = false;
+        this.f57853h = new Callable<PackageInfo>(this) { // from class: com.kwad.sdk.core.diskcache.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -98,10 +98,10 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     synchronized (a.class) {
-                        if (this.a.f57267b != null && this.a.f57267b.exists()) {
-                            for (File file : this.a.b(this.a.f57267b)) {
+                        if (this.a.f57848b != null && this.a.f57848b.exists()) {
+                            for (File file : this.a.b(this.a.f57848b)) {
                                 if (file.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX) && com.kwad.sdk.core.a.a().a(file.getAbsolutePath()) != null && (a = this.a.a(file)) != null) {
-                                    this.a.f57270e.a(file);
+                                    this.a.f57851e.a(file);
                                     return a;
                                 }
                             }
@@ -113,14 +113,14 @@ public class a {
                 return (PackageInfo) invokeV.objValue;
             }
         };
-        this.f57270e = new com.kwad.sdk.core.download.b.a(context);
+        this.f57851e = new com.kwad.sdk.core.download.b.a(context);
         try {
-            this.f57267b = aq.c(context);
-            this.f57269d = context.getPackageManager();
+            this.f57848b = aq.c(context);
+            this.f57850d = context.getPackageManager();
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.a(th);
         }
-        this.f57271f = true;
+        this.f57852f = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -131,8 +131,8 @@ public class a {
             if (file != null && file.exists()) {
                 try {
                     if (file.exists() & (!file.isDirectory())) {
-                        PackageInfo packageArchiveInfo = this.f57269d.getPackageArchiveInfo(file.getPath(), 65);
-                        if (this.f57269d.getPackageInfo(packageArchiveInfo.packageName, 1) != null) {
+                        PackageInfo packageArchiveInfo = this.f57850d.getPackageArchiveInfo(file.getPath(), 65);
+                        if (this.f57850d.getPackageInfo(packageArchiveInfo.packageName, 1) != null) {
                             return null;
                         }
                         return packageArchiveInfo;
@@ -150,14 +150,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f57266g == null) {
+            if (f57847g == null) {
                 synchronized (a.class) {
-                    if (f57266g == null) {
-                        f57266g = new a(context);
+                    if (f57847g == null) {
+                        f57847g = new a(context);
                     }
                 }
             }
-            return f57266g;
+            return f57847g;
         }
         return (a) invokeL.objValue;
     }
@@ -226,10 +226,10 @@ public class a {
     public void a() {
         File file;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f57271f && (file = this.f57267b) != null && file.exists()) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f57852f && (file = this.f57848b) != null && file.exists()) {
             Future future = this.a;
             if (future == null || future.isDone()) {
-                this.a = this.f57268c.submit(this.f57272h);
+                this.a = this.f57849c.submit(this.f57853h);
             }
         }
     }

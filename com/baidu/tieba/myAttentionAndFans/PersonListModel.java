@@ -2,7 +2,7 @@ package com.baidu.tieba.myAttentionAndFans;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.q0.s.q.i1;
+import c.a.r0.s.r.i1;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHETIME = 604800000;
@@ -46,33 +46,33 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public CustomMessageListener customListener;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f47091e;
+    public boolean f47592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47092f;
+    public String f47593f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47093g;
+    public int f47594g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f47094h;
+    public d f47595h;
     public HttpMessageListener httpListener;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47095i;
+    public int f47596i;
 
     /* renamed from: j  reason: collision with root package name */
-    public PersonListActivity f47096j;
+    public PersonListActivity f47597j;
 
     /* renamed from: k  reason: collision with root package name */
-    public c.a.q0.t.e.a f47097k;
+    public c.a.r0.t.e.a f47598k;
     public int l;
     public int m;
     public HttpMessageListener mFollowSwitchListener;
     public String n;
     public int o;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,14 +111,14 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                     return;
                 }
                 BdLog.e("follow switch request fail");
-                if (this.a.f47094h != null) {
-                    this.a.f47094h.b("follow switch request fail", false);
+                if (this.a.f47595h != null) {
+                    this.a.f47595h.b("follow switch request fail", false);
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,34 +157,34 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 if (statusCode != 200 || error != 0) {
-                    if (this.a.f47094h != null) {
+                    if (this.a.f47595h != null) {
                         if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                            errorString = this.a.f47096j.getResources().getString(R.string.neterror);
+                            errorString = this.a.f47597j.getResources().getString(R.string.neterror);
                         } else {
                             errorString = httpResponsedMessage.getErrorString();
                         }
-                        this.a.f47094h.b(errorString, false);
+                        this.a.f47595h.b(errorString, false);
                         return;
                     }
                     return;
                 }
                 i1 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                 if (data != null) {
-                    if (!StringUtils.isNull(data.f12974g)) {
-                        this.a.n = data.f12974g;
-                        this.a.m = data.f12975h;
+                    if (!StringUtils.isNull(data.f13354g)) {
+                        this.a.n = data.f13354g;
+                        this.a.m = data.f13355h;
                     }
-                    data.f12975h = this.a.m;
-                    data.f12974g = this.a.n;
+                    data.f13355h = this.a.m;
+                    data.f13354g = this.a.n;
                 }
-                if (this.a.f47094h != null) {
-                    this.a.f47094h.a(data, false);
+                if (this.a.f47595h != null) {
+                    this.a.f47595h.a(data, false);
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -218,33 +218,33 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
                 i1 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
                 if (data2 == null) {
-                    if (this.a.f47094h != null) {
-                        this.a.f47094h.b("", true);
+                    if (this.a.f47595h != null) {
+                        this.a.f47595h.b("", true);
                         return;
                     }
                     return;
                 }
-                if (!StringUtils.isNull(data2.f12974g)) {
-                    this.a.n = data2.f12974g;
-                    this.a.m = data2.f12975h;
+                if (!StringUtils.isNull(data2.f13354g)) {
+                    this.a.n = data2.f13354g;
+                    this.a.m = data2.f13355h;
                 }
-                data2.f12975h = this.a.m;
-                data2.f12974g = this.a.n;
-                if (this.a.f47094h != null) {
-                    this.a.f47094h.a(data2, true);
+                data2.f13355h = this.a.m;
+                data2.f13354g = this.a.n;
+                if (this.a.f47595h != null) {
+                    this.a.f47595h.a(data2, true);
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface d {
         i1 a(i1 i1Var, boolean z);
 
         void b(String str, boolean z);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class e extends BdAsyncTask<Void, Void, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -321,25 +321,25 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 return;
             }
         }
-        this.f47095i = 0;
+        this.f47596i = 0;
         this.l = 0;
         this.o = 0;
         this.mFollowSwitchListener = new a(this, CmdConfigHttp.CMD_FOLLOW_SWITCH);
         this.httpListener = new b(this, CmdConfigHttp.PIC_PERSONAL_LIST);
         this.customListener = new c(this, 2001188);
-        this.f47096j = personListActivity;
-        c.a.q0.t.e.a aVar = new c.a.q0.t.e.a(personListActivity.getPageContext());
-        this.f47097k = aVar;
+        this.f47597j = personListActivity;
+        c.a.r0.t.e.a aVar = new c.a.r0.t.e.a(personListActivity.getPageContext());
+        this.f47598k = aVar;
         aVar.j(this.mLoadDataCallBack);
-        this.f47091e = true;
-        this.f47092f = null;
-        this.f47094h = dVar;
+        this.f47592e = true;
+        this.f47593f = null;
+        this.f47595h = dVar;
     }
 
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47091e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47592e : invokeV.booleanValue;
     }
 
     public int D() {
@@ -351,14 +351,14 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public int E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47095i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47596i : invokeV.intValue;
     }
 
     public void F(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             this.l = i2;
-            this.f47095i = 0;
+            this.f47596i = 0;
             K();
         }
     }
@@ -379,7 +379,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
-            if (this.f47091e) {
+            if (this.f47592e) {
                 str = TbConfig.SERVER_ADDRESS + "c/u/follow/followList";
             } else {
                 str = TbConfig.SERVER_ADDRESS + "c/u/fans/page";
@@ -415,25 +415,25 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_PERSONAL_LIST);
             HashMap hashMap = new HashMap();
-            if (this.f47091e) {
+            if (this.f47592e) {
                 httpMessage.setTag(FOLLOWME);
             } else {
                 httpMessage.setTag(MYFOLLOW);
             }
-            String str = this.f47092f;
+            String str = this.f47593f;
             if (str != null && !str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                httpMessage.addParam("uid", this.f47092f);
+                httpMessage.addParam("uid", this.f47593f);
             }
-            hashMap.put("id", String.valueOf(this.f47092f));
-            int i2 = this.f47095i;
+            hashMap.put("id", String.valueOf(this.f47593f));
+            int i2 = this.f47596i;
             if (i2 != 0) {
                 int i3 = i2 + 1;
-                this.f47095i = i3;
+                this.f47596i = i3;
                 httpMessage.addParam("pn", String.valueOf(i3));
             }
             httpMessage.addParam("tab", this.l);
             httpMessage.addParam("follow_list_switch", this.o);
-            hashMap.put("page", String.valueOf(this.f47095i));
+            hashMap.put("page", String.valueOf(this.f47596i));
             hashMap.put("pageid", String.valueOf(getUniqueId().getId()));
             httpMessage.setExtra(hashMap);
             sendMessage(httpMessage);
@@ -443,21 +443,21 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public void L(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f47092f = str;
+            this.f47593f = str;
         }
     }
 
     public void M(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f47091e = z;
+            this.f47592e = z;
         }
     }
 
     public void N(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f47095i = i2;
+            this.f47596i = i2;
         }
     }
 
@@ -481,13 +481,13 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f47092f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f47593f : (String) invokeV.objValue;
     }
 
     public int getSex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f47093g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f47594g : invokeV.intValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -503,7 +503,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public void setSex(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f47093g = i2;
+            this.f47594g = i2;
         }
     }
 }

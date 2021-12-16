@@ -23,21 +23,61 @@ import com.dxmpay.wallet.core.lollipop.json.JSONArray;
 import com.dxmpay.wallet.core.lollipop.json.JSONException;
 import com.dxmpay.wallet.core.lollipop.json.JSONObject;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.BdWalletUtils;
 import com.dxmpay.wallet.utils.StatHelper;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class EnterDxmPayServiceAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHECK_PWD_FOR_H5 = "checkPwdForH5";
+    public static final String DXM_BALANCE = "dxmBalance";
+    public static final String DXM_BANK_CARD = "dxmBankCard";
+    public static final String DXM_CHANGE_PAY_METHOD = "changePayMethod";
+    public static final String DXM_CHECK_BIOMETRICS = "checkBiometrics";
+    public static final String DXM_CHECK_PWD = "dxmCheckPwd";
+    public static final String DXM_CLEAR_RN_AUTH = "clearRnAuthResult";
+    public static final String DXM_CLOSE_BIOMETRICS = "closeBiometrics";
+    public static final String DXM_DETECT_BANK_CARD = "detectBankCard";
+    public static final String DXM_DO_BIND_CARD = "doBindCard";
+    public static final String DXM_DO_REMOTE_PAY = "doRemotePay";
+    public static final String DXM_DO_RN_AUTH = "doRnAuth";
+    public static final String DXM_DO_SCAN_CODE = "doScanCode";
+    public static final String DXM_GET_BIOMETRICS_STATUS = "getBiometricsStatus";
+    public static final String DXM_GET_PAY_METHOD = "getPayMethod";
+    public static final String DXM_GET_PAY_SETTING_DATA = "getPaySettingData";
+    public static final String DXM_GET_SECURITY_CENTER_DATA = "getSecurityCenterData";
+    public static final String DXM_IDCARD_DETECTION = "dxmIdcardDetection";
+    public static final String DXM_LIVENESS_DETECT = "livenessDetect";
+    public static final String DXM_LIVENESS_IDENTIFY = "livenessIdentifyAut";
+    public static final String DXM_OPEN_BIOMETRICS = "openBiometrics";
+    public static final String DXM_PAY_DOPAY = "dopay";
+    public static final String DXM_PAY_SET = "dxmPaySet";
+    public static final String DXM_POST_EVENT = "postEvent";
+    public static final String DXM_PRE_ORDER_PAY = "preOrderPay";
+    public static final String DXM_PWD_SET = "dxmPwdSet";
+    public static final String DXM_SECURITY_CENTER = "securityCenter";
     public static final String DXM_SERVICE_EXTRA = "serviceExtra";
     public static final String DXM_SERVICE_NAME = "serviceName";
+    public static final String DXM_SET_RN_AUTH = "setRnAuthResult";
+    public static final String DXM_TRANS_RECORDS = "transRecords";
     public static final String ERR_MSG = "参数非法";
+    public static final String GET_DXM_PAY_ALL_SUPPORT_SERVICE_LIST = "getDxmPayAllSupportServiceList";
     public static final String GET_DXM_PAY_SUPPORT_SERVICE_LIST = "getDxmPaySupportServiceList";
+    public static final String GET_DXM_PAY_USER_AGENT = "getDxmPayUserAgent";
+    public static final String MODULE_NFCKYC = "nfcKyc";
+    public static final String NFCKYC_GO2NFCSETTING = "goToNfcSetting";
+    public static final String NFCKYC_NFC_ENABLED = "isNfcEnabled";
+    public static final String NFCKYC_NFC_SUPPORTED = "isNfcSupported";
+    public static final String NFCKYC_SETCFGVAL = "nfcSetCfgValue";
+    public static final String NFCKYC_VERIFYIDCARD = "nfcVerifyIdCard";
     public static final String OCR_IDCARD_INIT = "ocr_idcard_init";
     public static final String OCR_IDCARD_KEY = "ocr_idcard_key";
+    public static final String SERVICE_CNT = "cnt";
     public static final String SERVICE_DATA = "data";
     public static final String SERVICE_DES = "des";
+    public static final String SERVICE_RESULT = "result";
     public static final String SERVICE_STATUS_CODE = "statusCode";
     public static final long SVC_ID_H5_CHECKPWD = 10013;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,8 +92,10 @@ public class EnterDxmPayServiceAction implements RouterAction {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        BdWalletUtils.putFunctionNameList(GET_DXM_PAY_USER_AGENT);
     }
 
     private void a(Context context, String str, RouterCallback routerCallback) {
@@ -76,16 +118,24 @@ public class EnterDxmPayServiceAction implements RouterAction {
                         if ("callDXMIDCardOCR".equals(optString)) {
                             errorCallback(5, "没有OCR身份证识别模块", routerCallback);
                             return;
-                        } else if ("getDxmPayUserAgent".equals(optString)) {
-                            a(optString, 0, BussinessUtils.getUA(context), routerCallback);
-                            return;
-                        } else if (GET_DXM_PAY_SUPPORT_SERVICE_LIST.equals(optString)) {
-                            b(context, optString2, routerCallback);
-                            return;
-                        } else {
-                            a(context, (Object) str, routerCallback);
-                            return;
                         }
+                        if (!NFCKYC_NFC_SUPPORTED.equals(optString) && !NFCKYC_NFC_ENABLED.equals(optString) && !NFCKYC_GO2NFCSETTING.equals(optString) && !NFCKYC_VERIFYIDCARD.equals(optString)) {
+                            if (GET_DXM_PAY_USER_AGENT.equals(optString)) {
+                                a(optString, 0, BussinessUtils.getUA(context), routerCallback);
+                                return;
+                            } else if (GET_DXM_PAY_SUPPORT_SERVICE_LIST.equals(optString)) {
+                                a(optString2, routerCallback);
+                                return;
+                            } else if (GET_DXM_PAY_ALL_SUPPORT_SERVICE_LIST.equals(optString)) {
+                                a(routerCallback);
+                                return;
+                            } else {
+                                a(context, (Object) str, routerCallback);
+                                return;
+                            }
+                        }
+                        errorCallback(5, "没有令牌云模块", routerCallback);
+                        return;
                     } else {
                         errorCallback(10001, ERR_MSG, routerCallback);
                         return;
@@ -103,14 +153,14 @@ public class EnterDxmPayServiceAction implements RouterAction {
     public static String assembleResult(Map<String, Object> map, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, map, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, map, z)) == null) {
             if (map == null) {
                 return null;
             }
             org.json.JSONObject jSONObject = new org.json.JSONObject();
             try {
                 jSONObject.put("result", z ? 0 : 1);
-                jSONObject.put(BeanConstants.DXM_OCR_KEY_CNT, new org.json.JSONObject(map));
+                jSONObject.put("cnt", new org.json.JSONObject(map));
             } catch (org.json.JSONException e2) {
                 e2.printStackTrace();
             }
@@ -119,49 +169,9 @@ public class EnterDxmPayServiceAction implements RouterAction {
         return (String) invokeLZ.objValue;
     }
 
-    private void b(Context context, String str, RouterCallback routerCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, this, context, str, routerCallback) == null) {
-            if (TextUtils.isEmpty(str)) {
-                errorCallback(10001, ERR_MSG, routerCallback);
-                return;
-            }
-            try {
-                JSONArray optJSONArray = new JSONObject(str).optJSONArray("serviceNameList");
-                if (optJSONArray != null && optJSONArray.length() != 0) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(PreferencesUtil.LEFT_MOUNT);
-                    boolean z = false;
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        String string = optJSONArray.getString(i2);
-                        if (TextUtils.isEmpty(string)) {
-                            errorCallback(10001, ERR_MSG, routerCallback);
-                        } else if (LocalRouter.getInstance(context).isProviderExisted(string)) {
-                            sb.append(string);
-                            sb.append(",");
-                            z = true;
-                        }
-                    }
-                    if (z) {
-                        sb.deleteCharAt(sb.length() - 1);
-                        sb.append(PreferencesUtil.RIGHT_MOUNT);
-                        hasDesDataSuccessCallback(GET_DXM_PAY_SUPPORT_SERVICE_LIST, 0, sb.toString(), routerCallback);
-                        return;
-                    }
-                    errorCallback(10009, "不支持该端能力", routerCallback);
-                    return;
-                }
-                errorCallback(10001, ERR_MSG, routerCallback);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                errorCallback(10001, e2.getMessage(), routerCallback);
-            }
-        }
-    }
-
     public static void errorCallback(int i2, String str, RouterCallback routerCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65542, null, i2, str, routerCallback) == null) {
+        if (interceptable == null || interceptable.invokeILL(65543, null, i2, str, routerCallback) == null) {
             StatisticManager.onEventWithValues(StatServiceEvent.PAY_SERVICE_ERROR, StatHelper.collectData(i2 + "", str));
             if (routerCallback != null) {
                 HashMap hashMap = new HashMap();
@@ -228,7 +238,7 @@ public class EnterDxmPayServiceAction implements RouterAction {
 
     private void a(String str, int i2, String str2, RouterCallback routerCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65539, this, str, i2, str2, routerCallback) == null) {
+        if (interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, i2, str2, routerCallback) == null) {
             StatisticManager.onEventWithValues(StatServiceEvent.PAY_SERVICE_RESULT, StatHelper.collectData(str, i2 + "", str2));
             HashMap hashMap = new HashMap();
             hashMap.put("data", Base64Utils.encodeToString(str2.getBytes()));
@@ -236,6 +246,81 @@ public class EnterDxmPayServiceAction implements RouterAction {
             HashMap hashMap2 = new HashMap();
             hashMap2.put("result", assembleResult);
             routerCallback.onResult(0, hashMap2);
+        }
+    }
+
+    private void a(String str, RouterCallback routerCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, this, str, routerCallback) == null) {
+            if (TextUtils.isEmpty(str)) {
+                errorCallback(10001, ERR_MSG, routerCallback);
+                return;
+            }
+            try {
+                JSONArray optJSONArray = new JSONObject(str).optJSONArray("serviceNameList");
+                if (optJSONArray != null && optJSONArray.length() != 0) {
+                    ArrayList functionNameList = BdWalletUtils.getFunctionNameList();
+                    if (functionNameList != null && functionNameList.size() > 0) {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(PreferencesUtil.LEFT_MOUNT);
+                        boolean z = false;
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                            String string = optJSONArray.getString(i2);
+                            int i3 = 0;
+                            while (true) {
+                                if (i3 >= functionNameList.size()) {
+                                    break;
+                                }
+                                if (!TextUtils.isEmpty(string) && string.equals(functionNameList.get(i3))) {
+                                    sb.append("\"");
+                                    sb.append(string);
+                                    sb.append("\"");
+                                    sb.append(",");
+                                    z = true;
+                                    break;
+                                }
+                                i3++;
+                            }
+                        }
+                        if (z) {
+                            sb.deleteCharAt(sb.length() - 1);
+                            sb.append(PreferencesUtil.RIGHT_MOUNT);
+                            hasDesDataSuccessCallback(GET_DXM_PAY_SUPPORT_SERVICE_LIST, 0, sb.toString(), routerCallback);
+                            return;
+                        }
+                        errorCallback(10009, "不支持该端能力", routerCallback);
+                        return;
+                    }
+                    errorCallback(10009, "不支持该端能力", routerCallback);
+                    return;
+                }
+                errorCallback(10001, ERR_MSG, routerCallback);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                errorCallback(10001, e2.getMessage(), routerCallback);
+            }
+        }
+    }
+
+    private void a(RouterCallback routerCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, routerCallback) == null) {
+            ArrayList functionNameList = BdWalletUtils.getFunctionNameList();
+            if (functionNameList != null && functionNameList.size() > 0) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(PreferencesUtil.LEFT_MOUNT);
+                for (int i2 = 0; i2 < functionNameList.size(); i2++) {
+                    sb.append("\"");
+                    sb.append((String) functionNameList.get(i2));
+                    sb.append("\"");
+                    sb.append(",");
+                }
+                sb.deleteCharAt(sb.length() - 1);
+                sb.append(PreferencesUtil.RIGHT_MOUNT);
+                hasDesDataSuccessCallback(GET_DXM_PAY_SUPPORT_SERVICE_LIST, 0, sb.toString(), routerCallback);
+                return;
+            }
+            errorCallback(10009, "不支持该端能力", routerCallback);
         }
     }
 }

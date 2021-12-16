@@ -1,5 +1,5 @@
 package com.baidu.searchbox.http.statistics;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface NetworkInfoRecord {
     void doRecord(NetworkStatRecord networkStatRecord);
 

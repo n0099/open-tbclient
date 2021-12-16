@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.kwad.sdk.core.imageloader.utils.IoUtils;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface DiskCache {
     void clear();
 

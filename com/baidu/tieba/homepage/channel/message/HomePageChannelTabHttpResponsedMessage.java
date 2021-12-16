@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.channel.message;
 
-import c.a.r0.n1.b.a.a;
+import c.a.s0.o1.b.a.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class HomePageChannelTabHttpResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,10 +45,10 @@ public class HomePageChannelTabHttpResponsedMessage extends JsonHttpResponsedMes
                 if (orginalMessage instanceof HttpMessage) {
                     Object obj = ((HttpMessage) orginalMessage).getParams().get("tab_code");
                     if (obj instanceof String) {
-                        this.channelTabRespData.g((String) obj);
+                        this.channelTabRespData.i((String) obj);
                     }
                 }
-                this.channelTabRespData.f(jSONObject);
+                this.channelTabRespData.h(jSONObject);
             }
         }
     }

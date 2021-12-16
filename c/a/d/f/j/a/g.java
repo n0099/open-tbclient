@@ -16,28 +16,28 @@ public class g {
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2444b;
+    public int f2408b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2445c;
+    public int f2409c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2446d;
+    public String f2410d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2447e;
+    public String f2411e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2448f;
+    public String f2412f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, List<String>> f2449g;
+    public Map<String, List<String>> f2413g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f2450h;
+    public byte[] f2414h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2451i;
+    public int f2415i;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -53,11 +53,11 @@ public class g {
             }
         }
         this.a = false;
-        this.f2444b = -1;
-        this.f2445c = -1;
-        this.f2446d = "";
-        this.f2447e = "";
-        this.f2448f = "";
+        this.f2408b = -1;
+        this.f2409c = -1;
+        this.f2410d = "";
+        this.f2411e = "";
+        this.f2412f = "";
     }
 
     public void a(HttpURLConnection httpURLConnection) throws Exception {
@@ -65,16 +65,16 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, httpURLConnection) == null) || httpURLConnection == null) {
             return;
         }
-        this.f2444b = httpURLConnection.getResponseCode();
-        this.f2446d = httpURLConnection.getContentEncoding();
-        this.f2447e = httpURLConnection.getContentType();
-        this.f2448f = httpURLConnection.getContentLength() + "";
-        this.f2449g = httpURLConnection.getHeaderFields();
+        this.f2408b = httpURLConnection.getResponseCode();
+        this.f2410d = httpURLConnection.getContentEncoding();
+        this.f2411e = httpURLConnection.getContentType();
+        this.f2412f = httpURLConnection.getContentLength() + "";
+        this.f2413g = httpURLConnection.getHeaderFields();
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2444b == 200 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2408b == 200 : invokeV.booleanValue;
     }
 }

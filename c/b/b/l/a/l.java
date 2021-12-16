@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class l extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends GLSurfaceView20 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ l f27429h;
+        public final /* synthetic */ l f27804h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(l lVar, Context context, c.b.b.l.a.b0.c cVar) {
@@ -45,14 +45,14 @@ public final class l extends k {
                     return;
                 }
             }
-            this.f27429h = lVar;
+            this.f27804h = lVar;
         }
 
         @Override // android.view.SurfaceView
         public SurfaceHolder getHolder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27429h.y() : (SurfaceHolder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27804h.y() : (SurfaceHolder) invokeV.objValue;
         }
     }
 
@@ -89,7 +89,7 @@ public final class l extends k {
                     aVar2.setEGLConfigChooser(l);
                 } else {
                     b bVar = this.w;
-                    aVar2.setEGLConfigChooser(bVar.a, bVar.f27398b, bVar.f27399c, bVar.f27400d, bVar.f27401e, bVar.f27402f);
+                    aVar2.setEGLConfigChooser(bVar.a, bVar.f27773b, bVar.f27774c, bVar.f27775d, bVar.f27776e, bVar.f27777f);
                 }
                 aVar2.setRenderer(this);
                 return aVar2;
@@ -141,28 +141,28 @@ public final class l extends k {
                 }
             }
             if (z4) {
-                this.f27424h.getApplicationListener().resume();
+                this.f27799h.getApplicationListener().resume();
                 c.b.b.f.a.log("AndroidGraphics", "resumed");
             }
             if (z) {
-                synchronized (this.f27424h.getRunnables()) {
-                    this.f27424h.getExecutedRunnables().clear();
-                    this.f27424h.getExecutedRunnables().b(this.f27424h.getRunnables());
-                    this.f27424h.getRunnables().clear();
-                    for (int i2 = 0; i2 < this.f27424h.getExecutedRunnables().f27768f; i2++) {
-                        this.f27424h.getExecutedRunnables().get(i2).run();
+                synchronized (this.f27799h.getRunnables()) {
+                    this.f27799h.getExecutedRunnables().clear();
+                    this.f27799h.getExecutedRunnables().b(this.f27799h.getRunnables());
+                    this.f27799h.getRunnables().clear();
+                    for (int i2 = 0; i2 < this.f27799h.getExecutedRunnables().f28143f; i2++) {
+                        this.f27799h.getExecutedRunnables().get(i2).run();
                     }
                 }
-                this.f27424h.getInput().m();
+                this.f27799h.getInput().m();
                 this.p++;
-                this.f27424h.getApplicationListener().render();
+                this.f27799h.getApplicationListener().render();
             }
             if (z2) {
-                this.f27424h.getApplicationListener().pause();
+                this.f27799h.getApplicationListener().pause();
                 c.b.b.f.a.log("AndroidGraphics", "paused");
             }
             if (z3) {
-                this.f27424h.getApplicationListener().dispose();
+                this.f27799h.getApplicationListener().dispose();
                 c.b.b.f.a.log("AndroidGraphics", "destroyed");
             }
             if (nanoTime - this.o > 1000000000) {
@@ -197,8 +197,8 @@ public final class l extends k {
         SurfaceHolder surfaceHolder;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (((n) this.f27424h).f27430e.sync) {
-                surfaceHolder = ((n) this.f27424h).f27430e.getSurfaceHolder();
+            synchronized (((n) this.f27799h).f27805e.sync) {
+                surfaceHolder = ((n) this.f27799h).f27805e.getSurfaceHolder();
             }
             return surfaceHolder;
         }
@@ -208,7 +208,7 @@ public final class l extends k {
     public void z() {
         GLSurfaceView20 gLSurfaceView20;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (gLSurfaceView20 = this.f27421e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (gLSurfaceView20 = this.f27796e) == null) {
             return;
         }
         try {

@@ -17,43 +17,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h extends TextureView implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SurfaceTexture f33989b;
+    public SurfaceTexture f34458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Surface f33990c;
+    public Surface f34459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i.a f33991d;
+    public i.a f34460d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f33992e;
+    public f f34461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f33993f;
+    public boolean f34462f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f33994g;
+    public boolean f34463g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f33995h;
+    public boolean f34464h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f33996i;
+    public boolean f34465i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f33997j;
+    public boolean f34466j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f33998k;
+    public boolean f34467k;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements TextureView.SurfaceTextureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,26 +82,26 @@ public class h extends TextureView implements i {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, surfaceTexture, i2, i3) == null) {
                 CyberLog.d("CyberTextureView", "onSurfaceTextureAvailable surface:" + surfaceTexture + " width:" + i2 + " height:" + i3);
-                this.a.f33995h = false;
-                if (this.a.f33996i && !this.a.f33994g) {
+                this.a.f34464h = false;
+                if (this.a.f34465i && !this.a.f34463g) {
                     this.a.a(surfaceTexture);
                 }
-                if (this.a.f33989b == null) {
-                    this.a.f33989b = surfaceTexture;
-                    if (this.a.f33991d == null) {
+                if (this.a.f34458b == null) {
+                    this.a.f34458b = surfaceTexture;
+                    if (this.a.f34460d == null) {
                         return;
                     }
                 } else if (Build.VERSION.SDK_INT >= 21) {
                     h hVar = this.a;
-                    hVar.setSurfaceTexture(hVar.f33989b);
+                    hVar.setSurfaceTexture(hVar.f34458b);
                     return;
                 } else {
-                    this.a.f33989b = surfaceTexture;
-                    if (this.a.f33991d == null) {
+                    this.a.f34458b = surfaceTexture;
+                    if (this.a.f34460d == null) {
                         return;
                     }
                 }
-                this.a.f33991d.a(1);
+                this.a.f34460d.a(1);
             }
         }
 
@@ -111,11 +111,11 @@ public class h extends TextureView implements i {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceTexture)) == null) {
                 CyberLog.d("CyberTextureView", "onSurfaceTextureDestroyed surface:" + surfaceTexture);
-                this.a.f33995h = true;
-                if (!this.a.f33996i || this.a.f33994g) {
+                this.a.f34464h = true;
+                if (!this.a.f34465i || this.a.f34463g) {
                     return false;
                 }
-                if (surfaceTexture != this.a.f33989b && surfaceTexture != null) {
+                if (surfaceTexture != this.a.f34458b && surfaceTexture != null) {
                     surfaceTexture.release();
                 }
                 this.a.g();
@@ -129,19 +129,19 @@ public class h extends TextureView implements i {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, surfaceTexture, i2, i3) == null) {
                 CyberLog.d("CyberTextureView", "onSurfaceTextureSizeChanged surface:" + surfaceTexture + " width:" + i2 + " height:" + i3);
-                this.a.f33995h = false;
+                this.a.f34464h = false;
             }
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, surfaceTexture) == null) || this.a.f33993f) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, surfaceTexture) == null) || this.a.f34462f) {
                 return;
             }
-            this.a.f33993f = true;
-            if (this.a.f33991d != null) {
-                this.a.f33991d.a(System.currentTimeMillis());
+            this.a.f34462f = true;
+            if (this.a.f34460d != null) {
+                this.a.f34460d.a(System.currentTimeMillis());
             }
         }
     }
@@ -164,22 +164,22 @@ public class h extends TextureView implements i {
                 return;
             }
         }
-        this.f33998k = false;
+        this.f34467k = false;
         a aVar = new a(this);
         this.a = aVar;
         setSurfaceTextureListener(aVar);
-        this.f33992e = new f();
-        this.f33993f = false;
-        this.f33994g = false;
-        this.f33995h = false;
-        this.f33996i = CyberCfgManager.getInstance().a("textureview_texture_auto_release", true);
-        this.f33997j = CyberCfgManager.getInstance().a("textureview_enable_translate", true);
+        this.f34461e = new f();
+        this.f34462f = false;
+        this.f34463g = false;
+        this.f34464h = false;
+        this.f34465i = CyberCfgManager.getInstance().a("textureview_texture_auto_release", true);
+        this.f34466j = CyberCfgManager.getInstance().a("textureview_enable_translate", true);
     }
 
     private void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, this, i2) == null) {
-            int g2 = this.f33992e.g();
+            int g2 = this.f34461e.g();
             if (g2 > 0) {
                 g2 = 360 - g2;
             }
@@ -193,18 +193,18 @@ public class h extends TextureView implements i {
     public void a(SurfaceTexture surfaceTexture) {
         SurfaceTexture surfaceTexture2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, surfaceTexture) == null) || (surfaceTexture2 = this.f33989b) == null || surfaceTexture2 == surfaceTexture) {
+        if (!(interceptable == null || interceptable.invokeL(65538, this, surfaceTexture) == null) || (surfaceTexture2 = this.f34458b) == null || surfaceTexture2 == surfaceTexture) {
             return;
         }
-        CyberLog.i("CyberTextureView", "releaseLastSurfaceTexture mSurfaceTexture:" + this.f33989b);
+        CyberLog.i("CyberTextureView", "releaseLastSurfaceTexture mSurfaceTexture:" + this.f34458b);
         g();
     }
 
     private void b(int i2, int i3, int i4, int i5) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(65543, this, i2, i3, i4, i5) == null) && this.f33997j) {
-            if (this.f33992e.f()) {
+        if ((interceptable == null || interceptable.invokeIIII(65543, this, i2, i3, i4, i5) == null) && this.f34466j) {
+            if (this.f34461e.f()) {
                 Matrix matrix = new Matrix();
                 getTransform(matrix);
                 CyberLog.i("CyberTextureView", "doTranslate old_width:" + i2 + " old_height:" + i3 + " width:" + i4 + " height:" + i5);
@@ -216,7 +216,7 @@ public class h extends TextureView implements i {
                 sb.append(" y:");
                 sb.append(f3);
                 CyberLog.i("CyberTextureView", sb.toString());
-                int d2 = this.f33992e.d();
+                int d2 = this.f34461e.d();
                 if (d2 == 7) {
                     f2 = -f2;
                 } else if (d2 != 8) {
@@ -231,7 +231,7 @@ public class h extends TextureView implements i {
                 matrix.setTranslate(f2, 0.0f);
                 setTransform(matrix);
                 z = true;
-            } else if (!this.f33998k) {
+            } else if (!this.f34467k) {
                 return;
             } else {
                 Matrix matrix2 = new Matrix();
@@ -240,7 +240,7 @@ public class h extends TextureView implements i {
                 setTransform(matrix2);
                 z = false;
             }
-            this.f33998k = z;
+            this.f34467k = z;
         }
     }
 
@@ -255,12 +255,12 @@ public class h extends TextureView implements i {
     public void g() {
         SurfaceTexture surfaceTexture;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || (surfaceTexture = this.f33989b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || (surfaceTexture = this.f34458b) == null) {
             return;
         }
         surfaceTexture.release();
-        CyberLog.i("CyberTextureView", "releaseSurfaceTexture mSurfaceTexture:" + this.f33989b);
-        this.f33989b = null;
+        CyberLog.i("CyberTextureView", "releaseSurfaceTexture mSurfaceTexture:" + this.f34458b);
+        this.f34458b = null;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -274,17 +274,17 @@ public class h extends TextureView implements i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.f33989b);
-            Surface surface = this.f33990c;
+            CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.f34458b);
+            Surface surface = this.f34459c;
             if (surface != null) {
                 surface.release();
-                this.f33990c = null;
+                this.f34459c = null;
             }
-            this.f33994g = false;
-            if (!this.f33996i) {
-                this.f33989b = null;
-            } else if (this.f33995h) {
-                CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.f33989b + " mIsDestoryed:" + this.f33995h);
+            this.f34463g = false;
+            if (!this.f34465i) {
+                this.f34458b = null;
+            } else if (this.f34464h) {
+                CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.f34458b + " mIsDestoryed:" + this.f34464h);
                 g();
             }
         }
@@ -293,7 +293,7 @@ public class h extends TextureView implements i {
     @Override // com.baidu.cyberplayer.sdk.i
     public void a(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) && this.f33992e.a(i2, i3, i4, i5)) {
+        if ((interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) && this.f34461e.a(i2, i3, i4, i5)) {
             f();
         }
     }
@@ -312,7 +312,7 @@ public class h extends TextureView implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             setRotation(0.0f);
-            this.f33992e.a();
+            this.f34461e.a();
         }
     }
 
@@ -321,24 +321,24 @@ public class h extends TextureView implements i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.f33990c);
-            Surface surface = this.f33990c;
+            CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.f34459c);
+            Surface surface = this.f34459c;
             if (surface != null) {
                 surface.release();
-                this.f33990c = null;
+                this.f34459c = null;
             }
             CyberLog.d("CyberTextureView", "createNewSurface getSurfaceTexture:" + getSurfaceTexture());
             if (getSurfaceTexture() != null) {
-                this.f33994g = true;
-                this.f33990c = new Surface(getSurfaceTexture());
-                if (this.f33996i) {
+                this.f34463g = true;
+                this.f34459c = new Surface(getSurfaceTexture());
+                if (this.f34465i) {
                     a(getSurfaceTexture());
                 }
-                this.f33989b = getSurfaceTexture();
-                this.f33993f = false;
+                this.f34458b = getSurfaceTexture();
+                this.f34462f = false;
             }
-            CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.f33990c);
-            return this.f33990c;
+            CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.f34459c);
+            return this.f34459c;
         }
         return (Surface) invokeV.objValue;
     }
@@ -368,20 +368,20 @@ public class h extends TextureView implements i {
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
             int size = View.MeasureSpec.getSize(i2);
             int size2 = View.MeasureSpec.getSize(i3);
-            this.f33992e.a(size, size2);
-            this.f33992e.b();
-            i.a aVar = this.f33991d;
+            this.f34461e.a(size, size2);
+            this.f34461e.b();
+            i.a aVar = this.f34460d;
             if (aVar != null) {
                 aVar.a(size, size2);
             }
-            boolean z = this.f33992e.g() == 90 || this.f33992e.g() == 270;
+            boolean z = this.f34461e.g() == 90 || this.f34461e.g() == 270;
             if (z) {
                 i3 = i2;
                 i2 = i3;
             }
-            int defaultSize = View.getDefaultSize(this.f33992e.h(), i2);
-            int defaultSize2 = View.getDefaultSize(this.f33992e.i(), i3);
-            float[] c2 = this.f33992e.c();
+            int defaultSize = View.getDefaultSize(this.f34461e.h(), i2);
+            int defaultSize2 = View.getDefaultSize(this.f34461e.i(), i3);
+            float[] c2 = this.f34461e.c();
             if (z) {
                 i4 = (int) (c2[1] * defaultSize);
                 f2 = c2[0];
@@ -398,7 +398,7 @@ public class h extends TextureView implements i {
     @Override // com.baidu.cyberplayer.sdk.i
     public void setClientRotation(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i2) == null) && this.f33992e.b(i2)) {
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i2) == null) && this.f34461e.b(i2)) {
             a(i2);
         }
     }
@@ -407,14 +407,14 @@ public class h extends TextureView implements i {
     public void setCyberSurfaceListener(i.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.f33991d = aVar;
+            this.f34460d = aVar;
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setDisplayMode(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048587, this, i2) == null) && this.f33992e.c(i2)) {
+        if ((interceptable == null || interceptable.invokeI(1048587, this, i2) == null) && this.f34461e.c(i2)) {
             f();
         }
     }
@@ -422,7 +422,7 @@ public class h extends TextureView implements i {
     @Override // com.baidu.cyberplayer.sdk.i
     public void setRawFrameRotation(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i2) == null) && this.f33992e.a(i2)) {
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i2) == null) && this.f34461e.a(i2)) {
             a(i2);
         }
     }

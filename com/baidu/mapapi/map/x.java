@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class x implements com.baidu.mapsdkplatform.comapi.map.l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,19 +53,19 @@ public class x implements com.baidu.mapsdkplatform.comapi.map.l {
         TextView textView2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jVar = this.a.f36013f;
+            jVar = this.a.f36502f;
             if (jVar != null) {
-                jVar2 = this.a.f36013f;
+                jVar2 = this.a.f36502f;
                 if (jVar2.a() == null) {
                     return;
                 }
-                jVar3 = this.a.f36013f;
+                jVar3 = this.a.f36502f;
                 float f3 = jVar3.a().E().a;
                 f2 = this.a.A;
                 if (f2 != f3) {
                     sparseArray = WearMapView.x;
                     int intValue = ((Integer) sparseArray.get((int) f3)).intValue();
-                    jVar4 = this.a.f36013f;
+                    jVar4 = this.a.f36502f;
                     imageView = this.a.r;
                     int i2 = ((int) (intValue / jVar4.a().E().m)) / 2;
                     imageView.setPadding(i2, 0, i2, 0);

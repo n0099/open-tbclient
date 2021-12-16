@@ -30,7 +30,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d1 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean x;
@@ -38,34 +38,34 @@ public class d1 {
     public Context a;
 
     /* renamed from: b */
-    public o f30765b;
+    public o f31135b;
 
     /* renamed from: c */
-    public Bitmap f30766c;
+    public Bitmap f31136c;
 
     /* renamed from: d */
-    public CircleProgressbar f30767d;
+    public CircleProgressbar f31137d;
 
     /* renamed from: e */
-    public e1 f30768e;
+    public e1 f31138e;
 
     /* renamed from: f */
-    public boolean f30769f;
+    public boolean f31139f;
 
     /* renamed from: g */
-    public int f30770g;
+    public int f31140g;
 
     /* renamed from: h */
-    public int f30771h;
+    public int f31141h;
 
     /* renamed from: i */
-    public boolean f30772i;
+    public boolean f31142i;
 
     /* renamed from: j */
-    public boolean f30773j;
+    public boolean f31143j;
 
     /* renamed from: k */
-    public boolean f30774k;
+    public boolean f31144k;
     public File l;
     public byte[] m;
     public n5 n;
@@ -94,12 +94,12 @@ public class d1 {
                 return;
             }
         }
-        this.f30769f = false;
-        this.f30770g = 5000;
-        this.f30771h = 6;
-        this.f30772i = false;
-        this.f30773j = false;
-        this.f30774k = false;
+        this.f31139f = false;
+        this.f31140g = 5000;
+        this.f31141h = 6;
+        this.f31142i = false;
+        this.f31143j = false;
+        this.f31144k = false;
         this.o = null;
         this.q = null;
         this.t = 0.0f;
@@ -113,12 +113,12 @@ public class d1 {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        this.f30765b = new o(context, str);
+        this.f31135b = new o(context, str);
     }
 
     /* JADX DEBUG: Method not inlined, still used in: [c.p.a.v5.a(android.graphics.Bitmap):void, c.p.a.v5.a(com.win.opensdk.k0):void] */
     public static /* synthetic */ boolean i(d1 d1Var, boolean z) {
-        d1Var.f30772i = z;
+        d1Var.f31142i = z;
         return z;
     }
 
@@ -164,7 +164,7 @@ public class d1 {
                     n5 n5Var = new n5(this, str);
                     this.n = n5Var;
                     n5Var.execute(str);
-                } else if (this.f30768e == null || this.f30773j || this.f30768e == null) {
+                } else if (this.f31138e == null || this.f31143j || this.f31138e == null) {
                 } else {
                     File file2 = this.p;
                     byte[] bArr = null;
@@ -192,8 +192,8 @@ public class d1 {
                     }
                     this.m = bArr;
                     if (bArr != null) {
-                        this.f30768e.onLoaded();
-                        this.f30772i = true;
+                        this.f31138e.onLoaded();
+                        this.f31142i = true;
                     }
                 }
             } catch (Exception e4) {
@@ -205,24 +205,24 @@ public class d1 {
     public final void e(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            u uVar = this.f30765b.a;
-            long countdown = (uVar == null || !uVar.f()) ? 0L : uVar.f30944c.getCountdown();
+            u uVar = this.f31135b.a;
+            long countdown = (uVar == null || !uVar.f()) ? 0L : uVar.f31314c.getCountdown();
             CircleProgressbar circleProgressbar = (CircleProgressbar) view.findViewById(k1.win_splash_skip);
-            this.f30767d = circleProgressbar;
+            this.f31137d = circleProgressbar;
             circleProgressbar.setOutLineColor(0);
-            this.f30767d.setInCircleColor(Color.parseColor(this.a.getString(m1.win_cyclecolor)));
-            this.f30767d.setProgressColor(Color.parseColor(this.a.getString(m1.win_cyc_process_color)));
-            this.f30767d.setProgressLineWidth(this.f30771h);
-            this.f30767d.setProgressType(com.win.opensdk.s2.f62650b);
-            CircleProgressbar circleProgressbar2 = this.f30767d;
+            this.f31137d.setInCircleColor(Color.parseColor(this.a.getString(m1.win_cyclecolor)));
+            this.f31137d.setProgressColor(Color.parseColor(this.a.getString(m1.win_cyc_process_color)));
+            this.f31137d.setProgressLineWidth(this.f31141h);
+            this.f31137d.setProgressType(com.win.opensdk.s2.f63231b);
+            CircleProgressbar circleProgressbar2 = this.f31137d;
             if (countdown <= 0) {
-                countdown = this.f30770g;
+                countdown = this.f31140g;
             }
             circleProgressbar2.setTimeMillis(countdown);
-            this.f30767d.a();
-            this.f30767d.a(1, this.v);
-            this.f30769f = false;
-            this.f30767d.setOnClickListener(new z5(this));
+            this.f31137d.a();
+            this.f31137d.a(1, this.v);
+            this.f31139f = false;
+            this.f31137d.setOnClickListener(new z5(this));
         }
     }
 
@@ -234,12 +234,12 @@ public class d1 {
             this.l = file;
             if (!file.exists()) {
                 new f4(new v5(this, compressFormat)).a(str, false);
-            } else if (this.f30768e == null || this.f30773j) {
+            } else if (this.f31138e == null || this.f31143j) {
             } else {
                 File file2 = this.l;
-                this.f30766c = (!file2.exists() || file2.isDirectory()) ? null : BitmapFactory.decodeFile(file2.getAbsolutePath());
-                this.f30768e.onLoaded();
-                this.f30772i = true;
+                this.f31136c = (!file2.exists() || file2.isDirectory()) ? null : BitmapFactory.decodeFile(file2.getAbsolutePath());
+                this.f31138e.onLoaded();
+                this.f31142i = true;
             }
         }
     }
@@ -250,9 +250,9 @@ public class d1 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
                 Info info = null;
-                if (this.f30766c != null) {
-                    this.f30766c.recycle();
-                    this.f30766c = null;
+                if (this.f31136c != null) {
+                    this.f31136c.recycle();
+                    this.f31136c = null;
                     File file2 = this.o;
                     if (file2 != null) {
                         try {
@@ -283,17 +283,17 @@ public class d1 {
                     this.n.cancel(false);
                     this.n = null;
                 }
-                if (this.f30765b != null) {
-                    u uVar = this.f30765b.a;
+                if (this.f31135b != null) {
+                    u uVar = this.f31135b.a;
                     if (uVar != null && uVar.f()) {
-                        info = uVar.f30944c;
+                        info = uVar.f31314c;
                     }
                     if (info != null) {
                         y2 a = c3.a(this.a);
                         a.b(new g3(info));
                         a.m();
                     }
-                    this.f30765b.a();
+                    this.f31135b.a();
                 }
             } catch (Exception e4) {
                 e4.printStackTrace();
@@ -305,9 +305,9 @@ public class d1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            o oVar = this.f30765b;
-            if (oVar == null || this.f30766c == null) {
-                o oVar2 = this.f30765b;
+            o oVar = this.f31135b;
+            if (oVar == null || this.f31136c == null) {
+                o oVar2 = this.f31135b;
                 if (oVar2 == null || this.m == null) {
                     return false;
                 }
@@ -324,14 +324,14 @@ public class d1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (!r0.H(this.a)) {
-                e1 e1Var = this.f30768e;
+                e1 e1Var = this.f31138e;
                 if (e1Var != null) {
                     e1Var.onFail(PBError.NO_NETWORK);
                 }
-            } else if (this.f30765b != null) {
-                this.f30772i = false;
-                this.f30773j = false;
-                this.f30774k = false;
+            } else if (this.f31135b != null) {
+                this.f31142i = false;
+                this.f31143j = false;
+                this.f31144k = false;
                 x = false;
                 Handler handler = this.w;
                 Message obtain = Message.obtain();
@@ -342,8 +342,8 @@ public class d1 {
                     j2 = 2000;
                 }
                 handler.sendMessageDelayed(obtain, j2);
-                u uVar = this.f30765b.a;
-                if (uVar == null || (a5Var = uVar.f30943b) == null) {
+                u uVar = this.f31135b.a;
+                if (uVar == null || (a5Var = uVar.f31313b) == null) {
                     return;
                 }
                 a5Var.g();
@@ -361,8 +361,8 @@ public class d1 {
     public void n(e1 e1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, e1Var) == null) {
-            this.f30768e = e1Var;
-            this.f30765b.f30866b = new j5(this);
+            this.f31138e = e1Var;
+            this.f31135b.f31236b = new j5(this);
         }
     }
 
@@ -371,25 +371,25 @@ public class d1 {
         if (interceptable == null || interceptable.invokeL(1048585, this, viewGroup) == null) {
             this.r = viewGroup;
             if (!r0.H(this.a)) {
-                e1 e1Var = this.f30768e;
+                e1 e1Var = this.f31138e;
                 if (e1Var != null) {
                     e1Var.b(PBError.NO_NETWORK);
                 }
             } else if (!k()) {
-                e1 e1Var2 = this.f30768e;
+                e1 e1Var2 = this.f31138e;
                 if (e1Var2 != null) {
                     e1Var2.b(PBError.NO_LOAD);
                 }
-            } else if (this.f30765b.c().equals("image")) {
+            } else if (this.f31135b.c().equals("image")) {
                 viewGroup.removeAllViews();
                 View inflate = LayoutInflater.from(this.a).inflate(l1.win_layout_win_splash, viewGroup);
                 ImageView imageView = (ImageView) inflate.findViewById(k1.win_splash_iv);
                 b(inflate);
                 imageView.setVisibility(0);
                 e(inflate);
-                imageView.setImageBitmap(this.f30766c);
+                imageView.setImageBitmap(this.f31136c);
                 this.o = this.l;
-                this.f30765b.b(viewGroup, null);
+                this.f31135b.b(viewGroup, null);
             } else {
                 viewGroup.removeAllViews();
                 View inflate2 = LayoutInflater.from(this.a).inflate(l1.win_layout_win_splash, viewGroup);
@@ -403,7 +403,7 @@ public class d1 {
                     this.q = this.p;
                 }
                 e(inflate2);
-                this.f30765b.b(viewGroup, null);
+                this.f31135b.b(viewGroup, null);
             }
         }
     }

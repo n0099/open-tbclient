@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: c.f.b.a.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1582a implements FileFilter {
+    /* loaded from: classes9.dex */
+    public class C1622a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Pattern a;
 
-        public C1582a() {
+        public C1622a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
@@ -92,7 +92,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (-1 == b.a.a) {
                 try {
-                    b.a.a = new File("/sys/devices/system/cpu/").listFiles(new C1582a()).length;
+                    b.a.a = new File("/sys/devices/system/cpu/").listFiles(new C1622a()).length;
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     b.a.a = 1;

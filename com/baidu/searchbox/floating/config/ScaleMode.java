@@ -1,5 +1,6 @@
 package com.baidu.searchbox.floating.config;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,9 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import kotlin.Metadata;
 import kotlin.Pair;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\b\u0086\u0001\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\u0002\u001a\u00020\u0000H&¢\u0006\u0004\b\u0002\u0010\u0003J\u000f\u0010\u0004\u001a\u00020\u0000H&¢\u0006\u0004\b\u0004\u0010\u0003J+\u0010\t\u001a\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00050\b2\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0007\u001a\u00020\u0005H&¢\u0006\u0004\b\t\u0010\nj\u0002\b\rj\u0002\b\u000ej\u0002\b\u000f¨\u0006\u0010"}, d2 = {"Lcom/baidu/searchbox/floating/config/ScaleMode;", "Ljava/lang/Enum;", "next", "()Lcom/baidu/searchbox/floating/config/ScaleMode;", "pre", "", "x", "y", "Lkotlin/Pair;", AnimationProperty.SCALE, "(II)Lkotlin/Pair;", "<init>", "(Ljava/lang/String;I)V", "S", "M", "L", "lib-player-floating_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\b\u0086\u0001\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\u0002\u001a\u00020\u0000H&¢\u0006\u0004\b\u0002\u0010\u0003J\u000f\u0010\u0004\u001a\u00020\u0000H&¢\u0006\u0004\b\u0004\u0010\u0003J+\u0010\t\u001a\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00050\b2\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0007\u001a\u00020\u0005H&¢\u0006\u0004\b\t\u0010\nj\u0002\b\rj\u0002\b\u000ej\u0002\b\u000f¨\u0006\u0010"}, d2 = {"Lcom/baidu/searchbox/floating/config/ScaleMode;", "Ljava/lang/Enum;", "next", "()Lcom/baidu/searchbox/floating/config/ScaleMode;", "pre", "", "x", "y", "Lkotlin/Pair;", AnimationProperty.SCALE, "(II)Lkotlin/Pair;", "<init>", "(Ljava/lang/String;I)V", "S", "M", "L", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes10.dex */
 public abstract class ScaleMode {
     public static final /* synthetic */ ScaleMode[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -42,18 +44,18 @@ public abstract class ScaleMode {
             /* JADX DEBUG: Incorrect args count in method signature: ()V */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
-                super(r8, r9);
+                super(r9, r10, null);
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {r8, Integer.valueOf(r9)};
+                    Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
                         int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (DefaultConstructorMarker) objArr2[2]);
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -90,18 +92,18 @@ public abstract class ScaleMode {
             /* JADX DEBUG: Incorrect args count in method signature: ()V */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
-                super(r8, r9);
+                super(r9, r10, null);
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {r8, Integer.valueOf(r9)};
+                    Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
                         int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (DefaultConstructorMarker) objArr2[2]);
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -138,18 +140,18 @@ public abstract class ScaleMode {
             /* JADX DEBUG: Incorrect args count in method signature: ()V */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
-                super(r8, r9);
+                super(r9, r10, null);
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {r8, Integer.valueOf(r9)};
+                    Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
                         int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (DefaultConstructorMarker) objArr2[2]);
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -204,13 +206,13 @@ public abstract class ScaleMode {
     public static ScaleMode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ScaleMode) Enum.valueOf(ScaleMode.class, str) : (ScaleMode) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ScaleMode) Enum.valueOf(ScaleMode.class, str) : (ScaleMode) invokeL.objValue;
     }
 
     public static ScaleMode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ScaleMode[]) $VALUES.clone() : (ScaleMode[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ScaleMode[]) $VALUES.clone() : (ScaleMode[]) invokeV.objValue;
     }
 
     public abstract ScaleMode next();
@@ -218,4 +220,8 @@ public abstract class ScaleMode {
     public abstract ScaleMode pre();
 
     public abstract Pair<Integer, Integer> scale(int i2, int i3);
+
+    public /* synthetic */ ScaleMode(String str, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, i2);
+    }
 }

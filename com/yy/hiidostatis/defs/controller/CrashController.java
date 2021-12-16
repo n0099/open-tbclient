@@ -33,7 +33,7 @@ import java.io.FilenameFilter;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CrashController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXPIRES_DAY = 5;
@@ -47,7 +47,7 @@ public class CrashController {
     public Preference mPreference;
     public IStatisAPI mStatisAPI;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnCrashListener {
         void handler(JSONObject jSONObject);
     }

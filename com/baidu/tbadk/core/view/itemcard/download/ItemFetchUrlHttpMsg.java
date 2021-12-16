@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.view.itemcard.download;
 
 import android.os.Build;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ItemFetchUrlHttpMsg extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,8 +40,8 @@ public class ItemFetchUrlHttpMsg extends HttpMessage {
                 return;
             }
         }
-        addParam("screen_width", l.k(TbadkCoreApplication.getInst().getContext()));
-        addParam("screen_length", l.i(TbadkCoreApplication.getInst().getContext()));
+        addParam("screen_width", m.k(TbadkCoreApplication.getInst().getContext()));
+        addParam("screen_length", m.i(TbadkCoreApplication.getInst().getContext()));
         addParam("os_ver", Build.VERSION.RELEASE);
         addParam("package", itemData.pkgName);
         addParam("query", str);

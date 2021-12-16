@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadHandleService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -65,7 +65,7 @@ public class DownloadHandleService extends Service {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ DownloadHandleService f61906b;
+                public final /* synthetic */ DownloadHandleService f62487b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -82,7 +82,7 @@ public class DownloadHandleService extends Service {
                             return;
                         }
                     }
-                    this.f61906b = this;
+                    this.f62487b = this;
                     this.a = intExtra;
                 }
 

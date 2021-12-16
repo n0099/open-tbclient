@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.samsung.android.deviceidservice.IDeviceIdService;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class u extends l implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f54442j;
+    public Context f55022j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f54443k;
+    public String f55023k;
     public ServiceConnection l;
     public IDeviceIdService m;
 
@@ -40,30 +40,30 @@ public class u extends l implements ServiceConnection {
                 return;
             }
         }
-        this.f54442j = context;
+        this.f55022j = context;
         Context a = a(context);
-        this.f54442j = a;
-        this.f54443k = a != null ? a.getPackageName() : "";
+        this.f55022j = a;
+        this.f55023k = a != null ? a.getPackageName() : "";
     }
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
     public void doStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f54442j = a(this.f54442j);
+            this.f55022j = a(this.f55022j);
             try {
                 Intent intent = new Intent();
                 intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
                 c();
-                if (this.f54442j.bindService(intent, this, 1)) {
+                if (this.f55022j.bindService(intent, this, 1)) {
                     b();
                 } else {
                     a();
-                    a(this.f54415c, this.f54416d, this.f54417e, this.f54418f, this.f54419g);
+                    a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
                 }
             } catch (Exception unused) {
                 a();
-                a(this.f54415c, this.f54416d, this.f54417e, this.f54418f, this.f54419g);
+                a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
             }
         }
     }
@@ -88,28 +88,28 @@ public class u extends l implements ServiceConnection {
         this.m = asInterface;
         if (asInterface != null) {
             try {
-                this.f54418f = true;
+                this.f54998f = true;
                 String oaid = this.m.getOAID();
-                String vaid = this.m.getVAID(this.f54443k);
-                String aaid = this.m.getAAID(this.f54443k);
+                String vaid = this.m.getVAID(this.f55023k);
+                String aaid = this.m.getAAID(this.f55023k);
                 if (oaid == null) {
                     oaid = "";
                 }
-                this.f54415c = oaid;
+                this.f54995c = oaid;
                 if (vaid == null) {
                     vaid = "";
                 }
-                this.f54416d = vaid;
+                this.f54996d = vaid;
                 if (aaid == null) {
                     aaid = "";
                 }
-                this.f54417e = aaid;
-                this.f54419g = false;
+                this.f54997e = aaid;
+                this.f54999g = false;
             } catch (Exception unused) {
                 a();
             }
         }
-        a(this.f54415c, this.f54416d, this.f54417e, this.f54418f, this.f54419g);
+        a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
     }
 
     @Override // android.content.ServiceConnection
@@ -125,7 +125,7 @@ public class u extends l implements ServiceConnection {
         ServiceConnection serviceConnection;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (serviceConnection = this.l) == null || (context = this.f54442j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (serviceConnection = this.l) == null || (context = this.f55022j) == null) {
             return;
         }
         context.unbindService(serviceConnection);

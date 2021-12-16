@@ -1,7 +1,7 @@
 package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.t.a.e.e;
+import c.a.u.a.e.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,7 +24,7 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_FIELD_NUMBER = 4;
@@ -45,7 +45,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     public long methodId_;
     public long serviceId_;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a extends AbstractParser<RpcMetaPb$RpcResponseMeta> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,28 +74,28 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcResponseMeta, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f35207e;
+        public int f35675e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f35208f;
+        public long f35676f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f35209g;
+        public long f35677g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f35210h;
+        public long f35678h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f35211i;
+        public int f35679i;
 
         /* renamed from: j  reason: collision with root package name */
-        public Object f35212j;
+        public Object f35680j;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                     return;
                 }
             }
-            this.f35212j = "";
+            this.f35680j = "";
             maybeForceBuilderInitialization();
         }
 
@@ -172,25 +172,25 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this, (e) null);
-                int i2 = this.f35207e;
+                int i2 = this.f35675e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                rpcMetaPb$RpcResponseMeta.serviceId_ = this.f35208f;
+                rpcMetaPb$RpcResponseMeta.serviceId_ = this.f35676f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                rpcMetaPb$RpcResponseMeta.methodId_ = this.f35209g;
+                rpcMetaPb$RpcResponseMeta.methodId_ = this.f35677g;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                rpcMetaPb$RpcResponseMeta.logId_ = this.f35210h;
+                rpcMetaPb$RpcResponseMeta.logId_ = this.f35678h;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                rpcMetaPb$RpcResponseMeta.errorCode_ = this.f35211i;
+                rpcMetaPb$RpcResponseMeta.errorCode_ = this.f35679i;
                 if ((i2 & 16) == 16) {
                     i3 |= 16;
                 }
-                rpcMetaPb$RpcResponseMeta.errorText_ = this.f35212j;
+                rpcMetaPb$RpcResponseMeta.errorText_ = this.f35680j;
                 rpcMetaPb$RpcResponseMeta.bitField0_ = i3;
                 return rpcMetaPb$RpcResponseMeta;
             }
@@ -202,20 +202,20 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f35208f = 0L;
-                int i2 = this.f35207e & (-2);
-                this.f35207e = i2;
-                this.f35209g = 0L;
+                this.f35676f = 0L;
+                int i2 = this.f35675e & (-2);
+                this.f35675e = i2;
+                this.f35677g = 0L;
                 int i3 = i2 & (-3);
-                this.f35207e = i3;
-                this.f35210h = 0L;
+                this.f35675e = i3;
+                this.f35678h = 0L;
                 int i4 = i3 & (-5);
-                this.f35207e = i4;
-                this.f35211i = 0;
+                this.f35675e = i4;
+                this.f35679i = 0;
                 int i5 = i4 & (-9);
-                this.f35207e = i5;
-                this.f35212j = "";
-                this.f35207e = i5 & (-17);
+                this.f35675e = i5;
+                this.f35680j = "";
+                this.f35675e = i5 & (-17);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -264,8 +264,8 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                     u(rpcMetaPb$RpcResponseMeta.getErrorCode());
                 }
                 if (rpcMetaPb$RpcResponseMeta.hasErrorText()) {
-                    this.f35207e |= 16;
-                    this.f35212j = rpcMetaPb$RpcResponseMeta.errorText_;
+                    this.f35675e |= 16;
+                    this.f35680j = rpcMetaPb$RpcResponseMeta.errorText_;
                 }
                 return this;
             }
@@ -315,8 +315,8 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-                this.f35207e |= 8;
-                this.f35211i = i2;
+                this.f35675e |= 8;
+                this.f35679i = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -326,8 +326,8 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048599, this, j2)) == null) {
-                this.f35207e |= 4;
-                this.f35210h = j2;
+                this.f35675e |= 4;
+                this.f35678h = j2;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -337,8 +337,8 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j2)) == null) {
-                this.f35207e |= 2;
-                this.f35209g = j2;
+                this.f35675e |= 2;
+                this.f35677g = j2;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -348,8 +348,8 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048601, this, j2)) == null) {
-                this.f35207e |= 1;
-                this.f35208f = j2;
+                this.f35675e |= 1;
+                this.f35676f = j2;
                 return this;
             }
             return (b) invokeJ.objValue;

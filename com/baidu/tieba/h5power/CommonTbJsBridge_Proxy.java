@@ -1,14 +1,14 @@
 package com.baidu.tieba.h5power;
 
-import c.a.d.f.p.k;
-import c.a.r0.t3.n0.d.a;
-import c.a.r0.t3.n0.d.b;
-import c.a.r0.t3.n0.d.c;
-import c.a.r0.t3.n0.d.e;
+import c.a.d.f.p.l;
+import c.a.s0.v3.n0.d.a;
+import c.a.s0.v3.n0.d.b;
+import c.a.s0.v3.n0.d.c;
+import c.a.s0.v3.n0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class CommonTbJsBridge_Proxy extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,13 +58,14 @@ public class CommonTbJsBridge_Proxy extends a {
         this.mNotificationNameList.add(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION);
         this.mNotificationNameList.add(CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN);
         this.mNotificationNameList.add(CommonTbJsBridge.LOGIN_RESULT_TO_H5);
+        this.mNotificationNameList.add(SearchJsBridge.METHOD_SET_SEARCH_HISTORY);
         this.mNotificationNameList.add(CommonTbJsBridge.RE_SHOW);
         this.mNotificationNameList.add(CommonTbJsBridge.RE_HIDE);
         this.mNotificationNameList.add(CommonTbJsBridge.CLICK_GO_BACK_TO_H5);
         this.mNotificationNameList.add(CommonTbJsBridge.GO_BACK_FROM_NATIVE);
     }
 
-    @Override // c.a.r0.t3.n0.d.a
+    @Override // c.a.s0.v3.n0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -254,7 +255,7 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar2.y(0);
             } else if (b2.equals("clipper/setClipperInformation")) {
                 cVar2.r(true);
-                c clipperInformation2 = this.mJsBridge.setClipperInformation(e2.optString(DocumentOpenUtil.TXT));
+                c clipperInformation2 = this.mJsBridge.setClipperInformation(e2.optString("txt"));
                 if (clipperInformation2 != null) {
                     cVar2.x(clipperInformation2.f());
                     cVar2.t(clipperInformation2.b());
@@ -510,13 +511,13 @@ public class CommonTbJsBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // c.a.r0.t3.n0.d.a
+    @Override // c.a.s0.v3.n0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap)) == null) {
             c cVar = null;
-            if (k.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
+            if (l.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
@@ -534,6 +535,8 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar = this.mJsBridge.thirdPartyLoginResultToH5(hashMap);
             } else if (str.equals(CommonTbJsBridge.LOGIN_RESULT_TO_H5)) {
                 cVar = this.mJsBridge.onUserLoginChanged(hashMap);
+            } else if (str.equals(SearchJsBridge.METHOD_SET_SEARCH_HISTORY)) {
+                cVar = this.mJsBridge.setSearchHistory(hashMap);
             } else if (str.equals(CommonTbJsBridge.RE_SHOW)) {
                 cVar = this.mJsBridge.reShow(hashMap);
             } else if (str.equals(CommonTbJsBridge.RE_HIDE)) {
@@ -549,7 +552,7 @@ public class CommonTbJsBridge_Proxy extends a {
             List<b> list = this.mAsyncCallBackMethodList.get(str);
             if (cVar != null && list != null) {
                 Iterator<b> it = list.iterator();
-                if (!k.isEmpty(cVar.e())) {
+                if (!l.isEmpty(cVar.e())) {
                     while (it.hasNext()) {
                         b next = it.next();
                         if (next.b().equals(cVar.e())) {

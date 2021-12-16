@@ -25,7 +25,7 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WbAuthListener;
 import com.sina.weibo.sdk.auth.WbConnectErrorMessage;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String p;
@@ -34,7 +34,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
     public SsoHandler n;
     public WbAuthListener o;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements WbAuthListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,12 +63,12 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
-                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38704f) {
+                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f39193f) {
                     sinaSSOLoginActivity.b(3001);
                     this.a.finish();
                     return;
                 }
-                sinaSSOLoginActivity.a(((BaseSSOLoginActivity) sinaSSOLoginActivity).f38705g);
+                sinaSSOLoginActivity.a(((BaseSSOLoginActivity) sinaSSOLoginActivity).f39194g);
             }
         }
 
@@ -78,7 +78,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wbConnectErrorMessage) == null) {
                 Toast.makeText(this.a, wbConnectErrorMessage.getErrorMessage(), 0).show();
                 SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
-                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38704f) {
+                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f39193f) {
                     sinaSSOLoginActivity.b(3001);
                     this.a.finish();
                 }
@@ -93,7 +93,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
                 String uid = oauth2AccessToken.getUid();
                 String urlBind = ParamsUtil.getUrlBind(this.a.configuration, SocialType.SINA_WEIBO_SSO, token, uid, this.a.configuration.sinaAppId);
                 SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
-                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38704f) {
+                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f39193f) {
                     Intent intent = new Intent();
                     intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, token);
                     intent.putExtra("userId", uid);
@@ -164,7 +164,12 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setupViews();
+            try {
+                setupViews();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                finish();
+            }
         }
     }
 
@@ -173,21 +178,19 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.setupViews();
-            setTitleText(c.a.d0.a.j.a.sapi_sdk_title_login_sina);
+            setTitleText(c.a.e0.a.j.a.sapi_sdk_title_login_sina);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);
             }
-            if (a("com.sina.weibo.sdk.WbSdk").booleanValue()) {
-                Context applicationContext = getApplicationContext();
-                Context applicationContext2 = getApplicationContext();
-                SapiConfiguration sapiConfiguration = this.configuration;
-                WbSdk.install(applicationContext, new AuthInfo(applicationContext2, sapiConfiguration.sinaAppId, sapiConfiguration.sinaRedirectUri, "email"));
-                this.n = new SsoHandler(this);
-                a aVar = new a(this);
-                this.o = aVar;
-                this.n.authorize(aVar);
-            }
+            Context applicationContext = getApplicationContext();
+            Context applicationContext2 = getApplicationContext();
+            SapiConfiguration sapiConfiguration = this.configuration;
+            WbSdk.install(applicationContext, new AuthInfo(applicationContext2, sapiConfiguration.sinaAppId, sapiConfiguration.sinaRedirectUri, "email"));
+            this.n = new SsoHandler(this);
+            a aVar = new a(this);
+            this.o = aVar;
+            this.n.authorize(aVar);
         }
     }
 }

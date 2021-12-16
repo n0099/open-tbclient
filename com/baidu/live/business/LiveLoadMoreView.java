@@ -6,9 +6,9 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.w.c.a.c;
-import c.a.w.c.a.d;
-import c.a.w.i.f;
+import c.a.x.c.a.c;
+import c.a.x.c.a.d;
+import c.a.x.k.f;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
@@ -18,16 +18,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LiveLoadMoreView extends LiveBaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LottieAnimationView f35246f;
+    public LottieAnimationView f35720f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f35247g;
+    public TextView f35721g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LiveLoadMoreView(Context context) {
@@ -54,38 +54,38 @@ public class LiveLoadMoreView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int i2 = d.live_feed_page_load_more_bd;
-            if ("baidu".equals(LiveFeedPageSdk.e().d())) {
+            if ("baidu".equals(LiveFeedPageSdk.f().e())) {
                 i2 = d.live_feed_page_load_more_bd;
-            } else if ("haokan".equals(LiveFeedPageSdk.e().d())) {
+            } else if ("haokan".equals(LiveFeedPageSdk.f().e())) {
                 i2 = d.live_feed_page_load_more_hk;
-            } else if ("quanmin".equals(LiveFeedPageSdk.e().d())) {
+            } else if ("quanmin".equals(LiveFeedPageSdk.f().e())) {
                 i2 = d.live_feed_page_load_more_qm;
-            } else if ("tieba".equals(LiveFeedPageSdk.e().d())) {
+            } else if ("tieba".equals(LiveFeedPageSdk.f().e())) {
                 i2 = d.live_feed_page_load_more_tb;
             }
             LayoutInflater.from(getContext()).inflate(i2, this);
             LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(c.load_more_anim_view);
-            this.f35246f = lottieAnimationView;
+            this.f35720f = lottieAnimationView;
             lottieAnimationView.loop(true);
-            this.f35247g = (TextView) findViewById(c.load_more_label);
+            this.f35721g = (TextView) findViewById(c.load_more_label);
         }
     }
 
     public final void b() {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (lottieAnimationView = this.f35246f) != null && lottieAnimationView.isAnimating()) {
-            this.f35246f.cancelAnimation();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (lottieAnimationView = this.f35720f) != null && lottieAnimationView.isAnimating()) {
+            this.f35720f.cancelAnimation();
         }
     }
 
     public final void c() {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (lottieAnimationView = this.f35246f) == null || lottieAnimationView.isAnimating()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (lottieAnimationView = this.f35720f) == null || lottieAnimationView.isAnimating()) {
             return;
         }
-        this.f35246f.playAnimation();
+        this.f35720f.playAnimation();
     }
 
     @Override // com.baidu.live.business.base.LiveBaseItemView
@@ -102,12 +102,12 @@ public class LiveLoadMoreView extends LiveBaseItemView {
             if (TextUtils.isEmpty(f2)) {
                 int g2 = f.e().g(z);
                 if (g2 != 0) {
-                    this.f35246f.setAnimation(g2);
+                    this.f35720f.setAnimation(g2);
                 }
             } else {
-                this.f35246f.setAnimation(f2);
+                this.f35720f.setAnimation(f2);
             }
-            this.f35247g.setTextColor(f.e().a(getContext(), z, "color_1F1F1F"));
+            this.f35721g.setTextColor(f.e().a(getContext(), z, "color_1F1F1F"));
         }
     }
 
@@ -151,11 +151,11 @@ public class LiveLoadMoreView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             if (i2 == 0) {
-                this.f35246f.playAnimation();
+                this.f35720f.playAnimation();
             } else {
-                this.f35246f.cancelAnimation();
+                this.f35720f.cancelAnimation();
             }
-            this.f35246f.setVisibility(i2);
+            this.f35720f.setVisibility(i2);
         }
     }
 
@@ -171,13 +171,13 @@ public class LiveLoadMoreView extends LiveBaseItemView {
         if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f35247g.setText(str);
+        this.f35721g.setText(str);
     }
 
     public void setTextColor(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || (textView = this.f35247g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || (textView = this.f35721g) == null) {
             return;
         }
         textView.setTextColor(i2);
@@ -186,7 +186,7 @@ public class LiveLoadMoreView extends LiveBaseItemView {
     public void setTextSize(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || (textView = this.f35247g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || (textView = this.f35721g) == null) {
             return;
         }
         textView.setTextSize(2, i2);
@@ -197,9 +197,9 @@ public class LiveLoadMoreView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
             if (i2 == 0) {
-                this.f35246f.playAnimation();
+                this.f35720f.playAnimation();
             } else {
-                this.f35246f.cancelAnimation();
+                this.f35720f.cancelAnimation();
             }
             super.setVisibility(i2);
         }
@@ -234,7 +234,7 @@ public class LiveLoadMoreView extends LiveBaseItemView {
             if (TextUtils.isEmpty(string)) {
                 return;
             }
-            this.f35247g.setText(string);
+            this.f35721g.setText(string);
         }
     }
 }

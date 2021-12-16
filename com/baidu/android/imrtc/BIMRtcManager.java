@@ -7,7 +7,7 @@ import android.os.HandlerThread;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s.a;
+import c.a.t.a;
 import com.baidu.android.imrtc.msg.BIMRtcListener;
 import com.baidu.android.imrtc.msg.BIMRtcNotifyMsg;
 import com.baidu.android.imrtc.msg.BIMRtcSendMsg;
@@ -63,7 +63,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BIMRtcManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static int BIM_RTC_ACTION_SYNC_SEQID_MAX = 100;

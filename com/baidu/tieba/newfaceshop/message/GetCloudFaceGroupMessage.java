@@ -2,8 +2,8 @@ package com.baidu.tieba.newfaceshop.message;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.q;
-import c.a.q0.c0.d;
+import c.a.d.f.p.r;
+import c.a.r0.c0.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
@@ -21,7 +21,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                     collectEmotionData.thumbnail = jSONObject.optString("thumbnail");
                     collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
                     collectEmotionData.pkgId = jSONObject.optString("pck_id");
-                    StringBuilder sb = new StringBuilder(d.f11796f);
+                    StringBuilder sb = new StringBuilder(d.f12111f);
                     if (TextUtils.isEmpty(collectEmotionData.pkgId)) {
                         sb.append(collectEmotionData.pkgId);
                         sb.append(",");
@@ -118,7 +118,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                     sb.append(",");
                     sb.append(collectEmotionData.height);
                     sb.append(",");
-                    String lowerCase = q.c(sb.toString().replace("collect_", "") + "7S6wbXjEKL9N").toLowerCase();
+                    String lowerCase = r.c(sb.toString().replace("collect_", "") + "7S6wbXjEKL9N").toLowerCase();
                     collectEmotionData.sharpText = SmallTailInfo.EMOTION_PREFIX + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX;
                     this.mCollectEmotionList.add(collectEmotionData);
                 }
@@ -134,11 +134,11 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
             return;
         }
         this.mCollectUpdateTime = jSONObject.optLong("pic_update_time");
-        if (c.a.r0.l2.d.k() < this.mCollectUpdateTime) {
+        if (c.a.s0.n2.d.k() < this.mCollectUpdateTime) {
             parseCollectData(jSONObject.optJSONArray("pic_ids"));
         }
         this.mFaceGroupUpdateTime = jSONObject.optLong("pkg_update_time");
-        if (c.a.r0.l2.d.l() < this.mFaceGroupUpdateTime) {
+        if (c.a.s0.n2.d.l() < this.mFaceGroupUpdateTime) {
             parseFaceGroupData(jSONObject.optString("package_ids"));
         }
     }

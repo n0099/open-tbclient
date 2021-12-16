@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,10 +33,10 @@ public class b {
                 public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ g f61351b;
+                public final /* synthetic */ g f61932b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ b f61352c;
+                public final /* synthetic */ b f61933c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -53,9 +53,9 @@ public class b {
                             return;
                         }
                     }
-                    this.f61352c = this;
+                    this.f61933c = this;
                     this.a = bVar;
-                    this.f61351b = gVar;
+                    this.f61932b = gVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -63,9 +63,9 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         if (i.a(this.a)) {
-                            this.f61351b.a(false);
+                            this.f61932b.a(false);
                         } else if (!f.a(this.a)) {
-                            this.f61351b.a(false);
+                            this.f61932b.a(false);
                         } else {
                             f.a(this.a, new h(this) { // from class: com.ss.android.downloadlib.b.b.1.1
                                 public static /* synthetic */ Interceptable $ic;
@@ -94,7 +94,7 @@ public class b {
                                 public void a(boolean z) {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeZ(1048576, this, z) == null) {
-                                        this.a.f61351b.a(z);
+                                        this.a.f61932b.a(z);
                                     }
                                 }
                             });

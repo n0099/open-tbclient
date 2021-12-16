@@ -11,7 +11,7 @@ import com.dxmpay.apollon.restnet.converter.AbstractHttpMessageConverter;
 import com.dxmpay.apollon.utils.FileCopyUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a extends AbstractHttpMessageConverter<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

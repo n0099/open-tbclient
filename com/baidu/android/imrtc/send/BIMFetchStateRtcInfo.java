@@ -14,7 +14,7 @@ import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BIMFetchStateRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMFetchStateRtcInfo";
@@ -22,7 +22,7 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
     public List<UserState> mUkStates;
     public String roomStateMsg;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class UserState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

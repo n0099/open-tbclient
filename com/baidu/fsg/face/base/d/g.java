@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "SapiBioFileUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34562b = "liveness_video.mp4";
+    public static final String f35030b = "liveness_video.mp4";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34563c = "liveness_action_video.mp4";
+    public static final String f35031c = "liveness_action_video.mp4";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f34564d = null;
+    public static String f35032d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34565e = "BI0_VIDEO";
+    public static final String f35033e = "BI0_VIDEO";
     public transient /* synthetic */ FieldHolder $fh;
 
     public g() {
@@ -45,13 +45,13 @@ public class g {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? context.getDir(f34565e, 0).getAbsolutePath() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? context.getDir(f35033e, 0).getAbsolutePath() : (String) invokeL.objValue;
     }
 
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? f34564d : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? f35032d : (String) invokeL.objValue;
     }
 
     public static String c(Context context) {
@@ -59,7 +59,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             String a2 = a(context);
-            return a2 + File.separator + f34563c;
+            return a2 + File.separator + f35031c;
         }
         return (String) invokeL.objValue;
     }
@@ -67,7 +67,7 @@ public class g {
     public static String d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) ? context.getDir(f34565e, 0).getAbsolutePath() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) ? context.getDir(f35033e, 0).getAbsolutePath() : (String) invokeL.objValue;
     }
 
     public static boolean b(String str) {
@@ -91,7 +91,7 @@ public class g {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            f34564d = str;
+            f35032d = str;
         }
     }
 

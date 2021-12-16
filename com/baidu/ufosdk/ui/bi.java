@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class bi extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,32 +55,32 @@ public final class bi extends BroadcastReceiver {
                 handler2.obtainMessage(2, parcelableArrayList).sendToTarget();
             }
             if (intent.getAction().equals("com.baidu.ufosdk.getmsgid")) {
-                this.a.f51607e = intent.getStringExtra("msgid");
+                this.a.f52156e = intent.getStringExtra("msgid");
                 str = this.a.ar;
                 if (str != null) {
                     str3 = this.a.ar;
                     if (str3.length() > 0) {
                         str2 = this.a.ar;
                         feedbackInputActivity = this.a;
-                        if (feedbackInputActivity.f51609g == null) {
-                            feedbackInputActivity.f51609g = new com.baidu.ufosdk.a.a(this.a.getApplicationContext(), this.a.f51607e, str2);
+                        if (feedbackInputActivity.f52158g == null) {
+                            feedbackInputActivity.f52158g = new com.baidu.ufosdk.a.a(this.a.getApplicationContext(), this.a.f52156e, str2);
                         }
-                        this.a.f51609g.b();
-                        if (!this.a.f51609g.isAlive()) {
-                            this.a.f51609g.start();
+                        this.a.f52158g.b();
+                        if (!this.a.f52158g.isAlive()) {
+                            this.a.f52158g.start();
                         }
                     }
                 }
                 str2 = UfoSDK.appid;
                 feedbackInputActivity = this.a;
-                if (feedbackInputActivity.f51609g == null) {
+                if (feedbackInputActivity.f52158g == null) {
                 }
-                this.a.f51609g.b();
-                if (!this.a.f51609g.isAlive()) {
+                this.a.f52158g.b();
+                if (!this.a.f52158g.isAlive()) {
                 }
             }
             if (intent.getAction().equals("com.baidu.ufosdk.deletemsg_dialogdismiss")) {
-                this.a.f51613k.setVisibility(8);
+                this.a.f52162k.setVisibility(8);
             }
             if (intent.getAction().equals("com.baidu.ufosdk.reload")) {
                 handler = this.a.aK;

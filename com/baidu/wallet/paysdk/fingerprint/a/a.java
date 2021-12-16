@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.ILoginBackListener;
-import com.baidu.wallet.paysdk.entrance.EnterWalletDxmPayServiceAction;
 import com.baidu.wallet.paysdk.fingerprint.WalletFingerprint;
 import com.baidu.wallet.paysdk.fingerprint.ui.DxmCheckFingerprintActivity;
 import com.baidu.wallet.router.RouterCallback;
@@ -26,18 +25,18 @@ import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RouterCallback a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f53492b;
+    public Context f54072b;
 
     /* renamed from: com.baidu.wallet.paysdk.fingerprint.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public static class C1928a {
+    /* loaded from: classes13.dex */
+    public static class C1989a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,9 +62,9 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            if (WalletFingerprint.getInstance(this.f53492b).isDevicesSupport()) {
-                if (WalletFingerprint.getInstance(this.f53492b).hasEnrollFingerprint()) {
-                    return !WalletFingerprint.getInstance(this.f53492b).hasOTPToken() ? 3003 : 0;
+            if (WalletFingerprint.getInstance(this.f54072b).isDevicesSupport()) {
+                if (WalletFingerprint.getInstance(this.f54072b).hasEnrollFingerprint()) {
+                    return !WalletFingerprint.getInstance(this.f54072b).hasOTPToken() ? 3003 : 0;
                 }
                 return 2111;
             }
@@ -78,7 +77,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             this.a = null;
-            this.f53492b = null;
+            this.f54072b = null;
         }
     }
 
@@ -99,7 +98,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1928a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1989a.a : (a) invokeV.objValue;
     }
 
     public void a(Context context, String str, RouterCallback routerCallback) {
@@ -107,7 +106,7 @@ public class a {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, routerCallback) == null) {
             if (context != null && routerCallback != null) {
                 this.a = routerCallback;
-                this.f53492b = context;
+                this.f54072b = context;
                 WalletLoginHelper.getInstance().setOpenBdussErrorCodeShowFlag(false);
                 WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(context, new ILoginBackListener(this, str) { // from class: com.baidu.wallet.paysdk.fingerprint.a.a.1
                     public static /* synthetic */ Interceptable $ic;
@@ -115,7 +114,7 @@ public class a {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f53493b;
+                    public final /* synthetic */ a f54073b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -132,7 +131,7 @@ public class a {
                                 return;
                             }
                         }
-                        this.f53493b = this;
+                        this.f54073b = this;
                         this.a = str;
                     }
 
@@ -140,7 +139,7 @@ public class a {
                     public void onFail(int i2, String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                            this.f53493b.a(5003, str2);
+                            this.f54073b.a(5003, str2);
                         }
                     }
 
@@ -148,7 +147,7 @@ public class a {
                     public void onSuccess(int i2, String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                            this.f53493b.a(this.a);
+                            this.f54073b.a(this.a);
                         }
                     }
                 }));
@@ -204,18 +203,18 @@ public class a {
     private void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(65539, this, i2, i3, str) == null) {
-            Intent intent = new Intent(this.f53492b, DxmCheckFingerprintActivity.class);
+            Intent intent = new Intent(this.f54072b, DxmCheckFingerprintActivity.class);
             intent.putExtra("showSwitchPwd", i2);
             intent.putExtra("checkTimes", i3);
             intent.putExtra("session_id", str);
-            this.f53492b.startActivity(intent);
+            this.f54072b.startActivity(intent);
         }
     }
 
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            StatisticManager.onEventWithValues(StatServiceEvent.PAY_SERVICE_RESULT, StatHelper.collectData(EnterWalletDxmPayServiceAction.CHECK_BIOMETRICS, i2 + "", str));
+            StatisticManager.onEventWithValues(StatServiceEvent.PAY_SERVICE_RESULT, StatHelper.collectData(EnterDxmPayServiceAction.DXM_CHECK_BIOMETRICS, i2 + "", str));
             if (this.a != null) {
                 HashMap hashMap = new HashMap();
                 JSONObject jSONObject = new JSONObject();

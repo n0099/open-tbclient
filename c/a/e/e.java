@@ -13,13 +13,13 @@ public class e {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3044b;
+    public String f3059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ICardInfo f3045c;
+    public ICardInfo f3060c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ParseError f3046d;
+    public ParseError f3061d;
 
     public e() {
         Interceptable interceptable = $ic;

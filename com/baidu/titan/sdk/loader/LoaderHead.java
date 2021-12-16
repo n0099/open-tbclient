@@ -1,7 +1,7 @@
 package com.baidu.titan.sdk.loader;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LoaderHead {
     public static final String KEY_PATCH_HASH = "patchHash";
     public static final String KEY_TARGET_ID = "targetId";

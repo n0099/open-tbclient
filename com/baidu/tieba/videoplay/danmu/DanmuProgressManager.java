@@ -17,19 +17,19 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0010\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\u0018\u0000 \u000e2\u00020\u0001:\u0001\u000eB\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0006\u0010\b\u001a\u00020\tJ\u000e\u0010\n\u001a\u00020\u00062\u0006\u0010\u000b\u001a\u00020\u0005J\u0016\u0010\f\u001a\u00020\t2\u0006\u0010\u000b\u001a\u00020\u00052\u0006\u0010\r\u001a\u00020\u0006R*\u0010\u0003\u001a\u001e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00060\u0004j\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u0006`\u0007X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/videoplay/danmu/DanmuProgressManager;", "", "()V", "progressMap", "Ljava/util/HashMap;", "", "", "Lkotlin/collections/HashMap;", "clear", "", "getProgress", "url", "setProgress", "progress", "Companion", "VideoPlay_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class DanmuProgressManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f50009b;
+    public static final a f50527b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Lazy<DanmuProgressManager> f50010c;
+    public static final Lazy<DanmuProgressManager> f50528c;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Long> a;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public final class DanmuProgressManager {
         public final DanmuProgressManager a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (DanmuProgressManager) DanmuProgressManager.f50010c.getValue() : (DanmuProgressManager) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (DanmuProgressManager) DanmuProgressManager.f50528c.getValue() : (DanmuProgressManager) invokeV.objValue;
         }
     }
 
@@ -72,8 +72,8 @@ public final class DanmuProgressManager {
                 return;
             }
         }
-        f50009b = new a(null);
-        f50010c = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) DanmuProgressManager$Companion$instance$2.INSTANCE);
+        f50527b = new a(null);
+        f50528c = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) DanmuProgressManager$Companion$instance$2.INSTANCE);
     }
 
     public DanmuProgressManager() {

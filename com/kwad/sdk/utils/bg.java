@@ -16,16 +16,16 @@ import com.kuaishou.weapon.adsdk.DeviceInfo;
 import com.kwad.sdk.api.SdkConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bg {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f59639b;
+    public static boolean f60220b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<com.kwad.sdk.core.request.model.a> f59640c;
+    public static final List<com.kwad.sdk.core.request.model.a> f60221c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class bg {
                 return;
             }
         }
-        f59640c = new ArrayList();
+        f60221c = new ArrayList();
     }
 
     public static List<com.kwad.sdk.core.request.model.a> a(Context context, int i2) {
@@ -52,15 +52,15 @@ public class bg {
             if (ao.k()) {
                 return new ArrayList();
             }
-            if (f59639b || !a || !f59640c.isEmpty() || context == null) {
-                return f59640c;
+            if (f60220b || !a || !f60221c.isEmpty() || context == null) {
+                return f60221c;
             }
             if (com.kwad.sdk.core.config.b.a(32L)) {
-                return f59640c;
+                return f60221c;
             }
             try {
             } catch (Exception e2) {
-                f59639b = true;
+                f60220b = true;
                 com.kwad.sdk.core.d.a.b(e2);
             }
             if (!a(context) && (wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi")) != null) {
@@ -69,22 +69,22 @@ public class bg {
                 if (wifiScanResults != null) {
                     for (ScanResult scanResult : wifiScanResults) {
                         com.kwad.sdk.core.request.model.a aVar = new com.kwad.sdk.core.request.model.a();
-                        aVar.f57762b = scanResult.SSID;
-                        aVar.f57763c = scanResult.BSSID;
+                        aVar.f58343b = scanResult.SSID;
+                        aVar.f58344c = scanResult.BSSID;
                         aVar.a = scanResult.level;
                         if (connectionInfo.getBSSID() == null || scanResult.BSSID == null || !TextUtils.equals(connectionInfo.getBSSID().replace("\"", ""), scanResult.BSSID.replace("\"", "")) || connectionInfo.getSSID() == null || scanResult.SSID == null || !TextUtils.equals(connectionInfo.getSSID().replace("\"", ""), scanResult.SSID.replace("\"", ""))) {
-                            f59640c.add(aVar);
+                            f60221c.add(aVar);
                         } else {
-                            f59640c.add(0, aVar);
+                            f60221c.add(0, aVar);
                         }
-                        if (f59640c.size() >= i2) {
-                            return f59640c;
+                        if (f60221c.size() >= i2) {
+                            return f60221c;
                         }
                     }
                 }
-                return f59640c;
+                return f60221c;
             }
-            return f59640c;
+            return f60221c;
         }
         return (List) invokeLI.objValue;
     }
@@ -99,6 +99,6 @@ public class bg {
     public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? (context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29) ? Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f56842g) == -1 && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f56843h) == -1 : ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f56842g) == -1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? (context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29) ? Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f57423g) == -1 && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f57424h) == -1 : ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f57423g) == -1 : invokeL.booleanValue;
     }
 }

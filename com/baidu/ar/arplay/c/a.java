@@ -1,7 +1,7 @@
 package com.baidu.ar.arplay.c;
 
 import com.baidu.ar.arplay.c.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface a {
     void a(e.a aVar);
 

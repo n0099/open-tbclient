@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Presenter a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f57602b;
+    public final e f58183b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(View view, Presenter presenter, e eVar) {
@@ -34,7 +34,7 @@ public class c extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.f57602b = eVar;
+        this.f58183b = eVar;
         this.a = presenter;
         presenter.c(view);
     }

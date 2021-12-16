@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.sdk.PushMessageCallback;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class u implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ UPSNotificationMessage a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ t f62476b;
+    public final /* synthetic */ t f63057b;
 
     public u(t tVar, UPSNotificationMessage uPSNotificationMessage) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class u implements Runnable {
                 return;
             }
         }
-        this.f62476b = tVar;
+        this.f63057b = tVar;
         this.a = uPSNotificationMessage;
     }
 
@@ -40,8 +40,8 @@ public final class u implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            t tVar = this.f62476b;
-            PushMessageCallback pushMessageCallback = ((ab) tVar).f62451b;
+            t tVar = this.f63057b;
+            PushMessageCallback pushMessageCallback = ((ab) tVar).f63032b;
             context = tVar.a;
             pushMessageCallback.onNotificationMessageClicked(context, this.a);
         }

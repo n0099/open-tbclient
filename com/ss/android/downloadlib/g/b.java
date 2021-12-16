@@ -9,20 +9,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.ss.android.downloadlib.g.b$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,13 +58,13 @@ public class b {
 
     @TargetApi(11)
     /* renamed from: com.ss.android.downloadlib.g.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2105b extends a {
+    /* loaded from: classes3.dex */
+    public static class C2166b extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C2105b() {
+        public C2166b() {
             super(null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -92,7 +92,7 @@ public class b {
             }
         }
 
-        public /* synthetic */ C2105b(AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C2166b(AnonymousClass1 anonymousClass1) {
             this();
         }
     }
@@ -110,7 +110,7 @@ public class b {
                 return;
             }
         }
-        a = new C2105b(null);
+        a = new C2166b(null);
     }
 
     public static <T> void a(AsyncTask<T, ?, ?> asyncTask, T... tArr) {

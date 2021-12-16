@@ -12,19 +12,19 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.at;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59020b;
+        public String f59601b;
 
         public a(String str) {
             JSONObject jSONObject;
@@ -42,13 +42,13 @@ public class m {
                     return;
                 }
             }
-            this.f59020b = "-";
+            this.f59601b = "-";
             try {
                 jSONObject = new JSONObject(str);
             } catch (Throwable th) {
                 th.printStackTrace();
                 this.a = false;
-                this.f59020b = "数据解析失败";
+                this.f59601b = "数据解析失败";
                 jSONObject = null;
             }
             a(jSONObject);
@@ -60,7 +60,7 @@ public class m {
                 return;
             }
             this.a = jSONObject.optBoolean("isValid");
-            this.f59020b = jSONObject.toString();
+            this.f59601b = jSONObject.toString();
         }
 
         public boolean a() {
@@ -84,7 +84,7 @@ public class m {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AdTemplate f59019b;
+                public final /* synthetic */ AdTemplate f59600b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -102,20 +102,20 @@ public class m {
                         }
                     }
                     this.a = aq;
-                    this.f59019b = adTemplate;
+                    this.f59600b = adTemplate;
                 }
 
                 private void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(65537, this) == null) {
-                        com.kwad.sdk.core.report.d.b(this.f59019b, 0, "success");
+                        com.kwad.sdk.core.report.d.b(this.f59600b, 0, "success");
                     }
                 }
 
                 private void a(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(65538, this, str) == null) {
-                        com.kwad.sdk.core.report.d.b(this.f59019b, 1, str);
+                        com.kwad.sdk.core.report.d.b(this.f59600b, 1, str);
                     }
                 }
 
@@ -129,14 +129,14 @@ public class m {
                             if (doGet == null) {
                                 str = "Network Error: url invalid";
                             } else if (doGet.a == 200) {
-                                a aVar = new a(doGet.f57506b);
+                                a aVar = new a(doGet.f58087b);
                                 if (aVar.a()) {
                                     a();
                                     return;
                                 }
-                                str = aVar.f59020b;
+                                str = aVar.f59601b;
                             } else {
-                                str = "Network Error: " + doGet.f57506b;
+                                str = "Network Error: " + doGet.f58087b;
                             }
                             a(str);
                         } catch (Throwable th) {

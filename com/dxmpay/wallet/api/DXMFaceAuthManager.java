@@ -20,12 +20,12 @@ import com.dxmpay.wallet.core.beans.BeanConstants;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import com.dxmpay.wallet.statistics.impl.SensorsSyncHttpImpl;
 import com.dxmpay.wallet.statistics.impl.StatConfig;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class DXMFaceAuthManager implements IFaceAuthAPI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final DXMFaceAuthManager instance;

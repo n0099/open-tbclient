@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.Queue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class EvictingQueue<E> extends i0<E> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;

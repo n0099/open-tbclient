@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static y f39225c;
+    public static y f39714c;
     public transient /* synthetic */ FieldHolder $fh;
     public SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f39226b;
+    public SharedPreferences.Editor f39715b;
 
     public y(Context context) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class y {
         }
         SharedPreferences sharedPreferences = com.baidu.sofire.h.a.a(context).a;
         this.a = sharedPreferences;
-        this.f39226b = sharedPreferences.edit();
+        this.f39715b = sharedPreferences.edit();
     }
 
     public static synchronized y a(Context context) {
@@ -46,12 +46,12 @@ public final class y {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (y.class) {
                 if (context == null) {
-                    return f39225c;
+                    return f39714c;
                 }
-                if (f39225c == null) {
-                    f39225c = new y(context);
+                if (f39714c == null) {
+                    f39714c = new y(context);
                 }
-                return f39225c;
+                return f39714c;
             }
         }
         return (y) invokeL.objValue;
@@ -84,8 +84,8 @@ public final class y {
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f39226b.putBoolean("lt_sssf", z);
-            this.f39226b.commit();
+            this.f39715b.putBoolean("lt_sssf", z);
+            this.f39715b.commit();
         }
     }
 }

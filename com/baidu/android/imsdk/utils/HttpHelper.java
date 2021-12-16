@@ -31,7 +31,7 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.conn.ConnectTimeoutException;
 @SuppressLint({"TrulyRandom"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HttpHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_FORM = "application/x-www-form-urlencoded";
@@ -45,7 +45,7 @@ public class HttpHelper {
     public static Context mContext;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Request {
         int getConnectTimeout();
 
@@ -64,14 +64,14 @@ public class HttpHelper {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ResponseHandler {
         void onFailure(int i2, byte[] bArr, Throwable th);
 
         void onSuccess(int i2, byte[] bArr);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ResponseResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public class HttpHelper {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class Result {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

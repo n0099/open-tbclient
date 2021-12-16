@@ -8,7 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import c.a.w.e.g.d;
+import c.a.x.g.g.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.base.LiveBaseFragment;
 import com.baidu.live.business.model.data.LiveFeedWrapData;
@@ -21,38 +21,44 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35232b;
+    public String f35703b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LiveFeedWrapData f35233c;
+    public String f35704c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<b> f35234d;
+    public LiveFeedWrapData f35705d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f35235e;
+    public c.a.x.b.d.c.b f35706e;
 
-    /* loaded from: classes8.dex */
+    /* renamed from: f  reason: collision with root package name */
+    public List<b> f35707f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f35708g;
+
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public LiveTabEntity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public WeakReference<LiveSubTabFragment> f35236b;
+        public WeakReference<LiveSubTabFragment> f35709b;
 
         public b(BaiduLiveTabAdapter baiduLiveTabAdapter) {
             Interceptable interceptable = $ic;
@@ -76,13 +82,13 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaiduLiveTabAdapter(FragmentManager fragmentManager, int i2, boolean z, String str) {
+    public BaiduLiveTabAdapter(FragmentManager fragmentManager, int i2, boolean z, String str, String str2) {
         super(fragmentManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentManager, Integer.valueOf(i2), Boolean.valueOf(z), str};
+            Object[] objArr = {fragmentManager, Integer.valueOf(i2), Boolean.valueOf(z), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -93,20 +99,21 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
                 return;
             }
         }
-        this.f35235e = z;
+        this.f35708g = z;
         this.a = i2;
-        this.f35232b = str;
+        this.f35703b = str;
+        this.f35704c = str2;
     }
 
     public final b a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<b> list = this.f35234d;
+            List<b> list = this.f35707f;
             if (list == null || i2 < 0 || i2 >= list.size()) {
                 return null;
             }
-            return this.f35234d.get(i2);
+            return this.f35707f.get(i2);
         }
         return (b) invokeI.objValue;
     }
@@ -123,10 +130,10 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         b a2;
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (a2 = a(i2)) == null || (weakReference = a2.f35236b) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (a2 = a(i2)) == null || (weakReference = a2.f35709b) == null || weakReference.get() == null) {
             return;
         }
-        a2.f35236b.get().refresh(z, z2);
+        a2.f35709b.get().refresh(z, z2);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -134,7 +141,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<b> list = this.f35234d;
+            List<b> list = this.f35707f;
             if (list == null) {
                 return 0;
             }
@@ -148,23 +155,26 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            List<b> list = this.f35234d;
+            List<b> list = this.f35707f;
             if (list == null || i2 >= list.size() || i2 < 0) {
                 return null;
             }
-            b bVar = this.f35234d.get(i2);
-            WeakReference<LiveSubTabFragment> weakReference = bVar.f35236b;
+            b bVar = this.f35707f.get(i2);
+            WeakReference<LiveSubTabFragment> weakReference = bVar.f35709b;
             if (weakReference == null || weakReference.get() == null) {
                 Bundle bundle = new Bundle();
                 bundle.putInt(LiveBaseFragment.TAB_POSITION, i2);
-                bundle.putBoolean(LiveBaseFragment.TAB_IS_IMMER, this.f35235e);
+                bundle.putBoolean(LiveBaseFragment.TAB_IS_IMMER, this.f35708g);
                 bundle.putInt(LiveBaseFragment.TAB_BD_ID, this.a);
-                bundle.putParcelable(LiveBaseFragment.TAB_ENTITY_ITEM, this.f35234d.get(i2).a);
-                bundle.putParcelable(LiveBaseFragment.TAB_FEED_DATA, this.f35233c);
-                bundle.putString("source", this.f35232b);
-                bVar.f35236b = new WeakReference<>(LiveSubTabFragment.newInstance(bundle));
+                bundle.putParcelable(LiveBaseFragment.TAB_ENTITY_ITEM, this.f35707f.get(i2).a);
+                bundle.putString("source", this.f35703b);
+                bundle.putString(LiveBaseFragment.SCHEME_DEF_SUB_TAB_TYPE, this.f35704c);
+                LiveSubTabFragment newInstance = LiveSubTabFragment.newInstance(bundle);
+                newInstance.setFeedWrapData(this.f35705d);
+                newInstance.setFeedConfigData(this.f35706e);
+                bVar.f35709b = new WeakReference<>(newInstance);
             }
-            return bVar.f35236b.get();
+            return bVar.f35709b.get();
         }
         return (Fragment) invokeI.objValue;
     }
@@ -184,17 +194,36 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            List<b> list = this.f35234d;
+            List<b> list = this.f35707f;
             return list != null ? list.get(i2).a.name : "";
         }
         return (CharSequence) invokeI.objValue;
     }
 
+    public int getPosByType(String str) {
+        InterceptResult invokeL;
+        LiveTabEntity liveTabEntity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (d.c(this.f35707f)) {
+                return -1;
+            }
+            for (int i2 = 0; i2 < this.f35707f.size(); i2++) {
+                b bVar = this.f35707f.get(i2);
+                if (bVar != null && (liveTabEntity = bVar.a) != null && str.equals(liveTabEntity.type)) {
+                    return i2;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
     public LiveTabEntity getSubTab(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            b bVar = (b) d.b(this.f35234d, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+            b bVar = (b) d.b(this.f35707f, i2);
             if (bVar != null) {
                 return bVar.a;
             }
@@ -207,13 +236,13 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
     public Object instantiateItem(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i2)) == null) {
             Object instantiateItem = super.instantiateItem(viewGroup, i2);
-            List<b> list = this.f35234d;
+            List<b> list = this.f35707f;
             if (list != null && i2 >= 0 && i2 < list.size()) {
-                b bVar = this.f35234d.get(i2);
-                if (bVar.f35236b == null && (instantiateItem instanceof LiveSubTabFragment)) {
-                    bVar.f35236b = new WeakReference<>((LiveSubTabFragment) instantiateItem);
+                b bVar = this.f35707f.get(i2);
+                if (bVar.f35709b == null && (instantiateItem instanceof LiveSubTabFragment)) {
+                    bVar.f35709b = new WeakReference<>((LiveSubTabFragment) instantiateItem);
                 }
             }
             return instantiateItem;
@@ -221,56 +250,86 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         return invokeLI.objValue;
     }
 
+    public void notifyFragmentNetChange(int i2) {
+        b a2;
+        WeakReference<LiveSubTabFragment> weakReference;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (a2 = a(i2)) == null || (weakReference = a2.f35709b) == null || weakReference.get() == null) {
+            return;
+        }
+        a2.f35709b.get().onNetChange();
+    }
+
+    public void notifyPause(int i2) {
+        b a2;
+        WeakReference<LiveSubTabFragment> weakReference;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (a2 = a(i2)) == null || (weakReference = a2.f35709b) == null || weakReference.get() == null) {
+            return;
+        }
+        a2.f35709b.get().onParentPause();
+    }
+
+    public void notifyResume(int i2) {
+        b a2;
+        WeakReference<LiveSubTabFragment> weakReference;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (a2 = a(i2)) == null || (weakReference = a2.f35709b) == null || weakReference.get() == null) {
+            return;
+        }
+        a2.f35709b.get().onParentResume();
+    }
+
     public void onDarkModeChange(String str) {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || d.c(this.f35234d)) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || d.c(this.f35707f)) {
             return;
         }
-        for (b bVar : this.f35234d) {
-            if (bVar != null && (weakReference = bVar.f35236b) != null && weakReference.get() != null) {
-                bVar.f35236b.get().onDarkModeChange(str);
+        for (b bVar : this.f35707f) {
+            if (bVar != null && (weakReference = bVar.f35709b) != null && weakReference.get() != null) {
+                bVar.f35709b.get().onDarkModeChange(str);
             }
         }
     }
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || d.c(this.f35234d)) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || d.c(this.f35707f)) {
             return;
         }
-        this.f35234d.clear();
+        this.f35707f.clear();
     }
 
     public void onHintLog(int i2) {
         b a2;
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (a2 = a(i2)) == null || (weakReference = a2.f35236b) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || (a2 = a(i2)) == null || (weakReference = a2.f35709b) == null || weakReference.get() == null) {
             return;
         }
-        a2.f35236b.get().onHintLog();
+        a2.f35709b.get().onHintLog();
     }
 
     public void onShowLog(int i2) {
         b a2;
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (a2 = a(i2)) == null || (weakReference = a2.f35236b) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048592, this, i2) == null) || (a2 = a(i2)) == null || (weakReference = a2.f35709b) == null || weakReference.get() == null) {
             return;
         }
-        a2.f35236b.get().onShowLog();
+        a2.f35709b.get().onShowLog();
     }
 
     public void resetFragment() {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || d.c(this.f35234d)) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || d.c(this.f35707f)) {
             return;
         }
-        for (b bVar : this.f35234d) {
-            if (bVar != null && (weakReference = bVar.f35236b) != null && weakReference.get() != null) {
-                bVar.f35236b.get().reset();
+        for (b bVar : this.f35707f) {
+            if (bVar != null && (weakReference = bVar.f35709b) != null && weakReference.get() != null) {
+                bVar.f35709b.get().reset();
             }
         }
     }
@@ -278,7 +337,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
     @Override // androidx.fragment.app.FragmentStatePagerAdapter, androidx.viewpager.widget.PagerAdapter
     public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, parcelable, classLoader) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048594, this, parcelable, classLoader) == null) {
             try {
                 super.restoreState(parcelable, classLoader);
             } catch (Exception e2) {
@@ -292,28 +351,29 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         b bVar;
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || (list = this.f35234d) == null || i2 < 0 || i2 >= list.size() || (bVar = this.f35234d.get(i2)) == null || (weakReference = bVar.f35236b) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || (list = this.f35707f) == null || i2 < 0 || i2 >= list.size() || (bVar = this.f35707f.get(i2)) == null || (weakReference = bVar.f35709b) == null || weakReference.get() == null) {
             return;
         }
-        bVar.f35236b.get().onFragmentShow(true);
+        bVar.f35709b.get().onFragmentShow(true);
     }
 
-    public void setTabList(List<LiveTabEntity> list, LiveFeedWrapData liveFeedWrapData) {
+    public void setTabList(List<LiveTabEntity> list, LiveFeedWrapData liveFeedWrapData, c.a.x.b.d.c.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048592, this, list, liveFeedWrapData) == null) || d.c(list)) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048596, this, list, liveFeedWrapData, bVar) == null) || d.c(list)) {
             return;
         }
-        this.f35233c = liveFeedWrapData;
-        List<b> list2 = this.f35234d;
+        this.f35705d = liveFeedWrapData;
+        this.f35706e = bVar;
+        List<b> list2 = this.f35707f;
         if (list2 != null) {
             list2.clear();
         } else {
-            this.f35234d = new ArrayList();
+            this.f35707f = new ArrayList();
         }
         for (LiveTabEntity liveTabEntity : list) {
-            b bVar = new b(this, null);
-            bVar.a = liveTabEntity;
-            this.f35234d.add(bVar);
+            b bVar2 = new b(this, null);
+            bVar2.a = liveTabEntity;
+            this.f35707f.add(bVar2);
         }
         notifyDataSetChanged();
     }
@@ -322,9 +382,9 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         b bVar;
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048593, this, str, str2, i2) == null) || d.c(this.f35234d) || (bVar = (b) d.b(this.f35234d, i2)) == null || (weakReference = bVar.f35236b) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048597, this, str, str2, i2) == null) || d.c(this.f35707f) || (bVar = (b) d.b(this.f35707f, i2)) == null || (weakReference = bVar.f35709b) == null || weakReference.get() == null) {
             return;
         }
-        bVar.f35236b.get().updateTabInfo(str, str2);
+        bVar.f35709b.get().updateTabInfo(str, str2);
     }
 }

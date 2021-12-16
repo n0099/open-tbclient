@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GenericArrayTypeImpl implements GenericArrayType {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;

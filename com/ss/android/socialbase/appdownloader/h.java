@@ -21,31 +21,31 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.lang.ref.SoftReference;
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Queue<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61572b;
+    public boolean f62153b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f61573c;
+    public long f62154c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f61574d;
+    public long f62155d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SoftReference<JumpUnknownSourceActivity> f61575e;
+    public SoftReference<JumpUnknownSourceActivity> f62156e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f61576f;
+    public Handler f62157f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f61577g;
+    public Runnable f62158g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final h a;
@@ -82,9 +82,9 @@ public class h {
             }
         }
         this.a = new ArrayDeque();
-        this.f61572b = false;
-        this.f61576f = new Handler(Looper.getMainLooper());
-        this.f61577g = new Runnable(this) { // from class: com.ss.android.socialbase.appdownloader.h.1
+        this.f62153b = false;
+        this.f62157f = new Handler(Looper.getMainLooper());
+        this.f62158g = new Runnable(this) { // from class: com.ss.android.socialbase.appdownloader.h.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ h a;
@@ -115,7 +115,7 @@ public class h {
                 }
             }
         };
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2112a(this) { // from class: com.ss.android.socialbase.appdownloader.h.2
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2173a(this) { // from class: com.ss.android.socialbase.appdownloader.h.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ h a;
@@ -138,26 +138,26 @@ public class h {
                 this.a = this;
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2173a
             public void b() {
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.a.isEmpty()) {
                     return;
                 }
                 long a2 = com.ss.android.socialbase.downloader.g.a.c().a("install_on_resume_install_interval", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
-                long currentTimeMillis = System.currentTimeMillis() - this.a.f61574d;
+                long currentTimeMillis = System.currentTimeMillis() - this.a.f62155d;
                 if (currentTimeMillis < a2) {
-                    if (this.a.f61576f.hasCallbacks(this.a.f61577g)) {
+                    if (this.a.f62157f.hasCallbacks(this.a.f62158g)) {
                         return;
                     }
-                    this.a.f61576f.postDelayed(this.a.f61577g, a2 - currentTimeMillis);
+                    this.a.f62157f.postDelayed(this.a.f62158g, a2 - currentTimeMillis);
                     return;
                 }
-                this.a.f61574d = System.currentTimeMillis();
+                this.a.f62155d = System.currentTimeMillis();
                 this.a.c();
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2173a
             public void c() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -173,9 +173,9 @@ public class h {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             int b2 = c.b(context, i2, z);
             if (b2 == 1) {
-                this.f61572b = true;
+                this.f62153b = true;
             }
-            this.f61573c = System.currentTimeMillis();
+            this.f62154c = System.currentTimeMillis();
             return b2;
         }
         return invokeCommon.intValue;
@@ -190,20 +190,20 @@ public class h {
                 synchronized (this.a) {
                     poll = this.a.poll();
                 }
-                this.f61576f.removeCallbacks(this.f61577g);
+                this.f62157f.removeCallbacks(this.f62158g);
                 if (poll != null) {
                     Context N = com.ss.android.socialbase.downloader.downloader.c.N();
                     if (Looper.myLooper() != Looper.getMainLooper()) {
-                        this.f61576f.post(new Runnable(this, N, poll) { // from class: com.ss.android.socialbase.appdownloader.h.3
+                        this.f62157f.post(new Runnable(this, N, poll) { // from class: com.ss.android.socialbase.appdownloader.h.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ Context a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ Integer f61578b;
+                            public final /* synthetic */ Integer f62159b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ h f61579c;
+                            public final /* synthetic */ h f62160c;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -220,26 +220,26 @@ public class h {
                                         return;
                                     }
                                 }
-                                this.f61579c = this;
+                                this.f62160c = this;
                                 this.a = N;
-                                this.f61578b = poll;
+                                this.f62159b = poll;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    this.f61579c.b(this.a, this.f61578b.intValue(), false);
+                                    this.f62160c.b(this.a, this.f62159b.intValue(), false);
                                 }
                             }
                         });
                     } else {
                         b(N, poll.intValue(), false);
                     }
-                    this.f61576f.postDelayed(this.f61577g, 20000L);
+                    this.f62157f.postDelayed(this.f62158g, 20000L);
                     return;
                 }
-                this.f61572b = false;
+                this.f62153b = false;
             }
         }
     }
@@ -247,7 +247,7 @@ public class h {
     private boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? System.currentTimeMillis() - this.f61573c < 1000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? System.currentTimeMillis() - this.f62154c < 1000 : invokeV.booleanValue;
     }
 
     public void a(DownloadInfo downloadInfo, String str) {
@@ -262,9 +262,9 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            SoftReference<JumpUnknownSourceActivity> softReference = this.f61575e;
+            SoftReference<JumpUnknownSourceActivity> softReference = this.f62156e;
             JumpUnknownSourceActivity jumpUnknownSourceActivity = softReference == null ? null : softReference.get();
-            this.f61575e = null;
+            this.f62156e = null;
             return jumpUnknownSourceActivity;
         }
         return (JumpUnknownSourceActivity) invokeV.objValue;
@@ -284,19 +284,19 @@ public class h {
                 return b(context, i2, z);
             }
             if (d()) {
-                this.f61576f.postDelayed(new Runnable(this, context, i2, z) { // from class: com.ss.android.socialbase.appdownloader.h.4
+                this.f62157f.postDelayed(new Runnable(this, context, i2, z) { // from class: com.ss.android.socialbase.appdownloader.h.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Context a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f61580b;
+                    public final /* synthetic */ int f62161b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ boolean f61581c;
+                    public final /* synthetic */ boolean f62162c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ h f61582d;
+                    public final /* synthetic */ h f62163d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -313,17 +313,17 @@ public class h {
                                 return;
                             }
                         }
-                        this.f61582d = this;
+                        this.f62163d = this;
                         this.a = context;
-                        this.f61580b = i2;
-                        this.f61581c = z;
+                        this.f62161b = i2;
+                        this.f62162c = z;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f61582d.a(this.a, this.f61580b, this.f61581c);
+                            this.f62163d.a(this.a, this.f62161b, this.f62162c);
                         }
                     }
                 }, 1000L);
@@ -335,7 +335,7 @@ public class h {
                 return 1;
             } else {
                 boolean z2 = Build.VERSION.SDK_INT < 29;
-                if (this.a.isEmpty() && !this.f61572b && z2) {
+                if (this.a.isEmpty() && !this.f62153b && z2) {
                     return b(context, i2, z);
                 }
                 int a2 = com.ss.android.socialbase.downloader.g.a.c().a("install_queue_size", 3);
@@ -345,8 +345,8 @@ public class h {
                     }
                 }
                 if (z2) {
-                    this.f61576f.removeCallbacks(this.f61577g);
-                    this.f61576f.postDelayed(this.f61577g, com.ss.android.socialbase.downloader.g.a.a(i2).a("install_queue_timeout", 20000L));
+                    this.f62157f.removeCallbacks(this.f62158g);
+                    this.f62157f.postDelayed(this.f62158g, com.ss.android.socialbase.downloader.g.a.a(i2).a("install_queue_timeout", 20000L));
                 }
                 synchronized (this.a) {
                     if (!this.a.contains(Integer.valueOf(i2))) {
@@ -362,7 +362,7 @@ public class h {
     public void a(JumpUnknownSourceActivity jumpUnknownSourceActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jumpUnknownSourceActivity) == null) {
-            this.f61575e = new SoftReference<>(jumpUnknownSourceActivity);
+            this.f62156e = new SoftReference<>(jumpUnknownSourceActivity);
         }
     }
 }

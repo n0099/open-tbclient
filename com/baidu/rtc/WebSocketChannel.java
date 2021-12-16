@@ -54,7 +54,7 @@ import org.json.JSONObject;
 import org.webrtc.IceCandidate;
 import org.webrtc.MediaStreamTrack;
 import org.webrtc.SessionDescription;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WebSocketChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NO_SET_VALID_ROOM_ID = -1160725808;

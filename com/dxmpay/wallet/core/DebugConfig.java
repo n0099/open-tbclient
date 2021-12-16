@@ -20,7 +20,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class DebugConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_FILE = "dxm_wallet_config.properties";
@@ -36,31 +36,31 @@ public final class DebugConfig {
     public static final String VOICE_SERVICE_URL_DFT = "https://wallet.baidu.com";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f55483c = false;
+    public static boolean f56064c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f55484d = "https://www.baifubao.com";
+    public static String f56065d = "https://www.baifubao.com";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f55485e = "http://wappass.baidu.com/passport";
+    public static String f56066e = "http://wappass.baidu.com/passport";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f55486f = "https://chong.baidu.com";
+    public static String f56067f = "https://chong.baidu.com";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f55487g = "https://wallet.baidu.com";
+    public static String f56068g = "https://wallet.baidu.com";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f55488h = "https://wallet.baidu.com";
+    public static String f56069h = "https://wallet.baidu.com";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f55489i = "https://wallet.baidu.com";
+    public static String f56070i = "https://wallet.baidu.com";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f55490j = "https://www.baifubao.com";
+    public static String f56071j = "https://www.baifubao.com";
 
     /* renamed from: k  reason: collision with root package name */
-    public static String f55491k = "https://www.baifubao.com";
+    public static String f56072k = "https://www.baifubao.com";
     public static String l = "https://www.baifubao.com";
     public static String m = "https://datasink.dxmpay.com";
     public static String n = "https://www.baifubao.com/wireless/0/config?cate[plugin]&_app=wallet";
@@ -69,7 +69,7 @@ public final class DebugConfig {
     public File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Properties f55492b;
+    public Properties f56073b;
 
     static {
         InterceptResult invokeClinit;
@@ -111,7 +111,7 @@ public final class DebugConfig {
         } else {
             this.a = new File(String.valueOf(Environment.getExternalStorageDirectory()), CONFIG_FILE);
         }
-        this.f55492b = c();
+        this.f56073b = c();
     }
 
     public static synchronized DebugConfig getInstance(Context context) {
@@ -135,7 +135,7 @@ public final class DebugConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             Properties c2 = c();
-            this.f55492b = c2;
+            this.f56073b = c2;
             return c2.getProperty(str);
         }
         return (String) invokeL.objValue;
@@ -148,17 +148,17 @@ public final class DebugConfig {
             c.a().c(a(com.baidu.wallet.core.domain.c.r));
             c.a().f(a("app_spare_pay_host"));
             c.a().d(a(com.baidu.wallet.core.domain.c.v));
-            c.a().e(a("ai_host"));
+            c.a().e(a("rtc_host"));
             DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.QA);
-            String a = a(com.baidu.wallet.core.DebugConfig.f52374k);
-            f55490j = a;
+            String a = a(com.baidu.wallet.core.DebugConfig.f52954k);
+            f56071j = a;
             if (TextUtils.isEmpty(a)) {
-                f55490j = "https://www.baifubao.com";
+                f56071j = "https://www.baifubao.com";
             }
             String a2 = a(com.baidu.wallet.core.DebugConfig.l);
-            f55491k = a2;
+            f56072k = a2;
             if (TextUtils.isEmpty(a2)) {
-                f55491k = "https://www.baifubao.com";
+                f56072k = "https://www.baifubao.com";
             }
             String a3 = a(com.baidu.wallet.core.DebugConfig.m);
             m = a3;
@@ -212,16 +212,16 @@ public final class DebugConfig {
     public void changeOnline() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            f55483c = false;
-            f55484d = "https://www.baifubao.com";
-            f55485e = "https://wappass.baidu.com/passport/";
-            f55486f = "https://chong.baidu.com";
-            f55487g = "https://wallet.baidu.com";
+            f56064c = false;
+            f56065d = "https://www.baifubao.com";
+            f56066e = "https://wappass.baidu.com/passport/";
+            f56067f = "https://chong.baidu.com";
+            f56068g = "https://wallet.baidu.com";
             DEFAULT_ENVIRONMENT = "ONLINE";
-            f55488h = "https://wallet.baidu.com";
-            f55489i = "https://wallet.baidu.com";
-            f55490j = "https://www.baifubao.com";
-            f55491k = "https://www.baifubao.com";
+            f56069h = "https://wallet.baidu.com";
+            f56070i = "https://wallet.baidu.com";
+            f56071j = "https://www.baifubao.com";
+            f56072k = "https://www.baifubao.com";
             l = "https://www.baifubao.com";
         }
     }
@@ -229,7 +229,7 @@ public final class DebugConfig {
     public void changeQA() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            f55483c = true;
+            f56064c = true;
             DEFAULT_ENVIRONMENT = "QA";
             readConfigHost(true);
         }
@@ -238,15 +238,15 @@ public final class DebugConfig {
     public String getCouponHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? f55487g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? f56068g : (String) invokeV.objValue;
     }
 
     public String getEnvironment() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (f55483c) {
-                return a(com.baidu.wallet.core.DebugConfig.f52368e);
+            if (f56064c) {
+                return a(com.baidu.wallet.core.DebugConfig.f52948e);
             }
             return DEFAULT_ENVIRONMENT;
         }
@@ -263,7 +263,7 @@ public final class DebugConfig {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            if (!f55483c) {
+            if (!f56064c) {
                 String str3 = "没有打开DEBUG开关 返回默认值=" + str2;
                 return str2;
             }
@@ -291,7 +291,7 @@ public final class DebugConfig {
             if (isOnline()) {
                 return DomainConfig.getInstance().getAppHost();
             }
-            return f55490j;
+            return f56071j;
         }
         return (String) invokeV.objValue;
     }
@@ -299,31 +299,31 @@ public final class DebugConfig {
     public String getVoiceprintHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? f55489i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? f56070i : (String) invokeV.objValue;
     }
 
     public String getVoiceprintServiceUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? f55488h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? f56069h : (String) invokeV.objValue;
     }
 
     public String getWalletHttpsHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? f55484d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? f56065d : (String) invokeV.objValue;
     }
 
     public String getWalletNfcHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? f55486f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? f56067f : (String) invokeV.objValue;
     }
 
     public String getWalletPassportHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? f55485e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? f56066e : (String) invokeV.objValue;
     }
 
     public String getWalletPluginHost() {
@@ -347,19 +347,19 @@ public final class DebugConfig {
     public void readConfigHost(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            f55483c = z;
+            f56064c = z;
             if (z) {
                 b();
             } else {
-                f55484d = "https://www.baifubao.com";
-                f55485e = "https://wappass.baidu.com/passport/";
+                f56065d = "https://www.baifubao.com";
+                f56066e = "https://wappass.baidu.com/passport/";
                 n = "https://www.baifubao.com/wireless/0/config?cate[plugin]&_app=wallet";
-                f55486f = "https://chong.baidu.com";
-                f55487g = "https://wallet.baidu.com";
-                f55488h = "https://wallet.baidu.com";
-                f55489i = "https://wallet.baidu.com";
-                f55490j = "https://www.baifubao.com";
-                f55491k = "https://www.baifubao.com";
+                f56067f = "https://chong.baidu.com";
+                f56068g = "https://wallet.baidu.com";
+                f56069h = "https://wallet.baidu.com";
+                f56070i = "https://wallet.baidu.com";
+                f56071j = "https://www.baifubao.com";
+                f56072k = "https://www.baifubao.com";
                 l = "https://www.baifubao.com";
                 m = "https://datasink.dxmpay.com";
             }
@@ -370,7 +370,7 @@ public final class DebugConfig {
     public void setWalletHttpsHost(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            f55484d = str;
+            f56065d = str;
         }
     }
 

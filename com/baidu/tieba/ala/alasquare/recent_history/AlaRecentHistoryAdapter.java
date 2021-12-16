@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PAGE_COUNT = 2;
@@ -21,10 +21,10 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
     public static final int PAGE_TYPE_WHOLE = 200;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f42839b;
+    public static final String[] f43330b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f42840c;
+    public static final int[] f43331c;
     public transient /* synthetic */ FieldHolder $fh;
     public Fragment[] a;
 
@@ -41,8 +41,8 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
                 return;
             }
         }
-        f42839b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_living), TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_whole)};
-        f42840c = new int[]{100, 200};
+        f43330b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_living), TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_whole)};
+        f43331c = new int[]{100, 200};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -90,13 +90,13 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
     public int getPageType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? f42840c[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? f43331c[i2] : invokeI.intValue;
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public String getTabTitle(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? f42839b[i2] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? f43330b[i2] : (String) invokeI.objValue;
     }
 }

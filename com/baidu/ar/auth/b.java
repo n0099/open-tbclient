@@ -25,7 +25,7 @@ import java.util.HashSet;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class b implements k {
     public k.a ju;
     public int jv;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -291,7 +291,7 @@ public class b implements k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, context)) == null) {
             int i2 = Build.VERSION.SDK_INT;
-            String cw = i2 > 28 ? cw() : (i2 <= 27 || context.checkSelfPermission(s.f56838c) != 0) ? Build.SERIAL : Build.getSerial();
+            String cw = i2 > 28 ? cw() : (i2 <= 27 || context.checkSelfPermission(s.f57419c) != 0) ? Build.SERIAL : Build.getSerial();
             return "unknown".equals(cw) ? "" : cw;
         }
         return (String) invokeL.objValue;

@@ -14,22 +14,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28599e;
+    public String f28969e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f28600f;
+    public String f28970f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28601g;
+    public String f28971g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a f28602h;
+    public b.a f28972h;
 
     public a(String str, String str2, String str3, b.a aVar) {
         Interceptable interceptable = $ic;
@@ -46,10 +46,10 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f28599e = str;
-        this.f28600f = str2;
-        this.f28601g = str3;
-        this.f28602h = aVar;
+        this.f28969e = str;
+        this.f28970f = str2;
+        this.f28971g = str3;
+        this.f28972h = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -57,13 +57,13 @@ public class a implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f28599e).openConnection();
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f28969e).openConnection();
                 httpURLConnection.setConnectTimeout(50000);
                 httpURLConnection.setRequestMethod("GET");
                 httpURLConnection.connect();
                 if (httpURLConnection.getResponseCode() == 200) {
                     InputStream inputStream = httpURLConnection.getInputStream();
-                    File file = new File(this.f28601g);
+                    File file = new File(this.f28971g);
                     FileOutputStream fileOutputStream = new FileOutputStream(file);
                     byte[] bArr = new byte[524288];
                     while (true) {
@@ -72,25 +72,25 @@ public class a implements Runnable {
                             break;
                         }
                         fileOutputStream.write(bArr, 0, read);
-                        if (this.f28602h != null) {
-                            this.f28602h.a();
+                        if (this.f28972h != null) {
+                            this.f28972h.a();
                         }
                     }
                     fileOutputStream.flush();
                     inputStream.close();
-                    if (FileUtils.existsFile(file) && TextUtils.equals(Md5Utils.getMd5FromFileV2(this.f28601g), this.f28600f)) {
-                        if (this.f28602h != null) {
-                            this.f28602h.a(this.f28601g);
+                    if (FileUtils.existsFile(file) && TextUtils.equals(Md5Utils.getMd5FromFileV2(this.f28971g), this.f28970f)) {
+                        if (this.f28972h != null) {
+                            this.f28972h.a(this.f28971g);
                         }
-                    } else if (this.f28602h != null) {
-                        this.f28602h.b("md5 not match");
+                    } else if (this.f28972h != null) {
+                        this.f28972h.b("md5 not match");
                     }
-                } else if (this.f28602h != null) {
-                    b.a aVar = this.f28602h;
+                } else if (this.f28972h != null) {
+                    b.a aVar = this.f28972h;
                     aVar.b("Server Response Code is " + httpURLConnection.getResponseCode());
                 }
             } catch (IOException e2) {
-                b.a aVar2 = this.f28602h;
+                b.a aVar2 = this.f28972h;
                 if (aVar2 != null) {
                     aVar2.b(e2.getMessage());
                 }

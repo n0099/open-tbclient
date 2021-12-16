@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class z0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56922b;
+    public String f57503b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56923c;
+    public String f57504c;
 
     public z0() {
         Interceptable interceptable = $ic;
@@ -31,15 +31,15 @@ public class z0 {
                 return;
             }
         }
-        this.f56923c = "";
-        this.f56922b = "";
+        this.f57504c = "";
+        this.f57503b = "";
         this.a = 0;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56923c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57504c : (String) invokeV.objValue;
     }
 
     public void a(int i2) {
@@ -52,7 +52,7 @@ public class z0 {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f56923c = str;
+            this.f57504c = str;
         }
     }
 
@@ -65,13 +65,13 @@ public class z0 {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f56922b = str;
+            this.f57503b = str;
         }
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f56922b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f57503b : (String) invokeV.objValue;
     }
 }

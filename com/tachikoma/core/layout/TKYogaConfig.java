@@ -39,7 +39,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import kotlinx.coroutines.DebugKt;
 /* loaded from: classes3.dex */
 public class TKYogaConfig {
     public static /* synthetic */ Interceptable $ic;
@@ -260,7 +259,7 @@ public class TKYogaConfig {
                         return;
                     }
                 }
-                put(DebugKt.DEBUG_PROPERTY_VALUE_AUTO, Integer.valueOf(YogaAlign.AUTO.ordinal()));
+                put("auto", Integer.valueOf(YogaAlign.AUTO.ordinal()));
                 put("flex-start", Integer.valueOf(YogaAlign.FLEX_START.ordinal()));
                 put(TextAlign.CENTER, Integer.valueOf(YogaAlign.CENTER.ordinal()));
                 put("flex-end", Integer.valueOf(YogaAlign.FLEX_END.ordinal()));
@@ -755,7 +754,7 @@ public class TKYogaConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) {
             if (obj instanceof String) {
-                return ((String) obj).equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
+                return ((String) obj).equals("auto");
             }
             return false;
         }

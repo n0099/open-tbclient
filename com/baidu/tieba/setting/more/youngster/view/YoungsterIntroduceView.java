@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.q0.s.g0.n.a;
+import c.a.r0.s.i0.n.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,31 +19,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class YoungsterIntroduceView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f48983e;
+    public ImageView f49497e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f48984f;
+    public TextView f49498f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f48985g;
+    public TextView f49499g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f48986h;
+    public TextView f49500h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f48987i;
+    public TextView f49501i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f48988j;
+    public TextView f49502j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TBSpecificationBtn f48989k;
+    public TBSpecificationBtn f49503k;
     public int l;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -71,17 +71,17 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.youngster_introduce, this);
-            this.f48983e = (ImageView) findViewById(R.id.img_youngster_introduce);
-            this.f48984f = (TextView) findViewById(R.id.txt_youngster_introduce_title);
-            this.f48985g = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
-            this.f48986h = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
-            this.f48987i = (TextView) findViewById(R.id.txt_youngster_introduce_content3);
-            this.f48988j = (TextView) findViewById(R.id.txt_youngster_introduce_content4);
+            this.f49497e = (ImageView) findViewById(R.id.img_youngster_introduce);
+            this.f49498f = (TextView) findViewById(R.id.txt_youngster_introduce_title);
+            this.f49499g = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
+            this.f49500h = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
+            this.f49501i = (TextView) findViewById(R.id.txt_youngster_introduce_content3);
+            this.f49502j = (TextView) findViewById(R.id.txt_youngster_introduce_content4);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.btn_youngster_open);
-            this.f48989k = tBSpecificationBtn;
+            this.f49503k = tBSpecificationBtn;
             tBSpecificationBtn.setConfig(new a());
-            this.f48989k.setText(getContext().getString(R.string.youngster_settings_open_title));
-            this.f48989k.setOnClickListener(this);
+            this.f49503k.setText(getContext().getString(R.string.youngster_settings_open_title));
+            this.f49503k.setOnClickListener(this);
             onChangeSkinType();
         }
     }
@@ -89,20 +89,20 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48983e.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
-            SkinManager.setViewTextColor(this.f48984f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f48985g, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f48986h, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f48987i, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f48988j, R.color.CAM_X0107);
-            this.f48989k.changeSkinType();
+            this.f49497e.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setViewTextColor(this.f49498f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f49499g, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f49500h, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f49501i, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f49502j, R.color.CAM_X0107);
+            this.f49503k.changeSkinType();
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this.f48989k) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this.f49503k) {
             YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(getContext());
             youngsterPasswordActivityConfig.setYoungsterPasswordPageType(1);
             youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(this.l);

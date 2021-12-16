@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.kwad.sdk.api.KsInterstitialAd;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class j implements KsInterstitialAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ KsInterstitialAd a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ i f28789b;
+    public final /* synthetic */ i f29159b;
 
     public j(i iVar, KsInterstitialAd ksInterstitialAd) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class j implements KsInterstitialAd.AdInteractionListener {
                 return;
             }
         }
-        this.f28789b = iVar;
+        this.f29159b = iVar;
         this.a = ksInterstitialAd;
     }
 
@@ -40,7 +40,7 @@ public class j implements KsInterstitialAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.f28789b.onAdClicked(false);
+            this.f29159b.onAdClicked(false);
         }
     }
 
@@ -56,7 +56,7 @@ public class j implements KsInterstitialAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LogPrinter.d();
-            this.f28789b.onAdShow(this.a, false);
+            this.f29159b.onAdShow(this.a, false);
         }
     }
 
@@ -65,7 +65,7 @@ public class j implements KsInterstitialAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LogPrinter.d();
-            this.f28789b.onAdClose();
+            this.f29159b.onAdClose();
         }
     }
 
@@ -90,7 +90,7 @@ public class j implements KsInterstitialAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
             LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i2), Integer.valueOf(i3));
-            this.f28789b.onAdError(i2, String.valueOf(i3));
+            this.f29159b.onAdError(i2, String.valueOf(i3));
         }
     }
 

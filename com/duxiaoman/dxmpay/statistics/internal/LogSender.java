@@ -21,16 +21,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.duxiaoman.dxmpay.statistics.StatApi;
 import com.duxiaoman.dxmpay.statistics.StrategyProcess;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class LogSender {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HandlerThread a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f55010b;
+    public Handler f55590b;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static LogSender a;
@@ -53,7 +53,7 @@ public class LogSender {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class LogSender {
             return;
         }
         g.b(c.d.a.a.a.b.a().e(appContext));
-        this.f55010b.sendEmptyMessage(10002);
+        this.f55590b.sendEmptyMessage(10002);
     }
 
     public final synchronized boolean c(Context context, String str) {
@@ -146,11 +146,11 @@ public class LogSender {
                 return false;
             }
             d.b f2 = d.a().f(str);
-            if (f2.a == 0 || TextUtils.isEmpty(f2.f28013b) || !e(f2.f28013b, null)) {
+            if (f2.a == 0 || TextUtils.isEmpty(f2.f28388b) || !e(f2.f28388b, null)) {
                 return false;
             }
             if (str.equals("normal_log")) {
-                c.d.a.a.a.b.a().d(appContext, c.d.a.a.a.a.e(f2.f28013b.getBytes(), false));
+                c.d.a.a.a.b.a().d(appContext, c.d.a.a.a.a.e(f2.f28388b.getBytes(), false));
             }
             e.a().b(str, f2.a);
             return true;
@@ -195,12 +195,12 @@ public class LogSender {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (appContext = StatApi.getAppContext()) == null) {
             return;
         }
-        this.f55010b.removeMessages(10001);
+        this.f55590b.removeMessages(10001);
         int i2 = StrategyProcess.getInstance().get3GSendingInterval();
         if (c.d.a.a.a.a.k(appContext)) {
             i2 = StrategyProcess.getInstance().getWifiSendingInterval();
         }
-        this.f55010b.sendEmptyMessageDelayed(10001, i2 * 60000);
+        this.f55590b.sendEmptyMessageDelayed(10001, i2 * 60000);
     }
 
     public final boolean g(Context context, String str) {
@@ -219,7 +219,7 @@ public class LogSender {
     public void triggerSending(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f55010b.obtainMessage(10000, str).sendToTarget();
+            this.f55590b.obtainMessage(10000, str).sendToTarget();
         }
     }
 
@@ -239,6 +239,6 @@ public class LogSender {
         HandlerThread handlerThread = new HandlerThread("SensorLogSenderThread");
         this.a = handlerThread;
         handlerThread.start();
-        this.f55010b = new b(this, this.a.getLooper());
+        this.f55590b = new b(this, this.a.getLooper());
     }
 }

@@ -12,7 +12,7 @@ import java.io.StringWriter;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,13 +34,13 @@ public final class d {
                 a = "unknown";
             }
             try {
-                jSONObject.putOpt("net_type", a(Integer.valueOf(com.bytedance.pangle.download.d.b(Zeus.getAppApplication()).f54535h)));
+                jSONObject.putOpt("net_type", a(Integer.valueOf(com.bytedance.pangle.download.d.b(Zeus.getAppApplication()).f55115h)));
                 jSONObject.putOpt(ContentProviderManager.PLUGIN_PROCESS_NAME, a(a));
                 Plugin plugin2 = Zeus.getPlugin(jSONObject.optString("plugin_package_name", ""));
                 jSONObject.putOpt("plugin_api_version", a(Integer.valueOf(plugin2 != null ? plugin2.getApiVersionCode() : -1)));
                 jSONObject.putOpt("zeus_sdk_version", a("0.0.1-beta.53-bugfix.13-pangle"));
                 ZeusLogger.v(ZeusLogger.TAG_REPORTER, "eventName: " + str + "\ncategoryData:" + jSONObject.toString(1) + "\nmetricData:" + jSONObject2.toString(1) + "\nlogExtrData:" + jSONObject3.toString(1));
-                IZeusReporter reporter = i.a().f54604b.getReporter();
+                IZeusReporter reporter = i.a().f55184b.getReporter();
                 if (reporter != null) {
                     JSONObject jSONObject4 = new JSONObject();
                     Iterator<String> keys = jSONObject.keys();

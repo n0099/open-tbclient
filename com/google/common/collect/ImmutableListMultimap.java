@@ -22,14 +22,14 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> implements p0<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public transient ImmutableListMultimap<V, K> inverse;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a<K, V> extends ImmutableMultimap.c<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -225,7 +225,7 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
                 }
                 try {
                     ImmutableMultimap.d.a.b(this, builder.a());
-                    ImmutableMultimap.d.f56207b.a(this, i2);
+                    ImmutableMultimap.d.f56788b.a(this, i2);
                     return;
                 } catch (IllegalArgumentException e2) {
                     throw ((InvalidObjectException) new InvalidObjectException(e2.getMessage()).initCause(e2));

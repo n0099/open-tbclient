@@ -11,26 +11,26 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.qq.e.ads.nativ.express2.AdEventListener;
 import com.qq.e.ads.nativ.express2.NativeExpressADData2;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class i implements AdEventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28702b;
+    public boolean f29072b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ ExpressAdListenerWrapper f28703c;
+    public final /* synthetic */ ExpressAdListenerWrapper f29073c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f28704d;
+    public final /* synthetic */ String f29074d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ NativeExpressADData2 f28705e;
+    public final /* synthetic */ NativeExpressADData2 f29075e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ f f28706f;
+    public final /* synthetic */ f f29076f;
 
     public i(f fVar, ExpressAdListenerWrapper expressAdListenerWrapper, String str, NativeExpressADData2 nativeExpressADData2) {
         Interceptable interceptable = $ic;
@@ -47,10 +47,10 @@ public class i implements AdEventListener {
                 return;
             }
         }
-        this.f28706f = fVar;
-        this.f28703c = expressAdListenerWrapper;
-        this.f28704d = str;
-        this.f28705e = nativeExpressADData2;
+        this.f29076f = fVar;
+        this.f29073c = expressAdListenerWrapper;
+        this.f29074d = str;
+        this.f29075e = nativeExpressADData2;
     }
 
     @Override // com.qq.e.ads.nativ.express2.AdEventListener
@@ -58,10 +58,10 @@ public class i implements AdEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.f28706f.onAdClose();
-            FunAdInteractionListener funAdInteractionListener = this.f28703c.funListener;
+            this.f29076f.onAdClose();
+            FunAdInteractionListener funAdInteractionListener = this.f29073c.funListener;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(this.f28704d);
+                funAdInteractionListener.onAdClose(this.f29074d);
             }
         }
     }
@@ -73,14 +73,14 @@ public class i implements AdEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            this.f28706f.onAdClicked(this.f28702b);
-            this.f28702b = true;
-            FunAdInteractionListener funAdInteractionListener = this.f28703c.funListener;
+            this.f29076f.onAdClicked(this.f29072b);
+            this.f29072b = true;
+            FunAdInteractionListener funAdInteractionListener = this.f29073c.funListener;
             if (funAdInteractionListener != null) {
-                String str = this.f28704d;
-                pid = this.f28706f.mPid;
+                String str = this.f29074d;
+                pid = this.f29076f.mPid;
                 String str2 = pid.ssp.type;
-                pid2 = this.f28706f.mPid;
+                pid2 = this.f29076f.mPid;
                 funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
         }
@@ -93,14 +93,14 @@ public class i implements AdEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LogPrinter.e();
-            this.f28706f.onAdShow(this.f28705e, this.a);
+            this.f29076f.onAdShow(this.f29075e, this.a);
             this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.f28703c.funListener;
+            FunAdInteractionListener funAdInteractionListener = this.f29073c.funListener;
             if (funAdInteractionListener != null) {
-                String str = this.f28704d;
-                pid = this.f28706f.mPid;
+                String str = this.f29074d;
+                pid = this.f29076f.mPid;
                 String str2 = pid.ssp.type;
-                pid2 = this.f28706f.mPid;
+                pid2 = this.f29076f.mPid;
                 funAdInteractionListener.onAdShow(str, str2, pid2.pid);
             }
         }
@@ -111,7 +111,7 @@ public class i implements AdEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LogPrinter.d();
-            this.f28706f.onError(0, "RenderFail");
+            this.f29076f.onError(0, "RenderFail");
         }
     }
 
@@ -120,8 +120,8 @@ public class i implements AdEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             LogPrinter.d();
-            this.f28706f.f28700h.put(this.f28705e, this.f28703c);
-            this.f28706f.onAdLoaded((f) this.f28705e);
+            this.f29076f.f29070h.put(this.f29075e, this.f29073c);
+            this.f29076f.onAdLoaded((f) this.f29075e);
         }
     }
 }

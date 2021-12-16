@@ -14,7 +14,7 @@ import com.baidu.wallet.api.BaiduWalletDelegate;
 import com.baidu.wallet.api.WalletApiExtListener;
 import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.paysdk.datamodel.SdkInitResponse;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PassSMSAuthProxyActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public static WalletApiExtListener.ThirdPartyLoginListener callback;
@@ -45,7 +45,7 @@ public class PassSMSAuthProxyActivity extends BaseActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, com.baidu.wallet.core.SDKBaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {

@@ -13,19 +13,19 @@ import java.nio.ByteOrder;
 import java.security.DigestException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f39140b;
+    public static final byte[] f39629b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f39141c;
+    public static final byte[] f39630c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte[] f39142d;
+    public static final byte[] f39631d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,9 +42,9 @@ public final class b {
             }
         }
         a = "ftyp".getBytes();
-        f39140b = MediaDataBox.TYPE.getBytes();
-        f39141c = MovieBox.TYPE.getBytes();
-        f39142d = "free".getBytes();
+        f39629b = MediaDataBox.TYPE.getBytes();
+        f39630c = MovieBox.TYPE.getBytes();
+        f39631d = "free".getBytes();
     }
 
     public static int a(byte[] bArr, int i2, int i3, byte[] bArr2, int i4) {

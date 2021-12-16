@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class bx implements eq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public final class bx implements eq {
             if (str.equals("我的反馈")) {
                 this.a.t = true;
                 Intent intent = new Intent(this.a, FeedbackListActivity.class);
-                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f51521j);
+                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f52070j);
                 this.a.startActivity(intent);
                 this.a.finish();
             } else if (str.equals("人工反馈")) {

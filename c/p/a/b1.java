@@ -23,41 +23,41 @@ import com.win.opensdk.PBError;
 import com.win.opensdk.core.Info;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e3 f30744b;
+    public e3 f31114b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c1 f30745c;
+    public c1 f31115c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f30746d;
+    public boolean f31116d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30747e;
+    public boolean f31117e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e4 f30748f;
+    public e4 f31118f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f30749g;
+    public File f31119g;
 
     /* renamed from: h  reason: collision with root package name */
-    public VideoView f30750h;
+    public VideoView f31120h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f30751i;
+    public View f31121i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f30752j;
+    public View f31122j;
 
     /* renamed from: k  reason: collision with root package name */
-    public Handler f30753k;
+    public Handler f31123k;
 
     public b1(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -74,9 +74,9 @@ public class b1 {
                 return;
             }
         }
-        this.f30746d = false;
-        this.f30747e = false;
-        this.f30753k = new u4(this, Looper.getMainLooper());
+        this.f31116d = false;
+        this.f31117e = false;
+        this.f31123k = new u4(this, Looper.getMainLooper());
         this.a = context;
         try {
             m2.c(context, 0.0f);
@@ -86,15 +86,15 @@ public class b1 {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        this.f30744b = new e3(context, str);
+        this.f31114b = new e3(context, str);
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.f30744b != null) {
-                    r0.o(this.f30744b.b(), 401, "");
+                if (this.f31114b != null) {
+                    r0.o(this.f31114b.b(), 401, "");
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -107,21 +107,21 @@ public class b1 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             try {
                 File file = new File(r0.e(this.a) + File.separator + "win" + File.separator + r0.D(str) + ".mp4");
-                this.f30749g = file;
+                this.f31119g = file;
                 if (file == null || !file.exists()) {
-                    if (this.f30748f != null && this.f30748f.getStatus() == AsyncTask.Status.RUNNING) {
-                        this.f30748f.cancel(true);
+                    if (this.f31118f != null && this.f31118f.getStatus() == AsyncTask.Status.RUNNING) {
+                        this.f31118f.cancel(true);
                     }
                     e4 e4Var = new e4(this, System.currentTimeMillis(), str);
-                    this.f30748f = e4Var;
+                    this.f31118f = e4Var;
                     e4Var.execute(str);
-                } else if (this.f30745c == null || this.f30747e || this.f30745c == null || !this.f30749g.exists()) {
+                } else if (this.f31115c == null || this.f31117e || this.f31115c == null || !this.f31119g.exists()) {
                 } else {
                     y2 a = c3.a(this.a);
-                    a.e(new g3(this.f30744b.b()), 201, 0L);
+                    a.e(new g3(this.f31114b.b()), 201, 0L);
                     a.m();
-                    this.f30745c.onLoaded();
-                    this.f30746d = true;
+                    this.f31115c.onLoaded();
+                    this.f31116d = true;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -132,14 +132,14 @@ public class b1 {
     public final void f() {
         File file;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (file = this.f30749g) == null || TextUtils.isEmpty(file.getPath()) || this.f30750h == null || TextUtils.isEmpty(this.f30749g.getPath())) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (file = this.f31119g) == null || TextUtils.isEmpty(file.getPath()) || this.f31120h == null || TextUtils.isEmpty(this.f31119g.getPath())) {
             return;
         }
-        this.f30750h.setOnPreparedListener(new q4(this));
-        this.f30750h.setVideoPath(this.f30749g.getPath());
-        this.f30750h.seekTo(0);
-        this.f30750h.requestFocus();
-        this.f30750h.start();
+        this.f31120h.setOnPreparedListener(new q4(this));
+        this.f31120h.setVideoPath(this.f31119g.getPath());
+        this.f31120h.seekTo(0);
+        this.f31120h.requestFocus();
+        this.f31120h.start();
         a();
     }
 
@@ -148,7 +148,7 @@ public class b1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                if (this.f30749g != null && !TextUtils.isEmpty(this.f30749g.getPath()) && (file = this.f30749g) != null) {
+                if (this.f31119g != null && !TextUtils.isEmpty(this.f31119g.getPath()) && (file = this.f31119g) != null) {
                     try {
                         File file2 = new File(file.getPath());
                         if (file2.exists() && file2.isFile()) {
@@ -158,28 +158,28 @@ public class b1 {
                         e2.printStackTrace();
                     }
                 }
-                if (this.f30750h != null) {
-                    this.f30750h.stopPlayback();
-                    this.f30750h.setOnCompletionListener(null);
-                    this.f30750h.setOnPreparedListener(null);
-                    this.f30750h = null;
+                if (this.f31120h != null) {
+                    this.f31120h.stopPlayback();
+                    this.f31120h.setOnCompletionListener(null);
+                    this.f31120h.setOnPreparedListener(null);
+                    this.f31120h = null;
                 }
-                if (this.f30753k != null) {
-                    this.f30753k.removeCallbacksAndMessages(null);
-                    this.f30753k = null;
+                if (this.f31123k != null) {
+                    this.f31123k.removeCallbacksAndMessages(null);
+                    this.f31123k = null;
                 }
-                if (this.f30748f != null && this.f30748f.getStatus() == AsyncTask.Status.RUNNING) {
-                    this.f30748f.cancel(false);
-                    this.f30748f = null;
+                if (this.f31118f != null && this.f31118f.getStatus() == AsyncTask.Status.RUNNING) {
+                    this.f31118f.cancel(false);
+                    this.f31118f = null;
                 }
-                if (this.f30744b != null) {
-                    Info b2 = this.f30744b.b();
+                if (this.f31114b != null) {
+                    Info b2 = this.f31114b.b();
                     if (b2 != null) {
                         y2 a = c3.a(this.a);
                         a.b(new g3(b2));
                         a.m();
                     }
-                    this.f30744b.a();
+                    this.f31114b.a();
                 }
             } catch (Exception e3) {
                 e3.printStackTrace();
@@ -194,47 +194,47 @@ public class b1 {
         u2 u2Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            e3 e3Var2 = this.f30744b;
+            e3 e3Var2 = this.f31114b;
             if ((e3Var2 == null || (u2Var = e3Var2.a) == null || !u2Var.e()) ? false : true) {
-                u2 u2Var2 = this.f30744b.a;
-                if (((u2Var2 == null || !u2Var2.e()) ? "" : u2Var2.f30959c.getLoad_type()).equals("video")) {
+                u2 u2Var2 = this.f31114b.a;
+                if (((u2Var2 == null || !u2Var2.e()) ? "" : u2Var2.f31329c.getLoad_type()).equals("video")) {
                     View inflate = LayoutInflater.from(this.a).inflate(l1.win_layout_win_draw_video, (ViewGroup) null);
-                    this.f30751i = inflate;
+                    this.f31121i = inflate;
                     VideoView videoView = (VideoView) inflate.findViewById(k1.win_ad_video_view);
-                    this.f30750h = videoView;
+                    this.f31120h = videoView;
                     videoView.setVisibility(0);
-                    this.f30750h.setOnErrorListener(new i4(this));
+                    this.f31120h.setOnErrorListener(new i4(this));
                     f();
                     ArrayList arrayList = new ArrayList();
                     arrayList.clear();
-                    View view = this.f30751i;
+                    View view = this.f31121i;
                     if (view != null) {
                         View findViewById = view.findViewById(k1.win_layout_draw_ad_card);
-                        this.f30752j = findViewById;
+                        this.f31122j = findViewById;
                         arrayList.add(findViewById);
                     }
-                    if (this.f30751i != null && (e3Var = this.f30744b) != null && (b2 = e3Var.b()) != null) {
-                        ((TextView) this.f30751i.findViewById(k1.win_card_app_name)).setText(b2.getTitle());
-                        ((TextView) this.f30751i.findViewById(k1.win_card_app_desc)).setText(b2.getDesc());
-                        ((TextView) this.f30751i.findViewById(k1.win_card_h5_open_btn)).setText(b2.getBtndesc());
-                        ImageView imageView = (ImageView) this.f30751i.findViewById(k1.win_card_app_icon);
+                    if (this.f31121i != null && (e3Var = this.f31114b) != null && (b2 = e3Var.b()) != null) {
+                        ((TextView) this.f31121i.findViewById(k1.win_card_app_name)).setText(b2.getTitle());
+                        ((TextView) this.f31121i.findViewById(k1.win_card_app_desc)).setText(b2.getDesc());
+                        ((TextView) this.f31121i.findViewById(k1.win_card_h5_open_btn)).setText(b2.getBtndesc());
+                        ImageView imageView = (ImageView) this.f31121i.findViewById(k1.win_card_app_icon);
                         String icon = b2.getIcon();
                         if (!TextUtils.isEmpty(icon)) {
                             new f4(new y4(this, imageView)).a(icon, false);
                         }
                     }
-                    e3 e3Var3 = this.f30744b;
-                    View view2 = this.f30751i;
+                    e3 e3Var3 = this.f31114b;
+                    View view2 = this.f31121i;
                     u2 u2Var3 = e3Var3.a;
                     if (u2Var3 != null) {
                         u2Var3.b(view2, null, arrayList);
                     }
-                    Handler handler = this.f30753k;
+                    Handler handler = this.f31123k;
                     if (handler != null) {
                         handler.postDelayed(new m4(this), 3000L);
                     }
                 }
-                return this.f30751i;
+                return this.f31121i;
             }
             return null;
         }
@@ -247,22 +247,22 @@ public class b1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (!r0.H(this.a)) {
-                c1 c1Var = this.f30745c;
+                c1 c1Var = this.f31115c;
                 if (c1Var != null) {
                     c1Var.onFail(PBError.NO_NETWORK);
                 }
-            } else if (this.f30744b == null || (handler = this.f30753k) == null) {
+            } else if (this.f31114b == null || (handler = this.f31123k) == null) {
             } else {
-                this.f30746d = false;
-                this.f30747e = false;
+                this.f31116d = false;
+                this.f31117e = false;
                 Message obtain = Message.obtain();
                 long u = m2.u(this.a);
                 if (u <= 10000) {
                     u = 10000;
                 }
                 handler.sendMessageDelayed(obtain, u);
-                u2 u2Var = this.f30744b.a;
-                if (u2Var == null || (a5Var = u2Var.f30958b) == null) {
+                u2 u2Var = this.f31114b.a;
+                if (u2Var == null || (a5Var = u2Var.f31328b) == null) {
                     return;
                 }
                 a5Var.g();
@@ -273,8 +273,8 @@ public class b1 {
     public void k(c1 c1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, c1Var) == null) {
-            this.f30745c = c1Var;
-            this.f30744b.f30777b = new p3(this);
+            this.f31115c = c1Var;
+            this.f31114b.f31147b = new p3(this);
         }
     }
 }

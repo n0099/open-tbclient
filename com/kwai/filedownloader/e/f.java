@@ -30,25 +30,25 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 65536;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f59994b = 2000;
+    public static long f60575b = 2000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f59995c;
+    public static String f60576c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Boolean f59996d;
+    public static Boolean f60577d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Boolean f59997e;
+    public static Boolean f60578e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f59998f;
+    public static final Pattern f60579f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,7 +64,7 @@ public class f {
                 return;
             }
         }
-        f59998f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+        f60579f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
     }
 
     public f() {
@@ -177,7 +177,7 @@ public class f {
             if (!a(c.a())) {
                 throw new IllegalAccessException("This value is used in the :filedownloader process, so set this value in your process is without effect. You can add 'process.non-separate=true' in 'filedownloader.properties' to share the main process to FileDownloadService. Or you can configure this value in 'filedownloader.properties' by 'download.min-progress-time'.");
             }
-            f59994b = j2;
+            f60575b = j2;
         }
     }
 
@@ -268,12 +268,12 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            Boolean bool = f59996d;
+            Boolean bool = f60577d;
             if (bool != null) {
                 return bool.booleanValue();
             }
             boolean z = false;
-            if (!e.a().f59990d) {
+            if (!e.a().f60571d) {
                 int myPid = Process.myPid();
                 ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
                 if (activityManager != null) {
@@ -302,7 +302,7 @@ public class f {
                 z = true;
             }
             Boolean valueOf = Boolean.valueOf(z);
-            f59996d = valueOf;
+            f60577d = valueOf;
             return valueOf.booleanValue();
         }
         return invokeL.booleanValue;
@@ -326,7 +326,7 @@ public class f {
     public static long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? f59994b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? f60575b : invokeV.longValue;
     }
 
     public static long b(int i2, com.kwai.filedownloader.kwai.b bVar) {
@@ -337,7 +337,7 @@ public class f {
             String a2 = bVar.a("Transfer-Encoding");
             if (k2 < 0) {
                 if (!(a2 != null && a2.equals("chunked"))) {
-                    if (!e.a().f59989c) {
+                    if (!e.a().f60570c) {
                         throw new FileDownloadGiveUpRetryException("can't know the size of the download file, and its Transfer-Encoding is not Chunked either.\nyou can ignore such exception by add http.lenient=true to the filedownloader.properties");
                     }
                     if (d.a) {
@@ -383,10 +383,10 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            if (TextUtils.isEmpty(f59995c)) {
+            if (TextUtils.isEmpty(f60576c)) {
                 return (c.a().getExternalCacheDir() == null ? Environment.getDownloadCacheDirectory() : c.a().getExternalCacheDir()).getAbsolutePath();
             }
-            return f59995c;
+            return f60576c;
         }
         return (String) invokeV.objValue;
     }
@@ -474,7 +474,7 @@ public class f {
                 return null;
             }
             try {
-                Matcher matcher = f59998f.matcher(str);
+                Matcher matcher = f60579f.matcher(str);
                 if (matcher.find()) {
                     return matcher.group(1);
                 }

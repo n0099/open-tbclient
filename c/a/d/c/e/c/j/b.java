@@ -1,8 +1,7 @@
 package c.a.d.c.e.c.j;
 
-import c.a.d.c.e.c.h;
-import c.a.d.f.p.g;
-import c.a.d.f.p.s;
+import c.a.d.f.p.h;
+import c.a.d.f.p.t;
 import com.baidu.adp.framework.client.socket.coder.CoderException;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
@@ -77,7 +76,7 @@ public class b {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i2, i3);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                g.a(byteArrayInputStream, byteArrayOutputStream);
+                h.a(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
@@ -103,7 +102,7 @@ public class b {
                 newInstance.setOrginalMessage(socketMessage);
                 if (z) {
                     try {
-                        newInstance.onDecodeFailedInBackGround(i2, bArr, h.f2228c);
+                        newInstance.onDecodeFailedInBackGround(i2, bArr, c.a.d.c.e.c.h.f2195c);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -113,7 +112,7 @@ public class b {
                 return newInstance;
             } catch (Throwable th) {
                 BdStatisticsManager.getInstance().error("im", socketMessage != null ? socketMessage.getClientLogID() : 0L, (String) null, "cmd", Integer.valueOf(i2), "byteslength", Integer.valueOf(bArr != null ? bArr.length : 0), "comment", th.getMessage());
-                throw new CoderException(h.f2228c);
+                throw new CoderException(c.a.d.c.e.c.h.f2195c);
             }
         }
         return (SocketResponsedMessage) invokeCommon.objValue;
@@ -129,14 +128,14 @@ public class b {
                 if (a2 != null) {
                     c cVar = new c();
                     cVar.a = a2;
-                    cVar.f2247b = bArr;
-                    cVar.f2248c = f2;
-                    cVar.f2249d = bArr.length - f2;
+                    cVar.f2214b = bArr;
+                    cVar.f2215c = f2;
+                    cVar.f2216d = bArr.length - f2;
                     return cVar;
                 }
-                throw new CoderException(h.f2227b);
+                throw new CoderException(c.a.d.c.e.c.h.f2194b);
             }
-            throw new CoderException(h.f2227b);
+            throw new CoderException(c.a.d.c.e.c.h.f2194b);
         }
         return (c) invokeL.objValue;
     }
@@ -147,34 +146,34 @@ public class b {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
-            if (cVar != null && (aVar = cVar.a) != null && cVar.f2247b != null) {
-                if (aVar.d() && cVar.f2249d > 0) {
+            if (cVar != null && (aVar = cVar.a) != null && cVar.f2214b != null) {
+                if (aVar.d() && cVar.f2216d > 0) {
                     if (d.a().b() != null) {
                         try {
-                            byte[] a2 = s.a(d.a().b(), cVar.f2247b, cVar.f2248c, cVar.f2249d);
-                            cVar.f2247b = a2;
-                            cVar.f2248c = 0;
-                            cVar.f2249d = a2.length;
+                            byte[] a2 = t.a(d.a().b(), cVar.f2214b, cVar.f2215c, cVar.f2216d);
+                            cVar.f2214b = a2;
+                            cVar.f2215c = 0;
+                            cVar.f2216d = a2.length;
                         } catch (Exception unused) {
-                            throw new CoderException(h.f2233h);
+                            throw new CoderException(c.a.d.c.e.c.h.f2200h);
                         }
                     } else {
-                        throw new CoderException(h.f2232g);
+                        throw new CoderException(c.a.d.c.e.c.h.f2199g);
                     }
                 }
-                if (aVar.c() && (i2 = cVar.f2249d) > 0) {
+                if (aVar.c() && (i2 = cVar.f2216d) > 0) {
                     try {
-                        byte[] g2 = g(cVar.f2247b, cVar.f2248c, i2);
-                        cVar.f2247b = g2;
-                        cVar.f2248c = 0;
-                        cVar.f2249d = g2.length;
+                        byte[] g2 = g(cVar.f2214b, cVar.f2215c, i2);
+                        cVar.f2214b = g2;
+                        cVar.f2215c = 0;
+                        cVar.f2216d = g2.length;
                     } catch (Exception unused2) {
-                        throw new CoderException(h.f2231f);
+                        throw new CoderException(c.a.d.c.e.c.h.f2198f);
                     }
                 }
                 return cVar;
             }
-            throw new CoderException(h.f2227b);
+            throw new CoderException(c.a.d.c.e.c.h.f2194b);
         }
         return (c) invokeL.objValue;
     }
@@ -190,7 +189,7 @@ public class b {
             byte[] encodeInBackGround = socketMessage.encodeInBackGround();
             byte[] encodeExtraDataInBackGround = socketMessage.encodeExtraDataInBackGround();
             if (encodeExtraDataInBackGround != null) {
-                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.f2237g);
+                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.f2204g);
                 if (encodeExtraDataInBackGround.length <= Integer.MAX_VALUE) {
                     allocate.putInt(encodeExtraDataInBackGround.length);
                     allocate.put(encodeExtraDataInBackGround);
@@ -198,7 +197,7 @@ public class b {
                     encodeInBackGround = allocate.array();
                     z3 = true;
                 } else {
-                    throw new CoderException(h.f2230e);
+                    throw new CoderException(c.a.d.c.e.c.h.f2197e);
                 }
             } else {
                 z3 = false;
@@ -207,7 +206,7 @@ public class b {
                 encodeInBackGround = a(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = s.c(d.a().b(), encodeInBackGround);
+                encodeInBackGround = t.c(d.a().b(), encodeInBackGround);
             }
             return a.i(z2, z, socketMessage.getCmd(), i2, encodeInBackGround, z3);
         }
@@ -221,7 +220,7 @@ public class b {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i2, i3);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                g.c(byteArrayInputStream, byteArrayOutputStream);
+                h.c(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {

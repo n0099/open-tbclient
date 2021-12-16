@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class BubbleListData extends OrmObject implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4612117445868668894L;
@@ -20,7 +20,7 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
     public String error_code;
     public String error_msg;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class BubbleData extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1540726255641451917L;

@@ -1,7 +1,7 @@
 package com.duxiaoman.dxmpay.statistics.internal;
 
 import android.content.Context;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface IStatConfig {
     String getAppVersionCode();
 

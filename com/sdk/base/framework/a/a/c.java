@@ -12,20 +12,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedHashMap<K, V> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60896b;
+    public int f61477b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f60897c;
+    public int f61478c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b<K, Long> f60898d;
+    public b<K, Long> f61479d;
 
     public c(int i2) {
         Interceptable interceptable = $ic;
@@ -45,9 +45,9 @@ public class c<K, V> {
         if (i2 <= 0) {
             throw new IllegalArgumentException("maxSize <= 0");
         }
-        this.f60897c = i2;
+        this.f61478c = i2;
         this.a = new LinkedHashMap<>(0, 0.75f, true);
-        this.f60898d = new b<>(0, 0.75f);
+        this.f61479d = new b<>(0, 0.75f);
     }
 
     public static int a(String str, String str2, Boolean bool) {
@@ -99,15 +99,15 @@ public class c<K, V> {
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             while (true) {
                 synchronized (this) {
-                    if (this.f60896b <= i2 || this.a.isEmpty()) {
+                    if (this.f61477b <= i2 || this.a.isEmpty()) {
                         break;
                     }
                     Map.Entry<K, V> next = this.a.entrySet().iterator().next();
                     K key = next.getKey();
                     V value = next.getValue();
                     this.a.remove(key);
-                    this.f60898d.remove(key);
-                    this.f60896b -= b(key, value);
+                    this.f61479d.remove(key);
+                    this.f61477b -= b(key, value);
                 }
             }
         }
@@ -134,9 +134,9 @@ public class c<K, V> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, k2, v)) == null) {
             int a = a((c<K, V>) k2, (K) v);
             if (a <= 0) {
-                this.f60896b = 0;
+                this.f61477b = 0;
                 for (Map.Entry<K, V> entry : this.a.entrySet()) {
-                    this.f60896b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
+                    this.f61477b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
                 }
             }
             return a;
@@ -173,9 +173,9 @@ public class c<K, V> {
             if (k2 != null) {
                 synchronized (this) {
                     remove = this.a.remove(k2);
-                    this.f60898d.remove(k2);
+                    this.f61479d.remove(k2);
                     if (remove != null) {
-                        this.f60896b -= b(k2, remove);
+                        this.f61477b -= b(k2, remove);
                     }
                 }
                 return remove;
@@ -215,7 +215,7 @@ public class c<K, V> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2)) == null) {
             if (k2 != null) {
                 synchronized (this) {
-                    if (!this.f60898d.containsKey(k2)) {
+                    if (!this.f61479d.containsKey(k2)) {
                         b((c<K, V>) k2);
                         return null;
                     }
@@ -240,14 +240,14 @@ public class c<K, V> {
                 throw new NullPointerException("key == null || value == null");
             }
             synchronized (this) {
-                this.f60896b += b(k2, v);
+                this.f61477b += b(k2, v);
                 put = this.a.put(k2, v);
-                this.f60898d.put(k2, Long.valueOf(j2));
+                this.f61479d.put(k2, Long.valueOf(j2));
                 if (put != null) {
-                    this.f60896b -= b(k2, put);
+                    this.f61477b -= b(k2, put);
                 }
             }
-            a(this.f60897c);
+            a(this.f61478c);
             return put;
         }
         return (V) invokeCommon.objValue;

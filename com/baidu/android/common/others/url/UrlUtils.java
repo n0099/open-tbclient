@@ -28,7 +28,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class UrlUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern COARSE_WEB_URL;

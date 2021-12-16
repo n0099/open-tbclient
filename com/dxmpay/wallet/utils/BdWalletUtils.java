@@ -20,21 +20,23 @@ import com.dxmpay.wallet.core.beans.NetworkBean;
 import com.dxmpay.wallet.paysdk.SDKInitBeanCallBack;
 import com.dxmpay.wallet.paysdk.beans.NewSdkInitBean;
 import java.io.File;
-/* loaded from: classes12.dex */
+import java.util.ArrayList;
+/* loaded from: classes2.dex */
 public class BdWalletUtils {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f55587e;
+        public final /* synthetic */ View.OnClickListener f56168e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PromptDialog f55588f;
+        public final /* synthetic */ PromptDialog f56169f;
 
         public a(View.OnClickListener onClickListener, PromptDialog promptDialog) {
             Interceptable interceptable = $ic;
@@ -51,33 +53,33 @@ public class BdWalletUtils {
                     return;
                 }
             }
-            this.f55587e = onClickListener;
-            this.f55588f = promptDialog;
+            this.f56168e = onClickListener;
+            this.f56169f = promptDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                View.OnClickListener onClickListener = this.f55587e;
+                View.OnClickListener onClickListener = this.f56168e;
                 if (onClickListener != null) {
                     onClickListener.onClick(view);
                 }
-                this.f55588f.dismiss();
+                this.f56169f.dismiss();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f55589e;
+        public final /* synthetic */ View.OnClickListener f56170e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PromptDialog f55590f;
+        public final /* synthetic */ PromptDialog f56171f;
 
         public b(View.OnClickListener onClickListener, PromptDialog promptDialog) {
             Interceptable interceptable = $ic;
@@ -94,19 +96,19 @@ public class BdWalletUtils {
                     return;
                 }
             }
-            this.f55589e = onClickListener;
-            this.f55590f = promptDialog;
+            this.f56170e = onClickListener;
+            this.f56171f = promptDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                View.OnClickListener onClickListener = this.f55589e;
+                View.OnClickListener onClickListener = this.f56170e;
                 if (onClickListener != null) {
                     onClickListener.onClick(view);
                 }
-                this.f55590f.dismiss();
+                this.f56171f.dismiss();
             }
         }
     }
@@ -151,7 +153,7 @@ public class BdWalletUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            String str = (String) SharedPreferencesUtils.getParam(context, "__DxmPay_Wallet_SDK_FP", com.baidu.wallet.utils.BdWalletUtils.f54213b, "");
+            String str = (String) SharedPreferencesUtils.getParam(context, "__DxmPay_Wallet_SDK_FP", com.baidu.wallet.utils.BdWalletUtils.f54793b, "");
             return !TextUtils.isEmpty(str) ? SecurePay.getInstance().localDecrypt1(str) : str;
         }
         return (String) invokeL.objValue;
@@ -170,14 +172,20 @@ public class BdWalletUtils {
         return (String) invokeL.objValue;
     }
 
+    public static ArrayList getFunctionNameList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? a : (ArrayList) invokeV.objValue;
+    }
+
     public static String getKefuPhoneNum(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             if (context == null) {
                 return "";
             }
-            String str = (String) SharedPreferencesUtils.getParam(context, "__DxmPay_Wallet_SDK_KEFU", com.baidu.wallet.utils.BdWalletUtils.f54215d, "");
+            String str = (String) SharedPreferencesUtils.getParam(context, "__DxmPay_Wallet_SDK_KEFU", com.baidu.wallet.utils.BdWalletUtils.f54795d, "");
             return TextUtils.isEmpty(str) ? ResUtils.getString(context, "dxm_wallet_base_help_phone_no_dial") : str;
         }
         return (String) invokeL.objValue;
@@ -185,35 +193,53 @@ public class BdWalletUtils {
 
     public static void loadDeviceFP(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
+            SDKInitBeanCallBack sDKInitBeanCallBack = new SDKInitBeanCallBack(context);
             NewSdkInitBean newSdkInitBean = new NewSdkInitBean(context.getApplicationContext());
-            newSdkInitBean.setResponseCallback(new SDKInitBeanCallBack(context));
+            newSdkInitBean.setResponseCallback(sDKInitBeanCallBack);
             newSdkInitBean.execBean();
             c.f.b.e.a.a aVar = new c.f.b.e.a.a(context.getApplicationContext());
-            aVar.setResponseCallback(new SDKInitBeanCallBack(context));
+            aVar.setResponseCallback(sDKInitBeanCallBack);
             aVar.execBean();
+        }
+    }
+
+    public static void putFunctionNameList(String... strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, strArr) == null) {
+            if (a == null) {
+                a = new ArrayList();
+            }
+            if (strArr == null || strArr.length <= 0) {
+                return;
+            }
+            for (int i2 = 0; i2 < strArr.length; i2++) {
+                if (!a.contains(strArr[i2])) {
+                    a.add(strArr[i2]);
+                }
+            }
         }
     }
 
     public static void setDeviceFP(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) || str == null) {
             return;
         }
-        SharedPreferencesUtils.setParam(context, "__DxmPay_Wallet_SDK_FP", com.baidu.wallet.utils.BdWalletUtils.f54213b, SecurePay.getInstance().localEncrypt1(str));
+        SharedPreferencesUtils.setParam(context, "__DxmPay_Wallet_SDK_FP", com.baidu.wallet.utils.BdWalletUtils.f54793b, SecurePay.getInstance().localEncrypt1(str));
     }
 
     public static void setKefuPhoneNumToSP(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, context, str) == null) || str == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65547, null, context, str) == null) || str == null || context == null) {
             return;
         }
-        SharedPreferencesUtils.setParam(context, "__DxmPay_Wallet_SDK_KEFU", com.baidu.wallet.utils.BdWalletUtils.f54215d, str);
+        SharedPreferencesUtils.setParam(context, "__DxmPay_Wallet_SDK_KEFU", com.baidu.wallet.utils.BdWalletUtils.f54795d, str);
     }
 
     public static void showThemeDialog(Context context, String str, String str2, String str3, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, str, str2, str3, onClickListener, onClickListener2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{context, str, str2, str3, onClickListener, onClickListener2}) == null) {
             PromptDialog promptDialog = new PromptDialog(context);
             promptDialog.setMessage(str);
             promptDialog.setNegativeBtn(str2, new a(onClickListener, promptDialog));

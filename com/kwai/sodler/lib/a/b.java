@@ -7,32 +7,32 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements Comparable<b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60083b;
+    public String f60664b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60084c;
+    public String f60665c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f60085d;
+    public long f60666d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f60086e;
+    public boolean f60667e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60087f;
+    public String f60668f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f60088g;
+    public boolean f60669g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<String, String> f60089h;
+    public HashMap<String, String> f60670h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -47,8 +47,8 @@ public class b implements Comparable<b> {
                 return;
             }
         }
-        this.f60088g = false;
-        this.f60089h = new HashMap<>(10);
+        this.f60669g = false;
+        this.f60670h = new HashMap<>(10);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,6 +57,6 @@ public class b implements Comparable<b> {
     public int compareTo(@NonNull b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? -this.f60083b.compareTo(bVar.f60083b) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? -this.f60664b.compareTo(bVar.f60664b) : invokeL.intValue;
     }
 }

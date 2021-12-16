@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableMultiset;
 import com.google.common.primitives.Ints;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
     public static /* synthetic */ Interceptable $ic;
     public static final RegularImmutableMultiset<Object> EMPTY;
@@ -22,7 +22,7 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
     public transient ImmutableSet<E> elementSet;
     public final transient int size;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class ElementSet extends IndexedImmutableSet<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -138,7 +138,7 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -4,14 +4,14 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.View;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.compatible.menukey.MenuKeyUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ViewCommonUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class ViewCommonUtil {
                     iArr[1] = iArr[1] - findViewById.getHeight();
                 }
             }
-            int[] p = l.p(activity);
+            int[] p = m.p(activity);
             if (iArr[0] == 0 || iArr[1] == 0) {
                 iArr[0] = p[0];
                 iArr[1] = p[1];
@@ -64,8 +64,8 @@ public class ViewCommonUtil {
             if (windowVisibility != 8) {
                 rect.top = 0;
             }
-            int r = l.r(activity);
-            int d2 = MenuKeyUtils.hasSmartBar() ? l.d(activity, 48.0f) : 0;
+            int r = m.r(activity);
+            int d2 = MenuKeyUtils.hasSmartBar() ? m.d(activity, 48.0f) : 0;
             int i2 = UtilHelper.canUseStyleImmersiveSticky() ? 0 : r;
             rect.bottom -= d2;
             rect.top += i2;

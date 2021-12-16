@@ -8,16 +8,16 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class y implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ byte[] f31004e;
+    public final /* synthetic */ byte[] f31374e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ String f31005f;
+    public final /* synthetic */ String f31375f;
 
     public y(byte[] bArr, String str) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class y implements Runnable {
                 return;
             }
         }
-        this.f31004e = bArr;
-        this.f31005f = str;
+        this.f31374e = bArr;
+        this.f31375f = str;
     }
 
     @Override // java.lang.Runnable
@@ -43,8 +43,8 @@ public final class y implements Runnable {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            byte[] bArr = this.f31004e;
-            String str = this.f31005f;
+            byte[] bArr = this.f31374e;
+            String str = this.f31375f;
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
             File file = new File(str);
             String substring = str.substring(0, str.lastIndexOf("/"));

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ErrorAction implements NoProguard, RouterAction {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_MESSAGE = "Something was really wrong.";

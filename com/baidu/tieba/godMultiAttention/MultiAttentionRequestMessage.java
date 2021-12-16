@@ -1,6 +1,6 @@
 package com.baidu.tieba.godMultiAttention;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.MFollow.DataReq;
 import tbclient.MFollow.MFollowReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class MultiAttentionRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class MultiAttentionRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.portrait = this.portraitList;
             if (z) {
-                z.b(builder, true, true);
+                b0.b(builder, true, true);
             }
             MFollowReqIdl.Builder builder2 = new MFollowReqIdl.Builder();
             builder2.data = builder.build(false);

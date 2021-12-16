@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.Map;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.builder.CompareToBuilder;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class Pair<L, R> implements Map.Entry<L, R>, Comparable<Pair<L, R>>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4954918890077093841L;

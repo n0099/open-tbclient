@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.report.g;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.core.report.b<c, b> {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f57859b;
+    public static volatile boolean f58440b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
             }
         }
         a = new a();
-        f57859b = false;
+        f58440b = false;
     }
 
     public a() {
@@ -60,7 +60,7 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f57860b;
+                public final /* synthetic */ String f58441b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -78,7 +78,7 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
                         }
                     }
                     this.a = str;
-                    this.f57860b = str2;
+                    this.f58441b = str2;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -87,7 +87,7 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
                 public c a() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new c(this.a, this.f57860b) : (c) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new c(this.a, this.f58441b) : (c) invokeV.objValue;
                 }
             });
         }
@@ -102,11 +102,11 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
     @Override // com.kwad.sdk.core.report.b
     public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || f57859b) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || f58440b) {
             return;
         }
         super.a(context);
-        f57859b = true;
+        f58440b = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

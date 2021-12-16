@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f61381b;
+    public static volatile c f61962b;
     public transient /* synthetic */ FieldHolder $fh;
     public SQLiteDatabase a;
 
@@ -46,14 +46,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f61381b == null) {
+            if (f61962b == null) {
                 synchronized (c.class) {
-                    if (f61381b == null) {
-                        f61381b = new c();
+                    if (f61962b == null) {
+                        f61962b = new c();
                     }
                 }
             }
-            return f61381b;
+            return f61962b;
         }
         return (c) invokeV.objValue;
     }

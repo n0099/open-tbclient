@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class i extends c.i.b.a.y.f implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f29907h;
+    public e f30277h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f29908i;
+    public long f30278i;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -36,28 +36,28 @@ public abstract class i extends c.i.b.a.y.f implements e {
     public long a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f29907h.a(i2) + this.f29908i : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f30277h.a(i2) + this.f30278i : invokeI.longValue;
     }
 
     @Override // c.i.b.a.e0.e
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29907h.b() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30277h.b() : invokeV.intValue;
     }
 
     @Override // c.i.b.a.e0.e
     public int c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f29907h.c(j2 - this.f29908i) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f30277h.c(j2 - this.f30278i) : invokeJ.intValue;
     }
 
     @Override // c.i.b.a.e0.e
     public List<b> d(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.f29907h.d(j2 - this.f29908i) : (List) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.f30277h.d(j2 - this.f30278i) : (List) invokeJ.objValue;
     }
 
     @Override // c.i.b.a.y.a
@@ -65,7 +65,7 @@ public abstract class i extends c.i.b.a.y.f implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.f();
-            this.f29907h = null;
+            this.f30277h = null;
         }
     }
 
@@ -74,12 +74,12 @@ public abstract class i extends c.i.b.a.y.f implements e {
     public void n(long j2, e eVar, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), eVar, Long.valueOf(j3)}) == null) {
-            this.f30481f = j2;
-            this.f29907h = eVar;
+            this.f30851f = j2;
+            this.f30277h = eVar;
             if (j3 != Long.MAX_VALUE) {
                 j2 = j3;
             }
-            this.f29908i = j2;
+            this.f30278i = j2;
         }
     }
 }

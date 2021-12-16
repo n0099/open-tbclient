@@ -2,7 +2,7 @@ package io.flutter.embedding.engine.deferredcomponents;
 
 import io.flutter.embedding.engine.FlutterJNI;
 import io.flutter.embedding.engine.systemchannels.DeferredComponentChannel;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface DeferredComponentManager {
     void destroy();
 

@@ -9,8 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.m.e.n;
-import c.a.q0.s.g0.u.a;
-import c.a.q0.s.g0.u.b;
+import c.a.r0.s.i0.u.a;
+import c.a.r0.s.i0.u.b;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,16 +22,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BdBaseViewPagerContainer extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdBaseViewPagerContainerHolder f41530e;
+    public BdBaseViewPagerContainerHolder f42021e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f41531f;
+    public a f42022f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdBaseViewPagerContainer(Context context) {
@@ -73,59 +73,59 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup, z) == null) {
             BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder = new BdBaseViewPagerContainerHolder(LayoutInflater.from(context).inflate(R.layout.bd_base_viewpager_container, viewGroup, z), context);
-            this.f41530e = bdBaseViewPagerContainerHolder;
+            this.f42021e = bdBaseViewPagerContainerHolder;
             a(bdBaseViewPagerContainerHolder);
-            BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder2 = this.f41530e;
-            this.f41531f = new a(context, bdBaseViewPagerContainerHolder2.mViewPager, bdBaseViewPagerContainerHolder2.mIndicatorView, bdBaseViewPagerContainerHolder2.mMoreView, 4, false, true);
+            BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder2 = this.f42021e;
+            this.f42022f = new a(context, bdBaseViewPagerContainerHolder2.mViewPager, bdBaseViewPagerContainerHolder2.mIndicatorView, bdBaseViewPagerContainerHolder2.mMoreView, 4, false, true);
         }
     }
 
     public IndicatorView getIndicatorView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41530e.mIndicatorView : (IndicatorView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42021e.mIndicatorView : (IndicatorView) invokeV.objValue;
     }
 
     public TextView getMoreView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41530e.mMoreView : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42021e.mMoreView : (TextView) invokeV.objValue;
     }
 
     @Override // android.view.View
     public View getRootView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41530e.getView() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42021e.getView() : (View) invokeV.objValue;
     }
 
     public BdBaseViewPagerContainerHolder getViewHolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41530e : (BdBaseViewPagerContainerHolder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f42021e : (BdBaseViewPagerContainerHolder) invokeV.objValue;
     }
 
     public BdBaseViewPager getViewPager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41530e.mViewPager : (BdBaseViewPager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f42021e.mViewPager : (BdBaseViewPager) invokeV.objValue;
     }
 
     public void notifyDataSetChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f41531f.i();
+            this.f42022f.i();
         }
     }
 
     public void onSkinTypeChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder = this.f41530e;
+            BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder = this.f42021e;
             if (i2 != bdBaseViewPagerContainerHolder.skinType) {
                 a(bdBaseViewPagerContainerHolder);
-                this.f41531f.j(i2);
-                this.f41530e.skinType = i2;
+                this.f42022f.j(i2);
+                this.f42021e.skinType = i2;
             }
         }
     }
@@ -133,63 +133,63 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
     public void registerAdapter(Context context, b<?, ?> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, context, bVar) == null) {
-            this.f41531f.k(context, bVar);
+            this.f42022f.k(context, bVar);
         }
     }
 
     public void registerAdapters(Context context, List<b<?, ?>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, list) == null) {
-            this.f41531f.l(context, list);
+            this.f42022f.l(context, list);
         }
     }
 
     public void setAutoScrollIntervalTime(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.f41531f.m(j2);
+            this.f42022f.m(j2);
         }
     }
 
     public void setDatas(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.f41531f.n(list);
+            this.f42022f.n(list);
         }
     }
 
     public void setIsAutoScrollEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f41531f.o(z);
+            this.f42022f.o(z);
         }
     }
 
     public void setIsMaxScrollEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f41531f.p(z);
+            this.f42022f.p(z);
         }
     }
 
     public void setMaxScrollCountLimit(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f41531f.q(i2);
+            this.f42022f.q(i2);
         }
     }
 
     public void startAutoScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f41531f.r();
+            this.f42022f.r();
         }
     }
 
     public void stopAutoScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f41531f.s();
+            this.f42022f.s();
         }
     }
 

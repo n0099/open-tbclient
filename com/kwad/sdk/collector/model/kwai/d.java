@@ -13,14 +13,14 @@ import com.kwad.sdk.utils.q;
 import com.kwad.sdk.utils.t;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57143b;
+    public String f57724b;
 
     public d(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class d implements e {
             }
         }
         this.a = str;
-        this.f57143b = str2;
+        this.f57724b = str2;
     }
 
     private String b() {
@@ -46,7 +46,7 @@ public class d implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             try {
-                return this.f57143b.substring(this.f57143b.indexOf(this.a)).replaceFirst(this.a, "");
+                return this.f57724b.substring(this.f57724b.indexOf(this.a)).replaceFirst(this.a, "");
             } catch (Throwable unused) {
                 return null;
             }
@@ -64,7 +64,7 @@ public class d implements e {
             try {
                 JSONObject jSONObject = new JSONObject();
                 t.a(jSONObject, "packageName", this.a);
-                t.a(jSONObject, "content", q.a(this.f57143b));
+                t.a(jSONObject, "content", q.a(this.f57724b));
                 t.a(jSONObject, "fileName", b());
                 return jSONObject;
             } catch (Throwable unused) {
@@ -86,7 +86,7 @@ public class d implements e {
             }
             d dVar = (d) obj;
             if (this.a.equals(dVar.a)) {
-                return this.f57143b.equals(dVar.f57143b);
+                return this.f57724b.equals(dVar.f57724b);
             }
             return false;
         }
@@ -96,7 +96,7 @@ public class d implements e {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.a.hashCode() * 31) + this.f57143b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.a.hashCode() * 31) + this.f57724b.hashCode() : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.core.b
@@ -106,7 +106,7 @@ public class d implements e {
             return;
         }
         this.a = jSONObject.optString("packageName");
-        this.f57143b = jSONObject.optString("originFilePath");
+        this.f57724b = jSONObject.optString("originFilePath");
     }
 
     @Override // com.kwad.sdk.core.b
@@ -116,7 +116,7 @@ public class d implements e {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             t.a(jSONObject, "packageName", this.a);
-            t.a(jSONObject, "originFilePath", this.f57143b);
+            t.a(jSONObject, "originFilePath", this.f57724b);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
@@ -126,7 +126,7 @@ public class d implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "UploadEntryJava{packageName='" + this.a + ExtendedMessageFormat.QUOTE + ", originFilePath='" + this.f57143b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "UploadEntryJava{packageName='" + this.a + ExtendedMessageFormat.QUOTE + ", originFilePath='" + this.f57724b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

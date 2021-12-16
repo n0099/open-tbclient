@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.message;
 
 import com.yy.hiidostatis.provider.MessageConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface AppInfo {
     String getAppAppkey();
 

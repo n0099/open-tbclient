@@ -9,10 +9,11 @@ import android.util.Base64;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.b;
-import c.a.q0.a.d;
-import c.a.q0.a.g;
-import c.a.q0.a.w;
-import c.a.r0.t3.j0.n;
+import c.a.r0.a.d;
+import c.a.r0.a.g;
+import c.a.r0.a.w;
+import c.a.r0.d1.i;
+import c.a.s0.v3.j0.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -29,6 +30,8 @@ import com.baidu.tbadk.core.atomData.Anniversary18thActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.HotRanklistActivityConfig;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
@@ -41,12 +44,15 @@ import com.baidu.tbadk.core.atomData.TopicDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageLightActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionParser;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
@@ -58,13 +64,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SchemaRouteActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
+    public static String targetSchemeAction;
     public transient /* synthetic */ FieldHolder $fh;
     public final g.b mOnSchemeParsedCallback;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements g.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +95,7 @@ public class SchemaRouteActivity extends BaseActivity {
             this.a = schemaRouteActivity;
         }
 
-        @Override // c.a.q0.a.g.b
+        @Override // c.a.r0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.B) instanceof String)) {
@@ -129,7 +136,7 @@ public class SchemaRouteActivity extends BaseActivity {
         if (!(interceptable == null || interceptable.invokeL(65537, this, intent) == null) || intent == null) {
             return;
         }
-        c.a.q0.s.y.a.l(intent.getDataString(), false);
+        c.a.r0.s.z.a.o(intent.getDataString(), false);
         clearClipBoardIfNeed(intent.getData());
         parserWiseSampleId(intent.getData());
         String dataString = intent.getDataString();
@@ -137,7 +144,15 @@ public class SchemaRouteActivity extends BaseActivity {
         w.e(intent.getData());
         w.c(intent.getData());
         GrowthStatsUtil.statisticChannel(GrowthStatsUtil.SPLASH_SOURCE.THIRD_PARTY, dataString);
-        if (!TextUtils.isEmpty(dataString) && (dataString.contains("invoke_frs") || dataString.contains("tbfrs") || dataString.contains("unidispatch/frs"))) {
+        if (!TextUtils.isEmpty(dataString) && SchemeActionParser.isTieBaAppSchemeHeader(dataString)) {
+            d.y().N(true);
+            if (!b.g().i("MainTabActivity")) {
+                targetSchemeAction = dataString;
+                sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
+                return;
+            }
+            SchemeActionManager.getInstance().doSchemeAction(getPageContext(), dataString);
+        } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbfrs") || dataString.contains("unidispatch/frs"))) {
             FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getActivity());
             frsActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2003000, frsActivityConfig));
@@ -150,7 +165,20 @@ public class SchemaRouteActivity extends BaseActivity {
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
                 return;
             }
-            sendMessage(new CustomMessage(2004001, PbActivityConfig.createCfgFromUri(getActivity(), intent.getData())));
+            String queryParameter = intent.getData().getQueryParameter("obj_param1");
+            if (!g.g0.equals(queryParameter) && !"2".equals(queryParameter)) {
+                sendMessage(new CustomMessage(2004001, PbActivityConfig.createCfgFromUri(getActivity(), intent.getData())));
+            } else {
+                String queryParameter2 = intent.getData().getQueryParameter("tid");
+                ArrayList arrayList = new ArrayList();
+                VideoItemData videoItemData = new VideoItemData();
+                videoItemData.thread_id = queryParameter2;
+                arrayList.add(videoItemData);
+                VideoRecommentPlayActivityConfig videoRecommentPlayActivityConfig = new VideoRecommentPlayActivityConfig(this, arrayList, null, VideoRecommentPlayActivityConfig.FROM_PB_VIDEO_SCHEME);
+                videoRecommentPlayActivityConfig.setParamIsVertail(true);
+                videoRecommentPlayActivityConfig.setUri(intent.getData());
+                sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
+            }
             d.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && dataString.contains("tbwebview")) {
             Uri data = intent.getData();
@@ -189,20 +217,20 @@ public class SchemaRouteActivity extends BaseActivity {
             d.y().N(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f11640b + g.f11649k)) {
+                if (dataString.contains(g.f11953b + g.f11962k)) {
                     Uri parse = Uri.parse(dataString);
-                    String queryParameter = parse.getQueryParameter(g.K);
-                    String queryParameter2 = parse.getQueryParameter(g.L);
-                    UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + queryParameter2 + "&livetype=" + queryParameter});
+                    String queryParameter3 = parse.getQueryParameter(g.K);
+                    String queryParameter4 = parse.getQueryParameter(g.L);
+                    UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + queryParameter4 + "&livetype=" + queryParameter3});
                     d.y().N(true);
                     return;
                 }
             }
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f11640b + g.l)) {
-                    String queryParameter3 = Uri.parse(dataString).getQueryParameter(g.M);
-                    if (queryParameter3 != null) {
-                        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter3.getBytes(), 2))});
+                if (dataString.contains(g.f11953b + g.l)) {
+                    String queryParameter5 = Uri.parse(dataString).getQueryParameter(g.M);
+                    if (queryParameter5 != null) {
+                        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter5.getBytes(), 2))});
                         d.y().N(true);
                         return;
                     }
@@ -224,7 +252,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015002, mainTabActivityConfig));
             } else {
                 if (!TextUtils.isEmpty(dataString)) {
-                    if (dataString.contains(g.f11640b + g.q)) {
+                    if (dataString.contains(g.f11953b + g.q)) {
                         Anniversary18thActivityConfig.open(this);
                         return;
                     }
@@ -234,42 +262,42 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("/categorylist")) {
                     Uri parse2 = Uri.parse(dataString);
-                    String queryParameter4 = parse2.getQueryParameter(g.S);
-                    String queryParameter5 = parse2.getQueryParameter(g.X);
-                    String queryParameter6 = parse2.getQueryParameter(g.T);
-                    String queryParameter7 = parse2.getQueryParameter(g.U);
-                    String queryParameter8 = parse2.getQueryParameter(g.V);
-                    String queryParameter9 = parse2.getQueryParameter(g.W);
+                    String queryParameter6 = parse2.getQueryParameter(g.S);
+                    String queryParameter7 = parse2.getQueryParameter(g.X);
+                    String queryParameter8 = parse2.getQueryParameter(g.T);
+                    String queryParameter9 = parse2.getQueryParameter(g.U);
+                    String queryParameter10 = parse2.getQueryParameter(g.V);
+                    String queryParameter11 = parse2.getQueryParameter(g.W);
                     HashMap hashMap = new HashMap();
-                    hashMap.put("item_id", queryParameter4);
-                    hashMap.put("tab_id", queryParameter5);
-                    hashMap.put("sort_type", queryParameter6);
-                    hashMap.put("rank_type", queryParameter7);
-                    hashMap.put("rank_code", queryParameter8);
-                    hashMap.put("home_tab_name", queryParameter9);
+                    hashMap.put("item_id", queryParameter6);
+                    hashMap.put("tab_id", queryParameter7);
+                    hashMap.put("sort_type", queryParameter8);
+                    hashMap.put("rank_type", queryParameter9);
+                    hashMap.put("rank_code", queryParameter10);
+                    hashMap.put("home_tab_name", queryParameter11);
                     sendMessage(new CustomMessage(2002015, new n(this, "ItemRecommendList", hashMap)));
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("/itemDetailsPage")) {
                     Uri parse3 = Uri.parse(dataString);
-                    String queryParameter10 = parse3.getQueryParameter(g.a0);
-                    if (!StringUtils.isNull(queryParameter10)) {
+                    String queryParameter12 = parse3.getQueryParameter(g.a0);
+                    if (!StringUtils.isNull(queryParameter12)) {
                         setSearchSource(dataString);
-                        String str8 = "com.baidu.tieba://unidispatch/itemDetailsPage?name=" + queryParameter10 + "&from=" + FrsActivityConfig.FRS_FROM_ITEM;
+                        String str8 = "com.baidu.tieba://unidispatch/itemDetailsPage?name=" + queryParameter12 + "&from=" + FrsActivityConfig.FRS_FROM_ITEM;
                         FrsActivityConfig frsActivityConfig2 = new FrsActivityConfig(getActivity());
                         frsActivityConfig2.setUri(Uri.parse(str8));
                         sendMessage(new CustomMessage(2003000, frsActivityConfig2));
                         d.y().N(true);
                     } else {
-                        String queryParameter11 = parse3.getQueryParameter(g.S);
+                        String queryParameter13 = parse3.getQueryParameter(g.S);
                         HashMap hashMap2 = new HashMap();
-                        hashMap2.put("itemID", String.valueOf(queryParameter11));
+                        hashMap2.put("itemID", String.valueOf(queryParameter13));
                         sendMessage(new CustomMessage(2002015, new n(this, "GameItemDetailsPage", hashMap2)));
                     }
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/item") && !dataString.contains("/itemDetailsPage")) {
-                    String queryParameter12 = Uri.parse(dataString).getQueryParameter(g.R);
+                    String queryParameter14 = Uri.parse(dataString).getQueryParameter(g.R);
                     HashMap hashMap3 = new HashMap();
-                    hashMap3.put("itemID", String.valueOf(queryParameter12));
+                    hashMap3.put("itemID", String.valueOf(queryParameter14));
                     sendMessage(new CustomMessage(2002015, new n(this, "GameItemDetailsPage", hashMap3)));
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/login_page_test") && !TbadkCoreApplication.isLogin()) {
@@ -283,41 +311,41 @@ public class SchemaRouteActivity extends BaseActivity {
                     str4 = "author_name";
                 } else {
                     Uri parse4 = Uri.parse(dataString);
-                    String queryParameter13 = parse4.getQueryParameter(g.u);
-                    String queryParameter14 = parse4.getQueryParameter(g.Q);
-                    String queryParameter15 = parse4.getQueryParameter("title");
+                    String queryParameter15 = parse4.getQueryParameter(g.u);
+                    String queryParameter16 = parse4.getQueryParameter(g.Q);
+                    String queryParameter17 = parse4.getQueryParameter("title");
                     obj = "room_id";
-                    String queryParameter16 = parse4.getQueryParameter("author_name");
+                    String queryParameter18 = parse4.getQueryParameter("author_name");
                     str4 = "author_name";
-                    String queryParameter17 = parse4.getQueryParameter("author_nick_name");
-                    String queryParameter18 = parse4.getQueryParameter("author_is_god");
-                    String queryParameter19 = parse4.getQueryParameter("author_is_bigv");
+                    String queryParameter19 = parse4.getQueryParameter("author_nick_name");
+                    String queryParameter20 = parse4.getQueryParameter("author_is_god");
+                    String queryParameter21 = parse4.getQueryParameter("author_is_bigv");
                     str = "author_is_bigv";
-                    String queryParameter20 = parse4.getQueryParameter("author_portrait");
+                    String queryParameter22 = parse4.getQueryParameter("author_portrait");
                     str3 = "author_portrait";
-                    String queryParameter21 = parse4.getQueryParameter("video_thumbnail_url");
-                    String queryParameter22 = parse4.getQueryParameter("video_url");
+                    String queryParameter23 = parse4.getQueryParameter("video_thumbnail_url");
+                    String queryParameter24 = parse4.getQueryParameter("video_url");
                     str2 = "video_url";
                     VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
-                    videoSerializeVideoThreadInfo.threadId = queryParameter13;
-                    videoSerializeVideoThreadInfo.forumId = queryParameter14;
-                    videoSerializeVideoThreadInfo.title = queryParameter15;
+                    videoSerializeVideoThreadInfo.threadId = queryParameter15;
+                    videoSerializeVideoThreadInfo.forumId = queryParameter16;
+                    videoSerializeVideoThreadInfo.title = queryParameter17;
                     VideoSerializeVideoThreadInfo.VideoAggregationAuthorData videoAggregationAuthorData = new VideoSerializeVideoThreadInfo.VideoAggregationAuthorData();
                     videoSerializeVideoThreadInfo.author = videoAggregationAuthorData;
-                    videoAggregationAuthorData.userName = queryParameter16;
-                    videoAggregationAuthorData.userNickname = queryParameter17;
-                    if (!StringUtils.isNull(queryParameter18)) {
-                        videoSerializeVideoThreadInfo.author.isGod = Boolean.parseBoolean(queryParameter18);
+                    videoAggregationAuthorData.userName = queryParameter18;
+                    videoAggregationAuthorData.userNickname = queryParameter19;
+                    if (!StringUtils.isNull(queryParameter20)) {
+                        videoSerializeVideoThreadInfo.author.isGod = Boolean.parseBoolean(queryParameter20);
                     }
-                    if (!StringUtils.isNull(queryParameter19)) {
-                        videoSerializeVideoThreadInfo.author.isBigV = Boolean.parseBoolean(queryParameter19);
+                    if (!StringUtils.isNull(queryParameter21)) {
+                        videoSerializeVideoThreadInfo.author.isBigV = Boolean.parseBoolean(queryParameter21);
                     }
-                    videoSerializeVideoThreadInfo.author.portrait = queryParameter20;
+                    videoSerializeVideoThreadInfo.author.portrait = queryParameter22;
                     VideoSerializeVideoThreadInfo.VideoAggregationVideoData videoAggregationVideoData = new VideoSerializeVideoThreadInfo.VideoAggregationVideoData();
                     videoSerializeVideoThreadInfo.video = videoAggregationVideoData;
-                    videoAggregationVideoData.thumbnailUrl = queryParameter21;
-                    videoAggregationVideoData.videoUrl = queryParameter22;
-                    VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this, VideoMiddlePageActivityConfig.FROM_SCHEME_QA, queryParameter13, videoSerializeVideoThreadInfo);
+                    videoAggregationVideoData.thumbnailUrl = queryParameter23;
+                    videoAggregationVideoData.videoUrl = queryParameter24;
+                    VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this, VideoMiddlePageActivityConfig.FROM_SCHEME_QA, queryParameter15, videoSerializeVideoThreadInfo);
                     videoMiddlePageActivityConfig.setUri(intent.getData());
                     sendMessage(new CustomMessage(2002001, videoMiddlePageActivityConfig));
                 }
@@ -327,68 +355,68 @@ public class SchemaRouteActivity extends BaseActivity {
                     str7 = "author_nick_name";
                 } else {
                     Uri parse5 = Uri.parse(dataString);
-                    String queryParameter23 = parse5.getQueryParameter(g.u);
-                    String queryParameter24 = parse5.getQueryParameter(g.Q);
-                    String queryParameter25 = parse5.getQueryParameter("title");
+                    String queryParameter25 = parse5.getQueryParameter(g.u);
+                    String queryParameter26 = parse5.getQueryParameter(g.Q);
+                    String queryParameter27 = parse5.getQueryParameter("title");
                     str6 = str4;
-                    String queryParameter26 = parse5.getQueryParameter(str6);
-                    String queryParameter27 = parse5.getQueryParameter("author_nick_name");
-                    String queryParameter28 = parse5.getQueryParameter("author_is_god");
-                    String queryParameter29 = parse5.getQueryParameter(str);
+                    String queryParameter28 = parse5.getQueryParameter(str6);
+                    String queryParameter29 = parse5.getQueryParameter("author_nick_name");
+                    String queryParameter30 = parse5.getQueryParameter("author_is_god");
+                    String queryParameter31 = parse5.getQueryParameter(str);
                     str7 = "author_nick_name";
-                    String queryParameter30 = parse5.getQueryParameter(str3);
-                    String queryParameter31 = parse5.getQueryParameter("video_thumbnail_url");
+                    String queryParameter32 = parse5.getQueryParameter(str3);
+                    String queryParameter33 = parse5.getQueryParameter("video_thumbnail_url");
                     str5 = "video_thumbnail_url";
-                    String queryParameter32 = parse5.getQueryParameter(str2);
+                    String queryParameter34 = parse5.getQueryParameter(str2);
                     VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = new VideoSerializeVideoThreadInfo();
-                    videoSerializeVideoThreadInfo2.threadId = queryParameter23;
-                    videoSerializeVideoThreadInfo2.forumId = queryParameter24;
-                    videoSerializeVideoThreadInfo2.title = queryParameter25;
+                    videoSerializeVideoThreadInfo2.threadId = queryParameter25;
+                    videoSerializeVideoThreadInfo2.forumId = queryParameter26;
+                    videoSerializeVideoThreadInfo2.title = queryParameter27;
                     VideoSerializeVideoThreadInfo.VideoAggregationAuthorData videoAggregationAuthorData2 = new VideoSerializeVideoThreadInfo.VideoAggregationAuthorData();
                     videoSerializeVideoThreadInfo2.author = videoAggregationAuthorData2;
-                    videoAggregationAuthorData2.userName = queryParameter26;
-                    videoAggregationAuthorData2.userNickname = queryParameter27;
-                    if (!StringUtils.isNull(queryParameter28)) {
-                        videoSerializeVideoThreadInfo2.author.isGod = Boolean.parseBoolean(queryParameter28);
+                    videoAggregationAuthorData2.userName = queryParameter28;
+                    videoAggregationAuthorData2.userNickname = queryParameter29;
+                    if (!StringUtils.isNull(queryParameter30)) {
+                        videoSerializeVideoThreadInfo2.author.isGod = Boolean.parseBoolean(queryParameter30);
                     }
-                    if (!StringUtils.isNull(queryParameter29)) {
-                        videoSerializeVideoThreadInfo2.author.isBigV = Boolean.parseBoolean(queryParameter29);
+                    if (!StringUtils.isNull(queryParameter31)) {
+                        videoSerializeVideoThreadInfo2.author.isBigV = Boolean.parseBoolean(queryParameter31);
                     }
-                    videoSerializeVideoThreadInfo2.author.portrait = queryParameter30;
+                    videoSerializeVideoThreadInfo2.author.portrait = queryParameter32;
                     VideoSerializeVideoThreadInfo.VideoAggregationVideoData videoAggregationVideoData2 = new VideoSerializeVideoThreadInfo.VideoAggregationVideoData();
                     videoSerializeVideoThreadInfo2.video = videoAggregationVideoData2;
-                    videoAggregationVideoData2.thumbnailUrl = queryParameter31;
-                    videoAggregationVideoData2.videoUrl = queryParameter32;
-                    VideoMiddlePageLightActivityConfig videoMiddlePageLightActivityConfig = new VideoMiddlePageLightActivityConfig(this, VideoMiddlePageActivityConfig.FROM_SCHEME_QA, queryParameter23, videoSerializeVideoThreadInfo2);
+                    videoAggregationVideoData2.thumbnailUrl = queryParameter33;
+                    videoAggregationVideoData2.videoUrl = queryParameter34;
+                    VideoMiddlePageLightActivityConfig videoMiddlePageLightActivityConfig = new VideoMiddlePageLightActivityConfig(this, VideoMiddlePageActivityConfig.FROM_SCHEME_QA, queryParameter25, videoSerializeVideoThreadInfo2);
                     videoMiddlePageLightActivityConfig.setUri(intent.getData());
                     sendMessage(new CustomMessage(2002001, videoMiddlePageLightActivityConfig));
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/video_middle_vertical_page_qa")) {
                     Uri parse6 = Uri.parse(dataString);
-                    String queryParameter33 = parse6.getQueryParameter(g.u);
-                    String queryParameter34 = parse6.getQueryParameter(g.Q);
-                    String queryParameter35 = parse6.getQueryParameter("title");
-                    String queryParameter36 = parse6.getQueryParameter("author_uid");
-                    String queryParameter37 = parse6.getQueryParameter(str6);
-                    String queryParameter38 = parse6.getQueryParameter(str7);
-                    String queryParameter39 = parse6.getQueryParameter(str3);
-                    String queryParameter40 = parse6.getQueryParameter(str5);
-                    String queryParameter41 = parse6.getQueryParameter(str2);
-                    ArrayList arrayList = new ArrayList();
-                    VideoItemData videoItemData = new VideoItemData();
-                    videoItemData.thread_id = queryParameter33;
-                    videoItemData.forum_id = queryParameter34;
-                    videoItemData.title = queryParameter35;
+                    String queryParameter35 = parse6.getQueryParameter(g.u);
+                    String queryParameter36 = parse6.getQueryParameter(g.Q);
+                    String queryParameter37 = parse6.getQueryParameter("title");
+                    String queryParameter38 = parse6.getQueryParameter("author_uid");
+                    String queryParameter39 = parse6.getQueryParameter(str6);
+                    String queryParameter40 = parse6.getQueryParameter(str7);
+                    String queryParameter41 = parse6.getQueryParameter(str3);
+                    String queryParameter42 = parse6.getQueryParameter(str5);
+                    String queryParameter43 = parse6.getQueryParameter(str2);
+                    ArrayList arrayList2 = new ArrayList();
+                    VideoItemData videoItemData2 = new VideoItemData();
+                    videoItemData2.thread_id = queryParameter35;
+                    videoItemData2.forum_id = queryParameter36;
+                    videoItemData2.title = queryParameter37;
                     UserItemData userItemData = new UserItemData();
-                    userItemData.user_id = queryParameter36;
-                    userItemData.user_name = queryParameter37;
-                    userItemData.name_show = queryParameter38;
-                    userItemData.portrait = queryParameter39;
-                    videoItemData.author_info = userItemData;
-                    videoItemData.thumbnail_url = queryParameter40;
-                    videoItemData.video_url = queryParameter41;
-                    arrayList.add(videoItemData);
-                    VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this, arrayList, "from_nani_video", VideoMiddlePageActivityConfig.FROM_SCHEME_QA);
+                    userItemData.user_id = queryParameter38;
+                    userItemData.user_name = queryParameter39;
+                    userItemData.name_show = queryParameter40;
+                    userItemData.portrait = queryParameter41;
+                    videoItemData2.author_info = userItemData;
+                    videoItemData2.thumbnail_url = queryParameter42;
+                    videoItemData2.video_url = queryParameter43;
+                    arrayList2.add(videoItemData2);
+                    VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this, arrayList2, "from_nani_video", VideoMiddlePageActivityConfig.FROM_SCHEME_QA);
                     videoPlayActivityConfig.setParamIsVertail(true);
                     videoPlayActivityConfig.setUri(intent.getData());
                     sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
@@ -408,7 +436,7 @@ public class SchemaRouteActivity extends BaseActivity {
                         }
                         Object obj2 = obj;
                         if (hashMap4.containsKey(obj2)) {
-                            ((c.a.q0.j0.c.a) ServiceManager.getService(c.a.q0.j0.c.a.a.a())).a(TbadkCoreApplication.getInst().getCurrentPageContext(this), c.a.d.f.m.b.g((String) hashMap4.get(obj2), 0L));
+                            ((c.a.r0.j0.c.a) ServiceManager.getService(c.a.r0.j0.c.a.a.a())).a(TbadkCoreApplication.getInst().getCurrentPageContext(this), c.a.d.f.m.b.g((String) hashMap4.get(obj2), 0L));
                         }
                     } catch (Exception unused) {
                         if (BdBaseApplication.getInst().isDebugMode()) {
@@ -416,17 +444,29 @@ public class SchemaRouteActivity extends BaseActivity {
                         }
                     }
                 }
-                if (TextUtils.isEmpty(dataString) || !dataString.contains("unidispatch/searchResultPage")) {
+                if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/searchResultPage")) {
+                    String queryParameter44 = Uri.parse(dataString).getQueryParameter(g.Y);
+                    IntentConfig intentConfig = new IntentConfig(this);
+                    if (!StringUtils.isNull(queryParameter44)) {
+                        intentConfig.getIntent().putExtra(IntentConfig.SEARCH_PAGE_QUERY_CONTENT_KEY, queryParameter44);
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2015003, intentConfig));
+                    } else {
+                        sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
+                    }
+                }
+                if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/videoTopicPage")) {
+                    Uri parse8 = Uri.parse(dataString);
+                    String queryParameter45 = parse8.getQueryParameter("topic_id");
+                    String queryParameter46 = parse8.getQueryParameter(IntentConfig.TOPIC_NAME);
+                    String queryParameter47 = parse8.getQueryParameter("is_video_topic");
+                    if (!TextUtils.isEmpty(queryParameter45)) {
+                        new HotTopicActivityConfig(getPageContext().getPageActivity()).createNormalConfig(queryParameter45, queryParameter46, queryParameter47, null).start();
+                    }
+                }
+                if (TextUtils.isEmpty(dataString) || !dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_RANK_LIST)) {
                     return;
                 }
-                String queryParameter42 = Uri.parse(dataString).getQueryParameter(g.Y);
-                IntentConfig intentConfig = new IntentConfig(this);
-                if (!StringUtils.isNull(queryParameter42)) {
-                    intentConfig.getIntent().putExtra(IntentConfig.SEARCH_PAGE_QUERY_CONTENT_KEY, queryParameter42);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2015003, intentConfig));
-                    return;
-                }
-                sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
+                new HotRanklistActivityConfig(this).createNormalConfig("default", "all").start();
             }
         }
     }
@@ -447,7 +487,7 @@ public class SchemaRouteActivity extends BaseActivity {
         if (!(interceptable == null || interceptable.invokeL(65539, this, uri) == null) || uri == null) {
             return;
         }
-        c.a.q0.d1.g.d(uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID));
+        i.d(uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID));
     }
 
     private void setDayOrDarkSkin() {
@@ -476,7 +516,7 @@ public class SchemaRouteActivity extends BaseActivity {
         TbSingleton.getInstance().setFromWhichSearchSource(queryParameter);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.r0.p0.a
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -488,7 +528,7 @@ public class SchemaRouteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             if (TbadkCoreApplication.getInst().getStartType() == 2) {
-                c.a.q0.b0.a.a = true;
+                c.a.r0.b0.a.a = true;
             }
             super.onCreate(bundle);
             setDayOrDarkSkin();

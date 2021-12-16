@@ -3,6 +3,7 @@ package com.baidu.android.util.time;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.player.widget.BdPlayerProgressView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DateTimeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATE_FORMAT = "yyyy-MM-dd";
@@ -90,7 +91,7 @@ public final class DateTimeUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str)) {
-                return "00:00";
+                return BdPlayerProgressView.DEFAULT_TIME_TEXT;
             }
             long parseLong = Long.parseLong(str);
             return String.format(Locale.getDefault(), "%02d:%02d", Long.valueOf(parseLong / 60), Long.valueOf(parseLong % 60));

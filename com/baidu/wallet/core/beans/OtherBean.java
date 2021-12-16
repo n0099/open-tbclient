@@ -22,7 +22,7 @@ import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.core.utils.VerSig;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public abstract class OtherBean<T> extends NetworkBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "OtherBaseBean";

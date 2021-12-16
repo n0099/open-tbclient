@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {0})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseDescriptor {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;

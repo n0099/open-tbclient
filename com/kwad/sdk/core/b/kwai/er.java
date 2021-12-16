@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class er implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.f> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,8 +34,8 @@ public class er implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.
             return;
         }
         fVar.a = jSONObject.optInt("currentTime");
-        fVar.f57967b = jSONObject.optBoolean(com.alipay.sdk.util.f.f31418j);
-        fVar.f57968c = jSONObject.optBoolean("finished");
+        fVar.f58548b = jSONObject.optBoolean(com.alipay.sdk.util.f.f31788j);
+        fVar.f58549c = jSONObject.optBoolean("finished");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,8 +48,8 @@ public class er implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "currentTime", fVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, com.alipay.sdk.util.f.f31418j, fVar.f57967b);
-            com.kwad.sdk.utils.t.a(jSONObject, "finished", fVar.f57968c);
+            com.kwad.sdk.utils.t.a(jSONObject, com.alipay.sdk.util.f.f31788j, fVar.f58548b);
+            com.kwad.sdk.utils.t.a(jSONObject, "finished", fVar.f58549c);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

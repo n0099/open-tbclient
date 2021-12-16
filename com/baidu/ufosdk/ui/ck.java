@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ck implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ cg f51651b;
+    public final /* synthetic */ cg f52200b;
 
     public ck(cg cgVar, int i2) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class ck implements View.OnClickListener {
                 return;
             }
         }
-        this.f51651b = cgVar;
+        this.f52200b = cgVar;
         this.a = i2;
     }
 
@@ -49,17 +49,17 @@ public final class ck implements View.OnClickListener {
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f51651b.a.aF = this.a;
+            this.f52200b.a.aF = this.a;
             com.baidu.ufosdk.f.c.a("点击未解决！！！");
-            ((Map) this.f51651b.a.f51610h.get(this.a)).put("ask", 3);
-            if (((Map) this.f51651b.a.f51610h.get(this.a)).containsKey("chatId")) {
-                FeedbackInputActivity feedbackInputActivity = this.f51651b.a;
+            ((Map) this.f52200b.a.f52159h.get(this.a)).put("ask", 3);
+            if (((Map) this.f52200b.a.f52159h.get(this.a)).containsKey("chatId")) {
+                FeedbackInputActivity feedbackInputActivity = this.f52200b.a;
                 StringBuilder sb = new StringBuilder();
-                sb.append(((Map) this.f51651b.a.f51610h.get(this.a)).get("chatId"));
-                feedbackInputActivity.f51608f = sb.toString();
+                sb.append(((Map) this.f52200b.a.f52159h.get(this.a)).get("chatId"));
+                feedbackInputActivity.f52157f = sb.toString();
             }
-            this.f51651b.a.l.execute(new cl(this));
-            FeedbackInputActivity.a(this.f51651b.a, false, true);
+            this.f52200b.a.l.execute(new cl(this));
+            FeedbackInputActivity.a(this.f52200b.a, false, true);
         }
     }
 }

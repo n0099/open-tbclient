@@ -12,31 +12,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CompressProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49659e;
+    public int f50175e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49660f;
+    public int f50176f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49661g;
+    public int f50177g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f49662h;
+    public Paint f50178h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f49663i;
+    public Paint f50179i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RectF f49664j;
+    public RectF f50180j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f49665k;
+    public int f50181k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CompressProgressView(Context context, AttributeSet attributeSet, int i2) {
@@ -57,31 +57,31 @@ public class CompressProgressView extends View {
                 return;
             }
         }
-        this.f49665k = 0;
+        this.f50181k = 0;
         init();
     }
 
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f49659e = getResources().getDimensionPixelSize(R.dimen.ds100);
-            this.f49660f = getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f49661g = getResources().getDimensionPixelSize(R.dimen.ds2);
+            this.f50175e = getResources().getDimensionPixelSize(R.dimen.ds100);
+            this.f50176f = getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f50177g = getResources().getDimensionPixelSize(R.dimen.ds2);
             Paint paint = new Paint();
-            this.f49662h = paint;
-            paint.setStrokeWidth(this.f49660f);
-            this.f49662h.setColor(getResources().getColor(R.color.CAM_X0201));
-            this.f49662h.setStyle(Paint.Style.STROKE);
-            this.f49662h.setAntiAlias(true);
+            this.f50178h = paint;
+            paint.setStrokeWidth(this.f50176f);
+            this.f50178h.setColor(getResources().getColor(R.color.CAM_X0201));
+            this.f50178h.setStyle(Paint.Style.STROKE);
+            this.f50178h.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f49663i = paint2;
-            paint2.setStrokeWidth(this.f49661g);
-            this.f49663i.setColor(getResources().getColor(R.color.CAM_X0101));
-            this.f49663i.setStyle(Paint.Style.STROKE);
-            this.f49663i.setAntiAlias(true);
-            int i2 = this.f49660f;
-            int i3 = this.f49659e;
-            this.f49664j = new RectF(i2, i2, i3 + i2, i3 + i2);
+            this.f50179i = paint2;
+            paint2.setStrokeWidth(this.f50177g);
+            this.f50179i.setColor(getResources().getColor(R.color.CAM_X0101));
+            this.f50179i.setStyle(Paint.Style.STROKE);
+            this.f50179i.setAntiAlias(true);
+            int i2 = this.f50176f;
+            int i3 = this.f50175e;
+            this.f50180j = new RectF(i2, i2, i3 + i2, i3 + i2);
         }
     }
 
@@ -89,17 +89,17 @@ public class CompressProgressView extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.f49664j, 270.0f, 360.0f, false, this.f49663i);
-            canvas.drawArc(this.f49664j, 270.0f, (this.f49665k * 360) / 100, false, this.f49662h);
+            canvas.drawArc(this.f50180j, 270.0f, 360.0f, false, this.f50179i);
+            canvas.drawArc(this.f50180j, 270.0f, (this.f50181k * 360) / 100, false, this.f50178h);
         }
     }
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 == this.f49665k) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 == this.f50181k) {
             return;
         }
-        this.f49665k = i2;
+        this.f50181k = i2;
         invalidate();
     }
 
@@ -122,7 +122,7 @@ public class CompressProgressView extends View {
                 return;
             }
         }
-        this.f49665k = 0;
+        this.f50181k = 0;
         init();
     }
 
@@ -144,7 +144,7 @@ public class CompressProgressView extends View {
                 return;
             }
         }
-        this.f49665k = 0;
+        this.f50181k = 0;
         init();
     }
 }

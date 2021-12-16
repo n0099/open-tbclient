@@ -13,29 +13,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32786b;
+    public long f33156b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f32787c;
+    public a f33157c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f32788d;
+    public Context f33158d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Intent f32789e;
+    public Intent f33159e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32790f;
+    public String f33160f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Intent f32791g;
+    public Intent f33161g;
 
     static {
         InterceptResult invokeClinit;
@@ -68,26 +68,26 @@ public class c {
                 return;
             }
         }
-        this.f32786b = System.currentTimeMillis();
-        this.f32788d = context;
-        this.f32789e = intent;
-        this.f32790f = str;
+        this.f33156b = System.currentTimeMillis();
+        this.f33158d = context;
+        this.f33159e = intent;
+        this.f33160f = str;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32786b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33156b : invokeV.longValue;
     }
 
     public void a(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
-            a aVar = this.f32787c;
+            a aVar = this.f33157c;
             if (aVar != null) {
                 aVar.a(0, intent);
             }
-            this.f32791g = intent;
+            this.f33161g = intent;
             synchronized (a) {
                 a.notifyAll();
             }
@@ -98,17 +98,17 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f32789e.putExtra("bd.cross.request.ID", this.f32786b);
-            this.f32789e.putExtra("bd.cross.request.NEED_CALLBACK", true);
-            this.f32789e.putExtra("bd.cross.request.SOURCE_PACKAGE", this.f32788d.getPackageName());
-            this.f32789e.putExtra("bd.cross.request.SENDING", true);
+            this.f33159e.putExtra("bd.cross.request.ID", this.f33156b);
+            this.f33159e.putExtra("bd.cross.request.NEED_CALLBACK", true);
+            this.f33159e.putExtra("bd.cross.request.SOURCE_PACKAGE", this.f33158d.getPackageName());
+            this.f33159e.putExtra("bd.cross.request.SENDING", true);
             b.a(this);
             try {
-                m.a(this.f32788d, this.f32789e, this.f32790f);
+                m.a(this.f33158d, this.f33159e, this.f33160f);
             } catch (Exception unused) {
             }
             com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-            com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c(this, "timeOutRunnable-" + this.f32786b, (short) 50) { // from class: com.baidu.android.pushservice.j.c.1
+            com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c(this, "timeOutRunnable-" + this.f33156b, (short) 50) { // from class: com.baidu.android.pushservice.j.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c a;
@@ -145,25 +145,25 @@ public class c {
                                 c.a.notifyAll();
                             }
                         } catch (InterruptedException e2) {
-                            new b.c(this.a.f32788d).a(Log.getStackTraceString(e2)).a();
+                            new b.c(this.a.f33158d).a(Log.getStackTraceString(e2)).a();
                         }
                     }
                 }
             });
-            if (this.f32787c == null) {
+            if (this.f33157c == null) {
                 synchronized (a) {
                     try {
                         a.wait();
                     } catch (Exception e2) {
-                        new b.c(this.f32788d).a(Log.getStackTraceString(e2)).a();
+                        new b.c(this.f33158d).a(Log.getStackTraceString(e2)).a();
                     }
                 }
                 c();
-                Intent intent = this.f32791g;
+                Intent intent = this.f33161g;
                 if (intent != null) {
                     gVar.a(intent.getIntExtra("bd.cross.request.RESULT_CODE", 10));
-                    if (this.f32791g.hasExtra("bd.cross.request.RESULT_DATA")) {
-                        String stringExtra = this.f32791g.getStringExtra("bd.cross.request.RESULT_DATA");
+                    if (this.f33161g.hasExtra("bd.cross.request.RESULT_DATA")) {
+                        String stringExtra = this.f33161g.getStringExtra("bd.cross.request.RESULT_DATA");
                         if (!TextUtils.isEmpty(stringExtra)) {
                             gVar.a(stringExtra.getBytes());
                         }
@@ -181,9 +181,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                this.f32787c = null;
-                this.f32788d = null;
-                b.a(this.f32786b);
+                this.f33157c = null;
+                this.f33158d = null;
+                b.a(this.f33156b);
             }
         }
     }

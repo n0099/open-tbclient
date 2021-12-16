@@ -19,7 +19,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class Permission {
     public static final /* synthetic */ Permission[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

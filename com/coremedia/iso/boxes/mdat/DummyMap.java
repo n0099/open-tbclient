@@ -15,7 +15,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class DummyMap<K, V> implements Map<K, V> {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;

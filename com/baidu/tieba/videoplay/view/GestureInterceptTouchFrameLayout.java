@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class GestureInterceptTouchFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public GestureDetectorCompat f50152e;
+    public GestureDetectorCompat f50671e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GestureInterceptTouchFrameLayout(@NonNull Context context) {
@@ -47,7 +47,7 @@ public class GestureInterceptTouchFrameLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            GestureDetectorCompat gestureDetectorCompat = this.f50152e;
+            GestureDetectorCompat gestureDetectorCompat = this.f50671e;
             if (gestureDetectorCompat != null) {
                 return gestureDetectorCompat.onTouchEvent(motionEvent);
             }
@@ -59,7 +59,7 @@ public class GestureInterceptTouchFrameLayout extends FrameLayout {
     public void setSimpleOnGestureListener(GestureDetector.SimpleOnGestureListener simpleOnGestureListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, simpleOnGestureListener) == null) {
-            this.f50152e = new GestureDetectorCompat(getContext(), simpleOnGestureListener);
+            this.f50671e = new GestureDetectorCompat(getContext(), simpleOnGestureListener);
         }
     }
 

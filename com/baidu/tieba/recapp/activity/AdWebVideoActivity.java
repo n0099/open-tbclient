@@ -7,8 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import c.a.d.f.p.l;
-import c.a.r0.h3.i0.b.g;
+import c.a.d.f.p.m;
+import c.a.s0.j3.i0.b.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.VideoInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AdWebVideoActivity extends AdWebViewActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static b STATISTIC_DATA = null;
@@ -45,7 +45,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public WebViewContainer mWebContainer;
     public int mWebViewTopMargin;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements WebViewContainer.OnScrollChangedCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,17 +85,17 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AdvertAppInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f48624b;
+        public int f49137b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f48625c;
+        public String f49138c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -135,14 +135,14 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             return;
         }
         layoutParams.topMargin = i2;
-        layoutParams.height = (l.i(getActivity()) - l.r(getActivity())) - getToolBarHeight();
+        layoutParams.height = (m.i(getActivity()) - m.r(getActivity())) - getToolBarHeight();
         this.mWebView.setLayoutParams(layoutParams);
     }
 
     private int getToolBarHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? l.f(this, R.dimen.ds98) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? m.f(this, R.dimen.ds98) : invokeV.intValue;
     }
 
     public static void setConfigAndJump(AdWebVideoActivityConfig adWebVideoActivityConfig) {
@@ -158,8 +158,8 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             b bVar = new b();
             STATISTIC_DATA = bVar;
             bVar.a = advertAppInfo;
-            bVar.f48625c = str;
-            bVar.f48624b = i2;
+            bVar.f49138c = str;
+            bVar.f49137b = i2;
         }
     }
 
@@ -179,11 +179,11 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 builder.thumbnail_url = this.mThumbUrl;
                 builder.video_duration = Integer.valueOf(this.mVideoDuration);
                 if (this.mGoodsStyle == 14) {
-                    Integer valueOf = Integer.valueOf(l.k(getActivity()));
+                    Integer valueOf = Integer.valueOf(m.k(getActivity()));
                     builder.video_height = valueOf;
-                    builder.video_width = Integer.valueOf(c.a.r0.h3.i0.c.a.c(valueOf.intValue()));
+                    builder.video_width = Integer.valueOf(c.a.s0.j3.i0.c.a.c(valueOf.intValue()));
                 } else {
-                    Integer valueOf2 = Integer.valueOf(l.k(getActivity()));
+                    Integer valueOf2 = Integer.valueOf(m.k(getActivity()));
                     builder.video_width = valueOf2;
                     builder.video_height = valueOf2;
                     if (this.mVideoRatio > 0.0f) {
@@ -213,7 +213,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                     this.mVideoView.updateTailFrameView(bVar.a);
                     DistributeVideoView distributeVideoView = this.mVideoView;
                     b bVar2 = STATISTIC_DATA;
-                    distributeVideoView.setStatisticInfo(bVar2.a, bVar2.f48624b, bVar2.f48625c);
+                    distributeVideoView.setStatisticInfo(bVar2.a, bVar2.f49137b, bVar2.f49138c);
                 } else {
                     this.mVideoView.updateTailFrameView(null);
                 }

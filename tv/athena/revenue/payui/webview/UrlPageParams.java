@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
-import j.a.a.e.n.m;
+import j.a.a.e.p.p;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UrlPageParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class UrlPageParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UrlPageParams{title='" + this.title + ExtendedMessageFormat.QUOTE + ", url='" + m.a(this.url) + ExtendedMessageFormat.QUOTE + ", rightTitle='" + this.rightTitle + ExtendedMessageFormat.QUOTE + ", rightUrl='" + m.a(this.rightUrl) + ExtendedMessageFormat.QUOTE + ", pageType='" + this.pageType + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "UrlPageParams{title='" + this.title + ExtendedMessageFormat.QUOTE + ", url='" + p.a(this.url) + ExtendedMessageFormat.QUOTE + ", rightTitle='" + this.rightTitle + ExtendedMessageFormat.QUOTE + ", rightUrl='" + p.a(this.rightUrl) + ExtendedMessageFormat.QUOTE + ", pageType='" + this.pageType + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TbConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FRS_POST_THREAD = 2;
@@ -16,7 +16,9 @@ public class TbConstants {
     public static final int STRETAGY_BEAR_FIRST = 101;
     public static final int STRETAGY_CLOSE_CPC = 105;
     public static final int STRETAGY_CLOSE_CPC_AND_BEAR = 106;
+    public static final int STRETAGY_CLOSE_PROLOGUE = 0;
     public static final int STRETAGY_CPC_FIRST = 102;
+    public static final int STRETAGY_OPEN_PROLOGUE = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     public TbConstants() {

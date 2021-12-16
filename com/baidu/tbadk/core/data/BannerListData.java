@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import c.a.d.f.m.b;
-import c.a.r0.g0.f0.o;
-import c.a.r0.h3.y;
+import c.a.s0.g0.f0.o;
+import c.a.s0.j3.y;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import tbclient.App;
 import tbclient.BannerList;
 import tbclient.FeedForumInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BannerListData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1630193525564805923L;
@@ -31,7 +31,7 @@ public class BannerListData implements Serializable {
     public ArrayList<FeedForumData> feedForumList;
     public o recomTopicData;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements Comparator<AdvertAppInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class BannerListData implements Serializable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, advertAppInfo, advertAppInfo2)) == null) {
-                return (advertAppInfo != null ? b.e(advertAppInfo.i4, 0) : 0) - (advertAppInfo2 != null ? b.e(advertAppInfo2.i4, 0) : 0);
+                return (advertAppInfo != null ? b.e(advertAppInfo.j4, 0) : 0) - (advertAppInfo2 != null ? b.e(advertAppInfo2.j4, 0) : 0);
             }
             return invokeLL.intValue;
         }
@@ -105,8 +105,8 @@ public class BannerListData implements Serializable {
             StringBuilder sb = new StringBuilder();
             int size = this.advertAppList.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (!TextUtils.isEmpty(this.advertAppList.get(i2).c4)) {
-                    sb.append(this.advertAppList.get(i2).c4);
+                if (!TextUtils.isEmpty(this.advertAppList.get(i2).d4)) {
+                    sb.append(this.advertAppList.get(i2).d4);
                     if (i2 != size - 1) {
                         sb.append(",");
                     }

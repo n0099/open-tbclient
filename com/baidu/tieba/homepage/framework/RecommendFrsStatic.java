@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.framework;
 
-import c.a.r0.n1.h.k.g;
+import c.a.s0.o1.h.k.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -20,12 +20,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class RecommendFrsStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class RecommendFrsStatic {
         messageManager2.registerTask(tbHttpMessageTask2);
         TbadkCoreApplication.getInst().RegisterIntent(BigdayActivityConfig.class, BigdayActivity.class);
         CustomMessageTask customMessageTask = new CustomMessageTask(2921619, new a());
-        customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         customMessageTask.setPriority(4);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

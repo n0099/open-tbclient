@@ -22,7 +22,7 @@ import java.util.List;
 @VisibleForTesting
 @RequiresApi(30)
 @TargetApi(30)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImeSyncDeferringInsetsCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,14 +36,14 @@ public class ImeSyncDeferringInsetsCallback {
     public View view;
 
     /* renamed from: io.flutter.plugin.editing.ImeSyncDeferringInsetsCallback$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class AnimationCallback extends WindowInsetsAnimation.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class ImeSyncDeferringInsetsCallback {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class InsetsListener implements View.OnApplyWindowInsetsListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

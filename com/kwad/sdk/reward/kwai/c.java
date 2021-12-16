@@ -16,16 +16,16 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.g;
 import com.kwad.sdk.reward.kwai.b;
 import com.kwad.sdk.utils.bb;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends g implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f58990b;
+    public AdTemplate f59571b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f58991c;
+    public boolean f59572c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class c extends g implements b.a {
                 return;
             }
         }
-        this.f58991c = false;
+        this.f59572c = false;
     }
 
     public static boolean a(AdInfo adInfo) {
@@ -58,7 +58,7 @@ public class c extends g implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f58990b = ((g) this).a.f58874g;
+            this.f59571b = ((g) this).a.f59455g;
         }
     }
 
@@ -73,12 +73,12 @@ public class c extends g implements b.a {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            com.kwad.sdk.core.d.a.a("RewardCouponDialogPresenter", "onBind hasShown : " + this.f58991c);
-            if (this.f58991c) {
+            com.kwad.sdk.core.d.a.a("RewardCouponDialogPresenter", "onBind hasShown : " + this.f59572c);
+            if (this.f59572c) {
                 return;
             }
-            AdInfo j2 = d.j(this.f58990b);
-            ViewGroup viewGroup = (ViewGroup) ((g) this).a.f58877j.findViewById(R.id.ksad_reward_order_coupon_list);
+            AdInfo j2 = d.j(this.f59571b);
+            ViewGroup viewGroup = (ViewGroup) ((g) this).a.f59458j.findViewById(R.id.ksad_reward_order_coupon_list);
             if (viewGroup == null) {
                 return;
             }
@@ -97,7 +97,7 @@ public class c extends g implements b.a {
                 public final /* synthetic */ int[] a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ c f58992b;
+                public final /* synthetic */ c f59573b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -114,7 +114,7 @@ public class c extends g implements b.a {
                             return;
                         }
                     }
-                    this.f58992b = this;
+                    this.f59573b = this;
                     this.a = c2;
                 }
 
@@ -123,8 +123,8 @@ public class c extends g implements b.a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         com.kwad.sdk.core.d.a.a("RewardCouponDialogPresenter", "targetView x: " + this.a[0] + ", y: " + this.a[1]);
-                        b.a(this.f58992b.o(), this.f58992b.f58990b, this.f58992b, this.a);
-                        this.f58992b.f58991c = true;
+                        b.a(this.f59573b.o(), this.f59573b.f59571b, this.f59573b, this.a);
+                        this.f59573b.f59572c = true;
                     }
                 }
             });

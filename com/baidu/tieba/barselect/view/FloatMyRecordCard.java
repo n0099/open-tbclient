@@ -10,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.m.b;
-import c.a.r0.c0.b.d;
-import c.a.r0.c0.b.e;
-import c.a.r0.c0.b.f;
-import c.a.r0.c0.e.c;
+import c.a.s0.c0.b.d;
+import c.a.s0.c0.b.e;
+import c.a.s0.c0.b.f;
+import c.a.s0.c0.e.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,43 +28,43 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FloatMyRecordCard extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f43175e;
+    public Context f43666e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43176f;
+    public int f43667f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f43177g;
+    public f f43668g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f43178h;
+    public d f43669h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f43179i;
+    public TextView f43670i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BazhuHeadView f43180j;
+    public BazhuHeadView f43671j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TextView f43181k;
+    public TextView f43672k;
     public ImageView l;
     public TextView m;
     public VotedAreaLayout n;
     public View.OnClickListener o;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FloatMyRecordCard f43182e;
+        public final /* synthetic */ FloatMyRecordCard f43673e;
 
         public a(FloatMyRecordCard floatMyRecordCard) {
             Interceptable interceptable = $ic;
@@ -81,19 +81,19 @@ public class FloatMyRecordCard extends LinearLayout {
                     return;
                 }
             }
-            this.f43182e = floatMyRecordCard;
+            this.f43673e = floatMyRecordCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f43182e.f43178h == null || this.f43182e.f43178h.l() == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f43673e.f43669h == null || this.f43673e.f43669h.l() == 0) {
                 return;
             }
             long g2 = b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
-            long l = this.f43182e.f43178h.l();
-            if (this.f43182e.getContext() instanceof Activity) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f43182e.getContext()).createNormalConfig(l, l == g2, false)));
+            long l = this.f43673e.f43669h.l();
+            if (this.f43673e.getContext() instanceof Activity) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f43673e.getContext()).createNormalConfig(l, l == g2, false)));
             }
         }
     }
@@ -122,13 +122,13 @@ public class FloatMyRecordCard extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f43179i = (TextView) findViewById(R.id.tv_voted_rank);
+            this.f43670i = (TextView) findViewById(R.id.tv_voted_rank);
             BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
-            this.f43180j = bazhuHeadView;
+            this.f43671j = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
-                this.f43180j.getHeadView().setIsRound(true);
+                this.f43671j.getHeadView().setIsRound(true);
             }
-            this.f43181k = (TextView) findViewById(R.id.user_name);
+            this.f43672k = (TextView) findViewById(R.id.user_name);
             this.l = (ImageView) findViewById(R.id.grade);
             this.m = (TextView) findViewById(R.id.vote_id);
             this.n = (VotedAreaLayout) findViewById(R.id.my_vote_num_layout);
@@ -138,7 +138,7 @@ public class FloatMyRecordCard extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f43175e = getContext();
+            this.f43666e = getContext();
             setOrientation(0);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             LayoutInflater.from(getContext()).inflate(R.layout.float_my_record_card, (ViewGroup) this, true);
@@ -149,18 +149,18 @@ public class FloatMyRecordCard extends LinearLayout {
     public void onSkinChange(int i2) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (dVar = this.f43178h) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (dVar = this.f43669h) == null) {
             return;
         }
         if (dVar.i() > 3) {
-            SkinManager.setViewTextColor(this.f43179i, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f43670i, R.color.CAM_X0105, 1, i2);
         }
-        SkinManager.setViewTextColor(this.f43181k, R.color.CAM_X0105, 1, i2);
-        setGrade(this.f43178h.d());
+        SkinManager.setViewTextColor(this.f43672k, R.color.CAM_X0105, 1, i2);
+        setGrade(this.f43669h.d());
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0109, 1, i2);
         this.n.onSkinChange(i2);
         SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i2);
-        setGrade(this.f43178h.d());
+        setGrade(this.f43669h.d());
     }
 
     public void setData(f fVar) {
@@ -168,38 +168,38 @@ public class FloatMyRecordCard extends LinearLayout {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f43177g = fVar;
+            this.f43668g = fVar;
             if (fVar != null && fVar.a() != null) {
-                e a2 = this.f43177g.a();
+                e a2 = this.f43668g.a();
                 if (a2 != null) {
-                    this.f43176f = a2.g();
+                    this.f43667f = a2.g();
                 }
-                this.f43178h = this.f43177g.f();
+                this.f43669h = this.f43668g.f();
             }
-            if (this.f43177g != null && (dVar = this.f43178h) != null && this.f43176f == c.f15020c) {
+            if (this.f43668g != null && (dVar = this.f43669h) != null && this.f43667f == c.f15383c) {
                 int i2 = dVar.i();
                 if (i2 < 10) {
-                    this.f43179i.setText("0" + i2);
+                    this.f43670i.setText("0" + i2);
                 } else {
-                    this.f43179i.setText("" + i2);
+                    this.f43670i.setText("" + i2);
                 }
                 if (i2 == 2) {
-                    this.f43179i.setTextColor(getResources().getColor(R.color.common_color_10263));
+                    this.f43670i.setTextColor(getResources().getColor(R.color.common_color_10263));
                 } else if (i2 == 3) {
-                    this.f43179i.setTextColor(getResources().getColor(R.color.common_color_10266));
+                    this.f43670i.setTextColor(getResources().getColor(R.color.common_color_10266));
                 }
-                this.f43180j.startLoadOnlyHeadUrl(this.f43178h.g());
-                this.f43180j.setOnClickListener(this.o);
-                this.f43181k.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f43178h.e(), 14, "..."));
-                setGrade(this.f43178h.d());
-                if (this.f43178h.c() < 1000) {
-                    String str2 = "0000" + this.f43178h.c();
+                this.f43671j.startLoadOnlyHeadUrl(this.f43669h.g());
+                this.f43671j.setOnClickListener(this.o);
+                this.f43672k.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f43669h.e(), 14, "..."));
+                setGrade(this.f43669h.d());
+                if (this.f43669h.c() < 1000) {
+                    String str2 = "0000" + this.f43669h.c();
                     str = str2.substring(str2.length() - 4, str2.length());
                 } else {
-                    str = "" + this.f43178h.c();
+                    str = "" + this.f43669h.c();
                 }
                 this.m.setText("NO." + str);
-                this.n.setMyRecordData(this.f43178h);
+                this.n.setMyRecordData(this.f43669h);
                 return;
             }
             setVisibility(8);

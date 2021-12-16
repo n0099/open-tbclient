@@ -9,20 +9,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f29740b;
+    public final long f30110b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f29741c;
+    public final String f30111c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29742d;
+    public int f30112d;
 
     public f(String str, long j2, long j3) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public final class f {
                 return;
             }
         }
-        this.f29741c = str == null ? "" : str;
+        this.f30111c = str == null ? "" : str;
         this.a = j2;
-        this.f29740b = j3;
+        this.f30110b = j3;
     }
 
     public f a(f fVar, String str) {
@@ -50,19 +50,19 @@ public final class f {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fVar, str)) == null) {
             String c2 = c(str);
             if (fVar != null && c2.equals(fVar.c(str))) {
-                long j2 = this.f29740b;
+                long j2 = this.f30110b;
                 if (j2 != -1) {
                     long j3 = this.a;
                     if (j3 + j2 == fVar.a) {
-                        long j4 = fVar.f29740b;
+                        long j4 = fVar.f30110b;
                         return new f(c2, j3, j4 != -1 ? j2 + j4 : -1L);
                     }
                 }
-                long j5 = fVar.f29740b;
+                long j5 = fVar.f30110b;
                 if (j5 != -1) {
                     long j6 = fVar.a;
                     if (j6 + j5 == this.a) {
-                        long j7 = this.f29740b;
+                        long j7 = this.f30110b;
                         return new f(c2, j6, j7 != -1 ? j5 + j7 : -1L);
                     }
                 }
@@ -75,13 +75,13 @@ public final class f {
     public Uri b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? u.d(str, this.f29741c) : (Uri) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? u.d(str, this.f30111c) : (Uri) invokeL.objValue;
     }
 
     public String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? u.c(str, this.f29741c) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? u.c(str, this.f30111c) : (String) invokeL.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -95,7 +95,7 @@ public final class f {
                 return false;
             }
             f fVar = (f) obj;
-            return this.a == fVar.a && this.f29740b == fVar.f29740b && this.f29741c.equals(fVar.f29741c);
+            return this.a == fVar.a && this.f30110b == fVar.f30110b && this.f30111c.equals(fVar.f30111c);
         }
         return invokeL.booleanValue;
     }
@@ -104,10 +104,10 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f29742d == 0) {
-                this.f29742d = ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + ((int) this.a)) * 31) + ((int) this.f29740b)) * 31) + this.f29741c.hashCode();
+            if (this.f30112d == 0) {
+                this.f30112d = ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + ((int) this.a)) * 31) + ((int) this.f30110b)) * 31) + this.f30111c.hashCode();
             }
-            return this.f29742d;
+            return this.f30112d;
         }
         return invokeV.intValue;
     }

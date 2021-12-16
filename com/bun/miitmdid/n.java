@@ -13,16 +13,16 @@ import com.bun.miitmdid.interfaces.IIdProvider;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.pojo.IdSupplierImpl;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class n implements IIdProvider {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f54428b;
+    public static final char[] f55008b;
     public transient /* synthetic */ FieldHolder $fh;
     public IIdentifierListener a;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public abstract class n implements IIdProvider {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public abstract class n implements IIdProvider {
                 return;
             }
         }
-        f54428b = new char[]{'0', SignatureImpl.SEP};
+        f55008b = new char[]{'0', SignatureImpl.SEP};
     }
 
     public n() {
@@ -143,7 +143,7 @@ public abstract class n implements IIdProvider {
                 str5 = str4;
                 str6 = str5;
             }
-            boolean z3 = (z && (str4 == null || str4.isEmpty() || f0.a(str4, f54428b))) ? true : z2;
+            boolean z3 = (z && (str4 == null || str4.isEmpty() || f0.a(str4, f55008b))) ? true : z2;
             e0.c("BaseProvider", "mcallback onSupport");
             this.a.onSupport(new IdSupplierImpl(str4, str5, str6, z, z3));
         }

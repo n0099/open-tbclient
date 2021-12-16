@@ -44,7 +44,7 @@ import com.facebook.imagepipeline.transcoder.SimpleImageTranscoderFactory;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ImagePipelineFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;

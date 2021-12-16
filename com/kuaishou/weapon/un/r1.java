@@ -7,40 +7,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class r1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "123456";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f56827b = "2.8.3";
+    public static final String f57408b = "2.8.3";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f56828c = false;
+    public static final boolean f57409c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f56829d = "com.kuaishou.weapon";
+    public static final String f57410d = "com.kuaishou.weapon";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f56830e = "com.kuaishou.weapon";
+    public static final String f57411e = "com.kuaishou.weapon";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f56831f = ".WeaponEngineImpl";
+    public static final String f57412f = ".WeaponEngineImpl";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f56832g = ".WeaponExt";
+    public static final String f57413g = ".WeaponExt";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f56833h = "wp_local.cfg";
+    public static final String f57414h = "wp_local.cfg";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f56834i = ".tmp";
+    public static final String f57415i = ".tmp";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f56835j = ".bud";
+    public static final String f57416j = ".bud";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f56836k = "/.";
+    public static final String f57417k = "/.";
     public static final String l = "w.db";
     public static final String m = "wp";
     public static final String n = "wc";

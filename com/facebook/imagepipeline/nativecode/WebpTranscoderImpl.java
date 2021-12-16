@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 @DoNotStrip
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class WebpTranscoderImpl implements WebpTranscoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

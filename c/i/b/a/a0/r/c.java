@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c implements c.i.b.a.a0.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.i.b.a.a0.g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f29219b;
+    public h f29589b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29220c;
+    public boolean f29590c;
 
     static {
         InterceptResult invokeClinit;
@@ -67,7 +67,7 @@ public class c implements c.i.b.a.a0.e {
     public void a(long j2, long j3) {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (hVar = this.f29219b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (hVar = this.f29589b) == null) {
             return;
         }
         hVar.k(j2, j3);
@@ -78,21 +78,21 @@ public class c implements c.i.b.a.a0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar)) == null) {
             e eVar = new e();
-            if (eVar.a(fVar, true) && (eVar.f29226b & 2) == 2) {
-                int min = Math.min(eVar.f29230f, 8);
+            if (eVar.a(fVar, true) && (eVar.f29596b & 2) == 2) {
+                int min = Math.min(eVar.f29600f, 8);
                 l lVar = new l(min);
                 fVar.c(lVar.a, 0, min);
                 b(lVar);
                 if (b.o(lVar)) {
-                    this.f29219b = new b();
+                    this.f29589b = new b();
                 } else {
                     b(lVar);
                     if (j.p(lVar)) {
-                        this.f29219b = new j();
+                        this.f29589b = new j();
                     } else {
                         b(lVar);
                         if (g.n(lVar)) {
-                            this.f29219b = new g();
+                            this.f29589b = new g();
                         }
                     }
                 }
@@ -122,20 +122,20 @@ public class c implements c.i.b.a.a0.e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, fVar, kVar)) == null) {
-            if (this.f29219b == null) {
+            if (this.f29589b == null) {
                 if (c(fVar)) {
                     fVar.e();
                 } else {
                     throw new ParserException("Failed to determine bitstream type");
                 }
             }
-            if (!this.f29220c) {
+            if (!this.f29590c) {
                 m a = this.a.a(0, 1);
                 this.a.j();
-                this.f29219b.c(this.a, a);
-                this.f29220c = true;
+                this.f29589b.c(this.a, a);
+                this.f29590c = true;
             }
-            return this.f29219b.f(fVar, kVar);
+            return this.f29589b.f(fVar, kVar);
         }
         return invokeLL.intValue;
     }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.EncodeStrategy;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class DiskCacheStrategy {
     public static /* synthetic */ Interceptable $ic;
     public static final DiskCacheStrategy ALL;

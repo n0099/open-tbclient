@@ -15,40 +15,40 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.WeaponS;
 import com.kuaishou.weapon.fingerprinter.WeaponHW;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long a = 60000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f56678b = 3600000;
+    public static final long f57259b = 3600000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f56679c = 86400000;
+    public static final long f57260c = 86400000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long f56680d = 604800000;
+    public static final long f57261d = 604800000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f56681e = 0;
+    public static final int f57262e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f56682f = 1;
+    public static final int f57263f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f56683g = 2;
+    public static final int f57264g = 2;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f56684h = 3;
+    public static final int f57265h = 3;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f56685i = 10000;
+    public static final int f57266i = 10000;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f56686j = 10001;
+    public static final int f57267j = 10001;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f56687k = 10002;
+    public static final int f57268k = 10002;
     public static final int l;
     public static final int m;
     public static final int n;
@@ -69,8 +69,8 @@ public class j1 {
             }
         }
         l = Integer.valueOf(q0.a).intValue();
-        m = Integer.valueOf(q0.f56804b).intValue();
-        n = Integer.valueOf(q0.f56805c).intValue();
+        m = Integer.valueOf(q0.f57385b).intValue();
+        n = Integer.valueOf(q0.f57386c).intValue();
     }
 
     public j1() {
@@ -155,7 +155,7 @@ public class j1 {
                 intent.putExtra("from_type", 4);
                 PendingIntent service = PendingIntent.getService(context, 10000, intent, 134217728);
                 long currentTimeMillis = ((System.currentTimeMillis() + l2.longValue()) - 600000) + ((long) (Math.random() * 900000.0d));
-                dVar.a(d.f56623k, currentTimeMillis);
+                dVar.a(d.f57204k, currentTimeMillis);
                 alarmManager.cancel(service);
                 alarmManager.set(0, currentTimeMillis, service);
             } catch (Throwable th) {

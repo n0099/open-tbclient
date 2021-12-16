@@ -2,10 +2,10 @@ package com.kwai.sodler.lib.kwai;
 
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface g {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(f fVar, File file);
     }

@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class MethodUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?>[] EMPTY_CLASS_ARRAY;

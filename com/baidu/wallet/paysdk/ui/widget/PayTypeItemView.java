@@ -28,29 +28,29 @@ import com.dxmpay.apollon.utils.support.ViewHelper;
 import com.dxmpay.wallet.base.widget.BorderTipTextView;
 import com.dxmpay.wallet.base.widget.LinkNoScrollMovementMethod;
 import java.io.Serializable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PayTypeItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f53947b;
+    public TextView f54527b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BorderTipTextView f53948c;
+    public BorderTipTextView f54528c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f53949d;
+    public TextView f54529d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f53950e;
+    public ImageView f54530e;
     public Context mContext;
     public PayTypeItemViewData mData;
     public ProgressBar mProgress;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class ItemViewType implements Serializable {
         public static final /* synthetic */ ItemViewType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -113,7 +113,7 @@ public class PayTypeItemView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class PayTypeItemViewData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MASK_FLAG = "^";
@@ -228,11 +228,11 @@ public class PayTypeItemView extends RelativeLayout {
             ProgressBar progressBar = (ProgressBar) inflate.findViewById(ResUtils.id(getContext(), "ebpay_mini_progress_bar"));
             this.mProgress = progressBar;
             progressBar.setVisibility(8);
-            this.f53950e = (ImageView) inflate.findViewById(ResUtils.id(getContext(), "paytype_select"));
+            this.f54530e = (ImageView) inflate.findViewById(ResUtils.id(getContext(), "paytype_select"));
             this.a = (NetImageView) findViewById(ResUtils.id(this.mContext, "ebpay_paytype_logo"));
-            this.f53947b = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_name"));
+            this.f54527b = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_name"));
             if (!TextUtils.isEmpty(payTypeItemViewData.name)) {
-                this.f53947b.setText(payTypeItemViewData.name);
+                this.f54527b.setText(payTypeItemViewData.name);
             }
             TextView textView = (TextView) inflate.findViewById(ResUtils.id(getContext(), "paytype_free_amount"));
             if (ItemViewType.BANKCARD == payTypeItemViewData.type) {
@@ -246,35 +246,35 @@ public class PayTypeItemView extends RelativeLayout {
                 z = false;
             }
             inflate.findViewById(ResUtils.id(getContext(), "paytype_recommended")).setVisibility(payTypeItemViewData.isRecommended ? 0 : 4);
-            this.f53948c = (BorderTipTextView) findViewById(ResUtils.id(this.mContext, "paytype_tip"));
+            this.f54528c = (BorderTipTextView) findViewById(ResUtils.id(this.mContext, "paytype_tip"));
             if (!TextUtils.isEmpty(payTypeItemViewData.tips) && (!z || !payTypeItemViewData.tips.equals(textView.getText()))) {
-                this.f53948c.setVisibility(0);
+                this.f54528c.setVisibility(0);
                 if (payTypeItemViewData.isNeedToColored()) {
                     a(payTypeItemViewData, onClickListener);
                 } else {
-                    this.f53948c.setText(payTypeItemViewData.tips, payTypeItemViewData.highlight);
+                    this.f54528c.setText(payTypeItemViewData.tips, payTypeItemViewData.highlight);
                 }
             } else {
-                this.f53948c.setVisibility(8);
+                this.f54528c.setVisibility(8);
             }
-            this.f53949d = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_hint"));
+            this.f54529d = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_hint"));
             if (!TextUtils.isEmpty(payTypeItemViewData.hintMsg)) {
-                this.f53949d.setVisibility(0);
-                this.f53949d.setText(payTypeItemViewData.hintMsg);
-                LinearLayout linearLayout = (LinearLayout) this.f53949d.getParent();
+                this.f54529d.setVisibility(0);
+                this.f54529d.setText(payTypeItemViewData.hintMsg);
+                LinearLayout linearLayout = (LinearLayout) this.f54529d.getParent();
                 linearLayout.setPadding(linearLayout.getPaddingLeft(), linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), 0);
                 if (onClickListener2 != null) {
-                    this.f53949d.setOnClickListener(onClickListener2);
+                    this.f54529d.setOnClickListener(onClickListener2);
                 }
             } else {
-                this.f53949d.setVisibility(8);
+                this.f54529d.setVisibility(8);
             }
             ItemViewType itemViewType = payTypeItemViewData.type;
             if (itemViewType == ItemViewType.ADD_NEWCARD) {
-                this.f53950e.setImageDrawable(ResUtils.getDrawable(this.mContext, "dxm_wallet_base_paytype_item_right_arrow"));
-                this.f53950e.setVisibility(0);
+                this.f54530e.setImageDrawable(ResUtils.getDrawable(this.mContext, "dxm_wallet_base_paytype_item_right_arrow"));
+                this.f54530e.setVisibility(0);
                 this.a.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_add_newcard"));
-                this.f53948c.setVisibility(8);
+                this.f54528c.setVisibility(8);
             } else if (itemViewType == ItemViewType.BALANCE) {
                 this.a.setImageDrawable(ResUtils.getDrawable(this.mContext, "dxm_wallet_base_paytype_balance"));
             } else if (itemViewType == ItemViewType.CREDIT) {
@@ -285,25 +285,25 @@ public class PayTypeItemView extends RelativeLayout {
             if (payTypeItemViewData.isAvaible) {
                 ViewHelper.setAlpha(inflate, 1.0f);
                 if (payTypeItemViewData.type == ItemViewType.ADD_NEWCARD) {
-                    this.f53950e.setVisibility(0);
+                    this.f54530e.setVisibility(0);
                     return;
                 } else if (payTypeItemViewData.isChecked) {
-                    this.f53950e.setVisibility(0);
-                    this.f53950e.setSelected(true);
+                    this.f54530e.setVisibility(0);
+                    this.f54530e.setSelected(true);
                     return;
                 } else {
-                    this.f53950e.setSelected(false);
-                    this.f53950e.setVisibility(4);
+                    this.f54530e.setSelected(false);
+                    this.f54530e.setVisibility(4);
                     return;
                 }
             }
-            ViewHelper.setAlphaPartly(inflate, 0.4f, this.f53948c);
+            ViewHelper.setAlphaPartly(inflate, 0.4f, this.f54528c);
             if (payTypeItemViewData.isNeedToColored()) {
                 inflate.setEnabled(false);
             } else {
                 inflate.setEnabled(true);
             }
-            this.f53950e.setVisibility(8);
+            this.f54530e.setVisibility(8);
         }
     }
 
@@ -324,7 +324,7 @@ public class PayTypeItemView extends RelativeLayout {
     public void setItemState(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f53950e.setVisibility(8);
+            this.f54530e.setVisibility(8);
             if (z) {
                 this.mProgress.setVisibility(0);
             } else {
@@ -348,7 +348,7 @@ public class PayTypeItemView extends RelativeLayout {
             public final /* synthetic */ View.OnClickListener a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ PayTypeItemView f53951b;
+            public final /* synthetic */ PayTypeItemView f54531b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -365,7 +365,7 @@ public class PayTypeItemView extends RelativeLayout {
                         return;
                     }
                 }
-                this.f53951b = this;
+                this.f54531b = this;
                 this.a = onClickListener;
             }
 
@@ -388,13 +388,13 @@ public class PayTypeItemView extends RelativeLayout {
         }, startIndex, i2, 18);
         spannableString.setSpan(new ForegroundColorSpan(ResUtils.getColor(this.mContext, "dxm_wallet_base_mainColor")), startIndex, i2, 18);
         if (!TextUtils.isEmpty(payTypeItemViewData.jump_url)) {
-            this.f53948c.setClickable(true);
-            this.f53948c.setEnabled(true);
+            this.f54528c.setClickable(true);
+            this.f54528c.setEnabled(true);
         } else {
-            this.f53948c.setClickable(false);
-            this.f53948c.setEnabled(false);
+            this.f54528c.setClickable(false);
+            this.f54528c.setEnabled(false);
         }
-        this.f53948c.setMovementMethod(new LinkNoScrollMovementMethod());
-        this.f53948c.setText(spannableString);
+        this.f54528c.setMovementMethod(new LinkNoScrollMovementMethod());
+        this.f54528c.setText(spannableString);
     }
 }

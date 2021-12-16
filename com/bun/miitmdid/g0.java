@@ -13,28 +13,28 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class g0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 2;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f54399b = 6000;
+    public static int f54979b = 6000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f54400c = 5;
+    public static int f54980c = 5;
 
     /* renamed from: d  reason: collision with root package name */
-    public static BlockingQueue<Runnable> f54401d;
+    public static BlockingQueue<Runnable> f54981d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ThreadFactory f54402e;
+    public static ThreadFactory f54982e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static ThreadPoolExecutor f54403f;
+    public static ThreadPoolExecutor f54983f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,15 +80,15 @@ public class g0 {
                 return;
             }
         }
-        f54401d = new ArrayBlockingQueue(3);
-        f54402e = new a();
-        f54403f = new ThreadPoolExecutor(a, f54400c, f54399b, TimeUnit.SECONDS, f54401d, f54402e);
+        f54981d = new ArrayBlockingQueue(3);
+        f54982e = new a();
+        f54983f = new ThreadPoolExecutor(a, f54980c, f54979b, TimeUnit.SECONDS, f54981d, f54982e);
     }
 
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            f54403f.execute(runnable);
+            f54983f.execute(runnable);
         }
     }
 }

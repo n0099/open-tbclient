@@ -16,13 +16,13 @@ public class c implements h {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f3034b;
+    public final int f3049b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3035c;
+    public int f3050c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap f3036d;
+    public HashMap f3051d;
 
     public c(int i2, int i3, int i4, String str, String str2, int i5) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class c implements h {
             }
         }
         this.a = i2;
-        this.f3034b = i3;
-        this.f3035c = i5;
+        this.f3049b = i3;
+        this.f3050c = i5;
     }
 
     public static h f(int i2, int i3, int i4, String str, String str2, int i5) {
@@ -54,11 +54,11 @@ public class c implements h {
     public void a(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.f3036d = hashMap;
+            this.f3051d = hashMap;
             if (hashMap.containsKey(AdExtParam.KEY_IADEX)) {
                 return;
             }
-            hashMap.put(AdExtParam.KEY_IADEX, c.a.q0.d1.f.e());
+            hashMap.put(AdExtParam.KEY_IADEX, c.a.r0.d1.h.e());
         }
     }
 
@@ -66,7 +66,7 @@ public class c implements h {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3035c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3050c : invokeV.intValue;
     }
 
     @Override // c.a.e.h
@@ -80,13 +80,13 @@ public class c implements h {
     public Map<String, String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3036d : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3051d : (Map) invokeV.objValue;
     }
 
     @Override // c.a.e.h
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3034b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3049b : invokeV.intValue;
     }
 }

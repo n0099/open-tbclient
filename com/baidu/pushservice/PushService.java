@@ -16,31 +16,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PushService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f38532b;
+    public Handler f39021b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38533c;
+    public boolean f39022c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Runnable f38534d;
+    public final Runnable f39023d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Runnable f38535e;
+    public final Runnable f39024e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushService f38536e;
+        public final /* synthetic */ PushService f39025e;
 
         public a(PushService pushService) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class PushService extends Service {
                     return;
                 }
             }
-            this.f38536e = pushService;
+            this.f39025e = pushService;
         }
 
         @Override // java.lang.Runnable
@@ -65,18 +65,18 @@ public class PushService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 g.b();
-                this.f38536e.stopSelf();
+                this.f39025e.stopSelf();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushService f38537e;
+        public final /* synthetic */ PushService f39026e;
 
         public b(PushService pushService) {
             Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public class PushService extends Service {
                     return;
                 }
             }
-            this.f38537e = pushService;
+            this.f39026e = pushService;
         }
 
         @Override // java.lang.Runnable
@@ -119,10 +119,10 @@ public class PushService extends Service {
             }
         }
         this.a = false;
-        this.f38532b = new Handler();
-        this.f38533c = false;
-        this.f38534d = new a(this);
-        this.f38535e = new b(this);
+        this.f39021b = new Handler();
+        this.f39022c = false;
+        this.f39023d = new a(this);
+        this.f39024e = new b(this);
     }
 
     private void a(boolean z, boolean z2) {
@@ -131,11 +131,11 @@ public class PushService extends Service {
             this.a = z;
             com.baidu.android.pushservice.g.a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
             if (z2) {
-                this.f38534d.run();
+                this.f39023d.run();
                 return;
             }
-            this.f38532b.removeCallbacks(this.f38534d);
-            this.f38532b.postDelayed(this.f38534d, 1000L);
+            this.f39021b.removeCallbacks(this.f39023d);
+            this.f39021b.postDelayed(this.f39023d, 1000L);
         }
     }
 
@@ -157,7 +157,7 @@ public class PushService extends Service {
             com.baidu.android.pushservice.g.a.a("PushService", "onCreate from : " + getPackageName(), getApplicationContext());
             m.a("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
             boolean a2 = g.a(this).a();
-            this.f38533c = a2;
+            this.f39022c = a2;
             if (a2) {
                 return;
             }
@@ -174,10 +174,10 @@ public class PushService extends Service {
             m.a("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
             g.b();
             if (this.a) {
-                this.f38532b.removeCallbacks(this.f38535e);
-                this.f38532b.postDelayed(this.f38535e, 1000L);
+                this.f39021b.removeCallbacks(this.f39024e);
+                this.f39021b.postDelayed(this.f39024e, 1000L);
             }
-            if (this.f38533c) {
+            if (this.f39022c) {
                 try {
                     sendBroadcast(f.a(this));
                 } catch (Exception unused) {
@@ -202,11 +202,11 @@ public class PushService extends Service {
                     new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
                 }
             }
-            this.f38532b.removeCallbacks(this.f38534d);
-            this.f38532b.removeCallbacks(this.f38535e);
+            this.f39021b.removeCallbacks(this.f39023d);
+            this.f39021b.removeCallbacks(this.f39024e);
             try {
                 boolean a2 = g.a(this).a(intent);
-                this.f38533c = a2;
+                this.f39022c = a2;
                 if (a2) {
                     return 1;
                 }

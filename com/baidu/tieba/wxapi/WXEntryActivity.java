@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.q0.a.g;
-import c.a.r0.o2.a;
+import c.a.r0.a.g;
+import c.a.s0.q2.a;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -30,7 +30,7 @@ import com.tencent.mm.sdk.modelmsg.ShowMessageFromWX;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int WX_NOTINSTALL_CODE = 123456;
@@ -168,7 +168,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (1 == type) {
             a aVar = new a();
             aVar.a = this;
-            aVar.f20869b = baseResp;
+            aVar.f21762b = baseResp;
             MessageManager.getInstance().runTask(2921351, null, aVar);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {

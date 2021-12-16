@@ -2,10 +2,10 @@ package c.i.b.a.f0;
 
 import c.i.b.a.d0.s;
 import com.google.android.exoplayer2.Format;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface f {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         f a(s sVar, int... iArr);
     }

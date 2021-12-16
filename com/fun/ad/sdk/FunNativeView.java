@@ -22,7 +22,7 @@ public final class FunNativeView extends FrameLayout {
     public NativeAdContainer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f55630b;
+    public boolean f56211b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FunNativeView(@NonNull Context context) {
@@ -69,7 +69,7 @@ public final class FunNativeView extends FrameLayout {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f55630b) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f56211b) {
             IllegalStateException illegalStateException = new IllegalStateException("Forbid add/rm view from FunNativeAdView.");
             if (FunAdSdk.isLogEnabled()) {
                 throw illegalStateException;
@@ -84,7 +84,7 @@ public final class FunNativeView extends FrameLayout {
             NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
             this.a = nativeAdContainer;
             addView(nativeAdContainer);
-            this.f55630b = true;
+            this.f56211b = true;
         }
     }
 

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LokiService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_SYSTEM_SERVICE = ":loki";
@@ -25,7 +25,7 @@ public class LokiService extends Service {
     public static LogSystemProcessor mProcessor;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Constant {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String LOG_BASIC_DATA = "logbasicdata";

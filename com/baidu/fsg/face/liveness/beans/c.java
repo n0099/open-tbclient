@@ -16,23 +16,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "request_data";
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f34741b = null;
+    public static c f35209b = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34742d = "RIM_LIVENESS_VIDEO_PREFERENCE";
+    public static final String f35210d = "RIM_LIVENESS_VIDEO_PREFERENCE";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34743e = "RIM_LIVENESS_VIDEO_VIDEOENCODINGBITRATE";
+    public static final String f35211e = "RIM_LIVENESS_VIDEO_VIDEOENCODINGBITRATE";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, SapiBiometricDto> f34744c;
+    public HashMap<String, SapiBiometricDto> f35212c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -47,17 +47,17 @@ public class c {
                 return;
             }
         }
-        this.f34744c = new HashMap<>();
+        this.f35212c = new HashMap<>();
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f34741b == null) {
-                f34741b = new c();
+            if (f35209b == null) {
+                f35209b = new c();
             }
-            return f34741b;
+            return f35209b;
         }
         return (c) invokeV.objValue;
     }
@@ -65,18 +65,18 @@ public class c {
     public void b() {
         HashMap<String, SapiBiometricDto> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (hashMap = this.f34744c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (hashMap = this.f35212c) == null) {
             return;
         }
         hashMap.clear();
-        this.f34744c = null;
+        this.f35212c = null;
     }
 
     public SapiBiometricDto a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, SapiBiometricDto> hashMap = this.f34744c;
+            HashMap<String, SapiBiometricDto> hashMap = this.f35212c;
             if (hashMap != null) {
                 return hashMap.get(str);
             }
@@ -89,7 +89,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            String localDecryptProxy = RimArmor.getInstance().localDecryptProxy((String) SharedPreferencesUtils.getParam(context, f34742d, f34743e, ""));
+            String localDecryptProxy = RimArmor.getInstance().localDecryptProxy((String) SharedPreferencesUtils.getParam(context, f35210d, f35211e, ""));
             try {
                 if (TextUtils.isEmpty(localDecryptProxy)) {
                     return 1048576;
@@ -106,10 +106,10 @@ public class c {
     public void a(String str, SapiBiometricDto sapiBiometricDto) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, sapiBiometricDto) == null) {
-            if (this.f34744c == null) {
-                this.f34744c = new HashMap<>();
+            if (this.f35212c == null) {
+                this.f35212c = new HashMap<>();
             }
-            this.f34744c.put(str, sapiBiometricDto);
+            this.f35212c.put(str, sapiBiometricDto);
         }
     }
 
@@ -138,6 +138,6 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i2) == null) || i2 <= 0) {
             return;
         }
-        SharedPreferencesUtils.setParam(context, f34742d, f34743e, RimArmor.getInstance().localEncryptProxy(String.valueOf(i2)));
+        SharedPreferencesUtils.setParam(context, f35210d, f35211e, RimArmor.getInstance().localEncryptProxy(String.valueOf(i2)));
     }
 }

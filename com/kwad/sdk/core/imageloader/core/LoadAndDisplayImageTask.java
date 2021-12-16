@@ -30,7 +30,7 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_NO_IMAGE_STREAM = "No stream for image [%s]";
@@ -73,7 +73,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     public final ImageSize targetSize;
     public final String uri;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FireCancelEventRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FireFailEventRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +150,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class TaskCancelledException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -504619855289909996L;

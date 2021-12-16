@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PostByteRequest extends HttpRequest<PostByteRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType MEDIA_TYPE_STREAM;
@@ -20,7 +20,7 @@ public class PostByteRequest extends HttpRequest<PostByteRequestBuilder> {
     public byte[] content;
     public MediaType mediaType;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PostByteRequestBuilder extends HttpRequestBuilder<PostByteRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

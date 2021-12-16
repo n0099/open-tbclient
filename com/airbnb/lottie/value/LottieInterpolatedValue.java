@@ -2,7 +2,7 @@ package com.airbnb.lottie.value;
 
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class LottieInterpolatedValue<T> extends LottieValueCallback<T> {
     public final T endValue;
     public final Interpolator interpolator;

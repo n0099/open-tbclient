@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.math.BigInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class UnsignedLong extends Number implements Comparable<UnsignedLong>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final UnsignedLong MAX_VALUE;

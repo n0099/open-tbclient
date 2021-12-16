@@ -26,19 +26,19 @@ import java.util.concurrent.ScheduledExecutorService;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public static ScheduledExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences f54751b;
+    public static SharedPreferences f55331b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f54752c;
+    public static volatile boolean f55332c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, String> f54753d;
+    public static Map<String, String> f55333d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,8 +55,8 @@ public final class e {
             }
         }
         a = Executors.newSingleThreadScheduledExecutor(new g.a("tt_pangle_thread_pl_report"));
-        f54752c = false;
-        f54753d = new HashMap();
+        f55332c = false;
+        f55333d = new HashMap();
     }
 
     public static void c(String str, JSONObject jSONObject) {
@@ -71,7 +71,7 @@ public final class e {
             bundle.putString("event_name", str);
             bundle.putString("event_extra", jSONObject.toString());
             adManager.getExtra(Bundle.class, bundle);
-        } else if (f54752c) {
+        } else if (f55332c) {
         } else {
             a.execute(new Runnable(str, jSONObject) { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.1
                 public static /* synthetic */ Interceptable $ic;
@@ -79,7 +79,7 @@ public final class e {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f54754b;
+                public final /* synthetic */ JSONObject f55334b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -97,14 +97,14 @@ public final class e {
                         }
                     }
                     this.a = str;
-                    this.f54754b = jSONObject;
+                    this.f55334b = jSONObject;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        e.b(e.d(this.a, this.f54754b));
+                        e.b(e.d(this.a, this.f55334b));
                     }
                 }
             });
@@ -130,8 +130,8 @@ public final class e {
                 JSONObject jSONObject4 = new JSONObject();
                 jSONObject4.put("model", Build.MODEL);
                 jSONObject4.put("vendor", Build.MANUFACTURER);
-                jSONObject4.put("imei", f54753d.get("imei"));
-                jSONObject4.put("oaid", f54753d.get("oaid"));
+                jSONObject4.put("imei", f55333d.get("imei"));
+                jSONObject4.put("oaid", f55333d.get("oaid"));
                 jSONObject3.put("device_info", jSONObject4);
                 jSONArray.put(jSONObject3);
                 jSONObject2.put("stats_list", jSONArray);
@@ -145,7 +145,7 @@ public final class e {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            f54751b = context.getSharedPreferences("tt_sdk_settings", 0);
+            f55331b = context.getSharedPreferences("tt_sdk_settings", 0);
         }
     }
 
@@ -153,7 +153,7 @@ public final class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jSONObject)) == null) {
-            SharedPreferences sharedPreferences = f54751b;
+            SharedPreferences sharedPreferences = f55331b;
             return com.bytedance.sdk.openadsdk.api.a.c.a().a(true, String.format("https://%s%s", sharedPreferences != null ? sharedPreferences.getString("url_alog", "pangolin.snssdk.com") : "pangolin.snssdk.com", "/api/ad/union/sdk/stats/batch/"), com.bytedance.sdk.openadsdk.api.b.b.a(jSONObject).toString().getBytes());
         }
         return (String) invokeL.objValue;
@@ -196,11 +196,11 @@ public final class e {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f54752c) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f55332c) {
             return;
         }
         try {
-            f54752c = true;
+            f55332c = true;
             a.shutdown();
         } catch (Throwable unused) {
         }
@@ -208,7 +208,7 @@ public final class e {
 
     public static void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, bundle) == null) || f54752c) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, bundle) == null) || f55332c) {
             return;
         }
         a.execute(new Runnable(bundle) { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.2
@@ -249,12 +249,12 @@ public final class e {
         if (!(interceptable == null || interceptable.invokeL(65542, null, adConfig) == null) || adConfig == null) {
             return;
         }
-        f54753d.put("appid", adConfig.getAppId());
+        f55333d.put("appid", adConfig.getAppId());
         TTCustomController customController = adConfig.getCustomController();
         if (customController != null) {
             try {
-                f54753d.put("oaid", customController.getDevOaid());
-                f54753d.put("imei", customController.getDevImei());
+                f55333d.put("oaid", customController.getDevOaid());
+                f55333d.put("imei", customController.getDevImei());
             } catch (Exception unused) {
             }
         }

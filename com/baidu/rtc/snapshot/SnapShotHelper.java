@@ -12,7 +12,7 @@ import java.io.File;
 import org.webrtc.EglRenderer;
 import org.webrtc.Logging;
 import org.webrtc.SurfaceViewRenderer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SnapShotHelper implements ISnapShot {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SnapShotHelper";

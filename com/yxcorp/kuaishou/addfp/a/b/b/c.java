@@ -12,29 +12,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.ads.identifier.AdvertisingIdClient;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class c implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuaishou.addfp.a.b.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63312b;
+    public String f63893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63313c;
+    public String f63894c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f63314d;
+    public String f63895d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f63315e;
+    public boolean f63896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.a.a f63316f;
+    public com.yxcorp.kuaishou.addfp.a.a.a f63897f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f63317g;
+    public a f63898g;
 
     public c(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
         Interceptable interceptable = $ic;
@@ -51,13 +51,13 @@ public final class c implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
                 return;
             }
         }
-        this.f63312b = "";
-        this.f63313c = "";
-        this.f63314d = "";
-        this.f63315e = false;
+        this.f63893b = "";
+        this.f63894c = "";
+        this.f63895d = "";
+        this.f63896e = false;
         this.a = context;
-        this.f63316f = aVar;
-        this.f63317g = new a(context);
+        this.f63897f = aVar;
+        this.f63898g = new a(context);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -68,16 +68,16 @@ public final class c implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
                 try {
                     String string = Settings.Global.getString(this.a.getContentResolver(), AdvertisingIdClient.SETTINGS_AD_ID);
                     if (!TextUtils.isEmpty(string)) {
-                        this.f63312b = string;
-                        this.f63315e = true;
-                        if (this.f63316f != null) {
-                            this.f63316f.a(true, this);
+                        this.f63893b = string;
+                        this.f63896e = true;
+                        if (this.f63897f != null) {
+                            this.f63897f.a(true, this);
                         }
                     }
                 } catch (Throwable unused) {
                 }
             }
-            this.f63317g.a(this);
+            this.f63898g.a(this);
         }
     }
 
@@ -86,18 +86,18 @@ public final class c implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             try {
-                if (TextUtils.isEmpty(str) || !str.equals(this.f63312b)) {
-                    this.f63312b = str;
+                if (TextUtils.isEmpty(str) || !str.equals(this.f63893b)) {
+                    this.f63893b = str;
                     if (TextUtils.isEmpty(str)) {
-                        if (this.f63316f != null) {
-                            this.f63316f.a(false, null);
+                        if (this.f63897f != null) {
+                            this.f63897f.a(false, null);
                             return;
                         }
                         return;
                     }
-                    this.f63315e = true;
-                    if (this.f63316f != null) {
-                        this.f63316f.a(true, this);
+                    this.f63896e = true;
+                    if (this.f63897f != null) {
+                        this.f63897f.a(true, this);
                     }
                 }
             } catch (Throwable th) {
@@ -130,21 +130,21 @@ public final class c implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f63312b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f63893b : (String) invokeV.objValue;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f63315e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f63896e : invokeV.booleanValue;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void d() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f63317g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f63898g) == null) {
             return;
         }
         aVar.a();
@@ -154,7 +154,7 @@ public final class c implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     public final void e() {
         com.yxcorp.kuaishou.addfp.a.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f63316f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f63897f) == null) {
             return;
         }
         aVar.a(false, this);

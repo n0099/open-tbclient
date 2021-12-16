@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.utils.StatHelper;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class HttpStatus {
     public static final /* synthetic */ HttpStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -86,7 +86,7 @@ public final class HttpStatus {
     public final int value;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class Series {
         public static final /* synthetic */ Series[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -6,24 +6,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class i extends n<c.b.b.n.k.d, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends c.b.b.j.c<c.b.b.n.k.d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27371b;
+        public String f27746b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f27372c;
+        public String f27747c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.b.b.m.a f27373d;
+        public c.b.b.m.a f27748d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -67,11 +67,11 @@ public class i extends n<c.b.b.n.k.d, a> {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar, aVar2)) == null) {
-            if (aVar2 == null || aVar2.f27371b == null) {
+            if (aVar2 == null || aVar2.f27746b == null) {
                 return null;
             }
             c.b.b.q.a<c.b.b.j.a> aVar3 = new c.b.b.q.a<>();
-            aVar3.a(new c.b.b.j.a(aVar2.f27371b, c.b.b.n.k.h.class));
+            aVar3.a(new c.b.b.j.a(aVar2.f27746b, c.b.b.n.k.h.class));
             return aVar3;
         }
         return (c.b.b.q.a) invokeLLL.objValue;
@@ -87,9 +87,9 @@ public class i extends n<c.b.b.n.k.d, a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, eVar, str, aVar, aVar2)) == null) {
             c.b.b.n.k.d dVar = new c.b.b.n.k.d();
-            if (aVar2 != null && (str2 = aVar2.f27371b) != null) {
-                dVar.f(aVar, (c.b.b.n.k.h) eVar.j(str2, c.b.b.n.k.h.class), aVar2.f27372c);
-            } else if (aVar2 != null && (aVar3 = aVar2.f27373d) != null) {
+            if (aVar2 != null && (str2 = aVar2.f27746b) != null) {
+                dVar.f(aVar, (c.b.b.n.k.h) eVar.j(str2, c.b.b.n.k.h.class), aVar2.f27747c);
+            } else if (aVar2 != null && (aVar3 = aVar2.f27748d) != null) {
                 dVar.a(aVar, aVar3);
             } else {
                 dVar.a(aVar, aVar.i());

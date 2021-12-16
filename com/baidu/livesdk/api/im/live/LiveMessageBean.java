@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LiveMessageBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class LiveMessageBean {
     public String uid;
     public String vip;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface Character {
         public static final int ANCHOR = 1001;
         public static final int BLACKLISTUSER = 1009;
@@ -48,7 +48,7 @@ public class LiveMessageBean {
         public static final int WHITELISTUSER = 3;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Data {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class LiveMessageBean {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Link {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class LiveMessageBean {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class MessageBody {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public class LiveMessageBean {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface MessageType {
         public static final int PIC = 1;
         public static final int PIC_LINK = 4;
@@ -150,14 +150,14 @@ public class LiveMessageBean {
         public static final int VOICE = 5;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Pic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ImageInfo origin;
         public ImageInfo thumbnail;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public static class ImageInfo {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -196,7 +196,7 @@ public class LiveMessageBean {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface ServiceType {
         public static final int QUIZ_CONTINUE_INFO = 6;
         public static final int QUIZ_CONTINUE_RESULT = 7;
@@ -207,13 +207,13 @@ public class LiveMessageBean {
         public static final int QUIZ_WINNER_RESULT = 4;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface StickOperation {
         public static final int CANCEL_STICK = 2;
         public static final int STICK = 1;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Txt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +234,7 @@ public class LiveMessageBean {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface Type {
         public static final int AT = 3;
         public static final int ENTER_LIVE = 1001;
@@ -252,13 +252,13 @@ public class LiveMessageBean {
         public static final int SYSTEM_TXT = 100;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface Vip {
         public static final int NOMALUSER = 0;
         public static final int VIP = 1;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Voice {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

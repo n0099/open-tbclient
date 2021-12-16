@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ThreadUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f51287b;
+    public static boolean f51836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f51288c;
+    public static Handler f51837c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,14 +60,14 @@ public class ThreadUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a) {
-                if (f51288c == null) {
-                    if (!f51287b) {
-                        f51288c = new Handler(Looper.getMainLooper());
+                if (f51837c == null) {
+                    if (!f51836b) {
+                        f51837c = new Handler(Looper.getMainLooper());
                     } else {
                         throw new RuntimeException("Did not yet override the UI thread");
                     }
                 }
-                handler = f51288c;
+                handler = f51837c;
             }
             return handler;
         }

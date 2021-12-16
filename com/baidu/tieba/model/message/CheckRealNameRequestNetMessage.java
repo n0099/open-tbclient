@@ -1,6 +1,6 @@
 package com.baidu.tieba.model.message;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CheckRealName.CheckRealNameReqIdl;
 import tbclient.CheckRealName.DataReq;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class CheckRealNameRequestNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class CheckRealNameRequestNetMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.obj_source = this.objSource;
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             CheckRealNameReqIdl.Builder builder2 = new CheckRealNameReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -1,7 +1,7 @@
 package com.baidu.pass.ecommerce.view;
 
 import android.view.ViewGroup;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface VoiceWaveInterface {
     void changeVolume(float f2);
 

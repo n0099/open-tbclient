@@ -1,67 +1,70 @@
 package c.a.r0.f1.e;
 
-import android.content.Context;
+import android.graphics.Point;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.ViewConfiguration;
+import android.widget.ListView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.m.e.n;
-import c.a.q0.b.d;
-import c.a.q0.s.q.c2;
-import c.a.q0.s.q.d2;
-import c.a.r0.e1.e.c;
-import c.a.r0.h3.p;
-import c.a.r0.h3.t;
-import c.a.r0.t3.j0.o;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.funad.adapter.FunAdNativeViewHolder;
-import com.baidu.tieba.funad.view.FunAbsAdView;
-import com.baidu.tieba.funad.view.FunAdNativeCommentView;
-import com.baidu.tieba.funad.view.FunAdNativeFrsView;
-import com.baidu.tieba.funad.view.FunAdNativePbView;
-import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes5.dex */
-public class b extends c.a.d.m.e.a<n, FunAdNativeViewHolder> implements t, p {
+/* loaded from: classes6.dex */
+public class b extends e implements View.OnTouchListener, GestureDetector.OnGestureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragmentActivity m;
-    public String n;
-    public Set<String> o;
-    public String p;
-    public String q;
+    public float A;
+    public int B;
+    public int C;
+    public int D;
+    public boolean E;
+    public ListView F;
+    public c.a.r0.f1.e.a G;
+    public int H;
+    public GestureDetector.OnGestureListener I;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    /* renamed from: i  reason: collision with root package name */
+    public int f12374i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f12375j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f12376k;
+    public boolean l;
+    public boolean m;
+    public GestureDetector n;
+    public GestureDetector o;
+    public GestureDetector p;
+    public int q;
+    public int r;
+    public int s;
+    public int t;
+    public int[] u;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
+    public boolean z;
+
+    /* loaded from: classes6.dex */
+    public class a implements GestureDetector.OnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f17173e;
+        public final /* synthetic */ b f12377e;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FunAdNativeViewHolder f17174f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f17175g;
-
-        public a(b bVar, o oVar, FunAdNativeViewHolder funAdNativeViewHolder) {
+        public a(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, oVar, funAdNativeViewHolder};
+                Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -71,180 +74,453 @@ public class b extends c.a.d.m.e.a<n, FunAdNativeViewHolder> implements t, p {
                     return;
                 }
             }
-            this.f17175g = bVar;
-            this.f17173e = oVar;
-            this.f17174f = funAdNativeViewHolder;
+            this.f12377e = bVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // android.view.GestureDetector.OnGestureListener
+        public boolean onDown(MotionEvent motionEvent) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f17173e.m(true);
-                this.f17175g.K();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f17174f.getFunAdNativeView().getPageType()).param(TiebaStatic.Params.RESOURCE_ID, this.f17175g.g0()).param("obj_locate", 0));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+                if (!this.f12377e.G.g0() || this.f12377e.G.h0()) {
+                    return false;
+                }
+                this.f12377e.onDown(motionEvent);
+                this.f12377e.x = (int) motionEvent.getX();
+                this.f12377e.y = (int) motionEvent.getY();
+                return true;
             }
+            return invokeL.booleanValue;
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public void onLongPress(MotionEvent motionEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent) == null) {
+                this.f12377e.onLongPress(motionEvent);
+            }
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public void onShowPress(MotionEvent motionEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, motionEvent) == null) {
+            }
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public boolean onSingleTapUp(MotionEvent motionEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        super(baseFragmentActivity, bdUniqueId);
+    /* renamed from: c.a.r0.f1.e.b$b  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public class C0802b extends GestureDetector.SimpleOnGestureListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ b f12378e;
+
+        public C0802b(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12378e = bVar;
+        }
+
+        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+        public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                if (this.f12378e.l && this.f12378e.m) {
+                    int width = this.f12378e.F.getWidth() / 5;
+                    if (f2 > this.f12378e.A) {
+                        if (this.f12378e.H > (-width)) {
+                            this.f12378e.G.A0(true, f2);
+                        }
+                    } else if (f2 < (-this.f12378e.A) && this.f12378e.H < width) {
+                        this.f12378e.G.A0(true, f2);
+                    }
+                    this.f12378e.m = false;
+                }
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public b(c.a.r0.f1.e.a aVar, ListView listView, int i2, int i3, int i4) {
+        this(aVar, listView, i2, i3, i4, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, bdUniqueId};
+            Object[] objArr = {aVar, listView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                this((c.a.r0.f1.e.a) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = new HashSet();
-        this.m = baseFragmentActivity;
     }
 
-    public String g0() {
+    public int A(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (this.f12376k == 1) {
+                return s(motionEvent);
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public int B(MotionEvent motionEvent, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, i2)) == null) {
+            int pointToPosition = this.F.pointToPosition((int) motionEvent.getX(), (int) motionEvent.getY());
+            int headerViewsCount = this.F.getHeaderViewsCount();
+            int footerViewsCount = this.F.getFooterViewsCount();
+            int count = this.F.getCount();
+            if (pointToPosition != -1 && pointToPosition >= headerViewsCount && pointToPosition < count - footerViewsCount) {
+                ListView listView = this.F;
+                View childAt = listView.getChildAt(pointToPosition - listView.getFirstVisiblePosition());
+                int rawX = (int) motionEvent.getRawX();
+                int rawY = (int) motionEvent.getRawY();
+                View findViewById = i2 == 0 ? childAt : childAt.findViewById(i2);
+                if (findViewById != null) {
+                    findViewById.getLocationOnScreen(this.u);
+                    int[] iArr = this.u;
+                    if (rawX > iArr[0] && rawY > iArr[1] && rawX < iArr[0] + findViewById.getWidth() && rawY < this.u[1] + findViewById.getHeight()) {
+                        this.v = childAt.getLeft();
+                        this.w = childAt.getTop();
+                        return pointToPosition;
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // c.a.r0.f1.e.a.j
+    public void d(View view, Point point, Point point2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view, point, point2) == null) && this.l && this.m) {
+            this.H = point.x;
+        }
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onDown(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            if (this.l && this.f12376k == 0) {
+                this.t = B(motionEvent, this.C);
+            }
+            int z = z(motionEvent);
+            this.r = z;
+            if (z != -1 && this.f12374i == 0) {
+                y(z, ((int) motionEvent.getX()) - this.v, ((int) motionEvent.getY()) - this.w);
+            }
+            this.m = false;
+            this.E = true;
+            this.H = 0;
+            this.s = A(motionEvent);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public void onLongPress(MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, motionEvent) == null) && this.r != -1 && this.f12374i == 2) {
+            this.F.performHapticFeedback(0);
+            y(this.r, this.x - this.v, this.y - this.w);
+        }
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (motionEvent != null && motionEvent2 != null) {
+                int x = (int) motionEvent.getX();
+                int y = (int) motionEvent.getY();
+                int x2 = (int) motionEvent2.getX();
+                int y2 = (int) motionEvent2.getY();
+                int i2 = x2 - this.v;
+                int i3 = y2 - this.w;
+                if (this.E && !this.z && (this.r != -1 || this.s != -1)) {
+                    if (this.r != -1) {
+                        if (this.f12374i == 1 && Math.abs(y2 - y) > this.q && this.f12375j) {
+                            y(this.r, i2, i3);
+                        } else if (this.f12374i != 0 && Math.abs(x2 - x) > this.q && this.l) {
+                            this.m = true;
+                            y(this.s, i2, i3);
+                        }
+                    } else if (this.s != -1) {
+                        if (Math.abs(x2 - x) > this.q && this.l) {
+                            this.m = true;
+                            y(this.s, i2, i3);
+                        } else if (Math.abs(y2 - y) > this.q) {
+                            this.E = false;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public void onShowPress(MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, motionEvent) == null) {
+        }
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
+            if (this.l && this.f12376k == 0 && (i2 = this.t) != -1) {
+                this.G.l0(i2 - this.F.getHeaderViewsCount());
+                return true;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, view, motionEvent)) == null) {
+            if (this.G.g0() && !this.G.h0()) {
+                this.n.onTouchEvent(motionEvent);
+                if (this.l && this.z && this.f12376k == 1) {
+                    this.p.onTouchEvent(motionEvent);
+                }
+                int action = motionEvent.getAction() & 255;
+                if (action == 0) {
+                    this.x = (int) motionEvent.getX();
+                    this.y = (int) motionEvent.getY();
+                } else if (action == 1) {
+                    if (this.l && this.m) {
+                        int i2 = this.H;
+                        if (i2 < 0) {
+                            i2 = -i2;
+                        }
+                        if (i2 > this.F.getWidth() / 2) {
+                            this.G.A0(true, 0.0f);
+                        }
+                    }
+                    this.m = false;
+                    this.z = false;
+                } else if (action == 3) {
+                    this.m = false;
+                    this.z = false;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public int r(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) ? B(motionEvent, this.B) : invokeL.intValue;
+    }
+
+    public int s(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) ? B(motionEvent, this.D) : invokeL.intValue;
+    }
+
+    public GestureDetector t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "pb".equals(this.p) ? this.f2910h == AdvertAppInfo.J4 ? "2" : "1" : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.o : (GestureDetector) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: h0 */
-    public FunAdNativeViewHolder S(ViewGroup viewGroup) {
+    public void u(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.f12374i = i2;
+        }
+    }
+
+    public void v(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void w(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.f12376k = i2;
+        }
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.f12375j = z;
+        }
+    }
+
+    public boolean y(int i2, int i3, int i4) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048593, this, i2, i3, i4)) == null) {
+            int i5 = (!this.f12375j || this.m) ? 0 : 12;
+            if (this.l && this.m) {
+                i5 = i5 | 1 | 2;
+            }
+            boolean w0 = this.G.w0(i2 - this.F.getHeaderViewsCount(), i5, i3, i4);
+            this.z = w0;
+            return w0;
+        }
+        return invokeIII.booleanValue;
+    }
+
+    public int z(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        FunAbsAdView funAdNativePbView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            BdUniqueId bdUniqueId = this.f2910h;
-            if (bdUniqueId == AdvertAppInfo.J4) {
-                funAdNativePbView = new FunAdNativeCommentView(this.m);
-            } else if (bdUniqueId == AdvertAppInfo.I4) {
-                funAdNativePbView = new FunAdNativeFrsView(this.m);
-            } else {
-                funAdNativePbView = new FunAdNativePbView(this.m);
-            }
-            FunAdNativeViewHolder funAdNativeViewHolder = new FunAdNativeViewHolder(funAdNativePbView, this.m, this.f2910h);
-            funAdNativeViewHolder.setSid(this.n);
-            funAdNativeViewHolder.setSceneKey(this.q);
-            return funAdNativeViewHolder;
-        }
-        return (FunAdNativeViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, motionEvent)) == null) ? r(motionEvent) : invokeL.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: i0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, n nVar, FunAdNativeViewHolder funAdNativeViewHolder) {
-        InterceptResult invokeCommon;
-        long j2;
-        o oVar;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public b(c.a.r0.f1.e.a aVar, ListView listView, int i2, int i3, int i4, int i5) {
+        this(aVar, listView, i2, i3, i4, i5, 0);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, nVar, funAdNativeViewHolder})) == null) {
-            if (nVar instanceof c2) {
-                d2 d2Var = ((c2) nVar).w;
-                oVar = d2Var.N2;
-                j2 = d2Var.U();
-            } else if (nVar instanceof d2) {
-                d2 d2Var2 = (d2) nVar;
-                oVar = d2Var2.N2;
-                j2 = d2Var2.U();
-            } else {
-                j2 = 0;
-                oVar = nVar instanceof PostData ? ((PostData) nVar).v0 : null;
-            }
-            if (oVar == null) {
-                funAdNativeViewHolder.getFunAdNativeView().hideOrShowView(8);
-                return funAdNativeViewHolder.getView();
-            }
-            if (!"personalize".equals(this.p) && !AdvertAppInfo.J4.equals(this.f2910h)) {
-                this.n = c.e().d(this.q);
-            }
-            BdUniqueId bdUniqueId = this.f2910h;
-            if (bdUniqueId == AdvertAppInfo.I4) {
-                if ("frs".equals(this.p)) {
-                    c.a.r0.e1.a.i().C(this.m, this.n, c.a.r0.e1.a.b(this.p, d.q() ? "1" : "0"), String.valueOf(j2));
-                } else if ("personalize".equals(this.p)) {
-                    c.a.r0.e1.a.i().B(this.m, this.n, c.a.r0.e1.a.b(this.p, d.P() ? "1" : "0"));
-                }
-            } else if (bdUniqueId == AdvertAppInfo.J4) {
-                c.a.r0.e1.a.i().D(this.m, this.n, c.a.r0.e1.a.b(this.p, d.M() ? "1" : "0"), oVar.e(), oVar.c());
-            }
-            funAdNativeViewHolder.setFeedBackListener(new a(this, oVar, funAdNativeViewHolder));
-            funAdNativeViewHolder.getFunAdNativeView().onChangedSkinType();
-            funAdNativeViewHolder.setPage(this.p);
-            funAdNativeViewHolder.setSid(this.n);
-            this.o.add(this.n);
-            funAdNativeViewHolder.showNativeAd(oVar, nVar instanceof c.a.q0.s.q.a ? ((c.a.q0.s.q.a) nVar).position + 1 : -1);
-            return funAdNativeViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void j0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.p = str;
-        }
-    }
-
-    @Override // c.a.r0.h3.t
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-        }
-    }
-
-    public void k0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.q = str;
-        }
-    }
-
-    public void l0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.n = str;
-        }
-    }
-
-    @Override // c.a.r0.h3.p
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            V v = this.f2913k;
-            if (v != 0 && ((FunAdNativeViewHolder) v).getFunAdNativeView() != null) {
-                ((FunAdNativeViewHolder) this.f2913k).getFunAdNativeView().destroyDownloadButton();
-            }
-            for (String str : this.o) {
-                c.a.r0.e1.a.i().c(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, listView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((c.a.r0.f1.e.a) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue(), ((Integer) objArr2[6]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // c.a.r0.h3.p
-    public void onPause() {
-        V v;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(c.a.r0.f1.e.a aVar, ListView listView, int i2, int i3, int i4, int i5, int i6) {
+        super(listView);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (v = this.f2913k) == 0 || ((FunAdNativeViewHolder) v).getFunAdNativeView() == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, listView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i7 = newInitContext.flag;
+            if ((i7 & 1) != 0) {
+                int i8 = i7 & 2;
+                super((ListView) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        ((FunAdNativeViewHolder) this.f2913k).getFunAdNativeView().destroyDownloadButton();
-    }
-
-    @Override // c.a.r0.h3.p
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
+        this.f12374i = 0;
+        this.f12375j = true;
+        this.l = false;
+        this.m = false;
+        this.r = -1;
+        this.s = -1;
+        this.t = -1;
+        this.u = new int[2];
+        this.z = false;
+        this.A = 500.0f;
+        this.I = new C0802b(this);
+        this.G = aVar;
+        this.F = listView;
+        this.n = new GestureDetector(listView.getContext(), this);
+        this.o = new GestureDetector(listView.getContext(), new a(this));
+        GestureDetector gestureDetector = new GestureDetector(listView.getContext(), this.I);
+        this.p = gestureDetector;
+        gestureDetector.setIsLongpressEnabled(false);
+        this.q = ViewConfiguration.get(listView.getContext()).getScaledTouchSlop();
+        this.B = i2;
+        this.C = i5;
+        this.D = i6;
+        w(i4);
+        u(i3);
     }
 }

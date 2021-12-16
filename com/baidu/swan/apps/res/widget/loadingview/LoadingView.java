@@ -9,12 +9,12 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.c;
-import c.a.p0.a.c2.b.d.b;
-import c.a.p0.a.d;
-import c.a.p0.a.f;
-import c.a.p0.a.g;
-import c.a.p0.a.u1.l.e;
+import c.a.q0.a.c;
+import c.a.q0.a.c2.b.d.b;
+import c.a.q0.a.d;
+import c.a.q0.a.f;
+import c.a.q0.a.g;
+import c.a.q0.a.u1.l.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,22 +22,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class LoadingView extends FrameLayout implements b<LoadingView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f40055e;
+    public View f40544e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SmoothProgressBar f40056f;
+    public SmoothProgressBar f40545f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f40057g;
+    public TextView f40546g;
 
-    /* loaded from: classes9.dex */
-    public class a implements c.a.p0.a.j2.a {
+    /* loaded from: classes11.dex */
+    public class a implements c.a.q0.a.j2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingView a;
@@ -90,7 +90,7 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.p0.a.c2.b.d.b
+    @Override // c.a.q0.a.c2.b.d.b
     public LoadingView getLoadingView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -100,15 +100,15 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View d2 = e.e() ? c.a.p0.a.u1.n.a.a().d(g.aiapps_loading_layout) : null;
+            View d2 = e.e() ? c.a.q0.a.u1.n.a.a().d(g.aiapps_loading_layout) : null;
             if (d2 != null) {
                 addView(d2, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(d.swan_loading_view_height)));
             } else {
                 LayoutInflater.from(getContext()).inflate(g.aiapps_loading_layout, (ViewGroup) this, true);
             }
-            this.f40055e = findViewById(f.root_container);
-            this.f40056f = (SmoothProgressBar) findViewById(f.loading_bar);
-            this.f40057g = (TextView) findViewById(f.message);
+            this.f40544e = findViewById(f.root_container);
+            this.f40545f = (SmoothProgressBar) findViewById(f.loading_bar);
+            this.f40546g = (TextView) findViewById(f.message);
             setPageResources();
         }
     }
@@ -118,7 +118,7 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onAttachedToWindow();
-            c.a.p0.a.c1.a.M().f(this, new a(this));
+            c.a.q0.a.c1.a.M().f(this, new a(this));
         }
     }
 
@@ -127,29 +127,29 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
-            c.a.p0.a.c1.a.M().g(this);
+            c.a.q0.a.c1.a.M().g(this);
         }
     }
 
     public void setMsg(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f40057g.setText(i2);
+            this.f40546g.setText(i2);
         }
     }
 
     public void setPageResources() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View view = this.f40055e;
+            View view = this.f40544e;
             if (view != null) {
-                view.setBackground(view.getResources().getDrawable(c.a.p0.a.e.aiapps_loading_bg));
+                view.setBackground(view.getResources().getDrawable(c.a.q0.a.e.aiapps_loading_bg));
             }
-            SmoothProgressBar smoothProgressBar = this.f40056f;
+            SmoothProgressBar smoothProgressBar = this.f40545f;
             if (smoothProgressBar != null) {
-                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(c.a.p0.a.e.aiapps_loading_progress_animation));
+                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(c.a.q0.a.e.aiapps_loading_progress_animation));
             }
-            TextView textView = this.f40057g;
+            TextView textView = this.f40546g;
             if (textView != null) {
                 textView.setTextColor(textView.getResources().getColor(c.aiapps_loading_text_color));
             }
@@ -166,7 +166,7 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     public void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f40057g.setText(str);
+            this.f40546g.setText(str);
         }
     }
 

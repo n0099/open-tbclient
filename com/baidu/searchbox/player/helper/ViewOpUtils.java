@@ -4,12 +4,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.utils.BdVideoLog;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ViewOpUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ViewOpUtils";
@@ -44,8 +45,7 @@ public class ViewOpUtils {
                     viewGroup.removeView(view);
                     return true;
                 } catch (Exception e2) {
-                    BdVideoLog.e(TAG, "remove view ex");
-                    e2.printStackTrace();
+                    BdVideoLog.e("removeView(" + System.identityHashCode(view) + SmallTailInfo.EMOTION_SUFFIX, e2);
                     return true;
                 }
             }

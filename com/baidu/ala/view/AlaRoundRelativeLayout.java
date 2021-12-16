@@ -7,7 +7,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AlaRoundRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float f2 = l.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+        float f2 = m.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
         this.mRoundLayoutRadius = f2;
         this.mRadius = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
         init();
@@ -115,7 +115,7 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float f2 = l.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+        float f2 = m.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
         this.mRoundLayoutRadius = f2;
         this.mRadius = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
         init();
@@ -140,7 +140,7 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float f2 = l.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+        float f2 = m.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
         this.mRoundLayoutRadius = f2;
         this.mRadius = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
         init();

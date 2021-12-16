@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.Log;
 import io.flutter.plugin.common.MethodChannel;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ErrorLogResult implements MethodChannel.Result {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

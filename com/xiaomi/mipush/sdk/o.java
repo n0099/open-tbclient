@@ -19,7 +19,7 @@ import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.iq;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,14 +43,14 @@ public class o {
             if (uri == null || TextUtils.isEmpty(uri.toString())) {
                 return;
             }
-            ea.a(context.getApplicationContext()).a(ec.f62841d, context, (Intent) null, uri.toString());
+            ea.a(context.getApplicationContext()).a(ec.f63422d, context, (Intent) null, uri.toString());
             return;
         } else if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
             a = ea.a(context.getApplicationContext());
-            ecVar = ec.f62840c;
+            ecVar = ec.f63421c;
         } else {
             a = ea.a(context.getApplicationContext());
-            ecVar = ec.f62839b;
+            ecVar = ec.f63420b;
         }
         a.a(ecVar, context, intent, (String) null);
     }

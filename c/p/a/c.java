@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.webviewbase.AdvancedWebView;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c implements DownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class c implements DownloadListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
             String guessFileName = URLUtil.guessFileName(str, str3, str4);
-            f fVar = this.a.f62671c;
+            f fVar = this.a.f63252c;
             if (fVar != null) {
                 fVar.a(str, guessFileName, str4, j2, str3, str2);
             }

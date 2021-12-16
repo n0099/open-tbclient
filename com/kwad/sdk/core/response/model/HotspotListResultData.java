@@ -13,7 +13,7 @@ import com.kwad.sdk.core.a.e;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HotspotListResultData extends BaseResultData implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HotspotListResultData";

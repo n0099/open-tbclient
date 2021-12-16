@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class br implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,17 +37,17 @@ public class br implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.a> {
         if (jSONObject.opt("Access-Control-Allow-Origin") == JSONObject.NULL) {
             aVar.a = "";
         }
-        aVar.f57064b = jSONObject.optString("Timing-Allow-Origin");
+        aVar.f57645b = jSONObject.optString("Timing-Allow-Origin");
         if (jSONObject.opt("Timing-Allow-Origin") == JSONObject.NULL) {
-            aVar.f57064b = "";
+            aVar.f57645b = "";
         }
-        aVar.f57065c = jSONObject.optString("content-type");
+        aVar.f57646c = jSONObject.optString("content-type");
         if (jSONObject.opt("content-type") == JSONObject.NULL) {
-            aVar.f57065c = "";
+            aVar.f57646c = "";
         }
-        aVar.f57066d = jSONObject.optString("Date");
+        aVar.f57647d = jSONObject.optString("Date");
         if (jSONObject.opt("Date") == JSONObject.NULL) {
-            aVar.f57066d = "";
+            aVar.f57647d = "";
         }
     }
 
@@ -61,9 +61,9 @@ public class br implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.a> {
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "Access-Control-Allow-Origin", aVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "Timing-Allow-Origin", aVar.f57064b);
-            com.kwad.sdk.utils.t.a(jSONObject, "content-type", aVar.f57065c);
-            com.kwad.sdk.utils.t.a(jSONObject, "Date", aVar.f57066d);
+            com.kwad.sdk.utils.t.a(jSONObject, "Timing-Allow-Origin", aVar.f57645b);
+            com.kwad.sdk.utils.t.a(jSONObject, "content-type", aVar.f57646c);
+            com.kwad.sdk.utils.t.a(jSONObject, "Date", aVar.f57647d);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

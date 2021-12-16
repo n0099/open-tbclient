@@ -137,7 +137,7 @@ public class a implements h {
                 }
                 if (componentType == Byte.TYPE) {
                     try {
-                        c.a.d.f.p.c.k((byte[]) this.a, 0);
+                        c.a.d.f.p.d.k((byte[]) this.a, 0);
                     } catch (Exception unused) {
                         return null;
                     }

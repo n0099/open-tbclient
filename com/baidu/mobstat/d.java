@@ -23,26 +23,26 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static d a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37213b;
+        public String f37702b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37214c;
+        public String f37703c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f37215d;
+        public String f37704d;
 
         public a(String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -64,9 +64,9 @@ public class d {
             str3 = str3 == null ? "" : str3;
             str4 = str4 == null ? "" : str4;
             this.a = str;
-            this.f37213b = str2;
-            this.f37214c = str3;
-            this.f37215d = str4;
+            this.f37702b = str2;
+            this.f37703c = str3;
+            this.f37704d = str4;
         }
 
         public JSONObject a() {
@@ -76,9 +76,9 @@ public class d {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("n", this.a);
-                    jSONObject.put("v", this.f37213b);
-                    jSONObject.put("c", this.f37214c);
-                    jSONObject.put("a", this.f37215d);
+                    jSONObject.put("v", this.f37702b);
+                    jSONObject.put("c", this.f37703c);
+                    jSONObject.put("a", this.f37704d);
                     return jSONObject;
                 } catch (JSONException e2) {
                     bb.c().b(e2);
@@ -211,7 +211,7 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f37502e.a(System.currentTimeMillis(), str);
+            k.f37991e.a(System.currentTimeMillis(), str);
         }
     }
 }

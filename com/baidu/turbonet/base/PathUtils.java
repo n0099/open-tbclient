@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class PathUtils {
     public static /* synthetic */ Interceptable $ic;
     public static AsyncTask<Void, Void, String[]> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f51284b;
+    public static Context f51833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f51285c;
+    public static String f51834c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] a;
@@ -113,11 +113,11 @@ public abstract class PathUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             String[] strArr = new String[4];
-            strArr[0] = f51284b.getDir(f51285c, 0).getPath();
-            strArr[1] = f51284b.getDir("textures", 0).getPath();
-            strArr[2] = f51284b.getDatabasePath("foo").getParent();
-            if (f51284b.getCacheDir() != null) {
-                strArr[3] = f51284b.getCacheDir().getPath();
+            strArr[0] = f51833b.getDir(f51834c, 0).getPath();
+            strArr[1] = f51833b.getDir("textures", 0).getPath();
+            strArr[2] = f51833b.getDatabasePath("foo").getParent();
+            if (f51833b.getCacheDir() != null) {
+                strArr[3] = f51833b.getCacheDir().getPath();
             }
             return strArr;
         }

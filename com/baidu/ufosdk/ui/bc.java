@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
 import java.util.Timer;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class bc extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,9 +104,9 @@ public final class bc extends WebViewClient {
             Context applicationContext = this.a.getApplicationContext();
             textView = this.a.m;
             com.baidu.ufosdk.f.i.a(applicationContext, textView);
-            linearLayout = this.a.f51599h;
+            linearLayout = this.a.f52148h;
             linearLayout.setVisibility(0);
-            webView2 = this.a.f51601j;
+            webView2 = this.a.f52150j;
             webView2.setVisibility(8);
         }
     }

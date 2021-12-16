@@ -13,7 +13,7 @@ import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueSubscription;
 import org.reactivestreams.Subscriber;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class EmptySubscription implements QueueSubscription<Object> {
     public static final /* synthetic */ EmptySubscription[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

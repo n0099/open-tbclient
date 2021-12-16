@@ -2,7 +2,7 @@ package com.tachikoma.core.api;
 
 import com.tachikoma.core.component.network.ResponseCallBackInner;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IRequestDelegateInner {
     void get(ResponseCallBackInner responseCallBackInner);
 

@@ -15,42 +15,42 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ax;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class u implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f58078b = 2;
+    public static int f58659b = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.c f58079c;
+    public com.kwad.sdk.core.webview.kwai.c f58660c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f58080d;
+    public int f58661d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58081e;
+    public int f58662e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f58082f;
+    public c f58663f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f58083g;
+    public b f58664g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f58084h;
+    public Runnable f58665h;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58085b;
+        public int f58666b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -67,22 +67,22 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ u a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f58086b;
+        public boolean f58667b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f58087c;
+        public int f58668c;
 
         public c(u uVar) {
             Interceptable interceptable = $ic;
@@ -100,21 +100,21 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
                 }
             }
             this.a = uVar;
-            this.f58086b = false;
-            this.f58087c = -1;
+            this.f58667b = false;
+            this.f58668c = -1;
         }
 
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f58087c = i2;
+                this.f58668c = i2;
             }
         }
 
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.f58086b = z;
+                this.f58667b = z;
             }
         }
 
@@ -122,17 +122,17 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                com.kwad.sdk.core.d.a.a("RegisterTimer", "TimerRunnable run timerPaused:  " + this.f58086b + ", currentTime: " + this.f58087c);
-                if (this.f58086b) {
+                com.kwad.sdk.core.d.a.a("RegisterTimer", "TimerRunnable run timerPaused:  " + this.f58667b + ", currentTime: " + this.f58668c);
+                if (this.f58667b) {
                     ax.a(this, null, 1000L);
                     return;
                 }
-                int i2 = this.f58087c;
+                int i2 = this.f58668c;
                 if (i2 < 0) {
                     return;
                 }
                 this.a.a(i2);
-                this.f58087c--;
+                this.f58668c--;
                 ax.a(this, null, 1000L);
             }
         }
@@ -168,12 +168,12 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
                 return;
             }
         }
-        this.f58080d = -1;
-        this.f58081e = -1;
-        this.f58082f = new c();
-        this.f58084h = null;
-        this.f58080d = i2;
-        this.f58081e = i3;
+        this.f58661d = -1;
+        this.f58662e = -1;
+        this.f58663f = new c();
+        this.f58665h = null;
+        this.f58661d = i2;
+        this.f58662e = i3;
     }
 
     public static int a(AdInfo adInfo) {
@@ -202,7 +202,7 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
             boolean an = com.kwad.sdk.core.response.a.a.an(j2);
             boolean z = !com.kwad.sdk.core.response.a.a.P(j2);
             if (an && z) {
-                return new u(f58078b, a(j2));
+                return new u(f58659b, a(j2));
             }
             if (j2.adInsertScreenInfo.autoCloseTime > 0) {
                 return new u(a, a(j2));
@@ -216,16 +216,16 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
-            com.kwad.sdk.core.d.a.a("RegisterTimer", "updateTimer: " + i2 + ", mCallBackFunction: " + this.f58079c);
-            if (i2 >= 0 && this.f58079c != null) {
-                b bVar = this.f58083g;
+            com.kwad.sdk.core.d.a.a("RegisterTimer", "updateTimer: " + i2 + ", mCallBackFunction: " + this.f58660c);
+            if (i2 >= 0 && this.f58660c != null) {
+                b bVar = this.f58664g;
                 if (bVar != null && i2 == 0) {
-                    bVar.a(this.f58080d);
+                    bVar.a(this.f58661d);
                 }
                 a aVar = new a();
-                aVar.f58085b = i2;
-                aVar.a = this.f58080d;
-                this.f58079c.a(aVar);
+                aVar.f58666b = i2;
+                aVar.a = this.f58661d;
+                this.f58660c.a(aVar);
             }
         }
     }
@@ -241,7 +241,7 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f58083g = bVar;
+            this.f58664g = bVar;
         }
     }
 
@@ -249,11 +249,11 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) {
-            this.f58079c = cVar;
-            Runnable runnable = this.f58084h;
+            this.f58660c = cVar;
+            Runnable runnable = this.f58665h;
             if (runnable != null) {
                 runnable.run();
-                this.f58084h = null;
+                this.f58665h = null;
             }
         }
     }
@@ -262,16 +262,16 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f58079c = null;
+            this.f58660c = null;
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            com.kwad.sdk.core.d.a.a("RegisterTimer", "startTimer: mCallBackFunction: " + this.f58079c);
-            if (this.f58079c == null) {
-                this.f58084h = new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.u.1
+            com.kwad.sdk.core.d.a.a("RegisterTimer", "startTimer: mCallBackFunction: " + this.f58660c);
+            if (this.f58660c == null) {
+                this.f58665h = new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.u.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ u a;
@@ -304,22 +304,22 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
                 };
                 return;
             }
-            this.f58082f.a(this.f58081e);
-            ax.a(this.f58082f);
+            this.f58663f.a(this.f58662e);
+            ax.a(this.f58663f);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f58082f.a(true);
+            this.f58663f.a(true);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f58082f.a(false);
+            this.f58663f.a(false);
         }
     }
 }

@@ -10,32 +10,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float[] f30215b;
+    public static final float[] f30585b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f30216c;
+    public static final Object f30586c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int[] f30217d;
+    public static int[] f30587d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30218b;
+        public final int f30588b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f30219c;
+        public final boolean f30589c;
 
         public a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
@@ -53,43 +53,43 @@ public final class j {
                 }
             }
             this.a = i2;
-            this.f30218b = i3;
-            this.f30219c = z;
+            this.f30588b = i3;
+            this.f30589c = z;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30220b;
+        public final int f30590b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f30221c;
+        public final int f30591c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final float f30222d;
+        public final float f30592d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f30223e;
+        public final boolean f30593e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f30224f;
+        public final boolean f30594f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f30225g;
+        public final int f30595g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f30226h;
+        public final int f30596h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f30227i;
+        public final int f30597i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final boolean f30228j;
+        public final boolean f30598j;
 
         public b(int i2, int i3, int i4, float f2, boolean z, boolean z2, int i5, int i6, int i7, boolean z3) {
             Interceptable interceptable = $ic;
@@ -107,15 +107,15 @@ public final class j {
                 }
             }
             this.a = i2;
-            this.f30220b = i3;
-            this.f30221c = i4;
-            this.f30222d = f2;
-            this.f30223e = z;
-            this.f30224f = z2;
-            this.f30225g = i5;
-            this.f30226h = i6;
-            this.f30227i = i7;
-            this.f30228j = z3;
+            this.f30590b = i3;
+            this.f30591c = i4;
+            this.f30592d = f2;
+            this.f30593e = z;
+            this.f30594f = z2;
+            this.f30595g = i5;
+            this.f30596h = i6;
+            this.f30597i = i7;
+            this.f30598j = z3;
         }
     }
 
@@ -133,9 +133,9 @@ public final class j {
             }
         }
         a = new byte[]{0, 0, 0, 1};
-        f30215b = new float[]{1.0f, 1.0f, 1.0909091f, 0.90909094f, 1.4545455f, 1.2121212f, 2.1818182f, 1.8181819f, 2.909091f, 2.4242425f, 1.6363636f, 1.3636364f, 1.939394f, 1.6161616f, 1.3333334f, 1.5f, 2.0f};
-        f30216c = new Object();
-        f30217d = new int[10];
+        f30585b = new float[]{1.0f, 1.0f, 1.0909091f, 0.90909094f, 1.4545455f, 1.2121212f, 2.1818182f, 1.8181819f, 2.909091f, 2.4242425f, 1.6363636f, 1.3636364f, 1.939394f, 1.6161616f, 1.3333334f, 1.5f, 2.0f};
+        f30586c = new Object();
+        f30587d = new int[10];
     }
 
     public static void a(boolean[] zArr) {
@@ -389,7 +389,7 @@ public final class j {
                         }
                         f2 = f3;
                     } else {
-                        float[] fArr = f30215b;
+                        float[] fArr = f30585b;
                         if (e2 < fArr.length) {
                             f2 = fArr[e2];
                         } else {
@@ -453,17 +453,17 @@ public final class j {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, bArr, i2)) == null) {
-            synchronized (f30216c) {
+            synchronized (f30586c) {
                 int i4 = 0;
                 int i5 = 0;
                 while (i4 < i2) {
                     try {
                         i4 = d(bArr, i4, i2);
                         if (i4 < i2) {
-                            if (f30217d.length <= i5) {
-                                f30217d = Arrays.copyOf(f30217d, f30217d.length * 2);
+                            if (f30587d.length <= i5) {
+                                f30587d = Arrays.copyOf(f30587d, f30587d.length * 2);
                             }
-                            f30217d[i5] = i4;
+                            f30587d[i5] = i4;
                             i4 += 3;
                             i5++;
                         }
@@ -475,7 +475,7 @@ public final class j {
                 int i6 = 0;
                 int i7 = 0;
                 for (int i8 = 0; i8 < i5; i8++) {
-                    int i9 = f30217d[i8] - i7;
+                    int i9 = f30587d[i8] - i7;
                     System.arraycopy(bArr, i7, bArr, i6, i9);
                     int i10 = i6 + i9;
                     int i11 = i10 + 1;

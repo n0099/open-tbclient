@@ -12,13 +12,13 @@ import java.util.AbstractCollection;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class v<K, V> extends AbstractCollection<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final u<K, V> f30612e;
+    public final u<K, V> f30982e;
 
     public v(u<K, V> uVar) {
         Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public final class v<K, V> extends AbstractCollection<V> {
             }
         }
         c.i.d.a.n.p(uVar);
-        this.f30612e = uVar;
+        this.f30982e = uVar;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30612e.clear();
+            this.f30982e.clear();
         }
     }
 
@@ -51,14 +51,14 @@ public final class v<K, V> extends AbstractCollection<V> {
     public boolean contains(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f30612e.containsValue(obj) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f30982e.containsValue(obj) : invokeL.booleanValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
     public Iterator<V> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Maps.O(this.f30612e.entries().iterator()) : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Maps.O(this.f30982e.entries().iterator()) : (Iterator) invokeV.objValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
@@ -66,8 +66,8 @@ public final class v<K, V> extends AbstractCollection<V> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            c.i.d.a.o<? super Map.Entry<K, V>> c2 = this.f30612e.c();
-            Iterator<Map.Entry<K, V>> it = this.f30612e.b().entries().iterator();
+            c.i.d.a.o<? super Map.Entry<K, V>> c2 = this.f30982e.c();
+            Iterator<Map.Entry<K, V>> it = this.f30982e.b().entries().iterator();
             while (it.hasNext()) {
                 Map.Entry<K, V> next = it.next();
                 if (c2.apply(next) && c.i.d.a.k.a(next.getValue(), obj)) {
@@ -84,20 +84,20 @@ public final class v<K, V> extends AbstractCollection<V> {
     public boolean removeAll(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) ? o0.k(this.f30612e.b().entries(), Predicates.c(this.f30612e.c(), Maps.Q(Predicates.g(collection)))) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) ? o0.k(this.f30982e.b().entries(), Predicates.c(this.f30982e.c(), Maps.Q(Predicates.g(collection)))) : invokeL.booleanValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean retainAll(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) ? o0.k(this.f30612e.b().entries(), Predicates.c(this.f30612e.c(), Maps.Q(Predicates.j(Predicates.g(collection))))) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) ? o0.k(this.f30982e.b().entries(), Predicates.c(this.f30982e.c(), Maps.Q(Predicates.j(Predicates.g(collection))))) : invokeL.booleanValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30612e.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30982e.size() : invokeV.intValue;
     }
 }

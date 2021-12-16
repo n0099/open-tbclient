@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class u implements r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.i.b.a.i0.s a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.i.b.a.a0.m f29429b;
+    public c.i.b.a.a0.m f29799b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29430c;
+    public boolean f29800c;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public final class u implements r {
             this.a = sVar;
             dVar.a();
             c.i.b.a.a0.m a = gVar.a(dVar.c(), 4);
-            this.f29429b = a;
+            this.f29799b = a;
             a.b(Format.createSampleFormat(dVar.b(), "application/x-scte35", null, -1, null));
         }
     }
@@ -49,16 +49,16 @@ public final class u implements r {
     public void c(c.i.b.a.i0.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
-            if (!this.f29430c) {
+            if (!this.f29800c) {
                 if (this.a.e() == -9223372036854775807L) {
                     return;
                 }
-                this.f29429b.b(Format.createSampleFormat(null, "application/x-scte35", this.a.e()));
-                this.f29430c = true;
+                this.f29799b.b(Format.createSampleFormat(null, "application/x-scte35", this.a.e()));
+                this.f29800c = true;
             }
             int a = lVar.a();
-            this.f29429b.a(lVar, a);
-            this.f29429b.c(this.a.d(), 1, a, 0, null);
+            this.f29799b.a(lVar, a);
+            this.f29799b.c(this.a.d(), 1, a, 0, null);
         }
     }
 }

@@ -59,7 +59,7 @@ import okio.Okio;
 import okio.Source;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class RealConnection extends Http2Connection.Listener implements Connection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_TUNNEL_ATTEMPTS = 21;

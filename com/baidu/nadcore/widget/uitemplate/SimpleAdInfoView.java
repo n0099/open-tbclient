@@ -13,10 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.b0.b.e;
-import c.a.b0.b.g;
-import c.a.b0.b.j;
-import c.a.b0.p.p;
+import c.a.c0.b.e;
+import c.a.c0.b.g;
+import c.a.c0.b.j;
+import c.a.c0.p.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SimpleAdInfoView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37968e;
+    public int f38457e;
     public p mAdInfoModel;
     public c mAfterClickListener;
     public TextView mAuthorNameView;
@@ -39,13 +39,13 @@ public class SimpleAdInfoView extends FrameLayout {
     public TextView mPrivacyTagView;
     public TextView mVersionView;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SimpleAdInfoView f37969e;
+        public final /* synthetic */ SimpleAdInfoView f38458e;
 
         public a(SimpleAdInfoView simpleAdInfoView) {
             Interceptable interceptable = $ic;
@@ -62,62 +62,62 @@ public class SimpleAdInfoView extends FrameLayout {
                     return;
                 }
             }
-            this.f37969e = simpleAdInfoView;
+            this.f38458e = simpleAdInfoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String str;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37969e.mAdInfoModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38458e.mAdInfoModel == null) {
                 return;
             }
             int id = view.getId();
             String str2 = "";
             if (id == e.nad_app_privacy) {
-                p.b bVar = this.f37969e.mAdInfoModel.f1816g;
+                p.b bVar = this.f38458e.mAdInfoModel.f1834g;
                 if (bVar != null) {
-                    str2 = bVar.f1822b;
+                    str2 = bVar.f1840b;
                     str = ClogBuilder.Area.APP_PRIVACY.type;
                 }
                 str = "";
             } else {
                 if (id == e.nad_app_permission) {
-                    p.a aVar = this.f37969e.mAdInfoModel.f1817h;
+                    p.a aVar = this.f38458e.mAdInfoModel.f1835h;
                     if (aVar != null) {
-                        str2 = aVar.f1821b;
+                        str2 = aVar.f1839b;
                         str = ClogBuilder.Area.APP_PERMISSION.type;
                     }
                 } else if (id == e.nad_full_author_name) {
-                    Toast.makeText(this.f37969e.getContext(), this.f37969e.mAdInfoModel.f1813d, 1).show();
+                    Toast.makeText(this.f38458e.getContext(), this.f38458e.mAdInfoModel.f1831d, 1).show();
                     return;
                 } else if (id == e.nad_app_version) {
-                    Toast.makeText(this.f37969e.getContext(), this.f37969e.mAdInfoModel.f1815f, 1).show();
+                    Toast.makeText(this.f38458e.getContext(), this.f38458e.mAdInfoModel.f1833f, 1).show();
                     return;
                 }
                 str = "";
             }
-            c.a.b0.d.c.c(str2, this.f37969e.getContext());
-            c cVar = this.f37969e.mAfterClickListener;
+            c.a.c0.d.c.c(str2, this.f38458e.getContext());
+            c cVar = this.f38458e.mAfterClickListener;
             if (cVar != null) {
                 cVar.a(str);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f37970e;
+        public final /* synthetic */ TextView f38459e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewTreeObserver f37971f;
+        public final /* synthetic */ ViewTreeObserver f38460f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SimpleAdInfoView f37972g;
+        public final /* synthetic */ SimpleAdInfoView f38461g;
 
         public b(SimpleAdInfoView simpleAdInfoView, TextView textView, ViewTreeObserver viewTreeObserver) {
             Interceptable interceptable = $ic;
@@ -134,9 +134,9 @@ public class SimpleAdInfoView extends FrameLayout {
                     return;
                 }
             }
-            this.f37972g = simpleAdInfoView;
-            this.f37970e = textView;
-            this.f37971f = viewTreeObserver;
+            this.f38461g = simpleAdInfoView;
+            this.f38459e = textView;
+            this.f38460f = viewTreeObserver;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -144,15 +144,15 @@ public class SimpleAdInfoView extends FrameLayout {
             int lineCount;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Layout layout = this.f37970e.getLayout();
+                Layout layout = this.f38459e.getLayout();
                 if (layout != null && (lineCount = layout.getLineCount()) > 0 && layout.getEllipsisCount(lineCount - 1) > 0) {
-                    this.f37970e.setOnClickListener(this.f37972g.mClickListener);
+                    this.f38459e.setOnClickListener(this.f38461g.mClickListener);
                 }
-                if (this.f37971f.isAlive()) {
-                    this.f37971f.removeOnGlobalLayoutListener(this);
+                if (this.f38460f.isAlive()) {
+                    this.f38460f.removeOnGlobalLayoutListener(this);
                     return;
                 }
-                ViewTreeObserver viewTreeObserver = this.f37970e.getViewTreeObserver();
+                ViewTreeObserver viewTreeObserver = this.f38459e.getViewTreeObserver();
                 if (viewTreeObserver == null || !viewTreeObserver.isAlive()) {
                     return;
                 }
@@ -161,7 +161,7 @@ public class SimpleAdInfoView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void a(String str);
     }
@@ -185,7 +185,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
         }
         this.mClickListener = new a(this);
-        this.f37968e = g.nad_operate_app_info_layout;
+        this.f38457e = g.nad_operate_app_info_layout;
         init(null);
     }
 
@@ -195,7 +195,7 @@ public class SimpleAdInfoView extends FrameLayout {
             return;
         }
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, j.SimpleAdInfoView);
-        this.f37968e = obtainStyledAttributes.getResourceId(j.SimpleAdInfoView_layoutId, -1);
+        this.f38457e = obtainStyledAttributes.getResourceId(j.SimpleAdInfoView_layoutId, -1);
         obtainStyledAttributes.recycle();
     }
 
@@ -211,7 +211,7 @@ public class SimpleAdInfoView extends FrameLayout {
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37968e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38457e : invokeV.intValue;
     }
 
     public void init(AttributeSet attributeSet) {
@@ -240,11 +240,11 @@ public class SimpleAdInfoView extends FrameLayout {
     public void setAdInfo(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, pVar) == null) {
-            if (pVar != null && pVar.f1820k) {
+            if (pVar != null && pVar.f1838k) {
                 this.mAdInfoModel = pVar;
                 if (this.mVersionView != null) {
-                    if (!TextUtils.isEmpty(pVar.f1815f)) {
-                        this.mVersionView.setText(pVar.f1815f);
+                    if (!TextUtils.isEmpty(pVar.f1833f)) {
+                        this.mVersionView.setText(pVar.f1833f);
                         this.mVersionView.setVisibility(0);
                         a(this.mVersionView);
                     } else {
@@ -252,8 +252,8 @@ public class SimpleAdInfoView extends FrameLayout {
                     }
                 }
                 if (this.mAuthorNameView != null) {
-                    if (!TextUtils.isEmpty(pVar.f1813d)) {
-                        this.mAuthorNameView.setText(pVar.f1813d);
+                    if (!TextUtils.isEmpty(pVar.f1831d)) {
+                        this.mAuthorNameView.setText(pVar.f1831d);
                         this.mAuthorNameView.setVisibility(0);
                         a(this.mAuthorNameView);
                     } else {
@@ -261,18 +261,18 @@ public class SimpleAdInfoView extends FrameLayout {
                     }
                 }
                 if (this.mPrivacyTagView != null) {
-                    p.b bVar = pVar.f1816g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.f1822b) && !TextUtils.isEmpty(pVar.f1816g.a)) {
-                        this.mPrivacyTagView.setText(pVar.f1816g.a);
+                    p.b bVar = pVar.f1834g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.f1840b) && !TextUtils.isEmpty(pVar.f1834g.a)) {
+                        this.mPrivacyTagView.setText(pVar.f1834g.a);
                         this.mPrivacyTagView.setVisibility(0);
                     } else {
                         this.mPrivacyTagView.setVisibility(8);
                     }
                 }
                 if (this.mPermissionTagView != null) {
-                    p.a aVar = pVar.f1817h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.f1821b) && !TextUtils.isEmpty(pVar.f1817h.a)) {
-                        this.mPermissionTagView.setText(pVar.f1817h.a);
+                    p.a aVar = pVar.f1835h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.f1839b) && !TextUtils.isEmpty(pVar.f1835h.a)) {
+                        this.mPermissionTagView.setText(pVar.f1835h.a);
                         this.mPermissionTagView.setVisibility(0);
                         return;
                     }
@@ -312,7 +312,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
         }
         this.mClickListener = new a(this);
-        this.f37968e = g.nad_operate_app_info_layout;
+        this.f38457e = g.nad_operate_app_info_layout;
         init(attributeSet);
     }
 
@@ -336,7 +336,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
         }
         this.mClickListener = new a(this);
-        this.f37968e = g.nad_operate_app_info_layout;
+        this.f38457e = g.nad_operate_app_info_layout;
         init(attributeSet);
     }
 }

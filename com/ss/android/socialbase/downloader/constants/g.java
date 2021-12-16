@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public static final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f61679b;
+    public static final g f62260b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f61680c;
+    public static final g f62261c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f61681d;
+    public static final g f62262d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ g[] f61682e;
+    public static final /* synthetic */ g[] f62263e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,11 +40,11 @@ public final class g {
             }
         }
         a = new g("DELAY_RETRY_NONE", 0);
-        f61679b = new g("DELAY_RETRY_WAITING", 1);
-        f61680c = new g("DELAY_RETRY_DOWNLOADING", 2);
+        f62260b = new g("DELAY_RETRY_WAITING", 1);
+        f62261c = new g("DELAY_RETRY_DOWNLOADING", 2);
         g gVar = new g("DELAY_RETRY_DOWNLOADED", 3);
-        f61681d = gVar;
-        f61682e = new g[]{a, f61679b, f61680c, gVar};
+        f62262d = gVar;
+        f62263e = new g[]{a, f62260b, f62261c, gVar};
     }
 
     public g(String str, int i2) {
@@ -75,6 +75,6 @@ public final class g {
     public static g[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) f61682e.clone() : (g[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) f62263e.clone() : (g[]) invokeV.objValue;
     }
 }

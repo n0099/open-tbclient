@@ -9,26 +9,26 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ScrollingView;
-import c.a.p0.m.p.d;
+import c.a.q0.m.p.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class FlipperFrameLayout extends FrameLayout implements d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f40627e;
+    public float f41116e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f40628f;
+    public d f41117f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f40629g;
+    public boolean f41118g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlipperFrameLayout(@NonNull Context context) {
@@ -72,19 +72,19 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
         return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? Math.abs(f2) >= ((float) ViewConfiguration.getTouchSlop()) : invokeF.booleanValue;
     }
 
-    @Override // c.a.p0.m.p.d.b
+    @Override // c.a.q0.m.p.d.b
     public void onFlipOver(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f40629g = false;
+            this.f41118g = false;
         }
     }
 
-    @Override // c.a.p0.m.p.d.b
+    @Override // c.a.q0.m.p.d.b
     public void onFlipStart(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f40629g = true;
+            this.f41118g = true;
         }
     }
 
@@ -99,29 +99,29 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (!this.f40629g && this.f40628f != null) {
+            if (!this.f41118g && this.f41117f != null) {
                 int action = motionEvent.getAction();
                 if (action != 0) {
                     if (action != 1) {
                         if (action == 2) {
-                            float rawY = motionEvent.getRawY() - this.f40627e;
+                            float rawY = motionEvent.getRawY() - this.f41116e;
                             boolean z = rawY <= 0.0f;
-                            if (z && !this.f40628f.d() && b(rawY)) {
-                                this.f40628f.e(true);
+                            if (z && !this.f41117f.d() && b(rawY)) {
+                                this.f41117f.e(true);
                                 return true;
-                            } else if (!z && a() && this.f40628f.d() && b(rawY)) {
-                                this.f40628f.e(false);
+                            } else if (!z && a() && this.f41117f.d() && b(rawY)) {
+                                this.f41117f.e(false);
                                 return true;
                             }
                         }
                     }
-                    this.f40627e = motionEvent.getRawY();
+                    this.f41116e = motionEvent.getRawY();
                 } else {
-                    this.f40627e = motionEvent.getRawY();
+                    this.f41116e = motionEvent.getRawY();
                 }
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            this.f40627e = motionEvent.getRawY();
+            this.f41116e = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -130,7 +130,7 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
     public void setViewFlipper(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
-            this.f40628f = dVar;
+            this.f41117f = dVar;
         }
     }
 

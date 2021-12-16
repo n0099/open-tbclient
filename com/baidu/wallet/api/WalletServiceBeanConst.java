@@ -1,5 +1,5 @@
 package com.baidu.wallet.api;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public interface WalletServiceBeanConst {
     public static final long SERVICE_ID_BALANCE = 32;
     public static final long SERVICE_ID_BALANCE_WITHDRAW = 6;

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TitanDownloadService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = true;
@@ -23,16 +23,16 @@ public class TitanDownloadService extends Service {
     public Context mContext;
     public final String pkgName;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f31752e;
+        public final /* synthetic */ f f32122e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TitanDownloadService f31753f;
+        public final /* synthetic */ TitanDownloadService f32123f;
 
         public a(TitanDownloadService titanDownloadService, f fVar) {
             Interceptable interceptable = $ic;
@@ -49,27 +49,27 @@ public class TitanDownloadService extends Service {
                     return;
                 }
             }
-            this.f31753f = titanDownloadService;
-            this.f31752e = fVar;
+            this.f32123f = titanDownloadService;
+            this.f32122e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                i.f(this.f31753f.mContext, "com.baidu.titan.patch", this.f31752e);
+                i.f(this.f32123f.mContext, "com.baidu.titan.patch", this.f32122e);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TitanDownloadService f31754b;
+        public final /* synthetic */ TitanDownloadService f32124b;
 
         public b(TitanDownloadService titanDownloadService, int i2) {
             Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public class TitanDownloadService extends Service {
                     return;
                 }
             }
-            this.f31754b = titanDownloadService;
+            this.f32124b = titanDownloadService;
             this.a = i2;
         }
 
@@ -94,7 +94,7 @@ public class TitanDownloadService extends Service {
         public void a(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
-                this.f31754b.stopSelf(this.a);
+                this.f32124b.stopSelf(this.a);
             }
         }
     }

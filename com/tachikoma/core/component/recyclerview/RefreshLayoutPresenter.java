@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.library.widget.refresh.RefreshLayout;
 import com.tachikoma.core.component.recyclerview.export.TKRefreshControl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RefreshLayoutPresenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

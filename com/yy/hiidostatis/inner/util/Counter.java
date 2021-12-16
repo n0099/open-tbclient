@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Counter implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public static final Callback NONE;
@@ -23,7 +23,7 @@ public class Counter implements Runnable {
     public final Handler mHandler;
     public boolean mRunning;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface Callback {
         void onCount(int i2);
     }

@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARROW = "skin_arrow";
@@ -54,14 +54,14 @@ public class ViewHelper {
     public static int mSkin_1_common_color = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface ShareCallback {
         void finishProgressForSharing();
 
         void startProgressForSharing();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface ViewCallback {
         boolean onViewFound(View view);
     }
@@ -385,7 +385,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeL(65558, null, context) == null) || context == null) {
             return;
         }
-        c.a.q0.s.a0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        c.a.r0.s.c0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libbd_pass_face_sdk.so"))) {
             RequestParams requestParams = new RequestParams();
             requestParams.setRunType(e.a);
@@ -401,7 +401,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLLL(65559, null, context, str, str2) == null) || context == null) {
             return;
         }
-        c.a.q0.s.a0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        c.a.r0.s.c0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
     }
 
@@ -411,7 +411,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeL(65560, null, context) == null) || context == null) {
             return;
         }
-        c.a.q0.s.a0.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+        c.a.r0.s.c0.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
         skipToLoginActivity(context);
     }
 

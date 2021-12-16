@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.HashMap;
 import java.util.Timer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TimerMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TimerMgr";

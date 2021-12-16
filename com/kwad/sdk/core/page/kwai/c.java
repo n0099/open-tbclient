@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.contentalliance.detail.video.e;
 import com.kwad.sdk.reward.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f57567b;
+    public com.kwad.sdk.reward.a.b f58148b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f57568c;
+    public com.kwad.sdk.reward.c.a f58149c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f57569d;
+    public com.kwad.sdk.contentalliance.detail.video.d f58150d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class c extends g {
                 return;
             }
         }
-        this.f57569d = new e(this) { // from class: com.kwad.sdk.core.page.kwai.c.1
+        this.f58150d = new e(this) { // from class: com.kwad.sdk.core.page.kwai.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -89,10 +89,10 @@ public class c extends g {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
             com.kwad.sdk.reward.a aVar = ((g) this).a;
-            this.f57567b = aVar.f58869b;
-            com.kwad.sdk.reward.c.a aVar2 = aVar.f58878k;
-            this.f57568c = aVar2;
-            aVar2.a(this.f57569d);
+            this.f58148b = aVar.f59450b;
+            com.kwad.sdk.reward.c.a aVar2 = aVar.f59459k;
+            this.f58149c = aVar2;
+            aVar2.a(this.f58150d);
         }
     }
 
@@ -101,7 +101,7 @@ public class c extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.c();
-            this.f57568c.b(this.f57569d);
+            this.f58149c.b(this.f58150d);
         }
     }
 }

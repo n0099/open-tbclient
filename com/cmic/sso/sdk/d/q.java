@@ -14,7 +14,7 @@ import com.cmic.sso.sdk.d.k;
 import java.net.URL;
 import org.apache.http.HttpVersion;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean a;

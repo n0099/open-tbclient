@@ -4,29 +4,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38751b = "com.baidu.sapi2.portrait";
+    public static final String f39240b = "com.baidu.sapi2.portrait";
     @Deprecated
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38752c = "com.baidu.sapi2.portrait";
+    public static final String f39241c = "com.baidu.sapi2.portrait";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38753d = "release";
+    public static final String f39242d = "release";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38754e = "";
+    public static final String f39243e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f38755f = 1;
+    public static final int f39244f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38756g = "9.4.7.5";
+    public static final String f39245g = "9.4.7.8.2";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

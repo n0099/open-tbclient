@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.q0.b.d;
-import c.a.q0.s.e0.b;
+import c.a.r0.b.d;
+import c.a.r0.s.g0.b;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @ModifyClass
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AdToMainTabActivitySwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD_TO_MAINATABACTIVITY_ENABLE = "ad_to_maintabactivity_grey";
@@ -59,13 +59,17 @@ public class AdToMainTabActivitySwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                int k2 = b.j().k("key_ad_to_maintabactivity", 1);
-                type = k2;
-                if (k2 == 1) {
-                    if (d.G()) {
-                        type = 1;
-                    } else {
-                        type = 0;
+                if (d.E()) {
+                    type = 0;
+                } else {
+                    int k2 = b.j().k("key_ad_to_maintabactivity", 1);
+                    type = k2;
+                    if (k2 == 1) {
+                        if (d.G()) {
+                            type = 1;
+                        } else {
+                            type = 0;
+                        }
                     }
                 }
             }

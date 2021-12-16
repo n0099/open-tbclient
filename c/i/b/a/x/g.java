@@ -28,7 +28,7 @@ import com.google.android.exoplayer2.mediacodec.MediaCodecUtil;
 import com.google.android.material.internal.ManufacturerUtils;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,13 +44,13 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
     public long i0;
     public boolean k0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class b implements AudioSink.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
     public static boolean q0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? v.a < 24 && "OMX.SEC.aac.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f30254c) && (v.f30253b.startsWith("zeroflte") || v.f30253b.startsWith("herolte") || v.f30253b.startsWith("heroqlte")) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? v.a < 24 && "OMX.SEC.aac.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f30624c) && (v.f30623b.startsWith("zeroflte") || v.f30623b.startsWith("herolte") || v.f30623b.startsWith("heroqlte")) : invokeL.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, c.i.b.a.a
@@ -262,14 +262,14 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
                 return true;
             } else if (z) {
                 mediaCodec.releaseOutputBuffer(i2, false);
-                this.X.f30473f++;
+                this.X.f30843f++;
                 this.a0.m();
                 return true;
             } else {
                 try {
                     if (this.a0.f(byteBuffer, j4)) {
                         mediaCodec.releaseOutputBuffer(i2, false);
-                        this.X.f30472e++;
+                        this.X.f30842e++;
                         return true;
                     }
                     return false;

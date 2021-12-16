@@ -132,7 +132,7 @@ import java.util.regex.Pattern;
 import javax.sql.DataSource;
 import javax.sql.RowSet;
 import javax.xml.datatype.XMLGregorianCalendar;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ParserConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTOTYPE_ACCEPT = "fastjson.parser.autoTypeAccept";
@@ -171,7 +171,7 @@ public class ParserConfig {
     public final SymbolTable symbolTable;
     public final ConcurrentMap<String, Class<?>> typeMapping;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface AutoTypeCheckHandler {
         Class<?> handler(String str, Class<?> cls, int i2);
     }

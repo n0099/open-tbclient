@@ -10,41 +10,41 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ao {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36998b;
+    public String f37487b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36999c;
+    public String f37488c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f37000d;
+    public long f37489d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f37001e;
+    public long f37490e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f37002f;
+    public float f37491f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f37003g;
+    public float f37492g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f37004h;
+    public float f37493h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f37005i;
+    public float f37494i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f37006j;
+    public String f37495j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f37007k;
+    public boolean f37496k;
     public String l;
 
     public ao(String str, String str2, String str3, long j2, long j3, float f2, float f3, float f4, float f5, String str4, boolean z, String str5) {
@@ -63,16 +63,16 @@ public class ao {
             }
         }
         this.a = str;
-        this.f36998b = str2;
-        this.f36999c = str3;
-        this.f37000d = j2;
-        this.f37001e = j3;
-        this.f37002f = f2;
-        this.f37003g = f3;
-        this.f37004h = f4;
-        this.f37005i = f5;
-        this.f37006j = str4;
-        this.f37007k = z;
+        this.f37487b = str2;
+        this.f37488c = str3;
+        this.f37489d = j2;
+        this.f37490e = j3;
+        this.f37491f = f2;
+        this.f37492g = f3;
+        this.f37493h = f4;
+        this.f37494i = f5;
+        this.f37495j = str4;
+        this.f37496k = z;
         this.l = str5;
     }
 
@@ -85,7 +85,7 @@ public class ao {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37006j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37495j : (String) invokeV.objValue;
     }
 
     public JSONObject a(long j2, String str, String str2) {
@@ -98,9 +98,9 @@ public class ao {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("n", str);
-                jSONObject.put("t", this.f36998b);
-                jSONObject.put("d", this.f37000d);
-                long j3 = this.f37001e - j2;
+                jSONObject.put("t", this.f37487b);
+                jSONObject.put("d", this.f37489d);
+                long j3 = this.f37490e - j2;
                 if (j3 <= 0) {
                     j3 = 0;
                 }
@@ -110,10 +110,10 @@ public class ao {
                 DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
                 decimalFormatSymbols.setDecimalSeparator('.');
                 decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
-                jSONObject.put("xc", decimalFormat.format(this.f37002f));
-                jSONObject.put("yc", decimalFormat.format(this.f37003g));
-                jSONObject.put("xt", decimalFormat.format(this.f37004h));
-                jSONObject.put("yt", decimalFormat.format(this.f37005i));
+                jSONObject.put("xc", decimalFormat.format(this.f37491f));
+                jSONObject.put("yc", decimalFormat.format(this.f37492g));
+                jSONObject.put("xt", decimalFormat.format(this.f37493h));
+                jSONObject.put("yt", decimalFormat.format(this.f37494i));
                 jSONObject.put("h5", 0);
                 jSONObject.put("sign", this.l);
                 return jSONObject;

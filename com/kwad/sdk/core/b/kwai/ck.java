@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ck implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,20 +34,20 @@ public class ck implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.b> {
             return;
         }
         bVar.a = jSONObject.optInt("Status");
-        bVar.f57067b = jSONObject.optString("Content-Encoding");
+        bVar.f57648b = jSONObject.optString("Content-Encoding");
         if (jSONObject.opt("Content-Encoding") == JSONObject.NULL) {
-            bVar.f57067b = "";
+            bVar.f57648b = "";
         }
-        bVar.f57068c = jSONObject.optString("Cache-Control");
+        bVar.f57649c = jSONObject.optString("Cache-Control");
         if (jSONObject.opt("Cache-Control") == JSONObject.NULL) {
-            bVar.f57068c = "";
+            bVar.f57649c = "";
         }
-        bVar.f57069d = jSONObject.optString("Content-Type");
+        bVar.f57650d = jSONObject.optString("Content-Type");
         if (jSONObject.opt("Content-Type") == JSONObject.NULL) {
-            bVar.f57069d = "";
+            bVar.f57650d = "";
         }
         com.kwad.sdk.c.kwai.a aVar = new com.kwad.sdk.c.kwai.a();
-        bVar.f57070e = aVar;
+        bVar.f57651e = aVar;
         aVar.parseJson(jSONObject.optJSONObject("headers"));
     }
 
@@ -61,10 +61,10 @@ public class ck implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.b> {
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "Status", bVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "Content-Encoding", bVar.f57067b);
-            com.kwad.sdk.utils.t.a(jSONObject, "Cache-Control", bVar.f57068c);
-            com.kwad.sdk.utils.t.a(jSONObject, "Content-Type", bVar.f57069d);
-            com.kwad.sdk.utils.t.a(jSONObject, "headers", bVar.f57070e);
+            com.kwad.sdk.utils.t.a(jSONObject, "Content-Encoding", bVar.f57648b);
+            com.kwad.sdk.utils.t.a(jSONObject, "Cache-Control", bVar.f57649c);
+            com.kwad.sdk.utils.t.a(jSONObject, "Content-Type", bVar.f57650d);
+            com.kwad.sdk.utils.t.a(jSONObject, "headers", bVar.f57651e);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

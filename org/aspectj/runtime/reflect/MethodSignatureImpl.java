@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Set;
 import org.aspectj.lang.reflect.MethodSignature;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MethodSignatureImpl extends CodeSignatureImpl implements MethodSignature {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

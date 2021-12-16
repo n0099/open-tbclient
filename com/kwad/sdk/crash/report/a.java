@@ -8,23 +8,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<C2037a> a;
+    public ArrayList<C2098a> a;
 
     /* renamed from: com.kwad.sdk.crash.report.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2037a {
+    /* loaded from: classes3.dex */
+    public static class C2098a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ExceptionMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58182b;
+        public int f58763b;
 
-        public C2037a(ExceptionMessage exceptionMessage, int i2) {
+        public C2098a(ExceptionMessage exceptionMessage, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,7 +40,7 @@ public abstract class a implements c {
                 }
             }
             this.a = exceptionMessage;
-            this.f58182b = i2;
+            this.f58763b = i2;
         }
     }
 
@@ -66,10 +66,10 @@ public abstract class a implements c {
             return;
         }
         try {
-            Iterator<C2037a> it = this.a.iterator();
+            Iterator<C2098a> it = this.a.iterator();
             while (it.hasNext()) {
-                C2037a next = it.next();
-                b(next.a, next.f58182b);
+                C2098a next = it.next();
+                b(next.a, next.f58763b);
                 it.remove();
             }
         } catch (Throwable th) {
@@ -95,7 +95,7 @@ public abstract class a implements c {
                 b(exceptionMessage, i2);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
-                this.a.add(new C2037a(exceptionMessage, i2));
+                this.a.add(new C2098a(exceptionMessage, i2));
             }
         }
     }

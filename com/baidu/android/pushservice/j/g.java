@@ -18,13 +18,13 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static ConnectivityManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TelephonyManager f32794b;
+    public static TelephonyManager f33164b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -93,7 +93,7 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission(s.f56839d) == 0) {
+            if (context.checkCallingOrSelfPermission(s.f57420d) == 0) {
                 int ipAddress = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getIpAddress();
                 return String.format("%d.%d.%d.%d", Integer.valueOf(ipAddress & 255), Integer.valueOf((ipAddress >> 8) & 255), Integer.valueOf((ipAddress >> 16) & 255), Integer.valueOf((ipAddress >> 24) & 255));
             }
@@ -244,15 +244,15 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission(s.f56838c) == 0) {
+            if (context.checkCallingOrSelfPermission(s.f57419c) == 0) {
                 if (context == null) {
-                    return f32794b;
+                    return f33164b;
                 }
-                if (f32794b == null) {
-                    f32794b = (TelephonyManager) context.getSystemService("phone");
+                if (f33164b == null) {
+                    f33164b = (TelephonyManager) context.getSystemService("phone");
                 }
             }
-            return f32794b;
+            return f33164b;
         }
         return (TelephonyManager) invokeL.objValue;
     }

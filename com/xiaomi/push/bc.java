@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.identifier.DataBaseOperation;
 import com.vivo.identifier.IdentifierIdClient;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bc implements ar {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "content://com.vivo.vms.IdProvider/IdentifierId/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f62739b;
+    public static String f63320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f62740c;
+    public static String f63321c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f62741d;
+    public static String f63322d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f62742e;
+    public static String f63323e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f62743f;
+    public static String f63324f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -51,11 +51,11 @@ public class bc implements ar {
                 return;
             }
         }
-        f62739b = a + "OAID";
-        f62740c = a + "VAID_";
-        f62741d = a + "AAID_";
-        f62742e = a + DataBaseOperation.OAIDSTATUS_FLAG;
-        f62743f = IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED;
+        f63320b = a + "OAID";
+        f63321c = a + "VAID_";
+        f63322d = a + "AAID_";
+        f63323e = a + DataBaseOperation.OAIDSTATUS_FLAG;
+        f63324f = IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED;
     }
 
     public bc(Context context) {
@@ -156,7 +156,7 @@ public class bc implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(s.a(f62743f, "0")) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(s.a(f63324f, "0")) : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
@@ -164,7 +164,7 @@ public class bc implements ar {
     public String mo201b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(f62739b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(f63320b) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar

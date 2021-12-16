@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 @SuppressLint({"KotlinPropertyAccess"})
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BdVideo implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIM_LOGO_DOWNLOAD_TOAST = 123;

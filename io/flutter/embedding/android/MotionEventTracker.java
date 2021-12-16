@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.PriorityQueue;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class MotionEventTracker {
     public static /* synthetic */ Interceptable $ic;
     public static MotionEventTracker INSTANCE;
@@ -22,7 +22,7 @@ public final class MotionEventTracker {
     public final LongSparseArray<MotionEvent> eventById;
     public final PriorityQueue<Long> unusedEvents;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class MotionEventId {
         public static /* synthetic */ Interceptable $ic;
         public static final AtomicLong ID_COUNTER;

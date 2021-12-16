@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +13,7 @@ import com.kwad.sdk.core.report.ReportAction;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class dk implements com.kwad.sdk.core.d<ReportAction> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,16 +39,16 @@ public class dk implements com.kwad.sdk.core.d<ReportAction> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, reportAction, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        reportAction.f57638d = jSONObject.optLong("timestamp");
-        reportAction.f57639e = jSONObject.optString("sessionId");
+        reportAction.f58219d = jSONObject.optLong("timestamp");
+        reportAction.f58220e = jSONObject.optString("sessionId");
         if (jSONObject.opt("sessionId") == JSONObject.NULL) {
-            reportAction.f57639e = "";
+            reportAction.f58220e = "";
         }
-        reportAction.f57640f = jSONObject.optLong("seq");
-        reportAction.f57642h = jSONObject.optLong("listId");
-        reportAction.f57643i = jSONObject.optLong(LightInvokerImpl.VOICE_ACTIONTYPE);
-        reportAction.f57644j = jSONObject.optLong("llsid");
-        reportAction.f57645k = jSONObject.optJSONObject("extra");
+        reportAction.f58221f = jSONObject.optLong("seq");
+        reportAction.f58223h = jSONObject.optLong("listId");
+        reportAction.f58224i = jSONObject.optLong(LightInvokerImpl.VOICE_ACTIONTYPE);
+        reportAction.f58225j = jSONObject.optLong("llsid");
+        reportAction.f58226k = jSONObject.optJSONObject("extra");
         reportAction.l = jSONObject.optJSONObject("impAdExtra");
         reportAction.m = jSONObject.optLong("posId");
         reportAction.n = jSONObject.optInt("contentType");
@@ -127,7 +128,7 @@ public class dk implements com.kwad.sdk.core.d<ReportAction> {
         reportAction.ai = aVar;
         aVar.parseJson(jSONObject.optJSONObject("clientExt"));
         reportAction.aj = jSONObject.optInt("playerType");
-        reportAction.ak = jSONObject.optInt("uiType");
+        reportAction.ak = jSONObject.optInt(TaskResponseData.keyUiType);
         reportAction.al = jSONObject.optString("tubeName");
         if (jSONObject.opt("tubeName") == JSONObject.NULL) {
             reportAction.al = "";
@@ -285,13 +286,13 @@ public class dk implements com.kwad.sdk.core.d<ReportAction> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.t.a(jSONObject, "timestamp", reportAction.f57638d);
-            com.kwad.sdk.utils.t.a(jSONObject, "sessionId", reportAction.f57639e);
-            com.kwad.sdk.utils.t.a(jSONObject, "seq", reportAction.f57640f);
-            com.kwad.sdk.utils.t.a(jSONObject, "listId", reportAction.f57642h);
-            com.kwad.sdk.utils.t.a(jSONObject, LightInvokerImpl.VOICE_ACTIONTYPE, reportAction.f57643i);
-            com.kwad.sdk.utils.t.a(jSONObject, "llsid", reportAction.f57644j);
-            com.kwad.sdk.utils.t.a(jSONObject, "extra", reportAction.f57645k);
+            com.kwad.sdk.utils.t.a(jSONObject, "timestamp", reportAction.f58219d);
+            com.kwad.sdk.utils.t.a(jSONObject, "sessionId", reportAction.f58220e);
+            com.kwad.sdk.utils.t.a(jSONObject, "seq", reportAction.f58221f);
+            com.kwad.sdk.utils.t.a(jSONObject, "listId", reportAction.f58223h);
+            com.kwad.sdk.utils.t.a(jSONObject, LightInvokerImpl.VOICE_ACTIONTYPE, reportAction.f58224i);
+            com.kwad.sdk.utils.t.a(jSONObject, "llsid", reportAction.f58225j);
+            com.kwad.sdk.utils.t.a(jSONObject, "extra", reportAction.f58226k);
             com.kwad.sdk.utils.t.a(jSONObject, "impAdExtra", reportAction.l);
             com.kwad.sdk.utils.t.a(jSONObject, "posId", reportAction.m);
             com.kwad.sdk.utils.t.a(jSONObject, "contentType", reportAction.n);
@@ -341,7 +342,7 @@ public class dk implements com.kwad.sdk.core.d<ReportAction> {
             com.kwad.sdk.utils.t.a(jSONObject, "recoExt", reportAction.ah);
             com.kwad.sdk.utils.t.a(jSONObject, "clientExt", reportAction.ai);
             com.kwad.sdk.utils.t.a(jSONObject, "playerType", reportAction.aj);
-            com.kwad.sdk.utils.t.a(jSONObject, "uiType", reportAction.ak);
+            com.kwad.sdk.utils.t.a(jSONObject, TaskResponseData.keyUiType, reportAction.ak);
             com.kwad.sdk.utils.t.a(jSONObject, "tubeName", reportAction.al);
             com.kwad.sdk.utils.t.a(jSONObject, URLPackage.KEY_TUBE_ID, reportAction.am);
             com.kwad.sdk.utils.t.a(jSONObject, "episodeName", reportAction.an);

@@ -22,23 +22,23 @@ import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.jar.JarFile;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
     public static volatile DexClassLoader a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f37517b;
+    public static volatile boolean f38006b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.mobstat.a f37518b;
+        public com.baidu.mobstat.a f38007b;
 
         public a(Context context, com.baidu.mobstat.a aVar) {
             Interceptable interceptable = $ic;
@@ -56,13 +56,13 @@ public class x {
                 }
             }
             this.a = context;
-            this.f37518b = aVar;
+            this.f38007b = aVar;
         }
 
         private void a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-                this.f37518b.a(context, System.currentTimeMillis());
+                this.f38007b.a(context, System.currentTimeMillis());
             }
         }
 
@@ -108,7 +108,7 @@ public class x {
                     } catch (Exception unused) {
                     }
                 }
-                return aa.f36952c + "?" + sb.toString();
+                return aa.f37441c + "?" + sb.toString();
             }
             return (String) invokeL.objValue;
         }
@@ -127,7 +127,7 @@ public class x {
                 } catch (Exception e2) {
                     bb.c().a(e2);
                 }
-                boolean unused = x.f37517b = false;
+                boolean unused = x.f38006b = false;
             }
         }
 
@@ -153,7 +153,7 @@ public class x {
                 synchronized (this) {
                     bb.c().a("start get config and download jar");
                     Context context = this.a;
-                    com.baidu.mobstat.a aVar = this.f37518b;
+                    com.baidu.mobstat.a aVar = this.f38007b;
                     String b2 = b(context);
                     bb.c().c("update req url is:" + b2);
                     HttpURLConnection d2 = bo.d(context, b2);
@@ -404,7 +404,7 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, context, aVar) == null) {
             synchronized (x.class) {
-                if (f37517b) {
+                if (f38006b) {
                     return;
                 }
                 if (!bw.q(context)) {
@@ -414,7 +414,7 @@ public class x {
                 } else {
                     bb.c().a("can start update config");
                     new a(context, aVar).start();
-                    f37517b = true;
+                    f38006b = true;
                 }
             }
         }

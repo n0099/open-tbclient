@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class VoteView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int C;
@@ -53,25 +53,25 @@ public class VoteView extends LinearLayout {
     public RecyclerView.Adapter<e> B;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f41387e;
+    public Context f41878e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f41388f;
+    public TbPageContext f41879f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f41389g;
+    public TextView f41880g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f41390h;
+    public TextView f41881h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f41391i;
+    public ImageView f41882i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RecyclerView f41392j;
+    public RecyclerView f41883j;
 
     /* renamed from: k  reason: collision with root package name */
-    public View f41393k;
+    public View f41884k;
     public TextView l;
     public String m;
     public long n;
@@ -88,7 +88,7 @@ public class VoteView extends LinearLayout {
     public AddPollPostModel y;
     public AddPollPostModel.b z;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements AddPollPostModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,10 +120,10 @@ public class VoteView extends LinearLayout {
                     if (StringUtils.isNull(str)) {
                         return;
                     }
-                    this.a.f41388f.showToast(str);
+                    this.a.f41879f.showToast(str);
                     return;
                 }
-                this.a.l.setText(this.a.f41387e.getString(R.string.pb_voted_text));
+                this.a.l.setText(this.a.f41878e.getString(R.string.pb_voted_text));
                 PollData pollData = this.a.o;
                 VoteView voteView = this.a;
                 pollData.setPolledValue(voteView.z(voteView.q));
@@ -142,13 +142,13 @@ public class VoteView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VoteView f41394e;
+        public final /* synthetic */ VoteView f41885e;
 
         public b(VoteView voteView) {
             Interceptable interceptable = $ic;
@@ -165,44 +165,44 @@ public class VoteView extends LinearLayout {
                     return;
                 }
             }
-            this.f41394e = voteView;
+            this.f41885e = voteView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                VoteView voteView = this.f41394e;
+                VoteView voteView = this.f41885e;
                 String z = voteView.z(voteView.q);
-                if (this.f41394e.f41388f == null || this.f41394e.y == null || StringUtils.isNull(this.f41394e.m) || this.f41394e.z == null || StringUtils.isNull(z) || this.f41394e.o == null) {
+                if (this.f41885e.f41879f == null || this.f41885e.y == null || StringUtils.isNull(this.f41885e.m) || this.f41885e.z == null || StringUtils.isNull(z) || this.f41885e.o == null) {
                     return;
                 }
-                this.f41394e.y.B(c.a.d.f.m.b.g(this.f41394e.m, -1L));
-                this.f41394e.y.A(this.f41394e.z);
-                this.f41394e.y.y(this.f41394e.m, z, this.f41394e.n);
+                this.f41885e.y.B(c.a.d.f.m.b.g(this.f41885e.m, -1L));
+                this.f41885e.y.A(this.f41885e.z);
+                this.f41885e.y.y(this.f41885e.m, z, this.f41885e.n);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c extends RecyclerView.Adapter<e> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoteView a;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f41395e;
+            public final /* synthetic */ e f41886e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f41396f;
+            public final /* synthetic */ int f41887f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ c f41397g;
+            public final /* synthetic */ c f41888g;
 
             public a(c cVar, e eVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -219,50 +219,50 @@ public class VoteView extends LinearLayout {
                         return;
                     }
                 }
-                this.f41397g = cVar;
-                this.f41395e = eVar;
-                this.f41396f = i2;
+                this.f41888g = cVar;
+                this.f41886e = eVar;
+                this.f41887f = i2;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    VoteView voteView = this.f41397g.a;
-                    voteView.C(this.f41395e, !voteView.q.contains(Integer.valueOf(((PollOptionData) this.f41397g.a.p.get(this.f41396f)).getId())));
-                    if (!this.f41397g.a.q.contains(Integer.valueOf(((PollOptionData) this.f41397g.a.p.get(this.f41396f)).getId()))) {
-                        this.f41397g.a.q.add(Integer.valueOf(((PollOptionData) this.f41397g.a.p.get(this.f41396f)).getId()));
-                        PollData pollData = this.f41397g.a.o;
-                        VoteView voteView2 = this.f41397g.a;
+                    VoteView voteView = this.f41888g.a;
+                    voteView.C(this.f41886e, !voteView.q.contains(Integer.valueOf(((PollOptionData) this.f41888g.a.p.get(this.f41887f)).getId())));
+                    if (!this.f41888g.a.q.contains(Integer.valueOf(((PollOptionData) this.f41888g.a.p.get(this.f41887f)).getId()))) {
+                        this.f41888g.a.q.add(Integer.valueOf(((PollOptionData) this.f41888g.a.p.get(this.f41887f)).getId()));
+                        PollData pollData = this.f41888g.a.o;
+                        VoteView voteView2 = this.f41888g.a;
                         pollData.setPolledValue(voteView2.z(voteView2.q));
-                        ((PollOptionData) this.f41397g.a.p.get(this.f41396f)).setNum(((PollOptionData) this.f41397g.a.p.get(this.f41396f)).getNum() + 1);
-                        this.f41397g.a.o.getOptions().get(this.f41396f).setNum(((PollOptionData) this.f41397g.a.p.get(this.f41396f)).getNum());
+                        ((PollOptionData) this.f41888g.a.p.get(this.f41887f)).setNum(((PollOptionData) this.f41888g.a.p.get(this.f41887f)).getNum() + 1);
+                        this.f41888g.a.o.getOptions().get(this.f41887f).setNum(((PollOptionData) this.f41888g.a.p.get(this.f41887f)).getNum());
                     } else {
-                        this.f41397g.a.q.remove(Integer.valueOf(((PollOptionData) this.f41397g.a.p.get(this.f41396f)).getId()));
-                        PollData pollData2 = this.f41397g.a.o;
-                        VoteView voteView3 = this.f41397g.a;
+                        this.f41888g.a.q.remove(Integer.valueOf(((PollOptionData) this.f41888g.a.p.get(this.f41887f)).getId()));
+                        PollData pollData2 = this.f41888g.a.o;
+                        VoteView voteView3 = this.f41888g.a;
                         pollData2.setPolledValue(voteView3.z(voteView3.q));
-                        ((PollOptionData) this.f41397g.a.p.get(this.f41396f)).setNum(((PollOptionData) this.f41397g.a.p.get(this.f41396f)).getNum() - 1);
-                        this.f41397g.a.o.getOptions().get(this.f41396f).setNum(((PollOptionData) this.f41397g.a.p.get(this.f41396f)).getNum());
+                        ((PollOptionData) this.f41888g.a.p.get(this.f41887f)).setNum(((PollOptionData) this.f41888g.a.p.get(this.f41887f)).getNum() - 1);
+                        this.f41888g.a.o.getOptions().get(this.f41887f).setNum(((PollOptionData) this.f41888g.a.p.get(this.f41887f)).getNum());
                     }
-                    this.f41397g.a.G();
+                    this.f41888g.a.G();
                 }
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f41398e;
+            public final /* synthetic */ int f41889e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ e f41399f;
+            public final /* synthetic */ e f41890f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ c f41400g;
+            public final /* synthetic */ c f41891g;
 
             public b(c cVar, int i2, e eVar) {
                 Interceptable interceptable = $ic;
@@ -279,23 +279,23 @@ public class VoteView extends LinearLayout {
                         return;
                     }
                 }
-                this.f41400g = cVar;
-                this.f41398e = i2;
-                this.f41399f = eVar;
+                this.f41891g = cVar;
+                this.f41889e = i2;
+                this.f41890f = eVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f41400g.a.q.add(Integer.valueOf(((PollOptionData) this.f41400g.a.p.get(this.f41398e)).getId()));
-                    PollData pollData = this.f41400g.a.o;
-                    VoteView voteView = this.f41400g.a;
+                    this.f41891g.a.q.add(Integer.valueOf(((PollOptionData) this.f41891g.a.p.get(this.f41889e)).getId()));
+                    PollData pollData = this.f41891g.a.o;
+                    VoteView voteView = this.f41891g.a;
                     pollData.setPolledValue(voteView.z(voteView.q));
-                    ((PollOptionData) this.f41400g.a.p.get(this.f41398e)).setNum(((PollOptionData) this.f41400g.a.p.get(this.f41398e)).getNum() + 1);
-                    this.f41400g.a.o.getOptions().get(this.f41398e).setNum(((PollOptionData) this.f41400g.a.p.get(this.f41398e)).getNum());
-                    if (this.f41400g.a.A != null) {
-                        this.f41400g.a.A.onClick(this.f41399f.a);
+                    ((PollOptionData) this.f41891g.a.p.get(this.f41889e)).setNum(((PollOptionData) this.f41891g.a.p.get(this.f41889e)).getNum() + 1);
+                    this.f41891g.a.o.getOptions().get(this.f41889e).setNum(((PollOptionData) this.f41891g.a.p.get(this.f41889e)).getNum());
+                    if (this.f41891g.a.A != null) {
+                        this.f41891g.a.A.onClick(this.f41890f.a);
                     }
                 }
             }
@@ -359,10 +359,10 @@ public class VoteView extends LinearLayout {
                     } else {
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, (float) num);
                         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -1, (float) (this.a.o.getTotalPoll() - num));
-                        eVar.f41402c.setLayoutParams(layoutParams);
-                        eVar.f41401b.setLayoutParams(layoutParams2);
+                        eVar.f41893c.setLayoutParams(layoutParams);
+                        eVar.f41892b.setLayoutParams(layoutParams2);
                         this.a.D(eVar, contains, z2, z);
-                        eVar.f41405f.setText(StringHelper.numberUniformFormatExtraWithRoundVote(num) + this.a.f41387e.getString(R.string.write_vote_num));
+                        eVar.f41896f.setText(StringHelper.numberUniformFormatExtraWithRoundVote(num) + this.a.f41878e.getString(R.string.write_vote_num));
                         eVar.a.setOnClickListener(this.a.r);
                     }
                 }
@@ -377,7 +377,7 @@ public class VoteView extends LinearLayout {
         public e onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) ? new e(this.a, LayoutInflater.from(this.a.f41387e).inflate(R.layout.view_vote_text_item, viewGroup, false)) : (e) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) ? new e(this.a, LayoutInflater.from(this.a.f41878e).inflate(R.layout.view_vote_text_item, viewGroup, false)) : (e) invokeLI.objValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -394,7 +394,7 @@ public class VoteView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class d extends LinearLayoutManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -433,29 +433,29 @@ public class VoteView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class e extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f41401b;
+        public View f41892b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f41402c;
+        public View f41893c;
 
         /* renamed from: d  reason: collision with root package name */
-        public LinearLayout f41403d;
+        public LinearLayout f41894d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ImageView f41404e;
+        public ImageView f41895e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f41405f;
+        public TextView f41896f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ VoteView f41406g;
+        public final /* synthetic */ VoteView f41897g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(VoteView voteView, View view) {
@@ -475,13 +475,13 @@ public class VoteView extends LinearLayout {
                     return;
                 }
             }
-            this.f41406g = voteView;
+            this.f41897g = voteView;
             this.a = (TextView) view.findViewById(R.id.vote_item);
-            this.f41401b = view.findViewById(R.id.vote_item_background);
-            this.f41402c = view.findViewById(R.id.vote_item_foreground);
-            this.f41403d = (LinearLayout) view.findViewById(R.id.vote_item_ground);
-            this.f41404e = (ImageView) view.findViewById(R.id.vote_check);
-            this.f41405f = (TextView) view.findViewById(R.id.vote_num);
+            this.f41892b = view.findViewById(R.id.vote_item_background);
+            this.f41893c = view.findViewById(R.id.vote_item_foreground);
+            this.f41894d = (LinearLayout) view.findViewById(R.id.vote_item_ground);
+            this.f41895e = (ImageView) view.findViewById(R.id.vote_check);
+            this.f41896f = (TextView) view.findViewById(R.id.vote_num);
         }
     }
 
@@ -538,10 +538,10 @@ public class VoteView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             if (this.o.getIsMulti() == 1) {
-                context = this.f41387e;
+                context = this.f41878e;
                 i2 = R.string.vote_type_multiple;
             } else {
-                context = this.f41387e;
+                context = this.f41878e;
                 i2 = R.string.vote_type_single;
             }
             String string = context.getString(i2);
@@ -550,7 +550,7 @@ public class VoteView extends LinearLayout {
                 Date date = new Date(endTime * 1000);
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(date);
-                str = String.format(this.f41387e.getString(R.string.write_vote_content_time), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
+                str = String.format(this.f41878e.getString(R.string.write_vote_content_time), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
             } else {
                 str = "";
             }
@@ -561,7 +561,7 @@ public class VoteView extends LinearLayout {
             if (StringUtils.isNull(numberUniformFormatExtraWithRoundVote)) {
                 return string;
             }
-            return string + " · " + numberUniformFormatExtraWithRoundVote + this.f41387e.getString(R.string.write_vote_total);
+            return string + " · " + numberUniformFormatExtraWithRoundVote + this.f41878e.getString(R.string.write_vote_total);
         }
         return (String) invokeV.objValue;
     }
@@ -570,8 +570,8 @@ public class VoteView extends LinearLayout {
     public void setSingleUnCheckItemView(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65560, this, eVar) == null) {
-            eVar.f41404e.setVisibility(8);
-            eVar.f41405f.setVisibility(8);
+            eVar.f41895e.setVisibility(8);
+            eVar.f41896f.setVisibility(8);
             eVar.a.setGravity(17);
             SkinManager.setViewTextColor(eVar.a, R.color.CAM_X0105);
             F(eVar, R.color.CAM_X0207, false);
@@ -582,12 +582,12 @@ public class VoteView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65561, this, list) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.bottomMargin = l.f(this.f41387e, R.dimen.tbds25);
-            this.f41392j.setLayoutParams(layoutParams);
-            this.f41393k.setVisibility(8);
+            layoutParams.bottomMargin = m.f(this.f41878e, R.dimen.tbds25);
+            this.f41883j.setLayoutParams(layoutParams);
+            this.f41884k.setVisibility(8);
             if (this.u && !this.t && !this.s && !this.v) {
                 this.l.setVisibility(0);
-                this.l.setText(this.f41387e.getString(R.string.pb_vote_text));
+                this.l.setText(this.f41878e.getString(R.string.pb_vote_text));
             } else {
                 this.l.setVisibility(8);
             }
@@ -598,18 +598,18 @@ public class VoteView extends LinearLayout {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.f41387e).inflate(R.layout.view_vote_main, (ViewGroup) this, true);
-            this.f41389g = (TextView) findViewById(R.id.vote_title);
-            this.f41390h = (TextView) findViewById(R.id.vote_sub_content);
-            this.f41391i = (ImageView) findViewById(R.id.vote_view_delete);
-            this.f41392j = (RecyclerView) findViewById(R.id.vote_item_list);
-            this.f41393k = findViewById(R.id.vote_list_bottom);
+            LayoutInflater.from(this.f41878e).inflate(R.layout.view_vote_main, (ViewGroup) this, true);
+            this.f41880g = (TextView) findViewById(R.id.vote_title);
+            this.f41881h = (TextView) findViewById(R.id.vote_sub_content);
+            this.f41882i = (ImageView) findViewById(R.id.vote_view_delete);
+            this.f41883j = (RecyclerView) findViewById(R.id.vote_item_list);
+            this.f41884k = findViewById(R.id.vote_list_bottom);
             this.l = (TextView) findViewById(R.id.vote_view_btn);
-            this.f41391i.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
+            this.f41882i.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
             this.l.setOnClickListener(this.A);
-            this.f41392j.setLayoutManager(new d(this, this.f41387e, 1, false));
-            this.f41392j.setNestedScrollingEnabled(false);
-            this.f41392j.setAdapter(this.B);
+            this.f41883j.setLayoutManager(new d(this, this.f41878e, 1, false));
+            this.f41883j.setNestedScrollingEnabled(false);
+            this.f41883j.setAdapter(this.B);
             this.B.notifyDataSetChanged();
         }
     }
@@ -630,7 +630,7 @@ public class VoteView extends LinearLayout {
             this.t = this.o.getLastTime() <= 0 && this.o.getLastTime() != -1;
             this.u = this.o.getIsMulti() == 1;
             if (!StringUtils.isNull(this.o.getTitle())) {
-                this.f41389g.setText(this.o.getTitle());
+                this.f41880g.setText(this.o.getTitle());
             }
             setVoteSubContent(getSubContent());
         }
@@ -639,36 +639,36 @@ public class VoteView extends LinearLayout {
     public final void C(e eVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, eVar, z) == null) {
-            eVar.f41404e.setVisibility(0);
-            eVar.f41405f.setVisibility(8);
+            eVar.f41895e.setVisibility(0);
+            eVar.f41896f.setVisibility(8);
             eVar.a.setGravity(19);
             F(eVar, R.color.CAM_X0207, z);
             if (z) {
                 SkinManager.setViewTextColor(eVar.a, R.color.CAM_X0302);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(eVar.f41404e, R.drawable.ic_icon_pure_toast_complete24_svg, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(eVar.f41895e, R.drawable.ic_icon_pure_toast_complete24_svg, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
                 return;
             }
             SkinManager.setViewTextColor(eVar.a, R.color.CAM_X0105);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(eVar.f41404e, R.drawable.ic_icon_pure_strok3_24_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(eVar.f41895e, R.drawable.ic_icon_pure_strok3_24_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
     public final void D(e eVar, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{eVar, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            eVar.f41404e.setVisibility(8);
-            eVar.f41405f.setVisibility(0);
+            eVar.f41895e.setVisibility(8);
+            eVar.f41896f.setVisibility(0);
             eVar.a.setGravity(19);
             if (z) {
                 SkinManager.setViewTextColor(eVar.a, R.color.CAM_X0302);
-                SkinManager.setViewTextColor(eVar.f41405f, R.color.CAM_X0302);
+                SkinManager.setViewTextColor(eVar.f41896f, R.color.CAM_X0302);
                 if (z2) {
                     F(eVar, R.color.CAM_X0905, z);
                     return;
                 }
             } else {
                 SkinManager.setViewTextColor(eVar.a, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(eVar.f41405f, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(eVar.f41896f, R.color.CAM_X0105);
                 if (z3) {
                     F(eVar, R.color.CAM_X0207, z);
                     return;
@@ -684,17 +684,17 @@ public class VoteView extends LinearLayout {
     public final void E(e eVar, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{eVar, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-            eVar.f41403d.setVisibility(0);
+            eVar.f41894d.setVisibility(0);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadii(F);
             gradientDrawable.setColor(SkinManager.getColor(i2));
-            eVar.f41402c.setBackgroundDrawable(gradientDrawable);
+            eVar.f41893c.setBackgroundDrawable(gradientDrawable);
             GradientDrawable gradientDrawable2 = new GradientDrawable();
             gradientDrawable2.setCornerRadii(G);
             gradientDrawable2.setColor(SkinManager.getColor(i3));
-            eVar.f41401b.setBackgroundDrawable(gradientDrawable2);
+            eVar.f41892b.setBackgroundDrawable(gradientDrawable2);
             if (z) {
-                c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(eVar.a);
+                c.a.r0.s.v.c d2 = c.a.r0.s.v.c.d(eVar.a);
                 d2.e(R.string.A_X07);
                 d2.n(R.string.J_X04);
                 d2.l(R.dimen.L_X01);
@@ -702,7 +702,7 @@ public class VoteView extends LinearLayout {
                 d2.f(i3);
                 return;
             }
-            c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(eVar.a);
+            c.a.r0.s.v.c d3 = c.a.r0.s.v.c.d(eVar.a);
             d3.n(R.string.J_X04);
             d3.l(R.dimen.L_X01);
             d3.k(R.color.CAM_X0902);
@@ -713,9 +713,9 @@ public class VoteView extends LinearLayout {
     public final void F(e eVar, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{eVar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            eVar.f41403d.setVisibility(8);
+            eVar.f41894d.setVisibility(8);
             if (z) {
-                c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(eVar.a);
+                c.a.r0.s.v.c d2 = c.a.r0.s.v.c.d(eVar.a);
                 d2.e(R.string.A_X07);
                 d2.n(R.string.J_X04);
                 d2.l(R.dimen.L_X01);
@@ -723,7 +723,7 @@ public class VoteView extends LinearLayout {
                 d2.f(i2);
                 return;
             }
-            c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(eVar.a);
+            c.a.r0.s.v.c d3 = c.a.r0.s.v.c.d(eVar.a);
             d3.n(R.string.J_X04);
             d3.l(R.dimen.L_X01);
             d3.k(R.color.CAM_X0902);
@@ -736,14 +736,14 @@ public class VoteView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadii(H);
-            gradientDrawable.setColor(c.a.r0.t3.c.a(SkinManager.getColor(R.color.CAM_X0302), 0.08f));
+            gradientDrawable.setColor(c.a.s0.v3.c.a(SkinManager.getColor(R.color.CAM_X0302), 0.08f));
             this.l.setBackgroundDrawable(gradientDrawable);
             if (!this.s && !ListUtils.isEmpty(this.q) && this.q.size() > 0) {
                 SkinManager.setViewTextColor(this.l, R.color.CAM_X0302);
                 this.l.setEnabled(true);
                 return;
             }
-            this.l.setTextColor(c.a.r0.t3.c.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.l.setTextColor(c.a.s0.v3.c.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             this.l.setEnabled(false);
         }
     }
@@ -764,16 +764,16 @@ public class VoteView extends LinearLayout {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this);
+            c.a.r0.s.v.c d2 = c.a.r0.s.v.c.d(this);
             d2.n(R.string.J_X05);
             d2.f(this.w);
             if (this.w == R.color.CAM_X0207) {
-                SkinManager.setBackgroundResource(this.f41393k, R.drawable.bg_vote_list_transmit_bottom);
+                SkinManager.setBackgroundResource(this.f41884k, R.drawable.bg_vote_list_transmit_bottom);
             } else {
-                SkinManager.setBackgroundResource(this.f41393k, R.drawable.bg_vote_list_bottom);
+                SkinManager.setBackgroundResource(this.f41884k, R.drawable.bg_vote_list_bottom);
             }
-            SkinManager.setViewTextColor(this.f41389g, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f41390h, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f41880g, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f41881h, R.color.CAM_X0109);
             G();
             RecyclerView.Adapter<e> adapter = this.B;
             if (adapter != null) {
@@ -814,8 +814,8 @@ public class VoteView extends LinearLayout {
         if (options.size() > 3) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, E);
             layoutParams.bottomMargin = 0;
-            this.f41392j.setLayoutParams(layoutParams);
-            this.f41393k.setVisibility(0);
+            this.f41883j.setLayoutParams(layoutParams);
+            this.f41884k.setVisibility(0);
             this.l.setVisibility(8);
             setData(options.subList(0, 4));
             return;
@@ -840,7 +840,7 @@ public class VoteView extends LinearLayout {
     public void setDeleteOnClickListener(View.OnClickListener onClickListener) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, onClickListener) == null) || (imageView = this.f41391i) == null || onClickListener == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, onClickListener) == null) || (imageView = this.f41882i) == null || onClickListener == null) {
             return;
         }
         imageView.setOnClickListener(onClickListener);
@@ -871,7 +871,7 @@ public class VoteView extends LinearLayout {
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, tbPageContext) == null) {
-            this.f41388f = tbPageContext;
+            this.f41879f = tbPageContext;
             this.y = new AddPollPostModel(tbPageContext);
         }
     }
@@ -881,7 +881,7 @@ public class VoteView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        this.f41390h.setText(str);
+        this.f41881h.setText(str);
     }
 
     public void setVoteTitle(String str) {
@@ -889,13 +889,13 @@ public class VoteView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        this.f41389g.setText(str);
+        this.f41880g.setText(str);
     }
 
     public void setVoteViewDeleteVisibility(int i2) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (imageView = this.f41391i) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (imageView = this.f41882i) == null) {
             return;
         }
         imageView.setVisibility(i2);
@@ -973,7 +973,7 @@ public class VoteView extends LinearLayout {
         this.z = new a(this);
         this.A = new b(this);
         this.B = new c(this);
-        this.f41387e = context;
+        this.f41878e = context;
         this.p = new ArrayList();
         this.q = new ArrayList();
         A();

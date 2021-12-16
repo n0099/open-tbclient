@@ -13,17 +13,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class y2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONStringer f31007b;
+    public JSONStringer f31377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31008c;
+    public String f31378c;
 
     public y2(c3 c3Var, Context context) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class y2 {
                 return;
             }
         }
-        this.f31007b = new JSONStringer();
-        this.f31008c = "";
+        this.f31377b = new JSONStringer();
+        this.f31378c = "";
         this.a = context;
     }
 
@@ -52,7 +52,7 @@ public class y2 {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             try {
                 object = new JSONStringer().object();
-                this.f31007b = object;
+                this.f31377b = object;
                 l("e", "bce");
                 l("timeis", c3.e());
                 k("co", i2);
@@ -69,7 +69,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g3Var)) == null) {
             try {
-                this.f31007b = c3.d("ao", g3Var);
+                this.f31377b = c3.d("ao", g3Var);
             } catch (JSONException unused) {
             }
             return this;
@@ -82,7 +82,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, g3Var, i2)) == null) {
             try {
-                this.f31007b = c3.d("rle", g3Var);
+                this.f31377b = c3.d("rle", g3Var);
                 k("co", i2);
             } catch (JSONException unused) {
             }
@@ -96,7 +96,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, g3Var, i2, i3)) == null) {
             try {
-                this.f31007b = c3.d("asr", g3Var);
+                this.f31377b = c3.d("asr", g3Var);
                 k("width", i2);
                 k("height", i3);
             } catch (JSONException unused) {
@@ -111,7 +111,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{g3Var, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             try {
-                this.f31007b = c3.d("bpe", g3Var);
+                this.f31377b = c3.d("bpe", g3Var);
                 k("co", i2);
                 k("dr", j2);
             } catch (JSONException unused) {
@@ -126,7 +126,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, g3Var, i2, str)) == null) {
             try {
-                this.f31007b = c3.d("wbe", g3Var);
+                this.f31377b = c3.d("wbe", g3Var);
                 k("co", i2);
                 l("msg", c3.b(str));
             } catch (JSONException unused) {
@@ -141,7 +141,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{g3Var, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             try {
-                this.f31007b = c3.d("be", g3Var);
+                this.f31377b = c3.d("be", g3Var);
                 k("dr", j2);
                 k("co", i2);
                 k("num", i3);
@@ -157,7 +157,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, g3Var, str)) == null) {
             try {
-                this.f31007b = c3.d("ac", g3Var);
+                this.f31377b = c3.d("ac", g3Var);
                 l("msg", c3.b(str));
             } catch (JSONException unused) {
             }
@@ -171,7 +171,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, g3Var, str, i2)) == null) {
             try {
-                this.f31007b = c3.d("dplop", g3Var);
+                this.f31377b = c3.d("dplop", g3Var);
                 l("msg", c3.b(str));
                 k("co", i2);
             } catch (JSONException unused) {
@@ -186,7 +186,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048585, this, g3Var, str, i2, i3)) == null) {
             try {
-                this.f31007b = c3.d("wdre", g3Var);
+                this.f31377b = c3.d("wdre", g3Var);
                 try {
                     str = r0.g(str);
                 } catch (Exception unused) {
@@ -206,7 +206,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j2)) == null) {
             try {
-                this.f31007b.key(str).value(j2);
+                this.f31377b.key(str).value(j2);
             } catch (JSONException unused) {
             }
             return this;
@@ -220,7 +220,7 @@ public class y2 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
             try {
                 if (!TextUtils.isEmpty(str2)) {
-                    this.f31007b.key(str).value(str2);
+                    this.f31377b.key(str).value(str2);
                 }
             } catch (JSONException unused) {
             }
@@ -234,11 +234,11 @@ public class y2 {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             JSONArray jSONArray = new JSONArray();
             try {
-                if (!TextUtils.isEmpty(this.f31007b.toString())) {
-                    this.f31007b.endObject();
-                    this.f31008c = this.f31007b.toString();
+                if (!TextUtils.isEmpty(this.f31377b.toString())) {
+                    this.f31377b.endObject();
+                    this.f31378c = this.f31377b.toString();
                 }
-                JSONObject jSONObject = new JSONObject(this.f31008c);
+                JSONObject jSONObject = new JSONObject(this.f31378c);
                 String optString = jSONObject.optString("e");
                 if (n(optString)) {
                     return;
@@ -258,7 +258,7 @@ public class y2 {
             if (m2.G(this.a) < 0) {
                 return false;
             }
-            return r0.u(c3.a, str) ? m2.G(this.a) < 1 : r0.u(c3.f30762b, str) ? m2.G(this.a) < 2 : r0.u(c3.f30763c, str) ? m2.G(this.a) < 3 : r0.u(c3.f30764d, str) && m2.G(this.a) < 4;
+            return r0.u(c3.a, str) ? m2.G(this.a) < 1 : r0.u(c3.f31132b, str) ? m2.G(this.a) < 2 : r0.u(c3.f31133c, str) ? m2.G(this.a) < 3 : r0.u(c3.f31134d, str) && m2.G(this.a) < 4;
         }
         return invokeL.booleanValue;
     }
@@ -268,7 +268,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, g3Var)) == null) {
             try {
-                this.f31007b = c3.d("as", g3Var);
+                this.f31377b = c3.d("as", g3Var);
             } catch (JSONException unused) {
             }
             return this;
@@ -281,7 +281,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, g3Var, i2)) == null) {
             try {
-                this.f31007b = c3.d("wde", g3Var);
+                this.f31377b = c3.d("wde", g3Var);
                 k("co", i2);
             } catch (JSONException unused) {
             }
@@ -295,7 +295,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, g3Var, i2)) == null) {
             try {
-                this.f31007b = c3.d("wdin", g3Var);
+                this.f31377b = c3.d("wdin", g3Var);
                 k("co", i2);
             } catch (JSONException unused) {
             }

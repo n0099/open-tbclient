@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static volatile String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f28984b;
+    public static final Object f29354b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class c {
                 return;
             }
         }
-        f28984b = new Object();
+        f29354b = new Object();
     }
 
     public static String a() {
@@ -41,7 +41,7 @@ public class c {
             if (a != null) {
                 return a;
             }
-            synchronized (f28984b) {
+            synchronized (f29354b) {
                 if (a != null) {
                     return a;
                 }

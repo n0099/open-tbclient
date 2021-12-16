@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class dy implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,10 +58,10 @@ public final class dy implements View.OnClickListener {
                 list4 = this.a.x;
                 list4.set(0, b2);
             }
-            bArr = this.a.f51632j;
+            bArr = this.a.f52181j;
             if (bArr != null) {
                 list3 = this.a.x;
-                bArr2 = this.a.f51632j;
+                bArr2 = this.a.f52181j;
                 if (!list3.contains(bArr2)) {
                     textView = this.a.r;
                     textView.setText("上传截图");

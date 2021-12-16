@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ep extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51703b;
+    public String f52252b;
 
     /* renamed from: c  reason: collision with root package name */
-    public eq f51704c;
+    public eq f52253c;
 
     public ep(String str, eq eqVar) {
         Interceptable interceptable = $ic;
@@ -36,18 +36,18 @@ public final class ep extends ClickableSpan {
             }
         }
         this.a = -11821318;
-        this.f51703b = str;
-        this.f51704c = eqVar;
+        this.f52252b = str;
+        this.f52253c = eqVar;
     }
 
     @Override // android.text.style.ClickableSpan
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            com.baidu.ufosdk.f.c.a("text clicked!!!" + this.f51703b);
-            eq eqVar = this.f51704c;
+            com.baidu.ufosdk.f.c.a("text clicked!!!" + this.f52252b);
+            eq eqVar = this.f52253c;
             if (eqVar != null) {
-                eqVar.a(this.f51703b);
+                eqVar.a(this.f52252b);
             }
         }
     }

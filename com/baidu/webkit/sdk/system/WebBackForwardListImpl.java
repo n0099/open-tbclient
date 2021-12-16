@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class WebBackForwardListImpl extends WebBackForwardList implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static Method cloneMethod;

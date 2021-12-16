@@ -17,60 +17,60 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SkipView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f59764b;
+    public View f60345b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f59765c;
+    public TextView f60346c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f59766d;
+    public TextView f60347d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f59767e;
+    public a f60348e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f59768f;
+    public int f60349f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f59769g;
+    public boolean f60350g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f59770h;
+    public Runnable f60351h;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
         void b();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59771b;
+        public String f60352b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f59772c;
+        public int f60353c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f59773d;
+        public int f60354d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f59774e;
+        public boolean f60355e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f59775f;
+        public boolean f60356f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -86,16 +86,16 @@ public class SkipView extends LinearLayout {
                 }
             }
             this.a = "跳过";
-            this.f59771b = "";
-            this.f59772c = 5;
-            this.f59773d = 5;
-            this.f59774e = true;
-            this.f59775f = true;
+            this.f60352b = "";
+            this.f60353c = 5;
+            this.f60354d = 5;
+            this.f60355e = true;
+            this.f60356f = true;
         }
 
         public static /* synthetic */ int a(b bVar) {
-            int i2 = bVar.f59773d;
-            bVar.f59773d = i2 - 1;
+            int i2 = bVar.f60354d;
+            bVar.f60354d = i2 - 1;
             return i2;
         }
 
@@ -103,7 +103,7 @@ public class SkipView extends LinearLayout {
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? this.f59774e && this.f59775f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? this.f60355e && this.f60356f : invokeV.booleanValue;
         }
 
         public String a() {
@@ -112,18 +112,18 @@ public class SkipView extends LinearLayout {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i3 = this.f59773d;
+                int i3 = this.f60354d;
                 if (i3 < 0) {
-                    return this.f59771b;
+                    return this.f60352b;
                 }
                 if (i3 == 0) {
                     sb = new StringBuilder();
-                    sb.append(this.f59771b);
+                    sb.append(this.f60352b);
                     i2 = 1;
                 } else {
                     sb = new StringBuilder();
-                    sb.append(this.f59771b);
-                    i2 = this.f59773d;
+                    sb.append(this.f60352b);
+                    i2 = this.f60354d;
                 }
                 sb.append(i2);
                 return sb.toString();
@@ -134,23 +134,23 @@ public class SkipView extends LinearLayout {
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f59772c = i2;
-                this.f59773d = i2;
+                this.f60353c = i2;
+                this.f60354d = i2;
             }
         }
 
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f59773d = -1;
-                this.f59771b = str;
+                this.f60354d = -1;
+                this.f60352b = str;
             }
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59773d <= 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60354d <= 0 : invokeV.booleanValue;
         }
     }
 
@@ -173,9 +173,9 @@ public class SkipView extends LinearLayout {
             }
         }
         this.a = new b();
-        this.f59768f = -1;
-        this.f59769g = false;
-        this.f59770h = new Runnable(this) { // from class: com.kwad.sdk.widget.SkipView.1
+        this.f60349f = -1;
+        this.f60350g = false;
+        this.f60351h = new Runnable(this) { // from class: com.kwad.sdk.widget.SkipView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SkipView a;
@@ -202,7 +202,7 @@ public class SkipView extends LinearLayout {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.a.f59769g) {
+                    if (this.a.f60350g) {
                         this.a.postDelayed(this, 300L);
                         return;
                     }
@@ -211,8 +211,8 @@ public class SkipView extends LinearLayout {
                     if (!this.a.a.b()) {
                         this.a.postDelayed(this, 1000L);
                         b.a(this.a.a);
-                    } else if (this.a.f59767e != null) {
-                        this.a.f59767e.b();
+                    } else if (this.a.f60348e != null) {
+                        this.a.f60348e.b();
                     }
                 }
             }
@@ -240,9 +240,9 @@ public class SkipView extends LinearLayout {
             }
         }
         this.a = new b();
-        this.f59768f = -1;
-        this.f59769g = false;
-        this.f59770h = new Runnable(this) { // from class: com.kwad.sdk.widget.SkipView.1
+        this.f60349f = -1;
+        this.f60350g = false;
+        this.f60351h = new Runnable(this) { // from class: com.kwad.sdk.widget.SkipView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SkipView a;
@@ -269,7 +269,7 @@ public class SkipView extends LinearLayout {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.a.f59769g) {
+                    if (this.a.f60350g) {
                         this.a.postDelayed(this, 300L);
                         return;
                     }
@@ -278,8 +278,8 @@ public class SkipView extends LinearLayout {
                     if (!this.a.a.b()) {
                         this.a.postDelayed(this, 1000L);
                         b.a(this.a.a);
-                    } else if (this.a.f59767e != null) {
-                        this.a.f59767e.b();
+                    } else if (this.a.f60348e != null) {
+                        this.a.f60348e.b();
                     }
                 }
             }
@@ -307,9 +307,9 @@ public class SkipView extends LinearLayout {
             }
         }
         this.a = new b();
-        this.f59768f = -1;
-        this.f59769g = false;
-        this.f59770h = new Runnable(this) { // from class: com.kwad.sdk.widget.SkipView.1
+        this.f60349f = -1;
+        this.f60350g = false;
+        this.f60351h = new Runnable(this) { // from class: com.kwad.sdk.widget.SkipView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SkipView a;
@@ -336,7 +336,7 @@ public class SkipView extends LinearLayout {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.a.f59769g) {
+                    if (this.a.f60350g) {
                         this.a.postDelayed(this, 300L);
                         return;
                     }
@@ -345,8 +345,8 @@ public class SkipView extends LinearLayout {
                     if (!this.a.a.b()) {
                         this.a.postDelayed(this, 1000L);
                         b.a(this.a.a);
-                    } else if (this.a.f59767e != null) {
-                        this.a.f59767e.b();
+                    } else if (this.a.f60348e != null) {
+                        this.a.f60348e.b();
                     }
                 }
             }
@@ -375,9 +375,9 @@ public class SkipView extends LinearLayout {
             }
         }
         this.a = new b();
-        this.f59768f = -1;
-        this.f59769g = false;
-        this.f59770h = new Runnable(this) { // from class: com.kwad.sdk.widget.SkipView.1
+        this.f60349f = -1;
+        this.f60350g = false;
+        this.f60351h = new Runnable(this) { // from class: com.kwad.sdk.widget.SkipView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SkipView a;
@@ -404,7 +404,7 @@ public class SkipView extends LinearLayout {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.a.f59769g) {
+                    if (this.a.f60350g) {
                         this.a.postDelayed(this, 300L);
                         return;
                     }
@@ -413,8 +413,8 @@ public class SkipView extends LinearLayout {
                     if (!this.a.a.b()) {
                         this.a.postDelayed(this, 1000L);
                         b.a(this.a.a);
-                    } else if (this.a.f59767e != null) {
-                        this.a.f59767e.b();
+                    } else if (this.a.f60348e != null) {
+                        this.a.f60348e.b();
                     }
                 }
             }
@@ -427,9 +427,9 @@ public class SkipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet, i2, i3) == null) {
             setOrientation(0);
             LayoutInflater.from(context).inflate(R.layout.ksad_skip_view, this);
-            this.f59765c = (TextView) findViewById(R.id.ksad_skip_view_skip);
-            this.f59766d = (TextView) findViewById(R.id.ksad_skip_view_timer);
-            this.f59764b = findViewById(R.id.ksad_skip_view_divider);
+            this.f60346c = (TextView) findViewById(R.id.ksad_skip_view_skip);
+            this.f60347d = (TextView) findViewById(R.id.ksad_skip_view_timer);
+            this.f60345b = findViewById(R.id.ksad_skip_view_divider);
             setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.widget.SkipView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -456,10 +456,10 @@ public class SkipView extends LinearLayout {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.a.f59767e == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.a.f60348e == null) {
                         return;
                     }
-                    this.a.f59767e.a();
+                    this.a.f60348e.a();
                 }
             });
             setSkipBtnVisible(true);
@@ -474,27 +474,27 @@ public class SkipView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(65541, this, bVar) == null) || bVar == null) {
             return;
         }
-        if (this.f59765c != null) {
+        if (this.f60346c != null) {
             if (bVar.a != null) {
-                this.f59765c.setText(bVar.a);
+                this.f60346c.setText(bVar.a);
             }
-            this.f59765c.setVisibility(this.a.f59774e ? 0 : 8);
+            this.f60346c.setVisibility(this.a.f60355e ? 0 : 8);
         }
         String a2 = bVar.a();
-        TextView textView = this.f59766d;
+        TextView textView = this.f60347d;
         if (textView != null) {
             if (a2 != null) {
                 textView.setText(a2);
             }
-            this.f59766d.setVisibility(this.a.f59775f ? 0 : 8);
+            this.f60347d.setVisibility(this.a.f60356f ? 0 : 8);
         }
-        if (this.f59764b != null) {
+        if (this.f60345b != null) {
             boolean c2 = this.a.c();
-            this.f59764b.setVisibility(c2 ? 0 : 8);
+            this.f60345b.setVisibility(c2 ? 0 : 8);
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams != null) {
                 if (c2) {
-                    i2 = this.f59768f;
+                    i2 = this.f60349f;
                     if (i2 <= 0) {
                         return;
                     }
@@ -511,7 +511,7 @@ public class SkipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a(this.a);
-            post(this.f59770h);
+            post(this.f60351h);
         }
     }
 
@@ -537,14 +537,14 @@ public class SkipView extends LinearLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f59769g = true;
+            this.f60350g = true;
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f59769g = false;
+            this.f60350g = false;
         }
     }
 
@@ -559,7 +559,7 @@ public class SkipView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            TextView textView = this.f59766d;
+            TextView textView = this.f60347d;
             return textView != null && textView.getVisibility() == 0;
         }
         return invokeV.booleanValue;
@@ -570,21 +570,21 @@ public class SkipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, layoutParams) == null) {
             super.setLayoutParams(layoutParams);
-            this.f59768f = layoutParams.width;
+            this.f60349f = layoutParams.width;
         }
     }
 
     public void setOnViewListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.f59767e = aVar;
+            this.f60348e = aVar;
         }
     }
 
     public void setSkipBtnVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.a.f59774e = z;
+            this.a.f60355e = z;
             a(this.a);
         }
     }
@@ -600,7 +600,7 @@ public class SkipView extends LinearLayout {
     public void setTimerBtnVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.a.f59775f = z;
+            this.a.f60356f = z;
             a(this.a);
         }
     }
@@ -608,7 +608,7 @@ public class SkipView extends LinearLayout {
     public void setTimerPrefixText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.a.f59771b = str;
+            this.a.f60352b = str;
             a(this.a);
         }
     }

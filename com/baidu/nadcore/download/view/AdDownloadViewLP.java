@@ -16,9 +16,9 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import c.a.b0.c0.c;
-import c.a.b0.d0.f;
-import c.a.b0.g.f.i;
+import c.a.c0.c0.c;
+import c.a.c0.d0.f;
+import c.a.c0.g.f.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,31 +28,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f37540e;
+    public final Paint f38029e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37541f;
+    public int f38030f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f37542g;
+    public int f38031g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ValueAnimator f37543h;
+    public ValueAnimator f38032h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f37544i;
+    public int f38033i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f37545j;
+    public boolean f38034j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f37546k;
+    public int f38035k;
     public boolean l;
     public final Paint m;
     public int n;
@@ -63,7 +63,7 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
     public float s;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -124,13 +124,13 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdDownloadViewLP f37547e;
+        public final /* synthetic */ AdDownloadViewLP f38036e;
 
         public a(AdDownloadViewLP adDownloadViewLP) {
             Interceptable interceptable = $ic;
@@ -147,20 +147,20 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
                     return;
                 }
             }
-            this.f37547e = adDownloadViewLP;
+            this.f38036e = adDownloadViewLP;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f37547e.f37541f = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                this.f37547e.invalidate();
+                this.f38036e.f38030f = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                this.f38036e.invalidate();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -210,10 +210,10 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
                 return;
             }
         }
-        this.f37540e = new Paint();
-        this.f37541f = -2210218;
-        this.f37542g = -1;
-        this.f37544i = 1073741824;
+        this.f38029e = new Paint();
+        this.f38030f = -2210218;
+        this.f38031g = -1;
+        this.f38033i = 1073741824;
         this.m = new Paint();
         this.n = -1;
         this.q = 100;
@@ -225,17 +225,17 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
     public final void b(Canvas canvas, RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, rectF) == null) {
-            this.f37540e.setColor(this.f37541f);
-            this.f37540e.setStyle(Paint.Style.FILL);
+            this.f38029e.setColor(this.f38030f);
+            this.f38029e.setStyle(Paint.Style.FILL);
             float f2 = this.s;
             if (f2 <= 0.0f) {
-                f2 = this.f37545j ? rectF.height() / 2.0f : 0.0f;
+                f2 = this.f38034j ? rectF.height() / 2.0f : 0.0f;
             }
-            canvas.drawRoundRect(rectF, f2, f2, this.f37540e);
+            canvas.drawRoundRect(rectF, f2, f2, this.f38029e);
         }
     }
 
-    @Override // c.a.b0.g.f.i
+    @Override // c.a.c0.g.f.i
     public void bind(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
@@ -258,25 +258,25 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
                 if (i2 != 2) {
                     return;
                 }
-                this.f37540e.setColor(this.f37544i);
-                this.f37540e.setStyle(Paint.Style.FILL);
+                this.f38029e.setColor(this.f38033i);
+                this.f38029e.setStyle(Paint.Style.FILL);
                 float f3 = this.s;
                 if (f3 > 0.0f) {
                     f2 = f3;
-                } else if (this.f37545j) {
+                } else if (this.f38034j) {
                     f2 = rectF.height() / 2.0f;
                 }
-                canvas.drawRoundRect(rectF, f2, f2, this.f37540e);
+                canvas.drawRoundRect(rectF, f2, f2, this.f38029e);
                 return;
             }
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.FILL);
-            float f4 = this.f37546k / this.q;
-            paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.f37544i, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
+            float f4 = this.f38035k / this.q;
+            paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.f38033i, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
             float f5 = this.s;
             if (f5 > 0.0f) {
                 f2 = f5;
-            } else if (this.f37545j) {
+            } else if (this.f38034j) {
                 f2 = rectF.height() / 2.0f;
             }
             canvas.drawRoundRect(rectF, f2, f2, paint);
@@ -302,7 +302,7 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
             if (getWidth() == 0 || getHeight() == 0 || TextUtils.isEmpty(this.p)) {
                 return;
             }
-            if (this.f37542g != -1) {
+            if (this.f38031g != -1) {
                 h();
             }
             if (!this.l) {
@@ -328,13 +328,13 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             float f2 = 0;
             RectF rectF = new RectF(f2, f2, getWidth() + 0, getHeight() + 0);
-            this.f37540e.setColor(this.f37541f);
-            this.f37540e.setStyle(Paint.Style.FILL);
+            this.f38029e.setColor(this.f38030f);
+            this.f38029e.setStyle(Paint.Style.FILL);
             float f3 = this.s;
             if (f3 <= 0.0f) {
-                f3 = this.f37545j ? rectF.height() / 2.0f : 0.0f;
+                f3 = this.f38034j ? rectF.height() / 2.0f : 0.0f;
             }
-            canvas.drawRoundRect(rectF, f3, f3, this.f37540e);
+            canvas.drawRoundRect(rectF, f3, f3, this.f38029e);
             this.m.setColor(this.n);
             this.m.setTextSize(this.o);
             Paint.FontMetrics fontMetrics = this.m.getFontMetrics();
@@ -347,7 +347,7 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             setTextSize(getContext().getResources().getDimensionPixelSize(c.nad_dimens_16dp));
-            setBgColor(getContext().getResources().getColor(c.a.b0.c0.b.nad_download_button_color));
+            setBgColor(getContext().getResources().getColor(c.a.c0.c0.b.nad_download_button_color));
             setTextColor(-1);
             isShowProgress(true);
             isCornerRadius(true);
@@ -355,7 +355,7 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.b0.g.f.i
+    @Override // c.a.c0.g.f.i
     @NonNull
     public AdDownloadViewLP getRealView() {
         InterceptResult invokeV;
@@ -365,12 +365,12 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.f37543h == null) {
-            ValueAnimator ofObject = ValueAnimator.ofObject(new ArgbEvaluator(), Integer.valueOf(this.f37541f), Integer.valueOf(this.f37542g));
-            this.f37543h = ofObject;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.f38032h == null) {
+            ValueAnimator ofObject = ValueAnimator.ofObject(new ArgbEvaluator(), Integer.valueOf(this.f38030f), Integer.valueOf(this.f38031g));
+            this.f38032h = ofObject;
             ofObject.setDuration(500L);
-            this.f37543h.addUpdateListener(new a(this));
-            this.f37543h.start();
+            this.f38032h.addUpdateListener(new a(this));
+            this.f38032h.start();
         }
     }
 
@@ -378,7 +378,7 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-            this.f37545j = z;
+            this.f38034j = z;
             return this;
         }
         return (AdDownloadViewLP) invokeZ.objValue;
@@ -397,7 +397,7 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
     public void setAbsorbColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f37542g = i2;
+            this.f38031g = i2;
         }
     }
 
@@ -405,7 +405,7 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-            this.f37541f = i2;
+            this.f38030f = i2;
             return this;
         }
         return (AdDownloadViewLP) invokeI.objValue;
@@ -415,7 +415,7 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            this.f37544i = i2;
+            this.f38033i = i2;
             return this;
         }
         return (AdDownloadViewLP) invokeI.objValue;
@@ -431,7 +431,7 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
             if (i2 > i3) {
                 i2 = i3;
             }
-            this.f37546k = i2;
+            this.f38035k = i2;
             if (i2 == 0) {
                 this.r = State.PREPARE;
             } else if (i2 == this.q) {
@@ -472,15 +472,15 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
         return (AdDownloadViewLP) invokeF.objValue;
     }
 
-    @Override // c.a.b0.g.f.i
-    public void update(String str, @NonNull c.a.b0.g.d.a aVar) {
+    @Override // c.a.c0.g.f.i
+    public void update(String str, @NonNull c.a.c0.g.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, str, aVar) == null) {
             this.p = str;
-            if (aVar.f1495c == AdDownloadStatus.DOWNLOADING) {
+            if (aVar.f1513c == AdDownloadStatus.DOWNLOADING) {
                 this.p = "已下载 : " + this.p;
             }
-            setProgress((int) aVar.f1501i);
+            setProgress((int) aVar.f1519i);
             postInvalidate();
         }
     }
@@ -504,10 +504,10 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
                 return;
             }
         }
-        this.f37540e = new Paint();
-        this.f37541f = -2210218;
-        this.f37542g = -1;
-        this.f37544i = 1073741824;
+        this.f38029e = new Paint();
+        this.f38030f = -2210218;
+        this.f38031g = -1;
+        this.f38033i = 1073741824;
         this.m = new Paint();
         this.n = -1;
         this.q = 100;
@@ -535,10 +535,10 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
                 return;
             }
         }
-        this.f37540e = new Paint();
-        this.f37541f = -2210218;
-        this.f37542g = -1;
-        this.f37544i = 1073741824;
+        this.f38029e = new Paint();
+        this.f38030f = -2210218;
+        this.f38031g = -1;
+        this.f38033i = 1073741824;
         this.m = new Paint();
         this.n = -1;
         this.q = 100;
@@ -567,10 +567,10 @@ public class AdDownloadViewLP extends View implements i<AdDownloadViewLP> {
                 return;
             }
         }
-        this.f37540e = new Paint();
-        this.f37541f = -2210218;
-        this.f37542g = -1;
-        this.f37544i = 1073741824;
+        this.f38029e = new Paint();
+        this.f38030f = -2210218;
+        this.f38031g = -1;
+        this.f38033i = 1073741824;
         this.m = new Paint();
         this.n = -1;
         this.q = 100;

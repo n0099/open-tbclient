@@ -1,5 +1,5 @@
 package com.airbnb.lottie.value;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface SimpleLottieValueCallback<T> {
     T getValue(LottieFrameInfo<T> lottieFrameInfo);
 }

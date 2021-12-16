@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebViewFactory;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ZeusInitConfigUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ENGINE_CLOUDSETTINGS_DATA = "engineCloudSettingsData";

@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Notification<T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Notification<Void> f64315d;
+    public static final Notification<Void> f64886d;
     public transient /* synthetic */ FieldHolder $fh;
     public final Kind a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Throwable f64316b;
+    public final Throwable f64887b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final T f64317c;
+    public final T f64888c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Kind {
         public static final /* synthetic */ Kind[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -99,7 +99,7 @@ public final class Notification<T> {
                 return;
             }
         }
-        f64315d = new Notification<>(Kind.OnCompleted, null, null);
+        f64886d = new Notification<>(Kind.OnCompleted, null, null);
     }
 
     public Notification(Kind kind, T t, Throwable th) {
@@ -117,15 +117,15 @@ public final class Notification<T> {
                 return;
             }
         }
-        this.f64317c = t;
-        this.f64316b = th;
+        this.f64888c = t;
+        this.f64887b = th;
         this.a = kind;
     }
 
     public static <T> Notification<T> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (Notification<T>) f64315d : (Notification) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (Notification<T>) f64886d : (Notification) invokeV.objValue;
     }
 
     public static <T> Notification<T> b(Throwable th) {
@@ -149,7 +149,7 @@ public final class Notification<T> {
     public Throwable e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64316b : (Throwable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64887b : (Throwable) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -167,11 +167,11 @@ public final class Notification<T> {
             }
             Notification notification = (Notification) obj;
             if (notification.d() == d()) {
-                T t = this.f64317c;
-                T t2 = notification.f64317c;
+                T t = this.f64888c;
+                T t2 = notification.f64888c;
                 if (t == t2 || (t != null && t.equals(t2))) {
-                    Throwable th = this.f64316b;
-                    Throwable th2 = notification.f64316b;
+                    Throwable th = this.f64887b;
+                    Throwable th2 = notification.f64887b;
                     return th == th2 || (th != null && th.equals(th2));
                 }
                 return false;
@@ -184,19 +184,19 @@ public final class Notification<T> {
     public T f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64317c : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64888c : (T) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j() && this.f64316b != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j() && this.f64887b != null : invokeV.booleanValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? k() && this.f64317c != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? k() && this.f64888c != null : invokeV.booleanValue;
     }
 
     public int hashCode() {

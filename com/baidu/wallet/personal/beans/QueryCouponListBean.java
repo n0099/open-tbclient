@@ -16,20 +16,20 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.personal.datamodel.CouponListResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class QueryCouponListBean extends BaseBean<CouponListResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CouponStatus a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54058b;
+    public String f54638b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54059c;
+    public String f54639c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class CouponStatus {
         public static final /* synthetic */ CouponStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -118,8 +118,8 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
             }
         }
         this.a = CouponStatus.UNUSE;
-        this.f54058b = "0";
-        this.f54059c = "";
+        this.f54638b = "0";
+        this.f54639c = "";
     }
 
     public void a(CouponStatus couponStatus) {
@@ -132,7 +132,7 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f54058b = str;
+            this.f54638b = str;
         }
     }
 
@@ -149,11 +149,11 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f54058b)) {
+            if (TextUtils.isEmpty(this.f54638b)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("page_index", this.f54058b));
+            arrayList.add(new RestNameValuePair("page_index", this.f54638b));
             arrayList.add(new RestNameValuePair("filter_status_new", this.a.getVal()));
             return arrayList;
         }

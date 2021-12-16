@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class Files$FilePredicate implements o<File> {
     public static final /* synthetic */ Files$FilePredicate[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

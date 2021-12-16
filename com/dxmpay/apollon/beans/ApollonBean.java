@@ -15,7 +15,7 @@ import com.dxmpay.apollon.taskmanager.TaskManager;
 import com.dxmpay.apollon.utils.JsonUtils;
 import com.dxmpay.apollon.utils.NetworkUtils;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class ApollonBean<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,19 +24,19 @@ public abstract class ApollonBean<T> {
     public RestTemplate mRestTemplate;
     public IBeanResponseCallback mRspCallback;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Class f55064e;
+        public final /* synthetic */ Class f55644e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Class f55065f;
+        public final /* synthetic */ Class f55645f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ApollonBean f55066g;
+        public final /* synthetic */ ApollonBean f55646g;
 
         public a(ApollonBean apollonBean, Class cls, Class cls2) {
             Interceptable interceptable = $ic;
@@ -53,9 +53,9 @@ public abstract class ApollonBean<T> {
                     return;
                 }
             }
-            this.f55066g = apollonBean;
-            this.f55064e = cls;
-            this.f55065f = cls2;
+            this.f55646g = apollonBean;
+            this.f55644e = cls;
+            this.f55645f = cls2;
         }
 
         @Override // java.lang.Runnable
@@ -64,13 +64,13 @@ public abstract class ApollonBean<T> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     try {
-                        this.f55066g.prepareRestTemplate();
-                        this.f55066g.executeAndHandleResponse(this.f55064e, this.f55065f);
+                        this.f55646g.prepareRestTemplate();
+                        this.f55646g.executeAndHandleResponse(this.f55644e, this.f55645f);
                     } catch (Exception e2) {
-                        this.f55066g.handleCommonErrors(e2);
+                        this.f55646g.handleCommonErrors(e2);
                     }
                 } finally {
-                    this.f55066g.mRspCallback = null;
+                    this.f55646g.mRspCallback = null;
                 }
             }
         }

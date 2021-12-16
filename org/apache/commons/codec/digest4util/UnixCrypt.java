@@ -22,7 +22,7 @@ import com.faceunity.gles.GeneratedTexture;
 import com.google.protobuf.CodedInputStream;
 import java.util.Random;
 import org.apache.commons.base.Charsets;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UnixCrypt {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CON_SALT;

@@ -12,10 +12,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.b.d;
-import c.a.b0.b.e;
-import c.a.b0.b.g;
-import c.a.b0.b.h;
+import c.a.c0.b.d;
+import c.a.c0.b.e;
+import c.a.c0.b.g;
+import c.a.c0.b.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
@@ -24,42 +24,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AdInteractionView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f37995e;
+    public Context f38484e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdImageView f37996f;
+    public AdImageView f38485f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f37997g;
+    public TextView f38486g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f37998h;
+    public FrameLayout f38487h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AdImageView f37999i;
+    public AdImageView f38488i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f38000j;
+    public TextView f38489j;
 
     /* renamed from: k  reason: collision with root package name */
-    public LinearLayout f38001k;
+    public LinearLayout f38490k;
     public AdImageView l;
     public TextView m;
     public LinearLayout n;
     public LinearLayout o;
     public b p;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void onClick(int i2);
     }
@@ -88,23 +88,23 @@ public class AdInteractionView extends LinearLayout implements View.OnClickListe
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f37995e = context;
+            this.f38484e = context;
             LayoutInflater.from(getContext()).inflate(g.nad_interaction_view, this);
-            setBackgroundColor(this.f37995e.getResources().getColor(c.a.b0.b.b.nad_videoplayer_transparent));
+            setBackgroundColor(this.f38484e.getResources().getColor(c.a.c0.b.b.nad_videoplayer_transparent));
             setOrientation(1);
             setGravity(17);
-            this.f37996f = (AdImageView) findViewById(e.ad_author_avatar_interaction);
-            this.f37997g = (TextView) findViewById(e.ad_author_avatar_txt_interaction);
-            this.f37998h = (FrameLayout) findViewById(e.ad_author_container_interaction);
-            this.f37999i = (AdImageView) findViewById(e.interaction_praise_view);
-            this.f38000j = (TextView) findViewById(e.interaction_praise_text);
-            this.f38001k = (LinearLayout) findViewById(e.interaction_praise_item);
+            this.f38485f = (AdImageView) findViewById(e.ad_author_avatar_interaction);
+            this.f38486g = (TextView) findViewById(e.ad_author_avatar_txt_interaction);
+            this.f38487h = (FrameLayout) findViewById(e.ad_author_container_interaction);
+            this.f38488i = (AdImageView) findViewById(e.interaction_praise_view);
+            this.f38489j = (TextView) findViewById(e.interaction_praise_text);
+            this.f38490k = (LinearLayout) findViewById(e.interaction_praise_item);
             this.l = (AdImageView) findViewById(e.interaction_comment_view);
             this.m = (TextView) findViewById(e.interaction_comment_text);
             this.n = (LinearLayout) findViewById(e.interaction_comment_item);
             this.o = (LinearLayout) findViewById(e.interaction_share_item);
             AdImageView adImageView = (AdImageView) findViewById(e.interaction_share_view);
-            this.f37998h.setOnClickListener(this);
+            this.f38487h.setOnClickListener(this);
             this.n.setOnClickListener(this);
             this.o.setOnClickListener(this);
         }
@@ -138,11 +138,11 @@ public class AdInteractionView extends LinearLayout implements View.OnClickListe
                     if (c2 != 2) {
                         return null;
                     }
-                    return this.f37999i;
+                    return this.f38488i;
                 }
-                return this.f37997g;
+                return this.f38486g;
             }
-            return this.f37996f;
+            return this.f38485f;
         }
         return (View) invokeL.objValue;
     }
@@ -151,23 +151,23 @@ public class AdInteractionView extends LinearLayout implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel) == null) {
             if (adBaseModel == null) {
-                this.f37998h.setVisibility(8);
+                this.f38487h.setVisibility(8);
             } else if (!(getTag() instanceof AdBaseModel)) {
-                this.f37998h.setVisibility(8);
-            } else if (!((c.a.b0.p.e) getTag()).f1774e) {
-                this.f37998h.setVisibility(8);
+                this.f38487h.setVisibility(8);
+            } else if (!((c.a.c0.p.e) getTag()).f1792e) {
+                this.f38487h.setVisibility(8);
             } else {
-                this.f37998h.setVisibility(0);
-                if (!TextUtils.isEmpty(adBaseModel.f37574d.f1784d)) {
-                    this.f37997g.setVisibility(8);
-                    this.f37996f.displayImage(adBaseModel.f37574d.f1784d);
-                } else if (!TextUtils.isEmpty(adBaseModel.f37574d.f1783c)) {
-                    this.f37996f.setVisibility(8);
-                    this.f37997g.setText(adBaseModel.f37574d.f1783c.substring(0, 1));
-                    this.f37997g.setVisibility(0);
+                this.f38487h.setVisibility(0);
+                if (!TextUtils.isEmpty(adBaseModel.f38063d.f1802d)) {
+                    this.f38486g.setVisibility(8);
+                    this.f38485f.displayImage(adBaseModel.f38063d.f1802d);
+                } else if (!TextUtils.isEmpty(adBaseModel.f38063d.f1801c)) {
+                    this.f38485f.setVisibility(8);
+                    this.f38486g.setText(adBaseModel.f38063d.f1801c.substring(0, 1));
+                    this.f38486g.setVisibility(0);
                 } else {
-                    this.f37996f.setVisibility(8);
-                    this.f37997g.setVisibility(8);
+                    this.f38485f.setVisibility(8);
+                    this.f38486g.setVisibility(8);
                 }
             }
         }
@@ -215,21 +215,21 @@ public class AdInteractionView extends LinearLayout implements View.OnClickListe
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             TextView textView = this.m;
             if (TextUtils.isEmpty(str) || TextUtils.equals(str, "0")) {
-                str = this.f37995e.getResources().getString(h.nad_comment_text);
+                str = this.f38484e.getResources().getString(h.nad_comment_text);
             }
             textView.setText(str);
-            if (getTag() instanceof c.a.b0.p.e) {
-                c.a.b0.p.e eVar = (c.a.b0.p.e) getTag();
-                if (!eVar.f1771b) {
-                    eVar.f1771b = true;
+            if (getTag() instanceof c.a.c0.p.e) {
+                c.a.c0.p.e eVar = (c.a.c0.p.e) getTag();
+                if (!eVar.f1789b) {
+                    eVar.f1789b = true;
                     this.n.setVisibility(0);
                 }
-                if (eVar.f1773d) {
+                if (eVar.f1791d) {
                     return;
                 }
-                eVar.f1773d = true;
+                eVar.f1791d = true;
                 this.l.setImageResource(d.nad_comment_icon);
-                this.m.setTextColor(this.f37995e.getResources().getColor(c.a.b0.b.b.ad_praise_text_color));
+                this.m.setTextColor(this.f38484e.getResources().getColor(c.a.c0.b.b.ad_praise_text_color));
                 this.n.setEnabled(true);
             }
         }
@@ -254,39 +254,39 @@ public class AdInteractionView extends LinearLayout implements View.OnClickListe
         }
     }
 
-    public void setInteractionConfig(@NonNull c.a.b0.p.e eVar) {
+    public void setInteractionConfig(@NonNull c.a.c0.p.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, eVar) == null) {
             setTag(eVar);
             if (eVar.a) {
-                this.f38001k.setVisibility(0);
+                this.f38490k.setVisibility(0);
             } else {
-                this.f38001k.setVisibility(8);
+                this.f38490k.setVisibility(8);
             }
-            if (eVar.f1771b) {
+            if (eVar.f1789b) {
                 this.n.setVisibility(0);
             } else {
                 this.n.setVisibility(8);
             }
-            if (eVar.f1772c) {
+            if (eVar.f1790c) {
                 this.o.setVisibility(0);
             } else {
                 this.o.setVisibility(8);
             }
-            if (eVar.f1773d) {
+            if (eVar.f1791d) {
                 this.l.setImageResource(d.nad_comment_icon);
-                this.m.setTextColor(this.f37995e.getResources().getColor(c.a.b0.b.b.ad_praise_text_color));
+                this.m.setTextColor(this.f38484e.getResources().getColor(c.a.c0.b.b.ad_praise_text_color));
                 this.n.setEnabled(true);
             } else {
                 this.l.setImageResource(d.nad_comment_disabled_icon);
-                this.m.setTextColor(this.f37995e.getResources().getColor(c.a.b0.b.b.nad_comment_disabled_text_color));
-                this.m.setText(this.f37995e.getResources().getString(h.nad_comment_text));
-                this.n.setEnabled(eVar.f1771b);
+                this.m.setTextColor(this.f38484e.getResources().getColor(c.a.c0.b.b.nad_comment_disabled_text_color));
+                this.m.setText(this.f38484e.getResources().getString(h.nad_comment_text));
+                this.n.setEnabled(eVar.f1789b);
             }
-            if (eVar.f1774e) {
-                this.f37998h.setVisibility(0);
+            if (eVar.f1792e) {
+                this.f38487h.setVisibility(0);
             } else {
-                this.f37998h.setVisibility(8);
+                this.f38487h.setVisibility(8);
             }
         }
     }
@@ -294,9 +294,9 @@ public class AdInteractionView extends LinearLayout implements View.OnClickListe
     public void setPraiseData(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048586, this, z, str) == null) {
-            TextView textView = this.f38000j;
+            TextView textView = this.f38489j;
             if (TextUtils.isEmpty(str)) {
-                str = this.f37995e.getResources().getString(h.nad_praise_text);
+                str = this.f38484e.getResources().getString(h.nad_praise_text);
             }
             textView.setText(str);
         }

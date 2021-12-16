@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.VideoFrame;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NativeCapturerObserver implements CapturerObserver {
     public static /* synthetic */ Interceptable $ic;
     public static VideoSink myHookSink;

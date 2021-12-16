@@ -8,8 +8,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.r1;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UVEventType;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +40,7 @@ public class d extends com.baidu.platform.base.e {
             this.a.a("qt", "cars");
             this.a.a("sy", drivingRoutePlanOption.mPolicy.getInt() + "");
             this.a.a("ie", "utf-8");
-            this.a.a("lrn", "20");
+            this.a.a("lrn", UVEventType.PAY_WALLET_BANNER_SHOW);
             this.a.a("version", "6");
             this.a.a("extinfo", "32");
             this.a.a("mrs", "1");

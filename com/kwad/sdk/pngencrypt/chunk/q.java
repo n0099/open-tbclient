@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.PngjException;
 import java.io.ByteArrayInputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class q extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58751h;
+    public int f59332h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f58752i;
+    public int f59333i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f58753j;
+    public int f59334j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f58754k;
+    public int f59335k;
     public int l;
     public int m;
     public int n;
@@ -61,10 +61,10 @@ public class q extends aa {
                 throw new PngjException("Bad IDHR len " + dVar.a);
             }
             ByteArrayInputStream b2 = dVar.b();
-            this.f58751h = com.kwad.sdk.pngencrypt.n.b(b2);
-            this.f58752i = com.kwad.sdk.pngencrypt.n.b(b2);
-            this.f58753j = com.kwad.sdk.pngencrypt.n.a(b2);
-            this.f58754k = com.kwad.sdk.pngencrypt.n.a(b2);
+            this.f59332h = com.kwad.sdk.pngencrypt.n.b(b2);
+            this.f59333i = com.kwad.sdk.pngencrypt.n.b(b2);
+            this.f59334j = com.kwad.sdk.pngencrypt.n.a(b2);
+            this.f59335k = com.kwad.sdk.pngencrypt.n.a(b2);
             this.l = com.kwad.sdk.pngencrypt.n.a(b2);
             this.m = com.kwad.sdk.pngencrypt.n.a(b2);
             this.n = com.kwad.sdk.pngencrypt.n.a(b2);
@@ -74,14 +74,14 @@ public class q extends aa {
     public void a(com.kwad.sdk.pngencrypt.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar) == null) {
-            b(this.f58700e.a);
-            c(this.f58700e.f58794b);
-            d(this.f58700e.f58795c);
-            int i2 = this.f58700e.f58797e ? 4 : 0;
-            if (this.f58700e.f58799g) {
+            b(this.f59281e.a);
+            c(this.f59281e.f59375b);
+            d(this.f59281e.f59376c);
+            int i2 = this.f59281e.f59378e ? 4 : 0;
+            if (this.f59281e.f59380g) {
                 i2++;
             }
-            if (!this.f58700e.f58798f) {
+            if (!this.f59281e.f59379f) {
                 i2 += 2;
             }
             e(i2);
@@ -94,53 +94,53 @@ public class q extends aa {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f58751h = i2;
+            this.f59332h = i2;
         }
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58751h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59332h : invokeV.intValue;
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f58752i = i2;
+            this.f59333i = i2;
         }
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f58752i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59333i : invokeV.intValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f58753j = i2;
+            this.f59334j = i2;
         }
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f58753j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59334j : invokeV.intValue;
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f58754k = i2;
+            this.f59335k = i2;
         }
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f58754k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f59335k : invokeV.intValue;
     }
 
     public void f(int i2) {
@@ -189,10 +189,10 @@ public class q extends aa {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            if (this.f58751h < 1 || this.f58752i < 1 || this.l != 0 || this.m != 0) {
+            if (this.f59332h < 1 || this.f59333i < 1 || this.l != 0 || this.m != 0) {
                 throw new PngjException("bad IHDR: col/row/compmethod/filmethod invalid");
             }
-            int i2 = this.f58753j;
+            int i2 = this.f59334j;
             if (i2 != 1 && i2 != 2 && i2 != 4 && i2 != 8 && i2 != 16) {
                 throw new PngjException("bad IHDR: bitdepth invalid");
             }
@@ -200,11 +200,11 @@ public class q extends aa {
             if (i3 < 0 || i3 > 1) {
                 throw new PngjException("bad IHDR: interlace invalid");
             }
-            int i4 = this.f58754k;
+            int i4 = this.f59335k;
             if (i4 != 0) {
                 if (i4 != 6 && i4 != 2) {
                     if (i4 == 3) {
-                        if (this.f58753j == 16) {
+                        if (this.f59334j == 16) {
                             throw new PngjException("bad IHDR: bitdepth invalid");
                         }
                         return;
@@ -212,7 +212,7 @@ public class q extends aa {
                         throw new PngjException("bad IHDR: invalid colormodel");
                     }
                 }
-                int i5 = this.f58753j;
+                int i5 = this.f59334j;
                 if (i5 != 8 && i5 != 16) {
                     throw new PngjException("bad IHDR: bitdepth invalid");
                 }

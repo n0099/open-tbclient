@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.handler.MessageV3;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.notification.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -27,7 +27,7 @@ public class a implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60544b;
+    public String f61125b;
 
     public a() {
         this.a = 0;
@@ -36,7 +36,7 @@ public class a implements Parcelable {
     public a(Parcel parcel) {
         this.a = 0;
         this.a = parcel.readInt();
-        this.f60544b = parcel.readString();
+        this.f61125b = parcel.readString();
     }
 
     public static a a(MessageV3 messageV3) {
@@ -115,11 +115,11 @@ public class a implements Parcelable {
     }
 
     public void a(String str) {
-        this.f60544b = str;
+        this.f61125b = str;
     }
 
     public String b() {
-        return this.f60544b;
+        return this.f61125b;
     }
 
     @Override // android.os.Parcelable
@@ -128,12 +128,12 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyOption{notifyId=" + this.a + ", notifyKey='" + this.f60544b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "NotifyOption{notifyId=" + this.a + ", notifyKey='" + this.f61125b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.a);
-        parcel.writeString(this.f60544b);
+        parcel.writeString(this.f61125b);
     }
 }

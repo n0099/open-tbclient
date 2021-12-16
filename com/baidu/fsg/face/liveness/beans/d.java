@@ -19,17 +19,17 @@ import com.baidu.wallet.core.beans.NetworkBean;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d extends BaseBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34745b;
+    public int f35213b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LivenessRecogDTO f34746c;
+    public LivenessRecogDTO f35214c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context) {
@@ -61,7 +61,7 @@ public class d extends BaseBean {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f34745b = i2;
+            this.f35213b = i2;
         }
     }
 
@@ -71,36 +71,36 @@ public class d extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            LivenessRecogDTO livenessRecogDTO = this.f34746c;
+            LivenessRecogDTO livenessRecogDTO = this.f35214c;
             if (livenessRecogDTO != null) {
                 setSpParameter(livenessRecogDTO.spParams);
-                arrayList.add(new RestNameValuePair("processid", this.f34746c.processid));
-                LivenessRecogType livenessRecogType = this.f34746c.livenessType;
+                arrayList.add(new RestNameValuePair("processid", this.f35214c.processid));
+                LivenessRecogType livenessRecogType = this.f35214c.livenessType;
                 if (livenessRecogType == LivenessRecogType.RECOG_TYPE_BDUSS) {
                     arrayList.add(new RestNameValuePair("type", "contrastportrait"));
                     arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
                 } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
                     arrayList.add(new RestNameValuePair("type", "certinfo"));
-                    arrayList.add(new RestNameValuePair("exuid", this.f34746c.exUid));
+                    arrayList.add(new RestNameValuePair("exuid", this.f35214c.exUid));
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("name", this.f34746c.realName);
-                        jSONObject.put("cert", this.f34746c.idCardNum);
-                        jSONObject.put("bankmobile", this.f34746c.phoneNum);
+                        jSONObject.put("name", this.f35214c.realName);
+                        jSONObject.put("cert", this.f35214c.idCardNum);
+                        jSONObject.put("bankmobile", this.f35214c.phoneNum);
                         arrayList.add(new RestNameValuePair("certinfo", PayUtils.encrypt("phone_number", jSONObject.toString())));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
                     arrayList.add(new RestNameValuePair("type", "authtoken"));
-                    arrayList.add(new RestNameValuePair("authtoken", this.f34746c.authToken));
+                    arrayList.add(new RestNameValuePair("authtoken", this.f35214c.authToken));
                 } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_OUTER) {
                     arrayList.add(new RestNameValuePair("type", "outer"));
-                    arrayList.add(new RestNameValuePair("exuid", this.f34746c.exUid));
+                    arrayList.add(new RestNameValuePair("exuid", this.f35214c.exUid));
                 }
                 arrayList.add(new RestNameValuePair("opt", String.valueOf(this.a)));
-                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f34746c.serviceType));
-                arrayList.add(new RestNameValuePair("living_type", String.valueOf(this.f34745b)));
+                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f35214c.serviceType));
+                arrayList.add(new RestNameValuePair("living_type", String.valueOf(this.f35213b)));
             }
             return arrayList;
         }
@@ -137,7 +137,7 @@ public class d extends BaseBean {
     public void a(LivenessRecogDTO livenessRecogDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, livenessRecogDTO) == null) {
-            this.f34746c = livenessRecogDTO;
+            this.f35214c = livenessRecogDTO;
         }
     }
 
@@ -146,9 +146,9 @@ public class d extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            if (this.f34746c != null) {
-                sb.append("bduss=" + this.f34746c.bduss);
-                sb.append(";stoken=" + this.f34746c.stoken);
+            if (this.f35214c != null) {
+                sb.append("bduss=" + this.f35214c.bduss);
+                sb.append(";stoken=" + this.f35214c.stoken);
             }
             return PayUtils.encrypt("phone_number", sb.toString());
         }

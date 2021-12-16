@@ -14,8 +14,8 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
             e eVar = new e();
             eVar.a = true;
-            eVar.f3044b = str;
-            eVar.f3045c = null;
+            eVar.f3059b = str;
+            eVar.f3060c = null;
             return eVar;
         }
         return (e) invokeLL.objValue;

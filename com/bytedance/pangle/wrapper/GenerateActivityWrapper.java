@@ -62,7 +62,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.function.Consumer;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class GenerateActivityWrapper extends Activity implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

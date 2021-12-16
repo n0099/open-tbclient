@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.a.a;
-/* loaded from: classes2.dex */
-public class e implements a.InterfaceC2112a {
+/* loaded from: classes3.dex */
+public class e implements a.InterfaceC2173a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static e a;
@@ -38,7 +38,7 @@ public class e implements a.InterfaceC2112a {
         }
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2173a
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -46,7 +46,7 @@ public class e implements a.InterfaceC2112a {
         }
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2173a
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -96,10 +96,10 @@ public class e implements a.InterfaceC2112a {
             public final /* synthetic */ long a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d f61354b;
+            public final /* synthetic */ d f61935b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ e f61355c;
+            public final /* synthetic */ e f61936c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -116,19 +116,19 @@ public class e implements a.InterfaceC2112a {
                         return;
                     }
                 }
-                this.f61355c = this;
+                this.f61936c = this;
                 this.a = j2;
-                this.f61354b = dVar;
+                this.f61935b = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (com.ss.android.socialbase.downloader.a.a.a().c() && System.currentTimeMillis() - this.f61355c.a > this.a) {
-                        this.f61354b.a(false);
+                    if (com.ss.android.socialbase.downloader.a.a.a().c() && System.currentTimeMillis() - this.f61936c.a > this.a) {
+                        this.f61935b.a(false);
                     } else {
-                        this.f61354b.a(true);
+                        this.f61935b.a(true);
                     }
                 }
             }

@@ -16,28 +16,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.router.LocalRouter;
 @SuppressLint({"NewApi"})
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class NFCUtil {
     public static /* synthetic */ Interceptable $ic;
     public static NFCUtil a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public NfcAdapter f52432b;
+    public NfcAdapter f53012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PendingIntent f52433c;
+    public PendingIntent f53013c;
     public IntentFilter[] mFilters;
     public String[][] mTechlist;
 
     /* renamed from: com.baidu.wallet.core.utils.NFCUtil$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static NFCUtil a;

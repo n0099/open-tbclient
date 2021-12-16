@@ -8,25 +8,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class p extends c.b.b.j.f.b<Texture, b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f27387b;
+    public a f27762b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextureData f27388b;
+        public TextureData f27763b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Texture f27389c;
+        public Texture f27764c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -43,34 +43,34 @@ public class p extends c.b.b.j.f.b<Texture, b> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b extends c.b.b.j.c<Texture> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public Pixmap.Format f27390b;
+        public Pixmap.Format f27765b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f27391c;
+        public boolean f27766c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Texture f27392d;
+        public Texture f27767d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextureData f27393e;
+        public TextureData f27768e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Texture.TextureFilter f27394f;
+        public Texture.TextureFilter f27769f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Texture.TextureFilter f27395g;
+        public Texture.TextureFilter f27770g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Texture.TextureWrap f27396h;
+        public Texture.TextureWrap f27771h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Texture.TextureWrap f27397i;
+        public Texture.TextureWrap f27772i;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -85,16 +85,16 @@ public class p extends c.b.b.j.f.b<Texture, b> {
                     return;
                 }
             }
-            this.f27390b = null;
-            this.f27391c = false;
-            this.f27392d = null;
-            this.f27393e = null;
+            this.f27765b = null;
+            this.f27766c = false;
+            this.f27767d = null;
+            this.f27768e = null;
             Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-            this.f27394f = textureFilter;
-            this.f27395g = textureFilter;
+            this.f27769f = textureFilter;
+            this.f27770g = textureFilter;
             Texture.TextureWrap textureWrap = Texture.TextureWrap.ClampToEdge;
-            this.f27396h = textureWrap;
-            this.f27397i = textureWrap;
+            this.f27771h = textureWrap;
+            this.f27772i = textureWrap;
         }
     }
 
@@ -116,7 +116,7 @@ public class p extends c.b.b.j.f.b<Texture, b> {
                 return;
             }
         }
-        this.f27387b = new a();
+        this.f27762b = new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -138,27 +138,27 @@ public class p extends c.b.b.j.f.b<Texture, b> {
         TextureData textureData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, eVar, str, aVar, bVar) == null) {
-            a aVar2 = this.f27387b;
+            a aVar2 = this.f27762b;
             aVar2.a = str;
-            if (bVar != null && (textureData = bVar.f27393e) != null) {
-                aVar2.f27388b = textureData;
-                aVar2.f27389c = bVar.f27392d;
+            if (bVar != null && (textureData = bVar.f27768e) != null) {
+                aVar2.f27763b = textureData;
+                aVar2.f27764c = bVar.f27767d;
             } else {
                 boolean z = false;
-                a aVar3 = this.f27387b;
+                a aVar3 = this.f27762b;
                 Pixmap.Format format = null;
-                aVar3.f27389c = null;
+                aVar3.f27764c = null;
                 if (bVar != null) {
-                    format = bVar.f27390b;
-                    z = bVar.f27391c;
-                    aVar3.f27389c = bVar.f27392d;
+                    format = bVar.f27765b;
+                    z = bVar.f27766c;
+                    aVar3.f27764c = bVar.f27767d;
                 }
-                this.f27387b.f27388b = TextureData.a.a(aVar, format, z);
+                this.f27762b.f27763b = TextureData.a.a(aVar, format, z);
             }
-            if (this.f27387b.f27388b.a()) {
+            if (this.f27762b.f27763b.a()) {
                 return;
             }
-            this.f27387b.f27388b.prepare();
+            this.f27762b.f27763b.prepare();
         }
     }
 
@@ -169,19 +169,19 @@ public class p extends c.b.b.j.f.b<Texture, b> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, bVar)) == null) {
-            a aVar2 = this.f27387b;
+            a aVar2 = this.f27762b;
             if (aVar2 == null) {
                 return null;
             }
-            Texture texture = aVar2.f27389c;
+            Texture texture = aVar2.f27764c;
             if (texture != null) {
-                texture.A(aVar2.f27388b);
+                texture.A(aVar2.f27763b);
             } else {
-                texture = new Texture(this.f27387b.f27388b);
+                texture = new Texture(this.f27762b.f27763b);
             }
             if (bVar != null) {
-                texture.l(bVar.f27394f, bVar.f27395g);
-                texture.m(bVar.f27396h, bVar.f27397i);
+                texture.l(bVar.f27769f, bVar.f27770g);
+                texture.m(bVar.f27771h, bVar.f27772i);
             }
             return texture;
         }

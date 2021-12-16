@@ -11,17 +11,17 @@ import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class n0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e0 f28899b;
+    public final e0 f29269b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f28900c;
+    public Map<String, Object> f29270c;
 
     public n0(String str, e0 e0Var) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class n0 {
             }
         }
         this.a = str;
-        this.f28899b = e0Var;
+        this.f29269b = e0Var;
     }
 
     public n0(Map<String, Object> map) {
@@ -57,9 +57,9 @@ public class n0 {
                 return;
             }
         }
-        this.f28899b = e0.f28847c;
+        this.f29269b = e0.f29217c;
         HashMap hashMap = new HashMap();
-        this.f28900c = hashMap;
+        this.f29270c = hashMap;
         hashMap.putAll(map);
     }
 
@@ -84,14 +84,14 @@ public class n0 {
             if (str != null) {
                 return str;
             }
-            if (this.f28900c != null) {
+            if (this.f29270c != null) {
                 StringBuilder sb = new StringBuilder();
-                for (String str2 : this.f28900c.keySet()) {
+                for (String str2 : this.f29270c.keySet()) {
                     if (sb.length() > 0) {
                         sb.append("&");
                     }
                     sb.append(str2);
-                    Object obj = this.f28900c.get(str2);
+                    Object obj = this.f29270c.get(str2);
                     if (obj != null) {
                         sb.append("=");
                         try {
@@ -110,6 +110,6 @@ public class n0 {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28899b.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29269b.a : (String) invokeV.objValue;
     }
 }

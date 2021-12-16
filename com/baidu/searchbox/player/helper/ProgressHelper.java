@@ -7,11 +7,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ProgressHelper extends AbsHandlerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BDVideoPlayer mPlayer;
+    public final BDVideoPlayer mPlayer;
 
     public ProgressHelper(@NonNull BDVideoPlayer bDVideoPlayer) {
         Interceptable interceptable = $ic;
@@ -45,9 +45,10 @@ public class ProgressHelper extends AbsHandlerTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int position = this.mPlayer.getPosition();
+            int positionMs = this.mPlayer.getPositionMs();
             int duration = this.mPlayer.getDuration();
             int bufferingPosition = this.mPlayer.getBufferingPosition();
-            this.mPlayer.getVideoSession().getControlEventTrigger().syncPos(position, duration, bufferingPosition);
+            this.mPlayer.getControlEventTrigger().syncPos(position, positionMs, duration, bufferingPosition);
             callPlayerBack(position, duration, bufferingPosition);
         }
     }

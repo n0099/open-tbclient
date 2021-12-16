@@ -25,29 +25,29 @@ import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f56739b = null;
+    public static String f57320b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f56740c = "16";
+    public static final String f57321c = "16";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f56741d = "62c80c436b7547a68a12774c67519836";
+    public static final String f57322d = "62c80c436b7547a68a12774c67519836";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f56742b;
+        public final /* synthetic */ Context f57323b;
 
         public a(String str, Context context) {
             Interceptable interceptable = $ic;
@@ -65,14 +65,14 @@ public class l1 {
                 }
             }
             this.a = str;
-            this.f56742b = context;
+            this.f57323b = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g1.a(this.a, this.f56742b);
+                g1.a(this.a, this.f57323b);
             }
         }
     }
@@ -143,7 +143,7 @@ public class l1 {
             return;
         }
         try {
-            JSONObject a2 = new d1(str, q0.f56808f).a(context);
+            JSONObject a2 = new d1(str, q0.f57389f).a(context);
             if (map == null || map.size() <= 0) {
                 a2.put("module_section", new JSONObject());
             } else {
@@ -303,7 +303,7 @@ public class l1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            if (TextUtils.isEmpty(a) || TextUtils.isEmpty(f56739b)) {
+            if (TextUtils.isEmpty(a) || TextUtils.isEmpty(f57320b)) {
                 String k2 = new d(context).k();
                 if (TextUtils.isEmpty(k2)) {
                     return new String[2];
@@ -313,10 +313,10 @@ public class l1 {
                     return new String[2];
                 }
                 a = split[0];
-                f56739b = split[1];
+                f57320b = split[1];
                 return split;
             }
-            return new String[]{a, f56739b};
+            return new String[]{a, f57320b};
         }
         return (String[]) invokeL.objValue;
     }
@@ -608,7 +608,7 @@ public class l1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65557, null, str, str2) == null) {
             a = str;
-            f56739b = str2;
+            f57320b = str2;
         }
     }
 

@@ -41,13 +41,13 @@ import java.util.List;
 import org.apache.commons.lang3.text.FormattableUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f61486b;
+    public static NotificationChannel f62067b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -187,16 +187,16 @@ public class c {
                         public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ int f61489b;
+                        public final /* synthetic */ int f62070b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ boolean f61490c;
+                        public final /* synthetic */ boolean f62071c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ DownloadInfo f61491d;
+                        public final /* synthetic */ DownloadInfo f62072d;
 
                         /* renamed from: e  reason: collision with root package name */
-                        public final /* synthetic */ File f61492e;
+                        public final /* synthetic */ File f62073e;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -214,21 +214,21 @@ public class c {
                                 }
                             }
                             this.a = context;
-                            this.f61489b = i2;
-                            this.f61490c = z;
-                            this.f61491d = downloadInfo;
-                            this.f61492e = file;
+                            this.f62070b = i2;
+                            this.f62071c = z;
+                            this.f62072d = downloadInfo;
+                            this.f62073e = file;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                int a2 = c.a(this.a, this.f61489b, this.f61490c, this.f61491d, this.f61492e);
+                                int a2 = c.a(this.a, this.f62070b, this.f62071c, this.f62072d, this.f62073e);
                                 if (a2 == 1 && d.j().o() != null) {
-                                    d.j().o().a(this.f61491d, null);
+                                    d.j().o().a(this.f62072d, null);
                                 }
-                                c.b(this.f61491d, this.f61490c, a2);
+                                c.b(this.f62072d, this.f62071c, a2);
                             }
                         }
                     });
@@ -305,10 +305,10 @@ public class c {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f61487b;
+                public final /* synthetic */ int f62068b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f61488c;
+                public final /* synthetic */ boolean f62069c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -326,15 +326,15 @@ public class c {
                         }
                     }
                     this.a = context;
-                    this.f61487b = i2;
-                    this.f61488c = z;
+                    this.f62068b = i2;
+                    this.f62069c = z;
                 }
 
                 @Override // com.ss.android.socialbase.appdownloader.c.i
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int unused = c.a = c.d(this.a, this.f61487b, this.f61488c);
+                        int unused = c.a = c.d(this.a, this.f62068b, this.f62069c);
                     }
                 }
             });
@@ -495,12 +495,12 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) {
             try {
-                if (f61486b == null) {
+                if (f62067b == null) {
                     NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                    f61486b = notificationChannel;
+                    f62067b = notificationChannel;
                     notificationChannel.setSound(null, null);
-                    f61486b.setShowBadge(false);
-                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f61486b);
+                    f62067b.setShowBadge(false);
+                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f62067b);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();

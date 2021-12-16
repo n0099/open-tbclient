@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.model.AbstractBceRequest;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ResponseHeaderOverrides extends AbstractBceRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] PARAMETER_ORDER;

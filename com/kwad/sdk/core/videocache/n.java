@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f57934b;
+    public final long f58515b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f57935c;
+    public final String f58516c;
 
     public n(String str, long j2, String str2) {
         Interceptable interceptable = $ic;
@@ -34,15 +34,15 @@ public class n {
             }
         }
         this.a = str;
-        this.f57934b = j2;
-        this.f57935c = str2;
+        this.f58515b = j2;
+        this.f58516c = str2;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SourceInfo{url='" + this.a + ExtendedMessageFormat.QUOTE + ", length=" + this.f57934b + ", mime='" + this.f57935c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SourceInfo{url='" + this.a + ExtendedMessageFormat.QUOTE + ", length=" + this.f58515b + ", mime='" + this.f58516c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

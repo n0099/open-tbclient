@@ -8,7 +8,7 @@ import com.airbnb.lottie.utils.MiscUtils;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GradientColorParser implements ValueParser<GradientColor> {
     public int colorPoints;
 

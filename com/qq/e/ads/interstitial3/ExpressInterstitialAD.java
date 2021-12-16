@@ -26,35 +26,35 @@ import com.qq.e.comm.util.VideoAdValidity;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f60725g;
+    public boolean f61306g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f60726h;
+    public boolean f61307h;
 
     /* renamed from: i  reason: collision with root package name */
-    public VideoOption2 f60727i;
+    public VideoOption2 f61308i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AdListenerAdapter f60728j;
+    public AdListenerAdapter f61309j;
 
     /* renamed from: k  reason: collision with root package name */
-    public ExpressInterstitialAdListener f60729k;
+    public ExpressInterstitialAdListener f61310k;
     public ServerSideVerificationOptions l;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ExpressInterstitialAdListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ADRewardListener f60730b;
+        public ADRewardListener f61311b;
 
         public AdListenerAdapter(ExpressInterstitialAdListener expressInterstitialAdListener) {
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
                     this.a.onExpose();
                     return;
                 case 104:
-                    if (this.f60730b != null) {
+                    if (this.f61311b != null) {
                         Object obj = aDEvent.getParas()[0];
                         HashMap hashMap = null;
                         if (obj instanceof String) {
@@ -104,7 +104,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
                         } else if (obj instanceof Map) {
                             hashMap = (Map) obj;
                         }
-                        ADRewardListener aDRewardListener = this.f60730b;
+                        ADRewardListener aDRewardListener = this.f61311b;
                         if (aDRewardListener == null || hashMap == null) {
                             return;
                         }
@@ -149,7 +149,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         public void setRewardListener(ADRewardListener aDRewardListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aDRewardListener) == null) {
-                this.f60730b = aDRewardListener;
+                this.f61311b = aDRewardListener;
             }
         }
     }
@@ -170,7 +170,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
             }
         }
         GDTLogger.e("ExpressInterstitialAD 接口即将被移除，请使用 UnifiedInterstitialAD 接口");
-        this.f60729k = expressInterstitialAdListener;
+        this.f61310k = expressInterstitialAdListener;
         a(context, str);
     }
 
@@ -200,8 +200,8 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, pOFactory, str, str2)) == null) {
-            AdListenerAdapter adListenerAdapter = new AdListenerAdapter(this.f60729k);
-            this.f60728j = adListenerAdapter;
+            AdListenerAdapter adListenerAdapter = new AdListenerAdapter(this.f61310k);
+            this.f61309j = adListenerAdapter;
             return pOFactory.getExpressInterstitialADDelegate(context, str, str2, adListenerAdapter);
         }
         return (UIADI2) invokeLLLL.objValue;
@@ -222,7 +222,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public void b(int i2) {
         ExpressInterstitialAdListener expressInterstitialAdListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (expressInterstitialAdListener = this.f60729k) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (expressInterstitialAdListener = this.f61310k) == null) {
             return;
         }
         expressInterstitialAdListener.onError(AdErrorConvertor.formatErrorCode(i2));
@@ -271,15 +271,15 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ((UIADI2) this.a).setVideoOption(this.f60727i);
+            ((UIADI2) this.a).setVideoOption(this.f61308i);
             ((UIADI2) this.a).setServerSideVerificationOptions(this.l);
-            if (this.f60725g) {
+            if (this.f61306g) {
                 ((UIADI2) this.a).loadHalfScreenAD();
-                this.f60725g = false;
+                this.f61306g = false;
             }
-            if (this.f60726h) {
+            if (this.f61307h) {
                 ((UIADI2) this.a).loadFullScreenAD();
-                this.f60726h = false;
+                this.f61307h = false;
             }
         }
     }
@@ -356,7 +356,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && a()) {
             if (!b()) {
-                this.f60726h = true;
+                this.f61307h = true;
                 return;
             }
             T t = this.a;
@@ -372,7 +372,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && a()) {
             if (!b()) {
-                this.f60725g = true;
+                this.f61306g = true;
                 return;
             }
             T t = this.a;
@@ -387,7 +387,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public void setRewardListener(ADRewardListener aDRewardListener) {
         AdListenerAdapter adListenerAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, aDRewardListener) == null) || (adListenerAdapter = this.f60728j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, aDRewardListener) == null) || (adListenerAdapter = this.f61309j) == null) {
             return;
         }
         adListenerAdapter.setRewardListener(aDRewardListener);
@@ -412,7 +412,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
             if (t != 0) {
                 ((UIADI2) t).setVideoOption(videoOption2);
             } else {
-                this.f60727i = videoOption2;
+                this.f61308i = videoOption2;
             }
         }
     }

@@ -25,14 +25,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class Ordering<T> implements Comparator<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LEFT_IS_GREATER = 1;
     public static final int RIGHT_IS_GREATER = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class IncomparableValueException extends ClassCastException {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -61,16 +61,16 @@ public abstract class Ordering<T> implements Comparator<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Ordering<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f56377e;
+        public final AtomicInteger f56958e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ConcurrentMap<Object, Integer> f56378f;
+        public final ConcurrentMap<Object, Integer> f56959f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -85,20 +85,20 @@ public abstract class Ordering<T> implements Comparator<T> {
                     return;
                 }
             }
-            this.f56377e = new AtomicInteger(0);
+            this.f56958e = new AtomicInteger(0);
             MapMaker mapMaker = new MapMaker();
             y0.i(mapMaker);
-            this.f56378f = mapMaker.i();
+            this.f56959f = mapMaker.i();
         }
 
         public final Integer a(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                Integer num = this.f56378f.get(obj);
+                Integer num = this.f56959f.get(obj);
                 if (num == null) {
-                    Integer valueOf = Integer.valueOf(this.f56377e.getAndIncrement());
-                    Integer putIfAbsent = this.f56378f.putIfAbsent(obj, valueOf);
+                    Integer valueOf = Integer.valueOf(this.f56958e.getAndIncrement());
+                    Integer putIfAbsent = this.f56959f.putIfAbsent(obj, valueOf);
                     return putIfAbsent != null ? putIfAbsent : valueOf;
                 }
                 return num;
@@ -147,7 +147,7 @@ public abstract class Ordering<T> implements Comparator<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final Ordering<Object> a;

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.samsung.android.deviceidservice.IDeviceIdService;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class b extends Binder implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

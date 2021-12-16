@@ -13,26 +13,26 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f implements com.baidu.fsg.base.restnet.rest.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34212b;
+    public int f34680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34213c;
+    public String f34681c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<String>> f34214d;
+    public Map<String, List<String>> f34682d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.fsg.base.restnet.http.a f34215e;
+    public com.baidu.fsg.base.restnet.http.a f34683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f34216f;
+    public InputStream f34684f;
 
     public f(InputStream inputStream, int i2, String str, Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
@@ -50,19 +50,19 @@ public class f implements com.baidu.fsg.base.restnet.rest.e {
             }
         }
         this.a = inputStream;
-        this.f34212b = i2;
-        this.f34213c = str;
-        this.f34214d = map;
+        this.f34680b = i2;
+        this.f34681c = str;
+        this.f34682d = map;
     }
 
     private InputStream a(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, inputStream)) == null) {
-            if (this.f34216f == null) {
-                this.f34216f = new GZIPInputStream(inputStream);
+            if (this.f34684f == null) {
+                this.f34684f = new GZIPInputStream(inputStream);
             }
-            return this.f34216f;
+            return this.f34684f;
         }
         return (InputStream) invokeL.objValue;
     }
@@ -82,10 +82,10 @@ public class f implements com.baidu.fsg.base.restnet.rest.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f34215e == null) {
-                this.f34215e = new com.baidu.fsg.base.restnet.http.a(this.f34214d, false);
+            if (this.f34683e == null) {
+                this.f34683e = new com.baidu.fsg.base.restnet.http.a(this.f34682d, false);
             }
-            return this.f34215e;
+            return this.f34683e;
         }
         return (com.baidu.fsg.base.restnet.http.a) invokeV.objValue;
     }
@@ -94,21 +94,21 @@ public class f implements com.baidu.fsg.base.restnet.rest.e {
     public int b() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34212b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34680b : invokeV.intValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public String c() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34213c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34681c : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            InputStream inputStream = this.f34216f;
+            InputStream inputStream = this.f34684f;
             if (inputStream != null) {
                 try {
                     inputStream.close();

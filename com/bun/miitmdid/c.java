@@ -13,39 +13,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f54378b;
+    public static final c f54958b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f54379c;
+    public static final c f54959c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c f54380d;
+    public static final c f54960d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f54381e;
+    public static final c f54961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c f54382f;
+    public static final c f54962f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final c f54383g;
+    public static final c f54963g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c f54384h;
+    public static final c f54964h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final c f54385i;
+    public static final c f54965i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final c f54386j;
+    public static final c f54966j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final c f54387k;
+    public static final c f54967k;
     public static final c l;
     public static final c m;
     public static final c n;
@@ -73,30 +73,30 @@ public final class c {
             }
         }
         c cVar = new c("UNSUPPORT", 0, -1, "unsupport");
-        f54378b = cVar;
+        f54958b = cVar;
         c cVar2 = new c("HUAWEI", 1, 0, "HUAWEI");
-        f54379c = cVar2;
+        f54959c = cVar2;
         c cVar3 = new c("XIAOMI", 2, 1, "Xiaomi");
-        f54380d = cVar3;
+        f54960d = cVar3;
         c cVar4 = new c("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-        f54381e = cVar4;
+        f54961e = cVar4;
         c cVar5 = new c("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-        f54382f = cVar5;
+        f54962f = cVar5;
         c cVar6 = new c("MOTO", 5, 4, "motorola");
-        f54383g = cVar6;
+        f54963g = cVar6;
         c cVar7 = new c("LENOVO", 6, 5, "lenovo");
-        f54384h = cVar7;
+        f54964h = cVar7;
         c cVar8 = new c("ASUS", 7, 6, "asus");
-        f54385i = cVar8;
-        c cVar9 = new c(com.kuaishou.weapon.un.g.f56645j, 8, 7, ManufacturerUtils.SAMSUNG);
-        f54386j = cVar9;
+        f54965i = cVar8;
+        c cVar9 = new c(com.kuaishou.weapon.un.g.f57226j, 8, 7, ManufacturerUtils.SAMSUNG);
+        f54966j = cVar9;
         c cVar10 = new c("MEIZU", 9, 8, "meizu");
-        f54387k = cVar10;
+        f54967k = cVar10;
         c cVar11 = new c(RomUtils.ROM_NUBIA, 10, 10, "nubia");
         l = cVar11;
         c cVar12 = new c("ZTE", 11, 11, "ZTE");
         m = cVar12;
-        c cVar13 = new c(RomTypeUtil.ROM_ONEPLUS, 12, 12, com.kuaishou.weapon.un.g.f56644i);
+        c cVar13 = new c(RomTypeUtil.ROM_ONEPLUS, 12, 12, com.kuaishou.weapon.un.g.f57225i);
         n = cVar13;
         c cVar14 = new c("BLACKSHARK", 13, 13, "blackshark");
         o = cVar14;
@@ -140,14 +140,14 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f54378b;
+                return f54958b;
             }
             for (c cVar : values()) {
                 if (cVar.a.equalsIgnoreCase(str)) {
                     return cVar;
                 }
             }
-            return f54378b;
+            return f54958b;
         }
         return (c) invokeL.objValue;
     }

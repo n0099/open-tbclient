@@ -18,14 +18,14 @@ import com.bumptech.glide.util.ExceptionCatchingInputStream;
 import com.bumptech.glide.util.MarkEnforcingInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class StreamBitmapDecoder implements ResourceDecoder<InputStream, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayPool byteArrayPool;
     public final Downsampler downsampler;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class UntrustedCallbacks implements Downsampler.DecodeCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

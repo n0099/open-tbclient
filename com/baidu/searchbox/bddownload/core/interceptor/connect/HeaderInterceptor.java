@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HeaderInterceptor implements Interceptor.Connect {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HeaderInterceptor";

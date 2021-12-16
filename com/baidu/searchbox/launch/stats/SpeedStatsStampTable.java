@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SpeedStatsStampTable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AD_SDK_DO_SHOW_STAMP_KEY = 3304;
@@ -21,7 +21,6 @@ public final class SpeedStatsStampTable {
     public static final int ALA_LIVE_TAB_ON_RESUME_END_STAMP_KEY = 5041;
     public static final int ALA_LIVE_TAB_ON_RESUME_START_STAMP_KEY = 5040;
     public static final int APP_CONFIG_INIT_END_STAMP_KEY = 1009;
-    public static final int APP_CONFIG_INIT_STAMP_KEY = 2002;
     public static final int APP_CREATE_END_STAMP_KEY = 2006;
     public static final int APP_CREATE_START_STAMP_KEY = 2000;
     public static final int APP_CREATE_VIRTUAL_START_STAMP_KEY = 2051;
@@ -108,11 +107,12 @@ public final class SpeedStatsStampTable {
     public static final int INIT_DIMON_ADAPT_STAMP_KEY = 2009;
     public static final int INIT_FACE_STAMP_KEY = 2017;
     public static final int INIT_GO_ACTION_STAMP_KEY = 2019;
+    public static final int INIT_GROWTH_STAMP_KEY = 2005;
     public static final int INIT_HOME_FRAGMENT_CONTROLLER_END_STAMP_KEY = 3015;
     public static final int INIT_HOME_FRAGMENT_CONTROLLER_START_STAMP_KEY = 3014;
+    public static final int INIT_IDLE_FH_STAMP_KEY = 2001;
     public static final int INIT_INTERRUPT_RULE_STAMP_KEY = 2021;
     public static final int INIT_LOKI_STAMP_KEY = 2027;
-    public static final int INIT_MODULE_CONTEXT_END_STAMP_KEY = 2004;
     public static final int INIT_MSG_EIGHT_STAMP_KEY = 2040;
     public static final int INIT_MSG_EIGHT_START_STAMP_KEY = 2049;
     public static final int INIT_MSG_FIVE_STAMP_KEY = 2037;
@@ -127,18 +127,20 @@ public final class SpeedStatsStampTable {
     public static final int INIT_MSG_SEVEN_START_STAMP_KEY = 2048;
     public static final int INIT_MSG_SIX_STAMP_KEY = 2038;
     public static final int INIT_MSG_SIX_START_STAMP_KEY = 2047;
+    public static final int INIT_MSG_TASK_SDK_START_STAMP_KEY = 2052;
     public static final int INIT_MSG_THREE_STAMP_KEY = 2035;
     public static final int INIT_MSG_THREE_START_STAMP_KEY = 2044;
     public static final int INIT_MSG_TWO_STAMP_KEY = 2034;
     public static final int INIT_MSG_TWO_START_STAMP_KEY = 2043;
+    public static final int INIT_PERSON_STAMP_KEY = 2004;
     public static final int INIT_PLUGIN_STAMP_KEY = 2023;
     public static final int INIT_RUKA_STAMP_KEY = 2030;
     public static final int INIT_SAPI_STAMP_KEY = 2022;
+    public static final int INIT_SUPER_STAMP_KEY = 2002;
     public static final int INIT_SWAN_DATA_STAMP_KEY = 2024;
     public static final int INIT_TABS_ON_ACTIVITY_CREATED_END_STAMP_KEY = 3025;
     public static final int INIT_TABS_ON_ACTIVITY_CREATED_START_STAMP_KEY = 3024;
     public static final int INIT_TASKS_STAMP_KEY = 2018;
-    public static final int INIT_TO_LOGO_STAMP_KEY = 2026;
     public static final int INIT_UBC_STAMP_KEY = 2029;
     public static final int INIT_VERSION_STAMP_KEY = 2015;
     public static final int LAUNCH_TASK_INIT_END_STAMP_KEY = 2003;
@@ -172,7 +174,6 @@ public final class SpeedStatsStampTable {
     public static final int NEW_LOGO_ACTIVITY_ON_DESTROY_START_STAMP_KEY = 3009;
     public static final int NEW_LOGO_ACTIVITY_START_STAMP_KEY = 3007;
     public static final int NPS_INIT_END_STAMP_KEY = 1011;
-    public static final int ON_APP_CREATE_END_STAMP_KEY = 2005;
     public static final int ON_FIRST_DISPATCH_DRAW_END_STAMP_KEY = 5019;
     public static final int ON_FIRST_DISPATCH_DRAW_START_STAMP_KEY = 5018;
     public static final int PERMMISSION_UTIL_STAMP_KEY = 2008;
@@ -184,7 +185,6 @@ public final class SpeedStatsStampTable {
     public static final int PERSONALIZE_TAB_ON_RESUME_END_STAMP_KEY = 5053;
     public static final int PERSONALIZE_TAB_ON_RESUME_START_STAMP_KEY = 5052;
     public static final int PERSONALIZE_TAB_START_STAMP_KEY = 5046;
-    public static final int PROCESS_UPGRADE_STAMP_KEY = 2001;
     public static final int REG_RECEIVER_END_STAMP_KEY = 3019;
     public static final int REG_RECEIVER_START_STAMP_KEY = 3018;
     public static final int RUNTIME_INIT_END_STAMP_KEY = 1004;

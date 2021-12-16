@@ -35,7 +35,7 @@ import com.tachikoma.core.utility.UriUtil;
 import java.io.File;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TKImage extends TKBase<RoundImageView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.network;
 
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface g {
     String a(String str);
 

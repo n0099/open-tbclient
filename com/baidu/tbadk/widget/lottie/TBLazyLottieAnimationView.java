@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TBLazyLottieAnimationView extends TBLottieAnimationView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EMPTY_LOTTIE_RES = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f42200k;
+    public boolean f42691k;
     public int l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -36,7 +36,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.f42200k = false;
+        this.f42691k = false;
         this.l = -1;
     }
 
@@ -49,7 +49,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 super.setAnimation(i2);
                 this.l = -1;
             }
-            this.f42200k = true;
+            this.f42691k = true;
             super.onDraw(canvas);
         }
     }
@@ -58,7 +58,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
     public void setAnimation(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (this.f42200k) {
+            if (this.f42691k) {
                 super.setAnimation(i2);
             } else {
                 this.l = i2;
@@ -85,7 +85,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.f42200k = false;
+        this.f42691k = false;
         this.l = -1;
     }
 
@@ -108,7 +108,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.f42200k = false;
+        this.f42691k = false;
         this.l = -1;
     }
 }

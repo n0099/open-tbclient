@@ -12,32 +12,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class FlowLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 6;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f52063b = 6;
+    public static final int f52643b = 6;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f52064c = 55;
+    public static final int f52644c = 55;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f52065d;
+    public int f52645d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52066e;
+    public int f52646e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52067f;
+    public int f52647f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52068g;
+    public int f52648g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52069h;
+    public int f52649h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowLayout(Context context) {
@@ -57,31 +57,31 @@ public final class FlowLayout extends ViewGroup {
                 return;
             }
         }
-        this.f52069h = 2;
+        this.f52649h = 2;
     }
 
     public int getChildViewHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52068g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52648g : invokeV.intValue;
     }
 
     public int getHorizontalChildNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52069h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52649h : invokeV.intValue;
     }
 
     public int getHorizontalSpacing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52066e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52646e : invokeV.intValue;
     }
 
     public int getVerticalSpacing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52067f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52647f : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -98,10 +98,10 @@ public final class FlowLayout extends ViewGroup {
                     int measuredWidth = childAt.getMeasuredWidth();
                     childAt.layout(paddingLeft, paddingTop, paddingLeft + measuredWidth, childAt.getMeasuredHeight() + paddingTop);
                     if (i7 != childCount - 1) {
-                        paddingLeft += this.f52066e + measuredWidth;
+                        paddingLeft += this.f52646e + measuredWidth;
                         if ((measuredWidth + paddingLeft) - 1 > i6) {
                             paddingLeft = getPaddingLeft();
-                            paddingTop += this.f52065d;
+                            paddingTop += this.f52645d;
                         }
                     }
                 }
@@ -118,49 +118,49 @@ public final class FlowLayout extends ViewGroup {
             getPaddingTop();
             getPaddingBottom();
             int childCount = getChildCount();
-            int i4 = this.f52066e;
-            int i5 = this.f52069h;
+            int i4 = this.f52646e;
+            int i5 = this.f52649h;
             int i6 = (size - (i4 * (i5 - 1))) / i5;
             int i7 = 0;
             for (int i8 = 0; i8 < childCount; i8++) {
                 View childAt = getChildAt(i8);
                 if (childAt.getVisibility() != 8) {
-                    childAt.measure(View.MeasureSpec.makeMeasureSpec(i6, 1073741824), View.MeasureSpec.makeMeasureSpec(this.f52068g, 1073741824));
-                    i7 = Math.max(i7, childAt.getMeasuredHeight() + this.f52067f);
+                    childAt.measure(View.MeasureSpec.makeMeasureSpec(i6, 1073741824), View.MeasureSpec.makeMeasureSpec(this.f52648g, 1073741824));
+                    i7 = Math.max(i7, childAt.getMeasuredHeight() + this.f52647f);
                 }
             }
-            this.f52065d = i7;
-            int i9 = this.f52069h;
+            this.f52645d = i7;
+            int i9 = this.f52649h;
             int i10 = (childCount / i9) + (childCount % i9 != 0 ? 1 : 0);
-            setMeasuredDimension(size, (this.f52068g * i10) + (this.f52067f * (i10 - 1)));
+            setMeasuredDimension(size, (this.f52648g * i10) + (this.f52647f * (i10 - 1)));
         }
     }
 
     public void setChildViewHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f52068g = i2;
+            this.f52648g = i2;
         }
     }
 
     public void setHorizontalChildNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f52069h = i2;
+            this.f52649h = i2;
         }
     }
 
     public void setHorizontalSpacing(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f52066e = i2;
+            this.f52646e = i2;
         }
     }
 
     public void setVerticalSpacing(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f52067f = i2;
+            this.f52647f = i2;
         }
     }
 
@@ -183,9 +183,9 @@ public final class FlowLayout extends ViewGroup {
                 return;
             }
         }
-        this.f52069h = 2;
-        this.f52066e = DisplayUtils.dip2px(context, 6.0f);
-        this.f52067f = DisplayUtils.dip2px(context, 6.0f);
-        this.f52068g = DisplayUtils.dip2px(context, 55.0f);
+        this.f52649h = 2;
+        this.f52646e = DisplayUtils.dip2px(context, 6.0f);
+        this.f52647f = DisplayUtils.dip2px(context, 6.0f);
+        this.f52648g = DisplayUtils.dip2px(context, 55.0f);
     }
 }

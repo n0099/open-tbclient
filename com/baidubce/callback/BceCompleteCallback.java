@@ -2,7 +2,7 @@ package com.baidubce.callback;
 
 import com.baidubce.BceClientException;
 import com.baidubce.BceServiceException;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface BceCompleteCallback<T> {
     void onFailure(BceClientException bceClientException, BceServiceException bceServiceException);
 

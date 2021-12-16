@@ -11,7 +11,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -20,31 +20,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FunAdButton extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44936e;
+    public int f45427e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f44937f;
+    public int f45428f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44938g;
+    public int f45429g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f44939h;
+    public int f45430h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f44940i;
+    public final int f45431i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f44941j;
+    public int f45432j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f44942k;
+    public int f45433k;
     public int l;
     public int m;
     public Paint n;
@@ -91,7 +91,7 @@ public class FunAdButton extends View {
             rectF.top = i2;
             rectF.right = getMeasuredWidth() - this.w;
             this.u.bottom = getMeasuredHeight() - this.w;
-            float f2 = this.f44942k / (this.s + 0.0f);
+            float f2 = this.f45433k / (this.s + 0.0f);
             LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.q, 0}, new float[]{f2, f2 + 0.001f}, Shader.TileMode.CLAMP);
             this.v = linearGradient;
             this.n.setShader(linearGradient);
@@ -109,7 +109,7 @@ public class FunAdButton extends View {
             this.l = getResources().getColor(R.color.CAM_X0101);
             this.m = getResources().getColor(R.color.CAM_X0302);
             this.s = 100;
-            this.f44942k = 0;
+            this.f45433k = 0;
             this.r = getResources().getString(R.string.ad_interaction_type_download);
             this.p = getResources().getDimension(R.dimen.T_X08);
             this.t = getResources().getDimensionPixelSize(R.dimen.tbds42);
@@ -139,7 +139,7 @@ public class FunAdButton extends View {
                 textPaint.setAntiAlias(true);
                 this.o.setTextSize(this.p);
             }
-            int i2 = this.f44942k > 0 ? this.l : this.m;
+            int i2 = this.f45433k > 0 ? this.l : this.m;
             if (i2 != this.o.getColor()) {
                 this.o.setColor(i2);
             }
@@ -160,7 +160,7 @@ public class FunAdButton extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            return View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE ? Math.max((this.f44940i * 2) + ((int) this.o.measureText(this.r)), this.f44941j) : View.MeasureSpec.getSize(i2);
+            return View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE ? Math.max((this.f45431i * 2) + ((int) this.o.measureText(this.r)), this.f45432j) : View.MeasureSpec.getSize(i2);
         }
         return invokeI.intValue;
     }
@@ -174,16 +174,16 @@ public class FunAdButton extends View {
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f44942k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f45433k : invokeV.intValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SkinManager.setBackgroundResource(this, this.f44939h);
-            this.l = SkinManager.getColor(this.f44936e);
-            this.m = SkinManager.getColor(this.f44937f);
-            this.q = SkinManager.getColor(this.f44938g);
+            SkinManager.setBackgroundResource(this, this.f45430h);
+            this.l = SkinManager.getColor(this.f45427e);
+            this.m = SkinManager.getColor(this.f45428f);
+            this.q = SkinManager.getColor(this.f45429g);
         }
     }
 
@@ -198,7 +198,7 @@ public class FunAdButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f44942k > 0) {
+            if (this.f45433k > 0) {
                 a(canvas);
             }
             if (TextUtils.isEmpty(this.r)) {
@@ -223,7 +223,7 @@ public class FunAdButton extends View {
     public void setBackgroundSkin(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f44939h = i2;
+            this.f45430h = i2;
         }
     }
 
@@ -239,7 +239,7 @@ public class FunAdButton extends View {
     public void setButtonTextSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.p = l.d(getContext(), i2);
+            this.p = m.d(getContext(), i2);
             postInvalidate();
         }
     }
@@ -264,8 +264,8 @@ public class FunAdButton extends View {
         if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || i2 > this.s) {
             return;
         }
-        this.f44942k = i2;
-        this.r = this.f44942k + "%";
+        this.f45433k = i2;
+        this.r = this.f45433k + "%";
         postInvalidate();
     }
 
@@ -273,7 +273,7 @@ public class FunAdButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             this.r = str;
-            this.f44942k = 0;
+            this.f45433k = 0;
             postInvalidate();
         }
     }
@@ -281,7 +281,7 @@ public class FunAdButton extends View {
     public void setTextColorInitSkin(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.f44937f = i2;
+            this.f45428f = i2;
         }
     }
 
@@ -325,17 +325,17 @@ public class FunAdButton extends View {
                 return;
             }
         }
-        this.f44936e = R.color.CAM_X0101;
-        this.f44937f = R.color.CAM_X0304;
-        this.f44938g = R.color.CAM_X0302;
-        this.f44939h = R.drawable.ad_download_progress_button_bg;
-        this.f44940i = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
-        this.f44941j = getResources().getDimensionPixelSize(R.dimen.tbds198);
-        this.f44942k = 0;
-        this.l = SkinManager.getColor(this.f44936e);
-        this.m = SkinManager.getColor(this.f44937f);
+        this.f45427e = R.color.CAM_X0101;
+        this.f45428f = R.color.CAM_X0304;
+        this.f45429g = R.color.CAM_X0302;
+        this.f45430h = R.drawable.ad_download_progress_button_bg;
+        this.f45431i = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
+        this.f45432j = getResources().getDimensionPixelSize(R.dimen.tbds198);
+        this.f45433k = 0;
+        this.l = SkinManager.getColor(this.f45427e);
+        this.m = SkinManager.getColor(this.f45428f);
         this.p = 10.0f;
-        this.q = SkinManager.getColor(this.f44938g);
+        this.q = SkinManager.getColor(this.f45429g);
         this.s = 100;
         this.t = 0;
         this.w = 0;
@@ -346,7 +346,7 @@ public class FunAdButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
             this.r = getContext().getString(i2);
-            this.f44942k = 0;
+            this.f45433k = 0;
             postInvalidate();
         }
     }
@@ -355,7 +355,7 @@ public class FunAdButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048596, this, str, i2) == null) {
             this.r = str;
-            this.f44942k = i2;
+            this.f45433k = i2;
             postInvalidate();
         }
     }

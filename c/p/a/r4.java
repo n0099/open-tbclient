@@ -6,41 +6,41 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class r4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30898b;
+    public int f31268b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30899c;
+    public int f31269c;
 
     /* renamed from: d  reason: collision with root package name */
-    public n4 f30900d;
+    public n4 f31270d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List f30901e;
+    public List f31271e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30902f;
+    public int f31272f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30903g;
+    public int f31273g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30904h;
+    public boolean f31274h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f30905i;
+    public int f31275i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f30906j;
+    public int f31276j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f30907k;
+    public int f31277k;
     public int l;
     public int m;
 
@@ -58,9 +58,9 @@ public class r4 {
             }
         }
         this.a = null;
-        this.f30898b = 0;
-        this.f30899c = 0;
-        this.f30901e = new ArrayList();
+        this.f31268b = 0;
+        this.f31269c = 0;
+        this.f31271e = new ArrayList();
         this.m = 0;
     }
 }

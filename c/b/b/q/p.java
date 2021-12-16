@@ -21,30 +21,30 @@ import java.io.Reader;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.commons.lang3.CharUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class p implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final byte[] f27878e;
+    public static final byte[] f28253e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final short[] f27879f;
+    public static final short[] f28254f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final char[] f27880g;
+    public static final char[] f28255g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final byte[] f27881h;
+    public static final byte[] f28256h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final byte[] f27882i;
+    public static final byte[] f28257i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final short[] f27883j;
+    public static final short[] f28258j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final byte[] f27884k;
+    public static final byte[] f28259k;
     public static final byte[] l;
     public static final byte[] m;
     public static final byte[] n;
@@ -52,13 +52,13 @@ public class p implements c {
     public final a<JsonValue> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a<JsonValue> f27885b;
+    public final a<JsonValue> f28260b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JsonValue f27886c;
+    public JsonValue f28261c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JsonValue f27887d;
+    public JsonValue f28262d;
 
     static {
         InterceptResult invokeClinit;
@@ -73,13 +73,13 @@ public class p implements c {
                 return;
             }
         }
-        f27878e = d();
-        f27879f = h();
-        f27880g = l();
-        f27881h = j();
-        f27882i = i();
-        f27883j = f();
-        f27884k = g();
+        f28253e = d();
+        f28254f = h();
+        f28255g = l();
+        f28256h = j();
+        f28257i = i();
+        f28258j = f();
+        f28259k = g();
         l = m();
         m = k();
         n = e();
@@ -99,7 +99,7 @@ public class p implements c {
             }
         }
         this.a = new a<>(8);
-        this.f27885b = new a<>(8);
+        this.f28260b = new a<>(8);
     }
 
     public static byte[] d() {
@@ -184,24 +184,24 @@ public class p implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jsonValue) == null) {
             jsonValue.Q(str);
-            JsonValue jsonValue2 = this.f27887d;
+            JsonValue jsonValue2 = this.f28262d;
             if (jsonValue2 == null) {
-                this.f27887d = jsonValue;
-                this.f27886c = jsonValue;
-            } else if (!jsonValue2.v() && !this.f27887d.D()) {
-                this.f27886c = this.f27887d;
+                this.f28262d = jsonValue;
+                this.f28261c = jsonValue;
+            } else if (!jsonValue2.v() && !this.f28262d.D()) {
+                this.f28261c = this.f28262d;
             } else {
-                JsonValue jsonValue3 = this.f27887d;
-                jsonValue.f31635k = jsonValue3;
+                JsonValue jsonValue3 = this.f28262d;
+                jsonValue.f32005k = jsonValue3;
                 if (jsonValue3.n == 0) {
-                    jsonValue3.f31634j = jsonValue;
+                    jsonValue3.f32004j = jsonValue;
                 } else {
-                    JsonValue pop = this.f27885b.pop();
+                    JsonValue pop = this.f28260b.pop();
                     pop.l = jsonValue;
                     jsonValue.m = pop;
                 }
-                this.f27885b.a(jsonValue);
-                this.f27887d.n++;
+                this.f28260b.a(jsonValue);
+                this.f28262d.n++;
             }
         }
     }
@@ -352,9 +352,9 @@ public class p implements c {
                     } else if (b4 == 0) {
                         c2 = 5;
                     }
-                    short s3 = f27879f[b4];
-                    short s4 = f27883j[b4];
-                    byte b5 = f27881h[b4];
+                    short s3 = f28254f[b4];
+                    short s4 = f28258j[b4];
+                    byte b5 = f28256h[b4];
                     if (b5 > 0) {
                         int i14 = s3 + b5;
                         int i15 = i14 - 1;
@@ -364,20 +364,20 @@ public class p implements c {
                             int i17 = i16 + ((i15 - i16) >> 1);
                             int i18 = i15;
                             int i19 = i16;
-                            if (cArr[i13] < f27880g[i17]) {
+                            if (cArr[i13] < f28255g[i17]) {
                                 i15 = i17 - 1;
                                 i16 = i19;
-                            } else if (cArr[i13] > f27880g[i17]) {
+                            } else if (cArr[i13] > f28255g[i17]) {
                                 i16 = i17 + 1;
                                 i15 = i18;
                             } else {
                                 s2 = s4 + (i17 - s3);
-                                b2 = f27884k[s2];
+                                b2 = f28259k[s2];
                                 byte b6 = l[b2];
                                 if (m[b2] == 0) {
                                     byte b7 = m[b2];
                                     int i20 = b7 + 1;
-                                    byte b8 = f27878e[b7];
+                                    byte b8 = f28253e[b7];
                                     int i21 = i20;
                                     i12 = i6;
                                     while (true) {
@@ -385,7 +385,7 @@ public class p implements c {
                                         if (b8 > 0) {
                                             try {
                                                 int i22 = i21 + 1;
-                                                switch (f27878e[i21]) {
+                                                switch (f28253e[i21]) {
                                                     case 0:
                                                         i7 = i11;
                                                         bArr2 = bArr3;
@@ -409,7 +409,7 @@ public class p implements c {
                                                             b3 = b6;
                                                             z5 = false;
                                                         } else {
-                                                            String str4 = aVar2.f27768f > 0 ? (String) aVar2.pop() : null;
+                                                            String str4 = aVar2.f28143f > 0 ? (String) aVar2.pop() : null;
                                                             if (z6) {
                                                                 if (str3.equals("true")) {
                                                                     c(str4, true);
@@ -504,7 +504,7 @@ public class p implements c {
                                                         bArr3 = bArr2;
                                                         break;
                                                     case 2:
-                                                        t(aVar2.f27768f > 0 ? (String) aVar2.pop() : null);
+                                                        t(aVar2.f28143f > 0 ? (String) aVar2.pop() : null);
                                                         if (i11 == bArr3.length) {
                                                             ?? r0 = new int[bArr3.length * 2];
                                                             System.arraycopy(bArr3, 0, r0, 0, bArr3.length);
@@ -522,7 +522,7 @@ public class p implements c {
                                                         b4 = bArr3[i11];
                                                         break;
                                                     case 4:
-                                                        s(aVar2.f27768f > 0 ? (String) aVar2.pop() : null);
+                                                        s(aVar2.f28143f > 0 ? (String) aVar2.pop() : null);
                                                         if (i11 == bArr3.length) {
                                                             ?? r02 = new int[bArr3.length * 2];
                                                             System.arraycopy(bArr3, 0, r02, 0, bArr3.length);
@@ -743,10 +743,10 @@ public class p implements c {
                                             } catch (RuntimeException e6) {
                                                 e = e6;
                                                 runtimeException = e;
-                                                JsonValue jsonValue = this.f27886c;
-                                                this.f27886c = null;
-                                                this.f27887d = null;
-                                                this.f27885b.clear();
+                                                JsonValue jsonValue = this.f28261c;
+                                                this.f28261c = null;
+                                                this.f28262d = null;
+                                                this.f28260b.clear();
                                                 if (i13 < i3) {
                                                 }
                                             }
@@ -772,7 +772,7 @@ public class p implements c {
                         i6 = i12;
                         s = s4;
                     }
-                    byte b9 = f27882i[b4];
+                    byte b9 = f28257i[b4];
                     s2 = s;
                     if (b9 > 0) {
                         int i32 = ((b9 << 1) + s3) - 2;
@@ -784,10 +784,10 @@ public class p implements c {
                                 int i34 = i33 + (((i32 - i33) >> 1) & (-2));
                                 byte b10 = b9;
                                 int i35 = i32;
-                                if (cArr[i13] < f27880g[i34]) {
+                                if (cArr[i13] < f28255g[i34]) {
                                     i32 = i34 - 2;
                                     b9 = b10;
-                                } else if (cArr[i13] > f27880g[i34 + 1]) {
+                                } else if (cArr[i13] > f28255g[i34 + 1]) {
                                     i33 = i34 + 2;
                                     b9 = b10;
                                     i32 = i35;
@@ -797,7 +797,7 @@ public class p implements c {
                             }
                         }
                     }
-                    b2 = f27884k[s2];
+                    b2 = f28259k[s2];
                     byte b62 = l[b2];
                     if (m[b2] == 0) {
                     }
@@ -811,12 +811,12 @@ public class p implements c {
                 try {
                     byte b11 = n[b4];
                     int i36 = b11 + 1;
-                    byte b12 = f27878e[b11];
+                    byte b12 = f28253e[b11];
                     while (true) {
                         ?? r9 = b12 - 1;
                         if (b12 > 0) {
                             int i37 = i36 + 1;
-                            if (f27878e[i36] != 1) {
+                            if (f28253e[i36] != 1) {
                                 i5 = i13;
                                 aVar = aVar2;
                                 boolean z12 = z6;
@@ -834,7 +834,7 @@ public class p implements c {
                                     aVar = aVar2;
                                     z5 = false;
                                 } else {
-                                    String str6 = aVar2.f27768f > 0 ? (String) aVar2.pop() : null;
+                                    String str6 = aVar2.f28143f > 0 ? (String) aVar2.pop() : null;
                                     if (z6) {
                                         if (str5.equals("true")) {
                                             c(str6, true);
@@ -931,20 +931,20 @@ public class p implements c {
                 } catch (RuntimeException e9) {
                     e = e9;
                     runtimeException = e;
-                    JsonValue jsonValue2 = this.f27886c;
-                    this.f27886c = null;
-                    this.f27887d = null;
-                    this.f27885b.clear();
+                    JsonValue jsonValue2 = this.f28261c;
+                    this.f28261c = null;
+                    this.f28262d = null;
+                    this.f28260b.clear();
                     if (i13 < i3) {
                     }
                 }
             }
             i13 = i13;
             runtimeException = null;
-            JsonValue jsonValue22 = this.f27886c;
-            this.f27886c = null;
-            this.f27887d = null;
-            this.f27885b.clear();
+            JsonValue jsonValue22 = this.f28261c;
+            this.f28261c = null;
+            this.f28262d = null;
+            this.f28260b.clear();
             if (i13 < i3) {
                 int i39 = 1;
                 for (int i40 = 0; i40 < i13; i40++) {
@@ -956,7 +956,7 @@ public class p implements c {
                 throw new SerializationException("Error parsing JSON on line " + i39 + " near: " + new String(cArr, max, i13 - max) + "*ERROR*" + new String(cArr, i13, Math.min(64, i3 - i13)), runtimeException);
             }
             a<JsonValue> aVar3 = this.a;
-            if (aVar3.f27768f == 0) {
+            if (aVar3.f28143f == 0) {
                 if (runtimeException == null) {
                     return jsonValue22;
                 } else {
@@ -976,12 +976,12 @@ public class p implements c {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f27886c = this.a.pop();
-            if (this.f27887d.n > 0) {
-                this.f27885b.pop();
+            this.f28261c = this.a.pop();
+            if (this.f28262d.n > 0) {
+                this.f28260b.pop();
             }
             a<JsonValue> aVar = this.a;
-            this.f27887d = aVar.f27768f > 0 ? aVar.peek() : null;
+            this.f28262d = aVar.f28143f > 0 ? aVar.peek() : null;
         }
     }
 
@@ -989,11 +989,11 @@ public class p implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             JsonValue jsonValue = new JsonValue(JsonValue.ValueType.array);
-            if (this.f27887d != null) {
+            if (this.f28262d != null) {
                 b(str, jsonValue);
             }
             this.a.a(jsonValue);
-            this.f27887d = jsonValue;
+            this.f28262d = jsonValue;
         }
     }
 
@@ -1001,11 +1001,11 @@ public class p implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             JsonValue jsonValue = new JsonValue(JsonValue.ValueType.object);
-            if (this.f27887d != null) {
+            if (this.f28262d != null) {
                 b(str, jsonValue);
             }
             this.a.a(jsonValue);
-            this.f27887d = jsonValue;
+            this.f28262d = jsonValue;
         }
     }
 

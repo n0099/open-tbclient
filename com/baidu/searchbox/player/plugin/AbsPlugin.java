@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbsPlugin implements IPlugin {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public IMessenger mCourier;
+    public IMessenger mMessenger;
     public PluginManager mPluginManager;
 
     public AbsPlugin() {
@@ -47,17 +47,17 @@ public abstract class AbsPlugin implements IPlugin {
             return;
         }
         for (int i2 : subscribeEvent) {
-            this.mCourier.register(i2, this);
+            this.mMessenger.register(i2, this);
         }
     }
 
     private void sendVideoEvent(VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, videoEvent) == null) || this.mCourier == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, videoEvent) == null) || this.mMessenger == null) {
             return;
         }
         videoEvent.setSender(this);
-        this.mCourier.notifyEvent(videoEvent);
+        this.mMessenger.notifyEvent(videoEvent);
     }
 
     public void attachManager(@NonNull PluginManager pluginManager) {
@@ -70,7 +70,7 @@ public abstract class AbsPlugin implements IPlugin {
     public void attachMessenger(@NonNull IMessenger iMessenger) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iMessenger) == null) {
-            this.mCourier = iMessenger;
+            this.mMessenger = iMessenger;
             registerEvent();
         }
     }
@@ -83,11 +83,13 @@ public abstract class AbsPlugin implements IPlugin {
     }
 
     public void detachMessenger() {
+        IMessenger iMessenger;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mCourier.unregister(this);
-            this.mCourier = null;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (iMessenger = this.mMessenger) == null) {
+            return;
         }
+        iMessenger.unregister(this);
+        this.mMessenger = null;
     }
 
     @Nullable
@@ -112,12 +114,22 @@ public abstract class AbsPlugin implements IPlugin {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mContext : (Context) invokeV.objValue;
     }
 
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public int getExpectOrder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     @Nullable
     @PublicMethod
     public PluginManager getPluginManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mPluginManager : (PluginManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPluginManager : (PluginManager) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
@@ -125,7 +137,7 @@ public abstract class AbsPlugin implements IPlugin {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return 1;
         }
         return invokeV.intValue;
@@ -133,7 +145,7 @@ public abstract class AbsPlugin implements IPlugin {
 
     public void init(@Nullable Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
             if (context == null) {
                 this.mContext = BDPlayerConfig.getAppContext();
             } else {
@@ -145,49 +157,63 @@ public abstract class AbsPlugin implements IPlugin {
     @Override // com.baidu.searchbox.player.interfaces.INeuron
     public void onControlEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, videoEvent) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public void onLayerEventNotify(@NonNull VideoEvent videoEvent) {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, videoEvent) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public void onPlayerEventNotify(@NonNull VideoEvent videoEvent) {
+    public void onInteractiveEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, videoEvent) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public void onPlayerStatusChanged(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+    public void onLayerEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, playerStatus, playerStatus2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, videoEvent) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public void onPlayerEventNotify(@NonNull VideoEvent videoEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, videoEvent) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public void onPlayerStatusChanged(@NonNull PlayerStatus playerStatus, @NonNull PlayerStatus playerStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, playerStatus, playerStatus2) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.plugin.IPlugin
+    public void onPluginEventNotify(@NonNull VideoEvent videoEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, videoEvent) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.plugin.IPlugin
     public void onPluginRelease() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
     public void onSystemEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, videoEvent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, videoEvent) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
     public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, videoEvent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, videoEvent) == null) {
         }
     }
 
@@ -195,7 +221,7 @@ public abstract class AbsPlugin implements IPlugin {
     @PublicMethod
     public void sendEvent(VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, videoEvent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, videoEvent) == null) {
             sendVideoEvent(videoEvent);
         }
     }

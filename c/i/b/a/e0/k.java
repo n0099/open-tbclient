@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.text.SubtitleDecoderException;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class k extends c.i.b.a.a implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -222,7 +222,7 @@ public final class k extends c.i.b.a.a implements Handler.Callback {
                         this.r = true;
                     }
                 }
-            } else if (this.x.f30481f <= j2) {
+            } else if (this.x.f30851f <= j2) {
                 i iVar2 = this.w;
                 if (iVar2 != null) {
                     iVar2.m();
@@ -261,7 +261,7 @@ public final class k extends c.i.b.a.a implements Handler.Callback {
                     if (this.v.j()) {
                         this.q = true;
                     } else {
-                        this.v.f29906j = this.p.a.subsampleOffsetUs;
+                        this.v.f30276j = this.p.a.subsampleOffsetUs;
                         this.v.o();
                     }
                     this.u.d(this.v);

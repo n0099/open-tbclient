@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f63304b;
+    public Context f63885b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f63305c;
+    public com.yxcorp.kuaishou.addfp.a.b.b f63886c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f63306d;
+    public CountDownLatch f63887d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f63307e;
+    public ServiceConnection f63888e;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -45,9 +45,9 @@ public final class e {
                 return;
             }
         }
-        this.f63306d = new CountDownLatch(1);
-        this.f63307e = new f(this);
-        this.f63304b = context;
+        this.f63887d = new CountDownLatch(1);
+        this.f63888e = new f(this);
+        this.f63885b = context;
     }
 
     private void a(boolean z) {
@@ -57,7 +57,7 @@ public final class e {
                 try {
                     String a = this.a.a();
                     if (!TextUtils.isEmpty(a)) {
-                        this.f63305c.a(a);
+                        this.f63886c.a(a);
                         return;
                     }
                 } catch (Throwable th) {
@@ -65,7 +65,7 @@ public final class e {
                     return;
                 }
             }
-            this.f63305c.e();
+            this.f63886c.e();
         }
     }
 
@@ -73,7 +73,7 @@ public final class e {
         ServiceConnection serviceConnection;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f63307e) == null || (context = this.f63304b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f63888e) == null || (context = this.f63885b) == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -83,16 +83,16 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             try {
-                this.f63305c = bVar;
+                this.f63886c = bVar;
                 Intent intent = new Intent("com.asus.msa.action.ACCESS_DID");
                 ComponentName componentName = new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService");
                 Intent intent2 = new Intent(intent);
                 intent2.setComponent(componentName);
-                if (!this.f63304b.bindService(intent2, this.f63307e, 1)) {
+                if (!this.f63885b.bindService(intent2, this.f63888e, 1)) {
                     a(false);
                     return;
                 }
-                this.f63306d.await(10L, TimeUnit.SECONDS);
+                this.f63887d.await(10L, TimeUnit.SECONDS);
                 if (this.a != null) {
                     a(true);
                 } else {

@@ -2,7 +2,7 @@ package c.a.d.i.j;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.f;
+import c.a.d.f.p.g;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.util.Util;
@@ -20,12 +20,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f2825c;
+    public static volatile b f2789c;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f2826b;
+    public a f2790b;
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
@@ -34,7 +34,7 @@ public class b {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f2827b;
+        public final /* synthetic */ b f2791b;
 
         public a(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class b {
                     return;
                 }
             }
-            this.f2827b = bVar;
+            this.f2791b = bVar;
             this.a = str;
         }
 
@@ -68,7 +68,7 @@ public class b {
                 for (int i3 = 0; i3 < length; i3++) {
                     if (listFiles[i3] != null && listFiles[i3].isFile() && listFiles[i3].getName().startsWith(g2)) {
                         try {
-                            f.p(listFiles[i3]);
+                            g.p(listFiles[i3]);
                             c.a.d.i.h.a.b().m("plugin_del_temp", "deltmp_suc", str, listFiles[i3].getName());
                         } catch (Throwable th) {
                             c.a.d.i.h.a b2 = c.a.d.i.h.a.b();
@@ -100,21 +100,21 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 super.onPostExecute((a) bool);
-                this.f2827b.f2826b = null;
-                if (this.f2827b.a.size() > 0) {
-                    Iterator it = this.f2827b.a.iterator();
+                this.f2791b.f2790b = null;
+                if (this.f2791b.a.size() > 0) {
+                    Iterator it = this.f2791b.a.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         String str = (String) it.next();
                         if (str != null && str.equals(this.a)) {
-                            this.f2827b.a.remove(str);
+                            this.f2791b.a.remove(str);
                             break;
                         }
                     }
                 }
-                this.f2827b.f();
+                this.f2791b.f();
             }
         }
     }
@@ -139,14 +139,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f2825c == null) {
+            if (f2789c == null) {
                 synchronized (b.class) {
-                    if (f2825c == null) {
-                        f2825c = new b();
+                    if (f2789c == null) {
+                        f2789c = new b();
                     }
                 }
             }
-            return f2825c;
+            return f2789c;
         }
         return (b) invokeV.objValue;
     }
@@ -176,9 +176,9 @@ public class b {
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.size() > 0 && this.f2826b == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.size() > 0 && this.f2790b == null) {
             a aVar = new a(this, this.a.get(0));
-            this.f2826b = aVar;
+            this.f2790b = aVar;
             aVar.execute(new String[0]);
         }
     }

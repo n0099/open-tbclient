@@ -15,17 +15,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.diskcache.a.c;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.diskcache.kwai.a f57273b;
+    public com.kwad.sdk.core.diskcache.kwai.a f57854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f57274c;
+    public Context f57855c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (this.f57273b == null) {
+            if (this.f57854b == null) {
                 com.kwad.sdk.core.d.a.e("DiskCache", "diskLruCache should be init before use");
                 return true;
             }
@@ -73,13 +73,13 @@ public class a {
     @SuppressLint({"MissingPermission"})
     public void a(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && this.f57273b == null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && this.f57854b == null) {
             try {
-                this.f57274c = bVar.a;
-                if (!bVar.f57277d.exists()) {
-                    bVar.f57277d.mkdirs();
+                this.f57855c = bVar.a;
+                if (!bVar.f57858d.exists()) {
+                    bVar.f57858d.mkdirs();
                 }
-                this.f57273b = com.kwad.sdk.core.diskcache.kwai.a.a(bVar.f57277d, bVar.f57275b, 1, bVar.f57276c * 1024 * 1024);
+                this.f57854b = com.kwad.sdk.core.diskcache.kwai.a.a(bVar.f57858d, bVar.f57856b, 1, bVar.f57857c * 1024 * 1024);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.a(th);
             }
@@ -91,7 +91,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || d() || TextUtils.isEmpty(str)) {
             return;
         }
-        c.a(this.f57273b, str, d.a(str));
+        c.a(this.f57854b, str, d.a(str));
     }
 
     public void a(String str, Object obj) {
@@ -100,27 +100,27 @@ public class a {
             return;
         }
         d.a(str, "key is not allowed empty");
-        e.a(this.f57273b, d.a(str), obj);
+        e.a(this.f57854b, d.a(str), obj);
     }
 
     public boolean a(String str, c.a aVar) {
         InterceptResult invokeLL;
         File b2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, aVar)) == null) ? (d() || TextUtils.isEmpty(str) || !c.a(this.f57273b, str, d.a(str), aVar) || (b2 = b(str)) == null || !b2.exists()) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, aVar)) == null) ? (d() || TextUtils.isEmpty(str) || !c.a(this.f57854b, str, d.a(str), aVar) || (b2 = b(str)) == null || !b2.exists()) ? false : true : invokeLL.booleanValue;
     }
 
     public boolean a(String str, @NonNull String str2, c.a aVar) {
         InterceptResult invokeLLL;
         File b2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, aVar)) == null) ? (d() || TextUtils.isEmpty(str) || !c.a(this.f57273b, str, d.a(str2), aVar) || (b2 = b(str2)) == null || !b2.exists()) ? false : true : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, aVar)) == null) ? (d() || TextUtils.isEmpty(str) || !c.a(this.f57854b, str, d.a(str2), aVar) || (b2 = b(str2)) == null || !b2.exists()) ? false : true : invokeLLL.booleanValue;
     }
 
     public File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f57273b.a() : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f57854b.a() : (File) invokeV.objValue;
     }
 
     @Nullable
@@ -144,7 +144,7 @@ public class a {
                 return null;
             }
             d.a(str, "key is not allowed empty");
-            return e.a(this.f57273b, d.a(str));
+            return e.a(this.f57854b, d.a(str));
         }
         return invokeL.objValue;
     }
@@ -153,7 +153,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             try {
-                this.f57273b.c();
+                this.f57854b.c();
             } catch (IOException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -166,7 +166,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
             try {
                 d.a(str, "cacheKey is not allowed empty");
-                return this.f57273b.c(d.a(str));
+                return this.f57854b.c(d.a(str));
             } catch (IOException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
                 return false;

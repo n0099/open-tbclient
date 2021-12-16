@@ -44,7 +44,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class x0 {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
@@ -74,7 +74,7 @@ public class x0 {
                 if (subscriptionManager == null) {
                     return -1;
                 }
-                if (s.a(context, s.f56838c) == -1) {
+                if (s.a(context, s.f57419c) == -1) {
                     return -3;
                 }
                 return subscriptionManager.getActiveSubscriptionInfoCount();
@@ -107,18 +107,18 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i2)) == null) {
             try {
-                if (s.a(context, s.f56838c) == -1) {
+                if (s.a(context, s.f57419c) == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 String deviceId = telephonyManager.getDeviceId(i2);
-                return TextUtils.isEmpty(deviceId) ? y0.f56911c : deviceId;
+                return TextUtils.isEmpty(deviceId) ? y0.f57492c : deviceId;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeLI.objValue;
@@ -172,12 +172,12 @@ public class x0 {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0075  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0092  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x0088 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x0061 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0076  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0093  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x006c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0062 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x007f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -197,73 +197,73 @@ public class x0 {
                 bufferedOutputStream = new BufferedOutputStream(process.getOutputStream());
                 try {
                     bufferedInputStream = new BufferedInputStream(process.getInputStream());
-                } catch (Exception unused) {
-                    bufferedInputStream = null;
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedInputStream = null;
-                }
-                try {
-                    bufferedOutputStream.write(str.getBytes());
-                    bufferedOutputStream.write(10);
-                    bufferedOutputStream.flush();
-                    bufferedOutputStream.close();
-                    process.waitFor();
-                    String a2 = a(bufferedInputStream);
                     try {
+                        bufferedOutputStream.write(str.getBytes());
+                        bufferedOutputStream.write(10);
+                        bufferedOutputStream.flush();
                         bufferedOutputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                    }
-                    try {
-                        bufferedInputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
-                    }
-                    if (process != null) {
-                        process.destroy();
-                    }
-                    return a2;
-                } catch (Exception unused2) {
-                    if (bufferedOutputStream != null) {
+                        process.waitFor();
+                        String a2 = a(bufferedInputStream);
                         try {
                             bufferedOutputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
-                    }
-                    if (bufferedInputStream != null) {
                         try {
                             bufferedInputStream.close();
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
+                        if (process != null) {
+                            process.destroy();
+                        }
+                        return a2;
+                    } catch (Exception unused) {
+                        if (bufferedOutputStream != null) {
+                            try {
+                                bufferedOutputStream.close();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
+                            }
+                        }
+                        if (bufferedInputStream != null) {
+                            try {
+                                bufferedInputStream.close();
+                            } catch (IOException e5) {
+                                e5.printStackTrace();
+                            }
+                        }
+                        if (process != null) {
+                            process.destroy();
+                        }
+                        return null;
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedOutputStream2 = bufferedOutputStream;
+                        if (bufferedOutputStream2 != null) {
+                            try {
+                                bufferedOutputStream2.close();
+                            } catch (IOException e6) {
+                                e6.printStackTrace();
+                            }
+                        }
+                        if (bufferedInputStream != null) {
+                            try {
+                                bufferedInputStream.close();
+                            } catch (IOException e7) {
+                                e7.printStackTrace();
+                            }
+                        }
+                        if (process != null) {
+                            process.destroy();
+                        }
+                        throw th;
                     }
-                    if (process != null) {
-                        process.destroy();
-                    }
-                    return null;
+                } catch (Exception unused2) {
+                    bufferedInputStream = null;
                 } catch (Throwable th2) {
                     th = th2;
-                    bufferedOutputStream2 = bufferedOutputStream;
-                    if (bufferedOutputStream2 != null) {
-                        try {
-                            bufferedOutputStream2.close();
-                        } catch (IOException e6) {
-                            e6.printStackTrace();
-                        }
-                    }
-                    if (bufferedInputStream != null) {
-                        try {
-                            bufferedInputStream.close();
-                        } catch (IOException e7) {
-                            e7.printStackTrace();
-                        }
-                    }
-                    if (process != null) {
-                        process.destroy();
-                    }
-                    throw th;
+                    bufferedInputStream = null;
                 }
             } catch (Exception unused3) {
                 bufferedOutputStream = null;
@@ -350,12 +350,12 @@ public class x0 {
                     sb.append(";");
                 }
                 if (TextUtils.isEmpty(sb)) {
-                    return y0.f56911c;
+                    return y0.f57492c;
                 }
                 String sb2 = sb.toString();
                 return sb2.endsWith(";") ? sb2.substring(0, sb2.length() - 1) : sb2;
             } catch (Exception unused) {
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -369,26 +369,26 @@ public class x0 {
                 if (Build.VERSION.SDK_INT > 22) {
                     SubscriptionManager subscriptionManager = (SubscriptionManager) context.getSystemService("telephony_subscription_service");
                     if (subscriptionManager == null) {
-                        return y0.f56910b;
+                        return y0.f57491b;
                     }
-                    if (s.a(context, s.f56838c) == -1) {
+                    if (s.a(context, s.f57419c) == -1) {
                         return y0.a;
                     }
                     List<SubscriptionInfo> activeSubscriptionInfoList = subscriptionManager.getActiveSubscriptionInfoList();
                     if (activeSubscriptionInfoList == null) {
-                        return y0.f56910b;
+                        return y0.f57491b;
                     }
                     for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
                         if (subscriptionInfo != null && subscriptionInfo.getSubscriptionId() == i2) {
                             String iccId = subscriptionInfo.getIccId();
-                            return TextUtils.isEmpty(iccId) ? y0.f56911c : iccId;
+                            return TextUtils.isEmpty(iccId) ? y0.f57492c : iccId;
                         }
                     }
                 }
-                return y0.f56911c;
+                return y0.f57492c;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeLI.objValue;
@@ -438,10 +438,10 @@ public class x0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             try {
                 String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
-                return TextUtils.isEmpty(string) ? y0.f56911c : string;
+                return TextUtils.isEmpty(string) ? y0.f57492c : string;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -460,7 +460,7 @@ public class x0 {
                 return i3;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeLI.objValue;
@@ -551,13 +551,13 @@ public class x0 {
                 declaredField.setAccessible(true);
                 Object obj = declaredField.get(defaultAdapter);
                 if (obj == null || (method = obj.getClass().getMethod("getAddress", new Class[0])) == null || (invoke = method.invoke(obj, new Object[0])) == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 String obj2 = invoke.toString();
-                return TextUtils.isEmpty(obj2) ? y0.f56911c : obj2;
+                return TextUtils.isEmpty(obj2) ? y0.f57492c : obj2;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56911c;
+                return y0.f57492c;
             }
         }
         return (String) invokeL.objValue;
@@ -570,23 +570,23 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65555, null, context, i2)) == null) {
             try {
-                if (s.a(context, s.f56838c) == -1) {
+                if (s.a(context, s.f57419c) == -1) {
                     return y0.a;
                 }
                 Uri parse = Uri.parse("content://telephony/siminfo");
                 if (parse == null || (contentResolver = context.getContentResolver()) == null || (query = contentResolver.query(parse, new String[]{"_id", "sim_id", "icc_id", "display_name"}, "0=0", new String[0], null)) == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 while (query.moveToNext()) {
                     if (query.getInt(query.getColumnIndex("sim_id")) == i2) {
                         String string = query.getString(query.getColumnIndex("icc_id"));
-                        return TextUtils.isEmpty(string) ? y0.f56911c : string;
+                        return TextUtils.isEmpty(string) ? y0.f57492c : string;
                     }
                 }
-                return y0.f56912d;
+                return y0.f57493d;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeLI.objValue;
@@ -629,13 +629,13 @@ public class x0 {
             try {
                 BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
                 if (defaultAdapter == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 String address = defaultAdapter.getAddress();
-                return TextUtils.isEmpty(address) ? y0.f56911c : address;
+                return TextUtils.isEmpty(address) ? y0.f57492c : address;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -646,22 +646,22 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65558, null, context, i2)) == null) {
             try {
-                if (s.a(context, s.f56838c) == -1) {
+                if (s.a(context, s.f57419c) == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 Method method = telephonyManager.getClass().getMethod("getImei", Integer.TYPE);
                 if (method == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 String str = (String) method.invoke(telephonyManager, Integer.valueOf(i2));
-                return TextUtils.isEmpty(str) ? y0.f56911c : str;
+                return TextUtils.isEmpty(str) ? y0.f57492c : str;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeLI.objValue;
@@ -710,7 +710,7 @@ public class x0 {
                 return !TextUtils.isEmpty(string) ? string : z ? d(context) : y0.a;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -722,18 +722,18 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, context, i2)) == null) {
             try {
-                if (s.a(context, s.f56838c) == -1) {
+                if (s.a(context, s.f57419c) == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 String imei = telephonyManager.getImei(i2);
-                return TextUtils.isEmpty(imei) ? y0.f56911c : imei;
+                return TextUtils.isEmpty(imei) ? y0.f57492c : imei;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeLI.objValue;
@@ -806,10 +806,10 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
             try {
-                return s.a(context, s.f56838c) == -1 ? y0.a : Build.getSerial();
+                return s.a(context, s.f57419c) == -1 ? y0.a : Build.getSerial();
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -828,7 +828,7 @@ public class x0 {
                 return a2;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeLI.objValue;
@@ -841,10 +841,10 @@ public class x0 {
             try {
                 String b2 = b("ro.serialno");
                 String str = Build.SERIAL;
-                return !TextUtils.isEmpty(b2) ? b2 : !TextUtils.isEmpty(str) ? str : y0.f56911c;
+                return !TextUtils.isEmpty(b2) ? b2 : !TextUtils.isEmpty(str) ? str : y0.f57492c;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -859,12 +859,12 @@ public class x0 {
         if (interceptable != null && (invokeLI = interceptable.invokeLI(65566, null, context, i2)) != null) {
             return (String) invokeLI.objValue;
         }
-        if (Build.VERSION.SDK_INT >= 23 && s.a(context, s.f56838c) == -1) {
+        if (Build.VERSION.SDK_INT >= 23 && s.a(context, s.f57419c) == -1) {
             return y0.a;
         }
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
         if (telephonyManager == null) {
-            return y0.f56910b;
+            return y0.f57491b;
         }
         String str = null;
         try {
@@ -873,24 +873,24 @@ public class x0 {
                 if (Build.VERSION.SDK_INT == 21) {
                     Method method = cls.getMethod("getSubscriberId", Long.TYPE);
                     if (method == null) {
-                        return y0.f56910b;
+                        return y0.f57491b;
                     }
                     invoke = method.invoke(telephonyManager, Long.valueOf(i2));
                 }
-                return (TextUtils.isEmpty(str) || str == null) ? y0.f56911c : str;
+                return (TextUtils.isEmpty(str) || str == null) ? y0.f57492c : str;
             }
             Method method2 = cls.getMethod("getSubscriberId", Integer.TYPE);
             if (method2 == null) {
-                return y0.f56910b;
+                return y0.f57491b;
             }
             invoke = method2.invoke(telephonyManager, Integer.valueOf(i2));
             str = invoke;
             if (TextUtils.isEmpty(str)) {
-                return y0.f56911c;
+                return y0.f57492c;
             }
         } catch (Throwable th) {
             l1.a(th);
-            return y0.f56912d;
+            return y0.f57493d;
         }
     }
 
@@ -900,13 +900,13 @@ public class x0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
             try {
                 if (Settings.Secure.getInt(context.getContentResolver(), "accessibility_enabled", 0) != 1) {
-                    return y0.f56913e;
+                    return y0.f57494e;
                 }
                 String string = Settings.Secure.getString(context.getContentResolver(), "enabled_accessibility_services");
-                return TextUtils.isEmpty(string) ? y0.f56911c : string;
+                return TextUtils.isEmpty(string) ? y0.f57492c : string;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -917,23 +917,23 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65568, null, context, i2)) == null) {
             try {
-                if (s.a(context, s.f56838c) == -1) {
+                if (s.a(context, s.f57419c) == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 Method method = telephonyManager.getClass().getMethod("getSimSerialNumber", Integer.TYPE);
                 if (method == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 method.setAccessible(true);
                 Object invoke = method.invoke(telephonyManager, Integer.valueOf(i2));
-                return invoke == null ? y0.f56911c : invoke.toString();
+                return invoke == null ? y0.f57492c : invoke.toString();
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeLI.objValue;
@@ -945,10 +945,10 @@ public class x0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
             try {
                 String string = Settings.Secure.getString(context.getContentResolver(), "default_input_method");
-                return TextUtils.isEmpty(string) ? y0.f56911c : string;
+                return TextUtils.isEmpty(string) ? y0.f57492c : string;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -959,18 +959,18 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) {
             try {
-                if (s.a(context, s.f56838c) == -1) {
+                if (s.a(context, s.f57419c) == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 String deviceId = telephonyManager.getDeviceId();
-                return TextUtils.isEmpty(deviceId) ? y0.f56911c : deviceId;
+                return TextUtils.isEmpty(deviceId) ? y0.f57492c : deviceId;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -982,18 +982,18 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, context)) == null) {
             try {
-                if (s.a(context, s.f56838c) == -1) {
+                if (s.a(context, s.f57419c) == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 String imei = telephonyManager.getImei();
-                return TextUtils.isEmpty(imei) ? y0.f56911c : imei;
+                return TextUtils.isEmpty(imei) ? y0.f57492c : imei;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -1004,18 +1004,18 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, context)) == null) {
             try {
-                if (s.a(context, s.f56838c) == -1) {
+                if (s.a(context, s.f57419c) == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 String simSerialNumber = telephonyManager.getSimSerialNumber();
-                return TextUtils.isEmpty(simSerialNumber) ? y0.f56911c : simSerialNumber;
+                return TextUtils.isEmpty(simSerialNumber) ? y0.f57492c : simSerialNumber;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -1044,7 +1044,7 @@ public class x0 {
                 return l;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -1056,18 +1056,18 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, context)) == null) {
             try {
-                if (s.a(context, s.f56838c) == -1) {
+                if (s.a(context, s.f57419c) == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null || (method = telephonyManager.getClass().getMethod("getImei", new Class[0])) == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 String str = (String) method.invoke(telephonyManager, new Object[0]);
-                return TextUtils.isEmpty(str) ? y0.f56911c : str;
+                return TextUtils.isEmpty(str) ? y0.f57492c : str;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -1078,22 +1078,22 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
             try {
-                if (s.a(context, s.f56838c) == -1) {
+                if (s.a(context, s.f57419c) == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f56911c;
+                    return y0.f57492c;
                 }
                 String subscriberId = telephonyManager.getSubscriberId();
                 if (TextUtils.isEmpty(subscriberId)) {
-                    return y0.f56911c;
+                    return y0.f57492c;
                 }
                 new d(context).b(d.N0, subscriberId, true);
                 return subscriberId;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -1145,7 +1145,7 @@ public class x0 {
             try {
                 ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
                 if (activityManager == null || (runningAppProcesses = activityManager.getRunningAppProcesses()) == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 JSONArray jSONArray = new JSONArray();
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
@@ -1154,10 +1154,10 @@ public class x0 {
                     }
                 }
                 String jSONArray2 = jSONArray.toString();
-                return TextUtils.isEmpty(jSONArray2) ? y0.f56911c : jSONArray2;
+                return TextUtils.isEmpty(jSONArray2) ? y0.f57492c : jSONArray2;
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -1172,7 +1172,7 @@ public class x0 {
                 return Build.VERSION.SDK_INT >= 26 ? g(context) : h(context);
             } catch (Throwable th) {
                 a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;

@@ -1,0 +1,5 @@
+package c.a.j0.a;
+/* loaded from: classes.dex */
+public interface a<T> {
+    T get();
+}

@@ -2,6 +2,7 @@ package com.baidu.live.business.model.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
@@ -13,12 +14,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LiveRoomEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<LiveRoomEntity> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int audienceCount;
+    public int autoPlay;
     public String cmd;
     public String cover;
     public String feedId;
@@ -28,15 +30,17 @@ public class LiveRoomEntity implements Parcelable {
     public int liveStatus;
     public boolean needLogShow;
     public String nid;
+    public String playUrl;
     public RightLableInfo rightLabel;
     public String roomId;
     public int showTpl;
     public LiveStatInfo statInfo;
     public int templateId;
     public String title;
+    public String videoScreen;
 
-    /* loaded from: classes8.dex */
-    public static class a implements Parcelable.Creator<LiveRoomEntity> {
+    /* loaded from: classes10.dex */
+    public class a implements Parcelable.Creator<LiveRoomEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,19 +109,89 @@ public class LiveRoomEntity implements Parcelable {
         this.needLogShow = true;
     }
 
+    public boolean canAutoPlay() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.autoPlay == 1 && !TextUtils.isEmpty(this.playUrl) : invokeV.booleanValue;
+    }
+
     @Override // android.os.Parcelable
     public int describeContents() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
     }
 
+    public boolean isDateLive() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "7".equals(String.valueOf(this.templateId)) : invokeV.booleanValue;
+    }
+
+    public boolean isHorizontalScreen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "1".equals(this.videoScreen) : invokeV.booleanValue;
+    }
+
+    public boolean isYYShow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "6".equals(String.valueOf(this.templateId)) : invokeV.booleanValue;
+    }
+
+    public void parseSearchJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.nid = jSONObject.optString("nid");
+        this.feedId = jSONObject.optString("feed_id");
+        this.title = jSONObject.optString("title");
+        this.roomId = jSONObject.optString("room_id");
+        this.audienceCount = jSONObject.optInt("audience_count");
+        this.liveStatus = jSONObject.optInt(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS);
+        this.cover = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+        this.cmd = jSONObject.optString("cmd");
+        this.showTpl = jSONObject.optInt("show_tpl");
+        JSONObject optJSONObject = jSONObject.optJSONObject("host");
+        if (optJSONObject != null) {
+            LiveHostInfo liveHostInfo = new LiveHostInfo();
+            this.hostInfo = liveHostInfo;
+            liveHostInfo.parserJson(optJSONObject);
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("left_label");
+        if (optJSONObject2 != null) {
+            LeftLableInfo leftLableInfo = new LeftLableInfo();
+            this.leftLabel = leftLableInfo;
+            leftLableInfo.parserJson(optJSONObject2);
+        }
+        JSONObject optJSONObject3 = jSONObject.optJSONObject("right_label");
+        if (optJSONObject3 != null) {
+            RightLableInfo rightLableInfo = new RightLableInfo();
+            this.rightLabel = rightLableInfo;
+            rightLableInfo.parserJson(optJSONObject3);
+        }
+        JSONObject optJSONObject4 = jSONObject.optJSONObject("stat");
+        if (optJSONObject4 != null) {
+            LiveStatInfo liveStatInfo = new LiveStatInfo();
+            this.statInfo = liveStatInfo;
+            liveStatInfo.parserJson(optJSONObject4);
+        }
+        JSONObject optJSONObject5 = jSONObject.optJSONObject("gr_ext");
+        if (optJSONObject5 != null) {
+            this.grExt = optJSONObject5.toString();
+        } else {
+            this.grExt = "";
+        }
+    }
+
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.nid = jSONObject.optString("nid");
@@ -130,6 +204,9 @@ public class LiveRoomEntity implements Parcelable {
         this.cmd = jSONObject.optString("cmd");
         this.showTpl = jSONObject.optInt("show_tpl");
         this.templateId = jSONObject.optInt("template_id");
+        this.playUrl = jSONObject.optString("play_url");
+        this.autoPlay = jSONObject.optInt("auto_play");
+        this.videoScreen = jSONObject.optString("screen");
         JSONObject optJSONObject = jSONObject.optJSONObject("host");
         if (optJSONObject != null) {
             LiveHostInfo liveHostInfo = new LiveHostInfo();
@@ -165,7 +242,7 @@ public class LiveRoomEntity implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
             parcel.writeString(this.nid);
             parcel.writeString(this.feedId);
             parcel.writeString(this.roomId);
@@ -176,6 +253,9 @@ public class LiveRoomEntity implements Parcelable {
             parcel.writeString(this.cmd);
             parcel.writeInt(this.showTpl);
             parcel.writeInt(this.templateId);
+            parcel.writeString(this.playUrl);
+            parcel.writeInt(this.autoPlay);
+            parcel.writeString(this.videoScreen);
             parcel.writeParcelable(this.hostInfo, i2);
             parcel.writeParcelable(this.leftLabel, i2);
             parcel.writeParcelable(this.rightLabel, i2);
@@ -211,6 +291,9 @@ public class LiveRoomEntity implements Parcelable {
         this.cmd = parcel.readString();
         this.showTpl = parcel.readInt();
         this.templateId = parcel.readInt();
+        this.playUrl = parcel.readString();
+        this.autoPlay = parcel.readInt();
+        this.videoScreen = parcel.readString();
         this.hostInfo = (LiveHostInfo) parcel.readParcelable(LiveHostInfo.class.getClassLoader());
         this.leftLabel = (LeftLableInfo) parcel.readParcelable(LeftLableInfo.class.getClassLoader());
         this.rightLabel = (RightLableInfo) parcel.readParcelable(RightLableInfo.class.getClassLoader());

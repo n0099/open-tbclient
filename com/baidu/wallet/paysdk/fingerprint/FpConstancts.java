@@ -1,5 +1,5 @@
 package com.baidu.wallet.paysdk.fingerprint;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface FpConstancts {
     public static final int PURPOSE_DECRYPT = 2;
     public static final int PURPOSE_ENCRYPT = 1;

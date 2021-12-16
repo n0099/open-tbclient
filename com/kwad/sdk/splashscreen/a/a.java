@@ -9,20 +9,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends Presenter implements com.kwad.sdk.widget.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.widget.f f59458b;
+    public com.kwad.sdk.widget.f f60039b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f59459c;
+    public boolean f60040c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.g f59460d;
+    public com.kwad.sdk.splashscreen.g f60041d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class a extends Presenter implements com.kwad.sdk.widget.d {
                 return;
             }
         }
-        this.f59460d = null;
+        this.f60041d = null;
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
@@ -47,17 +47,17 @@ public class a extends Presenter implements com.kwad.sdk.widget.d {
             super.a();
             Object p = p();
             if (p instanceof com.kwad.sdk.splashscreen.g) {
-                this.f59460d = (com.kwad.sdk.splashscreen.g) p;
+                this.f60041d = (com.kwad.sdk.splashscreen.g) p;
             }
-            com.kwad.sdk.splashscreen.g gVar = this.f59460d;
+            com.kwad.sdk.splashscreen.g gVar = this.f60041d;
             if (gVar == null) {
                 return;
             }
-            this.f59459c = com.kwad.sdk.core.response.a.c.g(gVar.f59577d);
-            boolean a = i.a(com.kwad.sdk.core.response.a.d.j(this.f59460d.f59577d));
+            this.f60040c = com.kwad.sdk.core.response.a.c.g(gVar.f60158d);
+            boolean a = i.a(com.kwad.sdk.core.response.a.d.j(this.f60041d.f60158d));
             this.a.setVisibility(a ? 0 : 8);
             if (a) {
-                this.f59458b = new com.kwad.sdk.widget.f(this.a.getContext(), this.a, this);
+                this.f60039b = new com.kwad.sdk.widget.f(this.a.getContext(), this.a, this);
             }
         }
     }
@@ -69,12 +69,12 @@ public class a extends Presenter implements com.kwad.sdk.widget.d {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            if (com.kwad.sdk.splashscreen.g.a(view.getContext(), com.kwad.sdk.core.response.a.d.j(this.f59460d.f59577d))) {
-                gVar = this.f59460d;
+            if (com.kwad.sdk.splashscreen.g.a(view.getContext(), com.kwad.sdk.core.response.a.d.j(this.f60041d.f60158d))) {
+                gVar = this.f60041d;
                 context = view.getContext();
                 i2 = 53;
             } else {
-                gVar = this.f59460d;
+                gVar = this.f60041d;
                 context = view.getContext();
                 i2 = 0;
             }
@@ -86,9 +86,9 @@ public class a extends Presenter implements com.kwad.sdk.widget.d {
     public void b(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            com.kwad.sdk.core.d.a.a("FullScreenTouchConvertPresenter", "onSlide: enableSlickClick: " + this.f59459c);
-            if (this.f59459c) {
-                this.f59460d.a(view.getContext(), 153, 2);
+            com.kwad.sdk.core.d.a.a("FullScreenTouchConvertPresenter", "onSlide: enableSlickClick: " + this.f60040c);
+            if (this.f60040c) {
+                this.f60041d.a(view.getContext(), 153, 2);
             }
         }
     }

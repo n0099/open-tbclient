@@ -1,5 +1,5 @@
 package com.kuaishou.tachikoma.api.app;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IHostEnv {
     boolean isDark();
 

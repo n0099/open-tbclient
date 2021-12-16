@@ -33,19 +33,19 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f32745b;
+    public static b f33115b;
     public transient /* synthetic */ FieldHolder $fh;
     public OkHttpClient a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f32746c;
+    public Context f33116c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public class b {
                 public final /* synthetic */ RequestBody a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f32748b;
+                public final /* synthetic */ a f33118b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -95,7 +95,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f32748b = this;
+                    this.f33118b = this;
                     this.a = requestBody;
                 }
 
@@ -166,17 +166,17 @@ public class b {
             }
         }
         this.a = a();
-        this.f32746c = context;
+        this.f33116c = context;
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f32745b == null) {
-                f32745b = new b(context);
+            if (f33115b == null) {
+                f33115b = new b(context);
             }
-            return f32745b;
+            return f33115b;
         }
         return (b) invokeL.objValue;
     }
@@ -222,13 +222,13 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, bArr, str)) == null) {
-            a.C1681a.C1682a.C1683a e2 = a.C1681a.C1682a.e();
+            a.C1720a.C1721a.C1722a e2 = a.C1720a.C1721a.e();
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            a.C1681a.C1682a build = e2.a(str).build();
+            a.C1720a.C1721a build = e2.a(str).build();
             long currentTimeMillis = System.currentTimeMillis();
-            return a.C1681a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.i.a.a(this.f32746c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+            return a.C1720a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.i.a.a(this.f33116c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
         }
         return (byte[]) invokeLL.objValue;
     }
@@ -246,7 +246,7 @@ public class b {
                 public final /* synthetic */ c a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f32747b;
+                public final /* synthetic */ b f33117b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -263,7 +263,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f32747b = this;
+                    this.f33117b = this;
                     this.a = cVar;
                 }
 
@@ -287,7 +287,7 @@ public class b {
                         int i2 = 0;
                         try {
                             if (response.body() != null) {
-                                String[] a3 = this.f32747b.a(response.body().bytes());
+                                String[] a3 = this.f33117b.a(response.body().bytes());
                                 i2 = Integer.valueOf(a3[0]).intValue();
                                 str2 = a3[1];
                             }

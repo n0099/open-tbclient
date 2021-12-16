@@ -2,7 +2,7 @@ package com.dxmpay.apollon.utils.support;
 
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface MultiValueMap<K, V> extends Map<K, List<V>> {
     void add(K k2, V v);
 

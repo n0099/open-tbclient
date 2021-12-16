@@ -9,9 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class FixSizePool<T extends IPoolItem> implements IPool<T> {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int DEFAULT_SIZE = 2;
     public static final String TAG = "FixSizePool";
     public transient /* synthetic */ FieldHolder $fh;
     public final Object[] mPool;
@@ -32,11 +33,7 @@ public abstract class FixSizePool<T extends IPoolItem> implements IPool<T> {
                 return;
             }
         }
-        if (i2 > 0) {
-            this.mPool = new Object[i2];
-            return;
-        }
-        throw new IllegalArgumentException("The max pool size must be > 0");
+        this.mPool = new Object[i2 <= 0 ? 2 : i2];
     }
 
     private boolean isInPool(T t) {
@@ -78,7 +75,7 @@ public abstract class FixSizePool<T extends IPoolItem> implements IPool<T> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.player.pool.IPool
-    @Nullable
+    @NonNull
     public T acquire() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

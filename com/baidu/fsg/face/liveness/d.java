@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String A = "ABTestEnd";
@@ -40,34 +40,34 @@ public final class d {
     public static final String ad = "videoFileUploadTimeout";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34836b = "@queryVideo";
+    public static final String f35304b = "@queryVideo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34837c = "enterLiveness";
+    public static final String f35305c = "enterLiveness";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34838d = "userSwitchSound";
+    public static final String f35306d = "userSwitchSound";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34839e = "@getPortrait";
+    public static final String f35307e = "@getPortrait";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34840f = "passLiveness";
+    public static final String f35308f = "passLiveness";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34841g = "faceDetected";
+    public static final String f35309g = "faceDetected";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34842h = "showBlink";
+    public static final String f35310h = "showBlink";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34843i = "detectBlink";
+    public static final String f35311i = "detectBlink";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f34844j = "showMouth";
+    public static final String f35312j = "showMouth";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f34845k = "detectMouth";
+    public static final String f35313k = "detectMouth";
     public static final String l = "firstTimeOut";
     public static final String m = "secondTimeOut";
     public static final String n = "cancelLiveness";

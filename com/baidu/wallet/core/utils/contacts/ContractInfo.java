@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class ContractInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52450b;
+    public String f53030b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f52451c;
+    public int f53031c;
 
     public ContractInfo() {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class ContractInfo {
             }
         }
         this.a = "";
-        this.f52450b = "";
-        this.f52451c = -1;
+        this.f53030b = "";
+        this.f53031c = -1;
     }
 
     public boolean equals(Object obj) {
@@ -47,12 +47,12 @@ public class ContractInfo {
             }
             if (obj != null && ContractInfo.class == obj.getClass()) {
                 ContractInfo contractInfo = (ContractInfo) obj;
-                String str = this.f52450b;
+                String str = this.f53030b;
                 if (str == null) {
-                    if (contractInfo.f52450b != null) {
+                    if (contractInfo.f53030b != null) {
                         return false;
                     }
-                } else if (!str.equals(contractInfo.f52450b)) {
+                } else if (!str.equals(contractInfo.f53030b)) {
                     return false;
                 }
                 String str2 = this.a;
@@ -73,13 +73,13 @@ public class ContractInfo {
     public int getErrordigit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52451c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53031c : invokeV.intValue;
     }
 
     public String getMobile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52450b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53030b : (String) invokeV.objValue;
     }
 
     public String getName() {
@@ -92,7 +92,7 @@ public class ContractInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String str = this.f52450b;
+            String str = this.f53030b;
             int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
             String str2 = this.a;
             return hashCode + (str2 != null ? str2.hashCode() : 0);
@@ -103,14 +103,14 @@ public class ContractInfo {
     public void setErrordigit(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f52451c = i2;
+            this.f53031c = i2;
         }
     }
 
     public void setMobile(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f52450b = str;
+            this.f53030b = str;
         }
     }
 
@@ -125,7 +125,7 @@ public class ContractInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "通讯录 [name=" + this.a + ", mobile=" + this.f52450b + PreferencesUtil.RIGHT_MOUNT;
+            return "通讯录 [name=" + this.a + ", mobile=" + this.f53030b + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }
@@ -146,9 +146,9 @@ public class ContractInfo {
             }
         }
         this.a = "";
-        this.f52450b = "";
-        this.f52451c = -1;
-        this.f52450b = str;
+        this.f53030b = "";
+        this.f53031c = -1;
+        this.f53030b = str;
         this.a = "";
     }
 
@@ -168,9 +168,9 @@ public class ContractInfo {
             }
         }
         this.a = "";
-        this.f52450b = "";
-        this.f52451c = -1;
-        this.f52450b = str;
+        this.f53030b = "";
+        this.f53031c = -1;
+        this.f53030b = str;
         this.a = str2;
     }
 }

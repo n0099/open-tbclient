@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.HashMap;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TaskManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -38,7 +38,7 @@ public class TaskManager {
     public Handler mUIHandler;
 
     /* renamed from: com.baidu.android.util.concurrent.task.TaskManager$5  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$concurrent$task$Task$RunningStatus;
         public static /* synthetic */ Interceptable $ic;
@@ -70,13 +70,13 @@ public class TaskManager {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface IStateChangeListener {
         void onStateChanged(TaskManager taskManager, State state, State state2);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -142,7 +142,7 @@ public class TaskManager {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class TaskManagerState {
         public static final /* synthetic */ TaskManagerState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

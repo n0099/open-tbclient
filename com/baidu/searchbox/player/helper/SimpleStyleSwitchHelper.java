@@ -10,14 +10,15 @@ import com.baidu.searchbox.player.utils.BdActivityUtils;
 import com.baidu.searchbox.player.utils.BdViewOpUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup mOriginPlayerContainer;
-    public UniversalPlayer mPlayer;
+    public final UniversalPlayer mPlayer;
 
     public SimpleStyleSwitchHelper(@NonNull UniversalPlayer universalPlayer) {
         Interceptable interceptable = $ic;
@@ -45,14 +46,27 @@ public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
         activity.getWindow().addFlags(128);
     }
 
+    public boolean adjustRequestLandscape() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int videoWidth = this.mPlayer.getVideoWidth();
+            int videoHeight = this.mPlayer.getVideoHeight();
+            return videoWidth <= 0 || videoHeight <= 0 || videoWidth > videoHeight;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // com.baidu.searchbox.player.helper.IPlayerStyleSwitchHelper
     public void switchToFullStyle() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.mOriginPlayerContainer = this.mPlayer.getAttachedContainer();
             this.mPlayer.setIsFullMode(true);
             Activity activity = this.mPlayer.getActivity();
-            BdActivityUtils.requestLandscape(activity, this.mPlayer.isReverseLandscape());
+            if (adjustRequestLandscape()) {
+                BdActivityUtils.requestLandscape(activity, this.mPlayer.isReverseLandscape());
+            }
             setKeepScreenOn(activity);
             BdViewOpUtils.attachDecor(activity, this.mPlayer.getLayerContainer());
         }
@@ -61,7 +75,7 @@ public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
     @Override // com.baidu.searchbox.player.helper.IPlayerStyleSwitchHelper
     public void switchToNormalStyle() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.mOriginPlayerContainer == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.mOriginPlayerContainer == null) {
             return;
         }
         this.mOriginPlayerContainer = this.mPlayer.getAttachedContainer();

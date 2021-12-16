@@ -15,19 +15,19 @@ import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class i1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "AES/CBC/PKCS5Padding";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f56660b = "AES";
+    public static final String f57241b = "AES";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f56661c = "AES/CBC/PKCS7Padding";
+    public static final String f57242c = "AES/CBC/PKCS7Padding";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f56662d = "AES/CBC/NoPadding";
+    public static final String f57243d = "AES/CBC/NoPadding";
     public transient /* synthetic */ FieldHolder $fh;
 
     public i1() {

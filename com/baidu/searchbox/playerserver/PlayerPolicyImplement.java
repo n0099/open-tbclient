@@ -21,23 +21,25 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PlayerPolicyImplement implements IPlayerPolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADD_OBSERVER_WORK_MSG = 2;
     public static final int JELLY_BEAN_MR2 = 18;
+    public static final int MAX_RETRY_COUNT = 1;
+    public static final int MIN_UPDATE_INTERVAL = 10;
+    public static final String PLAYER_SERVER = "https://mbd.baidu.com/playserver/ctlconf?";
     public static final int REMOVE_OBSERVER_WORK_MSG = 3;
     public static final String TAG = "PlayerServer-PlcyImplmnt";
     public static final int TIMER_UPDATE_WORK_MSG = 1;
-    public static final int UPDATE_CONFIG_MAIN_MSG = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String PLAYER_SERVER;
     public List<IPlayerConfig> list;
-    public long mFirstUpdateTimeStamp;
     public HandlerThread mHandlerThread;
-    public long mLastUpdateTimeStamp;
     public Handler mMainHandler;
     public OkHttpClient mOkHttpClient;
+    public volatile int mPullCfgSuccessfully;
+    public volatile int mRequested;
+    public volatile long mRetryCount;
     public long mUpdateInterval;
     public Handler mWorkHandler;
 
@@ -54,14 +56,14 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                 return;
             }
         }
-        this.PLAYER_SERVER = "http://mbd.baidu.com/playserver/ctlconf?";
         this.mWorkHandler = null;
         this.mMainHandler = new Handler(Looper.getMainLooper());
         this.mHandlerThread = null;
         this.list = Collections.synchronizedList(new LinkedList());
-        this.mUpdateInterval = 3000L;
-        this.mLastUpdateTimeStamp = 0L;
-        this.mFirstUpdateTimeStamp = 0L;
+        this.mUpdateInterval = 180L;
+        this.mRequested = 0;
+        this.mPullCfgSuccessfully = 0;
+        this.mRetryCount = 0L;
         this.mOkHttpClient = null;
         HandlerThread handlerThread = new HandlerThread("player_policy_implement");
         this.mHandlerThread = handlerThread;
@@ -100,6 +102,10 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                         int i4 = message.what;
                         if (i4 == 1) {
                             this.this$0.onUpdateConfig();
+                            if (PlayerPolicyImplement.access$104(this.this$0) > 1) {
+                                this.this$0.mPullCfgSuccessfully = 1;
+                            }
+                            sendEmptyMessageDelayed(1, (this.this$0.mPullCfgSuccessfully == 0 ? 10L : this.this$0.mUpdateInterval) * 1000);
                         } else if (i4 == 2) {
                             Object obj = message.obj;
                             if (obj instanceof IPlayerConfig) {
@@ -118,11 +124,17 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
         }
     }
 
+    public static /* synthetic */ long access$104(PlayerPolicyImplement playerPolicyImplement) {
+        long j2 = playerPolicyImplement.mRetryCount + 1;
+        playerPolicyImplement.mRetryCount = j2;
+        return j2;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void onRegister(IPlayerConfig iPlayerConfig) {
         List<IPlayerConfig> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, this, iPlayerConfig) == null) || (list = this.list) == null || iPlayerConfig == null) {
+        if (!(interceptable == null || interceptable.invokeL(65547, this, iPlayerConfig) == null) || (list = this.list) == null || iPlayerConfig == null) {
             return;
         }
         list.add(iPlayerConfig);
@@ -132,7 +144,7 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
     public void onUnregister(IPlayerConfig iPlayerConfig) {
         List<IPlayerConfig> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, this, iPlayerConfig) == null) || (list = this.list) == null || iPlayerConfig == null) {
+        if (!(interceptable == null || interceptable.invokeL(65548, this, iPlayerConfig) == null) || (list = this.list) == null || iPlayerConfig == null) {
             return;
         }
         list.remove(iPlayerConfig);
@@ -141,9 +153,9 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
     /* JADX INFO: Access modifiers changed from: private */
     public void onUpdateConfig() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             try {
-                String processUrl = CommonUrlParamManager.getInstance().processUrl("http://mbd.baidu.com/playserver/ctlconf?");
+                String processUrl = CommonUrlParamManager.getInstance().processUrl(PLAYER_SERVER);
                 if (processUrl == null) {
                     return;
                 }
@@ -185,16 +197,23 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                     public void onResponse(Call call, Response response) {
                         String string;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) || response == null) {
-                            return;
-                        }
-                        try {
-                            if (response.body() == null || (string = response.body().string()) == null || string.isEmpty()) {
-                                return;
+                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                            this.this$0.mPullCfgSuccessfully = 0;
+                            if (response != null) {
+                                try {
+                                    if (response.body() == null || (string = response.body().string()) == null || string.isEmpty()) {
+                                        return;
+                                    }
+                                    this.this$0.notify(string);
+                                    JSONObject jSONObject = new JSONObject(string);
+                                    if (jSONObject.getInt("errno") == 0) {
+                                        this.this$0.mUpdateInterval = jSONObject.getJSONObject("bandwidth_config").getLong("update_interval");
+                                        this.this$0.mPullCfgSuccessfully = 1;
+                                        this.this$0.mRetryCount = 0L;
+                                    }
+                                } catch (IOException | Exception unused) {
+                                }
                             }
-                            this.this$0.notify(string);
-                            this.this$0.mUpdateInterval = new JSONObject(string).getJSONObject("bandwidth_config").getLong("update_interval");
-                        } catch (IOException | Exception unused) {
                         }
                     }
                 });
@@ -262,17 +281,9 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
     @Override // com.baidu.searchbox.playerserver.IPlayerPolicy
     public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.mFirstUpdateTimeStamp == 0) {
-                this.mFirstUpdateTimeStamp = currentTimeMillis;
-            }
-            String str = "first period : " + (currentTimeMillis - this.mFirstUpdateTimeStamp < this.mUpdateInterval) + " second period : " + (currentTimeMillis - this.mLastUpdateTimeStamp > this.mUpdateInterval);
-            long j2 = this.mUpdateInterval;
-            if (currentTimeMillis - this.mFirstUpdateTimeStamp < j2 || currentTimeMillis - this.mLastUpdateTimeStamp > j2) {
-                this.mLastUpdateTimeStamp = currentTimeMillis;
-                this.mWorkHandler.sendEmptyMessage(1);
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mRequested == 0) {
+            this.mRequested = 1;
+            this.mWorkHandler.sendEmptyMessage(1);
         }
     }
 

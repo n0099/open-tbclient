@@ -43,7 +43,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.net.ssl.SSLHandshakeException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements f, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -61,34 +61,34 @@ public class c implements f, Runnable {
     public volatile k K;
 
     /* renamed from: b  reason: collision with root package name */
-    public Future f61856b;
+    public Future f62437b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final DownloadTask f61857c;
+    public final DownloadTask f62438c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f61858d;
+    public volatile boolean f62439d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicInteger f61859e;
+    public AtomicInteger f62440e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ArrayList<b> f61860f;
+    public final ArrayList<b> f62441f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile com.ss.android.socialbase.downloader.downloader.e f61861g;
+    public volatile com.ss.android.socialbase.downloader.downloader.e f62442g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f61862h;
+    public boolean f62443h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f61863i;
+    public boolean f62444i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f61864j;
+    public boolean f62445j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f61865k;
+    public boolean f62446k;
     public boolean l;
     public final AtomicBoolean m;
     public volatile com.ss.android.socialbase.downloader.constants.h n;
@@ -136,8 +136,8 @@ public class c implements f, Runnable {
                 return;
             }
         }
-        this.f61858d = false;
-        this.f61860f = new ArrayList<>();
+        this.f62439d = false;
+        this.f62441f = new ArrayList<>();
         this.n = com.ss.android.socialbase.downloader.constants.h.a;
         this.B = 5;
         this.C = false;
@@ -145,7 +145,7 @@ public class c implements f, Runnable {
         this.F = false;
         this.J = 0;
         this.K = null;
-        this.f61857c = downloadTask;
+        this.f62438c = downloadTask;
         if (downloadTask != null) {
             this.p = downloadTask.getDownloadInfo();
             this.q = downloadTask.getChunkStrategy();
@@ -214,7 +214,7 @@ public class c implements f, Runnable {
             if (downloadInfo == null || downloadInfo.isExpiredRedownload()) {
                 return false;
             }
-            return (!this.f61863i || this.p.getChunkCount() > 1) && !this.p.isChunkDowngradeRetryUsed() && this.f61864j && !this.l;
+            return (!this.f62444i || this.p.getChunkCount() > 1) && !this.p.isChunkDowngradeRetryUsed() && this.f62445j && !this.l;
         }
         return invokeV.booleanValue;
     }
@@ -328,7 +328,7 @@ public class c implements f, Runnable {
             }
             this.p.setCurBytes(f2);
             boolean z = f2 > 0;
-            this.f61863i = z;
+            this.f62444i = z;
             if (z || this.F) {
                 return;
             }
@@ -348,7 +348,7 @@ public class c implements f, Runnable {
                 this.o.d(this.p.getId());
                 this.o.m(this.p.getId());
                 com.ss.android.socialbase.downloader.i.f.a(this.p);
-                this.f61863i = false;
+                this.f62444i = false;
                 this.p.resetDataForEtagEndure("");
                 this.o.a(this.p);
             } catch (Throwable th) {
@@ -361,7 +361,7 @@ public class c implements f, Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             try {
-                Iterator it = ((ArrayList) this.f61860f.clone()).iterator();
+                Iterator it = ((ArrayList) this.f62441f.clone()).iterator();
                 while (it.hasNext()) {
                     b bVar = (b) it.next();
                     if (bVar != null) {
@@ -404,9 +404,9 @@ public class c implements f, Runnable {
         if (retryCount < 0) {
             retryCount = 0;
         }
-        AtomicInteger atomicInteger = this.f61859e;
+        AtomicInteger atomicInteger = this.f62440e;
         if (atomicInteger == null) {
-            this.f61859e = new AtomicInteger(retryCount);
+            this.f62440e = new AtomicInteger(retryCount);
         } else {
             atomicInteger.set(retryCount);
         }
@@ -468,7 +468,7 @@ public class c implements f, Runnable {
                                         } catch (Throwable th2) {
                                             th = th2;
                                             z = z3;
-                                            if (this.f61857c != null) {
+                                            if (this.f62438c != null) {
                                             }
                                             if (z) {
                                             }
@@ -489,8 +489,8 @@ public class c implements f, Runnable {
                                     th = th3;
                                     z = z3;
                                     z2 = false;
-                                    if (this.f61857c != null) {
-                                        com.ss.android.socialbase.downloader.d.a.a(this.f61857c.getMonitorDepend(), this.p, new BaseException(1003, com.ss.android.socialbase.downloader.i.f.b(th, "checkTaskCache")), this.p.getStatus());
+                                    if (this.f62438c != null) {
+                                        com.ss.android.socialbase.downloader.d.a.a(this.f62438c.getMonitorDepend(), this.p, new BaseException(1003, com.ss.android.socialbase.downloader.i.f.b(th, "checkTaskCache")), this.p.getStatus());
                                     }
                                     if (z) {
                                     }
@@ -509,8 +509,8 @@ public class c implements f, Runnable {
                             th = th4;
                             z = z2;
                             z2 = false;
-                            if (this.f61857c != null && this.p != null) {
-                                com.ss.android.socialbase.downloader.d.a.a(this.f61857c.getMonitorDepend(), this.p, new BaseException(1003, com.ss.android.socialbase.downloader.i.f.b(th, "checkTaskCache")), this.p.getStatus());
+                            if (this.f62438c != null && this.p != null) {
+                                com.ss.android.socialbase.downloader.d.a.a(this.f62438c.getMonitorDepend(), this.p, new BaseException(1003, com.ss.android.socialbase.downloader.i.f.b(th, "checkTaskCache")), this.p.getStatus());
                             }
                             if (z) {
                                 if (!z2 || this.I.a("fix_file_exist_update_download_info")) {
@@ -565,7 +565,7 @@ public class c implements f, Runnable {
         } catch (Throwable unused) {
         }
         try {
-            IDownloadInterceptor interceptor = this.f61857c.getInterceptor();
+            IDownloadInterceptor interceptor = this.f62438c.getInterceptor();
             if (interceptor != null) {
                 if (interceptor.intercepte()) {
                     this.v.e();
@@ -577,7 +577,7 @@ public class c implements f, Runnable {
             }
         }
         if (i()) {
-            x monitorDepend = this.f61857c.getMonitorDepend();
+            x monitorDepend = this.f62438c.getMonitorDepend();
             DownloadInfo downloadInfo = this.p;
             BaseException baseException = new BaseException(1003, "task status is invalid");
             DownloadInfo downloadInfo2 = this.p;
@@ -655,7 +655,7 @@ public class c implements f, Runnable {
                             } catch (BaseException e3) {
                                 String str2 = a;
                                 com.ss.android.socialbase.downloader.c.a.d(str2, "downloadInner: baseException = " + e3);
-                                if (this.n != com.ss.android.socialbase.downloader.constants.h.f61683b) {
+                                if (this.n != com.ss.android.socialbase.downloader.constants.h.f62264b) {
                                     if (e3.getErrorCode() != 1025 && e3.getErrorCode() != 1009) {
                                         if (a(e3)) {
                                             if (com.ss.android.socialbase.downloader.i.f.a(e3)) {
@@ -671,7 +671,7 @@ public class c implements f, Runnable {
                                             b(e3);
                                         }
                                     }
-                                    this.n = com.ss.android.socialbase.downloader.constants.h.f61686e;
+                                    this.n = com.ss.android.socialbase.downloader.constants.h.f62267e;
                                     s();
                                     return;
                                 }
@@ -682,15 +682,15 @@ public class c implements f, Runnable {
                     } catch (com.ss.android.socialbase.downloader.exception.i e4) {
                         String str3 = a;
                         com.ss.android.socialbase.downloader.c.a.d(str3, "downloadInner: retry throwable for " + e4.a());
-                        if (this.n != com.ss.android.socialbase.downloader.constants.h.f61683b) {
-                            if (this.f61859e != null && this.f61859e.get() > 0) {
-                                this.p.updateCurRetryTime(this.f61859e.decrementAndGet());
+                        if (this.n != com.ss.android.socialbase.downloader.constants.h.f62264b) {
+                            if (this.f62440e != null && this.f62440e.get() > 0) {
+                                this.p.updateCurRetryTime(this.f62440e.decrementAndGet());
                                 this.p.setStatus(5);
-                            } else if (this.f61859e != null) {
+                            } else if (this.f62440e != null) {
                                 if (this.p.trySwitchToNextBackupUrl()) {
                                     this.p.setStatus(5);
-                                    this.f61859e.set(this.p.getRetryCount());
-                                    this.p.updateCurRetryTime(this.f61859e.get());
+                                    this.f62440e.set(this.p.getRetryCount());
+                                    this.p.updateCurRetryTime(this.f62440e.get());
                                 } else {
                                     b(new BaseException(1018, String.format("retry for Throwable, but retry Time %s all used, last error is %s", String.valueOf(this.p.getRetryCount()), e4.a())));
                                 }
@@ -702,7 +702,7 @@ public class c implements f, Runnable {
                     } catch (Throwable th) {
                         String str4 = a;
                         com.ss.android.socialbase.downloader.c.a.d(str4, "downloadInner: throwable =  " + th);
-                        if (this.n != com.ss.android.socialbase.downloader.constants.h.f61683b) {
+                        if (this.n != com.ss.android.socialbase.downloader.constants.h.f62264b) {
                             b(new BaseException((int) RevenueServerConst.ReportPurchaseRequest, th));
                         }
                     }
@@ -716,7 +716,7 @@ public class c implements f, Runnable {
                         s();
                         return;
                     }
-                    long e5 = this.f61863i ? com.ss.android.socialbase.downloader.i.f.e(this.p) : 0L;
+                    long e5 = this.f62444i ? com.ss.android.socialbase.downloader.i.f.e(this.p) : 0L;
                     com.ss.android.socialbase.downloader.model.b a2 = a(this.p, e5);
                     List<com.ss.android.socialbase.downloader.model.c> a3 = a(a2);
                     com.ss.android.socialbase.downloader.i.f.a(a3, this.p);
@@ -738,7 +738,7 @@ public class c implements f, Runnable {
                             return;
                         } else if (a4 > 0) {
                             boolean z2 = a4 == 1;
-                            this.f61862h = z2;
+                            this.f62443h = z2;
                             if (z2) {
                                 if (this.x == null) {
                                     try {
@@ -765,7 +765,7 @@ public class c implements f, Runnable {
                                 }
                                 o();
                                 this.p.setFirstSpeedTime(System.currentTimeMillis() - currentTimeMillis);
-                                if (this.f61863i) {
+                                if (this.f62444i) {
                                     a(a4, c2);
                                 } else {
                                     a(totalBytes, a4);
@@ -791,14 +791,14 @@ public class c implements f, Runnable {
             com.ss.android.socialbase.downloader.c.a.b(a, "finishWithFileExist");
             if (com.ss.android.socialbase.downloader.g.a.c().b("fix_end_for_file_exist_error", true)) {
                 if (this.E.equals(this.p.getName())) {
-                    this.n = com.ss.android.socialbase.downloader.constants.h.f61686e;
+                    this.n = com.ss.android.socialbase.downloader.constants.h.f62267e;
                 } else {
-                    this.n = com.ss.android.socialbase.downloader.constants.h.f61689h;
+                    this.n = com.ss.android.socialbase.downloader.constants.h.f62270h;
                 }
             } else if (this.E.equals(this.p.getTargetFilePath())) {
-                this.n = com.ss.android.socialbase.downloader.constants.h.f61686e;
+                this.n = com.ss.android.socialbase.downloader.constants.h.f62267e;
             } else {
-                this.n = com.ss.android.socialbase.downloader.constants.h.f61689h;
+                this.n = com.ss.android.socialbase.downloader.constants.h.f62270h;
             }
         }
     }
@@ -824,7 +824,7 @@ public class c implements f, Runnable {
                 this.K = new k(this.p, n.a(d2), this);
                 if (v()) {
                     com.ss.android.socialbase.downloader.c.a.c(a, "downloadSegments: is stopped by user");
-                    if (this.n == com.ss.android.socialbase.downloader.constants.h.f61684c) {
+                    if (this.n == com.ss.android.socialbase.downloader.constants.h.f62265c) {
                         this.K.a();
                     } else {
                         this.K.b();
@@ -841,7 +841,7 @@ public class c implements f, Runnable {
     private void o() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65574, this) == null) && com.ss.android.socialbase.downloader.g.a.a(this.p.getId()).a("reset_retain_retry_times", 0) == 1 && this.J < 3) {
-            this.f61859e.set(this.p.isBackUpUrlUsed() ? this.p.getBackUpUrlRetryCount() : this.p.getRetryCount());
+            this.f62440e.set(this.p.isBackUpUrlUsed() ? this.p.getBackUpUrlRetryCount() : this.p.getRetryCount());
             this.J++;
         }
     }
@@ -853,7 +853,7 @@ public class c implements f, Runnable {
         if (interceptable == null || interceptable.invokeV(65575, this) == null) {
             String str = a;
             com.ss.android.socialbase.downloader.c.a.b(str, "endDownloadRunnable::runStatus=" + this.n);
-            boolean z3 = (this.n == com.ss.android.socialbase.downloader.constants.h.f61683b || this.n == com.ss.android.socialbase.downloader.constants.h.f61684c) ? false : true;
+            boolean z3 = (this.n == com.ss.android.socialbase.downloader.constants.h.f62264b || this.n == com.ss.android.socialbase.downloader.constants.h.f62265c) ? false : true;
             try {
                 z = w();
                 z2 = false;
@@ -880,7 +880,7 @@ public class c implements f, Runnable {
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
-                    x monitorDepend = this.f61857c.getMonitorDepend();
+                    x monitorDepend = this.f62438c.getMonitorDepend();
                     DownloadInfo downloadInfo = this.p;
                     BaseException baseException = new BaseException(1014, com.ss.android.socialbase.downloader.i.f.b(th, "removeDownloadRunnable"));
                     DownloadInfo downloadInfo2 = this.p;
@@ -920,24 +920,24 @@ public class c implements f, Runnable {
 
     private void t() throws BaseException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65579, this) == null) || this.f61861g == null) {
+        if (!(interceptable == null || interceptable.invokeV(65579, this) == null) || this.f62442g == null) {
             return;
         }
-        if (this.n == com.ss.android.socialbase.downloader.constants.h.f61684c) {
+        if (this.n == com.ss.android.socialbase.downloader.constants.h.f62265c) {
             this.p.setStatus(-4);
-            this.f61861g.c();
-        } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f61683b) {
+            this.f62442g.c();
+        } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f62264b) {
             this.p.setStatus(-2);
-            this.f61861g.b();
+            this.f62442g.b();
         } else {
-            this.f61861g.d();
+            this.f62442g.d();
         }
     }
 
     private boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65580, this)) == null) ? this.n == com.ss.android.socialbase.downloader.constants.h.f61684c || this.n == com.ss.android.socialbase.downloader.constants.h.f61683b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65580, this)) == null) ? this.n == com.ss.android.socialbase.downloader.constants.h.f62265c || this.n == com.ss.android.socialbase.downloader.constants.h.f62264b : invokeV.booleanValue;
     }
 
     private boolean v() {
@@ -949,10 +949,10 @@ public class c implements f, Runnable {
                     return true;
                 }
                 if (this.p.getStatus() == -2) {
-                    this.n = com.ss.android.socialbase.downloader.constants.h.f61683b;
+                    this.n = com.ss.android.socialbase.downloader.constants.h.f62264b;
                     return true;
                 } else if (this.p.getStatus() == -4) {
-                    this.n = com.ss.android.socialbase.downloader.constants.h.f61684c;
+                    this.n = com.ss.android.socialbase.downloader.constants.h.f62265c;
                     return true;
                 } else {
                     return true;
@@ -967,34 +967,34 @@ public class c implements f, Runnable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65582, this)) == null) {
-            if (this.n == com.ss.android.socialbase.downloader.constants.h.f61685d) {
+            if (this.n == com.ss.android.socialbase.downloader.constants.h.f62266d) {
                 this.v.a(this.w);
-            } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f61684c) {
+            } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f62265c) {
                 this.v.c();
-            } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f61683b) {
+            } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f62264b) {
                 this.v.d();
-            } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f61686e) {
+            } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f62267e) {
                 try {
                     this.v.g();
                 } catch (BaseException e2) {
                     this.v.a(e2);
                 }
-            } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f61689h) {
+            } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f62270h) {
                 try {
                     this.v.a(this.E);
                 } catch (BaseException e3) {
                     this.v.a(e3);
                 }
-            } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f61690i) {
+            } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f62271i) {
                 this.v.a(this.w, false);
                 return false;
-            } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f61688g) {
+            } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f62269g) {
                 return true;
             } else {
-                if (this.n == com.ss.android.socialbase.downloader.constants.h.f61687f && !x()) {
+                if (this.n == com.ss.android.socialbase.downloader.constants.h.f62268f && !x()) {
                     com.ss.android.socialbase.downloader.c.a.b(a, "doTaskStatusHandle retryDelay");
                     z();
-                    return this.n == com.ss.android.socialbase.downloader.constants.h.f61687f;
+                    return this.n == com.ss.android.socialbase.downloader.constants.h.f62268f;
                 }
                 try {
                     if (!y()) {
@@ -1056,7 +1056,7 @@ public class c implements f, Runnable {
                     return true;
                 }
             }
-            this.p.setByteInvalidRetryStatus(com.ss.android.socialbase.downloader.constants.b.f61656b);
+            this.p.setByteInvalidRetryStatus(com.ss.android.socialbase.downloader.constants.b.f62237b);
             this.p.reset();
             this.o.a(this.p);
             this.o.d(this.p.getId());
@@ -1077,16 +1077,16 @@ public class c implements f, Runnable {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.n = com.ss.android.socialbase.downloader.constants.h.f61684c;
+            this.n = com.ss.android.socialbase.downloader.constants.h.f62265c;
             if (this.K != null) {
                 this.K.a();
             }
-            if (this.f61861g != null) {
-                this.f61861g.c();
+            if (this.f62442g != null) {
+                this.f62442g.c();
             }
-            if (this.K == null && this.f61861g == null) {
+            if (this.K == null && this.f62442g == null) {
                 s();
-                this.n = com.ss.android.socialbase.downloader.constants.h.f61684c;
+                this.n = com.ss.android.socialbase.downloader.constants.h.f62265c;
                 p();
             }
             I();
@@ -1096,7 +1096,7 @@ public class c implements f, Runnable {
     public DownloadTask c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f61857c : (DownloadTask) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f62438c : (DownloadTask) invokeV.objValue;
     }
 
     public boolean d() {
@@ -1129,19 +1129,19 @@ public class c implements f, Runnable {
     public Future g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f61856b : (Future) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f62437b : (Future) invokeV.objValue;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            com.ss.android.socialbase.downloader.downloader.c.a(this.f61857c, 3);
+            com.ss.android.socialbase.downloader.downloader.c.a(this.f62438c, 3);
             try {
                 com.ss.android.socialbase.downloader.network.b.a().b();
                 k();
                 com.ss.android.socialbase.downloader.network.b.a().c();
-                com.ss.android.socialbase.downloader.downloader.c.b(this.f61857c, 3);
+                com.ss.android.socialbase.downloader.downloader.c.b(this.f62438c, 3);
             } catch (Throwable th) {
                 com.ss.android.socialbase.downloader.network.b.a().c();
                 throw th;
@@ -1153,25 +1153,25 @@ public class c implements f, Runnable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, this, baseException)) == null) {
-            AtomicInteger atomicInteger = this.f61859e;
+            AtomicInteger atomicInteger = this.f62440e;
             boolean z = true;
             if (atomicInteger != null) {
                 if (atomicInteger.get() <= 0 || (baseException != null && baseException.getErrorCode() == 1070)) {
                     if (this.p.trySwitchToNextBackupUrl()) {
-                        this.f61859e.set(this.p.getBackUpUrlRetryCount());
-                        this.p.updateCurRetryTime(this.f61859e.get());
+                        this.f62440e.set(this.p.getBackUpUrlRetryCount());
+                        this.p.updateCurRetryTime(this.f62440e.get());
                     } else if (baseException != null && ((baseException.getErrorCode() == 1011 || (baseException.getCause() != null && (baseException.getCause() instanceof SSLHandshakeException))) && this.p.canReplaceHttpForRetry())) {
-                        this.f61859e.set(this.p.getRetryCount());
-                        this.p.updateCurRetryTime(this.f61859e.get());
+                        this.f62440e.set(this.p.getRetryCount());
+                        this.p.updateCurRetryTime(this.f62440e.get());
                         this.p.setHttpsToHttpRetryUsed(true);
                     } else {
-                        b(new BaseException(baseException.getErrorCode(), String.format("retry for exception, but current retry time : %s , retry Time %s all used, last error is %s", String.valueOf(this.f61859e), String.valueOf(this.p.getRetryCount()), baseException.getErrorMessage())));
+                        b(new BaseException(baseException.getErrorCode(), String.format("retry for exception, but current retry time : %s , retry Time %s all used, last error is %s", String.valueOf(this.f62440e), String.valueOf(this.p.getRetryCount()), baseException.getErrorMessage())));
                         return true;
                     }
                     z = false;
                 }
-                if (this.n != com.ss.android.socialbase.downloader.constants.h.f61687f && z) {
-                    this.p.updateCurRetryTime(this.f61859e.decrementAndGet());
+                if (this.n != com.ss.android.socialbase.downloader.constants.h.f62268f && z) {
+                    this.p.updateCurRetryTime(this.f62440e.decrementAndGet());
                 }
                 return false;
             }
@@ -1196,20 +1196,20 @@ public class c implements f, Runnable {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.n = com.ss.android.socialbase.downloader.constants.h.f61683b;
+            this.n = com.ss.android.socialbase.downloader.constants.h.f62264b;
             if (this.K != null) {
                 this.K.b();
             }
-            if (this.f61861g != null) {
-                this.f61861g.b();
+            if (this.f62442g != null) {
+                this.f62442g.b();
             }
-            if (this.K == null && this.f61861g == null) {
+            if (this.K == null && this.f62442g == null) {
                 s();
-                this.n = com.ss.android.socialbase.downloader.constants.h.f61683b;
+                this.n = com.ss.android.socialbase.downloader.constants.h.f62264b;
                 p();
             }
             try {
-                Iterator it = ((ArrayList) this.f61860f.clone()).iterator();
+                Iterator it = ((ArrayList) this.f62441f.clone()).iterator();
                 while (it.hasNext()) {
                     b bVar = (b) it.next();
                     if (bVar != null) {
@@ -1270,7 +1270,7 @@ public class c implements f, Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(65549, this, j2, list)) == null) {
             if (C()) {
-                if (!this.f61863i) {
+                if (!this.f62444i) {
                     com.ss.android.socialbase.downloader.downloader.h hVar = this.q;
                     if (hVar != null) {
                         a2 = hVar.a(j2);
@@ -1320,7 +1320,7 @@ public class c implements f, Runnable {
         if (interceptable == null || interceptable.invokeL(1048588, this, baseException) == null) {
             String str = a;
             com.ss.android.socialbase.downloader.c.a.b(str, "onError:" + baseException.getMessage());
-            this.n = com.ss.android.socialbase.downloader.constants.h.f61685d;
+            this.n = com.ss.android.socialbase.downloader.constants.h.f62266d;
             this.w = baseException;
             I();
         }
@@ -1461,24 +1461,24 @@ public class c implements f, Runnable {
                         bVar.a(p);
                         if (this.p.isNeedReuseFirstConnection() && this.x != null && (!this.p.isHeadConnectionAvailable() || this.D)) {
                             if (bVar.s() == 0) {
-                                this.f61860f.add(new b(bVar, this.f61857c, this.x, this));
+                                this.f62441f.add(new b(bVar, this.f62438c, this.x, this));
                             } else if (bVar.s() > 0) {
-                                this.f61860f.add(new b(bVar, this.f61857c, this));
+                                this.f62441f.add(new b(bVar, this.f62438c, this));
                             }
                         } else {
-                            this.f61860f.add(new b(bVar, this.f61857c, this));
+                            this.f62441f.add(new b(bVar, this.f62438c, this));
                         }
                     }
                 }
             }
             if (com.ss.android.socialbase.downloader.i.a.a(64)) {
-                ArrayList arrayList = new ArrayList(this.f61860f.size());
-                Iterator<b> it = this.f61860f.iterator();
+                ArrayList arrayList = new ArrayList(this.f62441f.size());
+                Iterator<b> it = this.f62441f.iterator();
                 while (it.hasNext()) {
                     b next = it.next();
-                    if (this.n == com.ss.android.socialbase.downloader.constants.h.f61684c) {
+                    if (this.n == com.ss.android.socialbase.downloader.constants.h.f62265c) {
                         next.b();
-                    } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f61683b) {
+                    } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f62264b) {
                         next.a();
                     } else {
                         arrayList.add(next);
@@ -1508,13 +1508,13 @@ public class c implements f, Runnable {
                     return;
                 }
             }
-            ArrayList arrayList2 = new ArrayList(this.f61860f.size());
-            Iterator<b> it2 = this.f61860f.iterator();
+            ArrayList arrayList2 = new ArrayList(this.f62441f.size());
+            Iterator<b> it2 = this.f62441f.iterator();
             while (it2.hasNext()) {
                 b next2 = it2.next();
-                if (this.n == com.ss.android.socialbase.downloader.constants.h.f61684c) {
+                if (this.n == com.ss.android.socialbase.downloader.constants.h.f62265c) {
                     next2.b();
-                } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f61683b) {
+                } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f62264b) {
                     next2.a();
                 } else {
                     arrayList2.add(Executors.callable(next2));
@@ -1537,7 +1537,7 @@ public class c implements f, Runnable {
             bVar.a(this.p.getTotalBytes() - bVar.n());
             this.p.setChunkCount(1);
             this.o.a(this.p.getId(), 1);
-            this.f61861g = new com.ss.android.socialbase.downloader.downloader.e(this.p, str, iVar, bVar, this);
+            this.f62442g = new com.ss.android.socialbase.downloader.downloader.e(this.p, str, iVar, bVar, this);
             t();
         }
     }
@@ -1626,7 +1626,7 @@ public class c implements f, Runnable {
             if (i2 == 412) {
                 return true;
             }
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || str.equals(str2) || !(this.f61865k || this.f61864j)) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || str.equals(str2) || !(this.f62446k || this.f62445j)) {
                 return (i2 == 201 || i2 == 416) && this.p.getCurBytes() > 0;
             }
             return true;
@@ -1640,7 +1640,7 @@ public class c implements f, Runnable {
             this.o.d(this.p.getId());
             this.o.m(this.p.getId());
             com.ss.android.socialbase.downloader.i.f.a(this.p);
-            this.f61863i = false;
+            this.f62444i = false;
             this.p.resetDataForEtagEndure(str);
             this.o.a(this.p);
             throw new com.ss.android.socialbase.downloader.exception.i(str2);
@@ -1663,15 +1663,15 @@ public class c implements f, Runnable {
         }
         try {
             com.ss.android.socialbase.downloader.model.d dVar = new com.ss.android.socialbase.downloader.model.d(str, gVar);
-            int i2 = dVar.f62011c;
+            int i2 = dVar.f62592c;
             String d2 = dVar.d();
             if (TextUtils.isEmpty(this.p.getMimeType()) && !TextUtils.isEmpty(d2)) {
                 this.p.setMimeType(d2);
             }
             boolean b2 = dVar.b();
-            this.f61864j = b2;
+            this.f62445j = b2;
             this.p.setSupportPartial(b2);
-            this.f61865k = dVar.a();
+            this.f62446k = dVar.a();
             String str2 = this.p.geteTag();
             String c2 = dVar.c();
             String f2 = dVar.f();
@@ -1733,13 +1733,13 @@ public class c implements f, Runnable {
             } else {
                 gVar2 = gVar;
             }
-            if (!this.f61864j && !this.f61865k) {
+            if (!this.f62445j && !this.f62446k) {
                 if (i2 == 403) {
                     throw new BaseException((int) RevenueServerConst.GetUserCouponStoreRequest, "response code error : 403");
                 }
                 throw new com.ss.android.socialbase.downloader.exception.b(1004, i2, "response code error : " + i2);
             }
-            if (this.f61865k && i3 > 0) {
+            if (this.f62446k && i3 > 0) {
                 if (gVar2 instanceof i) {
                     a("", "http head request not support");
                 } else {
@@ -1791,11 +1791,11 @@ public class c implements f, Runnable {
     @Override // com.ss.android.socialbase.downloader.h.f
     public void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || this.f61862h) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || this.f62443h) {
             return;
         }
         synchronized (this) {
-            this.f61860f.remove(bVar);
+            this.f62441f.remove(bVar);
         }
     }
 
@@ -1804,15 +1804,15 @@ public class c implements f, Runnable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, baseException)) == null) {
-            if (this.K == null || !com.ss.android.socialbase.downloader.i.f.i(baseException) || this.f61859e.get() >= this.p.getRetryCount()) {
+            if (this.K == null || !com.ss.android.socialbase.downloader.i.f.i(baseException) || this.f62440e.get() >= this.p.getRetryCount()) {
                 if (com.ss.android.socialbase.downloader.i.f.b(baseException)) {
-                    if (this.f61862h && !this.f61858d) {
+                    if (this.f62443h && !this.f62439d) {
                         com.ss.android.socialbase.downloader.i.f.a(this.p);
-                        this.f61858d = true;
+                        this.f62439d = true;
                     }
                     return true;
                 }
-                AtomicInteger atomicInteger = this.f61859e;
+                AtomicInteger atomicInteger = this.f62440e;
                 if ((atomicInteger == null || atomicInteger.get() <= 0) && !this.p.hasNextBackupUrl()) {
                     if (baseException == null) {
                         return false;
@@ -1833,7 +1833,7 @@ public class c implements f, Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, baseException, z) == null) {
             com.ss.android.socialbase.downloader.c.a.b(a, "onAllChunkRetryWithReset");
-            this.n = com.ss.android.socialbase.downloader.constants.h.f61690i;
+            this.n = com.ss.android.socialbase.downloader.constants.h.f62271i;
             this.w = baseException;
             I();
             if (z ? d(baseException) : false) {
@@ -1849,7 +1849,7 @@ public class c implements f, Runnable {
         if (!(interceptable == null || interceptable.invokeL(65562, this, list) == null) || list == null || list.isEmpty()) {
             return;
         }
-        this.p.setForbiddenBackupUrls(list, this.n == com.ss.android.socialbase.downloader.constants.h.f61688g);
+        this.p.setForbiddenBackupUrls(list, this.n == com.ss.android.socialbase.downloader.constants.h.f62269g);
         com.ss.android.socialbase.downloader.impls.a C = com.ss.android.socialbase.downloader.downloader.c.C();
         if (C != null) {
             C.l(this.p.getId());
@@ -1873,8 +1873,8 @@ public class c implements f, Runnable {
             if (d(baseException)) {
                 return com.ss.android.socialbase.downloader.exception.h.a;
             }
-            this.v.a(bVar, baseException, this.n == com.ss.android.socialbase.downloader.constants.h.f61687f);
-            if (this.n != com.ss.android.socialbase.downloader.constants.h.f61687f && this.p.isNeedRetryDelay()) {
+            this.v.a(bVar, baseException, this.n == com.ss.android.socialbase.downloader.constants.h.f62268f);
+            if (this.n != com.ss.android.socialbase.downloader.constants.h.f62268f && this.p.isNeedRetryDelay()) {
                 long A = A();
                 if (A > 0) {
                     String str = a;
@@ -1887,7 +1887,7 @@ public class c implements f, Runnable {
                     }
                 }
             }
-            return com.ss.android.socialbase.downloader.exception.h.f61768b;
+            return com.ss.android.socialbase.downloader.exception.h.f62349b;
         }
         return (com.ss.android.socialbase.downloader.exception.h) invokeCommon.objValue;
     }
@@ -1946,7 +1946,7 @@ public class c implements f, Runnable {
                         if (!bVar.a()) {
                             I();
                             this.v.h();
-                            this.n = com.ss.android.socialbase.downloader.constants.h.f61688g;
+                            this.n = com.ss.android.socialbase.downloader.constants.h.f62269g;
                             return com.ss.android.socialbase.downloader.exception.h.a;
                         }
                         z = true;
@@ -1967,7 +1967,7 @@ public class c implements f, Runnable {
                     public final /* synthetic */ AtomicBoolean a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ c f61866b;
+                    public final /* synthetic */ c f62447b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1984,7 +1984,7 @@ public class c implements f, Runnable {
                                 return;
                             }
                         }
-                        this.f61866b = this;
+                        this.f62447b = this;
                         this.a = atomicBoolean;
                     }
 
@@ -1992,9 +1992,9 @@ public class c implements f, Runnable {
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            synchronized (this.f61866b) {
+                            synchronized (this.f62447b) {
                                 this.a.set(true);
-                                this.f61866b.J();
+                                this.f62447b.J();
                             }
                         }
                     }
@@ -2013,8 +2013,8 @@ public class c implements f, Runnable {
                             y();
                         }
                         if (!atomicBoolean.get()) {
-                            if (this.n != com.ss.android.socialbase.downloader.constants.h.f61688g) {
-                                this.n = com.ss.android.socialbase.downloader.constants.h.f61688g;
+                            if (this.n != com.ss.android.socialbase.downloader.constants.h.f62269g) {
+                                this.n = com.ss.android.socialbase.downloader.constants.h.f62269g;
                                 I();
                                 this.v.h();
                             }
@@ -2024,7 +2024,7 @@ public class c implements f, Runnable {
                             return com.ss.android.socialbase.downloader.exception.h.a;
                         }
                         z = true;
-                    } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f61688g) {
+                    } else if (this.n == com.ss.android.socialbase.downloader.constants.h.f62269g) {
                         return com.ss.android.socialbase.downloader.exception.h.a;
                     } else {
                         b(baseException);
@@ -2040,8 +2040,8 @@ public class c implements f, Runnable {
             if (!z && K()) {
                 I();
             }
-            this.v.a(baseException, this.n == com.ss.android.socialbase.downloader.constants.h.f61687f);
-            return this.n == com.ss.android.socialbase.downloader.constants.h.f61687f ? com.ss.android.socialbase.downloader.exception.h.a : com.ss.android.socialbase.downloader.exception.h.f61768b;
+            this.v.a(baseException, this.n == com.ss.android.socialbase.downloader.constants.h.f62268f);
+            return this.n == com.ss.android.socialbase.downloader.constants.h.f62268f ? com.ss.android.socialbase.downloader.exception.h.a : com.ss.android.socialbase.downloader.exception.h.f62349b;
         }
         return (com.ss.android.socialbase.downloader.exception.h) invokeLJ.objValue;
     }
@@ -2121,7 +2121,7 @@ public class c implements f, Runnable {
                 String str = a;
                 com.ss.android.socialbase.downloader.c.a.b(str, "reuseChunk retainLen:" + c2 + " chunkIndex:" + i2);
                 boolean z = false;
-                if (!bVar.f() && c2 > com.ss.android.socialbase.downloader.constants.e.f61672f && this.p.isNeedReuseChunkRunnable()) {
+                if (!bVar.f() && c2 > com.ss.android.socialbase.downloader.constants.e.f62253f && this.p.isNeedReuseChunkRunnable()) {
                     List<com.ss.android.socialbase.downloader.model.b> a2 = bVar.a(this.p.getChunkCount(), this.p.getTotalBytes());
                     if (a2 != null) {
                         for (com.ss.android.socialbase.downloader.model.b bVar3 : a2) {
@@ -2181,7 +2181,7 @@ public class c implements f, Runnable {
     public void a(Future future) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, future) == null) {
-            this.f61856b = future;
+            this.f62437b = future;
         }
     }
 }

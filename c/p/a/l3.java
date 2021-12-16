@@ -16,23 +16,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class l3 extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Context f30838b;
+    public final /* synthetic */ Context f31208b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Info f30839c;
+    public final /* synthetic */ Info f31209c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f30840d;
+    public final /* synthetic */ String f31210d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ o3 f30841e;
+    public final /* synthetic */ o3 f31211e;
 
     public l3(o3 o3Var, Context context, Info info, String str) {
         Interceptable interceptable = $ic;
@@ -49,10 +49,10 @@ public class l3 extends WebViewClient {
                 return;
             }
         }
-        this.f30841e = o3Var;
-        this.f30838b = context;
-        this.f30839c = info;
-        this.f30840d = str;
+        this.f31211e = o3Var;
+        this.f31208b = context;
+        this.f31209c = info;
+        this.f31210d = str;
     }
 
     public final boolean a(String str) {
@@ -62,8 +62,8 @@ public class l3 extends WebViewClient {
             Uri parse = Uri.parse(str);
             if (o3.b(parse) || o3.c(parse)) {
                 this.a = true;
-                if (!a2.b(this.f30838b, parse, null)) {
-                    d3.a(this.f30838b, parse);
+                if (!a2.b(this.f31208b, parse, null)) {
+                    d3.a(this.f31208b, parse);
                 }
                 return true;
             }
@@ -77,13 +77,13 @@ public class l3 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
             super.onPageFinished(webView, str);
-            this.f30841e.f30875c.removeMessages(11);
+            this.f31211e.f31245c.removeMessages(11);
             if (this.a) {
                 return;
             }
-            y2 a = c3.a(this.f30838b);
+            y2 a = c3.a(this.f31208b);
             try {
-                a.f31007b = c3.d("ps", new g3(this.f30839c));
+                a.f31377b = c3.d("ps", new g3(this.f31209c));
                 a.k("co", 2004);
                 a.l("msg", str);
             } catch (JSONException unused) {
@@ -91,8 +91,8 @@ public class l3 extends WebViewClient {
             a.m();
             Message obtain = Message.obtain();
             obtain.what = 12;
-            obtain.obj = this.f30840d;
-            this.f30841e.f30875c.sendMessage(obtain);
+            obtain.obj = this.f31210d;
+            this.f31211e.f31245c.sendMessage(obtain);
         }
     }
 

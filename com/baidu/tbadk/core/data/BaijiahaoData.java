@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Baijiahao;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BaijiahaoData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int UGC_TYPE_ARTICLE = 1;

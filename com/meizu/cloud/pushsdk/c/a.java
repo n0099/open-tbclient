@@ -11,15 +11,15 @@ import com.meizu.cloud.pushsdk.c.e.c;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f60388b;
+    public static BroadcastReceiver f60969b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static AtomicBoolean f60389c = new AtomicBoolean(false);
+    public static AtomicBoolean f60970c = new AtomicBoolean(false);
 
     public static b a(Context context) {
         return new b.a().a(context).a();
@@ -31,7 +31,7 @@ public class a {
                 if (a == null) {
                     a = a(b(context, aVar, fVar), (b) null, context);
                 }
-                if (f60389c.compareAndSet(false, true)) {
+                if (f60970c.compareAndSet(false, true)) {
                     a(context, a);
                 }
             }
@@ -81,7 +81,7 @@ public class a {
                 }
             }
         };
-        f60388b = broadcastReceiver;
+        f60969b = broadcastReceiver;
         context.registerReceiver(broadcastReceiver, intentFilter);
     }
 

@@ -8,13 +8,13 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f55755b;
+    public static boolean f56336b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static f a() {
@@ -43,7 +43,7 @@ public class b {
             if (str.equalsIgnoreCase("lenovo") || str.equalsIgnoreCase("zuk")) {
                 return new g();
             }
-            if (Build.MANUFACTURER.equalsIgnoreCase(com.kuaishou.weapon.un.g.f56645j)) {
+            if (Build.MANUFACTURER.equalsIgnoreCase(com.kuaishou.weapon.un.g.f57226j)) {
                 return new l();
             }
             return null;
@@ -57,18 +57,18 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             q a2 = q.a(context);
             a2.getClass();
-            if (q.f55766b) {
-                String str = q.f55772h;
+            if (q.f56347b) {
+                String str = q.f56353h;
                 if (str != null) {
                     return str;
                 }
                 a2.a(0, null);
-                if (q.f55767c == null) {
+                if (q.f56348c == null) {
                     Context context2 = q.a;
-                    q.f55767c = new s(q.f55773i, 0, null);
-                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f55767c);
+                    q.f56348c = new s(q.f56354i, 0, null);
+                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f56348c);
                 }
-                return q.f55772h;
+                return q.f56353h;
             }
             return null;
         }

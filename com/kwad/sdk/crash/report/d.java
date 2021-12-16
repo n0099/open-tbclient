@@ -14,7 +14,7 @@ import com.kwad.sdk.crash.utils.g;
 import java.io.File;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class d extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public final class d extends b {
             try {
                 str2 = g.d(file);
             } catch (Exception e3) {
-                this.f58183b += e3 + StringUtils.LF;
+                this.f58764b += e3 + StringUtils.LF;
                 str2 = null;
             }
             if (str2 != null) {
@@ -64,7 +64,7 @@ public final class d extends b {
                     javaExceptionMessage.parseJson(new JSONObject(str2));
                 } catch (Exception e5) {
                     e2 = e5;
-                    this.f58183b += e2 + StringUtils.LF;
+                    this.f58764b += e2 + StringUtils.LF;
                     javaExceptionMessage2 = javaExceptionMessage;
                     if (javaExceptionMessage2 == null) {
                     }
@@ -75,7 +75,7 @@ public final class d extends b {
                     f.a(file, javaExceptionMessage2.toString());
                     f.a(file3, file);
                     file.renameTo(file3);
-                    if (!TextUtils.isEmpty(this.f58183b)) {
+                    if (!TextUtils.isEmpty(this.f58764b)) {
                     }
                     return javaExceptionMessage2;
                 }
@@ -96,11 +96,11 @@ public final class d extends b {
                 f.a(file3, file);
                 file.renameTo(file3);
             } catch (Throwable th) {
-                this.f58183b += th + StringUtils.LF;
+                this.f58764b += th + StringUtils.LF;
                 com.kwad.sdk.core.d.a.b(th);
             }
-            if (!TextUtils.isEmpty(this.f58183b)) {
-                javaExceptionMessage2.mErrorMessage += this.f58183b;
+            if (!TextUtils.isEmpty(this.f58764b)) {
+                javaExceptionMessage2.mErrorMessage += this.f58764b;
             }
             return javaExceptionMessage2;
         }

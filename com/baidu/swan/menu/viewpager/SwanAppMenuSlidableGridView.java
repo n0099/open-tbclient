@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.viewpager.widget.ViewPager;
-import c.a.p0.n.g;
-import c.a.p0.n.h;
+import c.a.q0.n.g;
+import c.a.q0.n.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.menu.viewpager.SlideableGridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,18 +15,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a extends WrapContentHeightViewPager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppMenuSlidableGridView f40704e;
+        public final /* synthetic */ SwanAppMenuSlidableGridView f41193e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SwanAppMenuSlidableGridView swanAppMenuSlidableGridView, Context context) {
@@ -46,7 +46,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
                     return;
                 }
             }
-            this.f40704e = swanAppMenuSlidableGridView;
+            this.f41193e = swanAppMenuSlidableGridView;
         }
 
         @Override // androidx.viewpager.widget.ViewPager
@@ -85,7 +85,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public void addIndicator(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.mIndicator = new c.a.p0.n.r.a(context).setPointDrawableResId(h.menu_indicator_normal, h.menu_indicator_selected).setPointMargin((int) getResources().getDimension(g.common_grid_indicator_margin));
+            this.mIndicator = new c.a.q0.n.r.a(context).setPointDrawableResId(h.menu_indicator_normal, h.menu_indicator_selected).setPointMargin((int) getResources().getDimension(g.common_grid_indicator_margin));
             this.mIndicatorHeight[0] = (int) getResources().getDimension(g.aiapp_menu_gridview_indicator_height);
             this.mIndicatorHeight[1] = (int) getResources().getDimension(g.aiapp_menu_gridview_indicator_height);
             addView(this.mIndicator, createIndicatorParams());

@@ -18,7 +18,7 @@ import java.util.Set;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Ssp extends c0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public final class Ssp extends c0 {
     public final String sspId;
     public final String type;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Pid extends c0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

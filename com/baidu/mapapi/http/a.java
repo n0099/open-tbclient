@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends AsyncHttpClient.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ HttpClient.ProtoResultCallback a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f35746b;
+    public final /* synthetic */ String f36235b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ AsyncHttpClient f35747c;
+    public final /* synthetic */ AsyncHttpClient f36236c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback, String str) {
@@ -36,9 +36,9 @@ public class a extends AsyncHttpClient.a {
                 return;
             }
         }
-        this.f35747c = asyncHttpClient;
+        this.f36236c = asyncHttpClient;
         this.a = protoResultCallback;
-        this.f35746b = str;
+        this.f36235b = str;
     }
 
     @Override // com.baidu.mapapi.http.AsyncHttpClient.a
@@ -48,11 +48,11 @@ public class a extends AsyncHttpClient.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             HttpClient httpClient = new HttpClient("GET", this.a);
-            i2 = this.f35747c.a;
+            i2 = this.f36236c.a;
             httpClient.setMaxTimeOut(i2);
-            i3 = this.f35747c.f35738b;
+            i3 = this.f36236c.f36227b;
             httpClient.setReadTimeOut(i3);
-            httpClient.request(this.f35746b);
+            httpClient.request(this.f36235b);
         }
     }
 }

@@ -1,7 +1,7 @@
 package c.a.d.j;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.adp.ApsConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.interfa.IPackageDownloadCallback;
@@ -29,30 +29,30 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f2856e;
+    public static boolean f2820e;
     public transient /* synthetic */ FieldHolder $fh;
     public IPackageGetCallback a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile ResultData f2857b;
+    public volatile ResultData f2821b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile ErrorInfo f2858c;
+    public volatile ErrorInfo f2822c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RequestParams.Channel f2859d;
+    public RequestParams.Channel f2823d;
 
     /* renamed from: c.a.d.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0095a implements PackageCallback {
+    public class C0093a implements PackageCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ IPackageGetCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f2860b;
+        public final /* synthetic */ a f2824b;
 
-        public C0095a(a aVar, IPackageGetCallback iPackageGetCallback) {
+        public C0093a(a aVar, IPackageGetCallback iPackageGetCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public class a {
                     return;
                 }
             }
-            this.f2860b = aVar;
+            this.f2824b = aVar;
             this.a = iPackageGetCallback;
         }
 
@@ -82,7 +82,7 @@ public class a {
         public void onFetchError(ErrorInfo errorInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
-                this.f2860b.n(errorInfo, this.a);
+                this.f2824b.n(errorInfo, this.a);
             }
         }
 
@@ -90,7 +90,7 @@ public class a {
         public void onResultData(ResultData resultData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
-                this.f2860b.o(resultData, this.a);
+                this.f2824b.o(resultData, this.a);
             }
         }
     }
@@ -131,7 +131,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
                 synchronized (this.a) {
-                    this.a.f2858c = errorInfo;
+                    this.a.f2822c = errorInfo;
                     this.a.p();
                 }
             }
@@ -142,8 +142,8 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
                 synchronized (this.a) {
-                    boolean unused = a.f2856e = true;
-                    this.a.f2857b = resultData;
+                    boolean unused = a.f2820e = true;
+                    this.a.f2821b = resultData;
                     this.a.p();
                 }
             }
@@ -182,7 +182,7 @@ public class a {
     public static boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f2856e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f2820e : invokeV.booleanValue;
     }
 
     public final List<IBundleInfo> g(List<PackageInfo> list) {
@@ -224,7 +224,7 @@ public class a {
             DownloadOptions downloadOptions = new DownloadOptions();
             downloadOptions.saveToDb = false;
             if (i2 == 49) {
-                if (j.H()) {
+                if (k.H()) {
                     PmsManager.getInstance().download(h2, downloadOptions, new c.a.d.h.b(iPackageDownloadCallback));
                     return;
                 } else {
@@ -248,7 +248,7 @@ public class a {
                 arrayList.add(iBundleInfo.getPackageName());
             }
             channel.setPackageNames(arrayList);
-            channel.setCallback(new C0095a(this, iPackageGetCallback));
+            channel.setCallback(new C0093a(this, iPackageGetCallback));
             requestParams.addChannel(channel);
             PmsManager.getInstance().execute(requestParams);
         }
@@ -272,16 +272,16 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequestParams.Channel channel = this.f2859d;
+            RequestParams.Channel channel = this.f2823d;
             if (channel != null) {
                 return channel;
             }
             RequestParams.Channel channel2 = new RequestParams.Channel();
-            this.f2859d = channel2;
+            this.f2823d = channel2;
             channel2.setFetchAllPackages(true);
-            this.f2859d.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
-            this.f2859d.setCallback(new b(this));
-            return this.f2859d;
+            this.f2823d.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
+            this.f2823d.setCallback(new b(this));
+            return this.f2823d;
         }
         return (RequestParams.Channel) invokeV.objValue;
     }
@@ -308,14 +308,14 @@ public class a {
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a == null) {
             return;
         }
-        if (this.f2858c != null) {
-            n(this.f2858c, this.a);
+        if (this.f2822c != null) {
+            n(this.f2822c, this.a);
             this.a = null;
-            this.f2858c = null;
-        } else if (this.f2857b != null) {
-            o(this.f2857b, this.a);
+            this.f2822c = null;
+        } else if (this.f2821b != null) {
+            o(this.f2821b, this.a);
             this.a = null;
-            this.f2857b = null;
+            this.f2821b = null;
         }
     }
 }

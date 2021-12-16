@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SlideActiviy extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String A = "SlideActivity";
@@ -47,7 +47,7 @@ public class SlideActiviy extends BaseActivity {
     public boolean y;
     public WeakReference<Activity> z;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class PassSlideInterceptor implements SlideInterceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -360,7 +360,7 @@ public class SlideActiviy extends BaseActivity {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SlideActiviy f38698b;
+                public final /* synthetic */ SlideActiviy f39187b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -377,7 +377,7 @@ public class SlideActiviy extends BaseActivity {
                             return;
                         }
                     }
-                    this.f38698b = this;
+                    this.f39187b = this;
                     this.a = i2;
                 }
 
@@ -385,10 +385,10 @@ public class SlideActiviy extends BaseActivity {
                 public void onPanelClosed(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (this.f38698b.x != null) {
-                            this.f38698b.x.onPanelClosed(view);
+                        if (this.f39187b.x != null) {
+                            this.f39187b.x.onPanelClosed(view);
                         }
-                        this.f38698b.a(0.0f);
+                        this.f39187b.a(0.0f);
                     }
                 }
 
@@ -396,13 +396,13 @@ public class SlideActiviy extends BaseActivity {
                 public void onPanelOpened(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                        if (this.f38698b.x != null) {
-                            this.f38698b.x.onPanelOpened(view);
+                        if (this.f39187b.x != null) {
+                            this.f39187b.x.onPanelOpened(view);
                         }
-                        this.f38698b.a(0.0f);
-                        this.f38698b.mSlideHelper.setShadowDrawable(null);
-                        this.f38698b.finishActivityAfterSlideOver();
-                        this.f38698b.overridePendingTransition(0, 0);
+                        this.f39187b.a(0.0f);
+                        this.f39187b.mSlideHelper.setShadowDrawable(null);
+                        this.f39187b.finishActivityAfterSlideOver();
+                        this.f39187b.overridePendingTransition(0, 0);
                     }
                 }
 
@@ -410,7 +410,7 @@ public class SlideActiviy extends BaseActivity {
                 public void onPanelSlide(View view, float f2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
-                        View maskView = this.f38698b.mSlideHelper.getMaskView();
+                        View maskView = this.f39187b.mSlideHelper.getMaskView();
                         if (maskView != null) {
                             float f3 = 1.0f - f2;
                             if (f3 < 0.0f) {
@@ -418,11 +418,11 @@ public class SlideActiviy extends BaseActivity {
                             }
                             maskView.setAlpha(f3);
                         }
-                        if (this.f38698b.x != null) {
-                            this.f38698b.x.onPanelSlide(view, f2);
+                        if (this.f39187b.x != null) {
+                            this.f39187b.x.onPanelSlide(view, f2);
                         }
                         float f4 = this.a >> 2;
-                        this.f38698b.a((f2 * f4) - f4);
+                        this.f39187b.a((f2 * f4) - f4);
                     }
                 }
             });

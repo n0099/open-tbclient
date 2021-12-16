@@ -19,44 +19,44 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface UrlRequest {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final TurbonetEngine a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f51469b;
+        public final String f52018b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Callback f51470c;
+        public final Callback f52019c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Executor f51471d;
+        public final Executor f52020d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f51472e;
+        public String f52021e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ArrayList<Pair<String, String>> f51473f;
+        public final ArrayList<Pair<String, String>> f52022f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f51474g;
+        public boolean f52023g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f51475h;
+        public boolean f52024h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f51476i;
+        public int f52025i;
 
         /* renamed from: j  reason: collision with root package name */
-        public Collection<Object> f51477j;
+        public Collection<Object> f52026j;
 
         /* renamed from: k  reason: collision with root package name */
-        public UploadDataProvider f51478k;
+        public UploadDataProvider f52027k;
         public Executor l;
         public boolean m;
         public boolean n;
@@ -70,7 +70,7 @@ public interface UrlRequest {
         public String v;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         public @interface RequestPriority {
         }
 
@@ -89,9 +89,9 @@ public interface UrlRequest {
                     return;
                 }
             }
-            this.f51473f = new ArrayList<>();
-            this.f51476i = 3;
-            this.f51477j = Collections.emptyList();
+            this.f52022f = new ArrayList<>();
+            this.f52025i = 3;
+            this.f52026j = Collections.emptyList();
             if (str == null) {
                 throw new NullPointerException("URL is required.");
             }
@@ -102,9 +102,9 @@ public interface UrlRequest {
                 throw new NullPointerException("Executor is required.");
             }
             if (turbonetEngine != null) {
-                this.f51469b = str;
-                this.f51470c = callback;
-                this.f51471d = executor;
+                this.f52018b = str;
+                this.f52019c = callback;
+                this.f52020d = executor;
                 this.a = turbonetEngine;
                 this.m = false;
                 this.o = false;
@@ -127,10 +127,9 @@ public interface UrlRequest {
                 if (str != null) {
                     if (str2 != null) {
                         if ("Accept-Encoding".equalsIgnoreCase(str)) {
-                            new Exception();
                             return this;
                         }
-                        this.f51473f.add(Pair.create(str, str2));
+                        this.f52022f.add(Pair.create(str, str2));
                         return this;
                     }
                     throw new NullPointerException("Invalid header value.");
@@ -144,17 +143,17 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                UrlRequest b2 = this.a.b(this.f51469b, this.f51470c, this.f51471d, this.f51476i, this.f51477j, this.f51474g, this.f51475h, this.n);
-                String str = this.f51472e;
+                UrlRequest b2 = this.a.b(this.f52018b, this.f52019c, this.f52020d, this.f52025i, this.f52026j, this.f52023g, this.f52024h, this.n);
+                String str = this.f52021e;
                 if (str != null) {
                     b2.e(str);
                 }
-                Iterator<Pair<String, String>> it = this.f51473f.iterator();
+                Iterator<Pair<String, String>> it = this.f52022f.iterator();
                 while (it.hasNext()) {
                     Pair<String, String> next = it.next();
                     b2.addHeader((String) next.first, (String) next.second);
                 }
-                UploadDataProvider uploadDataProvider = this.f51478k;
+                UploadDataProvider uploadDataProvider = this.f52027k;
                 if (uploadDataProvider != null) {
                     b2.i(uploadDataProvider, this.l);
                 }
@@ -199,7 +198,7 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                this.f51474g = true;
+                this.f52023g = true;
                 return this;
             }
             return (Builder) invokeV.objValue;
@@ -230,7 +229,7 @@ public interface UrlRequest {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
                 if (str != null) {
-                    this.f51472e = str;
+                    this.f52021e = str;
                     return this;
                 }
                 throw new NullPointerException("Method is required.");
@@ -284,10 +283,10 @@ public interface UrlRequest {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, uploadDataProvider, executor)) == null) {
                 if (uploadDataProvider != null) {
                     if (executor != null) {
-                        if (this.f51472e == null) {
-                            this.f51472e = "POST";
+                        if (this.f52021e == null) {
+                            this.f52021e = "POST";
                         }
-                        this.f51478k = uploadDataProvider;
+                        this.f52027k = uploadDataProvider;
                         this.l = executor;
                         return this;
                     }
@@ -309,7 +308,7 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -345,13 +344,13 @@ public interface UrlRequest {
         public abstract void f(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Status {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         public @interface StatusValues {
         }
 
@@ -428,7 +427,7 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static abstract class StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.ThreadRecommendInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ThreadRecommendInfoData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

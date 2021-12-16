@@ -15,16 +15,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31498b = "";
+    public static String f31868b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f31499c = "";
+    public static String f31869c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,8 +58,8 @@ public final class d {
         if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
             synchronized (d.class) {
                 a = str;
-                f31498b = str2;
-                f31499c = str3;
+                f31868b = str2;
+                f31869c = str3;
             }
         }
     }
@@ -87,9 +87,9 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
             synchronized (d.class) {
-                if (!com.alipay.security.mobile.module.a.a.a(f31498b) && !com.alipay.security.mobile.module.a.a.a(f31499c)) {
+                if (!com.alipay.security.mobile.module.a.a.a(f31868b) && !com.alipay.security.mobile.module.a.a.a(f31869c)) {
                     StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append(f31499c);
+                    stringBuffer.append(f31869c);
                     Iterator<String> it = list.iterator();
                     while (it.hasNext()) {
                         stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + it.next());
@@ -100,7 +100,7 @@ public final class d {
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        File file2 = new File(a, f31498b);
+                        File file2 = new File(a, f31868b);
                         if (!file2.exists()) {
                             file2.createNewFile();
                         }

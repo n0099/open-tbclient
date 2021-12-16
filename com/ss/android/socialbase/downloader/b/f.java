@@ -31,39 +31,39 @@ import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f implements ServiceConnection, t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f61630b;
+    public static boolean f62211b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f61631c;
+    public static int f62212c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f61632d;
+    public static long f62213d;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public c a;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f61633e;
+    public Handler f62214e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f61634f;
+    public b f62215f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.InterfaceC2131a f61635g;
+    public c.a.InterfaceC2192a f62216g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f61636h;
+    public Runnable f62217h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Future<?> f61637i;
+    public Future<?> f62218i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CountDownLatch f61638j;
+    public CountDownLatch f62219j;
 
     static {
         InterceptResult invokeClinit;
@@ -93,9 +93,9 @@ public class f implements ServiceConnection, t {
                 return;
             }
         }
-        this.f61633e = new Handler(Looper.getMainLooper());
-        this.f61634f = null;
-        this.f61636h = new Runnable(this) { // from class: com.ss.android.socialbase.downloader.b.f.1
+        this.f62214e = new Handler(Looper.getMainLooper());
+        this.f62215f = null;
+        this.f62217h = new Runnable(this) { // from class: com.ss.android.socialbase.downloader.b.f.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
@@ -121,20 +121,20 @@ public class f implements ServiceConnection, t {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || f.f61630b || this.a.f61635g == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || f.f62211b || this.a.f62216g == null) {
                     return;
                 }
-                this.a.f61635g.a();
+                this.a.f62216g.a();
             }
         };
-        this.f61638j = new CountDownLatch(1);
+        this.f62219j = new CountDownLatch(1);
         SqlDownloadCacheService.a(com.ss.android.socialbase.downloader.downloader.c.N(), this);
     }
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.ss.android.socialbase.downloader.b.f.2.run():void] */
-    public static /* synthetic */ c.a.InterfaceC2131a a(f fVar) {
-        return fVar.f61635g;
+    public static /* synthetic */ c.a.InterfaceC2192a a(f fVar) {
+        return fVar.f62216g;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -216,20 +216,20 @@ public class f implements ServiceConnection, t {
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048617, this, componentName, iBinder) == null) {
-            f61630b = true;
-            this.f61633e.removeCallbacks(this.f61636h);
+            f62211b = true;
+            this.f62214e.removeCallbacks(this.f62217h);
             try {
                 this.a = c.a.a(iBinder);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            this.f61637i = com.ss.android.socialbase.downloader.downloader.c.l().submit(new Runnable(this, iBinder) { // from class: com.ss.android.socialbase.downloader.b.f.2
+            this.f62218i = com.ss.android.socialbase.downloader.downloader.c.l().submit(new Runnable(this, iBinder) { // from class: com.ss.android.socialbase.downloader.b.f.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IBinder a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f f61639b;
+                public final /* synthetic */ f f62220b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -246,7 +246,7 @@ public class f implements ServiceConnection, t {
                             return;
                         }
                     }
-                    this.f61639b = this;
+                    this.f62220b = this;
                     this.a = iBinder;
                 }
 
@@ -256,10 +256,10 @@ public class f implements ServiceConnection, t {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         synchronized (this) {
                             try {
-                                if (this.f61639b.f61634f != null && this.f61639b.a != null) {
-                                    this.f61639b.a.a(this.f61639b.f61634f);
+                                if (this.f62220b.f62215f != null && this.f62220b.a != null) {
+                                    this.f62220b.a.a(this.f62220b.f62215f);
                                 }
-                                this.f61639b.f61638j.countDown();
+                                this.f62220b.f62219j.countDown();
                                 this.a.linkToDeath(new IBinder.DeathRecipient(this) { // from class: com.ss.android.socialbase.downloader.b.f.2.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
@@ -287,11 +287,11 @@ public class f implements ServiceConnection, t {
                                     public void binderDied() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            boolean unused = f.f61630b = false;
-                                            if (this.a.f61639b.g() || this.a.f61639b.f61635g == null) {
+                                            boolean unused = f.f62211b = false;
+                                            if (this.a.f62220b.g() || this.a.f62220b.f62216g == null) {
                                                 return;
                                             }
-                                            this.a.f61639b.f61633e.postDelayed(this.a.f61639b.f61636h, 2000L);
+                                            this.a.f62220b.f62214e.postDelayed(this.a.f62220b.f62217h, 2000L);
                                         }
                                     }
                                 }, 0);
@@ -309,7 +309,7 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, componentName) == null) {
             this.a = null;
-            f61630b = false;
+            f62211b = false;
         }
     }
 
@@ -318,19 +318,19 @@ public class f implements ServiceConnection, t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            if (Build.VERSION.SDK_INT < 26 && !f61630b) {
-                if (f61631c > 5) {
+            if (Build.VERSION.SDK_INT < 26 && !f62211b) {
+                if (f62212c > 5) {
                     com.ss.android.socialbase.downloader.c.a.d("SqlDownloadCacheAidlWra", "bindMainProcess: bind too many times!!! ");
                     return false;
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - f61632d < 15000) {
+                if (currentTimeMillis - f62213d < 15000) {
                     com.ss.android.socialbase.downloader.c.a.d("SqlDownloadCacheAidlWra", "bindMainProcess: time too short since last bind!!! ");
                     return false;
                 }
-                f61631c++;
-                f61632d = currentTimeMillis;
-                this.f61633e.postDelayed(new Runnable(this) { // from class: com.ss.android.socialbase.downloader.b.f.3
+                f62212c++;
+                f62213d = currentTimeMillis;
+                this.f62214e.postDelayed(new Runnable(this) { // from class: com.ss.android.socialbase.downloader.b.f.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ f a;
@@ -458,10 +458,10 @@ public class f implements ServiceConnection, t {
         return (DownloadInfo) invokeI.objValue;
     }
 
-    public void a(c.a.InterfaceC2131a interfaceC2131a) {
+    public void a(c.a.InterfaceC2192a interfaceC2192a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, interfaceC2131a) == null) {
-            this.f61635g = interfaceC2131a;
+        if (interceptable == null || interceptable.invokeL(1048588, this, interfaceC2192a) == null) {
+            this.f62216g = interfaceC2192a;
         }
     }
 
@@ -493,13 +493,13 @@ public class f implements ServiceConnection, t {
                 public final /* synthetic */ SparseArray a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SparseArray f61640b;
+                public final /* synthetic */ SparseArray f62221b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ d f61641c;
+                public final /* synthetic */ d f62222c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ f f61642d;
+                public final /* synthetic */ f f62223d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -516,10 +516,10 @@ public class f implements ServiceConnection, t {
                             return;
                         }
                     }
-                    this.f61642d = this;
+                    this.f62223d = this;
                     this.a = sparseArray;
-                    this.f61640b = sparseArray2;
-                    this.f61641c = dVar;
+                    this.f62221b = sparseArray2;
+                    this.f62222c = dVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -529,7 +529,7 @@ public class f implements ServiceConnection, t {
                     Future future;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f61642d.a(new b.a(this) { // from class: com.ss.android.socialbase.downloader.b.f.4.1
+                        this.f62223d.a(new b.a(this) { // from class: com.ss.android.socialbase.downloader.b.f.4.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass4 a;
@@ -557,23 +557,23 @@ public class f implements ServiceConnection, t {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeLL(1048576, this, map, map2) == null) {
                                     com.ss.android.socialbase.downloader.i.f.a(this.a.a, map);
-                                    com.ss.android.socialbase.downloader.i.f.a(this.a.f61640b, map2);
-                                    this.a.f61641c.a();
-                                    this.a.f61642d.a((b) null);
+                                    com.ss.android.socialbase.downloader.i.f.a(this.a.f62221b, map2);
+                                    this.a.f62222c.a();
+                                    this.a.f62223d.a((b) null);
                                 }
                             }
                         });
                         try {
-                            z = !this.f61642d.f61638j.await(5000L, TimeUnit.MILLISECONDS);
+                            z = !this.f62223d.f62219j.await(5000L, TimeUnit.MILLISECONDS);
                         } catch (Throwable th) {
                             th.printStackTrace();
                             z = false;
                         }
-                        if (z && (future = this.f61642d.f61637i) != null) {
+                        if (z && (future = this.f62223d.f62218i) != null) {
                             future.cancel(true);
                         }
-                        this.f61642d.a();
-                        if (!z || (dVar2 = this.f61641c) == null) {
+                        this.f62223d.a();
+                        if (!z || (dVar2 = this.f62222c) == null) {
                             return;
                         }
                         dVar2.a();
@@ -594,7 +594,7 @@ public class f implements ServiceConnection, t {
                         e2.printStackTrace();
                     }
                 } else {
-                    this.f61634f = bVar;
+                    this.f62215f = bVar;
                 }
             }
         }

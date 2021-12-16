@@ -15,7 +15,7 @@ import com.sina.weibo.sdk.network.IRequestService;
 import com.sina.weibo.sdk.network.impl.RequestParam;
 import com.sina.weibo.sdk.network.impl.RequestService;
 import com.sina.weibo.sdk.network.target.SimpleTarget;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AccessTokenKeeper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ACCESS_TOKEN = "access_token";

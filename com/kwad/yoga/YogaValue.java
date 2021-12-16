@@ -9,8 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-import kotlinx.coroutines.DebugKt;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class YogaValue {
     public static /* synthetic */ Interceptable $ic;
     public static final YogaValue AUTO;
@@ -21,7 +20,7 @@ public class YogaValue {
     public final float value;
 
     /* renamed from: com.kwad.yoga.YogaValue$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$yoga$YogaUnit;
         public static /* synthetic */ Interceptable $ic;
@@ -126,7 +125,7 @@ public class YogaValue {
             if (str == null) {
                 return null;
             }
-            return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED.equals(str) ? UNDEFINED : DebugKt.DEBUG_PROPERTY_VALUE_AUTO.equals(str) ? AUTO : str.endsWith("%") ? new YogaValue(Float.parseFloat(str.substring(0, str.length() - 1)), YogaUnit.PERCENT) : new YogaValue(Float.parseFloat(str), YogaUnit.POINT);
+            return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED.equals(str) ? UNDEFINED : "auto".equals(str) ? AUTO : str.endsWith("%") ? new YogaValue(Float.parseFloat(str.substring(0, str.length() - 1)), YogaUnit.PERCENT) : new YogaValue(Float.parseFloat(str), YogaUnit.POINT);
         }
         return (YogaValue) invokeL.objValue;
     }
@@ -163,7 +162,7 @@ public class YogaValue {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 == 4) {
-                            return DebugKt.DEBUG_PROPERTY_VALUE_AUTO;
+                            return "auto";
                         }
                         throw new IllegalStateException();
                     }

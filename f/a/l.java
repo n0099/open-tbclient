@@ -16,28 +16,28 @@ import dxm.sasdk.DxmSdkSensorsDataAPI;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 @TargetApi(14)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class l implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final SimpleDateFormat f63448j;
+    public static final SimpleDateFormat f64029j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Integer f63449e;
+    public Integer f64030e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f63450f;
+    public final Object f64031f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final DxmSdkSensorsDataAPI f63451g;
+    public final DxmSdkSensorsDataAPI f64032g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final g f63452h;
+    public final g f64033h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final f f63453i;
+    public final f f64034i;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public class l implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        f63448j = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        f64029j = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
     }
 
     public l(DxmSdkSensorsDataAPI dxmSdkSensorsDataAPI, g gVar, f fVar) {
@@ -70,11 +70,11 @@ public class l implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f63449e = 0;
-        this.f63450f = new Object();
-        this.f63451g = dxmSdkSensorsDataAPI;
-        this.f63452h = gVar;
-        this.f63453i = fVar;
+        this.f64030e = 0;
+        this.f64031f = new Object();
+        this.f64032g = dxmSdkSensorsDataAPI;
+        this.f64033h = gVar;
+        this.f64034i = fVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -117,20 +117,20 @@ public class l implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
             try {
-                synchronized (this.f63450f) {
-                    if (this.f63449e.intValue() == 0) {
-                        if (this.f63453i.b() == null) {
-                            this.f63453i.a(f63448j.format(Long.valueOf(System.currentTimeMillis())));
+                synchronized (this.f64031f) {
+                    if (this.f64030e.intValue() == 0) {
+                        if (this.f64034i.b() == null) {
+                            this.f64034i.a(f64029j.format(Long.valueOf(System.currentTimeMillis())));
                         }
-                        this.f63452h.b().booleanValue();
+                        this.f64033h.b().booleanValue();
                         try {
-                            this.f63451g.i();
+                            this.f64032g.i();
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
-                        this.f63451g.F();
+                        this.f64032g.F();
                     }
-                    this.f63449e = Integer.valueOf(this.f63449e.intValue() + 1);
+                    this.f64030e = Integer.valueOf(this.f64030e.intValue() + 1);
                 }
             } catch (Exception e3) {
                 e3.printStackTrace();
@@ -143,18 +143,18 @@ public class l implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
             try {
-                synchronized (this.f63450f) {
-                    Integer valueOf = Integer.valueOf(this.f63449e.intValue() - 1);
-                    this.f63449e = valueOf;
+                synchronized (this.f64031f) {
+                    Integer valueOf = Integer.valueOf(this.f64030e.intValue() - 1);
+                    this.f64030e = valueOf;
                     if (valueOf.intValue() == 0) {
                         try {
-                            this.f63451g.K();
-                            this.f63451g.j();
+                            this.f64032g.K();
+                            this.f64032g.j();
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
                         try {
-                            this.f63451g.p();
+                            this.f64032g.p();
                         } catch (Exception e3) {
                             e3.printStackTrace();
                         }

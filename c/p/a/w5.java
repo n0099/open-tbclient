@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBError;
 import com.win.opensdk.PBNativeListener;
 import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class w5 implements e5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,12 +45,12 @@ public class w5 implements e5 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             Info info = (Info) obj;
             try {
-                this.a.f30827c = info;
-                if (this.a.f30830f != null) {
+                this.a.f31197c = info;
+                if (this.a.f31200f != null) {
                     if (info == null || info.getType() != 11) {
-                        this.a.f30830f.onFail(PBError.PID_TYPE_ERROR);
+                        this.a.f31200f.onFail(PBError.PID_TYPE_ERROR);
                     } else if (this.a.g()) {
-                        this.a.f30830f.onLoaded();
+                        this.a.f31200f.onLoaded();
                     }
                 }
             } catch (Exception unused) {
@@ -62,7 +62,7 @@ public class w5 implements e5 {
     public void onFail(PBError pBError) {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.a.f30830f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.a.f31200f) == null) {
             return;
         }
         pBNativeListener.onFail(pBError);

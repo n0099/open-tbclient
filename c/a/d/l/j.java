@@ -34,10 +34,10 @@ public class j {
         public final /* synthetic */ f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PackageInfo f2880b;
+        public final /* synthetic */ PackageInfo f2844b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f2881c;
+        public final /* synthetic */ boolean f2845c;
 
         public a(f fVar, PackageInfo packageInfo, boolean z) {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public class j {
                 }
             }
             this.a = fVar;
-            this.f2880b = packageInfo;
-            this.f2881c = z;
+            this.f2844b = packageInfo;
+            this.f2845c = z;
         }
 
         @Override // com.baidu.titan.sdk.pm.PatchManager.PatchInstallObserver
@@ -69,13 +69,13 @@ public class j {
                 String str = "install-resut:" + i2;
                 f fVar = this.a;
                 if (fVar != null) {
-                    fVar.a(this.f2880b.packageName, i3, str);
+                    fVar.a(this.f2844b.packageName, i3, str);
                 }
                 String str2 = "patch install result code = " + i3;
                 if (i3 == 0) {
-                    j.c(this.f2880b);
+                    j.c(this.f2844b);
                 }
-                if (this.f2881c) {
+                if (this.f2845c) {
                     return;
                 }
                 int loadState = LoaderManager.getInstance().getLoadState();

@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.PARAMETER})
 @Keep
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public @interface ForbidWrapParam {
 }

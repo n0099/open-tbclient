@@ -1,50 +1,55 @@
 package c.a.c0.h;
 
-import android.app.Application;
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import android.os.Looper;
-import android.os.Message;
-import android.text.TextUtils;
-import android.webkit.WebView;
-import c.a.c0.c.a.d;
-import c.a.c0.c.a.h;
-import c.a.c0.h.c.b;
-import c.a.c0.i.c;
+import c.a.c0.h.j;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.runtime.InitException;
-import com.baidu.nps.runtime.resources.ResourcesHookUtil;
-import com.baidu.nps.utils.Constant;
-import com.baidu.nps.utils.ContextHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
-public class a {
+public class a implements h, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BundleInfo a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public c.a.c0.h.b.a f2180b;
+    /* renamed from: e  reason: collision with root package name */
+    public final ConcurrentLinkedQueue<j.b<?>> f1653e;
 
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f2181c;
+    /* renamed from: f  reason: collision with root package name */
+    public final AtomicBoolean f1654f;
 
-    /* renamed from: d  reason: collision with root package name */
-    public c.a.c0.h.c.a f2182d;
+    /* renamed from: c.a.c0.h.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static class C0052a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final a a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public a(BundleInfo bundleInfo) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(863203296, "Lc/a/c0/h/a$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(863203296, "Lc/a/c0/h/a$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
+    }
+
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundleInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -54,150 +59,41 @@ public class a {
                 return;
             }
         }
-        this.f2181c = false;
-        this.f2182d = null;
-        if (a(bundleInfo)) {
-            this.a = bundleInfo;
+        this.f1653e = new ConcurrentLinkedQueue<>();
+        this.f1654f = new AtomicBoolean(false);
+    }
+
+    public static h b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0052a.a : (h) invokeV.objValue;
+    }
+
+    @Override // c.a.c0.h.h
+    public <T extends f> void a(k kVar, i<T> iVar, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, kVar, iVar, t) == null) {
+            this.f1653e.offer(new j.b<>(kVar, iVar, t));
+            if (this.f1654f.compareAndSet(false, true)) {
+                c.a.c0.a0.b.c(this, "AsyncDeliver", 3);
+            }
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
             return;
         }
-        throw new InitException(22, "bad param bundleInfo:" + bundleInfo.toString());
-    }
-
-    public static a b(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundleInfo)) == null) {
-            a aVar = new a(bundleInfo);
-            aVar.d();
-            return aVar;
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public final boolean a(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundleInfo)) == null) {
-            if (bundleInfo == null || TextUtils.isEmpty(bundleInfo.getPackageName())) {
-                return false;
-            }
-            Application applicationContext = ContextHolder.getApplicationContext();
-            StringBuilder sb = new StringBuilder();
-            sb.append(bundleInfo.getPackageName());
-            sb.append(Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-            return c.d(applicationContext, sb.toString()).exists();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public ClassLoader c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2180b : (ClassLoader) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (e()) {
-                if (!f()) {
-                    throw new InitException(20, "resources init error");
-                }
+        while (true) {
+            j.b<?> poll = this.f1653e.poll();
+            if (poll != null) {
+                poll.a.onEvent(poll.f1660b);
+            } else {
+                this.f1654f.set(false);
                 return;
             }
-            throw new InitException(16, "class loader init error");
         }
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Application applicationContext = ContextHolder.getApplicationContext();
-            this.f2180b = new c.a.c0.h.b.a(c.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), c.f(applicationContext, this.a.getPackageName()).getAbsolutePath(), c.e(applicationContext, this.a.getPackageName()).getAbsolutePath(), applicationContext);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                try {
-                    Application applicationContext = ContextHolder.getApplicationContext();
-                    Resources a = d.c().a();
-                    Resources b2 = d.c().b();
-                    Resources[] d2 = d.c().d();
-                    if (!this.f2181c) {
-                        g(applicationContext);
-                        this.f2181c = true;
-                    }
-                    String absolutePath = c.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                    ResourcesHookUtil.hookResources(a, absolutePath);
-                    ResourcesHookUtil.hookResources(b2, absolutePath);
-                    if (d2 != null) {
-                        for (Resources resources : d2) {
-                            ResourcesHookUtil.hookResources(resources, absolutePath);
-                        }
-                    }
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void g(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
-                h.a().c();
-                try {
-                    new WebView(context);
-                    return;
-                } catch (Exception unused) {
-                    return;
-                }
-            }
-            CountDownLatch countDownLatch = new CountDownLatch(1);
-            new b(context, countDownLatch).sendMessage(Message.obtain());
-            try {
-                countDownLatch.await();
-            } catch (Exception unused2) {
-            }
-        }
-    }
-
-    public synchronized Resources getResources(Resources resources) {
-        InterceptResult invokeL;
-        c.a.c0.h.c.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, resources)) == null) {
-            synchronized (this) {
-                Application applicationContext = ContextHolder.getApplicationContext();
-                String absolutePath = c.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                AssetManager assets = resources.getAssets();
-                if (ResourcesHookUtil.hookAssets(assets, absolutePath)) {
-                    if (this.f2182d == null || this.f2182d.getAssets().hashCode() != assets.hashCode()) {
-                        this.f2182d = new c.a.c0.h.c.a(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
-                    }
-                    aVar = this.f2182d;
-                } else {
-                    throw new InitException(21, "resources hook error");
-                }
-            }
-            return aVar;
-        }
-        return (Resources) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? super.toString() : (String) invokeV.objValue;
     }
 }

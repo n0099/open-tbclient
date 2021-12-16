@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.commontab;
 
-import c.a.d.f.p.l;
-import c.a.q0.d1.z;
-import c.a.q0.l0.b.g;
+import c.a.d.f.p.m;
+import c.a.r0.d1.b0;
+import c.a.r0.l0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FrsCommonTabRequestData extends OrmObject implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         this.sortType = 0;
     }
 
-    @Override // c.a.q0.l0.b.i
+    @Override // c.a.r0.l0.b.i
     public Object e(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -68,12 +68,12 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
             if (j2 >= 0) {
                 builder.last_thread_id = Long.valueOf(j2);
             }
-            builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Integer.valueOf((int) l.h(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(m.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(m.k(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Integer.valueOf((int) m.h(TbadkCoreApplication.getInst()));
             builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
             builder.ad_ext_params = this.adExtParams;
-            z.c(builder, true, false, true);
+            b0.c(builder, true, false, true);
             GeneralTabListReqIdl.Builder builder2 = new GeneralTabListReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -81,7 +81,7 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         return invokeZ.objValue;
     }
 
-    @Override // c.a.q0.l0.b.f
+    @Override // c.a.r0.l0.b.f
     public HashMap<String, Object> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // c.a.q0.l0.b.f
+    @Override // c.a.r0.l0.b.f
     public HashMap<String, String> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

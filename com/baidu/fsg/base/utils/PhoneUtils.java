@@ -54,47 +54,47 @@ import java.util.Random;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "PhoneUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34355b = "_rim_pay.preferences";
+    public static final String f34823b = "_rim_pay.preferences";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34356c = "cuid_1";
+    public static final String f34824c = "cuid_1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34357d = "cuid_2";
+    public static final String f34825d = "cuid_2";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34358e = "wime";
+    public static final String f34826e = "wime";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34359f = "identity_code";
+    public static final String f34827f = "identity_code";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34360g = "phone_number";
+    public static final String f34828g = "phone_number";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34361h = "card_no";
+    public static final String f34829h = "card_no";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34362i = "valid_date";
+    public static final String f34830i = "valid_date";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f34363j = "cvv2";
+    public static final String f34831j = "cvv2";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f34364k = "imei";
+    public static final String f34832k = "imei";
     public static final String l = "nettype";
     public static final String m = "wloc";
     public static CPUInfo n;
     public static ArrayList<String> o;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -107,7 +107,7 @@ public final class PhoneUtils {
         public static final String a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f34365b = "features";
+        public static final String f34833b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -192,7 +192,7 @@ public final class PhoneUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            String str = (String) SharedPreferencesUtils.getParam(context, f34355b, "imei", "");
+            String str = (String) SharedPreferencesUtils.getParam(context, f34823b, "imei", "");
             if (!TextUtils.isEmpty(str)) {
                 if (ApollonConstants.DEBUG) {
                     String str2 = "从文件里面获取imei号=" + str;
@@ -222,7 +222,7 @@ public final class PhoneUtils {
             for (int length3 = stringBuffer.length(); length3 < 15; length3++) {
                 stringBuffer.append((char) (random.nextInt(10) | 48));
             }
-            SharedPreferencesUtils.setParam(context, f34355b, "imei", stringBuffer.toString());
+            SharedPreferencesUtils.setParam(context, f34823b, "imei", stringBuffer.toString());
             return stringBuffer.toString();
         }
         return (String) invokeL.objValue;
@@ -725,7 +725,7 @@ public final class PhoneUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
             String str = "";
             try {
-                if (hasPermission(context, s.f56839d)) {
+                if (hasPermission(context, s.f57420d)) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     if (wifiManager.isWifiEnabled()) {
                         int i2 = Integer.MAX_VALUE;

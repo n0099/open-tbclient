@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.videocache.kwai;
 
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void a(File file);
 }

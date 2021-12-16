@@ -18,7 +18,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.downloader.r;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 @TargetApi(21)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RetryJobSchedulerService extends JobService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

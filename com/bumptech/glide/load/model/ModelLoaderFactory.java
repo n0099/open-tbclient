@@ -1,7 +1,7 @@
 package com.bumptech.glide.load.model;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface ModelLoaderFactory<T, Y> {
     @NonNull
     ModelLoader<T, Y> build(@NonNull MultiModelLoaderFactory multiModelLoaderFactory);

@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class as {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final as f37022e;
+    public static final as f37511e;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f37023b;
+    public float f37512b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f37024c;
+    public long f37513c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f37025d;
+    public volatile boolean f37514d;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class as {
                 return;
             }
         }
-        f37022e = new as();
+        f37511e = new as();
     }
 
     public as() {
@@ -60,14 +60,14 @@ public class as {
             }
         }
         this.a = false;
-        this.f37023b = 50.0f;
-        this.f37024c = 500L;
+        this.f37512b = 50.0f;
+        this.f37513c = 500L;
     }
 
     public static as a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f37022e : (as) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f37511e : (as) invokeV.objValue;
     }
 
     public boolean b() {
@@ -80,7 +80,7 @@ public class as {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            float f2 = this.f37023b;
+            float f2 = this.f37512b;
             if (f2 < 0.0f) {
                 f2 = 0.0f;
             } else if (f2 > 100.0f) {
@@ -94,7 +94,7 @@ public class as {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37024c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37513c : invokeV.longValue;
     }
 
     public void a(String str) {
@@ -111,16 +111,16 @@ public class as {
                 this.a = optInt != 0;
                 if (!TextUtils.isEmpty(optString)) {
                     try {
-                        this.f37023b = Float.valueOf(optString).floatValue();
+                        this.f37512b = Float.valueOf(optString).floatValue();
                     } catch (Exception unused) {
                     }
                 }
                 if (!TextUtils.isEmpty(optString2)) {
-                    this.f37024c = Long.valueOf(optString2).longValue();
+                    this.f37513c = Long.valueOf(optString2).longValue();
                 }
             }
         } catch (Exception unused2) {
         }
-        this.f37025d = true;
+        this.f37514d = true;
     }
 }

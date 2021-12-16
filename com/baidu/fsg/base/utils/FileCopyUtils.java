@@ -19,7 +19,7 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class FileCopyUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 4096;

@@ -12,20 +12,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f60931c = 60000;
+    public static long f61512c = 60000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, Boolean> f60932d;
+    public static final ConcurrentHashMap<String, Boolean> f61513d;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.sdk.base.framework.a.a.c<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60933b;
+    public int f61514b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public final class d {
             }
         }
         ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
-        f60932d = concurrentHashMap;
+        f61513d = concurrentHashMap;
         concurrentHashMap.put(j.a.toString(), Boolean.TRUE);
         new ConcurrentHashMap(10);
     }
@@ -80,16 +80,16 @@ public final class d {
                 return;
             }
         }
-        this.f60933b = 102400;
-        this.f60933b = 102400;
-        f60931c = 60000L;
+        this.f61514b = 102400;
+        this.f61514b = 102400;
+        f61512c = 60000L;
         this.a = new e(this, 102400);
     }
 
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f60931c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f61512c : invokeV.longValue;
     }
 
     @SuppressLint({"DefaultLocale"})
@@ -98,7 +98,7 @@ public final class d {
         Boolean bool;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (bool = f60932d.get(str.toUpperCase())) == null) {
+            if (TextUtils.isEmpty(str) || (bool = f61513d.get(str.toUpperCase())) == null) {
                 return false;
             }
             return bool.booleanValue();

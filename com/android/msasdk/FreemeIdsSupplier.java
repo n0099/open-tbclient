@@ -1,5 +1,5 @@
 package com.android.msasdk;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface FreemeIdsSupplier {
     void connect(IConnect iConnect);
 

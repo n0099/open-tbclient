@@ -11,20 +11,20 @@ import com.github.anrwatchdog.ANRError$$;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ANRError extends Error {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public final long duration;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Comparator<Thread> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread f55786e;
+        public final /* synthetic */ Thread f56367e;
 
         public a(Thread thread) {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class ANRError extends Error {
                     return;
                 }
             }
-            this.f55786e = thread;
+            this.f56367e = thread;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class ANRError extends Error {
                 if (thread == thread2) {
                     return 0;
                 }
-                Thread thread3 = this.f55786e;
+                Thread thread3 = this.f56367e;
                 if (thread == thread3) {
                     return 1;
                 }

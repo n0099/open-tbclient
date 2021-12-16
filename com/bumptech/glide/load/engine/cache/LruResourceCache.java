@@ -13,7 +13,7 @@ import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.cache.MemoryCache;
 import com.bumptech.glide.util.LruCache;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class LruResourceCache extends LruCache<Key, Resource<?>> implements MemoryCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

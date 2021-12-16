@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IMAGE_FILE_START = "image/";
@@ -184,7 +184,7 @@ public class FileUtils {
     public static boolean isMediaDocument(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, uri)) == null) ? ImageClipActivity.f38665k.equals(uri.getAuthority()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, uri)) == null) ? ImageClipActivity.f39154k.equals(uri.getAuthority()) : invokeL.booleanValue;
     }
 
     public static boolean isVideoFile(Context context, Uri uri) {

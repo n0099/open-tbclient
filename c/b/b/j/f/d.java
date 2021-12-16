@@ -8,25 +8,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d extends c.b.b.j.f.b<Cubemap, b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f27354b;
+    public a f27729b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.b.b.n.b f27355b;
+        public c.b.b.n.b f27730b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Cubemap f27356c;
+        public Cubemap f27731c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -43,31 +43,31 @@ public class d extends c.b.b.j.f.b<Cubemap, b> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b extends c.b.b.j.c<Cubemap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public Pixmap.Format f27357b;
+        public Pixmap.Format f27732b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Cubemap f27358c;
+        public Cubemap f27733c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.b.b.n.b f27359d;
+        public c.b.b.n.b f27734d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Texture.TextureFilter f27360e;
+        public Texture.TextureFilter f27735e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Texture.TextureFilter f27361f;
+        public Texture.TextureFilter f27736f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Texture.TextureWrap f27362g;
+        public Texture.TextureWrap f27737g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Texture.TextureWrap f27363h;
+        public Texture.TextureWrap f27738h;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -82,15 +82,15 @@ public class d extends c.b.b.j.f.b<Cubemap, b> {
                     return;
                 }
             }
-            this.f27357b = null;
-            this.f27358c = null;
-            this.f27359d = null;
+            this.f27732b = null;
+            this.f27733c = null;
+            this.f27734d = null;
             Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-            this.f27360e = textureFilter;
-            this.f27361f = textureFilter;
+            this.f27735e = textureFilter;
+            this.f27736f = textureFilter;
             Texture.TextureWrap textureWrap = Texture.TextureWrap.ClampToEdge;
-            this.f27362g = textureWrap;
-            this.f27363h = textureWrap;
+            this.f27737g = textureWrap;
+            this.f27738h = textureWrap;
         }
     }
 
@@ -112,7 +112,7 @@ public class d extends c.b.b.j.f.b<Cubemap, b> {
                 return;
             }
         }
-        this.f27354b = new a();
+        this.f27729b = new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -134,26 +134,26 @@ public class d extends c.b.b.j.f.b<Cubemap, b> {
         c.b.b.n.b bVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, eVar, str, aVar, bVar) == null) {
-            a aVar2 = this.f27354b;
+            a aVar2 = this.f27729b;
             aVar2.a = str;
-            if (bVar != null && (bVar2 = bVar.f27359d) != null) {
-                aVar2.f27355b = bVar2;
-                aVar2.f27356c = bVar.f27358c;
+            if (bVar != null && (bVar2 = bVar.f27734d) != null) {
+                aVar2.f27730b = bVar2;
+                aVar2.f27731c = bVar.f27733c;
             } else {
-                a aVar3 = this.f27354b;
-                aVar3.f27356c = null;
+                a aVar3 = this.f27729b;
+                aVar3.f27731c = null;
                 if (bVar != null) {
-                    Pixmap.Format format = bVar.f27357b;
-                    aVar3.f27356c = bVar.f27358c;
+                    Pixmap.Format format = bVar.f27732b;
+                    aVar3.f27731c = bVar.f27733c;
                 }
                 if (str.contains(".ktx") || str.contains(".zktx")) {
-                    this.f27354b.f27355b = new c.b.b.n.m.g(aVar, false);
+                    this.f27729b.f27730b = new c.b.b.n.m.g(aVar, false);
                 }
             }
-            if (this.f27354b.f27355b.a()) {
+            if (this.f27729b.f27730b.a()) {
                 return;
             }
-            this.f27354b.f27355b.prepare();
+            this.f27729b.f27730b.prepare();
         }
     }
 
@@ -164,19 +164,19 @@ public class d extends c.b.b.j.f.b<Cubemap, b> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, bVar)) == null) {
-            a aVar2 = this.f27354b;
+            a aVar2 = this.f27729b;
             if (aVar2 == null) {
                 return null;
             }
-            Cubemap cubemap = aVar2.f27356c;
+            Cubemap cubemap = aVar2.f27731c;
             if (cubemap != null) {
-                cubemap.y(aVar2.f27355b);
+                cubemap.y(aVar2.f27730b);
             } else {
-                cubemap = new Cubemap(this.f27354b.f27355b);
+                cubemap = new Cubemap(this.f27729b.f27730b);
             }
             if (bVar != null) {
-                cubemap.l(bVar.f27360e, bVar.f27361f);
-                cubemap.m(bVar.f27362g, bVar.f27363h);
+                cubemap.l(bVar.f27735e, bVar.f27736f);
+                cubemap.m(bVar.f27737g, bVar.f27738h);
             }
             return cubemap;
         }

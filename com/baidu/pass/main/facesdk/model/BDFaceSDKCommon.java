@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BDFaceSDKCommon {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class AlignType {
         public static final /* synthetic */ AlignType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -75,7 +75,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BDFaceActionLiveType {
         public static final /* synthetic */ BDFaceActionLiveType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -145,7 +145,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BDFaceCoreRunMode {
         public static final /* synthetic */ BDFaceCoreRunMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -213,7 +213,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BDFaceEmotion {
         public static final /* synthetic */ BDFaceEmotion[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -275,7 +275,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BDFaceEmotionEnum {
         public static final /* synthetic */ BDFaceEmotionEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -345,7 +345,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BDFaceGazeDirection {
         public static final /* synthetic */ BDFaceGazeDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -413,7 +413,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BDFaceGender {
         public static final /* synthetic */ BDFaceGender[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -473,7 +473,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BDFaceGlasses {
         public static final /* synthetic */ BDFaceGlasses[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -535,7 +535,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BDFaceImageType {
         public static final /* synthetic */ BDFaceImageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -609,7 +609,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BDFaceLogInfo {
         public static final /* synthetic */ BDFaceLogInfo[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -675,7 +675,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BDFaceRace {
         public static final /* synthetic */ BDFaceRace[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -739,7 +739,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DetectType {
         public static final /* synthetic */ DetectType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -799,7 +799,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class FaceQualityType {
         public static final /* synthetic */ FaceQualityType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -861,7 +861,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class FeatureType {
         public static final /* synthetic */ FeatureType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -925,7 +925,7 @@ public class BDFaceSDKCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class LiveType {
         public static final /* synthetic */ LiveType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

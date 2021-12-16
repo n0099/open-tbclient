@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.PushMessageCallback;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class e implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ com.vivo.push.b.k f62461b;
+    public final /* synthetic */ com.vivo.push.b.k f63042b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ d f62462c;
+    public final /* synthetic */ d f63043c;
 
     public e(d dVar, String str, com.vivo.push.b.k kVar) {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public final class e implements Runnable {
                 return;
             }
         }
-        this.f62462c = dVar;
+        this.f63043c = dVar;
         this.a = str;
-        this.f62461b = kVar;
+        this.f63042b = kVar;
     }
 
     @Override // java.lang.Runnable
@@ -46,15 +46,15 @@ public final class e implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!TextUtils.isEmpty(this.a)) {
-                d dVar = this.f62462c;
-                PushMessageCallback pushMessageCallback = ((ab) dVar).f62451b;
+                d dVar = this.f63043c;
+                PushMessageCallback pushMessageCallback = ((ab) dVar).f63032b;
                 context2 = dVar.a;
                 pushMessageCallback.onReceiveRegId(context2, this.a);
             }
-            d dVar2 = this.f62462c;
-            PushMessageCallback pushMessageCallback2 = ((ab) dVar2).f62451b;
+            d dVar2 = this.f63043c;
+            PushMessageCallback pushMessageCallback2 = ((ab) dVar2).f63032b;
             context = dVar2.a;
-            pushMessageCallback2.onBind(context, this.f62461b.h(), this.f62461b.d());
+            pushMessageCallback2.onBind(context, this.f63042b.h(), this.f63042b.d());
         }
     }
 }

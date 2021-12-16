@@ -15,7 +15,7 @@ import com.facebook.common.internal.Preconditions;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class DeferredReleaser {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
@@ -25,7 +25,7 @@ public class DeferredReleaser {
     public final Handler mUiHandler;
     public final Runnable releaseRunnable;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public interface Releasable {
         void release();
     }

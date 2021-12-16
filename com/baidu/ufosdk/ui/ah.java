@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ah extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public final class ah extends Handler {
                 this.a.b();
             }
             if (message.what == 2) {
-                String format = String.format("os=android&appid=%s&devid=%s&clientid=%s&appvn=%s&sdkvn=%s&baiducuid=%s&nettype=%s&model=%s&osvn=%s&channel_id=%s", UfoSDK.appid, UfoSDK.devid, UfoSDK.clientid, com.baidu.ufosdk.b.e.b(), "2.9.10", com.baidu.ufosdk.b.f51514c, com.baidu.ufosdk.b.d.a(this.a.getApplicationContext()), Build.MODEL, Build.VERSION.RELEASE, String.valueOf(com.baidu.ufosdk.b.f51521j));
+                String format = String.format("os=android&appid=%s&devid=%s&clientid=%s&appvn=%s&sdkvn=%s&baiducuid=%s&nettype=%s&model=%s&osvn=%s&channel_id=%s", UfoSDK.appid, UfoSDK.devid, UfoSDK.clientid, com.baidu.ufosdk.b.e.b(), "2.9.10", com.baidu.ufosdk.b.f52063c, com.baidu.ufosdk.b.d.a(this.a.getApplicationContext()), Build.MODEL, Build.VERSION.RELEASE, String.valueOf(com.baidu.ufosdk.b.f52070j));
                 StringBuilder sb = new StringBuilder("https://ufosdk.baidu.com/?m=Web&a=getnfaqlist&");
                 sb.append(format);
                 String sb2 = sb.toString();
@@ -108,7 +108,7 @@ public final class ah extends Handler {
                     Context applicationContext = this.a.getApplicationContext();
                     textView2 = this.a.q;
                     com.baidu.ufosdk.f.i.a(applicationContext, textView2);
-                    linearLayout2 = this.a.f51588g;
+                    linearLayout2 = this.a.f52137g;
                     linearLayout2.setVisibility(0);
                     webView4 = this.a.o;
                     webView4.setVisibility(8);
@@ -121,7 +121,7 @@ public final class ah extends Handler {
                 Context applicationContext2 = this.a.getApplicationContext();
                 textView = this.a.q;
                 com.baidu.ufosdk.f.i.a(applicationContext2, textView);
-                linearLayout = this.a.f51588g;
+                linearLayout = this.a.f52137g;
                 linearLayout.setVisibility(0);
                 webView = this.a.o;
                 webView.setVisibility(8);
@@ -133,17 +133,17 @@ public final class ah extends Handler {
                 }
                 str6 = this.a.t;
                 if (!TextUtils.isEmpty(str6)) {
-                    str9 = this.a.f51586e;
+                    str9 = this.a.f52135e;
                     if (TextUtils.isEmpty(str9)) {
                         editor6 = this.a.a;
                         str10 = this.a.t;
                         editor6.putString(str10, "");
                     }
                 }
-                str7 = this.a.f51586e;
+                str7 = this.a.f52135e;
                 if (!TextUtils.isEmpty(str7)) {
                     editor5 = this.a.a;
-                    str8 = this.a.f51586e;
+                    str8 = this.a.f52135e;
                     editor5.putString(str8, "");
                 }
                 editor4 = this.a.a;
@@ -166,17 +166,17 @@ public final class ah extends Handler {
                 }
                 str = this.a.t;
                 if (!TextUtils.isEmpty(str)) {
-                    str4 = this.a.f51586e;
+                    str4 = this.a.f52135e;
                     if (TextUtils.isEmpty(str4)) {
                         editor3 = this.a.a;
                         str5 = this.a.t;
                         editor3.putString(str5, "");
                     }
                 }
-                str2 = this.a.f51586e;
+                str2 = this.a.f52135e;
                 if (!TextUtils.isEmpty(str2)) {
                     editor2 = this.a.a;
-                    str3 = this.a.f51586e;
+                    str3 = this.a.f52135e;
                     editor2.putString(str3, "");
                 }
                 editor = this.a.a;
@@ -184,7 +184,7 @@ public final class ah extends Handler {
                 Intent intent = new Intent();
                 intent.setClass(this.a, FeedbackInputActivity.class);
                 intent.putExtra("msgid", (String) message.obj);
-                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f51521j);
+                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f52070j);
                 this.a.startActivity(intent);
             }
         }

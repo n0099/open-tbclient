@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public static volatile com.ss.android.socialbase.downloader.downloader.m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile com.ss.android.socialbase.downloader.downloader.m f61947b;
+    public static volatile com.ss.android.socialbase.downloader.downloader.m f62528b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public l() {
@@ -33,14 +33,14 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
             if (z && com.ss.android.socialbase.downloader.downloader.c.S()) {
-                if (f61947b == null) {
+                if (f62528b == null) {
                     synchronized (l.class) {
-                        if (f61947b == null) {
-                            f61947b = com.ss.android.socialbase.downloader.downloader.c.T().b();
+                        if (f62528b == null) {
+                            f62528b = com.ss.android.socialbase.downloader.downloader.c.T().b();
                         }
                     }
                 }
-                return f61947b;
+                return f62528b;
             }
             if (a == null) {
                 synchronized (l.class) {

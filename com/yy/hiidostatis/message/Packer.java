@@ -1,10 +1,10 @@
 package com.yy.hiidostatis.message;
 
 import com.yy.hiidostatis.api.StatisContent;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface Packer {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnSavedListener {
         void onSaved(boolean z);
     }

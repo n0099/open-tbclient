@@ -29,41 +29,41 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "AbstractWebViewPage";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f33336b;
+    public static final boolean f33706b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33337c = "appcache";
+    public static final String f33707c = "appcache";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f33338d = "databases";
+    public static final String f33708d = "databases";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f33339e = "geolocation";
+    public static final String f33709e = "geolocation";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f33340f = "page load success";
+    public static final String f33710f = "page load success";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f33341g = "page load failure";
+    public static final String f33711g = "page load failure";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final View f33342h;
+    public final View f33712h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final View f33343i;
+    public final View f33713i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ViewGroup f33344j;
+    public ViewGroup f33714j;
 
     /* renamed from: k  reason: collision with root package name */
-    public SafeWebView f33345k;
+    public SafeWebView f33715k;
     public boolean l;
     public int m;
     public String n;
@@ -84,7 +84,7 @@ public class a {
                 return;
             }
         }
-        f33336b = ApollonConstants.DEBUG & false;
+        f33706b = ApollonConstants.DEBUG & false;
     }
 
     public a(ApollonBaseActivity apollonBaseActivity, ViewGroup viewGroup, View view, View view2, int i2) {
@@ -102,19 +102,19 @@ public class a {
                 return;
             }
         }
-        this.f33344j = null;
+        this.f33714j = null;
         this.l = false;
         this.m = 0;
         this.n = "";
         this.o = null;
         this.p = false;
         this.o = apollonBaseActivity;
-        this.f33344j = viewGroup;
-        this.f33342h = view;
-        this.f33343i = view2;
+        this.f33714j = viewGroup;
+        this.f33712h = view;
+        this.f33713i = view2;
         this.l = false;
         this.m = i2;
-        String[] strArr = {f33340f, f33341g};
+        String[] strArr = {f33710f, f33711g};
         EventBus eventBus = EventBus.getInstance();
         this.q = eventBus;
         eventBus.register(this, strArr, 0, EventBus.ThreadMode.MainThread);
@@ -125,17 +125,17 @@ public class a {
         View view;
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || (view = this.f33342h) == null || (viewGroup = (ViewGroup) view.getParent()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || (view = this.f33712h) == null || (viewGroup = (ViewGroup) view.getParent()) == null) {
             return;
         }
-        viewGroup.removeView(this.f33342h);
+        viewGroup.removeView(this.f33712h);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65555, this) == null) || (view = this.f33343i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65555, this) == null) || (view = this.f33713i) == null) {
             return;
         }
         view.setVisibility(8);
@@ -146,16 +146,16 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
             j();
-            View view = this.f33343i;
+            View view = this.f33713i;
             if (view != null) {
                 ViewGroup viewGroup = (ViewGroup) view.getParent();
                 if (viewGroup != null) {
-                    viewGroup.removeView(this.f33343i);
+                    viewGroup.removeView(this.f33713i);
                 }
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams.addRule(13);
-                this.f33344j.addView(this.f33343i, layoutParams);
-                this.f33343i.setVisibility(0);
+                this.f33714j.addView(this.f33713i, layoutParams);
+                this.f33713i.setVisibility(0);
             }
         }
     }
@@ -166,7 +166,7 @@ public class a {
         if (interceptable == null || interceptable.invokeV(65557, this) == null) {
             EventBus eventBus = this.q;
             eventBus.getClass();
-            eventBus.post(new EventBus.Event(eventBus, f33340f, null));
+            eventBus.post(new EventBus.Event(eventBus, f33710f, null));
         }
     }
 
@@ -176,7 +176,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeV(65558, this) == null) || (applicationContext = DxmApplicationContextImpl.getApplicationContext(this.o)) == null) {
             return;
         }
-        this.f33345k = new SafeWebView(applicationContext);
+        this.f33715k = new SafeWebView(applicationContext);
         if (this.l) {
             File file = new File(applicationContext.getCacheDir(), "webviewCacheChromium");
             if (!file.exists()) {
@@ -184,19 +184,19 @@ public class a {
             }
             if (file.exists()) {
                 if (NetworkUtils.isNetworkConnected(applicationContext)) {
-                    this.f33345k.getSettings().setCacheMode(-1);
+                    this.f33715k.getSettings().setCacheMode(-1);
                 } else {
-                    this.f33345k.getSettings().setCacheMode(1);
+                    this.f33715k.getSettings().setCacheMode(1);
                 }
             } else {
-                this.f33345k.getSettings().setCacheMode(1);
+                this.f33715k.getSettings().setCacheMode(1);
             }
         }
-        this.f33345k.setScrollBarStyle(0);
-        this.f33345k.getSettings().setBlockNetworkImage(true);
-        this.f33345k.setLongClickable(true);
-        a(this.f33345k);
-        this.f33345k.setWebViewClient(new SafeWebView.SafeWebViewClient(this) { // from class: com.baidu.apollon.webmanager.a.1
+        this.f33715k.setScrollBarStyle(0);
+        this.f33715k.getSettings().setBlockNetworkImage(true);
+        this.f33715k.setLongClickable(true);
+        a(this.f33715k);
+        this.f33715k.setWebViewClient(new SafeWebView.SafeWebViewClient(this) { // from class: com.baidu.apollon.webmanager.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -224,7 +224,7 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
                     super.onLoadResource(webView, str);
-                    if (a.f33336b) {
+                    if (a.f33706b) {
                         String str2 = "onLoadResource is called, url is " + str;
                     }
                 }
@@ -234,13 +234,13 @@ public class a {
             public void onPageFinished(WebView webView, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
-                    if (a.f33336b) {
+                    if (a.f33706b) {
                         String str2 = "onPageFinished, url is " + str + " original url is " + webView.getOriginalUrl();
                     }
                     super.onPageFinished(webView, str);
                     Object tag = webView.getTag(this.a.m);
                     int intValue = tag == null ? 0 : ((Integer) tag).intValue();
-                    if (a.f33336b) {
+                    if (a.f33706b) {
                         String str3 = "onPageFinished errorTagCode is " + intValue;
                     }
                     if (TextUtils.equals(str, this.a.n) || TextUtils.equals(webView.getOriginalUrl(), this.a.n) || (str != null && str.contains(this.a.n))) {
@@ -251,7 +251,7 @@ public class a {
                         }
                     }
                     this.a.k();
-                    this.a.f33345k.getSettings().setBlockNetworkImage(false);
+                    this.a.f33715k.getSettings().setBlockNetworkImage(false);
                 }
             }
 
@@ -260,19 +260,19 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
                     super.onPageStarted(webView, str, bitmap);
-                    if (a.f33336b) {
+                    if (a.f33706b) {
                         String str2 = "onPageStarted is called, url is " + str;
                     }
                     if (this.a.p) {
-                        this.a.f33345k.getSettings().setBlockNetworkImage(true);
+                        this.a.f33715k.getSettings().setBlockNetworkImage(true);
                         if (Build.VERSION.SDK_INT >= 16) {
-                            this.a.f33345k.clearView();
+                            this.a.f33715k.clearView();
                         }
                     }
                     this.a.p = false;
                     this.a.n = str;
                     WebBackForwardList copyBackForwardList = webView.copyBackForwardList();
-                    if (this.a.f33342h == null || this.a.f33342h.getVisibility() != 0) {
+                    if (this.a.f33712h == null || this.a.f33712h.getVisibility() != 0) {
                         if (copyBackForwardList == null || copyBackForwardList.getCurrentIndex() == copyBackForwardList.getSize() - 1) {
                             this.a.l();
                         }
@@ -284,7 +284,7 @@ public class a {
             public void onReceivedError(WebView webView, int i2, String str, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLILL(1048579, this, webView, i2, str, str2) == null) {
-                    if (a.f33336b) {
+                    if (a.f33706b) {
                         String str3 = "onReceivedError is called, errorCode is  " + i2 + " failingUrl is " + str2;
                     }
                     webView.setTag(this.a.m, Integer.valueOf(i2));
@@ -296,7 +296,7 @@ public class a {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048580, this, webView, str)) == null) {
-                    if (a.f33336b) {
+                    if (a.f33706b) {
                         String str2 = "shouldOverrideUrlLoading, url is " + str;
                     }
                     this.a.p = true;
@@ -307,7 +307,7 @@ public class a {
                 return invokeLL.booleanValue;
             }
         });
-        this.f33345k.setWebChromeClient(new SafeWebView.SafeChromeClient(this) { // from class: com.baidu.apollon.webmanager.a.2
+        this.f33715k.setWebChromeClient(new SafeWebView.SafeChromeClient(this) { // from class: com.baidu.apollon.webmanager.a.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -343,7 +343,7 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f33345k.goBack();
+            this.f33715k.goBack();
             this.p = true;
         }
     }
@@ -351,7 +351,7 @@ public class a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f33345k.goForward();
+            this.f33715k.goForward();
             this.p = true;
         }
     }
@@ -359,14 +359,14 @@ public class a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f33345k.canGoBack() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f33715k.canGoBack() : invokeV.booleanValue;
     }
 
     @SuppressLint({"NewApi"})
     public void e() {
         SafeWebView safeWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || Build.VERSION.SDK_INT < 11 || (safeWebView = this.f33345k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || Build.VERSION.SDK_INT < 11 || (safeWebView = this.f33715k) == null) {
             return;
         }
         safeWebView.onPause();
@@ -376,7 +376,7 @@ public class a {
     public void f() {
         SafeWebView safeWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || Build.VERSION.SDK_INT < 11 || (safeWebView = this.f33345k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || Build.VERSION.SDK_INT < 11 || (safeWebView = this.f33715k) == null) {
             return;
         }
         safeWebView.onResume();
@@ -385,12 +385,12 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) this.f33345k.getParent();
+            ViewGroup viewGroup = (ViewGroup) this.f33715k.getParent();
             if (viewGroup != null) {
-                viewGroup.removeView(this.f33345k);
+                viewGroup.removeView(this.f33715k);
             }
-            this.f33345k.destroy();
-            this.f33345k = null;
+            this.f33715k.destroy();
+            this.f33715k = null;
         }
     }
 
@@ -398,7 +398,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             String str = Uri.parse(this.n).getScheme() + "://" + Uri.parse(this.n).getHost();
-            if (f33336b) {
+            if (f33706b) {
                 String str2 = "delOrigin is " + str;
             }
             if (TextUtils.isEmpty(str)) {
@@ -413,7 +413,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (f33336b) {
+        if (f33706b) {
             String str2 = "delOrigin is " + str;
         }
         WebStorage.getInstance().deleteOrigin(str);
@@ -422,7 +422,7 @@ public class a {
     public SafeWebView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33345k : (SafeWebView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33715k : (SafeWebView) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -430,7 +430,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.n = str;
             this.p = true;
-            this.f33345k.loadUrl(str);
+            this.f33715k.loadUrl(str);
             l();
         }
     }
@@ -441,20 +441,20 @@ public class a {
         if (interceptable == null || interceptable.invokeI(65545, this, i2) == null) {
             EventBus eventBus = this.q;
             eventBus.getClass();
-            eventBus.post(new EventBus.Event(eventBus, f33341g, Integer.valueOf(i2)));
+            eventBus.post(new EventBus.Event(eventBus, f33711g, Integer.valueOf(i2)));
         }
     }
 
     public void a(EventBus.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-            if (event.mEventKey.equals(f33340f)) {
+            if (event.mEventKey.equals(f33710f)) {
                 j();
                 k();
-                this.f33345k.setVisibility(0);
-            } else if (event.mEventKey.equals(f33341g)) {
+                this.f33715k.setVisibility(0);
+            } else if (event.mEventKey.equals(f33711g)) {
                 a(((Integer) event.mEventObj).intValue());
-                this.f33345k.setVisibility(8);
+                this.f33715k.setVisibility(8);
             }
         }
     }
@@ -474,16 +474,16 @@ public class a {
                 return;
             }
         }
-        this.f33344j = null;
+        this.f33714j = null;
         this.l = false;
         this.m = 0;
         this.n = "";
         this.o = null;
         this.p = false;
         this.o = apollonBaseActivity;
-        this.f33344j = viewGroup;
-        this.f33342h = view;
-        this.f33343i = view2;
+        this.f33714j = viewGroup;
+        this.f33712h = view;
+        this.f33713i = view2;
         this.l = z;
         this.m = i2;
         n();
@@ -497,14 +497,14 @@ public class a {
                 return;
             }
             k();
-            View view = this.f33342h;
+            View view = this.f33712h;
             if (view != null) {
                 ViewGroup viewGroup = (ViewGroup) view.getParent();
                 if (viewGroup != null) {
-                    viewGroup.removeView(this.f33342h);
+                    viewGroup.removeView(this.f33712h);
                 }
-                this.f33344j.addView(this.f33342h, this.f33344j.getLayoutParams());
-                this.f33342h.setVisibility(0);
+                this.f33714j.addView(this.f33712h, this.f33714j.getLayoutParams());
+                this.f33712h.setVisibility(0);
             }
         }
     }

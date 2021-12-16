@@ -30,15 +30,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static n f56755j = null;
+    public static n f57336j = null;
 
     /* renamed from: k  reason: collision with root package name */
-    public static int f56756k = 0;
+    public static int f57337k = 0;
     public static final int l = 0;
     public static final int m = 1;
     public static final int n = 2;
@@ -51,37 +51,37 @@ public class n {
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f56757b;
+    public volatile boolean f57338b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kuaishou.weapon.un.d f56758c;
+    public com.kuaishou.weapon.un.d f57339c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f56759d;
+    public Context f57340d;
 
     /* renamed from: e  reason: collision with root package name */
-    public x f56760e;
+    public x f57341e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f56761f;
+    public Handler f57342f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HandlerThread f56762g;
+    public HandlerThread f57343g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f56763h;
+    public int f57344h;
 
     /* renamed from: i  reason: collision with root package name */
-    public IWeaponInitParams f56764i;
+    public IWeaponInitParams f57345i;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WeaponCB a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ n f56765b;
+        public final /* synthetic */ n f57346b;
 
         public a(n nVar, WeaponCB weaponCB) {
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class n {
                     return;
                 }
             }
-            this.f56765b = nVar;
+            this.f57346b = nVar;
             this.a = weaponCB;
         }
 
@@ -106,12 +106,12 @@ public class n {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56765b.a(true, this.a);
+                this.f57346b.a(true, this.a);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,7 @@ public class n {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,21 +172,21 @@ public class n {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f56758c.a(com.kuaishou.weapon.un.d.f56622j, 0L);
+                this.a.f57339c.a(com.kuaishou.weapon.un.d.f57203j, 0L);
                 this.a.a(false, (WeaponCB) null);
                 n.b(this.a);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements Comparator<p> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ n f56766b;
+        public final /* synthetic */ n f57347b;
 
         public d(n nVar, List list) {
             Interceptable interceptable = $ic;
@@ -203,7 +203,7 @@ public class n {
                     return;
                 }
             }
-            this.f56766b = nVar;
+            this.f57347b = nVar;
             this.a = list;
         }
 
@@ -241,26 +241,26 @@ public class n {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ n f56767b;
+        public final /* synthetic */ n f57348b;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ o a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ p f56768b;
+            public final /* synthetic */ p f57349b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ e f56769c;
+            public final /* synthetic */ e f57350c;
 
             public a(e eVar, o oVar, p pVar) {
                 Interceptable interceptable = $ic;
@@ -277,18 +277,18 @@ public class n {
                         return;
                     }
                 }
-                this.f56769c = eVar;
+                this.f57350c = eVar;
                 this.a = oVar;
-                this.f56768b = pVar;
+                this.f57349b = pVar;
             }
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.e(this.f56769c.a);
-                    this.f56769c.f56767b.f56760e.a(this.f56769c.a);
-                    File file = new File(this.f56768b.f56789e);
+                    this.a.e(this.f57350c.a);
+                    this.f57350c.f57348b.f57341e.a(this.f57350c.a);
+                    File file = new File(this.f57349b.f57370e);
                     if (file.exists()) {
                         com.kuaishou.weapon.un.b.a(file);
                         file.delete();
@@ -312,7 +312,7 @@ public class n {
                     return;
                 }
             }
-            this.f56767b = nVar;
+            this.f57348b = nVar;
             this.a = str;
         }
 
@@ -322,33 +322,33 @@ public class n {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (TextUtils.isEmpty(this.a) || (a2 = o.a(this.f56767b.f56759d.getApplicationContext(), true)) == null) {
+                    if (TextUtils.isEmpty(this.a) || (a2 = o.a(this.f57348b.f57340d.getApplicationContext(), true)) == null) {
                         return;
                     }
                     p a3 = a2.a(this.a);
                     if (a3 == null) {
-                        p b2 = this.f56767b.f56760e.b(this.a);
+                        p b2 = this.f57348b.f57341e.b(this.a);
                         if (b2 != null) {
-                            this.f56767b.a(this.a, b2.f56789e);
+                            this.f57348b.a(this.a, b2.f57370e);
                             return;
                         }
                         return;
                     }
-                    Class<?> a4 = ((q) a3.f56791g).a(a3.f56787c + r1.f56831f);
-                    Object invoke = a4.getDeclaredMethod("getInstance", Context.class).invoke(a4, this.f56767b.f56759d);
+                    Class<?> a4 = ((q) a3.f57372g).a(a3.f57368c + r1.f57412f);
+                    Object invoke = a4.getDeclaredMethod("getInstance", Context.class).invoke(a4, this.f57348b.f57340d);
                     if (invoke == null) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("e", q0.s);
                         hashMap.put("l", "CBH");
                         hashMap.put("pkg", this.a);
-                        l1.a(this.f56767b.f56759d, "1002001", hashMap);
+                        l1.a(this.f57348b.f57340d, "1002001", hashMap);
                         return;
                     }
                     new Timer().schedule(new a(this, a2, a3), 600000L);
                     l1.a(invoke, "unload", null, new Object[0]);
                     a2.e(this.a);
-                    this.f56767b.f56760e.a(this.a);
-                    File file = new File(a3.f56789e);
+                    this.f57348b.f57341e.a(this.a);
+                    File file = new File(a3.f57370e);
                     if (file.exists()) {
                         com.kuaishou.weapon.un.b.a(file);
                         file.delete();
@@ -364,26 +364,26 @@ public class n {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WeaponCB f56770b;
+        public final /* synthetic */ WeaponCB f57351b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f56771c;
+        public final /* synthetic */ String f57352c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Class[] f56772d;
+        public final /* synthetic */ Class[] f57353d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Object[] f56773e;
+        public final /* synthetic */ Object[] f57354e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ n f56774f;
+        public final /* synthetic */ n f57355f;
 
         public f(n nVar, int i2, WeaponCB weaponCB, String str, Class[] clsArr, Object[] objArr) {
             Interceptable interceptable = $ic;
@@ -400,12 +400,12 @@ public class n {
                     return;
                 }
             }
-            this.f56774f = nVar;
+            this.f57355f = nVar;
             this.a = i2;
-            this.f56770b = weaponCB;
-            this.f56771c = str;
-            this.f56772d = clsArr;
-            this.f56773e = objArr;
+            this.f57351b = weaponCB;
+            this.f57352c = str;
+            this.f57353d = clsArr;
+            this.f57354e = objArr;
         }
 
         @Override // java.lang.Runnable
@@ -414,26 +414,26 @@ public class n {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f56774f.f56760e.d(this.a)) {
+                    if (this.f57355f.f57341e.d(this.a)) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        while (this.f56774f.f56760e.d(this.a) && System.currentTimeMillis() - currentTimeMillis < 5000) {
+                        while (this.f57355f.f57341e.d(this.a) && System.currentTimeMillis() - currentTimeMillis < 5000) {
                             SystemClock.sleep(500L);
                         }
                     }
-                    if (!this.f56774f.a) {
+                    if (!this.f57355f.a) {
                         n.c(2);
-                        this.f56774f.d();
+                        this.f57355f.d();
                     }
-                    o a = o.a(this.f56774f.f56759d.getApplicationContext(), true);
+                    o a = o.a(this.f57355f.f57340d.getApplicationContext(), true);
                     p pVar = null;
                     long currentTimeMillis2 = System.currentTimeMillis();
                     while (System.currentTimeMillis() - currentTimeMillis2 <= 200000) {
-                        pVar = this.f56774f.f56760e.b(this.a);
+                        pVar = this.f57355f.f57341e.b(this.a);
                         if (pVar != null) {
-                            if (a.a(pVar.f56787c) != null) {
+                            if (a.a(pVar.f57368c) != null) {
                                 z = true;
                                 break;
-                            } else if (pVar.f56786b == -1) {
+                            } else if (pVar.f57367b == -1) {
                                 break;
                             }
                         }
@@ -441,16 +441,16 @@ public class n {
                     }
                     z = false;
                     if (!z) {
-                        if (this.f56770b != null) {
-                            this.f56770b.onHappenError(4);
+                        if (this.f57351b != null) {
+                            this.f57351b.onHappenError(4);
                             return;
                         }
                         return;
                     }
-                    p a2 = a.a(pVar.f56787c);
-                    Object a3 = l1.a(((q) a2.f56791g).a(a2.f56787c + r1.f56831f).getDeclaredMethod("getInstance", Context.class).invoke(this.f56770b, this.f56774f.f56759d), this.f56771c, this.f56772d, this.f56773e);
-                    if (this.f56770b != null) {
-                        this.f56770b.onEndTask(a3);
+                    p a2 = a.a(pVar.f57368c);
+                    Object a3 = l1.a(((q) a2.f57372g).a(a2.f57368c + r1.f57412f).getDeclaredMethod("getInstance", Context.class).invoke(this.f57351b, this.f57355f.f57340d), this.f57352c, this.f57353d, this.f57354e);
+                    if (this.f57351b != null) {
+                        this.f57351b.onEndTask(a3);
                     }
                 } catch (Throwable th) {
                     l1.a(th);
@@ -490,12 +490,12 @@ public class n {
             }
         }
         this.a = false;
-        this.f56757b = false;
-        this.f56762g = new HandlerThread("pluginFKHandlerThread");
-        this.f56763h = 0;
-        this.f56759d = context;
-        this.f56758c = new com.kuaishou.weapon.un.d(context);
-        this.f56760e = x.a(context);
+        this.f57338b = false;
+        this.f57343g = new HandlerThread("pluginFKHandlerThread");
+        this.f57344h = 0;
+        this.f57340d = context;
+        this.f57339c = new com.kuaishou.weapon.un.d(context);
+        this.f57341e = x.a(context);
     }
 
     public static synchronized n a(Context context) {
@@ -505,10 +505,10 @@ public class n {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             synchronized (n.class) {
                 try {
-                    if (f56755j == null) {
-                        f56755j = new n(context);
+                    if (f57336j == null) {
+                        f57336j = new n(context);
                     }
-                    nVar = f56755j;
+                    nVar = f57336j;
                 } catch (Exception e2) {
                     e2.getMessage();
                     return null;
@@ -527,79 +527,79 @@ public class n {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), str, str2, Boolean.valueOf(z), packageInfo})) == null) {
             synchronized (this) {
                 if (z) {
-                    if (this.f56760e.c(i2) != 1) {
+                    if (this.f57341e.c(i2) != 1) {
                         return false;
                     }
                 }
-                p b2 = this.f56760e.b(i2);
+                p b2 = this.f57341e.b(i2);
                 if (b2 == null) {
-                    this.f56760e.c(i2, -1);
+                    this.f57341e.c(i2, -1);
                     HashMap hashMap = new HashMap();
                     hashMap.put(PushConstants.URI_PACKAGE_NAME, i2 + "");
                     hashMap.put("pv", str);
                     hashMap.put("e", q0.u);
-                    l1.a(this.f56759d, "1002001", hashMap);
+                    l1.a(this.f57340d, "1002001", hashMap);
                     return false;
-                } else if (!l1.a(new File(b2.f56789e))) {
-                    this.f56760e.c(i2, -1);
+                } else if (!l1.a(new File(b2.f57370e))) {
+                    this.f57341e.c(i2, -1);
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put(PushConstants.URI_PACKAGE_NAME, i2 + "");
                     hashMap2.put("pv", str);
                     hashMap2.put("e", q0.v);
                     hashMap2.put("l", "CBH");
-                    l1.a(this.f56759d, "1002001", hashMap2);
+                    l1.a(this.f57340d, "1002001", hashMap2);
                     return false;
                 } else {
                     if (packageInfo != null) {
                         b2.s = packageInfo;
                     }
-                    o a2 = o.a(this.f56759d.getApplicationContext(), true);
+                    o a2 = o.a(this.f57340d.getApplicationContext(), true);
                     if (!a2.a(b2, false)) {
-                        this.f56760e.c(i2, -1);
-                        a2.f(b2.f56789e);
+                        this.f57341e.c(i2, -1);
+                        a2.f(b2.f57370e);
                         HashMap hashMap3 = new HashMap();
                         hashMap3.put(PushConstants.URI_PACKAGE_NAME, i2 + "");
                         hashMap3.put("pv", str);
                         hashMap3.put("e", q0.w);
                         hashMap3.put("l", "CBH");
-                        l1.a(this.f56759d, "1002001", hashMap3);
-                        f56755j.f();
+                        l1.a(this.f57340d, "1002001", hashMap3);
+                        f57336j.f();
                         return false;
                     }
-                    String[] a3 = l1.a(this.f56759d);
+                    String[] a3 = l1.a(this.f57340d);
                     if (a3 == null || a3.length != 2 || TextUtils.isEmpty(a3[0]) || TextUtils.isEmpty(a3[1])) {
                         str3 = "16";
-                        str4 = l1.f56741d;
+                        str4 = l1.f57322d;
                     } else {
                         str3 = a3[0];
                         str4 = a3[1];
                     }
-                    p b3 = a2.b(b2.f56789e);
-                    q qVar = (q) b3.f56791g;
-                    Class<?> a4 = qVar.a(b3.f56787c + r1.f56831f);
+                    p b3 = a2.b(b2.f57370e);
+                    q qVar = (q) b3.f57372g;
+                    Class<?> a4 = qVar.a(b3.f57368c + r1.f57412f);
                     if (a4 == null) {
                         qVar.a("java.lang.String");
-                        this.f56760e.c(i2, -1);
+                        this.f57341e.c(i2, -1);
                         HashMap hashMap4 = new HashMap();
                         hashMap4.put(PushConstants.URI_PACKAGE_NAME, i2 + "");
                         hashMap4.put("pv", str);
                         hashMap4.put("e", q0.x);
                         hashMap4.put("l", "CBH");
-                        l1.a(this.f56759d, "1002001", hashMap4);
+                        l1.a(this.f57340d, "1002001", hashMap4);
                         return false;
                     }
-                    Object invoke = a4.getDeclaredMethod("getInstance", Context.class).invoke(a4, this.f56759d);
-                    l1.a(invoke, "setWeaponSecurityVerifyInfo", new Class[]{String.class, String.class, String.class, String.class, String.class}, str3, str4, "2.8.3", l1.g(this.f56759d), l1.l());
-                    if (this.f56758c.a(com.kuaishou.weapon.un.d.g0, 0) == 1) {
+                    Object invoke = a4.getDeclaredMethod("getInstance", Context.class).invoke(a4, this.f57340d);
+                    l1.a(invoke, "setWeaponSecurityVerifyInfo", new Class[]{String.class, String.class, String.class, String.class, String.class}, str3, str4, "2.8.3", l1.g(this.f57340d), l1.l());
+                    if (this.f57339c.a(com.kuaishou.weapon.un.d.g0, 0) == 1) {
                         String b4 = l1.b();
                         if (!TextUtils.isEmpty(b4)) {
                             l1.a(invoke, "setWeaponInfo", new Class[]{String.class}, b4);
                         }
                     }
-                    if (((Boolean) l1.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE, Object.class}, Integer.valueOf(b3.x), Boolean.valueOf(this.f56758c.b(com.kuaishou.weapon.un.d.K)), null)).booleanValue()) {
-                        b3.f56786b = 1;
+                    if (((Boolean) l1.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE, Object.class}, Integer.valueOf(b3.x), Boolean.valueOf(this.f57339c.b(com.kuaishou.weapon.un.d.K)), null)).booleanValue()) {
+                        b3.f57367b = 1;
                         b3.p = 1;
-                        this.f56760e.a(b3);
+                        this.f57341e.a(b3);
                         try {
                             Thread.sleep(5000L);
                         } catch (InterruptedException e2) {
@@ -607,14 +607,14 @@ public class n {
                         }
                         return true;
                     }
-                    this.f56760e.c(i2, -1);
-                    a2.f(b3.f56789e);
+                    this.f57341e.c(i2, -1);
+                    a2.f(b3.f57370e);
                     HashMap hashMap5 = new HashMap();
                     hashMap5.put(PushConstants.URI_PACKAGE_NAME, i2 + "");
                     hashMap5.put("pv", str);
                     hashMap5.put("e", q0.y);
                     hashMap5.put("l", "CBH");
-                    l1.a(this.f56759d, "1002001", hashMap5);
+                    l1.a(this.f57340d, "1002001", hashMap5);
                     return false;
                 }
             }
@@ -623,8 +623,8 @@ public class n {
     }
 
     public static /* synthetic */ int b(n nVar) {
-        int i2 = nVar.f56763h;
-        nVar.f56763h = i2 + 1;
+        int i2 = nVar.f57344h;
+        nVar.f57344h = i2 + 1;
         return i2;
     }
 
@@ -647,20 +647,20 @@ public class n {
     public static void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65544, null, i2) == null) {
-            f56756k = i2;
+            f57337k = i2;
         }
     }
 
     public static int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f56756k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f57337k : invokeV.intValue;
     }
 
     public static n i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f56755j : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f57336j : (n) invokeV.objValue;
     }
 
     public synchronized void a() {
@@ -676,12 +676,12 @@ public class n {
                 if (c2 == null) {
                     return;
                 }
-                new n0(this.f56759d).a();
+                new n0(this.f57340d).a();
                 for (p pVar : c2.a()) {
-                    p a2 = c2 != null ? c2.a(pVar.f56787c) : null;
-                    if (a2 != null && !TextUtils.isEmpty(a2.f56787c) && a2.f56787c.contains(ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT)) {
-                        Class loadClass = ((q) a2.f56791g).loadClass(a2.f56787c + r1.f56832g);
-                        ((WeaponI) loadClass.getDeclaredMethod("getInstance", Context.class).invoke(loadClass, this.f56759d)).a();
+                    p a2 = c2 != null ? c2.a(pVar.f57368c) : null;
+                    if (a2 != null && !TextUtils.isEmpty(a2.f57368c) && a2.f57368c.contains(ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT)) {
+                        Class loadClass = ((q) a2.f57372g).loadClass(a2.f57368c + r1.f57413g);
+                        ((WeaponI) loadClass.getDeclaredMethod("getInstance", Context.class).invoke(loadClass, this.f57340d)).a();
                     }
                 }
             }
@@ -692,12 +692,12 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             try {
-                p b2 = this.f56760e.b(i2);
+                p b2 = this.f57341e.b(i2);
                 if (b2 == null) {
                     return;
                 }
-                this.f56760e.a(i2);
-                File file = new File(b2.f56789e);
+                this.f57341e.a(i2);
+                File file = new File(b2.f57370e);
                 if (file.exists()) {
                     com.kuaishou.weapon.un.b.a(file);
                     file.delete();
@@ -747,7 +747,7 @@ public class n {
     public void a(IWeaponInitParams iWeaponInitParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, iWeaponInitParams) == null) {
-            this.f56764i = iWeaponInitParams;
+            this.f57345i = iWeaponInitParams;
         }
     }
 
@@ -757,12 +757,12 @@ public class n {
         if (interceptable == null || interceptable.invokeL(1048583, this, weaponCB) == null) {
             synchronized (this) {
                 try {
-                    a2 = l1.a(this.f56759d);
+                    a2 = l1.a(this.f57340d);
                 } catch (Throwable th) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("e", th.getMessage());
                     hashMap.put("l", "CBH");
-                    l1.a(this.f56759d, "1002001", hashMap);
+                    l1.a(this.f57340d, "1002001", hashMap);
                     l1.a(th);
                 }
                 if (a2 != null && a2.length == 2 && !TextUtils.isEmpty(a2[0]) && !TextUtils.isEmpty(a2[1])) {
@@ -773,36 +773,36 @@ public class n {
                         return;
                     }
                     this.a = true;
-                    this.f56758c.b(com.kuaishou.weapon.un.d.f56621i, "2.8.3");
-                    b(this.f56759d);
-                    if (this.f56758c.a(com.kuaishou.weapon.un.d.g0, 0) == 1) {
+                    this.f57339c.b(com.kuaishou.weapon.un.d.f57202i, "2.8.3");
+                    b(this.f57340d);
+                    if (this.f57339c.a(com.kuaishou.weapon.un.d.g0, 0) == 1) {
                         String b2 = l1.b();
                         if (!TextUtils.isEmpty(b2)) {
                             r0.a(b2);
                         }
                     }
-                    new t0(this.f56759d).a();
-                    new d0(this.f56759d).a();
-                    v.a(this.f56759d);
+                    new t0(this.f57340d).a();
+                    new d0(this.f57340d).a();
+                    v.a(this.f57340d);
                     WeaponRECE weaponRECE = new WeaponRECE();
                     IntentFilter intentFilter = new IntentFilter(PackageChangedReceiver.ACTION_UNINSTALL);
                     intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
                     intentFilter.addDataScheme("package");
-                    this.f56759d.registerReceiver(weaponRECE, intentFilter);
+                    this.f57340d.registerReceiver(weaponRECE, intentFilter);
                     IntentFilter intentFilter2 = new IntentFilter();
                     intentFilter2.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                    this.f56759d.registerReceiver(weaponRECE, intentFilter2);
-                    if (this.f56762g != null) {
-                        this.f56762g.start();
-                        this.f56761f = new Handler(this.f56762g.getLooper());
+                    this.f57340d.registerReceiver(weaponRECE, intentFilter2);
+                    if (this.f57343g != null) {
+                        this.f57343g.start();
+                        this.f57342f = new Handler(this.f57343g.getLooper());
                     }
-                    this.f56761f.removeCallbacksAndMessages(null);
-                    this.f56761f.postDelayed(new a(this, weaponCB), 5000L);
+                    this.f57342f.removeCallbacksAndMessages(null);
+                    this.f57342f.postDelayed(new a(this, weaponCB), 5000L);
                     return;
                 }
                 HashMap hashMap2 = new HashMap();
                 hashMap2.put("e", q0.o);
-                l1.a(this.f56759d, "1002001", hashMap2);
+                l1.a(this.f57340d, "1002001", hashMap2);
             }
         }
     }
@@ -821,10 +821,10 @@ public class n {
                     return;
                 }
                 for (p pVar : c2.a()) {
-                    p a2 = c2 != null ? c2.a(pVar.f56787c) : null;
-                    if (a2 != null && !TextUtils.isEmpty(a2.f56787c) && a2.f56787c.contains(ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT)) {
-                        Class<?> a3 = ((q) a2.f56791g).a(a2.f56787c + r1.f56831f);
-                        Object invoke = a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, this.f56759d);
+                    p a2 = c2 != null ? c2.a(pVar.f57368c) : null;
+                    if (a2 != null && !TextUtils.isEmpty(a2.f57368c) && a2.f57368c.contains(ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT)) {
+                        Class<?> a3 = ((q) a2.f57372g).a(a2.f57368c + r1.f57412f);
+                        Object invoke = a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, this.f57340d);
                         if (!TextUtils.isEmpty(str)) {
                             l1.a(invoke, "setWeaponInfo", new Class[]{String.class}, str);
                         }
@@ -837,7 +837,7 @@ public class n {
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-            this.f56760e.a(str);
+            this.f57341e.a(str);
             File file = new File(str2);
             if (file.exists()) {
                 com.kuaishou.weapon.un.b.a(file);
@@ -851,12 +851,12 @@ public class n {
         if (interceptable == null || interceptable.invokeLLLLL(1048586, this, str, str2, str3, str4, str5) == null) {
             synchronized (this) {
                 try {
-                    for (p pVar : this.f56760e.b()) {
+                    for (p pVar : this.f57341e.b()) {
                         o c2 = o.c();
-                        p a2 = c2 != null ? c2.a(pVar.f56787c) : null;
-                        if (a2 != null && !TextUtils.isEmpty(a2.f56787c) && a2.f56787c.contains(ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT)) {
-                            Class loadClass = ((q) a2.f56791g).loadClass(a2.f56787c + r1.f56832g);
-                            ((WeaponI) loadClass.getDeclaredMethod("getInstance", Context.class).invoke(loadClass, this.f56759d)).b(str, str2, str3, str4, str5);
+                        p a2 = c2 != null ? c2.a(pVar.f57368c) : null;
+                        if (a2 != null && !TextUtils.isEmpty(a2.f57368c) && a2.f57368c.contains(ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT)) {
+                            Class loadClass = ((q) a2.f57372g).loadClass(a2.f57368c + r1.f57413g);
+                            ((WeaponI) loadClass.getDeclaredMethod("getInstance", Context.class).invoke(loadClass, this.f57340d)).b(str, str2, str3, str4, str5);
                         }
                     }
                 } catch (Throwable th) {
@@ -870,15 +870,15 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048587, this, z, weaponCB) == null) {
             synchronized (this) {
-                if (this.f56757b && z) {
+                if (this.f57338b && z) {
                     return;
                 }
-                this.f56757b = true;
+                this.f57338b = true;
                 if (z) {
-                    for (p pVar : this.f56760e.b()) {
-                        String canonicalPath = this.f56759d.getFilesDir().getCanonicalPath();
+                    for (p pVar : this.f57341e.b()) {
+                        String canonicalPath = this.f57340d.getFilesDir().getCanonicalPath();
                         if (canonicalPath != null) {
-                            pVar.m = canonicalPath + r1.f56836k + pVar.a;
+                            pVar.m = canonicalPath + r1.f57417k + pVar.a;
                             StringBuilder sb = new StringBuilder();
                             sb.append(pVar.m);
                             sb.append("/lib");
@@ -886,15 +886,15 @@ public class n {
                             l1.c(pVar.m);
                         }
                     }
-                    new o0(this.f56759d).a();
+                    new o0(this.f57340d).a();
                 }
-                this.f56760e.a();
-                if (this.f56758c.b(com.kuaishou.weapon.un.d.l)) {
-                    this.f56760e.g();
+                this.f57341e.a();
+                if (this.f57339c.b(com.kuaishou.weapon.un.d.l)) {
+                    this.f57341e.g();
                 } else {
-                    this.f56758c.a(com.kuaishou.weapon.un.d.l, Boolean.TRUE);
+                    this.f57339c.a(com.kuaishou.weapon.un.d.l, Boolean.TRUE);
                 }
-                t1.a().a(new v0(this.f56759d, 1, false));
+                t1.a().a(new v0(this.f57340d, 1, false));
                 if (weaponCB != null) {
                     weaponCB.onEndTask(new Object[0]);
                 }
@@ -915,8 +915,8 @@ public class n {
         return invokeILL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:109:0x0248 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x021a A[Catch: Exception -> 0x0292, TRY_LEAVE, TryCatch #7 {Exception -> 0x0292, blocks: (B:63:0x01e8, B:65:0x021a, B:61:0x01c7), top: B:114:0x01c7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x024a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x021c A[Catch: Exception -> 0x0294, TRY_LEAVE, TryCatch #5 {Exception -> 0x0294, blocks: (B:63:0x01ea, B:65:0x021c, B:61:0x01c9), top: B:110:0x01c9 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -934,12 +934,12 @@ public class n {
                 hashMap = new HashMap();
                 str5 = q0.B;
             } else {
-                File file2 = new File(pVar.f56789e);
+                File file2 = new File(pVar.f57370e);
                 if (l1.a(file2)) {
                     try {
-                        if (!this.f56760e.f(pVar.a)) {
+                        if (!this.f57341e.f(pVar.a)) {
                             try {
-                                this.f56760e.a(pVar);
+                                this.f57341e.a(pVar);
                             } catch (Exception e2) {
                                 e = e2;
                                 pVar2 = pVar;
@@ -948,13 +948,13 @@ public class n {
                                 hashMap2.put("e", e.getMessage());
                                 hashMap2.put("l", "CBH");
                                 hashMap2.put("apk", pVar2.toString());
-                                l1.a(this.f56759d, "1002001", hashMap2);
+                                l1.a(this.f57340d, "1002001", hashMap2);
                                 l1.a(e);
                                 try {
                                     com.kuaishou.weapon.un.b.a(file);
-                                    c(pVar2.f56787c);
+                                    c(pVar2.f57368c);
                                     file.delete();
-                                    this.f56760e.b(pVar2.a, 0);
+                                    this.f57341e.b(pVar2.a, 0);
                                     return false;
                                 } catch (Throwable th) {
                                     l1.a(th);
@@ -962,65 +962,65 @@ public class n {
                                 }
                             }
                         }
-                        o a2 = o.a(this.f56759d.getApplicationContext(), true);
-                        this.f56760e.b(pVar.a, 1);
-                        c(pVar.f56787c);
+                        o a2 = o.a(this.f57340d.getApplicationContext(), true);
+                        this.f57341e.b(pVar.a, 1);
+                        c(pVar.f57368c);
                         if (!a2.a(pVar, true)) {
                             com.kuaishou.weapon.un.b.a(file2);
                             file2.delete();
-                            a(pVar.a, pVar.f56788d, (String) null, true, (PackageInfo) null);
-                            this.f56760e.b(pVar.a, 0);
+                            a(pVar.a, pVar.f57369d, (String) null, true, (PackageInfo) null);
+                            this.f57341e.b(pVar.a, 0);
                             HashMap hashMap3 = new HashMap();
                             hashMap3.put("e", q0.E);
                             hashMap3.put("l", "CBH");
                             hashMap3.put("apk", pVar.toString());
-                            l1.a(this.f56759d, "1002001", hashMap3);
+                            l1.a(this.f57340d, "1002001", hashMap3);
                             return false;
                         }
-                        String[] a3 = l1.a(this.f56759d);
+                        String[] a3 = l1.a(this.f57340d);
                         if (a3 == null || a3.length != 2 || TextUtils.isEmpty(a3[0]) || TextUtils.isEmpty(a3[1])) {
                             str3 = "16";
-                            str4 = l1.f56741d;
+                            str4 = l1.f57322d;
                         } else {
                             str3 = a3[0];
                             str4 = a3[1];
                         }
-                        pVar2 = a2.b(pVar.f56789e);
+                        pVar2 = a2.b(pVar.f57370e);
                         try {
                             if (pVar2 == null) {
-                                this.f56760e.b(pVar2.a, 0);
+                                this.f57341e.b(pVar2.a, 0);
                                 HashMap hashMap4 = new HashMap();
                                 hashMap4.put("e", q0.C);
                                 hashMap4.put("l", "CBH");
-                                l1.a(this.f56759d, "1002001", hashMap4);
+                                l1.a(this.f57340d, "1002001", hashMap4);
                                 return false;
                             }
-                            Class<?> a4 = ((q) pVar2.f56791g).a(pVar2.f56787c + r1.f56831f);
+                            Class<?> a4 = ((q) pVar2.f57372g).a(pVar2.f57368c + r1.f57412f);
                             if (a4 == null) {
                                 com.kuaishou.weapon.un.b.a(file2);
                                 file2.delete();
-                                this.f56760e.b(pVar2.a, 0);
+                                this.f57341e.b(pVar2.a, 0);
                                 HashMap hashMap5 = new HashMap();
                                 hashMap5.put("e", q0.F);
                                 hashMap5.put("l", "CBH");
                                 hashMap5.put("apk", pVar2.toString());
-                                l1.a(this.f56759d, "1002001", hashMap5);
+                                l1.a(this.f57340d, "1002001", hashMap5);
                                 return false;
                             }
-                            Object invoke = a4.getDeclaredMethod("getInstance", Context.class).invoke(a4, this.f56759d);
+                            Object invoke = a4.getDeclaredMethod("getInstance", Context.class).invoke(a4, this.f57340d);
                             if (invoke == null) {
                                 HashMap hashMap6 = new HashMap();
                                 hashMap6.put("e", q0.G);
                                 hashMap6.put("l", "CBH");
                                 hashMap6.put("apk", pVar2.toString());
-                                l1.a(this.f56759d, "1002001", hashMap6);
+                                l1.a(this.f57340d, "1002001", hashMap6);
                                 return false;
                             }
                             try {
                                 file = file2;
                                 try {
-                                    l1.a(invoke, "setWeaponSecurityVerifyInfo", new Class[]{String.class, String.class, String.class, String.class, String.class}, str3, str4, "2.8.3", l1.g(this.f56759d), l1.l());
-                                    if (this.f56758c.a(com.kuaishou.weapon.un.d.g0, 0) == 1) {
+                                    l1.a(invoke, "setWeaponSecurityVerifyInfo", new Class[]{String.class, String.class, String.class, String.class, String.class}, str3, str4, "2.8.3", l1.g(this.f57340d), l1.l());
+                                    if (this.f57339c.a(com.kuaishou.weapon.un.d.g0, 0) == 1) {
                                         String b2 = l1.b();
                                         if (!TextUtils.isEmpty(b2)) {
                                             l1.a(invoke, "setWeaponInfo", new Class[]{String.class}, b2);
@@ -1033,7 +1033,7 @@ public class n {
                                         hashMap7.put("e", th.getMessage());
                                         hashMap7.put("l", "CBH");
                                         hashMap7.put("apk", pVar2.toString());
-                                        l1.a(this.f56759d, "1002001", hashMap7);
+                                        l1.a(this.f57340d, "1002001", hashMap7);
                                         l1.a(th);
                                         File file3 = null;
                                         if (((Boolean) l1.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE, Object.class}, Integer.valueOf(pVar2.x), Boolean.FALSE, null)).booleanValue()) {
@@ -1044,12 +1044,12 @@ public class n {
                                         hashMap22.put("e", e.getMessage());
                                         hashMap22.put("l", "CBH");
                                         hashMap22.put("apk", pVar2.toString());
-                                        l1.a(this.f56759d, "1002001", hashMap22);
+                                        l1.a(this.f57340d, "1002001", hashMap22);
                                         l1.a(e);
                                         com.kuaishou.weapon.un.b.a(file);
-                                        c(pVar2.f56787c);
+                                        c(pVar2.f57368c);
                                         file.delete();
-                                        this.f56760e.b(pVar2.a, 0);
+                                        this.f57341e.b(pVar2.a, 0);
                                         return false;
                                     }
                                 }
@@ -1060,28 +1060,28 @@ public class n {
                             File file32 = null;
                             if (((Boolean) l1.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE, Object.class}, Integer.valueOf(pVar2.x), Boolean.FALSE, null)).booleanValue()) {
                                 com.kuaishou.weapon.un.b.a(file);
-                                c(pVar2.f56787c);
+                                c(pVar2.f57368c);
                                 file.delete();
-                                this.f56760e.b(pVar2.a, 0);
+                                this.f57341e.b(pVar2.a, 0);
                                 HashMap hashMap8 = new HashMap();
                                 hashMap8.put("e", q0.H);
                                 hashMap8.put("l", "CBH");
                                 hashMap8.put("apk", pVar2.toString());
-                                l1.a(this.f56759d, "1002001", hashMap8);
+                                l1.a(this.f57340d, "1002001", hashMap8);
                                 return false;
                             }
                             try {
-                                p b3 = this.f56760e.b(pVar2.a);
-                                if (b3 != null && !b3.f56788d.equals(pVar2.f56788d)) {
-                                    file32 = new File(b3.f56789e);
+                                p b3 = this.f57341e.b(pVar2.a);
+                                if (b3 != null && !b3.f57369d.equals(pVar2.f57369d)) {
+                                    file32 = new File(b3.f57370e);
                                 }
-                                pVar2.f56786b = 1;
+                                pVar2.f57367b = 1;
                                 pVar2.p = 1;
-                                if (this.f56760e.a(pVar2) > 0 && file32 != null && file32.exists()) {
+                                if (this.f57341e.a(pVar2) > 0 && file32 != null && file32.exists()) {
                                     com.kuaishou.weapon.un.b.a(file32);
                                     file32.delete();
                                 }
-                                this.f56760e.b(pVar2.a, 0);
+                                this.f57341e.b(pVar2.a, 0);
                                 return true;
                             } catch (Throwable th4) {
                                 l1.a(th4);
@@ -1094,12 +1094,12 @@ public class n {
                             hashMap222.put("e", e.getMessage());
                             hashMap222.put("l", "CBH");
                             hashMap222.put("apk", pVar2.toString());
-                            l1.a(this.f56759d, "1002001", hashMap222);
+                            l1.a(this.f57340d, "1002001", hashMap222);
                             l1.a(e);
                             com.kuaishou.weapon.un.b.a(file);
-                            c(pVar2.f56787c);
+                            c(pVar2.f57368c);
                             file.delete();
-                            this.f56760e.b(pVar2.a, 0);
+                            this.f57341e.b(pVar2.a, 0);
                             return false;
                         }
                     } catch (Exception e5) {
@@ -1114,7 +1114,7 @@ public class n {
             }
             hashMap.put("e", str5);
             hashMap.put("l", "CBH");
-            l1.a(this.f56759d, "1002001", hashMap);
+            l1.a(this.f57340d, "1002001", hashMap);
             return false;
         }
         return invokeLLL.booleanValue;
@@ -1123,7 +1123,7 @@ public class n {
     public IWeaponInitParams b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f56764i : (IWeaponInitParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f57345i : (IWeaponInitParams) invokeV.objValue;
     }
 
     public synchronized void b(int i2) {
@@ -1131,12 +1131,12 @@ public class n {
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
             synchronized (this) {
                 try {
-                    for (p pVar : this.f56760e.b()) {
+                    for (p pVar : this.f57341e.b()) {
                         o c2 = o.c();
-                        p a2 = c2 != null ? c2.a(pVar.f56787c) : null;
-                        if (a2 != null && !TextUtils.isEmpty(a2.f56787c) && a2.f56787c.contains(ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT)) {
-                            Class loadClass = ((q) a2.f56791g).loadClass(a2.f56787c + r1.f56832g);
-                            ((WeaponI) loadClass.getDeclaredMethod("getInstance", Context.class).invoke(loadClass, this.f56759d)).e(i2);
+                        p a2 = c2 != null ? c2.a(pVar.f57368c) : null;
+                        if (a2 != null && !TextUtils.isEmpty(a2.f57368c) && a2.f57368c.contains(ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT)) {
+                            Class loadClass = ((q) a2.f57372g).loadClass(a2.f57368c + r1.f57413g);
+                            ((WeaponI) loadClass.getDeclaredMethod("getInstance", Context.class).invoke(loadClass, this.f57340d)).e(i2);
                         }
                     }
                 } catch (Throwable th) {
@@ -1163,13 +1163,13 @@ public class n {
             return;
         }
         l1.d(str, str2);
-        this.f56758c.c(str, str2);
+        this.f57339c.c(str, str2);
     }
 
     public com.kuaishou.weapon.un.d c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f56758c : (com.kuaishou.weapon.un.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f57339c : (com.kuaishou.weapon.un.d) invokeV.objValue;
     }
 
     public void c(String str) {
@@ -1180,11 +1180,11 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             try {
-                if (TextUtils.isEmpty(str) || (c2 = o.c()) == null || (a2 = c2.a(str)) == null || (qVar = (q) a2.f56791g) == null) {
+                if (TextUtils.isEmpty(str) || (c2 = o.c()) == null || (a2 = c2.a(str)) == null || (qVar = (q) a2.f57372g) == null) {
                     return;
                 }
-                Class<?> a3 = qVar.a(a2.f56787c + r1.f56831f);
-                if (a3 == null || (invoke = a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, this.f56759d)) == null) {
+                Class<?> a3 = qVar.a(a2.f57368c + r1.f57412f);
+                if (a3 == null || (invoke = a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, this.f57340d)) == null) {
                     return;
                 }
                 l1.a(invoke, "unload", null, new Object[0]);
@@ -1205,31 +1205,31 @@ public class n {
     public void e() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (handler = this.f56761f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (handler = this.f57342f) == null) {
             return;
         }
         handler.removeCallbacksAndMessages(null);
-        this.f56761f.post(new b(this));
+        this.f57342f.post(new b(this));
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             try {
-                if (this.f56758c.b(com.kuaishou.weapon.un.d.W, 0) != 1) {
+                if (this.f57339c.b(com.kuaishou.weapon.un.d.W, 0) != 1) {
                     return;
                 }
-                int b2 = this.f56758c.b(com.kuaishou.weapon.un.d.X, 3);
-                int b3 = this.f56758c.b(com.kuaishou.weapon.un.d.Y, 15);
-                if (this.f56761f == null) {
+                int b2 = this.f57339c.b(com.kuaishou.weapon.un.d.X, 3);
+                int b3 = this.f57339c.b(com.kuaishou.weapon.un.d.Y, 15);
+                if (this.f57342f == null) {
                     return;
                 }
-                if (this.f56763h >= b2) {
-                    this.f56761f.removeCallbacksAndMessages(null);
+                if (this.f57344h >= b2) {
+                    this.f57342f.removeCallbacksAndMessages(null);
                     return;
                 }
-                this.f56761f.removeCallbacksAndMessages(null);
-                this.f56761f.postDelayed(new c(this), b3 * 60000);
+                this.f57342f.removeCallbacksAndMessages(null);
+                this.f57342f.postDelayed(new c(this), b3 * 60000);
             } catch (Exception unused) {
             }
         }
@@ -1238,9 +1238,9 @@ public class n {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            List<p> b2 = this.f56760e.b();
-            List<Integer> b3 = this.f56758c.b();
-            List<Integer> j2 = this.f56758c.j();
+            List<p> b2 = this.f57341e.b();
+            List<Integer> b3 = this.f57339c.b();
+            List<Integer> j2 = this.f57339c.j();
             for (int i2 = 0; i2 < b3.size(); i2++) {
                 if (!j2.contains(b3.get(i2))) {
                     j2.add(b3.get(i2));
@@ -1249,20 +1249,20 @@ public class n {
             Collections.sort(b2, new d(this, j2));
             for (p pVar : b2) {
                 o c2 = o.c();
-                if ((c2 != null ? c2.a(pVar.f56787c) : null) == null) {
-                    if (this.f56758c.d()) {
-                        File file = new File(this.f56759d.getFilesDir(), r1.f56835j);
+                if ((c2 != null ? c2.a(pVar.f57368c) : null) == null) {
+                    if (this.f57339c.d()) {
+                        File file = new File(this.f57340d.getFilesDir(), r1.f57416j);
                         if (!file.exists()) {
                             file.mkdir();
                         }
-                        File file2 = new File(pVar.f56789e);
-                        File file3 = new File(file, pVar.a + "-" + pVar.f56788d);
+                        File file2 = new File(pVar.f57370e);
+                        File file3 = new File(file, pVar.a + "-" + pVar.f57369d);
                         if (!l1.a(file3)) {
                             l1.a(file2, file3);
                         }
                         com.kuaishou.weapon.un.b.a(file2, file3);
                     }
-                    a(pVar.a, pVar.f56788d, (PackageInfo) null);
+                    a(pVar.a, pVar.f57369d, (PackageInfo) null);
                 }
             }
         }

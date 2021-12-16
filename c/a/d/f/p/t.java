@@ -1,68 +1,120 @@
 package c.a.d.f.p;
 
-import android.graphics.Paint;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.apache.commons.lang3.StringUtils;
+import java.math.BigInteger;
+import java.nio.charset.Charset;
+import java.security.GeneralSecurityException;
+import java.security.Key;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(float f2, Paint paint, String str, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f2), paint, str, Integer.valueOf(i2)})) == null) {
-            if (f2 == 0.0f || i2 == 0 || str == null || str.isEmpty()) {
-                return 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-502488640, "Lc/a/d/f/p/t;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return Math.min((int) Math.ceil(paint.measureText(str) / f2), i2);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-502488640, "Lc/a/d/f/p/t;");
+                return;
+            }
         }
-        return invokeCommon.intValue;
+        Charset.forName("UTF-8");
+        a = new byte[]{-92, 11, -56, 52, -42, -107, -13, 19};
     }
 
-    public static boolean b(float f2, Paint paint, String str, int i2) {
-        InterceptResult invokeCommon;
+    public static byte[] a(SecretKey secretKey, byte[] bArr, int i2, int i3) throws GeneralSecurityException {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), paint, str, Integer.valueOf(i2)})) == null) ? c(f2, paint, str, i2, 5) : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65537, null, secretKey, bArr, i2, i3)) == null) {
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            cipher.init(2, secretKey);
+            return cipher.doFinal(bArr, i2, i3);
+        }
+        return (byte[]) invokeLLII.objValue;
     }
 
-    public static boolean c(float f2, Paint paint, String str, int i2, int i3) {
-        InterceptResult invokeCommon;
-        float measureText;
+    public static byte[] b(Key key, byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), paint, str, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            float f3 = 0.0f;
-            if (f2 != 0.0f && i2 != 0 && str != null && !str.isEmpty() && paint != null) {
-                if (!str.contains(StringUtils.LF)) {
-                    return paint.measureText(str) >= f2 * ((float) i2);
-                }
-                String[] split = str.split(StringUtils.LF);
-                if (split.length > i2) {
-                    return true;
-                }
-                int i4 = 0;
-                for (int i5 = 0; i5 < i2 && split.length > i5; i5++) {
-                    if (i5 < i2 - 1) {
-                        measureText = paint.measureText(split[i5]);
-                        int ceil = (int) Math.ceil(measureText / f2);
-                        i4 += ceil;
-                        if (i4 < i3) {
-                            measureText = ceil * f2;
-                        }
-                    } else {
-                        measureText = paint.measureText(split[i5]);
-                        i4++;
-                    }
-                    f3 += measureText;
-                    if (i4 >= 5) {
-                        return f3 >= f2 * ((float) i2);
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, key, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(2, key);
+            return cipher.doFinal(bArr);
         }
-        return invokeCommon.booleanValue;
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] c(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, secretKey, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            cipher.init(1, secretKey);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] d(PublicKey publicKey, byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, publicKey, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(1, publicKey);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static PublicKey e(byte[] bArr) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr)) : (PublicKey) invokeL.objValue;
+    }
+
+    public static SecretKey f(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            int length = str.length();
+            char[] cArr = new char[length];
+            for (int i2 = 0; i2 < length; i2++) {
+                cArr[i2] = (char) (((byte) str.charAt(i2)) & 255);
+            }
+            return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, a, 5, 256));
+        }
+        return (SecretKey) invokeL.objValue;
+    }
+
+    public static String g(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
+            String bigInteger = new BigInteger(i2 * 5, new SecureRandom()).toString(36);
+            return bigInteger.length() > i2 ? bigInteger.substring(0, bigInteger.length()) : bigInteger;
+        }
+        return (String) invokeI.objValue;
     }
 }

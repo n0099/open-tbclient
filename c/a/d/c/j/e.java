@@ -1,6 +1,6 @@
 package c.a.d.c.j;
 
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -54,7 +54,7 @@ public class e {
             if (iArr == null || iArr.length != 3) {
                 return 0;
             }
-            int I = j.I();
+            int I = k.I();
             if (I != 1) {
                 if (I != 2) {
                     if (I != 3) {

@@ -15,7 +15,7 @@ import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ey implements iq<ey, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final iy a;
@@ -24,10 +24,10 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
     public static final jg f360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f62875b;
+    public static final iy f63456b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f62876c;
+    public static final iy f63457c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -54,8 +54,8 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
         }
         f360a = new jg("StatsEvents");
         a = new iy("", (byte) 11, (short) 1);
-        f62875b = new iy("", (byte) 11, (short) 2);
-        f62876c = new iy("", (byte) 15, (short) 3);
+        f63456b = new iy("", (byte) 11, (short) 2);
+        f63457c = new iy("", (byte) 15, (short) 3);
     }
 
     public ey() {
@@ -250,12 +250,12 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f363b != null && b()) {
-                jbVar.a(f62875b);
+                jbVar.a(f63456b);
                 jbVar.a(this.f363b);
                 jbVar.b();
             }
             if (this.f362a != null) {
-                jbVar.a(f62876c);
+                jbVar.a(f63457c);
                 jbVar.a(new iz(StandardMessageCodec.LIST, this.f362a.size()));
                 for (ex exVar : this.f362a) {
                     exVar.b(jbVar);

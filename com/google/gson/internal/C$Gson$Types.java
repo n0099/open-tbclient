@@ -25,14 +25,14 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 /* renamed from: com.google.gson.internal.$Gson$Types  reason: invalid class name */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class C$Gson$Types {
     public static /* synthetic */ Interceptable $ic;
     public static final Type[] EMPTY_TYPE_ARRAY;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class GenericArrayTypeImpl implements GenericArrayType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -87,7 +87,7 @@ public final class C$Gson$Types {
     }
 
     /* renamed from: com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ParameterizedTypeImpl implements ParameterizedType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -190,7 +190,7 @@ public final class C$Gson$Types {
     }
 
     /* renamed from: com.google.gson.internal.$Gson$Types$WildcardTypeImpl */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class WildcardTypeImpl implements WildcardType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;

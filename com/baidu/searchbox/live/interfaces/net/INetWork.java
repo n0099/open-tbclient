@@ -2,7 +2,7 @@ package com.baidu.searchbox.live.interfaces.net;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface INetWork {
     void cancel();
 

@@ -1,6 +1,6 @@
 package com.baidu.tieba.faceshop;
 
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FacePackageData extends AbstractImageProvider implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -64,13 +64,13 @@ public class FacePackageData extends AbstractImageProvider implements Serializab
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            if (!k.isEmpty(this.banner_url)) {
+            if (!l.isEmpty(this.banner_url)) {
                 arrayList.add(this.banner_url);
             }
-            if (!k.isEmpty(this.new_icon)) {
+            if (!l.isEmpty(this.new_icon)) {
                 arrayList.add(this.new_icon);
             }
-            if (!k.isEmpty(this.tag_url)) {
+            if (!l.isEmpty(this.tag_url)) {
                 arrayList.add(this.tag_url);
             }
             return arrayList;

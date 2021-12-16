@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface IdsSupplier extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Stub extends Binder implements IdsSupplier {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.android.creator.IdsSupplier";
@@ -24,7 +24,7 @@ public interface IdsSupplier extends IInterface {
         public static final int TRANSACTION_isSupported = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public static class Proxy implements IdsSupplier {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

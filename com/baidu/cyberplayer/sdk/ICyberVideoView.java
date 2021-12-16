@@ -6,11 +6,11 @@ import android.view.View;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.util.Map;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface ICyberVideoView {
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnSnapShotCompleteListener {
         void onSnapShotComplete(Bitmap bitmap);
     }

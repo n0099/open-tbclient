@@ -6,16 +6,26 @@ import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface INeuron {
+    public static final int ORDER_FIRST = 1;
+    public static final int ORDER_LAST = 2;
+    public static final int ORDER_UNSPECIFIED = 0;
     public static final int TYPE_LAYER = 2;
     public static final int TYPE_PLUGIN = 1;
     public static final int TYPE_SPECIFIED = -1;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
+    public @interface Order {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes10.dex */
     public @interface Type {
     }
+
+    int getExpectOrder();
 
     @Nullable
     int[] getSubscribeEvent();
@@ -23,6 +33,8 @@ public interface INeuron {
     int getType();
 
     void onControlEventNotify(@NonNull VideoEvent videoEvent);
+
+    void onInteractiveEventNotify(@NonNull VideoEvent videoEvent);
 
     void onLayerEventNotify(@NonNull VideoEvent videoEvent);
 

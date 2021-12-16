@@ -18,56 +18,56 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f61178b;
+    public TextView f61759b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f61179c;
+    public TextView f61760c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f61180d;
+    public c f61761d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f61181e;
+    public boolean f61762e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Activity f61182f;
+    public Activity f61763f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61183g;
+    public String f61764g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f61184h;
+    public String f61765h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f61185i;
+    public String f61766i;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Activity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61186b;
+        public String f61767b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f61187c;
+        public String f61768c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f61188d;
+        public String f61769d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f61189e;
+        public boolean f61770e;
 
         /* renamed from: f  reason: collision with root package name */
-        public c f61190f;
+        public c f61771f;
 
         public a(Activity activity) {
             Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class d extends Dialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f61186b = str;
+                this.f61767b = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -101,7 +101,7 @@ public class d extends Dialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f61187c = str;
+                this.f61768c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -111,7 +111,7 @@ public class d extends Dialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f61188d = str;
+                this.f61769d = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -121,7 +121,7 @@ public class d extends Dialog {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f61189e = z;
+                this.f61770e = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -131,7 +131,7 @@ public class d extends Dialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-                this.f61190f = cVar;
+                this.f61771f = cVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -140,7 +140,7 @@ public class d extends Dialog {
         public d a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new d(this.a, this.f61186b, this.f61187c, this.f61188d, this.f61189e, this.f61190f) : (d) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new d(this.a, this.f61767b, this.f61768c, this.f61769d, this.f61770e, this.f61771f) : (d) invokeV.objValue;
         }
     }
 
@@ -163,11 +163,11 @@ public class d extends Dialog {
                 return;
             }
         }
-        this.f61182f = activity;
-        this.f61180d = cVar;
-        this.f61183g = str;
-        this.f61184h = str2;
-        this.f61185i = str3;
+        this.f61763f = activity;
+        this.f61761d = cVar;
+        this.f61764g = str;
+        this.f61765h = str2;
+        this.f61766i = str3;
         setCanceledOnTouchOutside(z);
         d();
     }
@@ -175,18 +175,18 @@ public class d extends Dialog {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setContentView(LayoutInflater.from(this.f61182f.getApplicationContext()).inflate(a(), (ViewGroup) null));
+            setContentView(LayoutInflater.from(this.f61763f.getApplicationContext()).inflate(a(), (ViewGroup) null));
             this.a = (TextView) findViewById(b());
-            this.f61178b = (TextView) findViewById(c());
-            this.f61179c = (TextView) findViewById(R.id.message_tv);
-            if (!TextUtils.isEmpty(this.f61184h)) {
-                this.a.setText(this.f61184h);
+            this.f61759b = (TextView) findViewById(c());
+            this.f61760c = (TextView) findViewById(R.id.message_tv);
+            if (!TextUtils.isEmpty(this.f61765h)) {
+                this.a.setText(this.f61765h);
             }
-            if (!TextUtils.isEmpty(this.f61185i)) {
-                this.f61178b.setText(this.f61185i);
+            if (!TextUtils.isEmpty(this.f61766i)) {
+                this.f61759b.setText(this.f61766i);
             }
-            if (!TextUtils.isEmpty(this.f61183g)) {
-                this.f61179c.setText(this.f61183g);
+            if (!TextUtils.isEmpty(this.f61764g)) {
+                this.f61760c.setText(this.f61764g);
             }
             this.a.setOnClickListener(new View.OnClickListener(this) { // from class: com.ss.android.downloadlib.addownload.a.d.1
                 public static /* synthetic */ Interceptable $ic;
@@ -219,7 +219,7 @@ public class d extends Dialog {
                     }
                 }
             });
-            this.f61178b.setOnClickListener(new View.OnClickListener(this) { // from class: com.ss.android.downloadlib.addownload.a.d.2
+            this.f61759b.setOnClickListener(new View.OnClickListener(this) { // from class: com.ss.android.downloadlib.addownload.a.d.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ d a;
@@ -257,7 +257,7 @@ public class d extends Dialog {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f61181e = true;
+            this.f61762e = true;
             dismiss();
         }
     }
@@ -281,13 +281,13 @@ public class d extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.dismiss();
-            if (!this.f61182f.isFinishing()) {
-                this.f61182f.finish();
+            if (!this.f61763f.isFinishing()) {
+                this.f61763f.finish();
             }
-            if (this.f61181e) {
-                this.f61180d.a();
+            if (this.f61762e) {
+                this.f61761d.a();
             } else {
-                this.f61180d.b();
+                this.f61761d.b();
             }
         }
     }

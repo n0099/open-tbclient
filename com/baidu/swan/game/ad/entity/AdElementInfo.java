@@ -22,7 +22,7 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AdElementInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_TYPE_DOWNLOAD = 2;
@@ -79,7 +79,7 @@ public class AdElementInfo implements Parcelable {
     public String mVideoUrl;
     public int mVideoWidth;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Parcelable.Creator<AdElementInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

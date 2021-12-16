@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static Map<String, String> a = a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f60545b = new ArrayList(a.keySet());
+    public static final List<String> f61126b = new ArrayList(a.keySet());
 
     public static String a(String str) {
         String str2;

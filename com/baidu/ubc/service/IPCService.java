@@ -4,9 +4,9 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.i0.b.a.a;
-import c.a.t0.b0;
-import c.a.t0.n0.c;
+import c.a.j0.b.a.a;
+import c.a.u0.b0;
+import c.a.u0.n0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -23,7 +23,7 @@ import com.baidu.ubc.UBC;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class IPCService implements c {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
@@ -59,14 +59,14 @@ public class IPCService implements c {
         }
     }
 
-    @Override // c.a.t0.n0.c
+    @Override // c.a.u0.n0.c
     public IBinder a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? IPCServiceManager.f(str, true) : (IBinder) invokeL.objValue;
     }
 
-    @Override // c.a.t0.n0.c
+    @Override // c.a.u0.n0.c
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

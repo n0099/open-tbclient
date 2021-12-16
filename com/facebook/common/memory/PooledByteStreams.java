@@ -11,7 +11,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class PooledByteStreams {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_TEMP_BUF_SIZE = 16384;

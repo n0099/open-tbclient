@@ -1,1544 +1,536 @@
 package c.a.q0.a;
 
-import android.util.Pair;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import c.a.q0.a.d0.d;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
-public class d {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes.dex */
+public final class d {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int abc_action_bar_content_inset_material = 2131165323;
+    public static final int abc_action_bar_content_inset_with_nav = 2131165324;
+    public static final int abc_action_bar_default_height_material = 2131165325;
+    public static final int abc_action_bar_default_padding_end_material = 2131165326;
+    public static final int abc_action_bar_default_padding_start_material = 2131165327;
+    public static final int abc_action_bar_elevation_material = 2131165328;
+    public static final int abc_action_bar_icon_vertical_padding_material = 2131165329;
+    public static final int abc_action_bar_overflow_padding_end_material = 2131165330;
+    public static final int abc_action_bar_overflow_padding_start_material = 2131165331;
+    public static final int abc_action_bar_stacked_max_height = 2131165332;
+    public static final int abc_action_bar_stacked_tab_max_width = 2131165333;
+    public static final int abc_action_bar_subtitle_bottom_margin_material = 2131165334;
+    public static final int abc_action_bar_subtitle_top_margin_material = 2131165335;
+    public static final int abc_action_button_min_height_material = 2131165336;
+    public static final int abc_action_button_min_width_material = 2131165337;
+    public static final int abc_action_button_min_width_overflow_material = 2131165338;
+    public static final int abc_alert_dialog_button_bar_height = 2131165339;
+    public static final int abc_alert_dialog_button_dimen = 2131165340;
+    public static final int abc_button_inset_horizontal_material = 2131165341;
+    public static final int abc_button_inset_vertical_material = 2131165342;
+    public static final int abc_button_padding_horizontal_material = 2131165343;
+    public static final int abc_button_padding_vertical_material = 2131165344;
+    public static final int abc_cascading_menus_min_smallest_width = 2131165345;
+    public static final int abc_config_prefDialogWidth = 2131165346;
+    public static final int abc_control_corner_material = 2131165347;
+    public static final int abc_control_inset_material = 2131165348;
+    public static final int abc_control_padding_material = 2131165349;
+    public static final int abc_dialog_corner_radius_material = 2131165350;
+    public static final int abc_dialog_fixed_height_major = 2131165351;
+    public static final int abc_dialog_fixed_height_minor = 2131165352;
+    public static final int abc_dialog_fixed_width_major = 2131165353;
+    public static final int abc_dialog_fixed_width_minor = 2131165354;
+    public static final int abc_dialog_list_padding_bottom_no_buttons = 2131165355;
+    public static final int abc_dialog_list_padding_top_no_title = 2131165356;
+    public static final int abc_dialog_min_width_major = 2131165357;
+    public static final int abc_dialog_min_width_minor = 2131165358;
+    public static final int abc_dialog_padding_material = 2131165359;
+    public static final int abc_dialog_padding_top_material = 2131165360;
+    public static final int abc_dialog_title_divider_material = 2131165361;
+    public static final int abc_disabled_alpha_material_dark = 2131165362;
+    public static final int abc_disabled_alpha_material_light = 2131165363;
+    public static final int abc_dropdownitem_icon_width = 2131165364;
+    public static final int abc_dropdownitem_text_padding_left = 2131165365;
+    public static final int abc_dropdownitem_text_padding_right = 2131165366;
+    public static final int abc_edit_text_inset_bottom_material = 2131165367;
+    public static final int abc_edit_text_inset_horizontal_material = 2131165368;
+    public static final int abc_edit_text_inset_top_material = 2131165369;
+    public static final int abc_floating_window_z = 2131165370;
+    public static final int abc_list_item_height_large_material = 2131165371;
+    public static final int abc_list_item_height_material = 2131165372;
+    public static final int abc_list_item_height_small_material = 2131165373;
+    public static final int abc_list_item_padding_horizontal_material = 2131165374;
+    public static final int abc_panel_menu_list_width = 2131165375;
+    public static final int abc_progress_bar_height_material = 2131165376;
+    public static final int abc_search_view_preferred_height = 2131165377;
+    public static final int abc_search_view_preferred_width = 2131165378;
+    public static final int abc_seekbar_track_background_height_material = 2131165379;
+    public static final int abc_seekbar_track_progress_height_material = 2131165380;
+    public static final int abc_select_dialog_padding_start_material = 2131165381;
+    public static final int abc_switch_padding = 2131165382;
+    public static final int abc_text_size_body_1_material = 2131165383;
+    public static final int abc_text_size_body_2_material = 2131165384;
+    public static final int abc_text_size_button_material = 2131165385;
+    public static final int abc_text_size_caption_material = 2131165386;
+    public static final int abc_text_size_display_1_material = 2131165387;
+    public static final int abc_text_size_display_2_material = 2131165388;
+    public static final int abc_text_size_display_3_material = 2131165389;
+    public static final int abc_text_size_display_4_material = 2131165390;
+    public static final int abc_text_size_headline_material = 2131165391;
+    public static final int abc_text_size_large_material = 2131165392;
+    public static final int abc_text_size_medium_material = 2131165393;
+    public static final int abc_text_size_menu_header_material = 2131165394;
+    public static final int abc_text_size_menu_material = 2131165395;
+    public static final int abc_text_size_small_material = 2131165396;
+    public static final int abc_text_size_subhead_material = 2131165397;
+    public static final int abc_text_size_subtitle_material_toolbar = 2131165398;
+    public static final int abc_text_size_title_material = 2131165399;
+    public static final int abc_text_size_title_material_toolbar = 2131165400;
+    public static final int aiapp_menu_cancel_btn_height = 2131165406;
+    public static final int aiapp_menu_gridview_indicator_height = 2131165407;
+    public static final int aiapp_menu_gridview_padding_top = 2131165408;
+    public static final int aiapp_menu_gridview_padding_view_height1 = 2131165409;
+    public static final int aiapp_menu_gridview_padding_view_height2 = 2131165410;
+    public static final int aiapp_menu_item_icon_height = 2131165411;
+    public static final int aiapp_menu_item_icon_width = 2131165412;
+    public static final int aiapp_menu_item_new_tips_cross_with_icon = 2131165413;
+    public static final int aiapp_menu_item_text_size = 2131165414;
+    public static final int aiapps_action_bar_back_margin_left = 2131165415;
+    public static final int aiapps_action_bar_back_margin_right = 2131165416;
+    public static final int aiapps_action_bar_back_padding = 2131165417;
+    public static final int aiapps_action_bar_left_operation_txt_size = 2131165418;
+    public static final int aiapps_action_bar_line_margin_left = 2131165419;
+    public static final int aiapps_action_bar_line_margin_right = 2131165420;
+    public static final int aiapps_action_bar_right_menu_bg_radius = 2131165421;
+    public static final int aiapps_action_bar_right_menu_line_height = 2131165422;
+    public static final int aiapps_action_bar_right_menu_line_width = 2131165423;
+    public static final int aiapps_action_bar_right_menu_padding = 2131165424;
+    public static final int aiapps_action_bar_right_operation_margin = 2131165425;
+    public static final int aiapps_action_bar_right_operation_padding = 2131165426;
+    public static final int aiapps_action_bar_shadow_height = 2131165427;
+    public static final int aiapps_action_bar_title_margin = 2131165428;
+    public static final int aiapps_action_sheet_bottom_divider = 2131165429;
+    public static final int aiapps_action_sheet_list_divider = 2131165430;
+    public static final int aiapps_action_sheet_list_item = 2131165431;
+    public static final int aiapps_action_sheet_scrollbar_size = 2131165432;
+    public static final int aiapps_bd_action_bar_menu_max_height = 2131165433;
+    public static final int aiapps_big_button_text_size = 2131165434;
+    public static final int aiapps_big_pic_toast_view_margin_bottom = 2131165435;
+    public static final int aiapps_bottom_tab_height = 2131165436;
+    public static final int aiapps_bottom_tab_shadow_height = 2131165437;
+    public static final int aiapps_button_toast_bg_stroke_width = 2131165438;
+    public static final int aiapps_button_toast_btn_corner_radius = 2131165439;
+    public static final int aiapps_button_toast_btn_height = 2131165440;
+    public static final int aiapps_button_toast_btn_text_size = 2131165441;
+    public static final int aiapps_button_toast_btn_width = 2131165442;
+    public static final int aiapps_button_toast_text_margin_horizon = 2131165443;
+    public static final int aiapps_button_toast_text_margin_vertical = 2131165444;
+    public static final int aiapps_button_toast_text_size = 2131165445;
+    public static final int aiapps_button_toast_view_corner_radius = 2131165446;
+    public static final int aiapps_button_toast_view_margin_bottom = 2131165447;
+    public static final int aiapps_circle_inter_width = 2131165448;
+    public static final int aiapps_clickable_2_toast_container_margin_h = 2131165449;
+    public static final int aiapps_clickable_2_toast_diviver_margin_h = 2131165450;
+    public static final int aiapps_clickable_2_toast_lefticon_size = 2131165451;
+    public static final int aiapps_clickable_2_toast_lefttext_margin_left = 2131165452;
+    public static final int aiapps_clickable_toast_button_margin_left = 2131165453;
+    public static final int aiapps_clickable_toast_button_margin_right = 2131165454;
+    public static final int aiapps_clickable_toast_icon_height = 2131165455;
+    public static final int aiapps_clickable_toast_icon_margin_left = 2131165456;
+    public static final int aiapps_clickable_toast_icon_width = 2131165457;
+    public static final int aiapps_clickable_toast_line_padding = 2131165458;
+    public static final int aiapps_clickable_toast_line_width = 2131165459;
+    public static final int aiapps_clickable_toast_multi_line_padding = 2131165460;
+    public static final int aiapps_clickable_toast_padding_bottom = 2131165461;
+    public static final int aiapps_clickable_toast_padding_top = 2131165462;
+    public static final int aiapps_clickable_toast_single_line_padding = 2131165463;
+    public static final int aiapps_clickable_toast_text_margin_left = 2131165464;
+    public static final int aiapps_clickable_toast_text_padding_right = 2131165465;
+    public static final int aiapps_clickable_toast_view_margin_bottom = 2131165466;
+    public static final int aiapps_clickable_toast_view_shift_start_y = 2131165467;
+    public static final int aiapps_custom_btn_corner_radius = 2131165476;
+    public static final int aiapps_dialog_btns_height = 2131165477;
+    public static final int aiapps_dialog_content_margin_top = 2131165478;
+    public static final int aiapps_dialog_landscape_content_default_height = 2131165479;
+    public static final int aiapps_dialog_landscape_default_width = 2131165480;
+    public static final int aiapps_dialog_message_margin_bottom = 2131165481;
+    public static final int aiapps_dialog_new_round_corner = 2131165482;
+    public static final int aiapps_dialog_round_corner = 2131165483;
+    public static final int aiapps_dialog_text_padding = 2131165484;
+    public static final int aiapps_dialog_title_height = 2131165485;
+    public static final int aiapps_discovery_feedback_item_height = 2131165494;
+    public static final int aiapps_discovery_feedback_width = 2131165495;
+    public static final int aiapps_emoji_grid_space = 2131165496;
+    public static final int aiapps_emoji_indicator_height = 2131165497;
+    public static final int aiapps_emoji_layout_height = 2131165498;
+    public static final int aiapps_emoji_left_right_padding = 2131165499;
+    public static final int aiapps_emoji_row_height = 2131165500;
+    public static final int aiapps_empty_view_bottom_margin_landscape = 2131165501;
+    public static final int aiapps_empty_view_bottom_margin_portrait = 2131165502;
+    public static final int aiapps_empty_view_icon_size = 2131165503;
+    public static final int aiapps_empty_view_settings_icon_size = 2131165504;
+    public static final int aiapps_error_fragment_margin_left = 2131165505;
+    public static final int aiapps_error_fragment_margin_right = 2131165506;
+    public static final int aiapps_fullscreen_floatview_marginbottom = 2131165507;
+    public static final int aiapps_games_loading_tips_message = 2131165509;
+    public static final int aiapps_games_loading_tips_quotation = 2131165510;
+    public static final int aiapps_games_loading_tips_quotation_margin = 2131165511;
+    public static final int aiapps_global_toast_view_corner_radius = 2131165512;
+    public static final int aiapps_highlight_toast_view_corner_radius = 2131165513;
+    public static final int aiapps_highlight_toast_view_height = 2131165514;
+    public static final int aiapps_highlight_toast_view_height_new_d20 = 2131165515;
+    public static final int aiapps_highlight_toast_view_width = 2131165516;
+    public static final int aiapps_highlight_toast_view_width_new_d20 = 2131165517;
+    public static final int aiapps_keyboard_close_btn_height = 2131165520;
+    public static final int aiapps_keyboard_divider_spacing = 2131165521;
+    public static final int aiapps_keyboard_item_height = 2131165522;
+    public static final int aiapps_keyboard_text_size = 2131165523;
+    public static final int aiapps_keyboard_total_height = 2131165524;
+    public static final int aiapps_max_panel_height = 2131165525;
+    public static final int aiapps_max_softinput_height = 2131165526;
+    public static final int aiapps_min_panel_height = 2131165527;
+    public static final int aiapps_min_softinput_height = 2131165528;
+    public static final int aiapps_navigation_loading_progressbar_margin_right = 2131165529;
+    public static final int aiapps_navigation_loading_progressbar_width = 2131165530;
+    public static final int aiapps_normal_base_action_bar_height = 2131165531;
+    public static final int aiapps_normal_toast_text_padding_bottom = 2131165532;
+    public static final int aiapps_normal_toast_text_padding_left = 2131165533;
+    public static final int aiapps_normal_toast_text_padding_right = 2131165534;
+    public static final int aiapps_normal_toast_text_padding_top = 2131165535;
+    public static final int aiapps_picture_pull_to_refresh_footer_height = 2131165536;
+    public static final int aiapps_picture_pull_to_refresh_height_height = 2131165537;
+    public static final int aiapps_picture_pull_to_refresh_last_update_time_text_size = 2131165538;
+    public static final int aiapps_picture_pull_to_refresh_last_update_time_top_margin = 2131165539;
+    public static final int aiapps_picture_pull_to_refresh_loading_text_size = 2131165540;
+    public static final int aiapps_pulldown_divider_height = 2131165541;
+    public static final int aiapps_setting_empty_text_size = 2131165542;
+    public static final int aiapps_setting_tips_text_size = 2131165543;
+    public static final int aiapps_toast_bg_stroke_width = 2131165549;
+    public static final int aiapps_toast_view_corner_radius = 2131165550;
+    public static final int aiapps_toast_view_text_size = 2131165551;
+    public static final int aigames_action_bar_right_operation_margin = 2131165552;
+    public static final int aigames_action_bar_top_operation_margin = 2131165553;
+    public static final int aigames_loading_view_bottom_text_interval = 2131165554;
+    public static final int aigames_loading_view_bottom_text_margin = 2131165555;
+    public static final int aigames_loading_view_bottom_text_size = 2131165556;
+    public static final int aigames_loading_view_icon_border = 2131165557;
+    public static final int aigames_loading_view_icon_bottom_padding = 2131165558;
+    public static final int aigames_loading_view_icon_height = 2131165559;
+    public static final int aigames_loading_view_icon_radius = 2131165560;
+    public static final int aigames_loading_view_icon_width = 2131165561;
+    public static final int aigames_loading_view_label_height = 2131165562;
+    public static final int aigames_loading_view_label_text_margin_bottom = 2131165563;
+    public static final int aigames_loading_view_label_text_size = 2131165564;
+    public static final int aigames_loading_view_print_margin_left = 2131165565;
+    public static final int aigames_loading_view_print_margin_top = 2131165566;
+    public static final int aigames_loading_view_print_size = 2131165567;
+    public static final int aigames_loading_view_progress_margin_top = 2131165568;
+    public static final int aigames_loading_view_tips_top_margin = 2131165569;
+    public static final int aigames_loading_view_title_margin_top = 2131165570;
+    public static final int aigames_loading_view_title_size = 2131165571;
+    public static final int banner_btn_down_min_height = 2131165573;
+    public static final int banner_btn_down_min_width = 2131165574;
+    public static final int banner_btn_down_text_size = 2131165575;
+    public static final int banner_des_line_margin_end = 2131165576;
+    public static final int banner_des_line_margin_start = 2131165577;
+    public static final int banner_des_text_size = 2131165578;
+    public static final int banner_icon_height = 2131165579;
+    public static final int banner_icon_width = 2131165580;
+    public static final int banner_title_text_size = 2131165581;
+    public static final int cashiersdk_common_dialog_button_height = 2131165704;
+    public static final int cashiersdk_common_dialog_content_margin = 2131165705;
+    public static final int cashiersdk_common_dialog_line = 2131165706;
+    public static final int channel_list_icon_size = 2131165707;
+    public static final int channel_list_icon_title_margin = 2131165708;
+    public static final int channel_list_item_height = 2131165709;
+    public static final int channel_list_item_left_margin = 2131165710;
+    public static final int channel_list_item_right_margin = 2131165712;
+    public static final int channel_list_landscape_margin = 2131165713;
+    public static final int channel_list_open_fold = 2131165714;
+    public static final int channel_list_subtitle_text_size = 2131165715;
+    public static final int channel_list_title_subtitle_margin = 2131165716;
+    public static final int channel_list_title_text_size = 2131165718;
+    public static final int channel_loading_icon_size = 2131165719;
+    public static final int close_ad_text_size = 2131165720;
+    public static final int common_grid_indicator_height = 2131165721;
+    public static final int common_grid_indicator_height2 = 2131165722;
+    public static final int common_grid_indicator_margin = 2131165723;
+    public static final int common_grid_row_margin = 2131165724;
+    public static final int compat_button_inset_horizontal_material = 2131165727;
+    public static final int compat_button_inset_vertical_material = 2131165728;
+    public static final int compat_button_padding_horizontal_material = 2131165729;
+    public static final int compat_button_padding_vertical_material = 2131165730;
+    public static final int compat_control_corner_material = 2131165731;
+    public static final int compat_notification_large_icon_max_height = 2131165734;
+    public static final int compat_notification_large_icon_max_width = 2131165735;
+    public static final int confirm_pay_button_height = 2131165736;
+    public static final int confirm_pay_button_hor_margin = 2131165737;
+    public static final int confirm_pay_button_top_shadow_height = 2131165738;
+    public static final int confirm_pay_button_ver_margin = 2131165739;
+    public static final int core_permission_dialog_width = 2131165740;
+    public static final int core_permission_go_setting_button_margin_top = 2131165741;
+    public static final int core_permission_go_setting_cancel_button_margin_bottom = 2131165742;
+    public static final int core_permission_go_setting_cancel_button_margin_left = 2131165743;
+    public static final int core_permission_go_setting_padding = 2131165744;
+    public static final int core_permission_go_setting_text_size = 2131165745;
+    public static final int core_permission_guide_dialog_button_height = 2131165746;
+    public static final int core_permission_guide_dialog_button_width = 2131165748;
+    public static final int core_permission_guide_dialog_divider_height = 2131165749;
+    public static final int core_permission_guide_dialog_height = 2131165750;
+    public static final int core_permission_guide_icon_margin = 2131165751;
+    public static final int core_permission_guide_icon_margin_top = 2131165752;
+    public static final int core_permission_guide_icon_size = 2131165753;
+    public static final int core_permission_guide_icon_text_margin_top = 2131165754;
+    public static final int core_permission_guide_icon_text_size = 2131165755;
+    public static final int core_permission_guide_info_margin_top = 2131165756;
+    public static final int core_permission_guide_info_size = 2131165757;
+    public static final int core_permission_guide_title_size = 2131165758;
+    public static final int def_drawer_elevation = 2131165759;
+    public static final int disabled_alpha_material_dark = 2131165814;
+    public static final int disabled_alpha_material_light = 2131165815;
+    public static final int end_frame_download_btn_bottom_margin = 2131166171;
+    public static final int end_frame_download_btn_height = 2131166172;
+    public static final int end_frame_download_btn_width = 2131166173;
+    public static final int fastscroll_default_thickness = 2131166184;
+    public static final int fastscroll_margin = 2131166185;
+    public static final int fastscroll_minimum_range = 2131166186;
+    public static final int highlight_alpha_material_colored = 2131166209;
+    public static final int highlight_alpha_material_dark = 2131166210;
+    public static final int highlight_alpha_material_light = 2131166211;
+    public static final int hint_alpha_material_dark = 2131166212;
+    public static final int hint_alpha_material_light = 2131166213;
+    public static final int hint_pressed_alpha_material_dark = 2131166214;
+    public static final int hint_pressed_alpha_material_light = 2131166215;
+    public static final int include_banner_margin = 2131166217;
+    public static final int include_close_ad_margin = 2131166218;
+    public static final int include_land_close_ad_margin = 2131166219;
+    public static final int item_touch_helper_max_drag_scroll_per_frame = 2131166236;
+    public static final int item_touch_helper_swipe_escape_max_velocity = 2131166237;
+    public static final int item_touch_helper_swipe_escape_velocity = 2131166238;
+    public static final int ksw_md_thumb_ripple_size = 2131166332;
+    public static final int ksw_md_thumb_shadow_inset = 2131166333;
+    public static final int ksw_md_thumb_shadow_inset_bottom = 2131166334;
+    public static final int ksw_md_thumb_shadow_inset_top = 2131166335;
+    public static final int ksw_md_thumb_shadow_offset = 2131166336;
+    public static final int ksw_md_thumb_shadow_size = 2131166337;
+    public static final int ksw_md_thumb_solid_inset = 2131166338;
+    public static final int ksw_md_thumb_solid_size = 2131166339;
+    public static final int line_ad_min_height = 2131166357;
+    public static final int main_menu_divider_margin = 2131166390;
+    public static final int ng_game_ad_text_height = 2131166817;
+    public static final int ng_game_ad_text_width = 2131166818;
+    public static final int ng_game_close_btn_height = 2131166819;
+    public static final int ng_game_close_btn_width = 2131166820;
+    public static final int notification_action_icon_size = 2131166821;
+    public static final int notification_action_text_size = 2131166822;
+    public static final int notification_big_circle_margin = 2131166825;
+    public static final int notification_content_margin_start = 2131166826;
+    public static final int notification_large_icon_height = 2131166827;
+    public static final int notification_large_icon_width = 2131166828;
+    public static final int notification_main_column_padding_top = 2131166829;
+    public static final int notification_media_narrow_margin = 2131166830;
+    public static final int notification_right_icon_size = 2131166831;
+    public static final int notification_right_side_padding_top = 2131166832;
+    public static final int notification_small_icon_background_padding = 2131166833;
+    public static final int notification_small_icon_size_as_large = 2131166834;
+    public static final int notification_subtext_size = 2131166836;
+    public static final int notification_top_pad = 2131166837;
+    public static final int notification_top_pad_large_text = 2131166838;
+    public static final int pay_loading_icon_size = 2131166845;
+    public static final int pay_money_layout_height = 2131166846;
+    public static final int progress_bar_height = 2131166866;
+    public static final int real_pay_money_size = 2131166876;
+    public static final int rel_banner_min_height = 2131166877;
+    public static final int rel_banner_min_width = 2131166878;
+    public static final int rel_banner_padd = 2131166879;
+    public static final int swan_ad_dialog_btns_height = 2131167109;
+    public static final int swan_ad_dialog_content_margin_top = 2131167110;
+    public static final int swan_ad_dialog_message_margin_bottom = 2131167111;
+    public static final int swan_ad_dialog_round_corner = 2131167112;
+    public static final int swan_ad_dialog_title_height = 2131167113;
+    public static final int swan_ad_dimens_14dp = 2131167114;
+    public static final int swan_ad_round_height_size = 2131167115;
+    public static final int swan_ad_round_text_size = 2131167116;
+    public static final int swan_ad_round_width_size = 2131167117;
+    public static final int swan_app_dimens_21dp = 2131167118;
+    public static final int swan_app_dimens_51dp = 2131167119;
+    public static final int swan_app_dimens_54dp = 2131167120;
+    public static final int swan_app_loading_view_dot_margin_top = 2131167121;
+    public static final int swan_app_loading_view_progress_margin_top = 2131167122;
+    public static final int swan_app_loading_view_progress_text_size = 2131167123;
+    public static final int swan_app_menu_divider_height = 2131167124;
+    public static final int swan_app_plugin_divider_height = 2131167125;
+    public static final int swan_app_plugin_divider_margin = 2131167126;
+    public static final int swan_app_plugin_margin_border = 2131167127;
+    public static final int swan_app_template_title_padding = 2131167128;
+    public static final int swan_apply_guarantee_new_height = 2131167129;
+    public static final int swan_apply_guarantee_new_width = 2131167130;
+    public static final int swan_context_menu_corner_radius = 2131167131;
+    public static final int swan_context_menu_item_icon_left_margin = 2131167132;
+    public static final int swan_context_menu_item_title_left_margin = 2131167133;
+    public static final int swan_font_setting_body_preview_vertical_indent = 2131167134;
+    public static final int swan_font_setting_default_bar_bg_corner = 2131167135;
+    public static final int swan_font_setting_default_bar_bg_height = 2131167136;
+    public static final int swan_font_setting_default_bar_line_height = 2131167137;
+    public static final int swan_font_setting_default_bar_line_margin = 2131167138;
+    public static final int swan_font_setting_default_bar_line_width = 2131167139;
+    public static final int swan_font_setting_default_thumb_corner = 2131167140;
+    public static final int swan_font_setting_default_thumb_height = 2131167141;
+    public static final int swan_font_setting_default_thumb_width = 2131167142;
+    public static final int swan_font_setting_font_slider_bar_bottom = 2131167143;
+    public static final int swan_font_setting_font_slider_bar_bottom_padding = 2131167144;
+    public static final int swan_font_setting_font_slider_bar_height = 2131167145;
+    public static final int swan_font_setting_font_slider_bar_height_padding = 2131167146;
+    public static final int swan_font_setting_font_slider_bar_height_pop = 2131167147;
+    public static final int swan_font_setting_font_slider_bar_left = 2131167148;
+    public static final int swan_font_setting_font_slider_bar_left_padding = 2131167149;
+    public static final int swan_font_setting_font_slider_bar_line_wide = 2131167150;
+    public static final int swan_font_setting_font_slider_bar_thumb_edge_wide = 2131167151;
+    public static final int swan_font_setting_font_slider_bar_thumb_radius = 2131167152;
+    public static final int swan_font_setting_font_slider_bar_tick_diametor = 2131167153;
+    public static final int swan_font_setting_font_slider_bar_top_padding = 2131167154;
+    public static final int swan_font_setting_preview_horizontal_indent = 2131167155;
+    public static final int swan_font_setting_title_preview_vertical_indent = 2131167156;
+    public static final int swan_game_ad_volume_margin = 2131167157;
+    public static final int swan_half_screen_action_bar_height = 2131167158;
+    public static final int swan_half_screen_bottom_btn_height = 2131167159;
+    public static final int swan_half_screen_close_btn_height = 2131167160;
+    public static final int swan_half_screen_close_btn_size = 2131167161;
+    public static final int swan_half_screen_close_icon_margin_end = 2131167162;
+    public static final int swan_half_screen_close_icon_size = 2131167163;
+    public static final int swan_half_screen_divider_height = 2131167164;
+    public static final int swan_half_screen_evalute_height = 2131167165;
+    public static final int swan_half_screen_title_size = 2131167166;
+    public static final int swan_loading_view_height = 2131167167;
+    public static final int swan_menu_title_max_width_no_icon = 2131167168;
+    public static final int swan_menu_title_max_width_with_icon = 2131167169;
+    public static final int swan_text_menu_item_tv_font_size = 2131167170;
+    public static final int swan_text_menu_item_tv_height = 2131167171;
+    public static final int swan_text_menu_item_tv_margin = 2131167172;
+    public static final int swan_text_menu_item_tv_width = 2131167173;
+    public static final int swanapp_ad_dimens_13dp = 2131167174;
+    public static final int swanapp_ad_dimens_1px = 2131167175;
+    public static final int swanapp_ad_dimens_8dp = 2131167176;
+    public static final int swanapp_ad_dimens_footer_content_line_space = 2131167177;
+    public static final int swanapp_ad_dimens_footer_content_margin_top = 2131167178;
+    public static final int swanapp_ad_dimens_footer_content_size = 2131167179;
+    public static final int swanapp_ad_dimens_footer_height = 2131167180;
+    public static final int swanapp_ad_dimens_footer_line_height = 2131167181;
+    public static final int swanapp_ad_dimens_footer_padding = 2131167182;
+    public static final int swanapp_ad_dimens_footer_title_margin = 2131167183;
+    public static final int swanapp_ad_dimens_footer_title_margin_top = 2131167184;
+    public static final int swanapp_ad_dimens_footer_title_size = 2131167185;
+    public static final int swanapp_album_compress_dialog_corners_radius = 2131167186;
+    public static final int swanapp_album_compress_dialog_height = 2131167187;
+    public static final int swanapp_album_compress_dialog_stroke_width = 2131167188;
+    public static final int swanapp_album_compress_dialog_width = 2131167189;
+    public static final int swanapp_album_compress_progressbar_height = 2131167190;
+    public static final int swanapp_album_compress_progressbar_width = 2131167191;
+    public static final int swanapp_album_compressing_margin_top = 2131167192;
+    public static final int swanapp_album_compressing_text = 2131167193;
+    public static final int swanapp_album_empty_margin = 2131167194;
+    public static final int swanapp_album_empty_text = 2131167195;
+    public static final int swanapp_album_gridview_margin = 2131167196;
+    public static final int swanapp_album_gridview_spacing = 2131167197;
+    public static final int swanapp_album_header_height = 2131167198;
+    public static final int swanapp_album_item_checkbox = 2131167199;
+    public static final int swanapp_album_item_checkbox_margin = 2131167200;
+    public static final int swanapp_album_item_checkbox_num = 2131167201;
+    public static final int swanapp_album_item_checkbox_padding = 2131167202;
+    public static final int swanapp_album_item_longtime_width = 2131167203;
+    public static final int swanapp_album_item_time_height = 2131167204;
+    public static final int swanapp_album_item_time_margin = 2131167205;
+    public static final int swanapp_album_item_time_padding = 2131167206;
+    public static final int swanapp_album_item_time_width = 2131167207;
+    public static final int swanapp_album_item_tip_text = 2131167208;
+    public static final int swanapp_album_item_tip_width = 2131167209;
+    public static final int swanapp_album_line = 2131167210;
+    public static final int swanapp_album_name_icon_corners = 2131167211;
+    public static final int swanapp_album_name_icon_margin = 2131167212;
+    public static final int swanapp_album_name_icon_width = 2131167213;
+    public static final int swanapp_album_name_item_height = 2131167214;
+    public static final int swanapp_album_name_list_radius = 2131167215;
+    public static final int swanapp_album_name_num_margin = 2131167216;
+    public static final int swanapp_album_name_num_text = 2131167217;
+    public static final int swanapp_album_name_title_margin = 2131167218;
+    public static final int swanapp_album_name_title_text = 2131167219;
+    public static final int swanapp_album_preview_container_height = 2131167220;
+    public static final int swanapp_album_preview_margin = 2131167221;
+    public static final int swanapp_album_preview_text = 2131167222;
+    public static final int swanapp_album_title = 2131167223;
+    public static final int swanapp_album_title_max_width = 2131167224;
+    public static final int swanapp_album_title_padding = 2131167225;
+    public static final int swanapp_album_top_btn_margin = 2131167226;
+    public static final int swanapp_album_top_btn_text = 2131167227;
+    public static final int swanapp_auth_scope_detail = 2131167228;
+    public static final int swanapp_preview_back = 2131167229;
+    public static final int swanapp_preview_back_margin = 2131167230;
+    public static final int swanapp_preview_back_padding = 2131167231;
+    public static final int swanapp_preview_bottom_height = 2131167232;
+    public static final int swanapp_preview_check = 2131167233;
+    public static final int swanapp_preview_check_margin = 2131167234;
+    public static final int swanapp_preview_check_num = 2131167235;
+    public static final int swanapp_preview_check_padding = 2131167236;
+    public static final int swanapp_preview_checkbox_padding = 2131167237;
+    public static final int swanapp_preview_done = 2131167238;
+    public static final int swanapp_preview_done_corners = 2131167239;
+    public static final int swanapp_preview_done_margin = 2131167240;
+    public static final int swanapp_preview_done_padding_left = 2131167241;
+    public static final int swanapp_preview_done_padding_top = 2131167242;
+    public static final int swanapp_preview_drag_view_height = 2131167243;
+    public static final int swanapp_preview_header_height = 2131167244;
+    public static final int swanapp_preview_thumbnail = 2131167245;
+    public static final int swanapp_preview_thumbnail_margin = 2131167246;
+    public static final int swanapp_preview_thumbnail_select_width = 2131167247;
+    public static final int swanapp_preview_thumbnail_video_margin = 2131167248;
+    public static final int swanapp_scope_detail_line_spacing = 2131167249;
+    public static final int swanapp_scope_detail_title = 2131167250;
+    public static final int swangame_game_ad_progress_bar_height = 2131167292;
+    public static final int swangame_game_ad_progress_bar_top = 2131167293;
+    public static final int swangame_recommend_button_image_corner = 2131167298;
+    public static final int swangame_recommend_button_image_size = 2131167299;
+    public static final int swangame_recommend_button_image_top_margin = 2131167300;
+    public static final int swangame_recommend_button_text_bottom_margin = 2131167302;
+    public static final int swangame_recommend_button_text_cover_width = 2131167303;
+    public static final int swangame_recommend_button_text_height = 2131167304;
+    public static final int swangame_recommend_button_text_size = 2131167305;
+    public static final int swangame_recommend_button_text_width = 2131167306;
+    public static final int swangame_recommend_dialog_cancel_view_size = 2131167307;
+    public static final int swangame_recommend_dialog_cancel_view_top_margin = 2131167308;
+    public static final int swangame_recommend_dialog_game_center_height = 2131167309;
+    public static final int swangame_recommend_dialog_game_center_text_size = 2131167310;
+    public static final int swangame_recommend_dialog_icon_border = 2131167311;
+    public static final int swangame_recommend_dialog_icon_corner = 2131167312;
+    public static final int swangame_recommend_dialog_icon_size = 2131167313;
+    public static final int swangame_recommend_dialog_list_bg_corner = 2131167314;
+    public static final int swangame_recommend_dialog_list_button_corner = 2131167315;
+    public static final int swangame_recommend_dialog_list_item_button_height = 2131167319;
+    public static final int swangame_recommend_dialog_list_item_button_text_size = 2131167320;
+    public static final int swangame_recommend_dialog_list_item_button_width = 2131167321;
+    public static final int swangame_recommend_dialog_list_item_detail_size = 2131167322;
+    public static final int swangame_recommend_dialog_list_item_detail_top_margin = 2131167323;
+    public static final int swangame_recommend_dialog_list_item_padding = 2131167325;
+    public static final int swangame_recommend_dialog_list_item_title_size = 2131167326;
+    public static final int swangame_recommend_dialog_list_top_margin = 2131167327;
+    public static final int text_size_open_channel_list_flod = 2131167931;
+    public static final int title_height = 2131167932;
+    public static final int title_size = 2131167933;
+    public static final int title_top_margin = 2131167934;
+    public static final int tooltip_corner_radius = 2131167935;
+    public static final int tooltip_horizontal_padding = 2131167936;
+    public static final int tooltip_margin = 2131167937;
+    public static final int tooltip_precise_anchor_extra_offset = 2131167938;
+    public static final int tooltip_precise_anchor_threshold = 2131167939;
+    public static final int tooltip_vertical_padding = 2131167940;
+    public static final int tooltip_y_offset_non_touch = 2131167941;
+    public static final int tooltip_y_offset_touch = 2131167942;
+    public static final int total_pay_money_size = 2131167943;
+    public static final int video_banner_btn_height = 2131167945;
+    public static final int video_banner_btn_width = 2131167946;
+    public static final int video_banner_des_width = 2131167947;
+    public static final int video_banner_icon_width = 2131167948;
+    public static final int video_banner_min_width = 2131167949;
+    public static final int view_height = 2131167950;
+    public static final int view_top_bottom = 2131167951;
+    public static final int view_width = 2131167952;
+    public static final int volume_height = 2131167953;
+    public static final int volume_width = 2131167954;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ScheduledExecutorService a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<List<c.a.q0.a.c>> f11590b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<c.a.q0.a.c> f11591c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public f f11592d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f11593e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f11594f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f11595g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f11596h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public c.a.q0.a.d0.d f11597i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public c.a.q0.a.b0.c f11598j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.q0.a.c0.b f11599k;
-    public int l;
-    public long m;
-    public int n;
-    public long o;
-    public boolean p;
-    public CustomMessageListener q;
-    public CustomMessageListener r;
-    public CustomMessageListener s;
-    public c.a.q0.a.b0.a<c.a.q0.a.b0.b> t;
-    public c.a.q0.n.b u;
-
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(d dVar, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.f11594f = true;
-                if (this.a.f11591c.isEmpty()) {
-                    return;
-                }
-                Iterator it = this.a.f11591c.iterator();
-                while (it.hasNext()) {
-                    this.a.m((c.a.q0.a.c) it.next());
-                }
-                this.a.f11591c.clear();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(d dVar, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
-                ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue();
-                this.a.q();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(d dVar, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-                this.a.f11595g = true;
-                this.a.q();
-            }
-        }
-    }
-
-    /* renamed from: c.a.q0.a.d$d  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C0753d implements c.a.q0.a.b0.a<c.a.q0.a.b0.b> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public C0753d(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.a.b0.a
-        /* renamed from: b */
-        public void a(c.a.q0.a.b0.b bVar) {
-            ActiveCenterData activeCenterData;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || bVar == null || (activeCenterData = bVar.f11575g) == null || activeCenterData.mission == null) {
-                return;
-            }
-            c.a.q0.a.c cVar = new c.a.q0.a.c();
-            cVar.O(bVar.f11575g.mission);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(cVar);
-            this.a.n(arrayList);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.n.a
-        /* renamed from: c */
-        public void onSuccess(c.a.q0.a.b0.b bVar) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || bVar == null) {
-                return;
-            }
-            this.a.n(bVar.b());
-        }
-
-        @Override // c.a.q0.n.a
-        public void onError(int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements c.a.q0.n.b<c.a.q0.a.c> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public e(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.n.b
-        /* renamed from: b */
-        public void a(c.a.q0.a.c cVar) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null) {
-                return;
-            }
-            c.a.q0.a.c w = this.a.w(cVar);
-            if (w != null && w.z) {
-                w.R();
-                this.a.U(w);
-                return;
-            }
-            o.b().h(w);
-            if (w != null && w.x() == 7) {
-                w.H();
-                int F = w.F();
-                int w2 = w.w();
-                if (F <= 1 || F <= w2) {
-                    this.a.I(w);
-                } else {
-                    this.a.U(w);
-                }
-            } else if (w == null || w.x() != 8) {
-                this.a.I(cVar);
-            } else {
-                this.a.I(w);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class g extends BdAsyncTask<c.a.q0.a.c, Integer, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public g(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(c.a.q0.a.c... cVarArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVarArr)) == null) {
-                if (cVarArr == null || cVarArr.length <= 0 || cVarArr[0] == null) {
-                    return null;
-                }
-                c.a.q0.a.a.g().a(cVarArr[0]);
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-
-        public /* synthetic */ g(d dVar, a aVar) {
-            this(dVar);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class h extends BdAsyncTask<List<c.a.q0.a.c>, Integer, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public h(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(List<c.a.q0.a.c>... listArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listArr)) == null) {
-                if (listArr == null || listArr.length <= 0 || listArr[0] == null) {
-                    return null;
-                }
-                c.a.q0.a.a.g().b(listArr[0]);
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-
-        public /* synthetic */ h(d dVar, a aVar) {
-            this(dVar);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class i extends BdAsyncTask<c.a.q0.a.c, Integer, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public i(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(c.a.q0.a.c... cVarArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVarArr)) == null) {
-                if (cVarArr == null || cVarArr.length <= 0 || cVarArr[0] == null) {
-                    return null;
-                }
-                c.a.q0.a.a.g().e(cVarArr[0]);
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-
-        public /* synthetic */ i(d dVar, a aVar) {
-            this(dVar);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class j extends BdAsyncTask<Pair<c.a.q0.a.c, c.a.q0.a.c>, Integer, Pair<c.a.q0.a.c, c.a.q0.a.c>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public j(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Pair<c.a.q0.a.c, c.a.q0.a.c> doInBackground(Pair<c.a.q0.a.c, c.a.q0.a.c>... pairArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pairArr)) == null) {
-                if (pairArr == null || pairArr.length <= 0 || pairArr[0] == null) {
-                    return null;
-                }
-                Pair<c.a.q0.a.c, c.a.q0.a.c> pair = pairArr[0];
-                c.a.q0.a.c cVar = (c.a.q0.a.c) pair.first;
-                c.a.q0.a.c cVar2 = (c.a.q0.a.c) pair.second;
-                if (cVar2 != null) {
-                    c.a.q0.a.a.g().e(cVar2);
-                }
-                if (cVar != null) {
-                    c.a.q0.a.a.g().a(cVar);
-                    return pair;
-                }
-                return pair;
-            }
-            return (Pair) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(Pair<c.a.q0.a.c, c.a.q0.a.c> pair) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pair) == null) || pair == null) {
-                return;
-            }
-            c.a.q0.a.c cVar = (c.a.q0.a.c) pair.first;
-            c.a.q0.a.c cVar2 = (c.a.q0.a.c) pair.second;
-            if (cVar2 != null) {
-                this.a.v(cVar2);
-            }
-            if (cVar != null) {
-                this.a.L(cVar);
-            }
-        }
-
-        public /* synthetic */ j(d dVar, a aVar) {
-            this(dVar);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class k extends BdAsyncTask<Void, Integer, LinkedList<c.a.q0.a.c>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public k(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public LinkedList<c.a.q0.a.c> doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                LinkedList<c.a.q0.a.c> linkedList = new LinkedList<>();
-                linkedList.addAll(c.a.q0.a.a.g().f());
-                Iterator<c.a.q0.a.c> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    c.a.q0.a.c next = it.next();
-                    if (next != null && next.M()) {
-                        c.a.q0.a.a.g().e(next);
-                        it.remove();
-                    } else if (next != null && next.x() == 7) {
-                        next.n0();
-                        c.a.q0.a.a.g().i(next);
-                    }
-                }
-                return linkedList;
-            }
-            return (LinkedList) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(LinkedList<c.a.q0.a.c> linkedList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedList) == null) {
-                super.onPostExecute(linkedList);
-                if (linkedList == null) {
-                    return;
-                }
-                if (!linkedList.isEmpty()) {
-                    Iterator<c.a.q0.a.c> it = linkedList.iterator();
-                    while (it.hasNext()) {
-                        c.a.q0.a.c next = it.next();
-                        if (next.h() != null) {
-                            this.a.L(next);
-                        }
-                    }
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921391));
-            }
-        }
-
-        public /* synthetic */ k(d dVar, a aVar) {
-            this(dVar);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class l {
-        public static /* synthetic */ Interceptable $ic;
-        public static final d a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1128330247, "Lc/a/q0/a/d$l;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1128330247, "Lc/a/q0/a/d$l;");
-                    return;
-                }
-            }
-            a = new d(null);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class m extends BdAsyncTask<c.a.q0.a.c, Integer, c.a.q0.a.c> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public m(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public c.a.q0.a.c doInBackground(c.a.q0.a.c... cVarArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVarArr)) == null) {
-                if (cVarArr == null || cVarArr.length <= 0 || cVarArr[0] == null) {
-                    return null;
-                }
-                c.a.q0.a.c cVar = cVarArr[0];
-                c.a.q0.a.a.g().i(cVar);
-                return cVar;
-            }
-            return (c.a.q0.a.c) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(c.a.q0.a.c cVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) && cVar != null && cVar.z) {
-                cVar.z = false;
-                d dVar = this.a;
-                dVar.R(dVar.l, this.a.m);
-            }
-        }
-
-        public /* synthetic */ m(d dVar, a aVar) {
-            this(dVar);
-        }
-    }
-
-    public /* synthetic */ d(a aVar) {
-        this();
-    }
-
-    public static final d y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? l.a : (d) invokeV.objValue;
-    }
-
-    public boolean A(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<c.a.q0.a.c> list = this.f11590b.get(i2);
-            return (list == null || list.isEmpty()) ? false : true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public boolean B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !s() : invokeV.booleanValue;
-    }
-
-    public final boolean C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreApplication.getInst().isMainProcess(true) : invokeV.booleanValue;
-    }
-
-    public final boolean D(c.a.q0.a.c cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
-            if (cVar == null) {
-                return false;
-            }
-            int[] h2 = cVar.h();
-            if (h2 == null) {
-                return true;
-            }
-            for (int i2 : h2) {
-                List<c.a.q0.a.c> list = this.f11590b.get(i2);
-                if (list == null) {
-                    return false;
-                }
-                for (c.a.q0.a.c cVar2 : list) {
-                    if (cVar2 != null && cVar2.d() == cVar.d() && cVar2.q() == cVar.q()) {
-                        if (cVar2.M()) {
-                            J(cVar, cVar2);
-                        }
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.p : invokeV.booleanValue;
-    }
-
-    public boolean F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return !TbSingleton.getInstance().isNewUserRedPackageShowed() && c.a.q0.b.d.Y() && c.a.q0.s.e0.b.j().k("app_restart_times", 0) > 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f11593e.compareAndSet(true, false);
-            this.f11592d.f(0);
-            this.f11592d.h(0L);
-            this.f11592d.g(0L);
-            c.a.q0.a.d0.d dVar = this.f11597i;
-            if (dVar != null) {
-                dVar.m();
-            }
-        }
-    }
-
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            List<c.a.q0.a.c> list = this.f11590b.get(c.a.q0.a.c.W);
-            if (ListUtils.isEmpty(list)) {
-                return;
-            }
-            boolean z = false;
-            for (c.a.q0.a.c cVar : list) {
-                Iterator<c.a.q0.a.i> it = cVar.n().iterator();
-                while (it.hasNext()) {
-                    c.a.q0.a.i next = it.next();
-                    if (next instanceof c.a.q0.a.m) {
-                        c.a.q0.a.m mVar = (c.a.q0.a.m) next;
-                        if (!next.e()) {
-                            mVar.i();
-                            z = true;
-                        }
-                    }
-                }
-            }
-            if (!z || this.f11593e.get()) {
-                return;
-            }
-            this.f11592d.f(c.a.q0.a.c.W);
-            this.f11593e.compareAndSet(false, true);
-            synchronized (this.f11593e) {
-                this.f11593e.notify();
-            }
-        }
-    }
-
-    public final void I(c.a.q0.a.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            v(cVar);
-            new i(this, null).execute(cVar);
-        }
-    }
-
-    public final void J(c.a.q0.a.c cVar, c.a.q0.a.c cVar2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, cVar, cVar2) == null) {
-            v(cVar2);
-            new j(this, null).execute(new Pair(cVar, cVar2));
-        }
-    }
-
-    public boolean K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f11598j != null && C() && this.f11595g) {
-                this.f11598j.f(B(), E(), 1);
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void L(c.a.q0.a.c cVar) {
-        int[] h2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
-            for (int i2 : cVar.h()) {
-                List<c.a.q0.a.c> list = this.f11590b.get(i2);
-                if (list == null) {
-                    LinkedList linkedList = new LinkedList();
-                    linkedList.add(cVar);
-                    this.f11590b.put(i2, linkedList);
-                } else {
-                    list.add(cVar);
-                }
-            }
-        }
-    }
-
-    public void M(int i2, long j2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) && C()) {
-            this.n = i2;
-            long j3 = this.m;
-            if (j3 > 0 && this.l > 0 && (j2 == 0 || j2 != j3)) {
-                T(this.l, this.m);
-                this.m = 0L;
-                this.l = 0;
-            }
-            O();
-        }
-    }
-
-    public void N(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.p = z;
-        }
-    }
-
-    public void O() {
-        int i2;
-        List<c.a.q0.a.c> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && C() && this.f11594f && (list = this.f11590b.get((i2 = c.a.q0.a.c.W))) != null && !list.isEmpty()) {
-            boolean z = false;
-            for (c.a.q0.a.c cVar : list) {
-                if (cVar.x() == 8) {
-                    Iterator<c.a.q0.a.i> it = cVar.n().iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        c.a.q0.a.i next = it.next();
-                        c.a.q0.a.c c2 = next.c();
-                        if (c2 != null && (next instanceof c.a.q0.a.m) && c2.d() == cVar.d() && c2.q() == cVar.q()) {
-                            ((c.a.q0.a.m) next).i();
-                            z = true;
-                            break;
-                        }
-                    }
-                    if (!z) {
-                        c.a.q0.a.m mVar = new c.a.q0.a.m(cVar);
-                        mVar.g(0L);
-                        mVar.f(false);
-                        cVar.a(mVar);
-                    }
-                }
-            }
-            this.f11592d.f(i2);
-            this.f11593e.compareAndSet(false, true);
-            synchronized (this.f11593e) {
-                this.f11593e.notify();
-            }
-        }
-    }
-
-    public void P(int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048591, this, i2) == null) && C() && i2 != 0 && this.f11594f) {
-            this.l = i2;
-            List<c.a.q0.a.c> list = this.f11590b.get(i2);
-            if (list == null || list.isEmpty()) {
-                return;
-            }
-            boolean z = false;
-            for (c.a.q0.a.c cVar : list) {
-                if (cVar.x() == 4) {
-                    Iterator<c.a.q0.a.i> it = cVar.n().iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        c.a.q0.a.i next = it.next();
-                        if ((next instanceof c.a.q0.a.j) && next.c().d() == cVar.d() && next.c().q() == cVar.q()) {
-                            z = true;
-                            break;
-                        }
-                    }
-                    if (!z) {
-                        c.a.q0.a.j jVar = new c.a.q0.a.j(cVar);
-                        jVar.g(0L);
-                        jVar.f(false);
-                        cVar.a(jVar);
-                    }
-                }
-            }
-            this.f11592d.f(i2);
-            this.f11593e.compareAndSet(false, true);
-            synchronized (this.f11593e) {
-                this.f11593e.notify();
-            }
-        }
-    }
-
-    public void Q(int i2, long j2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) && C() && i2 != 0 && j2 != 0 && this.f11594f) {
-            this.l = i2;
-            List<c.a.q0.a.c> list = this.f11590b.get(i2);
-            if (list == null || list.isEmpty()) {
-                return;
-            }
-            boolean z = false;
-            for (c.a.q0.a.c cVar : list) {
-                if (cVar.x() == 2) {
-                    Iterator<c.a.q0.a.i> it = cVar.n().iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        c.a.q0.a.i next = it.next();
-                        if ((next instanceof c.a.q0.a.k) && next.c().d() == cVar.d() && next.c().q() == cVar.q() && ((c.a.q0.a.k) next).i() == j2) {
-                            z = true;
-                            break;
-                        }
-                    }
-                    if (!z) {
-                        c.a.q0.a.k kVar = new c.a.q0.a.k(cVar, j2);
-                        kVar.g(0L);
-                        kVar.f(false);
-                        kVar.h(cVar.w());
-                        cVar.a(kVar);
-                    }
-                }
-            }
-            this.f11592d.f(i2);
-            this.f11592d.g(j2);
-            this.f11593e.compareAndSet(false, true);
-            synchronized (this.f11593e) {
-                this.f11593e.notify();
-            }
-        }
-    }
-
-    public void R(int i2, long j2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) && C() && i2 != 0 && j2 != 0 && this.f11594f) {
-            this.l = i2;
-            List<c.a.q0.a.c> list = this.f11590b.get(i2);
-            if (list == null || list.isEmpty()) {
-                return;
-            }
-            for (c.a.q0.a.c cVar : list) {
-                if (cVar.x() == 1) {
-                    p(cVar, j2);
-                } else if (cVar.x() == 7 && !cVar.J(j2)) {
-                    o(cVar, j2);
-                }
-            }
-            this.f11592d.f(i2);
-            this.f11592d.h(j2);
-            this.m = j2;
-            this.f11593e.compareAndSet(false, true);
-            synchronized (this.f11593e) {
-                this.f11593e.notify();
-            }
-        }
-    }
-
-    public final void S() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.a.scheduleWithFixedDelay(this.f11592d, 0L, 1L, TimeUnit.SECONDS);
-        }
-    }
-
-    public void T(int i2, long j2) {
-        List<c.a.q0.a.c> list;
-        c.a.q0.a.l lVar;
-        c.a.q0.a.c c2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (list = this.f11590b.get(i2)) == null || list.isEmpty()) {
-            return;
-        }
-        for (c.a.q0.a.c cVar : list) {
-            if (cVar.x() == 7) {
-                Iterator<c.a.q0.a.i> it = cVar.n().iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        c.a.q0.a.i next = it.next();
-                        if ((next instanceof c.a.q0.a.l) && (c2 = (lVar = (c.a.q0.a.l) next).c()) != null && lVar.i() == j2 && c2.d() == cVar.d() && c2.q() == cVar.q()) {
-                            next.f(true);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public final void U(c.a.q0.a.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, cVar) == null) {
-            V(cVar);
-            new m(this, null).execute(cVar);
-        }
-    }
-
-    public final void V(c.a.q0.a.c cVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, cVar) == null) || cVar == null) {
-            return;
-        }
-        int x = cVar.x();
-        Iterator<c.a.q0.a.i> it = cVar.n().iterator();
-        while (it.hasNext()) {
-            c.a.q0.a.i next = it.next();
-            if (next != null && next.c() != null) {
-                c.a.q0.a.c c2 = next.c();
-                if (c2.d() == cVar.d() && c2.q() == cVar.q()) {
-                    if (x == 7 && (next instanceof c.a.q0.a.l)) {
-                        ((c.a.q0.a.l) next).f(true);
-                    } else if (x == 1 && (next instanceof n)) {
-                        ((n) next).f(true);
-                    }
-                }
-            }
-        }
-        cVar.c0(false);
-    }
-
-    public void m(c.a.q0.a.c cVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, cVar) == null) || cVar == null) {
-            return;
-        }
-        if (cVar.x() == 9) {
-            q.c().f(cVar);
-        } else if (!this.f11594f) {
-            this.f11591c.add(cVar);
-        } else if (D(cVar)) {
-        } else {
-            L(cVar);
-            new g(this, null).execute(cVar);
-        }
-    }
-
-    public void n(List<c.a.q0.a.c> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        if (!this.f11594f) {
-            this.f11591c.addAll(list);
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (c.a.q0.a.c cVar : list) {
-            if (cVar != null) {
-                if (cVar.x() == 9) {
-                    q.c().f(cVar);
-                } else if (!D(cVar)) {
-                    L(cVar);
-                    arrayList.add(cVar);
-                }
-            }
-        }
-        new h(this, null).execute(arrayList);
-    }
-
-    public final void o(c.a.q0.a.c cVar, long j2) {
-        boolean z;
-        c.a.q0.a.l lVar;
-        c.a.q0.a.c c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048600, this, cVar, j2) == null) {
-            Iterator<c.a.q0.a.i> it = cVar.n().iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = false;
-                    break;
-                }
-                c.a.q0.a.i next = it.next();
-                if ((next instanceof c.a.q0.a.l) && (c2 = (lVar = (c.a.q0.a.l) next).c()) != null && lVar.i() == j2 && c2.d() == cVar.d() && c2.q() == cVar.q()) {
-                    z = true;
-                    break;
-                }
-            }
-            if (z) {
-                return;
-            }
-            c.a.q0.a.l lVar2 = new c.a.q0.a.l(cVar, j2);
-            lVar2.g(0L);
-            lVar2.f(false);
-            lVar2.h(cVar.w());
-            cVar.a(lVar2);
-        }
-    }
-
-    public final void p(c.a.q0.a.c cVar, long j2) {
-        boolean z;
-        n nVar;
-        c.a.q0.a.c c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048601, this, cVar, j2) == null) {
-            Iterator<c.a.q0.a.i> it = cVar.n().iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = false;
-                    break;
-                }
-                c.a.q0.a.i next = it.next();
-                if ((next instanceof n) && (c2 = (nVar = (n) next).c()) != null && nVar.i() == j2 && c2.d() == cVar.d() && c2.q() == cVar.q()) {
-                    z = true;
-                    break;
-                }
-            }
-            if (z) {
-                return;
-            }
-            n nVar2 = new n(cVar, j2);
-            nVar2.g(0L);
-            nVar2.f(false);
-            nVar2.h(cVar.w());
-            cVar.a(nVar2);
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && this.f11598j != null && C() && this.f11595g) {
-            if (!t() || F()) {
-                this.f11598j.f(B(), E(), 0);
-            }
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && this.f11599k != null && C()) {
-            this.f11599k.d();
-        }
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? UtilHelper.isSameDay(c.a.q0.s.e0.b.j().l("pref_key_last_active_config", 0L), System.currentTimeMillis()) : invokeV.booleanValue;
-    }
-
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? UtilHelper.isSameDay(z(), System.currentTimeMillis()) : invokeV.booleanValue;
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? UtilHelper.isSameDay(c.a.q0.s.e0.b.j().l("pref_key_last_popup_time", 0L), System.currentTimeMillis()) : invokeV.booleanValue;
-    }
-
-    public final void v(c.a.q0.a.c cVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048607, this, cVar) == null) || cVar == null) {
-            return;
-        }
-        Iterator<c.a.q0.a.i> it = cVar.n().iterator();
-        while (it.hasNext()) {
-            c.a.q0.a.i next = it.next();
-            if (next != null && next.c() != null) {
-                c.a.q0.a.c c2 = next.c();
-                if (c2.d() == cVar.d() && c2.q() == cVar.q()) {
-                    it.remove();
-                }
-            }
-        }
-        for (int i2 = 0; i2 < this.f11590b.size(); i2++) {
-            List<c.a.q0.a.c> valueAt = this.f11590b.valueAt(i2);
-            if (valueAt != null && !valueAt.isEmpty()) {
-                Iterator<c.a.q0.a.c> it2 = valueAt.iterator();
-                while (it2.hasNext()) {
-                    c.a.q0.a.c next2 = it2.next();
-                    if (next2 != null && next2.d() == cVar.d() && next2.q() == cVar.q()) {
-                        it2.remove();
-                    }
-                }
-            }
-        }
-        c.a.q0.a.b.a("deleteActivityMissionInfoDataInMemory-->activityId=" + cVar.d() + ",missionId=" + cVar.q());
-    }
-
-    public final c.a.q0.a.c w(c.a.q0.a.c cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, cVar)) == null) {
-            if (cVar == null) {
-                return null;
-            }
-            for (int i2 = 0; i2 < this.f11590b.size(); i2++) {
-                List<c.a.q0.a.c> valueAt = this.f11590b.valueAt(i2);
-                if (valueAt != null && !valueAt.isEmpty()) {
-                    for (c.a.q0.a.c cVar2 : valueAt) {
-                        if (cVar2 != null && cVar2.d() == cVar.d() && cVar2.q() == cVar.q()) {
-                            return cVar2;
-                        }
-                    }
-                    continue;
-                }
-            }
-            return null;
-        }
-        return (c.a.q0.a.c) invokeL.objValue;
-    }
-
-    public int x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.n : invokeV.intValue;
-    }
-
-    public final long z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            long l2 = c.a.q0.s.e0.b.j().l("pref_key_active_config_info", 0L);
-            this.o = l2;
-            return l2;
-        }
-        return invokeV.longValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public volatile int f11600e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public volatile long f11601f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public volatile long f11602g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public volatile boolean f11603h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ d f11604i;
-
-        public f(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f11604i = dVar;
-            this.f11603h = false;
-        }
-
-        public final void a(c.a.q0.a.c cVar, d.C0754d c0754d) {
-            ArrayList<c.a.q0.a.i> n;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, cVar, c0754d) == null) || cVar == null || c0754d == null || (n = cVar.n()) == null) {
-                return;
-            }
-            Iterator<c.a.q0.a.i> it = n.iterator();
-            int i2 = 0;
-            while (it.hasNext()) {
-                c.a.q0.a.i next = it.next();
-                if (next instanceof n) {
-                    n nVar = (n) next;
-                    if (this.f11601f != 0 && nVar.i() == this.f11601f && !next.e()) {
-                        this.f11603h = false;
-                        next.a(1);
-                        if (next.b() >= next.c().f()) {
-                            next.f(true);
-                            if (next.c().I() >= next.c().A()) {
-                                c0754d.b(next);
-                            }
-                        }
-                        c0754d.c(cVar);
-                    }
-                } else if (next instanceof c.a.q0.a.l) {
-                    c.a.q0.a.l lVar = (c.a.q0.a.l) next;
-                    if (!cVar.L() && lVar.d() == cVar.w()) {
-                        if (this.f11601f != 0 && lVar.i() == this.f11601f && !next.e()) {
-                            this.f11603h = false;
-                            next.a(1);
-                        }
-                        i2 = (int) (i2 + next.b());
-                        if (this.f11601f != 0 && lVar.i() == this.f11601f && !next.e()) {
-                            if (next.b() >= cVar.f()) {
-                                next.f(true);
-                                cVar.I();
-                            }
-                            c0754d.c(cVar);
-                        }
-                        int l = cVar.l();
-                        int A = cVar.A();
-                        long f2 = cVar.f() * cVar.A();
-                        if (this.f11601f != 0 && lVar.i() == this.f11601f) {
-                            next.e();
-                        }
-                        if (i2 >= f2 && l >= A) {
-                            c0754d.a(cVar);
-                            cVar.c0(true);
-                        }
-                    }
-                } else if (next instanceof c.a.q0.a.k) {
-                    if (this.f11602g != 0 && ((c.a.q0.a.k) next).i() == this.f11602g && !next.e()) {
-                        this.f11603h = false;
-                        next.a(1);
-                        if (next.b() >= next.c().f()) {
-                            next.f(true);
-                            if (next.c().G() >= next.c().p()) {
-                                c0754d.b(next);
-                            }
-                        }
-                    }
-                } else if ((next instanceof c.a.q0.a.j) && !next.e()) {
-                    this.f11603h = false;
-                    next.a(1);
-                    if (next.b() >= next.c().f()) {
-                        next.f(true);
-                        c0754d.b(next);
-                    }
-                }
-            }
-        }
-
-        public final void b(c.a.q0.a.c cVar, d.C0754d c0754d) {
-            ArrayList<c.a.q0.a.i> n;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, c0754d) == null) || cVar == null || c0754d == null || (n = cVar.n()) == null) {
-                return;
-            }
-            Iterator<c.a.q0.a.i> it = n.iterator();
-            while (it.hasNext()) {
-                c.a.q0.a.i next = it.next();
-                if ((next instanceof c.a.q0.a.m) && !((c.a.q0.a.m) next).j() && !next.e()) {
-                    this.f11603h = false;
-                    next.a(1);
-                    if (next.b() >= next.c().f()) {
-                        next.f(true);
-                        c0754d.a(cVar);
-                    }
-                    c0754d.c(cVar);
-                }
-            }
-        }
-
-        public final void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f11603h = true;
-                List<c.a.q0.a.c> list = (List) this.f11604i.f11590b.get(c.a.q0.a.c.W);
-                List<c.a.q0.a.c> list2 = (List) this.f11604i.f11590b.get(this.f11600e);
-                if (ListUtils.isEmpty(list) && ListUtils.isEmpty(list2)) {
-                    this.f11604i.f11593e.compareAndSet(true, false);
-                    return;
-                }
-                d.C0754d c0754d = new d.C0754d();
-                c0754d.a = new LinkedList();
-                c0754d.f11623b = new LinkedList();
-                c0754d.f11624c = new LinkedList();
-                d(list, c0754d);
-                e(list2, c0754d);
-                if (this.f11603h) {
-                    this.f11604i.f11593e.compareAndSet(true, false);
-                }
-                if (!ListUtils.isEmpty(c0754d.f11624c)) {
-                    c.a.q0.a.a.g().k(c0754d.f11624c);
-                }
-                if (ListUtils.isEmpty(c0754d.a) && ListUtils.isEmpty(c0754d.f11623b)) {
-                    return;
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921379, c0754d));
-            }
-        }
-
-        public final void d(List<c.a.q0.a.c> list, d.C0754d c0754d) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, c0754d) == null) || ListUtils.isEmpty(list)) {
-                return;
-            }
-            for (c.a.q0.a.c cVar : list) {
-                b(cVar, c0754d);
-            }
-        }
-
-        public final void e(List<c.a.q0.a.c> list, d.C0754d c0754d) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048580, this, list, c0754d) == null) || ListUtils.isEmpty(list)) {
-                return;
-            }
-            for (c.a.q0.a.c cVar : list) {
-                a(cVar, c0754d);
-            }
-        }
-
-        public synchronized void f(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                synchronized (this) {
-                    this.f11600e = i2;
-                }
-            }
-        }
-
-        public synchronized void g(long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-                synchronized (this) {
-                    this.f11602g = j2;
-                }
-            }
-        }
-
-        public synchronized void h(long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-                synchronized (this) {
-                    this.f11601f = j2;
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                if (this.f11600e == 0 || !this.f11604i.f11593e.get()) {
-                    synchronized (this.f11604i.f11593e) {
-                        try {
-                            this.f11604i.f11593e.wait();
-                        } catch (InterruptedException e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                }
-                c();
-            }
-        }
-
-        public /* synthetic */ f(d dVar, a aVar) {
-            this(dVar);
-        }
-    }
-
-    public d() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = Executors.newSingleThreadScheduledExecutor();
-        this.f11590b = new SparseArray<>();
-        this.f11591c = new LinkedList<>();
-        this.f11592d = new f(this, null);
-        this.f11593e = new AtomicBoolean(false);
-        this.f11594f = false;
-        this.f11595g = false;
-        this.p = false;
-        this.q = new a(this, 2921391);
-        this.r = new b(this, 2001011);
-        this.s = new c(this, 2001371);
-        this.t = new C0753d(this);
-        this.u = new e(this);
-        BdUniqueId gen = BdUniqueId.gen();
-        this.f11596h = gen;
-        c.a.q0.a.d0.d dVar = new c.a.q0.a.d0.d(gen);
-        this.f11597i = dVar;
-        dVar.w(this.u);
-        c.a.q0.a.b0.c cVar = new c.a.q0.a.b0.c(this.f11596h);
-        this.f11598j = cVar;
-        cVar.g(this.t);
-        this.f11599k = new c.a.q0.a.c0.b(this.f11596h);
-        this.s.setTag(this.f11596h);
-        MessageManager.getInstance().registerListener(this.s);
-        this.r.setTag(this.f11596h);
-        MessageManager.getInstance().registerListener(this.r);
-        this.q.setPriority(Integer.MIN_VALUE);
-        this.q.setTag(this.f11596h);
-        MessageManager.getInstance().registerListener(this.q);
-        c.a.q0.s.d0.a.e().f();
-        q.c().d(this.f11596h);
-        S();
-        if (C()) {
-            new k(this, null).execute(new Void[0]);
-        }
-    }
 }

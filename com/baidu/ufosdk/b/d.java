@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static TelephonyManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ConnectivityManager f51523b;
+    public static ConnectivityManager f52072b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(Context context) {
@@ -28,10 +28,10 @@ public final class d {
             String str = StringUtils.LF;
             StringBuilder sb = new StringBuilder();
             try {
-                if (f51523b == null) {
-                    f51523b = (ConnectivityManager) context.getSystemService("connectivity");
+                if (f52072b == null) {
+                    f52072b = (ConnectivityManager) context.getSystemService("connectivity");
                 }
-                activeNetworkInfo = f51523b.getActiveNetworkInfo();
+                activeNetworkInfo = f52072b.getActiveNetworkInfo();
             } catch (Exception e2) {
                 com.baidu.ufosdk.f.c.a("NetworkCollector: Couldn't get NetworkInfo : " + context.getPackageName(), e2);
             }
@@ -68,10 +68,10 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                if (f51523b == null) {
-                    f51523b = (ConnectivityManager) context.getSystemService("connectivity");
+                if (f52072b == null) {
+                    f52072b = (ConnectivityManager) context.getSystemService("connectivity");
                 }
-                NetworkInfo activeNetworkInfo = f51523b.getActiveNetworkInfo();
+                NetworkInfo activeNetworkInfo = f52072b.getActiveNetworkInfo();
                 if (activeNetworkInfo != null) {
                     return !activeNetworkInfo.isConnected() ? PolyActivity.NONE_PANEL_TYPE : activeNetworkInfo.getTypeName().toUpperCase();
                 }

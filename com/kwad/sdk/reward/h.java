@@ -15,16 +15,16 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.network.i<i, BaseResultData> f58951b;
+    public com.kwad.sdk.core.network.i<i, BaseResultData> f59532b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static h a;
@@ -81,7 +81,7 @@ public class h {
             public final /* synthetic */ AdTemplate a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ h f58952b;
+            public final /* synthetic */ h f59533b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -98,7 +98,7 @@ public class h {
                         return;
                     }
                 }
-                this.f58952b = this;
+                this.f59533b = this;
                 this.a = adTemplate;
             }
 
@@ -142,7 +142,7 @@ public class h {
                 } : (BaseResultData) invokeL.objValue;
             }
         };
-        this.f58951b = iVar;
+        this.f59532b = iVar;
         iVar.a(new com.kwad.sdk.core.network.j<i, BaseResultData>(this) { // from class: com.kwad.sdk.reward.h.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +205,7 @@ public class h {
     public void b() {
         com.kwad.sdk.core.network.i<i, BaseResultData> iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (iVar = this.f58951b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (iVar = this.f59532b) == null) {
             return;
         }
         iVar.e();

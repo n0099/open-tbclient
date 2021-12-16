@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.webview.jshandler.b;
 import com.kwad.sdk.core.webview.jshandler.l;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class as implements com.kwad.sdk.core.d<l.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,14 +37,14 @@ public class as implements com.kwad.sdk.core.d<l.a> {
             return;
         }
         aVar.a = jSONObject.optBoolean("clickActionButton");
-        aVar.f58043b = jSONObject.optString("adTemplate");
+        aVar.f58624b = jSONObject.optString("adTemplate");
         if (jSONObject.opt("adTemplate") == JSONObject.NULL) {
-            aVar.f58043b = "";
+            aVar.f58624b = "";
         }
-        aVar.f58044c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
-        b.C2032b c2032b = new b.C2032b();
-        aVar.f58045d = c2032b;
-        c2032b.parseJson(jSONObject.optJSONObject("logParam"));
+        aVar.f58625c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
+        b.C2093b c2093b = new b.C2093b();
+        aVar.f58626d = c2093b;
+        c2093b.parseJson(jSONObject.optJSONObject("logParam"));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,9 +57,9 @@ public class as implements com.kwad.sdk.core.d<l.a> {
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "clickActionButton", aVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "adTemplate", aVar.f58043b);
-            com.kwad.sdk.utils.t.a(jSONObject, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, aVar.f58044c);
-            com.kwad.sdk.utils.t.a(jSONObject, "logParam", aVar.f58045d);
+            com.kwad.sdk.utils.t.a(jSONObject, "adTemplate", aVar.f58624b);
+            com.kwad.sdk.utils.t.a(jSONObject, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, aVar.f58625c);
+            com.kwad.sdk.utils.t.a(jSONObject, "logParam", aVar.f58626d);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

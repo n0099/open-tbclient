@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.video.message;
 
-import c.a.d.f.p.l;
-import c.a.q0.d1.z;
+import c.a.d.f.p.m;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RecomVideo.DataReq;
 import tbclient.RecomVideo.RecomVideoReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class VideoTabRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,14 +45,14 @@ public class VideoTabRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(l.h(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(m.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(m.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(m.h(TbadkCoreApplication.getInst()));
             builder.new_net_type = Integer.valueOf(this.new_net_type);
             builder.load_type = Integer.valueOf(this.load_type);
             builder.page_thread_count = Integer.valueOf(this.page_thread_count);
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             RecomVideoReqIdl.Builder builder2 = new RecomVideoReqIdl.Builder();
             builder2.data = builder.build(false);

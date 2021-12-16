@@ -20,25 +20,25 @@ import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
 import com.qq.e.comm.util.AdError;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements UnifiedInterstitialADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f28739b;
+        public boolean f29109b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnifiedInterstitialAD[] f28740c;
+        public final /* synthetic */ UnifiedInterstitialAD[] f29110c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ y f28741d;
+        public final /* synthetic */ y f29111d;
 
         public a(y yVar, UnifiedInterstitialAD[] unifiedInterstitialADArr) {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
                     return;
                 }
             }
-            this.f28741d = yVar;
-            this.f28740c = unifiedInterstitialADArr;
+            this.f29111d = yVar;
+            this.f29110c = unifiedInterstitialADArr;
         }
 
         @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
@@ -64,8 +64,8 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f28741d.onAdClicked(this.f28739b);
-                this.f28739b = true;
+                this.f29111d.onAdClicked(this.f29109b);
+                this.f29109b = true;
             }
         }
 
@@ -74,7 +74,7 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 LogPrinter.d();
-                this.f28741d.onAdClose();
+                this.f29111d.onAdClose();
             }
         }
 
@@ -83,7 +83,7 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.f28741d.onAdShow(this.f28740c[0], this.a);
+                this.f29111d.onAdShow(this.f29110c[0], this.a);
                 this.a = true;
             }
         }
@@ -117,7 +117,7 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, adError) == null) {
                 LogPrinter.e("onNoAD code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-                this.f28741d.onError(adError.getErrorCode(), adError.getErrorMsg());
+                this.f29111d.onError(adError.getErrorCode(), adError.getErrorMsg());
             }
         }
 
@@ -125,7 +125,7 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
         public void onRenderFail() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.f28741d.onError(0, "renderFail");
+                this.f29111d.onError(0, "renderFail");
             }
         }
 
@@ -133,7 +133,7 @@ public class y extends ReporterPidLoader<UnifiedInterstitialAD> {
         public void onRenderSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                this.f28741d.onAdLoaded((y) this.f28740c[0]);
+                this.f29111d.onAdLoaded((y) this.f29110c[0]);
             }
         }
 

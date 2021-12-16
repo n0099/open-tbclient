@@ -3,10 +3,10 @@ package com.bumptech.glide.request.transition;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import androidx.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface Transition<R> {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public interface ViewAdapter {
         @Nullable
         Drawable getCurrentDrawable();

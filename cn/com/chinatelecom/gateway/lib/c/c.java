@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "cn.com.chinatelecom.gateway.lib.c.c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31104b = "";
+    public static String f31474b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -70,16 +70,16 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (TextUtils.isEmpty(f31104b)) {
+            if (TextUtils.isEmpty(f31474b)) {
                 String b2 = b(context);
-                f31104b = b2;
+                f31474b = b2;
                 if (TextUtils.isEmpty(b2)) {
                     String c2 = c(context);
-                    f31104b = c2;
+                    f31474b = c2;
                     a(context, c2);
                 }
             }
-            return f31104b;
+            return f31474b;
         }
         return (String) invokeL.objValue;
     }

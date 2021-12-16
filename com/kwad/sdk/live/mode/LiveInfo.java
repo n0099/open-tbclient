@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6382708726460249425L;
@@ -29,7 +29,7 @@ public class LiveInfo extends com.kwad.sdk.core.response.kwai.a implements Seria
     public String title;
     public User user;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CoverThumbnailUrl extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9411857293708312L;
@@ -53,7 +53,7 @@ public class LiveInfo extends com.kwad.sdk.core.response.kwai.a implements Seria
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CoverUrlCdn extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6749700043335441902L;
@@ -75,7 +75,7 @@ public class LiveInfo extends com.kwad.sdk.core.response.kwai.a implements Seria
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LiveStreamPlayCDNNode extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4809830877910908561L;
@@ -98,7 +98,7 @@ public class LiveInfo extends com.kwad.sdk.core.response.kwai.a implements Seria
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class User extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8394855164198099170L;
@@ -107,7 +107,7 @@ public class LiveInfo extends com.kwad.sdk.core.response.kwai.a implements Seria
         public long user_id;
         public String user_name;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class HeadUrl extends com.kwad.sdk.core.response.kwai.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 7710129978455547652L;

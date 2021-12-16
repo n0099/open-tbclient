@@ -29,38 +29,38 @@ import java.util.concurrent.Executors;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ExecutorService f54545e;
+    public static final ExecutorService f55125e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile h f54546f;
+    public static volatile h f55126f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<PluginDownloadBean> f54547b;
+    public List<PluginDownloadBean> f55127b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<PluginDownloadBean> f54548c;
+    public List<PluginDownloadBean> f55128c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f54549d;
+    public boolean f55129d;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<PluginDownloadBean> f54550g;
+    public List<PluginDownloadBean> f55130g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, Long> f54551h;
+    public Map<String, Long> f55131h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f54552i;
+    public Handler f55132i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Runnable f54553j;
+    public Runnable f55133j;
 
     static {
         InterceptResult invokeClinit;
@@ -75,7 +75,7 @@ public class h {
                 return;
             }
         }
-        f54545e = Executors.newSingleThreadExecutor();
+        f55125e = Executors.newSingleThreadExecutor();
     }
 
     public h() {
@@ -91,13 +91,13 @@ public class h {
                 return;
             }
         }
-        this.f54550g = new CopyOnWriteArrayList();
-        this.f54547b = new CopyOnWriteArrayList();
-        this.f54551h = new ConcurrentHashMap();
-        this.f54548c = new CopyOnWriteArrayList();
-        this.f54552i = new Handler(Looper.getMainLooper());
-        this.f54553j = null;
-        this.f54549d = false;
+        this.f55130g = new CopyOnWriteArrayList();
+        this.f55127b = new CopyOnWriteArrayList();
+        this.f55131h = new ConcurrentHashMap();
+        this.f55128c = new CopyOnWriteArrayList();
+        this.f55132i = new Handler(Looper.getMainLooper());
+        this.f55133j = null;
+        this.f55129d = false;
     }
 
     public static void c(PluginDownloadBean pluginDownloadBean) {
@@ -111,14 +111,14 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f54546f == null) {
+            if (f55126f == null) {
                 synchronized (h.class) {
-                    if (f54546f == null) {
-                        f54546f = new h();
+                    if (f55126f == null) {
+                        f55126f = new h();
                     }
                 }
             }
-            return f54546f;
+            return f55126f;
         }
         return (h) invokeV.objValue;
     }
@@ -127,7 +127,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ZeusLogger.d(ZeusLogger.TAG_DOWNLOAD, "asyncFetchPlugins start");
-            f54545e.execute(new c(this));
+            f55125e.execute(new c(this));
         }
     }
 
@@ -151,18 +151,18 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, list)) == null) {
             synchronized (this) {
-                this.f54550g.clear();
-                this.f54547b.clear();
-                this.f54548c.clear();
+                this.f55130g.clear();
+                this.f55127b.clear();
+                this.f55128c.clear();
                 for (PluginDownloadBean pluginDownloadBean : list) {
                     if (pluginDownloadBean.mDownloadType == 0) {
-                        this.f54547b.add(pluginDownloadBean);
+                        this.f55127b.add(pluginDownloadBean);
                     } else if (pluginDownloadBean.mDownloadType == 1) {
-                        this.f54548c.add(pluginDownloadBean);
+                        this.f55128c.add(pluginDownloadBean);
                     }
                 }
-                this.f54549d = true;
-                list2 = this.f54547b;
+                this.f55129d = true;
+                list2 = this.f55127b;
             }
             return list2;
         }
@@ -245,7 +245,7 @@ public class h {
                     plugin2.setHostCompatVersion(pluginDownloadBean.mVersionCode, pluginDownloadBean.mClientVersionMin, pluginDownloadBean.mClientVersionMax);
                     plugin2.setApiCompatVersion(pluginDownloadBean.mVersionCode, pluginDownloadBean.mApiVersionMin, pluginDownloadBean.mApiVersionMax);
                 }
-                PluginProvider pluginProvider = com.bytedance.pangle.i.a().f54604b.getPluginProvider();
+                PluginProvider pluginProvider = com.bytedance.pangle.i.a().f55184b.getPluginProvider();
                 if (pluginProvider != null && pluginProvider.useLocalPlugin()) {
                     PluginManager.getInstance().installFromDownloadDir();
                 } else {
@@ -264,9 +264,9 @@ public class h {
         if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || j2 < 300) {
             return;
         }
-        Runnable runnable = this.f54553j;
+        Runnable runnable = this.f55133j;
         if (runnable != null) {
-            this.f54552i.removeCallbacks(runnable);
+            this.f55132i.removeCallbacks(runnable);
         }
         Runnable runnable2 = new Runnable(this, j2) { // from class: com.bytedance.pangle.download.h.2
             public static /* synthetic */ Interceptable $ic;
@@ -274,7 +274,7 @@ public class h {
             public final /* synthetic */ long a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ h f54554b;
+            public final /* synthetic */ h f55134b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -291,7 +291,7 @@ public class h {
                         return;
                     }
                 }
-                this.f54554b = this;
+                this.f55134b = this;
                 this.a = j2;
             }
 
@@ -300,14 +300,14 @@ public class h {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     if (!b.a().a) {
-                        this.f54554b.b();
+                        this.f55134b.b();
                     }
-                    this.f54554b.f54552i.postDelayed(this, this.a * 1000);
+                    this.f55134b.f55132i.postDelayed(this, this.a * 1000);
                 }
             }
         };
-        this.f54553j = runnable2;
-        this.f54552i.postDelayed(runnable2, j2 * 1000);
+        this.f55133j = runnable2;
+        this.f55132i.postDelayed(runnable2, j2 * 1000);
     }
 
     public final boolean a(String str) {
@@ -320,7 +320,7 @@ public class h {
                 plugin2 = Zeus.getPlugin(str);
             } catch (Exception unused) {
             }
-            if (plugin2 == null || plugin2.isLoaded() || (((l = this.f54551h.get(str)) != null && System.currentTimeMillis() - l.longValue() < 5000) || !com.bytedance.pangle.a.a.booleanValue())) {
+            if (plugin2 == null || plugin2.isLoaded() || (((l = this.f55131h.get(str)) != null && System.currentTimeMillis() - l.longValue() < 5000) || !com.bytedance.pangle.a.a.booleanValue())) {
                 return false;
             }
             d a = d.a();
@@ -342,15 +342,15 @@ public class h {
                 return false;
             }
             JSONArray optJSONArray = new JSONObject(a3).getJSONObject("data").optJSONArray("plugin");
-            this.f54551h.put(str, Long.valueOf(System.currentTimeMillis()));
+            this.f55131h.put(str, Long.valueOf(System.currentTimeMillis()));
             if (optJSONArray.length() <= 0) {
                 return false;
             }
             PluginDownloadBean a4 = e.a(optJSONArray.getJSONObject(0));
             if (!a4.isOffline && !a4.isRevert) {
                 synchronized (this) {
-                    if (!a(a4, this.f54547b, false)) {
-                        a(a4, this.f54548c, true);
+                    if (!a(a4, this.f55127b, false)) {
+                        a(a4, this.f55128c, true);
                     }
                 }
                 return true;

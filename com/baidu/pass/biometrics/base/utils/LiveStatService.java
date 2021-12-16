@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class LiveStatService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DOMAIN_NSCLICK_URL = "https://nsclick.baidu.com/v.gif";
@@ -32,19 +32,19 @@ public final class LiveStatService {
     public static final Map<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38132b = "4854";
+    public static final String f38621b = "4854";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38133c = "page";
+    public static final String f38622c = "page";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38134d = "source";
+    public static final String f38623d = "source";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38135e = "ext";
+    public static final String f38624e = "ext";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38136f = "living_recog";
+    public static final String f38625f = "living_recog";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -153,7 +153,7 @@ public final class LiveStatService {
                 jSONObject.put("page", "living_recog");
                 jSONObject.put("source", BeanConstants.tpl);
                 jSONObject.put("ext", jSONObject2);
-                ServiceManager.getInstance().getIsAccountManager().getUbcUploadImplCallback().onEvent(f38132b, jSONObject);
+                ServiceManager.getInstance().getIsAccountManager().getUbcUploadImplCallback().onEvent(f38621b, jSONObject);
             }
         } catch (Throwable unused) {
         }

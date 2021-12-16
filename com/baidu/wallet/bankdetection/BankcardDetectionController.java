@@ -3,6 +3,7 @@ package com.baidu.wallet.bankdetection;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,31 +13,109 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
+import com.dxmpay.apollon.eventbus.EventBus;
+import com.dxmpay.apollon.utils.LogUtil;
 import com.dxmpay.wallet.core.NoProguard;
+import com.dxmpay.wallet.core.beans.BeanConstants;
+import com.dxmpay.wallet.core.lollipop.json.JSONException;
+import com.dxmpay.wallet.core.lollipop.json.JSONObject;
+import com.dxmpay.wallet.download.PayDownloadModule;
+import com.dxmpay.wallet.paysdk.datamodel.SdkInitResponse;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class BankcardDetectionController extends Observable implements NoProguard, Observer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IDetectionListener a;
 
+    /* renamed from: b  reason: collision with root package name */
+    public Context f52445b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f52446c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f52447d;
+
     /* renamed from: com.baidu.wallet.bankdetection.BankcardDetectionController$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes13.dex */
+    public class AnonymousClass1 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ String f52448b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ BankcardDetectionController f52449c;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52449c.f52445b == null) {
+                return;
+            }
+            PayDownloadModule payDownloadModule = new PayDownloadModule(this.f52449c.f52445b, BeanConstants.SDK_DOWNLOAD_FILE_OCR_BANKCARD_MODULE_NAME);
+            payDownloadModule.setPayDownloadCallBack(new PayDownloadModule.PayDownloadCallBack(this, payDownloadModule) { // from class: com.baidu.wallet.bankdetection.BankcardDetectionController.1.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PayDownloadModule a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ AnonymousClass1 f52450b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, payDownloadModule};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f52450b = this;
+                    this.a = payDownloadModule;
+                }
+
+                @Override // com.dxmpay.wallet.download.PayDownloadModule.PayDownloadCallBack
+                public void onDownloadStatus(String str, int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, str, i2) == null) {
+                        LogUtil.i("WLLLL", "-----成功---downloadPath--->" + str + " ，status=" + i2);
+                        if (i2 != 1) {
+                            StatisticManager.onEvent(PayStatServiceEvent.BANKCARD_OCR_DOWNLOAD_STATUS, i2 + "");
+                        }
+                        if (this.a != null) {
+                            if (i2 == 2 || i2 == 3) {
+                                this.a.resetMD5AndDeleteDownloadFiles(this.f52450b.f52449c.f52445b);
+                            }
+                        }
+                    }
+                }
+            });
+            payDownloadModule.download(this.a, this.f52448b, ".zip");
+        }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface IDetectionListener extends NoProguard {
         void onFail(int i2, String str);
 
         void onResult(String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static BankcardDetectionController a;
@@ -66,7 +145,7 @@ public class BankcardDetectionController extends Observable implements NoProguar
     public static BankcardDetectionController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (BankcardDetectionController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (BankcardDetectionController) invokeV.objValue;
     }
 
     public void clearCardDetectionCallback() {
@@ -78,25 +157,63 @@ public class BankcardDetectionController extends Observable implements NoProguar
 
     public void gotoDetctionCard(Context context, IDetectionListener iDetectionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iDetectionListener) == null) {
-            StatHelper.bankCardDetction(PayStatServiceEvent.BANKCARD_DETCTION_ENTER, "");
-            if (iDetectionListener == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iDetectionListener) == null) || iDetectionListener == null) {
+            return;
+        }
+        this.f52445b = context;
+        this.a = iDetectionListener;
+        StatHelper.cacheUseOcrBankCard(this.f52446c);
+        StatHelper.cacheRealityBankCard(0);
+        Intent intent = new Intent(context, BankCardDetectionActivity.class);
+        StatHelper.bankCardDetction(PayStatServiceEvent.BANKCARD_DETCTION_ENTER, "");
+        StatHelper.cacheBankCardStartTime(System.currentTimeMillis());
+        if (!(context instanceof Activity)) {
+            intent.setFlags(268435456);
+        }
+        context.startActivity(intent);
+    }
+
+    public void initBankCardDetect(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.f52445b = context;
+            EventBus.getInstance().registerSticky(this, BeanConstants.SDKINIT_EVENTBUS_EVENTKEY, 0, EventBus.ThreadMode.MainThread);
+            EventBus.getInstance().registerSticky(this, BeanConstants.SDKINIT_FAIL_EVENTBUS_EVENTKEY, 0, EventBus.ThreadMode.MainThread);
+        }
+    }
+
+    public void onModuleEvent(EventBus.Event event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, event) == null) {
+            EventBus.getInstance().unregister(this, BeanConstants.SDKINIT_EVENTBUS_EVENTKEY);
+            EventBus.getInstance().unregister(this, BeanConstants.SDKINIT_FAIL_EVENTBUS_EVENTKEY);
+            String str = SdkInitResponse.getInstance().bankcard_detect;
+            LogUtil.d("----d", "sdk/init--成功--" + str);
+            if (TextUtils.isEmpty(str)) {
                 return;
             }
-            StatHelper.cacheBankCardStartTime(System.currentTimeMillis());
-            this.a = iDetectionListener;
-            Intent intent = new Intent(context, BankCardDetectionActivity.class);
-            if (!(context instanceof Activity)) {
-                intent.setFlags(268435456);
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                LogUtil.d("----d", "obj:" + jSONObject.toString());
+                int optInt = jSONObject.optInt("useOcrBankCard", 0);
+                this.f52446c = optInt;
+                StatHelper.cacheUseOcrBankCard(optInt);
+                if (this.f52446c != 1) {
+                }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("-1");
+                arrayList.add(e2.getMessage());
+                StatisticManager.onEventWithValues(PayStatServiceEvent.BANKCARD_INIT_STATUS, arrayList);
             }
-            context.startActivity(intent);
         }
     }
 
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, observable, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, observable, obj) == null) {
             if (this.a != null) {
                 this.a.onResult(obj == null ? "" : (String) obj);
                 this.a = null;
@@ -107,7 +224,7 @@ public class BankcardDetectionController extends Observable implements NoProguar
 
     public void updateFail(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
             IDetectionListener iDetectionListener = this.a;
             if (iDetectionListener != null) {
                 iDetectionListener.onFail(i2, str);
@@ -127,7 +244,10 @@ public class BankcardDetectionController extends Observable implements NoProguar
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f52446c = 0;
+        this.f52447d = "armeabi-v7a";
     }
 }

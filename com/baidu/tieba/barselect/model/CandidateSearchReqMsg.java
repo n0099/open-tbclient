@@ -1,6 +1,6 @@
 package com.baidu.tieba.barselect.model;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Search.DataReq;
 import tbclient.Search.SearchReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CandidateSearchReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class CandidateSearchReqMsg extends NetMessage {
             builder.apply_id = Integer.valueOf(this.applyId);
             builder.fid = Long.valueOf(this.fid);
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             SearchReqIdl.Builder builder2 = new SearchReqIdl.Builder();
             builder2.data = builder.build(false);

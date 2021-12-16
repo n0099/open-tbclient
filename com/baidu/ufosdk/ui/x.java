@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class x implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f51752b;
+    public final /* synthetic */ int f52301b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f51753c;
+    public final /* synthetic */ FeedbackEditActivity f52302c;
 
     public x(FeedbackEditActivity feedbackEditActivity, String str, int i2) {
         Interceptable interceptable = $ic;
@@ -35,9 +35,9 @@ public final class x implements Runnable {
                 return;
             }
         }
-        this.f51753c = feedbackEditActivity;
+        this.f52302c = feedbackEditActivity;
         this.a = str;
-        this.f51752b = i2;
+        this.f52301b = i2;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0059: IGET  (r2v1 int A[REMOVE]) = (r4v0 'this' com.baidu.ufosdk.ui.x A[IMMUTABLE_TYPE, THIS]) com.baidu.ufosdk.ui.x.b int)] */
@@ -58,26 +58,26 @@ public final class x implements Runnable {
                 return;
             }
             try {
-                list = this.f51753c.q;
+                list = this.f52302c.q;
                 if (list.size() == 0) {
-                    list3 = this.f51753c.q;
+                    list3 = this.f52302c.q;
                     list3.add(b2);
                 } else {
-                    list2 = this.f51753c.q;
-                    list2.set(this.f51752b, b2);
+                    list2 = this.f52302c.q;
+                    list2.set(this.f52301b, b2);
                 }
             } catch (Exception e2) {
                 com.baidu.ufosdk.f.c.a("arrayList error in readBitmapFromFile!", e2);
             }
-            hashMap = this.f51753c.r;
+            hashMap = this.f52302c.r;
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f51752b);
+            sb.append(this.f52301b);
             hashMap.put(sb.toString(), this.a);
             StringBuilder sb2 = new StringBuilder("*^o^*-- picPathMap.size : ");
-            hashMap2 = this.f51753c.r;
+            hashMap2 = this.f52302c.r;
             sb2.append(hashMap2.size());
             com.baidu.ufosdk.f.c.c(sb2.toString());
-            handler = this.f51753c.af;
+            handler = this.f52302c.af;
             handler.obtainMessage(17).sendToTarget();
         }
     }

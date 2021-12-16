@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class PayStatServiceEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALIPAY_ENTER = "alipay_enter";
@@ -15,6 +15,9 @@ public class PayStatServiceEvent {
     public static final String BANKCARD_DETCTION_RESULT_CLOSE = "bankcard_detction_result_close";
     public static final String BANKCARD_DETCTION_RESULT_MODIFY = "bankcard_detction_result_modify";
     public static final String BANKCARD_DETCTION_RESULT_SUCCESS = "bankcard_detction_result_success";
+    public static final String BANKCARD_INITOCRMODEL_STATUS = "bankcard_initOcrModel_status";
+    public static final String BANKCARD_INIT_STATUS = "bankcard_init_status";
+    public static final String BANKCARD_OCR_DOWNLOAD_STATUS = "bankcard_download_status";
     public static final String BIND_CARD_CHECK_DIALOG = "bind_card_check_dialog";
     public static final String BIND_CARD_CHECK_DIALOG_MODIFY = "bind_card_check_dialog_modify";
     public static final String BIND_CARD_PASS_AGREE = "bind_card_pass_agree";
@@ -46,12 +49,18 @@ public class PayStatServiceEvent {
     public static final String JUMP_WAPCASHIER = "jump_wapcashier";
     public static final String LBS_ALIPAY_ENTER = "lbs_alipay_enter";
     public static final String LBS_ALIPAY_RESULT = "lbs_alipay_result";
+    public static final String LBS_AUTHORIZE_SIGN_ENTER = "lbs_authorize_sign_enter";
+    public static final String LBS_AUTHORIZE_SIGN_RESULT = "lbs_authorize_sign_result";
     public static final String LBS_PAY_CHANNEL = "lbs_pay_channel";
     public static final String LBS_PAY_ENTER = "lbs_pay_enter";
     public static final String LBS_PAY_RESULT_CANCEL = "lbs_pay_result_cancel";
     public static final String LBS_PAY_RESULT_ERROR = "lbs_pay_result_error";
     public static final String LBS_PAY_RESULT_PAYING = "lbs_pay_result_paying";
     public static final String LBS_PAY_RESULT_SUCCESS = "lbs_pay_result_success";
+    public static final String LBS_QUERY_SIGN_ENTER = "lbs_query_sign_enter";
+    public static final String LBS_QUERY_SIGN_RESULT = "lbs_query_sign_result";
+    public static final String LBS_WX_API_ENTER = "lbs_wx_api_enter";
+    public static final String LBS_WX_API_RESULT = "lbs_wx_api_result";
     public static final String LCL_LOGIN_ENTER = "lcl_login_enter";
     public static final String LCL_OPENBDUSS_RESULT = "lcl_openbduss_result";
     public static final String LCL_PASS_RESULT = "lcl_pass_result";

@@ -2,7 +2,7 @@ package com.baidu.titan.sdk.runtime;
 
 import com.baidu.titan.sdk.runtime.annotation.DisableIntercept;
 @DisableIntercept
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface ClassClinitInterceptable {
     InterceptResult invokeClinit(int i2, String str);
 

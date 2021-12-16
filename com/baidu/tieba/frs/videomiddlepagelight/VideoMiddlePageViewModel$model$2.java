@@ -16,13 +16,13 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/frs/videomiddlepage/VideoMiddleModel;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Function0<VideoMiddleModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ VideoMiddlePageViewModel this$0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static final class a implements VideoMiddleModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

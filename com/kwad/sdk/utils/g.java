@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, ArrayList<String>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59644b;
+    public static String f60225b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,14 +43,14 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (TextUtils.isEmpty(f59644b)) {
+            if (TextUtils.isEmpty(f60225b)) {
                 ArrayList<String> a2 = a(context, "SHA1");
                 if (a2 != null && a2.size() != 0) {
-                    f59644b = a2.get(0);
+                    f60225b = a2.get(0);
                 }
-                return f59644b;
+                return f60225b;
             }
-            return f59644b;
+            return f60225b;
         }
         return (String) invokeL.objValue;
     }

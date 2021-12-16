@@ -10,14 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FIFOPool<T extends IPoolItem> implements IPool<T> {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int DEFAULT_SIZE = 2;
     public static final int INVALID_INDEX = -1;
     public static final String TAG = "FIFOPool";
     public transient /* synthetic */ FieldHolder $fh;
     public int mActive;
-    public int mMaxSize;
+    public final int mMaxSize;
     public final Object[] mPool;
     public int mPoolSize;
 
@@ -37,12 +38,9 @@ public class FIFOPool<T extends IPoolItem> implements IPool<T> {
             }
         }
         this.mActive = 0;
-        if (i2 > 0) {
-            this.mMaxSize = i2;
-            this.mPool = new Object[i2];
-            return;
-        }
-        throw new IllegalArgumentException("The max pool size must be > 0");
+        i2 = i2 <= 0 ? 2 : i2;
+        this.mMaxSize = i2;
+        this.mPool = new Object[i2];
     }
 
     private void addElement(T t) {
@@ -113,14 +111,13 @@ public class FIFOPool<T extends IPoolItem> implements IPool<T> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.player.pool.IPool
-    @Nullable
     public T acquire() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.mPoolSize > 0) {
                 if (this.mActive >= this.mMaxSize) {
-                    BdVideoLog.e("active player is overSize : " + this.mMaxSize);
+                    BdVideoLog.w("acquire(), active player is overSize : " + this.mMaxSize);
                 }
                 int i2 = this.mPoolSize;
                 int i3 = i2 - 1;
@@ -146,7 +143,7 @@ public class FIFOPool<T extends IPoolItem> implements IPool<T> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (this.mPoolSize > 0) {
                 if (this.mActive >= this.mMaxSize) {
-                    BdVideoLog.e("active player is overSize : " + this.mMaxSize);
+                    BdVideoLog.w("acquire(" + str + "), active player is overSize : " + this.mMaxSize);
                 }
                 int i2 = -1;
                 for (int i3 = 0; i3 < this.mPoolSize; i3++) {

@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String A = "H5PayNetworkError";
@@ -75,7 +75,7 @@ public class b {
     public static final String j0 = "LogCurrentAppLaunchSwitch";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f31282k = "net";
+    public static final String f31652k = "net";
     public static final String k0 = "LogCurrentQueryTime";
     public static final String l = "biz";
     public static final String l0 = "LogCalledPackage";
@@ -111,31 +111,31 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31283b;
+    public String f31653b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31284c;
+    public String f31654c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f31285d;
+    public String f31655d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31286e;
+    public String f31656e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f31287f;
+    public String f31657f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f31288g;
+    public String f31658g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f31289h;
+    public String f31659h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f31290i;
+    public String f31660i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f31291j;
+    public String f31661j;
 
     public b(Context context, boolean z2) {
         Interceptable interceptable = $ic;
@@ -152,16 +152,16 @@ public class b {
                 return;
             }
         }
-        this.f31289h = "";
-        this.f31290i = "";
+        this.f31659h = "";
+        this.f31660i = "";
         context = context != null ? context.getApplicationContext() : context;
         this.a = b();
-        this.f31284c = a(context);
-        this.f31285d = a(z2 ? 0L : a.c.a(context));
-        this.f31286e = a();
-        this.f31287f = b(context);
-        this.f31288g = "-";
-        this.f31291j = "-";
+        this.f31654c = a(context);
+        this.f31655d = a(z2 ? 0L : a.c.a(context));
+        this.f31656e = a();
+        this.f31657f = b(context);
+        this.f31658g = "-";
+        this.f31661j = "-";
     }
 
     private synchronized void c(String str, String str2, String str3) {
@@ -170,7 +170,7 @@ public class b {
             synchronized (this) {
                 c.d(com.alipay.sdk.cons.a.x, String.format("event %s %s %s", str, str2, str3));
                 String str4 = "";
-                if (!TextUtils.isEmpty(this.f31289h)) {
+                if (!TextUtils.isEmpty(this.f31659h)) {
                     str4 = "" + PayTypeItemView.PayTypeItemViewData.MASK_FLAG;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -181,7 +181,7 @@ public class b {
                 objArr[2] = c(str3);
                 objArr[3] = c(c());
                 sb.append(String.format("%s,%s,%s,-,-,-,-,-,-,-,-,-,-,%s", objArr));
-                this.f31289h += sb.toString();
+                this.f31659h += sb.toString();
             }
         }
     }
@@ -189,7 +189,7 @@ public class b {
     private boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? TextUtils.isEmpty(this.f31290i) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? TextUtils.isEmpty(this.f31660i) : invokeV.booleanValue;
     }
 
     public static String e() {
@@ -232,7 +232,7 @@ public class b {
             synchronized (this) {
                 c.c(com.alipay.sdk.cons.a.x, String.format("err %s %s %s", str, str2, str3));
                 String str4 = "";
-                if (!TextUtils.isEmpty(this.f31290i)) {
+                if (!TextUtils.isEmpty(this.f31660i)) {
                     str4 = "" + PayTypeItemView.PayTypeItemViewData.MASK_FLAG;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -243,7 +243,7 @@ public class b {
                 objArr[2] = TextUtils.isEmpty(str3) ? "-" : c(str3);
                 objArr[3] = c(c());
                 sb.append(String.format("%s,%s,%s,%s", objArr));
-                this.f31290i += sb.toString();
+                this.f31660i += sb.toString();
             }
         }
     }
@@ -370,8 +370,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String b2 = b(str);
-            this.f31283b = b2;
-            return String.format("[(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s)]", this.a, b2, this.f31284c, this.f31285d, this.f31286e, this.f31287f, this.f31288g, d(this.f31289h), d(this.f31290i), this.f31291j);
+            this.f31653b = b2;
+            return String.format("[(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s)]", this.a, b2, this.f31654c, this.f31655d, this.f31656e, this.f31657f, this.f31658g, d(this.f31659h), d(this.f31660i), this.f31661j);
         }
         return (String) invokeL.objValue;
     }

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class w {
     public static /* synthetic */ Interceptable $ic;
     public static final Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HandlerThread f62582b;
+    public static final HandlerThread f63163b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Handler f62583c;
+    public static final Handler f63164c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,9 +36,9 @@ public final class w {
         }
         a = new Handler(Looper.getMainLooper());
         HandlerThread handlerThread = new HandlerThread("push_client_thread");
-        f62582b = handlerThread;
+        f63163b = handlerThread;
         handlerThread.start();
-        f62583c = new x(f62582b.getLooper());
+        f63164c = new x(f63163b.getLooper());
     }
 
     public static void a(v vVar) {
@@ -52,7 +52,7 @@ public final class w {
             Message message = new Message();
             message.what = a2;
             message.obj = vVar;
-            f62583c.sendMessageDelayed(message, 0L);
+            f63164c.sendMessageDelayed(message, 0L);
         }
     }
 
@@ -66,8 +66,8 @@ public final class w {
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            f62583c.removeCallbacks(runnable);
-            f62583c.postDelayed(runnable, 15000L);
+            f63164c.removeCallbacks(runnable);
+            f63164c.postDelayed(runnable, 15000L);
         }
     }
 }

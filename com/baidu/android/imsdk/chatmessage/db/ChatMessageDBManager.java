@@ -57,7 +57,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ChatMessageDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CAST_RELIABLE_MSG_EXPIRED_TIME = 172800;
@@ -67,7 +67,7 @@ public class ChatMessageDBManager extends DBBase {
     public transient /* synthetic */ FieldHolder $fh;
     public List<ChatMessageDbOberser> mObservers;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ChatMessageDbOberser {
         void notifyDbChange(int i2, ChatSession chatSession);
     }

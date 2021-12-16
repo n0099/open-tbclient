@@ -1,6 +1,6 @@
 package c.a.d.c.e.c.j;
 
-import c.a.d.f.p.s;
+import c.a.d.f.p.t;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,12 +17,12 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f2250c;
+    public static d f2217c;
     public transient /* synthetic */ FieldHolder $fh;
     public SecretKey a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f2251b;
+    public byte[] f2218b;
 
     static {
         InterceptResult invokeClinit;
@@ -53,21 +53,21 @@ public class d {
             }
         }
         this.a = null;
-        this.f2251b = null;
+        this.f2218b = null;
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2250c == null) {
+            if (f2217c == null) {
                 synchronized (d.class) {
-                    if (f2250c == null) {
-                        f2250c = new d();
+                    if (f2217c == null) {
+                        f2217c = new d();
                     }
                 }
             }
-            return f2250c;
+            return f2217c;
         }
         return (d) invokeV.objValue;
     }
@@ -81,25 +81,25 @@ public class d {
     public byte[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2251b : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2218b : (byte[]) invokeV.objValue;
     }
 
     public void d(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
             try {
-                PublicKey e2 = s.e(bArr);
-                String g2 = s.g(32);
+                PublicKey e2 = t.e(bArr);
+                String g2 = t.g(32);
                 byte[] bArr2 = new byte[g2.length()];
                 for (int i2 = 0; i2 < g2.length(); i2++) {
                     bArr2[i2] = (byte) g2.charAt(i2);
                 }
-                this.a = s.f(g2);
-                this.f2251b = s.d(e2, bArr2);
+                this.a = t.f(g2);
+                this.f2218b = t.d(e2, bArr2);
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
                 this.a = null;
-                this.f2251b = new byte[0];
+                this.f2218b = new byte[0];
             }
         }
     }

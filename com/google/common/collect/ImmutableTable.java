@@ -21,12 +21,12 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -92,17 +92,17 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a<R, C, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final List<k1.a<R, C, V>> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Comparator<? super R> f56231b;
+        public Comparator<? super R> f56812b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Comparator<? super C> f56232c;
+        public Comparator<? super C> f56813c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
                 int size = this.a.size();
                 if (size != 0) {
                     if (size != 1) {
-                        return RegularImmutableTable.forCells(this.a, this.f56231b, this.f56232c);
+                        return RegularImmutableTable.forCells(this.a, this.f56812b, this.f56813c);
                     }
                     return new SingletonImmutableTable((k1.a) o0.i(this.a));
                 }

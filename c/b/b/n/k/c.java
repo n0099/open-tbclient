@@ -10,41 +10,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Texture a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27523b;
+    public int f27898b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27524c;
+    public int f27899c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27525d;
+    public int f27900d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27526e;
+    public int f27901e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27527f;
+    public int f27902f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27528g;
+    public int f27903g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27529h;
+    public int f27904h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27530i;
+    public int f27905i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f27531j;
+    public int f27906j;
 
     /* renamed from: k  reason: collision with root package name */
-    public float f27532k;
+    public float f27907k;
     public float l;
     public float m;
     public float n;
@@ -88,7 +88,7 @@ public class c {
             }
         }
         this.q = new float[180];
-        this.s = new c.b.b.n.a(c.b.b.n.a.f27471e);
+        this.s = new c.b.b.n.a(c.b.b.n.a.f27846e);
         this.t = -1.0f;
         this.u = -1.0f;
         this.v = -1.0f;
@@ -162,10 +162,10 @@ public class c {
             } else if (texture != iVar.f()) {
                 throw new IllegalArgumentException("All regions must be from the same texture.");
             }
-            float f2 = iVar.f27572b;
-            float f3 = iVar.f27575e;
-            float f4 = iVar.f27574d;
-            float f5 = iVar.f27573c;
+            float f2 = iVar.f27947b;
+            float f3 = iVar.f27950e;
+            float f4 = iVar.f27949d;
+            float f5 = iVar.f27948c;
             if (this.a.f() == Texture.TextureFilter.Linear || this.a.h() == Texture.TextureFilter.Linear) {
                 if (z) {
                     float x = 0.5f / this.a.x();
@@ -203,7 +203,7 @@ public class c {
     public float c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27532k : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27907k : invokeV.floatValue;
     }
 
     public float d() {
@@ -267,74 +267,74 @@ public class c {
     public float k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27532k + this.m + this.l : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27907k + this.m + this.l : invokeV.floatValue;
     }
 
     public final void l(i[] iVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, iVarArr) == null) {
             if (iVarArr[6] != null) {
-                this.f27523b = a(iVarArr[6], false, false);
-                this.f27532k = iVarArr[6].c();
+                this.f27898b = a(iVarArr[6], false, false);
+                this.f27907k = iVarArr[6].c();
                 this.p = iVarArr[6].b();
             } else {
-                this.f27523b = -1;
+                this.f27898b = -1;
             }
             if (iVarArr[7] != null) {
-                this.f27524c = a(iVarArr[7], (iVarArr[6] == null && iVarArr[8] == null) ? false : true, false);
+                this.f27899c = a(iVarArr[7], (iVarArr[6] == null && iVarArr[8] == null) ? false : true, false);
                 this.m = Math.max(this.m, iVarArr[7].c());
                 this.p = Math.max(this.p, iVarArr[7].b());
             } else {
-                this.f27524c = -1;
+                this.f27899c = -1;
             }
             if (iVarArr[8] != null) {
-                this.f27525d = a(iVarArr[8], false, false);
+                this.f27900d = a(iVarArr[8], false, false);
                 this.l = Math.max(this.l, iVarArr[8].c());
                 this.p = Math.max(this.p, iVarArr[8].b());
             } else {
-                this.f27525d = -1;
+                this.f27900d = -1;
             }
             if (iVarArr[3] != null) {
-                this.f27526e = a(iVarArr[3], false, (iVarArr[0] == null && iVarArr[6] == null) ? false : true);
-                this.f27532k = Math.max(this.f27532k, iVarArr[3].c());
+                this.f27901e = a(iVarArr[3], false, (iVarArr[0] == null && iVarArr[6] == null) ? false : true);
+                this.f27907k = Math.max(this.f27907k, iVarArr[3].c());
                 this.n = Math.max(this.n, iVarArr[3].b());
             } else {
-                this.f27526e = -1;
+                this.f27901e = -1;
             }
             if (iVarArr[4] != null) {
-                this.f27527f = a(iVarArr[4], (iVarArr[3] == null && iVarArr[5] == null) ? false : true, (iVarArr[1] == null && iVarArr[7] == null) ? false : true);
+                this.f27902f = a(iVarArr[4], (iVarArr[3] == null && iVarArr[5] == null) ? false : true, (iVarArr[1] == null && iVarArr[7] == null) ? false : true);
                 this.m = Math.max(this.m, iVarArr[4].c());
                 this.n = Math.max(this.n, iVarArr[4].b());
             } else {
-                this.f27527f = -1;
+                this.f27902f = -1;
             }
             if (iVarArr[5] != null) {
-                this.f27528g = a(iVarArr[5], false, (iVarArr[2] == null && iVarArr[8] == null) ? false : true);
+                this.f27903g = a(iVarArr[5], false, (iVarArr[2] == null && iVarArr[8] == null) ? false : true);
                 this.l = Math.max(this.l, iVarArr[5].c());
                 this.n = Math.max(this.n, iVarArr[5].b());
             } else {
-                this.f27528g = -1;
+                this.f27903g = -1;
             }
             if (iVarArr[0] != null) {
-                this.f27529h = a(iVarArr[0], false, false);
-                this.f27532k = Math.max(this.f27532k, iVarArr[0].c());
+                this.f27904h = a(iVarArr[0], false, false);
+                this.f27907k = Math.max(this.f27907k, iVarArr[0].c());
                 this.o = Math.max(this.o, iVarArr[0].b());
             } else {
-                this.f27529h = -1;
+                this.f27904h = -1;
             }
             if (iVarArr[1] != null) {
-                this.f27530i = a(iVarArr[1], (iVarArr[0] == null && iVarArr[2] == null) ? false : true, false);
+                this.f27905i = a(iVarArr[1], (iVarArr[0] == null && iVarArr[2] == null) ? false : true, false);
                 this.m = Math.max(this.m, iVarArr[1].c());
                 this.o = Math.max(this.o, iVarArr[1].b());
             } else {
-                this.f27530i = -1;
+                this.f27905i = -1;
             }
             if (iVarArr[2] != null) {
-                this.f27531j = a(iVarArr[2], false, false);
+                this.f27906j = a(iVarArr[2], false, false);
                 this.l = Math.max(this.l, iVarArr[2].c());
                 this.o = Math.max(this.o, iVarArr[2].b());
             } else {
-                this.f27531j = -1;
+                this.f27906j = -1;
             }
             int i2 = this.r;
             float[] fArr = this.q;
@@ -349,7 +349,7 @@ public class c {
     public void m(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.f27532k *= f2;
+            this.f27907k *= f2;
             this.l *= f2;
             this.o *= f3;
             this.p *= f3;
@@ -400,7 +400,7 @@ public class c {
             }
         }
         this.q = new float[180];
-        this.s = new c.b.b.n.a(c.b.b.n.a.f27471e);
+        this.s = new c.b.b.n.a(c.b.b.n.a.f27846e);
         this.t = -1.0f;
         this.u = -1.0f;
         this.v = -1.0f;
@@ -424,22 +424,22 @@ public class c {
             }
         }
         this.q = new float[180];
-        this.s = new c.b.b.n.a(c.b.b.n.a.f27471e);
+        this.s = new c.b.b.n.a(c.b.b.n.a.f27846e);
         this.t = -1.0f;
         this.u = -1.0f;
         this.v = -1.0f;
         this.w = -1.0f;
         this.a = cVar.a;
-        this.f27523b = cVar.f27523b;
-        this.f27524c = cVar.f27524c;
-        this.f27525d = cVar.f27525d;
-        this.f27526e = cVar.f27526e;
-        this.f27527f = cVar.f27527f;
-        this.f27528g = cVar.f27528g;
-        this.f27529h = cVar.f27529h;
-        this.f27530i = cVar.f27530i;
-        this.f27531j = cVar.f27531j;
-        this.f27532k = cVar.f27532k;
+        this.f27898b = cVar.f27898b;
+        this.f27899c = cVar.f27899c;
+        this.f27900d = cVar.f27900d;
+        this.f27901e = cVar.f27901e;
+        this.f27902f = cVar.f27902f;
+        this.f27903g = cVar.f27903g;
+        this.f27904h = cVar.f27904h;
+        this.f27905i = cVar.f27905i;
+        this.f27906j = cVar.f27906j;
+        this.f27907k = cVar.f27907k;
         this.l = cVar.l;
         this.m = cVar.m;
         this.n = cVar.n;

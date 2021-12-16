@@ -3,10 +3,10 @@ package com.baidu.tbadk.widget.tiejia;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d.a;
-import c.a.q0.d1.c0;
-import c.a.q0.d1.e0;
-import c.a.q0.s.q.d2;
+import c.a.r0.d.a;
+import c.a.r0.d1.e0;
+import c.a.r0.d1.g0;
+import c.a.r0.s.r.d2;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -17,19 +17,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.blink.VideoFreeFlowConfigManager;
 import java.util.concurrent.TimeUnit;
 import tbclient.TiebaPlusInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class TiePlusStat {
     public static /* synthetic */ Interceptable $ic;
-    public static final e0<Integer> a;
+    public static final g0<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e0<Integer> f42405b;
+    public static final g0<Integer> f42896b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class CardBtnType {
         public static final /* synthetic */ CardBtnType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -118,7 +119,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class LandingType {
         public static final /* synthetic */ LandingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -129,6 +130,7 @@ public final class TiePlusStat {
         public static final String STAT_KEY = "l_type";
         public static final LandingType WECHAT;
         public static final LandingType WECHAT_MINIAPP;
+        public static final LandingType WECHAT_OFFICIAL;
         public transient /* synthetic */ FieldHolder $fh;
         public final int statValue;
 
@@ -150,9 +152,10 @@ public final class TiePlusStat {
             WECHAT = new LandingType("WECHAT", 2, 3);
             WECHAT_MINIAPP = new LandingType("WECHAT_MINIAPP", 3, 4);
             MESSAGE = new LandingType("MESSAGE", 4, 5);
-            LandingType landingType = new LandingType("APPOINT", 5, 6);
-            APPOINT = landingType;
-            $VALUES = new LandingType[]{H5, DIALOG_DOWNLOAD, WECHAT, WECHAT_MINIAPP, MESSAGE, landingType};
+            APPOINT = new LandingType("APPOINT", 5, 6);
+            LandingType landingType = new LandingType("WECHAT_OFFICIAL", 6, 7);
+            WECHAT_OFFICIAL = landingType;
+            $VALUES = new LandingType[]{H5, DIALOG_DOWNLOAD, WECHAT, WECHAT_MINIAPP, MESSAGE, APPOINT, landingType};
         }
 
         public LandingType(String str, int i2, int i3) {
@@ -201,11 +204,14 @@ public final class TiePlusStat {
                     case 6:
                         landingType = APPOINT;
                         break;
+                    case 7:
+                        landingType = WECHAT_OFFICIAL;
+                        break;
                     default:
                         landingType = null;
                         break;
                 }
-                c0.b(landingType);
+                e0.b(landingType);
                 return landingType;
             }
             return (LandingType) invokeI.objValue;
@@ -225,7 +231,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class Locate {
         public static final /* synthetic */ Locate[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -299,7 +305,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class RichTextType {
         public static final /* synthetic */ RichTextType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -380,7 +386,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class StatType {
         public static final /* synthetic */ StatType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -389,6 +395,8 @@ public final class TiePlusStat {
         public static final StatType DIALOG_EXPOSE;
         public static final StatType DOWNLOAD_FINISHED;
         public static final StatType EXPOSE;
+        public static final StatType WECHAT_DIALOG_CLICK;
+        public static final StatType WECHAT_DIALOG_EXPOSE;
         public transient /* synthetic */ FieldHolder $fh;
         public final int billingTypeValue;
         public final String urlKey;
@@ -406,13 +414,15 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f11805h);
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f11806i);
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f12120h);
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f12121i);
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1);
             DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1);
-            StatType statType = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
-            DOWNLOAD_FINISHED = statType;
-            $VALUES = new StatType[]{EXPOSE, CLICK, DIALOG_EXPOSE, DIALOG_CLICK, statType};
+            DOWNLOAD_FINISHED = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
+            WECHAT_DIALOG_EXPOSE = new StatType("WECHAT_DIALOG_EXPOSE", 5, CommonStatisticKey.KEY_TIE_PLUS_WECHAT_DIALOG_EXPOSE, -1);
+            StatType statType = new StatType("WECHAT_DIALOG_CLICK", 6, CommonStatisticKey.KEY_TIE_PLUS_WECHAT_DIALOG_CLICK, -1);
+            WECHAT_DIALOG_CLICK = statType;
+            $VALUES = new StatType[]{EXPOSE, CLICK, DIALOG_EXPOSE, DIALOG_CLICK, DOWNLOAD_FINISHED, WECHAT_DIALOG_EXPOSE, statType};
         }
 
         public StatType(@NonNull String str, int i2, String str2, int i3) {
@@ -451,7 +461,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class ThreadType {
         public static final /* synthetic */ ThreadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -531,6 +541,70 @@ public final class TiePlusStat {
         }
     }
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes11.dex */
+    public static final class WechatDialogType {
+        public static final /* synthetic */ WechatDialogType[] $VALUES;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final WechatDialogType COPY;
+        public static final WechatDialogType DIRECT;
+        public static final String STAT_KEY = "t_type";
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int statValue;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(480560344, "Lcom/baidu/tbadk/widget/tiejia/TiePlusStat$WechatDialogType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(480560344, "Lcom/baidu/tbadk/widget/tiejia/TiePlusStat$WechatDialogType;");
+                    return;
+                }
+            }
+            COPY = new WechatDialogType("COPY", 0, 1);
+            WechatDialogType wechatDialogType = new WechatDialogType(VideoFreeFlowConfigManager.DIRECT, 1, 2);
+            DIRECT = wechatDialogType;
+            $VALUES = new WechatDialogType[]{COPY, wechatDialogType};
+        }
+
+        public WechatDialogType(String str, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.statValue = i3;
+        }
+
+        public static WechatDialogType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (WechatDialogType) Enum.valueOf(WechatDialogType.class, str) : (WechatDialogType) invokeL.objValue;
+        }
+
+        public static WechatDialogType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (WechatDialogType[]) $VALUES.clone() : (WechatDialogType[]) invokeV.objValue;
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -544,8 +618,8 @@ public final class TiePlusStat {
                 return;
             }
         }
-        a = new e0<>(3000, TimeUnit.MILLISECONDS);
-        f42405b = new e0<>(3000, TimeUnit.MILLISECONDS);
+        a = new g0<>(3000, TimeUnit.MILLISECONDS);
+        f42896b = new g0<>(3000, TimeUnit.MILLISECONDS);
     }
 
     public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
@@ -591,7 +665,7 @@ public final class TiePlusStat {
     public static void c(int i2, @NonNull StatType statType, @NonNull Locate locate, @NonNull String str, @NonNull String str2, @NonNull String str3, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), statType, locate, str, str2, str3, Integer.valueOf(i3)}) == null) {
-            if (statType != StatType.EXPOSE || f42405b.a(Integer.valueOf(i2))) {
+            if (statType != StatType.EXPOSE || f42896b.a(Integer.valueOf(i2))) {
                 a.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i3);
             }
         }
@@ -608,6 +682,13 @@ public final class TiePlusStat {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65541, null, statType, richTextType, str, str2) == null) {
             TiebaStatic.log(new StatisticItem(statType.urlKey).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("tid", str).addParam("order_id", str2));
+        }
+    }
+
+    public static void f(StatType statType, RichTextType richTextType, WechatDialogType wechatDialogType, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, statType, richTextType, wechatDialogType, str) == null) {
+            TiebaStatic.log(new StatisticItem(statType.urlKey).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam(WechatDialogType.STAT_KEY, wechatDialogType.statValue).addParam("tid", str));
         }
     }
 }

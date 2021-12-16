@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ImageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f41785e;
+    public a f42276e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41786f;
+    public String f42277f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a extends BdAsyncTask<Object, Integer, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ImageModel f41787b;
+        public final /* synthetic */ ImageModel f42278b;
 
         public a(ImageModel imageModel, String str) {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class ImageModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f41787b = imageModel;
+            this.f42278b = imageModel;
             this.a = null;
             this.a = str;
         }
@@ -74,9 +74,9 @@ public class ImageModel extends BdBaseModel {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f41787b.f41785e = null;
-                if (this.f41787b.mLoadDataCallBack != null) {
-                    this.f41787b.mLoadDataCallBack.c(null);
+                this.f42278b.f42276e = null;
+                if (this.f42278b.mLoadDataCallBack != null) {
+                    this.f42278b.mLoadDataCallBack.c(null);
                 }
                 super.cancel(true);
             }
@@ -96,9 +96,9 @@ public class ImageModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, bitmap) == null) {
                 super.onPostExecute((a) bitmap);
-                this.f41787b.f41785e = null;
-                if (this.f41787b.mLoadDataCallBack != null) {
-                    this.f41787b.mLoadDataCallBack.c(bitmap);
+                this.f42278b.f42276e = null;
+                if (this.f42278b.mLoadDataCallBack != null) {
+                    this.f42278b.mLoadDataCallBack.c(bitmap);
                 }
             }
         }
@@ -122,15 +122,15 @@ public class ImageModel extends BdBaseModel {
                 return;
             }
         }
-        this.f41785e = null;
-        this.f41786f = null;
+        this.f42276e = null;
+        this.f42277f = null;
     }
 
     public boolean B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f41786f = str;
+            this.f42277f = str;
             return loadData();
         }
         return invokeL.booleanValue;
@@ -141,7 +141,7 @@ public class ImageModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a aVar = this.f41785e;
+            a aVar = this.f42276e;
             if (aVar != null) {
                 aVar.cancel();
                 return true;
@@ -156,12 +156,12 @@ public class ImageModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            a aVar = this.f41785e;
+            a aVar = this.f42276e;
             if (aVar != null) {
                 aVar.cancel();
             }
-            a aVar2 = new a(this, this.f41786f);
-            this.f41785e = aVar2;
+            a aVar2 = new a(this, this.f42277f);
+            this.f42276e = aVar2;
             aVar2.execute(new Object[0]);
             return true;
         }

@@ -14,13 +14,13 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class j extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f32856b;
+    public Context f33226b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(Context context) {
@@ -40,7 +40,7 @@ public class j extends c {
                 return;
             }
         }
-        this.f32856b = context.getApplicationContext();
+        this.f33226b = context.getApplicationContext();
     }
 
     public static String a(byte[] bArr) {
@@ -71,7 +71,7 @@ public class j extends c {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(65538, null, context, lVar, str, i2) == null) {
-            if (lVar == com.baidu.android.pushservice.message.a.l.f32821b || lVar == com.baidu.android.pushservice.message.a.l.f32822c || lVar == com.baidu.android.pushservice.message.a.l.f32826g) {
+            if (lVar == com.baidu.android.pushservice.message.a.l.f33191b || lVar == com.baidu.android.pushservice.message.a.l.f33192c || lVar == com.baidu.android.pushservice.message.a.l.f33196g) {
                 b.a a = new b.a(context).a("0").b(str).a(System.currentTimeMillis());
                 c2 = a.c(i2 + "");
                 j2 = 601002;
@@ -89,10 +89,10 @@ public class j extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
-            eVar.f32834d = true;
+            eVar.f33204d = true;
             g gVar = new g();
             gVar.a(-1);
-            byte[] bArr = eVar.f32832b;
+            byte[] bArr = eVar.f33202b;
             if (bArr == null) {
                 return gVar;
             }
@@ -129,7 +129,7 @@ public class j extends c {
                         if (!jSONObject.isNull("expiretime")) {
                             kVar.a(jSONObject.getLong("expiretime"));
                         }
-                        kVar.a(!jSONObject.isNull("notify_id") ? jSONObject.getInt("notify_id") : kVar.g() != com.baidu.android.pushservice.message.a.l.f32827h.b() ? m.i(this.f32856b, kVar.f()) : 0);
+                        kVar.a(!jSONObject.isNull("notify_id") ? jSONObject.getInt("notify_id") : kVar.g() != com.baidu.android.pushservice.message.a.l.f33197h.b() ? m.i(this.f33226b, kVar.f()) : 0);
                         kVar.a(false);
                     } catch (JSONException e2) {
                         new b.c(this.a).a(Log.getStackTraceString(e2)).a();
@@ -152,10 +152,10 @@ public class j extends c {
                 System.arraycopy(bArr, i2, bArr5, 0, length);
                 m.a("New MSG: " + kVar.toString(), this.a);
                 com.baidu.android.pushservice.message.a.l a = com.baidu.android.pushservice.message.a.l.a(kVar.g());
-                if (a != com.baidu.android.pushservice.message.a.l.f32829j && com.baidu.android.pushservice.c.c.c(this.a, kVar.e())) {
+                if (a != com.baidu.android.pushservice.message.a.l.f33199j && com.baidu.android.pushservice.c.c.c(this.a, kVar.e())) {
                     String str = "Message ID(" + kVar.f() + ") received duplicated, ack success to server directly.";
-                    com.baidu.android.pushservice.g.a.a("PushMessageHandler", str, this.f32856b);
-                    m.a(str, this.f32856b);
+                    com.baidu.android.pushservice.g.a.a("PushMessageHandler", str, this.f33226b);
+                    m.a(str, this.f33226b);
                     a(this.a, a, kVar.f(), 4);
                     gVar.a(4);
                     return gVar;
@@ -169,9 +169,9 @@ public class j extends c {
                 if (gVar == null) {
                     return null;
                 }
-                if (a == com.baidu.android.pushservice.message.a.l.f32821b || a == com.baidu.android.pushservice.message.a.l.f32822c || a == com.baidu.android.pushservice.message.a.l.f32826g) {
+                if (a == com.baidu.android.pushservice.message.a.l.f33191b || a == com.baidu.android.pushservice.message.a.l.f33192c || a == com.baidu.android.pushservice.message.a.l.f33196g) {
                     com.baidu.android.pushservice.c.c.a(this.a, kVar.c(), kVar.g(), kVar.e(), bArr5, kVar.h(), kVar.b(), gVar.a(), kVar.a());
-                } else if (a != com.baidu.android.pushservice.message.a.l.f32829j) {
+                } else if (a != com.baidu.android.pushservice.message.a.l.f33199j) {
                     com.baidu.android.pushservice.c.c.a(this.a, kVar.c(), kVar.g(), kVar.e(), null, null, 0L, gVar.a(), kVar.a());
                 }
                 m.o(this.a);

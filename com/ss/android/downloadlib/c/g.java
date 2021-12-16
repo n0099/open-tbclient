@@ -15,13 +15,13 @@ import com.ss.android.download.api.model.b;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.socialbase.appdownloader.c.k;
 import com.ss.android.socialbase.appdownloader.c.l;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends com.ss.android.socialbase.appdownloader.c.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "g";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,19 +112,19 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
             public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ g f61368b;
+            public final /* synthetic */ g f61949b;
 
             /* renamed from: c  reason: collision with root package name */
-            public b.a f61369c;
+            public b.a f61950c;
 
             /* renamed from: d  reason: collision with root package name */
-            public DialogInterface.OnClickListener f61370d;
+            public DialogInterface.OnClickListener f61951d;
 
             /* renamed from: e  reason: collision with root package name */
-            public DialogInterface.OnClickListener f61371e;
+            public DialogInterface.OnClickListener f61952e;
 
             /* renamed from: f  reason: collision with root package name */
-            public DialogInterface.OnCancelListener f61372f;
+            public DialogInterface.OnCancelListener f61953f;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -141,9 +141,9 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
                         return;
                     }
                 }
-                this.f61368b = this;
+                this.f61949b = this;
                 this.a = context;
-                this.f61369c = new b.a(this.a);
+                this.f61950c = new b.a(this.a);
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
@@ -151,7 +151,7 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                    this.f61369c.a(this.a.getResources().getString(i2));
+                    this.f61950c.a(this.a.getResources().getString(i2));
                     return this;
                 }
                 return (l) invokeI.objValue;
@@ -162,8 +162,8 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
                 InterceptResult invokeIL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeIL = interceptable2.invokeIL(1048582, this, i2, onClickListener)) == null) {
-                    this.f61369c.d(this.a.getResources().getString(i2));
-                    this.f61371e = onClickListener;
+                    this.f61950c.d(this.a.getResources().getString(i2));
+                    this.f61952e = onClickListener;
                     return this;
                 }
                 return (l) invokeIL.objValue;
@@ -174,7 +174,7 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048580, this, str)) == null) {
-                    this.f61369c.b(str);
+                    this.f61950c.b(str);
                     return this;
                 }
                 return (l) invokeL2.objValue;
@@ -185,8 +185,8 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
                 InterceptResult invokeIL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeIL = interceptable2.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, onClickListener)) == null) {
-                    this.f61369c.c(this.a.getResources().getString(i2));
-                    this.f61370d = onClickListener;
+                    this.f61950c.c(this.a.getResources().getString(i2));
+                    this.f61951d = onClickListener;
                     return this;
                 }
                 return (l) invokeIL.objValue;
@@ -197,7 +197,7 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048579, this, onCancelListener)) == null) {
-                    this.f61372f = onCancelListener;
+                    this.f61953f = onCancelListener;
                     return this;
                 }
                 return (l) invokeL2.objValue;
@@ -208,7 +208,7 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
                 InterceptResult invokeZ;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeZ = interceptable2.invokeZ(1048581, this, z)) == null) {
-                    this.f61369c.a(z);
+                    this.f61950c.a(z);
                     return this;
                 }
                 return (l) invokeZ.objValue;
@@ -219,7 +219,7 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    this.f61369c.a(new b.InterfaceC2094b(this) { // from class: com.ss.android.downloadlib.c.g.1.1
+                    this.f61950c.a(new b.InterfaceC2155b(this) { // from class: com.ss.android.downloadlib.c.g.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass1 a;
@@ -242,36 +242,36 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
                             this.a = this;
                         }
 
-                        @Override // com.ss.android.download.api.model.b.InterfaceC2094b
+                        @Override // com.ss.android.download.api.model.b.InterfaceC2155b
                         public void a(DialogInterface dialogInterface) {
                             Interceptable interceptable3 = $ic;
-                            if (!(interceptable3 == null || interceptable3.invokeL(1048576, this, dialogInterface) == null) || this.a.f61370d == null) {
+                            if (!(interceptable3 == null || interceptable3.invokeL(1048576, this, dialogInterface) == null) || this.a.f61951d == null) {
                                 return;
                             }
-                            this.a.f61370d.onClick(dialogInterface, -1);
+                            this.a.f61951d.onClick(dialogInterface, -1);
                         }
 
-                        @Override // com.ss.android.download.api.model.b.InterfaceC2094b
+                        @Override // com.ss.android.download.api.model.b.InterfaceC2155b
                         public void b(DialogInterface dialogInterface) {
                             Interceptable interceptable3 = $ic;
-                            if (!(interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) || this.a.f61371e == null) {
+                            if (!(interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) || this.a.f61952e == null) {
                                 return;
                             }
-                            this.a.f61371e.onClick(dialogInterface, -2);
+                            this.a.f61952e.onClick(dialogInterface, -2);
                         }
 
-                        @Override // com.ss.android.download.api.model.b.InterfaceC2094b
+                        @Override // com.ss.android.download.api.model.b.InterfaceC2155b
                         public void c(DialogInterface dialogInterface) {
                             Interceptable interceptable3 = $ic;
-                            if (!(interceptable3 == null || interceptable3.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) || this.a.f61372f == null || dialogInterface == null) {
+                            if (!(interceptable3 == null || interceptable3.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) || this.a.f61953f == null || dialogInterface == null) {
                                 return;
                             }
-                            this.a.f61372f.onCancel(dialogInterface);
+                            this.a.f61953f.onCancel(dialogInterface);
                         }
                     });
                     com.ss.android.downloadlib.g.k.a(g.a, "getThemedAlertDlgBuilder", null);
-                    this.f61369c.a(3);
-                    return new a(j.c().b(this.f61369c.a()));
+                    this.f61950c.a(3);
+                    return new a(j.c().b(this.f61950c.a()));
                 }
                 return (k) invokeV.objValue;
             }

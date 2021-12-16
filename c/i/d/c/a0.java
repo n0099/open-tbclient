@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.Queue;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class a0<E> extends i0<E> implements Deque<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

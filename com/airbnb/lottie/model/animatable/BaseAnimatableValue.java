@@ -4,7 +4,7 @@ import com.airbnb.lottie.value.Keyframe;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseAnimatableValue<V, O> implements AnimatableValue<V, O> {
     public final List<Keyframe<V>> keyframes;
 

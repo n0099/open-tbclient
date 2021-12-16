@@ -15,17 +15,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.Observable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class x extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public static volatile x a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Activity> f59665b;
+    public WeakReference<Activity> f60246b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f59666c;
+    public WeakReference<Activity> f60247c;
 
     public x() {
         Interceptable interceptable = $ic;
@@ -100,7 +100,7 @@ public class x extends Observable {
                 public final /* synthetic */ x a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public int f59667b;
+                public int f60248b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -118,7 +118,7 @@ public class x extends Observable {
                         }
                     }
                     this.a = this;
-                    this.f59667b = 0;
+                    this.f60248b = 0;
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -138,18 +138,18 @@ public class x extends Observable {
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityPaused(@NonNull Activity activity) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || this.a.f59665b == null || this.a.f59665b.get() == null || !((Activity) this.a.f59665b.get()).equals(activity)) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || this.a.f60246b == null || this.a.f60246b.get() == null || !((Activity) this.a.f60246b.get()).equals(activity)) {
                         return;
                     }
-                    this.a.f59665b = null;
+                    this.a.f60246b = null;
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityResumed(@NonNull Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, activity) == null) {
-                        this.a.f59665b = new WeakReference(activity);
-                        this.a.f59666c = new WeakReference(activity);
+                        this.a.f60246b = new WeakReference(activity);
+                        this.a.f60247c = new WeakReference(activity);
                     }
                 }
 
@@ -164,8 +164,8 @@ public class x extends Observable {
                 public void onActivityStarted(@NonNull Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
-                        int i3 = this.f59667b + 1;
-                        this.f59667b = i3;
+                        int i3 = this.f60248b + 1;
+                        this.f60248b = i3;
                         if (i3 == 1) {
                             this.a.e();
                         }
@@ -176,15 +176,15 @@ public class x extends Observable {
                 public void onActivityStopped(@NonNull Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
-                        int i3 = this.f59667b - 1;
-                        this.f59667b = i3;
+                        int i3 = this.f60248b - 1;
+                        this.f60248b = i3;
                         if (i3 == 0) {
                             this.a.f();
                         }
-                        if (this.a.f59666c == null || this.a.f59666c.get() == null || !((Activity) this.a.f59666c.get()).equals(activity)) {
+                        if (this.a.f60247c == null || this.a.f60247c.get() == null || !((Activity) this.a.f60247c.get()).equals(activity)) {
                             return;
                         }
-                        this.a.f59666c = null;
+                        this.a.f60247c = null;
                     }
                 }
             });
@@ -202,7 +202,7 @@ public class x extends Observable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            WeakReference<Activity> weakReference = this.f59665b;
+            WeakReference<Activity> weakReference = this.f60246b;
             if (weakReference == null) {
                 return null;
             }
@@ -216,7 +216,7 @@ public class x extends Observable {
         Activity activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            WeakReference<Activity> weakReference = this.f59666c;
+            WeakReference<Activity> weakReference = this.f60247c;
             if (weakReference == null || (activity = weakReference.get()) == null) {
                 return 0;
             }

@@ -19,7 +19,7 @@ import com.yy.hiidostatis.pref.HdStatisConfig;
 import java.io.File;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MetricsHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class MetricsHandler {
     public Map<String, TimeWorker> timers;
     public String ver;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class TimeWorker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

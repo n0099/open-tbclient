@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.cache.ISubscribeAppTagManager;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class e implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ List a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f62489b;
+    public final /* synthetic */ LocalAliasTagsManager f63070b;
 
     public e(LocalAliasTagsManager localAliasTagsManager, List list) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class e implements Runnable {
                 return;
             }
         }
-        this.f62489b = localAliasTagsManager;
+        this.f63070b = localAliasTagsManager;
         this.a = list;
     }
 
@@ -47,7 +47,7 @@ public final class e implements Runnable {
         for (String str : this.a) {
             hashSet.add(str);
         }
-        iSubscribeAppTagManager = this.f62489b.mSubscribeAppTagManager;
+        iSubscribeAppTagManager = this.f63070b.mSubscribeAppTagManager;
         iSubscribeAppTagManager.setTagsSuccess(hashSet);
     }
 }

@@ -5,7 +5,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import c.a.e.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -28,7 +28,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AfdSyncRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static String _ANDROID_ID = "";
@@ -103,7 +103,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
             addParam("android_id", androidId());
             addParam("ot", "2");
             addParam("ct", "2");
-            addParam("nt", String.valueOf(j.I()));
+            addParam("nt", String.valueOf(k.I()));
             addParam("uid", TbadkCoreApplication.getCurrentAccount());
             addParam("is_https", 1);
         }

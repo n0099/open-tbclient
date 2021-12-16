@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.utils.i;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f58132b;
+    public static volatile boolean f58713b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -69,7 +69,7 @@ public class a {
                                 }
                             }
                         }
-                    }, TimeUnit.SECONDS.toMillis(c.f58169f));
+                    }, TimeUnit.SECONDS.toMillis(c.f58750f));
                 }
             }
         }
@@ -77,16 +77,16 @@ public class a {
 
     public static void a(@NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, bVar) == null) || bVar.f58139g == null || f58132b) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, bVar) == null) || bVar.f58720g == null || f58713b) {
             return;
         }
-        f58132b = true;
+        f58713b = true;
         try {
-            com.kwad.sdk.crash.utils.d.a(bVar.f58139g);
-            com.kwad.sdk.crash.kwai.a.a(bVar.f58139g, bVar.n);
+            com.kwad.sdk.crash.utils.d.a(bVar.f58720g);
+            com.kwad.sdk.crash.kwai.a.a(bVar.f58720g, bVar.n);
             d.a().a(bVar);
             c();
-            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.b.d(bVar.f58139g));
+            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.b.d(bVar.f58720g));
             a();
         } catch (Throwable unused) {
         }

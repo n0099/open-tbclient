@@ -25,31 +25,31 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f29668e;
+    public final int f30038e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final a.InterfaceC1598a f29669f;
+    public final a.InterfaceC1637a f30039f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f29670g;
+    public final int f30040g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final b.a f29671h;
+    public final b.a f30041h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final long f29672i;
+    public final long f30042i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final n f29673j;
+    public final n f30043j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final c.i.b.a.h0.b f29674k;
+    public final c.i.b.a.h0.b f30044k;
     public final t l;
     public final a[] m;
     public k.a n;
@@ -58,26 +58,26 @@ public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
     public c.i.b.a.d0.v.g.b q;
     public int r;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f29675b;
+        public final int f30045b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f29676c;
+        public final boolean f30046c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f29677d;
+        public final int f30047d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f29678e;
+        public final boolean f30048e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f29679f;
+        public final boolean f30049f;
 
         public a(int i2, int[] iArr, int i3, boolean z, boolean z2, boolean z3) {
             Interceptable interceptable = $ic;
@@ -94,21 +94,21 @@ public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
                     return;
                 }
             }
-            this.f29675b = i2;
+            this.f30045b = i2;
             this.a = iArr;
-            this.f29677d = i3;
-            this.f29676c = z;
-            this.f29678e = z2;
-            this.f29679f = z3;
+            this.f30047d = i3;
+            this.f30046c = z;
+            this.f30048e = z2;
+            this.f30049f = z3;
         }
     }
 
-    public b(int i2, c.i.b.a.d0.v.g.b bVar, int i3, a.InterfaceC1598a interfaceC1598a, int i4, b.a aVar, long j2, n nVar, c.i.b.a.h0.b bVar2) {
+    public b(int i2, c.i.b.a.d0.v.g.b bVar, int i3, a.InterfaceC1637a interfaceC1637a, int i4, b.a aVar, long j2, n nVar, c.i.b.a.h0.b bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bVar, Integer.valueOf(i3), interfaceC1598a, Integer.valueOf(i4), aVar, Long.valueOf(j2), nVar, bVar2};
+            Object[] objArr = {Integer.valueOf(i2), bVar, Integer.valueOf(i3), interfaceC1637a, Integer.valueOf(i4), aVar, Long.valueOf(j2), nVar, bVar2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -118,19 +118,19 @@ public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
                 return;
             }
         }
-        this.f29668e = i2;
+        this.f30038e = i2;
         this.q = bVar;
         this.r = i3;
-        this.f29669f = interfaceC1598a;
-        this.f29670g = i4;
-        this.f29671h = aVar;
-        this.f29672i = j2;
-        this.f29673j = nVar;
-        this.f29674k = bVar2;
+        this.f30039f = interfaceC1637a;
+        this.f30040g = i4;
+        this.f30041h = aVar;
+        this.f30042i = j2;
+        this.f30043j = nVar;
+        this.f30044k = bVar2;
         c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>[] t = t(0);
         this.o = t;
         this.p = new c.i.b.a.d0.e(t);
-        Pair<t, a[]> f2 = f(bVar.a(i3).f29739c);
+        Pair<t, a[]> f2 = f(bVar.a(i3).f30109c);
         this.l = (t) f2.first;
         this.m = (a[]) f2.second;
     }
@@ -171,7 +171,7 @@ public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
                 int[] iArr = n[i5];
                 ArrayList arrayList = new ArrayList();
                 for (int i7 : iArr) {
-                    arrayList.addAll(list.get(i7).f29716c);
+                    arrayList.addAll(list.get(i7).f30086c);
                 }
                 int size = arrayList.size();
                 Format[] formatArr = new Format[size];
@@ -183,7 +183,7 @@ public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
                 boolean z2 = zArr2[i5];
                 sVarArr[i6] = new s(formatArr);
                 int i9 = i6 + 1;
-                aVarArr[i6] = new a(aVar.f29715b, iArr, i6, true, z, z2);
+                aVarArr[i6] = new a(aVar.f30085b, iArr, i6, true, z, z2);
                 if (z) {
                     Format[] formatArr2 = new Format[i2];
                     formatArr2[0] = Format.createSampleFormat(aVar.a + ":emsg", "application/x-emsg", null, -1, null);
@@ -239,14 +239,14 @@ public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
             for (int i4 = 0; i4 < size; i4++) {
                 if (!zArr[i4]) {
                     zArr[i4] = true;
-                    c.i.b.a.d0.v.g.d m = m(list.get(i4).f29718e);
+                    c.i.b.a.d0.v.g.d m = m(list.get(i4).f30088e);
                     if (m == null) {
                         int[] iArr2 = new int[1];
                         iArr2[0] = i4;
                         iArr[i3] = iArr2;
                         i3++;
                     } else {
-                        String[] split = m.f29736b.split(",");
+                        String[] split = m.f30106b.split(",");
                         int[] iArr3 = new int[split.length + 1];
                         iArr3[0] = i4;
                         int i5 = 0;
@@ -271,7 +271,7 @@ public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, iArr)) == null) {
             for (int i2 : iArr) {
-                List<c.i.b.a.d0.v.g.d> list2 = list.get(i2).f29717d;
+                List<c.i.b.a.d0.v.g.d> list2 = list.get(i2).f30087d;
                 for (int i3 = 0; i3 < list2.size(); i3++) {
                     if ("urn:scte:dash:cc:cea-608:2015".equals(list2.get(i3).a)) {
                         return true;
@@ -288,9 +288,9 @@ public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, list, iArr)) == null) {
             for (int i2 : iArr) {
-                List<g> list2 = list.get(i2).f29716c;
+                List<g> list2 = list.get(i2).f30086c;
                 for (int i3 = 0; i3 < list2.size(); i3++) {
-                    if (!list2.get(i3).f29745d.isEmpty()) {
+                    if (!list2.get(i3).f30115d.isEmpty()) {
                         return true;
                     }
                 }
@@ -318,13 +318,13 @@ public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{aVar, fVar, Long.valueOf(j2)})) == null) {
             int[] iArr = new int[2];
-            boolean z = aVar.f29678e;
+            boolean z = aVar.f30048e;
             int i2 = 0;
             if (z) {
                 iArr[0] = 4;
                 i2 = 1;
             }
-            boolean z2 = aVar.f29679f;
+            boolean z2 = aVar.f30049f;
             if (z2) {
                 iArr[i2] = 3;
                 i2++;
@@ -332,7 +332,7 @@ public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
             if (i2 < 2) {
                 iArr = Arrays.copyOf(iArr, i2);
             }
-            return new c.i.b.a.d0.u.f<>(aVar.f29675b, iArr, this.f29669f.a(this.f29673j, this.q, this.r, aVar.a, fVar, aVar.f29675b, this.f29672i, z, z2), this, this.f29674k, j2, this.f29670g, this.f29671h);
+            return new c.i.b.a.d0.u.f<>(aVar.f30045b, iArr, this.f30039f.a(this.f30043j, this.q, this.r, aVar.a, fVar, aVar.f30045b, this.f30042i, z, z2), this, this.f30044k, j2, this.f30040g, this.f30041h);
         }
         return (c.i.b.a.d0.u.f) invokeCommon.objValue;
     }
@@ -379,7 +379,7 @@ public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
                 if (oVarArr[i2] == null && fVarArr[i2] != null) {
                     int b2 = this.l.b(fVarArr[i2].d());
                     a aVar = this.m[b2];
-                    if (aVar.f29676c) {
+                    if (aVar.f30046c) {
                         c.i.b.a.d0.u.f<c.i.b.a.d0.v.a> a2 = a(aVar, fVarArr[i2], j2);
                         hashMap.put(Integer.valueOf(b2), a2);
                         oVarArr[i2] = a2;
@@ -394,20 +394,20 @@ public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
                 }
                 if (fVarArr[i3] != null) {
                     a aVar2 = this.m[this.l.b(fVarArr[i3].d())];
-                    if (!aVar2.f29676c) {
-                        c.i.b.a.d0.u.f fVar2 = (c.i.b.a.d0.u.f) hashMap.get(Integer.valueOf(aVar2.f29677d));
+                    if (!aVar2.f30046c) {
+                        c.i.b.a.d0.u.f fVar2 = (c.i.b.a.d0.u.f) hashMap.get(Integer.valueOf(aVar2.f30047d));
                         o oVar = oVarArr[i3];
                         if (fVar2 == null) {
                             z = oVar instanceof c.i.b.a.d0.g;
                         } else {
-                            z = (oVar instanceof f.a) && ((f.a) oVar).f29657e == fVar2;
+                            z = (oVar instanceof f.a) && ((f.a) oVar).f30027e == fVar2;
                         }
                         if (!z) {
                             w(oVar);
                             if (fVar2 == null) {
                                 D = new c.i.b.a.d0.g();
                             } else {
-                                D = fVar2.D(j2, aVar2.f29675b);
+                                D = fVar2.D(j2, aVar2.f30045b);
                             }
                             oVarArr[i3] = D;
                             zArr2[i3] = true;
@@ -466,7 +466,7 @@ public final class b implements k, p.a<c.i.b.a.d0.u.f<c.i.b.a.d0.v.a>> {
     public void q() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f29673j.a();
+            this.f30043j.a();
         }
     }
 

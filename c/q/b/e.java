@@ -13,20 +13,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static SoftReference<e> f31032d;
+    public static SoftReference<e> f31402d;
     public transient /* synthetic */ FieldHolder $fh;
     public c.q.b.f.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31033b;
+    public String f31403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f31034c;
+    public Context f31404c;
 
     static {
         InterceptResult invokeClinit;
@@ -60,8 +60,8 @@ public final class e {
         }
         c.q.b.g.a.b();
         this.a = new c.q.b.f.a(context, str);
-        this.f31033b = str;
-        this.f31034c = context;
+        this.f31403b = str;
+        this.f31404c = context;
     }
 
     public static e b(Context context, String str) {
@@ -70,12 +70,12 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             if (context != null && str != null) {
-                SoftReference<e> softReference = f31032d;
+                SoftReference<e> softReference = f31402d;
                 e eVar2 = softReference == null ? null : softReference.get();
-                if (eVar2 == null || !str.equals(eVar2.f31033b)) {
+                if (eVar2 == null || !str.equals(eVar2.f31403b)) {
                     synchronized (e.class) {
                         eVar = new e(context, str);
-                        f31032d = new SoftReference<>(eVar);
+                        f31402d = new SoftReference<>(eVar);
                     }
                     return eVar;
                 }

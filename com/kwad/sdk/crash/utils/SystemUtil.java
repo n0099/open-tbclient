@@ -28,29 +28,29 @@ import java.io.RandomAccessFile;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SystemUtil {
     public static /* synthetic */ Interceptable $ic;
     public static volatile String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Boolean f58186b;
+    public static volatile Boolean f58767b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f58187c;
+    public static long f58768c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f58188d;
+    public static long f58769d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f58189e;
+    public static int f58770e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static LEVEL f58190f;
+    public static LEVEL f58771f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class LEVEL {
         public static final /* synthetic */ LEVEL[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -126,26 +126,26 @@ public class SystemUtil {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f58191b;
+        public long f58772b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f58192c;
+        public long f58773c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f58193d;
+        public long f58774d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f58194e;
+        public long f58775e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f58195f;
+        public int f58776f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -391,11 +391,11 @@ public class SystemUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (f58186b == null) {
+            if (f58767b == null) {
                 String a2 = a(context);
-                f58186b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
+                f58767b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
             }
-            return f58186b.booleanValue();
+            return f58767b.booleanValue();
         }
         return invokeL.booleanValue;
     }
@@ -433,15 +433,15 @@ public class SystemUtil {
                                 if (readLine.startsWith("VmSize") && readLine.contains("kB")) {
                                     String a3 = a(readLine, "VmSize");
                                     if (a3 != null) {
-                                        aVar.f58191b = Long.valueOf(a3).longValue();
+                                        aVar.f58772b = Long.valueOf(a3).longValue();
                                     }
                                 } else if (readLine.startsWith("VmRSS:") && readLine.contains("kB")) {
                                     String a4 = a(readLine, "VmRSS:");
                                     if (a4 != null) {
-                                        aVar.f58192c = Long.valueOf(a4).longValue();
+                                        aVar.f58773c = Long.valueOf(a4).longValue();
                                     }
                                 } else if (readLine.startsWith("Threads:") && (a2 = a(readLine, "Threads:")) != null) {
-                                    aVar.f58195f = Integer.valueOf(a2).intValue();
+                                    aVar.f58776f = Integer.valueOf(a2).intValue();
                                 }
                             }
                         } catch (IOException e2) {

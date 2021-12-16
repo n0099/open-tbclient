@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.cache;
 import com.facebook.common.internal.Predicate;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface MemoryCache<K, V> {
     @Nullable
     CloseableReference<V> cache(K k2, CloseableReference<V> closeableReference);

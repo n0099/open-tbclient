@@ -1,5 +1,8 @@
 package com.baidu.searchbox.player;
-/* loaded from: classes9.dex */
+
+import android.graphics.drawable.Drawable;
+import androidx.annotation.Nullable;
+/* loaded from: classes10.dex */
 public interface IBVideoPlayer {
     boolean isPlaying();
 
@@ -15,9 +18,9 @@ public interface IBVideoPlayer {
 
     void seekTo(int i2);
 
-    void setParameter(String str, int i2);
-
     void setUserAgent(String str);
+
+    void setVideoBackground(@Nullable Drawable drawable);
 
     void setVideoRotation(int i2);
 

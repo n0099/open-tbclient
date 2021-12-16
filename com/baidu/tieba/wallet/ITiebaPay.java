@@ -2,7 +2,7 @@ package com.baidu.tieba.wallet;
 
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface ITiebaPay {
     String getWalletUa();
 

@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.ParserException;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class j extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,20 +24,20 @@ public final class j extends h {
     public k.d q;
     public k.b r;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final k.d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f29247b;
+        public final byte[] f29617b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final k.c[] f29248c;
+        public final k.c[] f29618c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f29249d;
+        public final int f29619d;
 
         public a(k.d dVar, k.b bVar, byte[] bArr, k.c[] cVarArr, int i2) {
             Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public final class j extends h {
                 }
             }
             this.a = dVar;
-            this.f29247b = bArr;
-            this.f29248c = cVarArr;
-            this.f29249d = i2;
+            this.f29617b = bArr;
+            this.f29618c = cVarArr;
+            this.f29619d = i2;
         }
     }
 
@@ -90,10 +90,10 @@ public final class j extends h {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b2), aVar})) == null) {
-            if (!aVar.f29248c[n(b2, aVar.f29249d, 1)].a) {
-                return aVar.a.f29252d;
+            if (!aVar.f29618c[n(b2, aVar.f29619d, 1)].a) {
+                return aVar.a.f29622d;
             }
-            return aVar.a.f29253e;
+            return aVar.a.f29623e;
         }
         return invokeCommon.intValue;
     }
@@ -124,7 +124,7 @@ public final class j extends h {
             super.d(j2);
             this.p = j2 != 0;
             k.d dVar = this.q;
-            this.o = dVar != null ? dVar.f29252d : 0;
+            this.o = dVar != null ? dVar.f29622d : 0;
         }
     }
 
@@ -161,10 +161,10 @@ public final class j extends h {
                 return true;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.n.a.f29254f);
-            arrayList.add(this.n.f29247b);
+            arrayList.add(this.n.a.f29624f);
+            arrayList.add(this.n.f29617b);
             k.d dVar = this.n.a;
-            bVar.a = Format.createAudioSampleFormat(null, "audio/vorbis", null, dVar.f29251c, -1, dVar.a, (int) dVar.f29250b, arrayList, null, 0, null);
+            bVar.a = Format.createAudioSampleFormat(null, "audio/vorbis", null, dVar.f29621c, -1, dVar.a, (int) dVar.f29620b, arrayList, null, 0, null);
             return true;
         }
         return invokeCommon.booleanValue;

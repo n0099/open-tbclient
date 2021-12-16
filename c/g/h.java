@@ -39,31 +39,31 @@ import java.util.Iterator;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public static final Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static FunAdSdk.SdkInitializeCallback f28864b;
+    public static FunAdSdk.SdkInitializeCallback f29234b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Handler f28865c;
+    public static final Handler f29235c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final z f28866d;
+    public static final z f29236d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final t0 f28867e;
+    public static final t0 f29237e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f28868f;
+    public static boolean f29238f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile boolean f28869g;
+    public static volatile boolean f29239g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public final class h {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public final class h {
                         LogPrinter.e("Pull ad config failed.", new Object[0]);
                     } else {
                         try {
-                            jSONObject = new JSONObject(a2.f28905b);
+                            jSONObject = new JSONObject(a2.f29275b);
                             i2 = jSONObject.getInt(Constants.KEYS.RET);
                             LogPrinter.d("Download online ad config response ret: " + i2, new Object[0]);
                         } catch (JSONException e3) {
@@ -217,7 +217,7 @@ public final class h {
                 } catch (IOException e5) {
                     LogPrinter.e(e5);
                 }
-                v.f28935b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
+                v.f29305b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
                 if (z) {
                     h.a.sendEmptyMessage(200);
                 }
@@ -242,9 +242,9 @@ public final class h {
         a = new a(Looper.getMainLooper());
         HandlerThread handlerThread = new HandlerThread("fun_ad_sdk_config");
         handlerThread.start();
-        f28865c = new b(handlerThread.getLooper());
-        f28866d = new z();
-        f28867e = new t0();
+        f29235c = new b(handlerThread.getLooper());
+        f29236d = new z();
+        f29237e = new t0();
     }
 
     public static int a(String str, Ssp.Pid pid) {
@@ -252,7 +252,7 @@ public final class h {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, pid)) == null) {
-            n nVar = f28866d.f28936b;
+            n nVar = f29236d.f29306b;
             synchronized (nVar.a) {
                 Deque<n.c> deque = nVar.a.get(str);
                 i2 = 0;
@@ -280,13 +280,13 @@ public final class h {
         p pVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            z zVar = f28866d;
+            z zVar = f29236d;
             synchronized (zVar) {
                 if (zVar.a == null) {
                     LogPrinter.d("Cannot get slotId without AdConfig updated.", new Object[0]);
                     pVar = null;
                 } else {
-                    pVar = zVar.f28937c.get(str);
+                    pVar = zVar.f29307c.get(str);
                 }
             }
             return pVar;
@@ -297,7 +297,7 @@ public final class h {
     public static void c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, null) == null) && FunAdSdk.getFunAdConfig().isUseCloudAdConfiguration) {
-            SharedPreferences sharedPreferences = v.f28935b;
+            SharedPreferences sharedPreferences = v.f29305b;
             long j2 = 0;
             long j3 = sharedPreferences.getLong("key_lst_config_sync_time", 0L);
             if (j3 > 0) {
@@ -311,7 +311,7 @@ public final class h {
             }
             long max = Math.max(10000L, j2);
             LogPrinter.v("Remove last pull config request, and schedule it %ds later.", Long.valueOf(max / 1000));
-            Handler handler = f28865c;
+            Handler handler = f29235c;
             handler.removeMessages(100);
             handler.sendEmptyMessageDelayed(100, max);
         }
@@ -320,24 +320,24 @@ public final class h {
     public static void d(i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iVar) == null) {
-            f28869g = true;
-            t0 t0Var = f28867e;
-            synchronized (t0Var.f28910b) {
-                t0Var.f28913e = iVar;
-                t0Var.f28912d = 1;
-                while (!t0Var.f28911c.isEmpty()) {
-                    t0.a pollFirst = t0Var.f28911c.pollFirst();
-                    if (!t0.f28909f && pollFirst == null) {
+            f29239g = true;
+            t0 t0Var = f29237e;
+            synchronized (t0Var.f29280b) {
+                t0Var.f29283e = iVar;
+                t0Var.f29282d = 1;
+                while (!t0Var.f29281c.isEmpty()) {
+                    t0.a pollFirst = t0Var.f29281c.pollFirst();
+                    if (!t0.f29279f && pollFirst == null) {
                         throw new AssertionError();
                     }
-                    t0Var.loadAd(pollFirst.a, pollFirst.f28914b, pollFirst.f28915c);
+                    t0Var.loadAd(pollFirst.a, pollFirst.f29284b, pollFirst.f29285c);
                 }
             }
-            FunAdSdk.SdkInitializeCallback sdkInitializeCallback = f28864b;
+            FunAdSdk.SdkInitializeCallback sdkInitializeCallback = f29234b;
             if (sdkInitializeCallback != null) {
                 sdkInitializeCallback.onComplete();
             }
-            f28864b = null;
+            f29234b = null;
         }
     }
 
@@ -368,7 +368,7 @@ public final class h {
         c();
         FunAdConfig funAdConfig = FunAdSdk.getFunAdConfig();
         Set<j> set = null;
-        String string = v.f28935b.getString("key_adcfg", null);
+        String string = v.f29305b.getString("key_adcfg", null);
         if (string != null && (decode = Base64.decode(string, 0)) != null) {
             try {
                 ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(decode));
@@ -382,24 +382,24 @@ public final class h {
             LogPrinter.v("adConfig load immediately over, valid:%b parseAssets:%b", objArr);
             if (cVar != null) {
                 if (z) {
-                    f28865c.obtainMessage(101).sendToTarget();
+                    f29235c.obtainMessage(101).sendToTarget();
                     return;
                 }
                 LogPrinter.d("tryInitialize failed without valid adConfig.", new Object[0]);
-                t0 t0Var = f28867e;
-                synchronized (t0Var.f28910b) {
-                    t0Var.f28912d = -1;
-                    while (!t0Var.f28911c.isEmpty()) {
-                        t0.a pollFirst = t0Var.f28911c.pollFirst();
-                        if (!t0.f28909f && pollFirst == null) {
+                t0 t0Var = f29237e;
+                synchronized (t0Var.f29280b) {
+                    t0Var.f29282d = -1;
+                    while (!t0Var.f29281c.isEmpty()) {
+                        t0.a pollFirst = t0Var.f29281c.pollFirst();
+                        if (!t0.f29279f && pollFirst == null) {
                             throw new AssertionError();
                         }
-                        pollFirst.f28915c.onError(pollFirst.f28914b.getSid());
+                        pollFirst.f29285c.onError(pollFirst.f29284b.getSid());
                     }
                 }
                 return;
             }
-            z zVar = f28866d;
+            z zVar = f29236d;
             synchronized (zVar) {
                 c cVar2 = zVar.a;
                 if (cVar2 != null) {
@@ -440,12 +440,12 @@ public final class h {
                     z2 = false;
                 }
                 c cVar4 = zVar.a;
-                zVar.a(cVar4 == null ? null : cVar4.f28839b, cVar.f28839b, new u(zVar));
+                zVar.a(cVar4 == null ? null : cVar4.f29209b, cVar.f29209b, new u(zVar));
                 c cVar5 = zVar.a;
                 if (cVar5 != null) {
-                    set = cVar5.f28840c;
+                    set = cVar5.f29210c;
                 }
-                zVar.a(set, cVar.f28840c, new y(zVar));
+                zVar.a(set, cVar.f29210c, new y(zVar));
                 zVar.a = cVar;
                 z2 = true;
             }
@@ -453,11 +453,11 @@ public final class h {
                 LogPrinter.d("Do not need to reset FunAdFactory.", new Object[0]);
                 return;
             }
-            g0.s = v.f28935b.getLong("key_config_v", 0L);
-            if (f28868f) {
+            g0.s = v.f29305b.getLong("key_config_v", 0L);
+            if (f29238f) {
                 return;
             }
-            f28868f = true;
+            f29238f = true;
             c.g.a aVar = c.g.a.a;
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 HashMap hashMap = new HashMap();
@@ -583,7 +583,7 @@ public final class h {
                 }
                 e.a aVar2 = e.a;
                 aVar2.a = System.currentTimeMillis() - 0;
-                aVar2.f28843b = SystemClock.currentThreadTimeMillis() - 0;
+                aVar2.f29213b = SystemClock.currentThreadTimeMillis() - 0;
                 LogPrinter.d("All ssp initialized with %dms consumed.", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
                 aVar.a(new i(hashMap));
                 return;

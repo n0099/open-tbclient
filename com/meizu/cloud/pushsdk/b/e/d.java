@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends Handler {
     public final WeakReference<com.meizu.cloud.pushsdk.b.d.a> a;
 
@@ -20,7 +20,7 @@ public class d extends Handler {
             super.handleMessage(message);
         } else if (aVar != null) {
             com.meizu.cloud.pushsdk.b.f.a aVar2 = (com.meizu.cloud.pushsdk.b.f.a) message.obj;
-            aVar.a(aVar2.a, aVar2.f60325b);
+            aVar.a(aVar2.a, aVar2.f60906b);
         }
     }
 }

@@ -15,34 +15,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static volatile boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f62037b = "b";
+    public static final String f62618b = "b";
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f62038g = -1;
+    public static long f62619g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f62039h;
+    public static volatile b f62620h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k f62040c;
+    public final k f62621c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicInteger f62041d;
+    public final AtomicInteger f62622d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final a f62042e;
+    public final a f62623e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f62043f;
+    public long f62624f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,23 +121,23 @@ public class b {
                 return;
             }
         }
-        this.f62040c = k.a();
-        this.f62041d = new AtomicInteger();
-        this.f62042e = new a(this, com.ss.android.socialbase.downloader.h.e.a());
+        this.f62621c = k.a();
+        this.f62622d = new AtomicInteger();
+        this.f62623e = new a(this, com.ss.android.socialbase.downloader.h.e.a());
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f62039h == null) {
+            if (f62620h == null) {
                 synchronized (b.class) {
-                    if (f62039h == null) {
-                        f62039h = new b();
+                    if (f62620h == null) {
+                        f62620h = new b();
                     }
                 }
             }
-            return f62039h;
+            return f62620h;
         }
         return (b) invokeV.objValue;
     }
@@ -159,11 +159,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                String str = f62037b;
-                com.ss.android.socialbase.downloader.c.a.c(str, "startSampling: mSamplingCounter = " + this.f62041d);
-                if (this.f62041d.getAndIncrement() == 0) {
-                    this.f62042e.a();
-                    this.f62043f = SystemClock.uptimeMillis();
+                String str = f62618b;
+                com.ss.android.socialbase.downloader.c.a.c(str, "startSampling: mSamplingCounter = " + this.f62622d);
+                if (this.f62622d.getAndIncrement() == 0) {
+                    this.f62623e.a();
+                    this.f62624f = SystemClock.uptimeMillis();
                 }
             } catch (Throwable unused) {
             }
@@ -174,10 +174,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                String str = f62037b;
-                com.ss.android.socialbase.downloader.c.a.c(str, "stopSampling: mSamplingCounter = " + this.f62041d);
-                if (this.f62041d.decrementAndGet() == 0) {
-                    this.f62042e.b();
+                String str = f62618b;
+                com.ss.android.socialbase.downloader.c.a.c(str, "stopSampling: mSamplingCounter = " + this.f62622d);
+                if (this.f62622d.decrementAndGet() == 0) {
+                    this.f62623e.b();
                     g();
                 }
             } catch (Throwable unused) {
@@ -196,15 +196,15 @@ public class b {
                 } else {
                     mobileRxBytes = TrafficStats.getMobileRxBytes();
                 }
-                long j2 = mobileRxBytes - f62038g;
-                if (f62038g >= 0) {
+                long j2 = mobileRxBytes - f62619g;
+                if (f62619g >= 0) {
                     synchronized (this) {
                         long uptimeMillis = SystemClock.uptimeMillis();
-                        this.f62040c.a(j2, uptimeMillis - this.f62043f);
-                        this.f62043f = uptimeMillis;
+                        this.f62621c.a(j2, uptimeMillis - this.f62624f);
+                        this.f62624f = uptimeMillis;
                     }
                 }
-                f62038g = mobileRxBytes;
+                f62619g = mobileRxBytes;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -215,7 +215,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             f();
-            f62038g = -1L;
+            f62619g = -1L;
         }
     }
 }

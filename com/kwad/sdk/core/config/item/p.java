@@ -18,13 +18,13 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class p extends b<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,16 +33,16 @@ public class p extends b<a> {
         @NonNull
 
         /* renamed from: b  reason: collision with root package name */
-        public List<String> f57258b;
+        public List<String> f57839b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<String> f57259c;
+        public List<String> f57840c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f57260d;
+        public int f57841d;
 
         /* renamed from: e  reason: collision with root package name */
-        public JSONObject f57261e;
+        public JSONObject f57842e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class p extends b<a> {
                 }
             }
             this.a = new HashMap();
-            this.f57258b = new ArrayList();
-            this.f57259c = new ArrayList();
+            this.f57839b = new ArrayList();
+            this.f57840c = new ArrayList();
         }
 
         @Override // com.kwad.sdk.core.b
@@ -68,7 +68,7 @@ public class p extends b<a> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f57261e = jSONObject;
+            this.f57842e = jSONObject;
             JSONObject optJSONObject = jSONObject.optJSONObject("platformInfo");
             if (optJSONObject != null) {
                 Iterator<String> keys = optJSONObject.keys();
@@ -80,23 +80,23 @@ public class p extends b<a> {
             JSONArray optJSONArray = jSONObject.optJSONArray("keyStacks");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    this.f57258b.add(optJSONArray.optString(i2));
+                    this.f57839b.add(optJSONArray.optString(i2));
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("keyNames");
             if (optJSONArray2 != null) {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    this.f57259c.add(optJSONArray2.optString(i3));
+                    this.f57840c.add(optJSONArray2.optString(i3));
                 }
             }
-            this.f57260d = jSONObject.optInt("handleType");
+            this.f57841d = jSONObject.optInt("handleType");
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57261e : (JSONObject) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57842e : (JSONObject) invokeV.objValue;
         }
     }
 

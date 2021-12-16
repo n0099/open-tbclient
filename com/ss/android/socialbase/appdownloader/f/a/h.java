@@ -5,17 +5,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61556b;
+    public int f62137b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61557c;
+    public int f62138c;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
@@ -58,11 +58,11 @@ public class h extends Exception {
             str4 = "caused by: " + th;
         }
         sb.append(str4);
-        this.f61556b = -1;
-        this.f61557c = -1;
+        this.f62137b = -1;
+        this.f62138c = -1;
         if (gVar != null) {
-            this.f61556b = gVar.c();
-            this.f61557c = gVar.f();
+            this.f62137b = gVar.c();
+            this.f62138c = gVar.f();
         }
         this.a = th;
     }

@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bd implements bf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f62744b;
+    public final String f63325b;
 
     public bd(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class bd implements bf {
             throw new IllegalArgumentException("Name may not be null");
         }
         this.a = str;
-        this.f62744b = str2;
+        this.f63325b = str2;
     }
 
     @Override // com.xiaomi.push.bf
@@ -48,6 +48,6 @@ public class bd implements bf {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62744b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63325b : (String) invokeV.objValue;
     }
 }

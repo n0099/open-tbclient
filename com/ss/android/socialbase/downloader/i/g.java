@@ -51,7 +51,7 @@ import com.ss.android.socialbase.downloader.model.a;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static Handler a;
@@ -80,7 +80,7 @@ public class g {
             if (downloadTask == null) {
                 return null;
             }
-            return new a.AbstractBinderC2136a(downloadTask) { // from class: com.ss.android.socialbase.downloader.i.g.1
+            return new a.AbstractBinderC2197a(downloadTask) { // from class: com.ss.android.socialbase.downloader.i.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadTask a;
@@ -199,7 +199,7 @@ public class g {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) {
-                        return g.a(this.a.getSingleDownloadListener(f.e(i2)), i2 != com.ss.android.socialbase.downloader.constants.f.f61676b.ordinal());
+                        return g.a(this.a.getSingleDownloadListener(f.e(i2)), i2 != com.ss.android.socialbase.downloader.constants.f.f62257b.ordinal());
                     }
                     return (com.ss.android.socialbase.downloader.depend.i) invokeI.objValue;
                 }
@@ -216,7 +216,7 @@ public class g {
                     InterceptResult invokeII;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-                        return g.a(this.a.getDownloadListenerByIndex(f.e(i2), i3), i2 != com.ss.android.socialbase.downloader.constants.f.f61676b.ordinal());
+                        return g.a(this.a.getDownloadListenerByIndex(f.e(i2), i3), i2 != com.ss.android.socialbase.downloader.constants.f.f62257b.ordinal());
                     }
                     return (com.ss.android.socialbase.downloader.depend.i) invokeII.objValue;
                 }
@@ -238,7 +238,7 @@ public class g {
                 public final /* synthetic */ IDownloadListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f61890b;
+                public final /* synthetic */ boolean f62471b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -256,7 +256,7 @@ public class g {
                         }
                     }
                     this.a = iDownloadListener;
-                    this.f61890b = z;
+                    this.f62471b = z;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.i
@@ -270,14 +270,14 @@ public class g {
                 public void b(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, downloadInfo) == null) {
-                        if (this.f61890b) {
+                        if (this.f62471b) {
                             g.a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.5
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ DownloadInfo a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass12 f61900b;
+                                public final /* synthetic */ AnonymousClass12 f62481b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -294,7 +294,7 @@ public class g {
                                             return;
                                         }
                                     }
-                                    this.f61900b = this;
+                                    this.f62481b = this;
                                     this.a = downloadInfo;
                                 }
 
@@ -302,7 +302,7 @@ public class g {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f61900b.a.onStart(this.a);
+                                        this.f62481b.a.onStart(this.a);
                                     }
                                 }
                             });
@@ -316,14 +316,14 @@ public class g {
                 public void c(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048581, this, downloadInfo) == null) {
-                        if (this.f61890b) {
+                        if (this.f62471b) {
                             g.a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.6
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ DownloadInfo a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass12 f61901b;
+                                public final /* synthetic */ AnonymousClass12 f62482b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -340,7 +340,7 @@ public class g {
                                             return;
                                         }
                                     }
-                                    this.f61901b = this;
+                                    this.f62482b = this;
                                     this.a = downloadInfo;
                                 }
 
@@ -348,7 +348,7 @@ public class g {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f61901b.a.onProgress(this.a);
+                                        this.f62482b.a.onProgress(this.a);
                                     }
                                 }
                             });
@@ -362,14 +362,14 @@ public class g {
                 public void d(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048583, this, downloadInfo) == null) {
-                        if (this.f61890b) {
+                        if (this.f62471b) {
                             g.a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.7
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ DownloadInfo a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass12 f61902b;
+                                public final /* synthetic */ AnonymousClass12 f62483b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -386,7 +386,7 @@ public class g {
                                             return;
                                         }
                                     }
-                                    this.f61902b = this;
+                                    this.f62483b = this;
                                     this.a = downloadInfo;
                                 }
 
@@ -394,7 +394,7 @@ public class g {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f61902b.a.onPause(this.a);
+                                        this.f62483b.a.onPause(this.a);
                                     }
                                 }
                             });
@@ -408,14 +408,14 @@ public class g {
                 public void e(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadInfo) == null) {
-                        if (this.f61890b) {
+                        if (this.f62471b) {
                             g.a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.8
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ DownloadInfo a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass12 f61903b;
+                                public final /* synthetic */ AnonymousClass12 f62484b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -432,7 +432,7 @@ public class g {
                                             return;
                                         }
                                     }
-                                    this.f61903b = this;
+                                    this.f62484b = this;
                                     this.a = downloadInfo;
                                 }
 
@@ -440,7 +440,7 @@ public class g {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f61903b.a.onSuccessed(this.a);
+                                        this.f62484b.a.onSuccessed(this.a);
                                     }
                                 }
                             });
@@ -454,14 +454,14 @@ public class g {
                 public void f(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048585, this, downloadInfo) == null) {
-                        if (this.f61890b) {
+                        if (this.f62471b) {
                             g.a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.10
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ DownloadInfo a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass12 f61892b;
+                                public final /* synthetic */ AnonymousClass12 f62473b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -478,7 +478,7 @@ public class g {
                                             return;
                                         }
                                     }
-                                    this.f61892b = this;
+                                    this.f62473b = this;
                                     this.a = downloadInfo;
                                 }
 
@@ -486,7 +486,7 @@ public class g {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f61892b.a.onCanceled(this.a);
+                                        this.f62473b.a.onCanceled(this.a);
                                     }
                                 }
                             });
@@ -500,14 +500,14 @@ public class g {
                 public void g(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048586, this, downloadInfo) == null) {
-                        if (this.f61890b) {
+                        if (this.f62471b) {
                             g.a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.11
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ DownloadInfo a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass12 f61893b;
+                                public final /* synthetic */ AnonymousClass12 f62474b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -524,7 +524,7 @@ public class g {
                                             return;
                                         }
                                     }
-                                    this.f61893b = this;
+                                    this.f62474b = this;
                                     this.a = downloadInfo;
                                 }
 
@@ -532,7 +532,7 @@ public class g {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f61893b.a.onFirstStart(this.a);
+                                        this.f62474b.a.onFirstStart(this.a);
                                     }
                                 }
                             });
@@ -546,14 +546,14 @@ public class g {
                 public void h(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048587, this, downloadInfo) == null) {
-                        if (this.f61890b) {
+                        if (this.f62471b) {
                             g.a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.12
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ DownloadInfo a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass12 f61894b;
+                                public final /* synthetic */ AnonymousClass12 f62475b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -570,7 +570,7 @@ public class g {
                                             return;
                                         }
                                     }
-                                    this.f61894b = this;
+                                    this.f62475b = this;
                                     this.a = downloadInfo;
                                 }
 
@@ -578,7 +578,7 @@ public class g {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f61894b.a.onFirstSuccess(this.a);
+                                        this.f62475b.a.onFirstSuccess(this.a);
                                     }
                                 }
                             });
@@ -594,14 +594,14 @@ public class g {
                     if (interceptable2 == null || interceptable2.invokeL(1048588, this, downloadInfo) == null) {
                         IDownloadListener iDownloadListener2 = this.a;
                         if (iDownloadListener2 instanceof s) {
-                            if (this.f61890b) {
+                            if (this.f62471b) {
                                 g.a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.4
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ DownloadInfo a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass12 f61899b;
+                                    public final /* synthetic */ AnonymousClass12 f62480b;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -618,7 +618,7 @@ public class g {
                                                 return;
                                             }
                                         }
-                                        this.f61899b = this;
+                                        this.f62480b = this;
                                         this.a = downloadInfo;
                                     }
 
@@ -626,7 +626,7 @@ public class g {
                                     public void run() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            ((s) this.f61899b.a).a(this.a);
+                                            ((s) this.f62480b.a).a(this.a);
                                         }
                                     }
                                 });
@@ -641,14 +641,14 @@ public class g {
                 public void a(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
-                        if (this.f61890b) {
+                        if (this.f62471b) {
                             g.a.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.downloader.i.g.12.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ DownloadInfo a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass12 f61891b;
+                                public final /* synthetic */ AnonymousClass12 f62472b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -665,7 +665,7 @@ public class g {
                                             return;
                                         }
                                     }
-                                    this.f61891b = this;
+                                    this.f62472b = this;
                                     this.a = downloadInfo;
                                 }
 
@@ -673,7 +673,7 @@ public class g {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f61891b.a.onPrepare(this.a);
+                                        this.f62472b.a.onPrepare(this.a);
                                     }
                                 }
                             });
@@ -687,17 +687,17 @@ public class g {
                 public void b(DownloadInfo downloadInfo, BaseException baseException) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048580, this, downloadInfo, baseException) == null) {
-                        if (this.f61890b) {
+                        if (this.f62471b) {
                             g.a.post(new Runnable(this, downloadInfo, baseException) { // from class: com.ss.android.socialbase.downloader.i.g.12.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ DownloadInfo a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ BaseException f61895b;
+                                public final /* synthetic */ BaseException f62476b;
 
                                 /* renamed from: c  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass12 f61896c;
+                                public final /* synthetic */ AnonymousClass12 f62477c;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -714,16 +714,16 @@ public class g {
                                             return;
                                         }
                                     }
-                                    this.f61896c = this;
+                                    this.f62477c = this;
                                     this.a = downloadInfo;
-                                    this.f61895b = baseException;
+                                    this.f62476b = baseException;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f61896c.a.onRetry(this.a, this.f61895b);
+                                        this.f62477c.a.onRetry(this.a, this.f62476b);
                                     }
                                 }
                             });
@@ -737,17 +737,17 @@ public class g {
                 public void c(DownloadInfo downloadInfo, BaseException baseException) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048582, this, downloadInfo, baseException) == null) {
-                        if (this.f61890b) {
+                        if (this.f62471b) {
                             g.a.post(new Runnable(this, downloadInfo, baseException) { // from class: com.ss.android.socialbase.downloader.i.g.12.3
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ DownloadInfo a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ BaseException f61897b;
+                                public final /* synthetic */ BaseException f62478b;
 
                                 /* renamed from: c  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass12 f61898c;
+                                public final /* synthetic */ AnonymousClass12 f62479c;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -764,16 +764,16 @@ public class g {
                                             return;
                                         }
                                     }
-                                    this.f61898c = this;
+                                    this.f62479c = this;
                                     this.a = downloadInfo;
-                                    this.f61897b = baseException;
+                                    this.f62478b = baseException;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f61898c.a.onRetryDelay(this.a, this.f61897b);
+                                        this.f62479c.a.onRetryDelay(this.a, this.f62478b);
                                     }
                                 }
                             });
@@ -787,17 +787,17 @@ public class g {
                 public void a(DownloadInfo downloadInfo, BaseException baseException) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo, baseException) == null) {
-                        if (this.f61890b) {
+                        if (this.f62471b) {
                             g.a.post(new Runnable(this, downloadInfo, baseException) { // from class: com.ss.android.socialbase.downloader.i.g.12.9
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ DownloadInfo a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ BaseException f61904b;
+                                public final /* synthetic */ BaseException f62485b;
 
                                 /* renamed from: c  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass12 f61905c;
+                                public final /* synthetic */ AnonymousClass12 f62486c;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -814,16 +814,16 @@ public class g {
                                             return;
                                         }
                                     }
-                                    this.f61905c = this;
+                                    this.f62486c = this;
                                     this.a = downloadInfo;
-                                    this.f61904b = baseException;
+                                    this.f62485b = baseException;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f61905c.a.onFailed(this.a, this.f61904b);
+                                        this.f62486c.a.onFailed(this.a, this.f62485b);
                                     }
                                 }
                             });
@@ -1425,17 +1425,17 @@ public class g {
                 if (b2 != null) {
                     downloadTask.mainThreadListenerWithHashCode(b2.hashCode(), a(b2));
                 }
-                com.ss.android.socialbase.downloader.depend.i b3 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f61676b.ordinal());
+                com.ss.android.socialbase.downloader.depend.i b3 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f62257b.ordinal());
                 if (b3 != null) {
                     downloadTask.subThreadListenerWithHashCode(b3.hashCode(), a(b3));
                 }
-                com.ss.android.socialbase.downloader.depend.i b4 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f61677c.ordinal());
+                com.ss.android.socialbase.downloader.depend.i b4 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f62258c.ordinal());
                 if (b4 != null) {
                     downloadTask.notificationListenerWithHashCode(b4.hashCode(), a(b4));
                 }
                 a(downloadTask, aVar, com.ss.android.socialbase.downloader.constants.f.a);
-                a(downloadTask, aVar, com.ss.android.socialbase.downloader.constants.f.f61676b);
-                a(downloadTask, aVar, com.ss.android.socialbase.downloader.constants.f.f61677c);
+                a(downloadTask, aVar, com.ss.android.socialbase.downloader.constants.f.f62257b);
+                a(downloadTask, aVar, com.ss.android.socialbase.downloader.constants.f.f62258c);
                 a(downloadTask, aVar);
                 return downloadTask;
             } catch (RemoteException e2) {

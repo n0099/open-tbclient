@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class s<E> extends f<E> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Integer f63911j;
+    public static final Integer f64492j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public abstract class s<E> extends f<E> {
                 return;
             }
         }
-        f63911j = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+        f64492j = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,6 +49,6 @@ public abstract class s<E> extends f<E> {
                 return;
             }
         }
-        Math.min(i2 / 4, f63911j.intValue());
+        Math.min(i2 / 4, f64492j.intValue());
     }
 }

@@ -7,7 +7,7 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class FragmentTabSwellingView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BG_Style = 0;
@@ -23,25 +23,25 @@ public class FragmentTabSwellingView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f41055e;
+    public Paint f41546e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f41056f;
+    public Path f41547f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Path f41057g;
+    public Path f41548g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f41058h;
+    public Paint f41549h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41059i;
+    public int f41550i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f41060j;
+    public int f41551j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f41061k;
+    public int f41552k;
     public int l;
     public int m;
     public int n;
@@ -82,38 +82,38 @@ public class FragmentTabSwellingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Paint paint = new Paint();
-            this.f41055e = paint;
+            this.f41546e = paint;
             paint.setColor(SkinManager.getColor(R.color.CAM_X0205));
-            this.f41055e.setAntiAlias(true);
-            this.f41055e.setStrokeWidth(1.0f);
-            this.f41055e.setDither(true);
-            this.f41055e.setStyle(Paint.Style.FILL);
+            this.f41546e.setAntiAlias(true);
+            this.f41546e.setStrokeWidth(1.0f);
+            this.f41546e.setDither(true);
+            this.f41546e.setStyle(Paint.Style.FILL);
             Paint paint2 = new Paint();
-            this.f41058h = paint2;
+            this.f41549h = paint2;
             paint2.setAntiAlias(true);
-            this.f41058h.setDither(true);
-            this.f41058h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
+            this.f41549h.setDither(true);
+            this.f41549h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f41056f = new Path();
-            this.f41057g = new Path();
+            this.f41547f = new Path();
+            this.f41548g = new Path();
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f41059i = l.f(getContext().getApplicationContext(), R.dimen.tbds137);
-            this.f41060j = l.f(getContext().getApplicationContext(), R.dimen.tbds204);
-            this.f41061k = l.f(getContext().getApplicationContext(), R.dimen.tbds23);
-            this.l = l.f(getContext().getApplicationContext(), R.dimen.tbds51);
-            this.m = l.f(getContext().getApplicationContext(), R.dimen.tbds16);
-            this.n = l.f(getContext().getApplicationContext(), R.dimen.tbds52);
-            this.o = l.f(getContext().getApplicationContext(), R.dimen.tbds2);
+            this.f41550i = m.f(getContext().getApplicationContext(), R.dimen.tbds137);
+            this.f41551j = m.f(getContext().getApplicationContext(), R.dimen.tbds204);
+            this.f41552k = m.f(getContext().getApplicationContext(), R.dimen.tbds23);
+            this.l = m.f(getContext().getApplicationContext(), R.dimen.tbds51);
+            this.m = m.f(getContext().getApplicationContext(), R.dimen.tbds16);
+            this.n = m.f(getContext().getApplicationContext(), R.dimen.tbds52);
+            this.o = m.f(getContext().getApplicationContext(), R.dimen.tbds2);
         }
     }
 
@@ -121,11 +121,11 @@ public class FragmentTabSwellingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             if (i2 != 1 && i2 != 4) {
-                this.f41055e.setColor(SkinManager.getColor(R.color.CAM_X0205));
-                this.f41058h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
+                this.f41546e.setColor(SkinManager.getColor(R.color.CAM_X0205));
+                this.f41549h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
             } else {
-                this.f41055e.setColor(SkinManager.getColor(R.color.CAM_X0206_1));
-                this.f41058h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.transparent));
+                this.f41546e.setColor(SkinManager.getColor(R.color.CAM_X0206_1));
+                this.f41549h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.transparent));
             }
             invalidate();
         }
@@ -136,31 +136,31 @@ public class FragmentTabSwellingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            if (getWidth() > l.k(getContext())) {
+            if (getWidth() > m.k(getContext())) {
                 return;
             }
-            this.f41057g.reset();
-            this.f41056f.reset();
-            this.f41056f.moveTo(0.0f, getHeight() - this.f41059i);
-            this.f41056f.lineTo((getWidth() / 2) - (this.f41060j / 2), getHeight() - this.f41059i);
-            this.f41056f.quadTo(((getWidth() / 2) - (this.f41060j / 2)) + this.f41061k, getHeight() - this.f41059i, ((getWidth() / 2) - (this.f41060j / 2)) + this.l, (getHeight() - this.f41059i) - this.m);
-            this.f41056f.quadTo(getWidth() / 2, (getHeight() - this.f41059i) - this.n, ((getWidth() / 2) + (this.f41060j / 2)) - this.l, (getHeight() - this.f41059i) - this.m);
-            this.f41056f.quadTo(((getWidth() / 2) + (this.f41060j / 2)) - this.f41061k, getHeight() - this.f41059i, (getWidth() / 2) + (this.f41060j / 2), getHeight() - this.f41059i);
-            this.f41056f.lineTo(getWidth(), getHeight() - this.f41059i);
-            this.f41056f.lineTo(getWidth(), getHeight());
-            this.f41056f.lineTo(0.0f, getHeight());
-            this.f41056f.close();
-            this.f41057g.moveTo(0.0f, (getHeight() - this.f41059i) + this.o);
-            this.f41057g.lineTo((getWidth() / 2) - (this.f41060j / 2), (getHeight() - this.f41059i) + this.o);
-            this.f41057g.quadTo(((getWidth() / 2) - (this.f41060j / 2)) + this.f41061k, (getHeight() - this.f41059i) + this.o, ((getWidth() / 2) - (this.f41060j / 2)) + this.l, ((getHeight() - this.f41059i) - this.m) + this.o);
-            this.f41057g.quadTo(getWidth() / 2, ((getHeight() - this.f41059i) - this.n) + this.o, ((getWidth() / 2) + (this.f41060j / 2)) - this.l, ((getHeight() - this.f41059i) - this.m) + this.o);
-            this.f41057g.quadTo(((getWidth() / 2) + (this.f41060j / 2)) - this.f41061k, (getHeight() - this.f41059i) + this.o, (getWidth() / 2) + (this.f41060j / 2), (getHeight() - this.f41059i) + this.o);
-            this.f41057g.lineTo(getWidth(), (getHeight() - this.f41059i) + this.o);
-            this.f41057g.lineTo(getWidth(), getHeight());
-            this.f41057g.lineTo(0.0f, getHeight());
-            this.f41057g.close();
-            canvas.drawPath(this.f41057g, this.f41058h);
-            canvas.drawPath(this.f41056f, this.f41055e);
+            this.f41548g.reset();
+            this.f41547f.reset();
+            this.f41547f.moveTo(0.0f, getHeight() - this.f41550i);
+            this.f41547f.lineTo((getWidth() / 2) - (this.f41551j / 2), getHeight() - this.f41550i);
+            this.f41547f.quadTo(((getWidth() / 2) - (this.f41551j / 2)) + this.f41552k, getHeight() - this.f41550i, ((getWidth() / 2) - (this.f41551j / 2)) + this.l, (getHeight() - this.f41550i) - this.m);
+            this.f41547f.quadTo(getWidth() / 2, (getHeight() - this.f41550i) - this.n, ((getWidth() / 2) + (this.f41551j / 2)) - this.l, (getHeight() - this.f41550i) - this.m);
+            this.f41547f.quadTo(((getWidth() / 2) + (this.f41551j / 2)) - this.f41552k, getHeight() - this.f41550i, (getWidth() / 2) + (this.f41551j / 2), getHeight() - this.f41550i);
+            this.f41547f.lineTo(getWidth(), getHeight() - this.f41550i);
+            this.f41547f.lineTo(getWidth(), getHeight());
+            this.f41547f.lineTo(0.0f, getHeight());
+            this.f41547f.close();
+            this.f41548g.moveTo(0.0f, (getHeight() - this.f41550i) + this.o);
+            this.f41548g.lineTo((getWidth() / 2) - (this.f41551j / 2), (getHeight() - this.f41550i) + this.o);
+            this.f41548g.quadTo(((getWidth() / 2) - (this.f41551j / 2)) + this.f41552k, (getHeight() - this.f41550i) + this.o, ((getWidth() / 2) - (this.f41551j / 2)) + this.l, ((getHeight() - this.f41550i) - this.m) + this.o);
+            this.f41548g.quadTo(getWidth() / 2, ((getHeight() - this.f41550i) - this.n) + this.o, ((getWidth() / 2) + (this.f41551j / 2)) - this.l, ((getHeight() - this.f41550i) - this.m) + this.o);
+            this.f41548g.quadTo(((getWidth() / 2) + (this.f41551j / 2)) - this.f41552k, (getHeight() - this.f41550i) + this.o, (getWidth() / 2) + (this.f41551j / 2), (getHeight() - this.f41550i) + this.o);
+            this.f41548g.lineTo(getWidth(), (getHeight() - this.f41550i) + this.o);
+            this.f41548g.lineTo(getWidth(), getHeight());
+            this.f41548g.lineTo(0.0f, getHeight());
+            this.f41548g.close();
+            canvas.drawPath(this.f41548g, this.f41549h);
+            canvas.drawPath(this.f41547f, this.f41546e);
         }
     }
 

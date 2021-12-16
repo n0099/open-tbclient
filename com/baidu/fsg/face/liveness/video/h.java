@@ -6,28 +6,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class h implements c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f34880f = 24;
+    public static final int f35348f = 24;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f34881g = 1;
+    public static final int f35349g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f34882h = 1048576;
+    public static final int f35350h = 1048576;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f34883i;
+    public volatile boolean f35351i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f34884j;
+    public b f35352j;
 
     /* renamed from: k  reason: collision with root package name */
-    public volatile boolean f34885k;
+    public volatile boolean f35353k;
     public ExecutorService l;
     public long m;
     public long n;
@@ -52,14 +52,14 @@ public abstract class h implements c {
                 return;
             }
         }
-        this.f34885k = false;
+        this.f35353k = false;
         this.l = Executors.newSingleThreadExecutor();
         this.o = new VideoInfo();
         this.p = false;
         this.q = 24;
         this.r = 1;
         this.s = 1048576;
-        this.f34884j = bVar;
+        this.f35352j = bVar;
     }
 
     public abstract boolean a();
@@ -73,7 +73,7 @@ public abstract class h implements c {
     @Override // com.baidu.fsg.face.liveness.video.c
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f34883i && !this.p) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f35351i && !this.p) {
             b();
             d();
         }
@@ -82,7 +82,7 @@ public abstract class h implements c {
     public void h() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bVar = this.f34884j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bVar = this.f35352j) == null) {
             return;
         }
         bVar.a(this);
@@ -91,7 +91,7 @@ public abstract class h implements c {
     public void i() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bVar = this.f34884j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bVar = this.f35352j) == null) {
             return;
         }
         bVar.b(this);

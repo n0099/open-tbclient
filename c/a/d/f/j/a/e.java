@@ -16,13 +16,13 @@ public class e {
     public f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f2435b;
+    public g f2399b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<d> f2436c;
+    public LinkedList<d> f2400c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f2437d;
+    public d f2401d;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -38,15 +38,15 @@ public class e {
             }
         }
         this.a = new f();
-        this.f2435b = new g();
-        this.f2436c = new LinkedList<>();
-        this.f2437d = null;
+        this.f2399b = new g();
+        this.f2400c = new LinkedList<>();
+        this.f2401d = null;
     }
 
     public d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2437d : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2401d : (d) invokeV.objValue;
     }
 
     public f b() {
@@ -58,13 +58,13 @@ public class e {
     public g c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2435b : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2399b : (g) invokeV.objValue;
     }
 
     public List<d> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Collections.unmodifiableList(this.f2436c) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Collections.unmodifiableList(this.f2400c) : (List) invokeV.objValue;
     }
 
     public void e(d dVar) {
@@ -72,13 +72,13 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) || dVar == null) {
             return;
         }
-        this.f2436c.add(dVar);
+        this.f2400c.add(dVar);
     }
 
     public void f(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
-            this.f2437d = dVar;
+            this.f2401d = dVar;
         }
     }
 }

@@ -13,17 +13,17 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f35708b;
+    public final /* synthetic */ boolean f36197b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ e f35709c;
+    public final /* synthetic */ e f36198c;
 
     public g(e eVar, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class g implements Runnable {
                 return;
             }
         }
-        this.f35709c = eVar;
+        this.f36198c = eVar;
         this.a = str;
-        this.f35708b = z;
+        this.f36197b = z;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:111:0x01be A[LOOP:0: B:5:0x001e->B:111:0x01be, LOOP_END] */
@@ -63,17 +63,17 @@ public class g implements Runnable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f35709c.f35704h = k.e();
-            this.f35709c.b();
-            this.f35709c.a();
-            int i2 = this.f35709c.f35705i;
+            this.f36198c.f36193h = k.e();
+            this.f36198c.b();
+            this.f36198c.a();
+            int i2 = this.f36198c.f36194i;
             OutputStream outputStream3 = null;
             HttpURLConnection httpURLConnection = null;
             while (i2 > 0) {
                 try {
-                    URL url = new URL(this.f35709c.f35704h);
+                    URL url = new URL(this.f36198c.f36193h);
                     StringBuffer stringBuffer = new StringBuffer();
-                    for (Map.Entry<String, Object> entry : this.f35709c.f35707k.entrySet()) {
+                    for (Map.Entry<String, Object> entry : this.f36198c.f36196k.entrySet()) {
                         stringBuffer.append(entry.getKey());
                         stringBuffer.append("=");
                         stringBuffer.append(entry.getValue());
@@ -88,8 +88,8 @@ public class g implements Runnable {
                         httpURLConnection2.setDoInput(true);
                         httpURLConnection2.setDoOutput(true);
                         httpURLConnection2.setUseCaches(false);
-                        httpURLConnection2.setConnectTimeout(a.f35667b);
-                        httpURLConnection2.setReadTimeout(a.f35667b);
+                        httpURLConnection2.setConnectTimeout(a.f36156b);
+                        httpURLConnection2.setReadTimeout(a.f36156b);
                         httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         httpURLConnection2.setRequestProperty("Accept-Encoding", "gzip");
@@ -128,11 +128,11 @@ public class g implements Runnable {
                                         }
                                         byteArrayOutputStream.write(bArr, 0, read);
                                     }
-                                    this.f35709c.f35706j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                    if (this.f35708b) {
-                                        this.f35709c.m = byteArrayOutputStream.toByteArray();
+                                    this.f36198c.f36195j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                    if (this.f36197b) {
+                                        this.f36198c.m = byteArrayOutputStream.toByteArray();
                                     }
-                                    this.f35709c.a(true);
+                                    this.f36198c.a(true);
                                     z = true;
                                 } catch (Error unused3) {
                                     outputStream2 = outputStream4;
@@ -315,8 +315,8 @@ public class g implements Runnable {
                 return;
             }
             e.p++;
-            e eVar = this.f35709c;
-            eVar.f35706j = null;
+            e eVar = this.f36198c;
+            eVar.f36195j = null;
             eVar.a(false);
         }
     }

@@ -12,37 +12,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class i implements l, h.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Uri f29577e;
+    public final Uri f29947e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e.a f29578f;
+    public final e.a f29948f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.i.b.a.a0.h f29579g;
+    public final c.i.b.a.a0.h f29949g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f29580h;
+    public final int f29950h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Handler f29581i;
+    public final Handler f29951i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final a f29582j;
+    public final a f29952j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final String f29583k;
+    public final String f29953k;
     public final int l;
     public l.a m;
     public long n;
     public boolean o;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(IOException iOException);
     }
@@ -104,7 +104,7 @@ public final class i implements l, h.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bVar, bVar2)) == null) {
             c.i.b.a.i0.a.a(bVar.a == 0);
-            return new h(this.f29577e, this.f29578f.a(), this.f29579g.a(), this.f29580h, this.f29581i, this.f29582j, this, bVar2, this.f29583k, this.l);
+            return new h(this.f29947e, this.f29948f.a(), this.f29949g.a(), this.f29950h, this.f29951i, this.f29952j, this, bVar2, this.f29953k, this.l);
         }
         return (k) invokeLL.objValue;
     }
@@ -170,13 +170,13 @@ public final class i implements l, h.f {
                 return;
             }
         }
-        this.f29577e = uri;
-        this.f29578f = aVar;
-        this.f29579g = hVar;
-        this.f29580h = i2;
-        this.f29581i = handler;
-        this.f29582j = aVar2;
-        this.f29583k = str;
+        this.f29947e = uri;
+        this.f29948f = aVar;
+        this.f29949g = hVar;
+        this.f29950h = i2;
+        this.f29951i = handler;
+        this.f29952j = aVar2;
+        this.f29953k = str;
         this.l = i3;
     }
 }

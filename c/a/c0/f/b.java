@@ -1,5 +1,0 @@
-package c.a.c0.f;
-/* loaded from: classes.dex */
-public interface b {
-    void onResult(int i2);
-}

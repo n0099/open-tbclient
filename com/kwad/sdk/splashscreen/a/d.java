@@ -9,20 +9,20 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.sdk.splashscreen.g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f59472b;
+    public AdTemplate f60053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<Integer> f59473c;
+    public List<Integer> f60054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.contentalliance.detail.video.d f59474d;
+    public final com.kwad.sdk.contentalliance.detail.video.d f60055d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class d extends Presenter {
                 return;
             }
         }
-        this.f59474d = new com.kwad.sdk.contentalliance.detail.video.e(this) { // from class: com.kwad.sdk.splashscreen.a.d.1
+        this.f60055d = new com.kwad.sdk.contentalliance.detail.video.e(this) { // from class: com.kwad.sdk.splashscreen.a.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -91,14 +91,14 @@ public class d extends Presenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65537, this, j2) == null) {
             int ceil = (int) Math.ceil(((float) j2) / 1000.0f);
-            List<Integer> list = this.f59473c;
+            List<Integer> list = this.f60054c;
             if (list == null || list.isEmpty()) {
                 return;
             }
-            Iterator<Integer> it = this.f59473c.iterator();
+            Iterator<Integer> it = this.f60054c.iterator();
             while (it.hasNext()) {
                 if (ceil >= it.next().intValue()) {
-                    com.kwad.sdk.core.report.a.b(this.f59472b, ceil, null);
+                    com.kwad.sdk.core.report.a.b(this.f60053b, ceil, null);
                     it.remove();
                     return;
                 }
@@ -110,7 +110,7 @@ public class d extends Presenter {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            com.kwad.sdk.core.report.a.i(this.f59472b);
+            com.kwad.sdk.core.report.a.i(this.f60053b);
         }
     }
 
@@ -118,7 +118,7 @@ public class d extends Presenter {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            com.kwad.sdk.core.report.a.j(this.f59472b);
+            com.kwad.sdk.core.report.a.j(this.f60053b);
         }
     }
 
@@ -129,12 +129,12 @@ public class d extends Presenter {
             super.a();
             com.kwad.sdk.splashscreen.g gVar = (com.kwad.sdk.splashscreen.g) p();
             this.a = gVar;
-            AdTemplate adTemplate = gVar.f59577d;
-            this.f59472b = adTemplate;
-            this.f59473c = com.kwad.sdk.core.response.a.a.S(com.kwad.sdk.core.response.a.d.j(adTemplate));
-            com.kwad.sdk.splashscreen.b.a aVar = this.a.f59579f;
+            AdTemplate adTemplate = gVar.f60158d;
+            this.f60053b = adTemplate;
+            this.f60054c = com.kwad.sdk.core.response.a.a.S(com.kwad.sdk.core.response.a.d.j(adTemplate));
+            com.kwad.sdk.splashscreen.b.a aVar = this.a.f60160f;
             if (aVar != null) {
-                aVar.a(this.f59474d);
+                aVar.a(this.f60055d);
             }
         }
     }
@@ -144,9 +144,9 @@ public class d extends Presenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.c();
-            com.kwad.sdk.splashscreen.b.a aVar = this.a.f59579f;
+            com.kwad.sdk.splashscreen.b.a aVar = this.a.f60160f;
             if (aVar != null) {
-                aVar.b(this.f59474d);
+                aVar.b(this.f60055d);
             }
         }
     }

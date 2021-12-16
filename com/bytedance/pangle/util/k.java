@@ -12,12 +12,12 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusConstants;
 import com.bytedance.pangle.log.ZeusLogger;
 import java.util.Locale;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile k f54654b;
+    public static volatile k f55234b;
     public transient /* synthetic */ FieldHolder $fh;
     public SharedPreferences a;
 
@@ -42,14 +42,14 @@ public class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f54654b == null) {
+            if (f55234b == null) {
                 synchronized (k.class) {
-                    if (f54654b == null) {
-                        f54654b = new k();
+                    if (f55234b == null) {
+                        f55234b = new k();
                     }
                 }
             }
-            return f54654b;
+            return f55234b;
         }
         return (k) invokeV.objValue;
     }
@@ -58,9 +58,9 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             SharedPreferences.Editor edit = this.a.edit();
-            edit.putBoolean("OFFLINE__" + com.bytedance.pangle.i.a().f54604b.getHostVersionCode() + "_" + str, true);
+            edit.putBoolean("OFFLINE__" + com.bytedance.pangle.i.a().f55184b.getHostVersionCode() + "_" + str, true);
             edit.apply();
-            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markOfflineFlag packageName=" + str + " hostUpdateVerCode= " + com.bytedance.pangle.i.a().f54604b.getHostVersionCode());
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markOfflineFlag packageName=" + str + " hostUpdateVerCode= " + com.bytedance.pangle.i.a().f55184b.getHostVersionCode());
         }
     }
 
@@ -68,9 +68,9 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             SharedPreferences.Editor edit = this.a.edit();
-            edit.remove("OFFLINE__" + com.bytedance.pangle.i.a().f54604b.getHostVersionCode() + "_" + str);
+            edit.remove("OFFLINE__" + com.bytedance.pangle.i.a().f55184b.getHostVersionCode() + "_" + str);
             edit.apply();
-            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils clearOfflineFlag packageName=" + str + " hostUpdateVerCode= " + com.bytedance.pangle.i.a().f54604b.getHostVersionCode());
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils clearOfflineFlag packageName=" + str + " hostUpdateVerCode= " + com.bytedance.pangle.i.a().f55184b.getHostVersionCode());
         }
     }
 
@@ -78,7 +78,7 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return this.a.getBoolean("OFFLINE__" + com.bytedance.pangle.i.a().f54604b.getHostVersionCode() + "_" + str, false);
+            return this.a.getBoolean("OFFLINE__" + com.bytedance.pangle.i.a().f55184b.getHostVersionCode() + "_" + str, false);
         }
         return invokeL.booleanValue;
     }

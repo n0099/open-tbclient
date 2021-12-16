@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.views.CloseParentView;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class i5 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,18 +40,18 @@ public class i5 extends Handler {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 10) {
             CloseParentView closeParentView = this.a;
-            closeParentView.a.setText(String.valueOf(closeParentView.f62668h));
+            closeParentView.a.setText(String.valueOf(closeParentView.f63249h));
             CloseParentView closeParentView2 = this.a;
-            if (closeParentView2.f62668h <= 0) {
+            if (closeParentView2.f63249h <= 0) {
                 closeParentView2.a.setVisibility(8);
                 this.a.a.setClickable(false);
-                this.a.f62669i.removeMessages(10);
+                this.a.f63250i.removeMessages(10);
             } else {
                 closeParentView2.a.setVisibility(0);
                 this.a.a.setClickable(true);
             }
-            this.a.f62669i.sendEmptyMessageDelayed(10, 1000L);
-            this.a.f62668h--;
+            this.a.f63250i.sendEmptyMessageDelayed(10, 1000L);
+            this.a.f63249h--;
         }
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class BdMemberCenterListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ExpandListView_expandDistance = 1;
@@ -37,7 +37,7 @@ public class BdMemberCenterListView extends BdTypeListView {
     public final int a0;
     public a mRefreshListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void a(float f2);
 
@@ -46,14 +46,14 @@ public class BdMemberCenterListView extends BdTypeListView {
         void onRefresh();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f46898b;
+        public int f47397b;
 
         public b(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                 }
             }
             this.a = i3;
-            this.f46898b = i5;
+            this.f47397b = i5;
         }
 
         public int a(float f2) {
@@ -162,7 +162,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                             if (view != null && view.getParent() == this && this.S != null && this.P.isShown() && this.P.getTop() >= 0 && Math.abs(f4) >= this.W && Math.abs(f3) < this.W) {
                                 int a2 = this.S.a(this.R - this.Q);
                                 b bVar = this.S;
-                                if (a2 > bVar.a && a2 <= bVar.f46898b) {
+                                if (a2 > bVar.a && a2 <= bVar.f47397b) {
                                     this.T = true;
                                     this.P.setLayoutParams(new AbsListView.LayoutParams(this.P.getWidth(), a2));
                                     y(a2 - this.S.a);
@@ -170,7 +170,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                                     b bVar2 = this.S;
                                     if (a2 <= bVar2.a) {
                                         this.T = false;
-                                    } else if (a2 > bVar2.f46898b) {
+                                    } else if (a2 > bVar2.f47397b) {
                                         this.T = true;
                                     } else {
                                         this.T = false;
@@ -242,7 +242,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         }
         View view = this.P;
         int height = view == null ? 0 : view.getHeight();
-        if (height >= this.S.f46898b - (this.a0 / 2)) {
+        if (height >= this.S.f47397b - (this.a0 / 2)) {
             doRefresh();
         } else {
             this.mRefreshListener.b();

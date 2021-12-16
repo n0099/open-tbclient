@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.play.core.splitcompat.SplitCompatApplication;
 import io.flutter.FlutterInjector;
 import io.flutter.embedding.engine.deferredcomponents.PlayStoreDeferredComponentManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FlutterPlayStoreSplitApplication extends SplitCompatApplication {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

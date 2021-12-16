@@ -1,5 +1,5 @@
 package com.kwad.sdk.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface b {
     e getHolder(Class<? extends a> cls);
 }

@@ -9,17 +9,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatRatingBar;
-import c.a.b0.b.b;
-import c.a.b0.b.d;
-import c.a.b0.b.e;
-import c.a.b0.p.p;
+import c.a.c0.b.b;
+import c.a.c0.b.d;
+import c.a.c0.b.e;
+import c.a.c0.p.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,8 +107,8 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pVar) == null) {
             super.setAdInfo(pVar);
             if (this.mAdNameView != null) {
-                if (!TextUtils.isEmpty(pVar.f1812c)) {
-                    this.mAdNameView.setText(pVar.f1812c);
+                if (!TextUtils.isEmpty(pVar.f1830c)) {
+                    this.mAdNameView.setText(pVar.f1830c);
                     this.mAdNameView.setVisibility(0);
                 } else {
                     this.mAdNameView.setVisibility(8);
@@ -116,7 +116,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             TextView textView = this.mRatingTextView;
             if (textView != null) {
-                double d2 = pVar.f1814e;
+                double d2 = pVar.f1832e;
                 if (d2 != -1.0d) {
                     textView.setText(String.valueOf(d2));
                     this.mRatingTextView.setVisibility(0);
@@ -126,7 +126,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             AppCompatRatingBar appCompatRatingBar = this.mRatingBarView;
             if (appCompatRatingBar != null) {
-                double d3 = pVar.f1814e;
+                double d3 = pVar.f1832e;
                 if (d3 != -1.0d) {
                     appCompatRatingBar.setRating((float) d3);
                     this.mRatingBarView.setVisibility(0);
@@ -140,7 +140,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     public void update(AdBaseModel adBaseModel) {
         p pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || adBaseModel == null || (pVar = adBaseModel.f37577g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || adBaseModel == null || (pVar = adBaseModel.f38066g) == null) {
             return;
         }
         setAdInfo(pVar);

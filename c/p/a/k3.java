@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class k3 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ String f30824e;
+    public final /* synthetic */ String f31194e;
 
     public k3(String str) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class k3 implements Runnable {
                 return;
             }
         }
-        this.f30824e = str;
+        this.f31194e = str;
     }
 
     @Override // java.lang.Runnable
@@ -36,7 +36,7 @@ public final class k3 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                r0.c(new t1(this.f30824e, "GET", r0.k(null)).a(), new b6());
+                r0.c(new t1(this.f31194e, "GET", r0.k(null)).a(), new b6());
             } catch (JSONException e2) {
                 e2.getMessage();
             } catch (Exception e3) {

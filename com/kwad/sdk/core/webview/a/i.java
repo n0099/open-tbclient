@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.ax;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class i implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public abstract class i implements com.kwad.sdk.core.webview.kwai.a {
             public final /* synthetic */ com.kwad.sdk.core.response.kwai.a a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ i f57964b;
+            public final /* synthetic */ i f58545b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -55,7 +55,7 @@ public abstract class i implements com.kwad.sdk.core.webview.kwai.a {
                         return;
                     }
                 }
-                this.f57964b = this;
+                this.f58545b = this;
                 this.a = aVar;
             }
 
@@ -63,7 +63,7 @@ public abstract class i implements com.kwad.sdk.core.webview.kwai.a {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f57964b.a.a(this.a);
+                    this.f58545b.a.a(this.a);
                 }
             }
         });

@@ -20,15 +20,15 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<SoftReference<Activity>> f2188c;
+    public static ArrayList<SoftReference<Activity>> f2155c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f2189d;
+    public static b f2156d;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2190b;
+    public int f2157b;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -48,9 +48,9 @@ public final class b {
                 return;
             }
         }
-        this.f2190b = 0;
-        if (f2188c == null) {
-            f2188c = new ArrayList<>(20);
+        this.f2157b = 0;
+        if (f2155c == null) {
+            f2155c = new ArrayList<>(20);
         }
     }
 
@@ -58,10 +58,10 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f2189d == null) {
-                f2189d = new b();
+            if (f2156d == null) {
+                f2156d = new b();
             }
-            return f2189d;
+            return f2156d;
         }
         return (b) invokeV.objValue;
     }
@@ -86,8 +86,8 @@ public final class b {
         SoftReference<Activity> softReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int size = f2188c.size();
-            if (size == 0 || (softReference = f2188c.get(size - 1)) == null) {
+            int size = f2155c.size();
+            if (size == 0 || (softReference = f2155c.get(size - 1)) == null) {
                 return null;
             }
             return softReference.get();
@@ -99,10 +99,10 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (f2188c.size() == 0) {
+            if (f2155c.size() == 0) {
                 return null;
             }
-            Iterator<SoftReference<Activity>> it = f2188c.iterator();
+            Iterator<SoftReference<Activity>> it = f2155c.iterator();
             while (it.hasNext()) {
                 SoftReference<Activity> next = it.next();
                 if (next != null && next.get() != null && next.get().getClass().getSimpleName() != null && next.get().getClass().getSimpleName().equals(str)) {
@@ -122,10 +122,10 @@ public final class b {
         Activity activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<SoftReference<Activity>> arrayList = f2188c;
+            ArrayList<SoftReference<Activity>> arrayList = f2155c;
             if (arrayList != null && arrayList.size() != 0) {
                 StringBuilder sb = new StringBuilder();
-                Iterator<SoftReference<Activity>> it = f2188c.iterator();
+                Iterator<SoftReference<Activity>> it = f2155c.iterator();
                 while (it.hasNext()) {
                     SoftReference<Activity> next = it.next();
                     if (next != null && (activity = next.get()) != null) {
@@ -166,7 +166,7 @@ public final class b {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2190b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2157b : invokeV.intValue;
     }
 
     public Activity f(int i2) {
@@ -174,8 +174,8 @@ public final class b {
         SoftReference<Activity> softReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            int size = f2188c.size();
-            if (size != 0 && i2 >= 0 && i2 < size && (softReference = f2188c.get(i2)) != null) {
+            int size = f2155c.size();
+            if (size != 0 && i2 >= 0 && i2 < size && (softReference = f2155c.get(i2)) != null) {
                 return softReference.get();
             }
             return null;
@@ -186,17 +186,17 @@ public final class b {
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? f2188c.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? f2155c.size() : invokeV.intValue;
     }
 
     public boolean i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (f2188c.size() == 0) {
+            if (f2155c.size() == 0) {
                 return false;
             }
-            Iterator<SoftReference<Activity>> it = f2188c.iterator();
+            Iterator<SoftReference<Activity>> it = f2155c.iterator();
             while (it.hasNext()) {
                 SoftReference<Activity> next = it.next();
                 if (next != null && next.get() != null && next.get().getClass().getSimpleName() != null && next.get().getClass().getSimpleName().equals(str)) {
@@ -212,14 +212,14 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) {
-            int size = f2188c.size();
+            int size = f2155c.size();
             if (size <= 0 || activity == null) {
                 return -1;
             }
             for (int i2 = size - 1; i2 >= 0; i2--) {
-                SoftReference<Activity> softReference = f2188c.get(i2);
+                SoftReference<Activity> softReference = f2155c.get(i2);
                 if (softReference == null) {
-                    f2188c.remove(i2);
+                    f2155c.remove(i2);
                 } else if (activity.equals(softReference.get())) {
                     return i2;
                 }
@@ -234,8 +234,8 @@ public final class b {
         SoftReference<Activity> remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int size = f2188c.size();
-            if (size == 0 || (remove = f2188c.remove(size - 1)) == null) {
+            int size = f2155c.size();
+            if (size == 0 || (remove = f2155c.remove(size - 1)) == null) {
                 return null;
             }
             return remove.get();
@@ -248,8 +248,8 @@ public final class b {
         SoftReference<Activity> remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            int size = f2188c.size();
-            if (size != 0 && i2 >= 0 && i2 < size && (remove = f2188c.remove(i2)) != null) {
+            int size = f2155c.size();
+            if (size != 0 && i2 >= 0 && i2 < size && (remove = f2155c.remove(i2)) != null) {
                 return remove.get();
             }
             return null;
@@ -264,7 +264,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, activity) == null) || activity == null) {
             return;
         }
-        int size = f2188c.size();
+        int size = f2155c.size();
         if (size == 0) {
             a aVar3 = this.a;
             if (aVar3 != null) {
@@ -274,17 +274,17 @@ public final class b {
             return;
         }
         for (int i2 = size - 1; i2 >= 0; i2--) {
-            SoftReference<Activity> softReference = f2188c.get(i2);
+            SoftReference<Activity> softReference = f2155c.get(i2);
             if (softReference == null) {
-                f2188c.remove(i2);
+                f2155c.remove(i2);
             } else if (activity.equals(softReference.get())) {
-                f2188c.remove(i2);
-                if (f2188c.size() != 0 || (aVar = this.a) == null) {
+                f2155c.remove(i2);
+                if (f2155c.size() != 0 || (aVar = this.a) == null) {
                     return;
                 }
                 aVar.onActivityClosed();
                 return;
-            } else if (f2188c.size() == 0 && (aVar2 = this.a) != null) {
+            } else if (f2155c.size() == 0 && (aVar2 = this.a) != null) {
                 aVar2.onActivityClosed();
             }
         }
@@ -307,17 +307,17 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeL(1048589, this, activity) == null) || activity == null) {
             return;
         }
-        f2188c.add(new SoftReference<>(activity));
-        a(this.f2190b);
+        f2155c.add(new SoftReference<>(activity));
+        a(this.f2157b);
     }
 
     public void p() {
         Activity activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (f2188c != null) {
-                while (!f2188c.isEmpty()) {
-                    SoftReference<Activity> remove = f2188c.remove(0);
+            if (f2155c != null) {
+                while (!f2155c.isEmpty()) {
+                    SoftReference<Activity> remove = f2155c.remove(0);
                     if (remove != null && remove.get() != null && (activity = remove.get()) != null) {
                         activity.finish();
                     }
@@ -341,7 +341,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
             if (i2 >= 10 || i2 == 0) {
-                this.f2190b = i2;
+                this.f2157b = i2;
             }
         }
     }

@@ -28,10 +28,9 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import kotlinx.coroutines.DebugKt;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class am {
     public static /* synthetic */ Interceptable $ic;
     public static final am B;
@@ -45,34 +44,34 @@ public class am {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ak f36977b;
+    public ak f37466b;
 
     /* renamed from: c  reason: collision with root package name */
-    public aj f36978c;
+    public aj f37467c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f36979d;
+    public Activity f37468d;
 
     /* renamed from: e  reason: collision with root package name */
-    public an f36980e;
+    public an f37469e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f36981f;
+    public Handler f37470f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HandlerThread f36982g;
+    public HandlerThread f37471g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f36983h;
+    public Handler f37472h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HandlerThread f36984i;
+    public HandlerThread f37473i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f36985j;
+    public volatile boolean f37474j;
 
     /* renamed from: k  reason: collision with root package name */
-    public volatile boolean f36986k;
+    public volatile boolean f37475k;
     public volatile boolean l;
     public volatile boolean m;
     public volatile boolean n;
@@ -89,7 +88,7 @@ public class am {
     public JSONObject y;
     public JSONObject z;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +143,7 @@ public class am {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b implements aj.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,16 +195,16 @@ public class am {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                Message obtainMessage = this.a.f36981f.obtainMessage(24);
+                Message obtainMessage = this.a.f37470f.obtainMessage(24);
                 Bundle bundle = new Bundle();
                 bundle.putString("autoconfig.key", str);
                 obtainMessage.setData(bundle);
-                this.a.f36981f.sendMessage(obtainMessage);
+                this.a.f37470f.sendMessage(obtainMessage);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -362,25 +361,25 @@ public class am {
         this.E = true;
         this.F = new JSONArray();
         this.G = new Object();
-        this.f36980e = new an();
+        this.f37469e = new an();
         HandlerThread handlerThread = new HandlerThread("crawlerThread");
-        this.f36984i = handlerThread;
+        this.f37473i = handlerThread;
         handlerThread.start();
-        this.f36983h = new c(this, this.f36984i.getLooper());
+        this.f37472h = new c(this, this.f37473i.getLooper());
         HandlerThread handlerThread2 = new HandlerThread("downloadThread");
-        this.f36982g = handlerThread2;
+        this.f37471g = handlerThread2;
         handlerThread2.start();
-        this.f36981f = new a(this, this.f36982g.getLooper());
+        this.f37470f = new a(this, this.f37471g.getLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65567, this) == null) {
-            this.f36985j = true;
-            if (p() && this.f36985j) {
+            this.f37474j = true;
+            if (p() && this.f37474j) {
                 this.C.sendMessage(this.C.obtainMessage(32));
-                this.f36983h.sendMessage(this.f36983h.obtainMessage(2));
+                this.f37472h.sendMessage(this.f37472h.obtainMessage(2));
             }
         }
     }
@@ -388,11 +387,11 @@ public class am {
     /* JADX INFO: Access modifiers changed from: private */
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65568, this) == null) || this.f36986k) {
+        if (!(interceptable == null || interceptable.invokeV(65568, this) == null) || this.f37475k) {
             return;
         }
         boolean a2 = bg.a(this.a, this.v, 0, true);
-        this.f36986k = true;
+        this.f37475k = true;
         if (a2) {
             this.p = bo.a(this.a, "mtj_vizParser.js");
         }
@@ -443,7 +442,7 @@ public class am {
                 bd.c().a(str);
             }
             try {
-                this.f36978c = new aj(URI.create(a2), new b());
+                this.f37467c = new aj(URI.create(a2), new b());
             } catch (Exception unused) {
             }
         }
@@ -453,7 +452,7 @@ public class am {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65572, this)) == null) {
-            aj ajVar = this.f36978c;
+            aj ajVar = this.f37467c;
             return ajVar != null && ajVar.b();
         }
         return invokeV.booleanValue;
@@ -469,7 +468,7 @@ public class am {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, this)) == null) {
-            Activity activity = this.f36979d;
+            Activity activity = this.f37468d;
             if (activity != null) {
                 return activity.getClass().getName();
             }
@@ -481,19 +480,19 @@ public class am {
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65575, this) == null) && p() && this.f36985j) {
-            JSONObject a2 = a(this.f36980e.a(this.f36979d));
+        if ((interceptable == null || interceptable.invokeV(65575, this) == null) && p() && this.f37474j) {
+            JSONObject a2 = a(this.f37469e.a(this.f37468d));
             if (a2 != null) {
                 if (bd.c().b()) {
                     bd c2 = bd.c();
                     c2.a("doSendSnapshot:" + a2.toString());
                 }
                 try {
-                    this.f36978c.a(a2);
+                    this.f37467c.a(a2);
                 } catch (Exception unused) {
                 }
             }
-            this.f36983h.sendMessageDelayed(this.f36983h.obtainMessage(2), 2000L);
+            this.f37472h.sendMessageDelayed(this.f37472h.obtainMessage(2), 2000L);
         }
     }
 
@@ -504,7 +503,7 @@ public class am {
                 this.u = bq.a().p(this.a);
             }
             if (System.currentTimeMillis() - this.u > 86400000) {
-                this.f36981f.sendMessage(this.f36981f.obtainMessage(23));
+                this.f37470f.sendMessage(this.f37470f.obtainMessage(23));
             }
         }
     }
@@ -523,7 +522,7 @@ public class am {
             if (!(this.n && TextUtils.isEmpty(this.q)) && System.currentTimeMillis() - this.s <= this.t) {
                 return;
             }
-            this.f36981f.sendMessage(this.f36981f.obtainMessage(22));
+            this.f37470f.sendMessage(this.f37470f.obtainMessage(22));
         }
     }
 
@@ -583,7 +582,7 @@ public class am {
                 bd.c().a("installConnectionTracker");
             }
             ak akVar = new ak(this.D);
-            this.f36977b = akVar;
+            this.f37466b = akVar;
             akVar.a(activity);
         }
     }
@@ -594,10 +593,10 @@ public class am {
             if (bd.c().b()) {
                 bd.c().a("uninstallConnectionTracker");
             }
-            ak akVar = this.f36977b;
+            ak akVar = this.f37466b;
             if (akVar != null) {
                 akVar.b();
-                this.f36977b = null;
+                this.f37466b = null;
             }
         }
     }
@@ -605,7 +604,7 @@ public class am {
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            if (p() && this.f36985j) {
+            if (p() && this.f37474j) {
                 b();
             } else {
                 c();
@@ -636,16 +635,16 @@ public class am {
             bc.c().a("autotrace: network invalid, failed to connect to circle server");
             return;
         }
-        this.f36983h.sendMessage(this.f36983h.obtainMessage(1));
+        this.f37472h.sendMessage(this.f37472h.obtainMessage(1));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.f36986k) {
+        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.f37475k) {
             return;
         }
-        this.f36981f.sendMessage(this.f36981f.obtainMessage(21));
+        this.f37470f.sendMessage(this.f37470f.obtainMessage(21));
     }
 
     public void b(Activity activity) {
@@ -656,10 +655,10 @@ public class am {
             if (activity != null && (intent = activity.getIntent()) != null && a(activity, intent)) {
                 a().i();
             }
-            if (this.f36979d != null) {
+            if (this.f37468d != null) {
                 c();
             }
-            this.f36979d = activity;
+            this.f37468d = activity;
             d(activity);
             v();
             t();
@@ -674,7 +673,7 @@ public class am {
     public void c(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, activity) == null) && q()) {
-            this.f36979d = null;
+            this.f37468d = null;
             b(activity, false);
             f();
             a(activity, false);
@@ -768,7 +767,7 @@ public class am {
     public void c() {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (activity = this.f36979d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (activity = this.f37468d) == null) {
             return;
         }
         ai.a(activity);
@@ -779,7 +778,7 @@ public class am {
         if (!(interceptable == null || interceptable.invokeLLL(65550, this, webView, str, blVar) == null) || blVar == null) {
             return;
         }
-        blVar.a(this.f36979d, webView, str, a(this.y, r()), true);
+        blVar.a(this.f37468d, webView, str, a(this.y, r()), true);
     }
 
     private void c(String str) {
@@ -813,7 +812,7 @@ public class am {
     public void b() {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (activity = this.f36979d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (activity = this.f37468d) == null) {
             return;
         }
         ai.b(activity);
@@ -823,9 +822,9 @@ public class am {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, this, z) == null) {
-            this.f36985j = false;
+            this.f37474j = false;
             an.b();
-            this.f36983h.removeMessages(2);
+            this.f37472h.removeMessages(2);
             this.C.sendMessage(this.C.obtainMessage(33));
         }
     }
@@ -845,7 +844,7 @@ public class am {
     public void d() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && p()) {
-            this.f36978c.a();
+            this.f37467c.a();
         }
     }
 
@@ -888,7 +887,7 @@ public class am {
             arrayList.add(new Pair(com.tencent.connect.common.Constants.PARAM_PLATFORM, "Android"));
             arrayList.add(new Pair("model", android.os.Build.MODEL));
             arrayList.add(new Pair("cuid", CooperService.instance().getCUID(context, false)));
-            arrayList.add(new Pair(DebugKt.DEBUG_PROPERTY_VALUE_AUTO, "1"));
+            arrayList.add(new Pair("auto", "1"));
             if (!TextUtils.isEmpty(this.x)) {
                 arrayList.add(new Pair("token", this.x));
             }

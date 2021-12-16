@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import com.win.opensdk.webviewbase.AdvancedWebView;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class s4 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Info f30921e;
+    public final /* synthetic */ Info f31291e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ a5 f30922f;
+    public final /* synthetic */ a5 f31292f;
 
     public s4(a5 a5Var, Info info) {
         Interceptable interceptable = $ic;
@@ -33,18 +33,18 @@ public class s4 implements Runnable {
                 return;
             }
         }
-        this.f30922f = a5Var;
-        this.f30921e = info;
+        this.f31292f = a5Var;
+        this.f31291e = info;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a5 a5Var = this.f30922f;
-            if (a5Var.f30738g != null) {
+            a5 a5Var = this.f31292f;
+            if (a5Var.f31108g != null) {
                 Context context = a5Var.a;
-                Info info = this.f30921e;
+                Info info = this.f31291e;
                 if (a2.c(info)) {
                     try {
                         j a = j.a();
@@ -56,7 +56,7 @@ public class s4 implements Runnable {
                         th.printStackTrace();
                     }
                 }
-                this.f30922f.f30738g.a(this.f30921e);
+                this.f31292f.f31108g.a(this.f31291e);
             }
         }
     }

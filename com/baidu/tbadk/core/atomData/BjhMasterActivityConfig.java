@@ -21,14 +21,14 @@ import java.io.Serializable;
 import java.util.Objects;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BjhMasterActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TiebaExtra tiebaExtra;
 
     @Keep
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class TiebaExtra implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class BjhMasterActivityConfig extends IntentConfig {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

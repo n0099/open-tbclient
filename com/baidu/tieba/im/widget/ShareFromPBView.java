@@ -13,22 +13,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class ShareFromPBView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f46148e;
+    public TextView f46647e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f46149f;
+    public HeadImageView f46648f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f46150g;
+    public TextView f46649g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ShareFromPBMsgData f46151h;
+    public ShareFromPBMsgData f46650h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -57,27 +57,27 @@ public final class ShareFromPBView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.share_from_pb_view, this);
             setOrientation(1);
-            this.f46148e = (TextView) findViewById(R.id.chat_title);
-            this.f46149f = (HeadImageView) findViewById(R.id.chat_group_img);
-            this.f46150g = (TextView) findViewById(R.id.chat_group_desc);
+            this.f46647e = (TextView) findViewById(R.id.chat_title);
+            this.f46648f = (HeadImageView) findViewById(R.id.chat_group_img);
+            this.f46649g = (TextView) findViewById(R.id.chat_group_desc);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f46148e.setText(this.f46151h.getTitle());
-            this.f46149f.setPlaceHolder(1);
-            this.f46149f.setAutoChangeStyle(false);
-            this.f46149f.startLoad(this.f46151h.getImageUrl(), 10, false);
-            this.f46150g.setText(this.f46151h.getContent());
+            this.f46647e.setText(this.f46650h.getTitle());
+            this.f46648f.setPlaceHolder(1);
+            this.f46648f.setAutoChangeStyle(false);
+            this.f46648f.startLoad(this.f46650h.getImageUrl(), 10, false);
+            this.f46649g.setText(this.f46650h.getContent());
         }
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareFromPBMsgData) == null) {
-            this.f46151h = shareFromPBMsgData;
+            this.f46650h = shareFromPBMsgData;
             b();
         }
     }
@@ -86,12 +86,12 @@ public final class ShareFromPBView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.f46148e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
-                this.f46150g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.f46647e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
+                this.f46649g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
                 return;
             }
-            this.f46148e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f46150g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f46647e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f46649g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         }
     }
 

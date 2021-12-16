@@ -22,45 +22,45 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KsPriceView extends TextView implements b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59754b = "¥%s 到手约 ¥%s";
+    public static String f60335b = "¥%s 到手约 ¥%s";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f59755c = "¥%s";
+    public static String f60336c = "¥%s";
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59756d;
+    public String f60337d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59757e;
+    public String f60338e;
 
     /* renamed from: com.kwad.sdk.widget.KsPriceView$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f59758b;
+        public int f60339b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f59759c;
+        public int f60340c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f59760d;
+        public int f60341d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -89,19 +89,19 @@ public class KsPriceView extends TextView implements b {
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59759c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60340c : invokeV.intValue;
         }
 
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59758b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60339b : invokeV.intValue;
         }
 
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59760d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60341d : invokeV.intValue;
         }
     }
 
@@ -230,7 +230,7 @@ public class KsPriceView extends TextView implements b {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, aVar)) == null) {
-            String format = str2 == null ? String.format(f59755c, str) : String.format(f59754b, str, str2);
+            String format = str2 == null ? String.format(f60336c, str) : String.format(f60335b, str, str2);
             SpannableString spannableString = new SpannableString(format);
             int indexOf = format.indexOf(str) - 1;
             if (indexOf < 0) {
@@ -256,9 +256,9 @@ public class KsPriceView extends TextView implements b {
         if (interceptable == null || interceptable.invokeLLI(65543, this, context, attributeSet, i2) == null) {
             setMaxLines(1);
             this.a.a = context.getResources().getColor(R.color.ksad_reward_main_color);
-            this.a.f59758b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_price_size);
-            this.a.f59759c = context.getResources().getColor(R.color.ksad_reward_original_price);
-            this.a.f59760d = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_original_price_size);
+            this.a.f60339b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_price_size);
+            this.a.f60340c = context.getResources().getColor(R.color.ksad_reward_original_price);
+            this.a.f60341d = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_original_price_size);
         }
     }
 
@@ -267,7 +267,7 @@ public class KsPriceView extends TextView implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             this.a.a = cVar.a();
-            a(this.f59756d, this.f59757e);
+            a(this.f60337d, this.f60338e);
         }
     }
 
@@ -277,13 +277,13 @@ public class KsPriceView extends TextView implements b {
             if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.f59756d = str;
-            this.f59757e = str2;
+            this.f60337d = str;
+            this.f60338e = str2;
             if (a(str2) <= 0.0f) {
-                this.f59757e = null;
+                this.f60338e = null;
             }
             setTextColor(this.a.a());
-            SpannableString a2 = a(str, this.f59757e, this.a);
+            SpannableString a2 = a(str, this.f60338e, this.a);
             if (a2 != null) {
                 setText(a2);
             }

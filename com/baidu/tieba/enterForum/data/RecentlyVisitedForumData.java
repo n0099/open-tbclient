@@ -1,6 +1,6 @@
 package com.baidu.tieba.enterForum.data;
 
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.VisitedForumData;
@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class RecentlyVisitedForumData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<VisitedForumData> f43475e;
+    public LinkedList<VisitedForumData> f43966e;
 
     public RecentlyVisitedForumData() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class RecentlyVisitedForumData extends OrmObject {
                 return;
             }
         }
-        this.f43475e = new LinkedList<>();
+        this.f43966e = new LinkedList<>();
     }
 
     public void A(RecentlyVisitedForumData recentlyVisitedForumData) {
@@ -43,8 +43,8 @@ public class RecentlyVisitedForumData extends OrmObject {
         Iterator<VisitedForumData> it = recentlyVisitedForumData.y().iterator();
         while (it.hasNext()) {
             VisitedForumData next = it.next();
-            if (!z(this.f43475e, next)) {
-                this.f43475e.addLast(next);
+            if (!z(this.f43966e, next)) {
+                this.f43966e.addLast(next);
             }
         }
         C(20);
@@ -55,17 +55,17 @@ public class RecentlyVisitedForumData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedList) == null) || linkedList == null || linkedList.size() == 0) {
             return;
         }
-        this.f43475e.clear();
-        this.f43475e.addAll(linkedList);
+        this.f43966e.clear();
+        this.f43966e.addAll(linkedList);
     }
 
     public void C(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f43475e == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f43966e == null) {
             return;
         }
-        while (this.f43475e.size() > i2) {
-            this.f43475e.removeLast();
+        while (this.f43966e.size() > i2) {
+            this.f43966e.removeLast();
         }
     }
 
@@ -75,21 +75,21 @@ public class RecentlyVisitedForumData extends OrmObject {
             return;
         }
         VisitedForumData visitedForumData2 = null;
-        Iterator<VisitedForumData> it = this.f43475e.iterator();
+        Iterator<VisitedForumData> it = this.f43966e.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             VisitedForumData next = it.next();
-            if (!k.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
+            if (!l.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
                 visitedForumData2 = next;
                 break;
             }
         }
         if (visitedForumData2 != null) {
-            this.f43475e.remove(visitedForumData2);
+            this.f43966e.remove(visitedForumData2);
         }
-        this.f43475e.addFirst(visitedForumData);
+        this.f43966e.addFirst(visitedForumData);
     }
 
     public int x(VisitedForumData visitedForumData) {
@@ -100,21 +100,21 @@ public class RecentlyVisitedForumData extends OrmObject {
             if (visitedForumData == null) {
                 return -1;
             }
-            int size = this.f43475e.size();
+            int size = this.f43966e.size();
             int i3 = 0;
             while (true) {
                 if (i3 >= size) {
                     break;
                 }
-                VisitedForumData visitedForumData2 = this.f43475e.get(i3);
-                if (!k.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
+                VisitedForumData visitedForumData2 = this.f43966e.get(i3);
+                if (!l.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
                     i2 = i3;
                     break;
                 }
                 i3++;
             }
             if (i2 >= 0) {
-                this.f43475e.remove(i2);
+                this.f43966e.remove(i2);
             }
             return i2;
         }
@@ -124,7 +124,7 @@ public class RecentlyVisitedForumData extends OrmObject {
     public LinkedList<VisitedForumData> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f43475e : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f43966e : (LinkedList) invokeV.objValue;
     }
 
     public final boolean z(LinkedList<VisitedForumData> linkedList, VisitedForumData visitedForumData) {
@@ -135,7 +135,7 @@ public class RecentlyVisitedForumData extends OrmObject {
                 Iterator<VisitedForumData> it = linkedList.iterator();
                 while (it.hasNext()) {
                     VisitedForumData next = it.next();
-                    if (!k.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
+                    if (!l.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
                         return true;
                     }
                 }

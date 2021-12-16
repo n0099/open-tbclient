@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.base.camera.internal.CameraCtrl;
 import com.dxmpay.wallet.core.utils.LogUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d implements Camera.PreviewCallback {
     public static /* synthetic */ Interceptable $ic;
     public static final String p;
@@ -25,25 +25,25 @@ public class d implements Camera.PreviewCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile c f28574e;
+    public volatile c f28949e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f28575f;
+    public final int f28950f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f28576g;
+    public final int f28951g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28577h;
+    public int f28952h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28578i;
+    public int f28953i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f28579j;
+    public final int f28954j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final int f28580k;
+    public final int f28955k;
     public final int l;
     public final long m;
     public final int n;
@@ -83,16 +83,16 @@ public class d implements Camera.PreviewCallback {
                 return;
             }
         }
-        this.f28574e = null;
+        this.f28949e = null;
         this.o = 0L;
         i7 = i7 == 0 ? 15 : i7;
         this.l = i2;
-        this.f28575f = i3;
-        this.f28576g = i4;
-        this.f28579j = i6;
-        this.f28580k = i7;
+        this.f28950f = i3;
+        this.f28951g = i4;
+        this.f28954j = i6;
+        this.f28955k = i7;
         this.m = 1000 / i7;
-        this.f28574e = cVar;
+        this.f28949e = cVar;
         if (i5 % 90 == 0) {
             this.n = (i5 + 360) % 360;
         } else {
@@ -149,7 +149,7 @@ public class d implements Camera.PreviewCallback {
                         return q;
                     }
                     s.destroy();
-                    q.f28574e.destroyCamera();
+                    q.f28949e.destroyCamera();
                 }
                 try {
                     if (!s.init(i2, i3, i4, dVar.n, i6, i7)) {
@@ -157,8 +157,8 @@ public class d implements Camera.PreviewCallback {
                         q = null;
                         return null;
                     }
-                    dVar.f28577h = s.getPreviewWidht();
-                    dVar.f28578i = s.getPreviewHeight();
+                    dVar.f28952h = s.getPreviewWidht();
+                    dVar.f28953i = s.getPreviewHeight();
                     q = dVar;
                     dVar.e(cVar);
                     return q;
@@ -184,16 +184,16 @@ public class d implements Camera.PreviewCallback {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             synchronized (r) {
                 if (cVar != null) {
-                    if (this.f28574e != null && cVar != this.f28574e) {
-                        this.f28574e.destroyCamera();
+                    if (this.f28949e != null && cVar != this.f28949e) {
+                        this.f28949e.destroyCamera();
                     }
-                    cVar.initCamera(this.f28577h, this.f28578i, this.f28579j, this.f28580k);
-                    this.f28574e = cVar;
+                    cVar.initCamera(this.f28952h, this.f28953i, this.f28954j, this.f28955k);
+                    this.f28949e = cVar;
                 } else {
-                    if (this.f28574e != null) {
-                        this.f28574e.destroyCamera();
+                    if (this.f28949e != null) {
+                        this.f28949e.destroyCamera();
                     }
-                    this.f28574e = null;
+                    this.f28949e = null;
                 }
             }
         }
@@ -208,8 +208,8 @@ public class d implements Camera.PreviewCallback {
             }
             if (obj instanceof d) {
                 d dVar = (d) obj;
-                c cVar = dVar.f28574e;
-                return (cVar == null || this.f28574e != null) && dVar.l == this.l && dVar.f28576g == this.f28576g && dVar.f28575f == this.f28575f && dVar.n == this.n && dVar.f28579j == this.f28579j && dVar.f28580k == this.f28580k && cVar.equals(this.f28574e);
+                c cVar = dVar.f28949e;
+                return (cVar == null || this.f28949e != null) && dVar.l == this.l && dVar.f28951g == this.f28951g && dVar.f28950f == this.f28950f && dVar.n == this.n && dVar.f28954j == this.f28954j && dVar.f28955k == this.f28955k && cVar.equals(this.f28949e);
             }
             return false;
         }
@@ -221,10 +221,10 @@ public class d implements Camera.PreviewCallback {
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             synchronized (r) {
                 s.destroy();
-                if (!z && this.f28574e != null) {
-                    this.f28574e.destroyCamera();
+                if (!z && this.f28949e != null) {
+                    this.f28949e.destroyCamera();
                 }
-                this.f28574e = null;
+                this.f28949e = null;
                 q = null;
             }
         }
@@ -256,12 +256,12 @@ public class d implements Camera.PreviewCallback {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.l);
-            sb.append(this.f28576g);
-            sb.append(this.f28575f);
+            sb.append(this.f28951g);
+            sb.append(this.f28950f);
             sb.append(this.n);
-            sb.append(this.f28579j);
-            sb.append(this.f28580k);
-            sb.append(this.f28574e.hashCode());
+            sb.append(this.f28954j);
+            sb.append(this.f28955k);
+            sb.append(this.f28949e.hashCode());
             return sb.hashCode();
         }
         return invokeV.intValue;
@@ -277,9 +277,9 @@ public class d implements Camera.PreviewCallback {
                 this.o = currentTimeMillis;
             } else if (currentTimeMillis - j2 > this.m) {
                 this.o = currentTimeMillis;
-                if (this.f28574e != null) {
+                if (this.f28949e != null) {
                     try {
-                        this.f28574e.processImage(bArr);
+                        this.f28949e.processImage(bArr);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }

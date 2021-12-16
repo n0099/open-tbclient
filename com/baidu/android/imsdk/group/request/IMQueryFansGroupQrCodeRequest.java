@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansGroupQrCodeRequest";
@@ -27,7 +26,7 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class QrCode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,7 +147,7 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
                 JSONObject optJSONObject = jSONObject.optJSONObject("response_params");
                 if (optJSONObject != null) {
                     str2 = optJSONObject.optString("qrcode_url");
-                    j2 = optJSONObject.optLong(ContentUtil.RESULT_KEY_EXPIRE);
+                    j2 = optJSONObject.optLong("expire");
                 }
             } catch (JSONException e2) {
                 LogUtils.e(LogUtils.TAG, "IMQueryFansUnreadRequest JSONException", e2);

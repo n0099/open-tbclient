@@ -5,19 +5,19 @@ import android.content.pm.PackageManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class p {
     public static /* synthetic */ Interceptable $ic;
     public static PackageManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f51554b;
+    public static Context f52103b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            f51554b = context;
+            f52103b = context;
             PackageManager packageManager = context.getPackageManager();
             a = packageManager;
             if (packageManager == null) {
@@ -36,7 +36,7 @@ public final class p {
                 return false;
             }
             try {
-                return packageManager.checkPermission(str, f51554b.getPackageName()) == 0;
+                return packageManager.checkPermission(str, f52103b.getPackageName()) == 0;
             } catch (RuntimeException e2) {
                 c.a("PermissionUtil#hasPermission failed.", e2);
                 return false;

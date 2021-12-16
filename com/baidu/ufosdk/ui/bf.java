@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class bf implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public final class bf implements View.OnClickListener {
                     com.baidu.ufosdk.f.c.b("Network is not avaiable!");
                     return;
                 }
-                this.a.f51604b.setVisibility(8);
-                this.a.f51613k.setVisibility(0);
-                if (this.a.f51607e == null || this.a.f51607e.length() <= 0) {
+                this.a.f52153b.setVisibility(8);
+                this.a.f52162k.setVisibility(0);
+                if (this.a.f52156e == null || this.a.f52156e.length() <= 0) {
                     return;
                 }
                 this.a.l.execute(new bg(this));

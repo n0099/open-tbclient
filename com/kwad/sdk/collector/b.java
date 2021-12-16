@@ -20,12 +20,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements com.kwad.sdk.collector.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -255,12 +255,12 @@ public class b {
     }
 
     /* renamed from: com.kwad.sdk.collector.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2008b implements com.kwad.sdk.collector.a {
+    /* loaded from: classes3.dex */
+    public static class C2069b implements com.kwad.sdk.collector.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2008b() {
+        public C2069b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -330,6 +330,6 @@ public class b {
     public static com.kwad.sdk.collector.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? com.kwad.sdk.core.config.b.ai() ? new C2008b() : new a() : (com.kwad.sdk.collector.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? com.kwad.sdk.core.config.b.ai() ? new C2069b() : new a() : (com.kwad.sdk.collector.a) invokeV.objValue;
     }
 }

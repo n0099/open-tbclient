@@ -1,34 +1,31 @@
 package com.baidu.searchbox.player.session;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.BDPlayerConfig;
-import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.ControlEventTrigger;
-import com.baidu.searchbox.player.event.PlayerEventTrigger;
+import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.searchbox.player.event.StateEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
-import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
-import com.baidu.searchbox.player.layer.ILayer;
 import com.baidu.searchbox.player.message.IMessenger;
-import com.baidu.searchbox.player.pool.IPoolItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public final class VideoSession implements IPoolItem {
+/* loaded from: classes10.dex */
+public final class VideoSession {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ControlEventTrigger mControlEventTrigger;
-    public IMessenger mCourier;
     public StringBuilder mDesc;
-    public PlayerEventTrigger mPlayerEventTrigger;
-    public VideoKernelState mState;
-    public BDVideoPlayer mTargetPlayer;
+    @Nullable
+    public IMessenger mMessenger;
+    public PlayerStatus mStatus;
 
     public VideoSession() {
         Interceptable interceptable = $ic;
@@ -43,60 +40,86 @@ public final class VideoSession implements IPoolItem {
                 return;
             }
         }
+        this.mStatus = PlayerStatus.IDLE;
+        this.mControlEventTrigger = new ControlEventTrigger();
         init();
     }
 
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            IMessenger createMessenger = BDPlayerConfig.getMessengerFactory().createMessenger(this);
-            this.mCourier = createMessenger;
-            this.mState = new VideoKernelState(createMessenger);
-            PlayerEventTrigger playerEventTrigger = new PlayerEventTrigger();
-            this.mPlayerEventTrigger = playerEventTrigger;
-            playerEventTrigger.register(this.mCourier);
-            ControlEventTrigger controlEventTrigger = new ControlEventTrigger();
-            this.mControlEventTrigger = controlEventTrigger;
-            controlEventTrigger.register(this.mCourier);
         }
     }
 
-    public void bind(@NonNull BDVideoPlayer bDVideoPlayer) {
+    public void accessEventNotify(VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bDVideoPlayer) == null) {
-            this.mTargetPlayer = bDVideoPlayer;
+        if (interceptable == null || interceptable.invokeL(1048576, this, videoEvent) == null) {
+            if (videoEvent.getType() == 4 || videoEvent.getType() == 2) {
+                String action = videoEvent.getAction();
+                char c2 = 65535;
+                switch (action.hashCode()) {
+                    case -525235558:
+                        if (action.equals(PlayerEvent.ACTION_ON_PREPARED)) {
+                            c2 = 2;
+                            break;
+                        }
+                        break;
+                    case -461848373:
+                        if (action.equals(PlayerEvent.ACTION_ON_ERROR)) {
+                            c2 = 3;
+                            break;
+                        }
+                        break;
+                    case 154871702:
+                        if (action.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                            c2 = 1;
+                            break;
+                        }
+                        break;
+                    case 1370689931:
+                        if (action.equals(PlayerEvent.ACTION_ON_INFO)) {
+                            c2 = 0;
+                            break;
+                        }
+                        break;
+                }
+                if (c2 == 0) {
+                    int intExtra = videoEvent.getIntExtra(1);
+                    if (904 == intExtra || 956 == intExtra) {
+                        statusChangeNotify(PlayerStatus.PLAYING);
+                    }
+                } else if (c2 == 1) {
+                    statusChangeNotify(PlayerStatus.COMPLETE);
+                } else if (c2 == 2) {
+                    statusChangeNotify(PlayerStatus.PREPARED);
+                } else if (c2 != 3) {
+                } else {
+                    statusChangeNotify(PlayerStatus.ERROR);
+                }
+            }
         }
     }
 
-    @NonNull
-    @PublicMethod
+    public void bindMessenger(@NonNull IMessenger iMessenger) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iMessenger) == null) {
+            this.mMessenger = iMessenger;
+        }
+    }
+
+    @Deprecated
     public ControlEventTrigger getControlEventTrigger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mControlEventTrigger : (ControlEventTrigger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mControlEventTrigger : (ControlEventTrigger) invokeV.objValue;
     }
 
+    @Nullable
     @PublicMethod
     public IMessenger getMessenger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCourier : (IMessenger) invokeV.objValue;
-    }
-
-    @NonNull
-    @PublicMethod
-    public PlayerEventTrigger getPlayerEventTrigger() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPlayerEventTrigger : (PlayerEventTrigger) invokeV.objValue;
-    }
-
-    @NonNull
-    @PublicMethod
-    public VideoKernelState getState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mState : (VideoKernelState) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mMessenger : (IMessenger) invokeV.objValue;
     }
 
     @NonNull
@@ -104,138 +127,104 @@ public final class VideoSession implements IPoolItem {
     public PlayerStatus getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mState.getStatus() : (PlayerStatus) invokeV.objValue;
-    }
-
-    @PublicMethod
-    public BDVideoPlayer getTargetPlayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mTargetPlayer : (BDVideoPlayer) invokeV.objValue;
-    }
-
-    @PublicMethod
-    public boolean isBindPlayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mTargetPlayer != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mStatus : (PlayerStatus) invokeV.objValue;
     }
 
     @PublicMethod
     public boolean isComplete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mState.isComplete() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mStatus == PlayerStatus.COMPLETE : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mState.isError() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mStatus == PlayerStatus.ERROR : invokeV.booleanValue;
+    }
+
+    @PublicMethod
+    public boolean isIdle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mStatus == PlayerStatus.IDLE : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isPause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mState.isPause() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mStatus == PlayerStatus.PAUSE : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mState.isPlaying() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mStatus == PlayerStatus.PLAYING : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mState.isPrepared() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mStatus == PlayerStatus.PREPARED : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isPreparing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mState.isPreparing() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mStatus == PlayerStatus.PREPARING : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isStop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mState.isStop() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mStatus == PlayerStatus.STOP : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.player.pool.IPoolItem
-    public void onInit() {
+    public boolean matchStatus(@NonNull PlayerStatus... playerStatusArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            init();
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.pool.IPoolItem
-    public void onRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            unbind();
-            IMessenger iMessenger = this.mCourier;
-            if (iMessenger != null) {
-                iMessenger.release();
-                this.mCourier = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, playerStatusArr)) == null) {
+            for (PlayerStatus playerStatus : playerStatusArr) {
+                if (playerStatus == getStatus()) {
+                    return true;
+                }
             }
-            this.mPlayerEventTrigger.clear();
-            this.mControlEventTrigger.clear();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            unbindMessenger();
+            this.mStatus = PlayerStatus.IDLE;
         }
     }
 
-    @PublicMethod
-    public void registerLayer(@NonNull ILayer iLayer, int i2) {
-        IMessenger iMessenger;
+    public void statusChangeNotify(PlayerStatus playerStatus) {
+        PlayerStatus playerStatus2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048593, this, iLayer, i2) == null) || (iMessenger = this.mCourier) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, playerStatus) == null) || playerStatus == (playerStatus2 = this.mStatus)) {
             return;
         }
-        iMessenger.register(i2, iLayer);
-    }
-
-    @PublicMethod
-    public void sendEvent(VideoEvent videoEvent) {
-        IMessenger iMessenger;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, videoEvent) == null) || (iMessenger = this.mCourier) == null) {
-            return;
-        }
-        iMessenger.notifyEvent(videoEvent);
-    }
-
-    @PublicMethod
-    public void setInterceptor(IVideoEventInterceptor iVideoEventInterceptor) {
-        IMessenger iMessenger;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, iVideoEventInterceptor) == null) || (iMessenger = this.mCourier) == null) {
-            return;
-        }
-        iMessenger.setInterceptor(iVideoEventInterceptor);
-    }
-
-    @PublicMethod
-    public void syncSession(@NonNull VideoSession videoSession) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, videoSession) == null) {
-            this.mTargetPlayer = videoSession.getTargetPlayer();
-            this.mState.stateChangeNotify(videoSession.getStatus());
+        this.mStatus = playerStatus;
+        IMessenger iMessenger = this.mMessenger;
+        if (iMessenger != null) {
+            iMessenger.notifyEvent(StateEvent.obtainEvent(playerStatus2, playerStatus));
         }
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             if (BDPlayerConfig.isDebug()) {
                 StringBuilder sb = this.mDesc;
                 if (sb == null) {
@@ -245,16 +234,10 @@ public final class VideoSession implements IPoolItem {
                     sb2.delete(0, sb2.length());
                 }
                 StringBuilder sb3 = this.mDesc;
-                sb3.append("VideoSession【TargetPlayer :");
-                sb3.append(this.mTargetPlayer);
                 sb3.append("，Courier :");
-                sb3.append(this.mCourier);
-                sb3.append("，VideoKernelState :");
-                sb3.append(this.mState);
-                sb3.append("，PlayerEventTrigger :");
-                sb3.append(this.mPlayerEventTrigger);
-                sb3.append("，ControlEventTrigger :");
-                sb3.append(this.mControlEventTrigger);
+                sb3.append(this.mMessenger);
+                sb3.append("，status :");
+                sb3.append(this.mStatus);
                 sb3.append("，hash :");
                 sb3.append(hashCode());
                 sb3.append("】");
@@ -265,30 +248,10 @@ public final class VideoSession implements IPoolItem {
         return (String) invokeV.objValue;
     }
 
-    public void unbind() {
+    public void unbindMessenger() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.mTargetPlayer = null;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.mMessenger = null;
         }
-    }
-
-    @PublicMethod
-    public void unregisterLayer(@NonNull ILayer iLayer) {
-        IMessenger iMessenger;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, iLayer) == null) || (iMessenger = this.mCourier) == null) {
-            return;
-        }
-        iMessenger.unregister(iLayer);
-    }
-
-    @Override // com.baidu.searchbox.player.pool.IPoolItem
-    public boolean verify(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

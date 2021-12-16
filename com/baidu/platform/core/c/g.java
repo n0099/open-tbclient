@@ -27,19 +27,19 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38372b = "g";
+    public static final String f38861b = "g";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38373c;
+    public int f38862c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38374d;
+    public int f38863d;
 
     static {
         InterceptResult invokeClinit;
@@ -71,8 +71,8 @@ public class g extends com.baidu.platform.base.d {
                 return;
             }
         }
-        this.f38373c = i2;
-        this.f38374d = i3;
+        this.f38862c = i2;
+        this.f38863d = i3;
     }
 
     private LatLng a(JSONObject jSONObject) {
@@ -123,9 +123,9 @@ public class g extends com.baidu.platform.base.d {
                     poiResult.setTotalPoiNum(optInt);
                     int length = optJSONArray.length();
                     poiResult.setCurrentPageCapacity(length);
-                    poiResult.setCurrentPageNum(this.f38373c);
+                    poiResult.setCurrentPageNum(this.f38862c);
                     if (length != 0) {
-                        int i2 = this.f38374d;
+                        int i2 = this.f38863d;
                         poiResult.setTotalPageNum((optInt / i2) + (optInt % i2 > 0 ? 1 : 0));
                     }
                     ArrayList arrayList = new ArrayList();
@@ -191,7 +191,7 @@ public class g extends com.baidu.platform.base.d {
                 poiDetailInfo.setShopHours(jSONObject.optString("shop_hours"));
                 poiDetailInfo.naviLocation = a(jSONObject.optJSONObject("navi_location"));
                 SearchType a = a();
-                if (SearchType.f38333b == a || SearchType.a == a) {
+                if (SearchType.f38822b == a || SearchType.a == a) {
                     poiDetailInfo.setPoiChildrenInfoList(b(jSONObject));
                 }
                 return poiDetailInfo;

@@ -11,13 +11,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.ArrayCompositeDisposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.observers.SerializedObserver;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObservableSkipUntil<T, U> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ObservableSource<U> other;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class SkipUntil implements Observer<U> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public final class ObservableSkipUntil<T, U> extends AbstractObservableWithUpstr
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class SkipUntilObserver<T> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

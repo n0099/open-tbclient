@@ -25,7 +25,7 @@ import com.baidu.wallet.core.utils.PassUtil;
 import com.baidu.wallet.personal.b.b;
 import com.baidu.wallet.personal.datamodel.CouponListResponse;
 import com.baidu.wallet.personal.ui.view.CouponTabHostView;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class MyCouponListActivity extends CouponBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_DATA = "extra_data";
@@ -103,7 +103,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, com.baidu.wallet.core.SDKBaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
@@ -171,7 +171,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
                         public final /* synthetic */ CouponListResponse.CodeCoupon a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ MyCouponListActivity f54080b;
+                        public final /* synthetic */ MyCouponListActivity f54660b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -188,7 +188,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
                                     return;
                                 }
                             }
-                            this.f54080b = this;
+                            this.f54660b = this;
                             this.a = codeCoupon;
                         }
 
@@ -196,7 +196,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                BaiduWalletDelegate.getInstance().openH5Module(this.f54080b.getActivity(), this.a.url);
+                                BaiduWalletDelegate.getInstance().openH5Module(this.f54660b.getActivity(), this.a.url);
                             }
                         }
                     });

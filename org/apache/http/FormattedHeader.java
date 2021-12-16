@@ -2,7 +2,7 @@ package org.apache.http;
 
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface FormattedHeader extends Header {
     CharArrayBuffer getBuffer();
 

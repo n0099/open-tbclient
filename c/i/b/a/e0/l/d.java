@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.SubtitleDecoderException;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class d implements c.i.b.a.e0.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedList<h> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<i> f29945b;
+    public final LinkedList<i> f30315b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final PriorityQueue<h> f29946c;
+    public final PriorityQueue<h> f30316c;
 
     /* renamed from: d  reason: collision with root package name */
-    public h f29947d;
+    public h f30317d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f29948e;
+    public long f30318e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -47,18 +47,18 @@ public abstract class d implements c.i.b.a.e0.f {
         for (int i4 = 0; i4 < 10; i4++) {
             this.a.add(new h());
         }
-        this.f29945b = new LinkedList<>();
+        this.f30315b = new LinkedList<>();
         for (int i5 = 0; i5 < 2; i5++) {
-            this.f29945b.add(new e(this));
+            this.f30315b.add(new e(this));
         }
-        this.f29946c = new PriorityQueue<>();
+        this.f30316c = new PriorityQueue<>();
     }
 
     @Override // c.i.b.a.e0.f
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f29948e = j2;
+            this.f30318e = j2;
         }
     }
 
@@ -70,14 +70,14 @@ public abstract class d implements c.i.b.a.e0.f {
     public void flush() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f29948e = 0L;
-            while (!this.f29946c.isEmpty()) {
-                k(this.f29946c.poll());
+            this.f30318e = 0L;
+            while (!this.f30316c.isEmpty()) {
+                k(this.f30316c.poll());
             }
-            h hVar = this.f29947d;
+            h hVar = this.f30317d;
             if (hVar != null) {
                 k(hVar);
-                this.f29947d = null;
+                this.f30317d = null;
             }
         }
     }
@@ -89,12 +89,12 @@ public abstract class d implements c.i.b.a.e0.f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            c.i.b.a.i0.a.f(this.f29947d == null);
+            c.i.b.a.i0.a.f(this.f30317d == null);
             if (this.a.isEmpty()) {
                 return null;
             }
             h pollFirst = this.a.pollFirst();
-            this.f29947d = pollFirst;
+            this.f30317d = pollFirst;
             return pollFirst;
         }
         return (h) invokeV.objValue;
@@ -107,13 +107,13 @@ public abstract class d implements c.i.b.a.e0.f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f29945b.isEmpty()) {
+            if (this.f30315b.isEmpty()) {
                 return null;
             }
-            while (!this.f29946c.isEmpty() && this.f29946c.peek().f30479h <= this.f29948e) {
-                h poll = this.f29946c.poll();
+            while (!this.f30316c.isEmpty() && this.f30316c.peek().f30849h <= this.f30318e) {
+                h poll = this.f30316c.poll();
                 if (poll.j()) {
-                    i pollFirst = this.f29945b.pollFirst();
+                    i pollFirst = this.f30315b.pollFirst();
                     pollFirst.e(4);
                     k(poll);
                     return pollFirst;
@@ -122,8 +122,8 @@ public abstract class d implements c.i.b.a.e0.f {
                 if (i()) {
                     c.i.b.a.e0.e e2 = e();
                     if (!poll.i()) {
-                        i pollFirst2 = this.f29945b.pollFirst();
-                        pollFirst2.n(poll.f30479h, e2, Long.MAX_VALUE);
+                        i pollFirst2 = this.f30315b.pollFirst();
+                        pollFirst2.n(poll.f30849h, e2, Long.MAX_VALUE);
                         k(poll);
                         return pollFirst2;
                     }
@@ -143,13 +143,13 @@ public abstract class d implements c.i.b.a.e0.f {
     public void d(h hVar) throws SubtitleDecoderException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, hVar) == null) {
-            c.i.b.a.i0.a.a(hVar == this.f29947d);
+            c.i.b.a.i0.a.a(hVar == this.f30317d);
             if (hVar.i()) {
                 k(hVar);
             } else {
-                this.f29946c.add(hVar);
+                this.f30316c.add(hVar);
             }
-            this.f29947d = null;
+            this.f30317d = null;
         }
     }
 
@@ -165,7 +165,7 @@ public abstract class d implements c.i.b.a.e0.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, iVar) == null) {
             iVar.f();
-            this.f29945b.add(iVar);
+            this.f30315b.add(iVar);
         }
     }
 

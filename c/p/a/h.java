@@ -12,31 +12,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBNativeListener;
 import com.win.opensdk.core.Info;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class h implements View.OnClickListener, View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30793e;
+    public int f31163e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30794f;
+    public int f31164f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30795g;
+    public long f31165g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f30796h;
+    public int f31166h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f30797i;
+    public int f31167i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f30798j;
+    public long f31168j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final /* synthetic */ l f30799k;
+    public final /* synthetic */ l f31169k;
 
     public h(l lVar) {
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class h implements View.OnClickListener, View.OnTouchListener {
                 return;
             }
         }
-        this.f30799k = lVar;
+        this.f31169k = lVar;
     }
 
     public HashMap a() {
@@ -61,13 +61,13 @@ public class h implements View.OnClickListener, View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.f30793e));
-            hashMap.put("dy", Integer.valueOf(this.f30794f));
-            hashMap.put("dts", Long.valueOf(this.f30795g));
-            hashMap.put("ux", Integer.valueOf(this.f30796h));
-            hashMap.put("uy", Integer.valueOf(this.f30797i));
-            hashMap.put("uts", Long.valueOf(this.f30798j));
-            l lVar = this.f30799k;
+            hashMap.put("dx", Integer.valueOf(this.f31163e));
+            hashMap.put("dy", Integer.valueOf(this.f31164f));
+            hashMap.put("dts", Long.valueOf(this.f31165g));
+            hashMap.put("ux", Integer.valueOf(this.f31166h));
+            hashMap.put("uy", Integer.valueOf(this.f31167i));
+            hashMap.put("uts", Long.valueOf(this.f31168j));
+            l lVar = this.f31169k;
             r0.j(hashMap, lVar.p, lVar.q, lVar.r, lVar.s, lVar.t, lVar.u);
             return hashMap;
         }
@@ -88,38 +88,38 @@ public class h implements View.OnClickListener, View.OnTouchListener {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f30793e = (int) motionEvent.getRawX();
-                this.f30794f = (int) motionEvent.getRawY();
-                this.f30795g = System.currentTimeMillis();
-                this.f30799k.p = (int) motionEvent.getX();
-                this.f30799k.q = (int) motionEvent.getY();
-                l.e(this.f30799k, view);
+                this.f31163e = (int) motionEvent.getRawX();
+                this.f31164f = (int) motionEvent.getRawY();
+                this.f31165g = System.currentTimeMillis();
+                this.f31169k.p = (int) motionEvent.getX();
+                this.f31169k.q = (int) motionEvent.getY();
+                l.e(this.f31169k, view);
                 return false;
             } else if (action != 1) {
                 return false;
             } else {
-                this.f30796h = (int) motionEvent.getRawX();
-                this.f30797i = (int) motionEvent.getRawY();
-                this.f30798j = System.currentTimeMillis();
-                this.f30799k.r = (int) motionEvent.getX();
-                this.f30799k.s = (int) motionEvent.getY();
-                l lVar = this.f30799k;
-                Info info = lVar.f30827c;
-                if (info == null || !a2.d(info, lVar.f30832h)) {
+                this.f31166h = (int) motionEvent.getRawX();
+                this.f31167i = (int) motionEvent.getRawY();
+                this.f31168j = System.currentTimeMillis();
+                this.f31169k.r = (int) motionEvent.getX();
+                this.f31169k.s = (int) motionEvent.getY();
+                l lVar = this.f31169k;
+                Info info = lVar.f31197c;
+                if (info == null || !a2.d(info, lVar.f31202h)) {
                     return false;
                 }
-                this.f30799k.f30832h = System.currentTimeMillis();
-                l lVar2 = this.f30799k;
+                this.f31169k.f31202h = System.currentTimeMillis();
+                l lVar2 = this.f31169k;
                 Context context = lVar2.a;
-                String open = lVar2.f30827c.getOpen();
-                l lVar3 = this.f30799k;
-                a2.a(context, open, lVar3.f30827c, lVar3.f30831g, a().toString());
-                y2 a = c3.a(this.f30799k.a);
-                a.h(new g3(this.f30799k.f30827c), null);
+                String open = lVar2.f31197c.getOpen();
+                l lVar3 = this.f31169k;
+                a2.a(context, open, lVar3.f31197c, lVar3.f31201g, a().toString());
+                y2 a = c3.a(this.f31169k.a);
+                a.h(new g3(this.f31169k.f31197c), null);
                 a.l("desc", a().toString());
                 a.m();
-                r0.p(this.f30799k.f30827c, a().toString());
-                PBNativeListener pBNativeListener = this.f30799k.f30830f;
+                r0.p(this.f31169k.f31197c, a().toString());
+                PBNativeListener pBNativeListener = this.f31169k.f31200f;
                 if (pBNativeListener != null) {
                     pBNativeListener.onClicked();
                     return false;

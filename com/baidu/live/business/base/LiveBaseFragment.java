@@ -2,14 +2,13 @@ package com.baidu.live.business.base;
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import c.a.w.b.d.a;
-import c.a.w.b.d.b;
-import c.a.w.e.c.d;
+import c.a.x.b.d.a;
+import c.a.x.b.d.c.b;
+import c.a.x.g.c.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveTabEntity;
@@ -18,18 +17,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class LiveBaseFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String SCHEME_DEF_SUB_TAB_TYPE = "scheme_def_tab_type";
     public static final String SOURCE = "source";
     public static final String TAB_BD_ID = "tab_bd_id";
     public static final String TAB_ENTITY_ITEM = "tab_entity_item";
-    public static final String TAB_FEED_DATA = "tab_feed_data";
     public static final String TAB_IS_IMMER = "tab_is_immer";
     public static final String TAB_POSITION = "tab_position";
     public transient /* synthetic */ FieldHolder $fh;
     public String channelId;
     public boolean isImmer;
+    public b mFeedConfig;
     public LiveFeedWrapData mFeedWrapData;
     public a mModel;
     public int mPosition;
@@ -107,10 +107,10 @@ public abstract class LiveBaseFragment extends Fragment {
             }
             this.requestKey = this.tab + "_" + this.subTab + "_" + this.refreshType;
             this.refreshIndex = this.refreshIndex + 1;
-            b.b(8);
+            c.a.x.b.d.b.b(8);
             a aVar = this.mModel;
             if (aVar != null) {
-                aVar.h(b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
+                aVar.h(c.a.x.b.d.b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
             }
         }
     }
@@ -130,64 +130,25 @@ public abstract class LiveBaseFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
+            this.mFeedWrapData = null;
             d.a().e(this);
         }
     }
 
     public abstract void onFragmentShow(boolean z);
 
+    public abstract void onParentPause();
+
+    public abstract void onParentResume();
+
     public void onSelectedChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             onFragmentShow(z);
         }
     }
 
     public boolean refreshFeed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            this.refreshType = 0;
-            String str = this.requestKey;
-            if (str.equals(this.tab + "_" + this.subTab + "_" + this.refreshType)) {
-                return false;
-            }
-            this.requestKey = this.tab + "_" + this.subTab + "_" + this.refreshType;
-            this.sessionId = "";
-            this.refreshIndex = 1;
-            b.b(8);
-            a aVar = this.mModel;
-            if (aVar != null) {
-                aVar.h(b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean refreshFeedAndFollow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            this.refreshType = 0;
-            String str = this.requestKey;
-            if (str.equals(this.tab + "_" + this.subTab + "_" + this.refreshType)) {
-                return false;
-            }
-            this.requestKey = this.tab + "_" + this.subTab + "_" + this.refreshType;
-            this.sessionId = "";
-            this.refreshIndex = 1;
-            b.b(10);
-            a aVar = this.mModel;
-            if (aVar != null) {
-                aVar.h(b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean refreshFeedAndFollowAndBanner() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -199,13 +160,71 @@ public abstract class LiveBaseFragment extends Fragment {
             this.requestKey = this.tab + "_" + this.subTab + "_" + this.refreshType;
             this.sessionId = "";
             this.refreshIndex = 1;
-            b.b(11);
+            c.a.x.b.d.b.b(8);
             a aVar = this.mModel;
             if (aVar != null) {
-                aVar.h(b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
+                aVar.h(c.a.x.b.d.b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
             }
             return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public boolean refreshFeedAndFollow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            this.refreshType = 0;
+            String str = this.requestKey;
+            if (str.equals(this.tab + "_" + this.subTab + "_" + this.refreshType)) {
+                return false;
+            }
+            this.requestKey = this.tab + "_" + this.subTab + "_" + this.refreshType;
+            this.sessionId = "";
+            this.refreshIndex = 1;
+            c.a.x.b.d.b.b(10);
+            a aVar = this.mModel;
+            if (aVar != null) {
+                aVar.h(c.a.x.b.d.b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean refreshFeedAndFollowAndBanner() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            this.refreshType = 0;
+            String str = this.requestKey;
+            if (str.equals(this.tab + "_" + this.subTab + "_" + this.refreshType)) {
+                return false;
+            }
+            this.requestKey = this.tab + "_" + this.subTab + "_" + this.refreshType;
+            this.sessionId = "";
+            this.refreshIndex = 1;
+            c.a.x.b.d.b.b(11);
+            a aVar = this.mModel;
+            if (aVar != null) {
+                aVar.h(c.a.x.b.d.b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setFeedConfigData(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bVar) == null) {
+            this.mFeedConfig = bVar;
+        }
+    }
+
+    public void setFeedWrapData(LiveFeedWrapData liveFeedWrapData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, liveFeedWrapData) == null) {
+            this.mFeedWrapData = liveFeedWrapData;
+        }
     }
 }

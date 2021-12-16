@@ -21,13 +21,13 @@ import java.util.TreeSet;
 import org.apache.commons.lang3.exception.CloneFailedException;
 import org.apache.commons.lang3.mutable.MutableInt;
 import org.apache.commons.lang3.text.StrBuilder;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ObjectUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Null NULL;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Null implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7092611880189329093L;

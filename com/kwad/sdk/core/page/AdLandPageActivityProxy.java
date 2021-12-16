@@ -42,7 +42,7 @@ import java.util.List;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_DIALOG_URL = "key_dialog_url";
@@ -117,8 +117,8 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
             aVar.a(this.mAdTemplate);
             com.kwad.sdk.core.webview.a aVar2 = this.mJsBridgeContext;
             aVar2.a = 0;
-            aVar2.f57958e = this.mAdWebView;
-            aVar2.f57957d = this.mWebContainer;
+            aVar2.f58539e = this.mAdWebView;
+            aVar2.f58538d = this.mWebContainer;
         }
     }
 

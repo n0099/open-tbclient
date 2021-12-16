@@ -2,7 +2,7 @@ package com.baidu.searchbox.pms.callback;
 
 import com.baidu.searchbox.pms.bean.CheckData;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IDataInterceptor {
     JSONObject getUploadData();
 

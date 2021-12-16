@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f0 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Context f30781e;
+    public final /* synthetic */ Context f31151e;
 
     public f0(i0 i0Var, Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class f0 implements Runnable {
                 return;
             }
         }
-        this.f30781e = context;
+        this.f31151e = context;
     }
 
     @Override // java.lang.Runnable
@@ -44,7 +44,7 @@ public class f0 implements Runnable {
         String userAgentString;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context context = this.f30781e;
+            Context context = this.f31151e;
             try {
                 if (Build.VERSION.SDK_INT >= 28) {
                     try {

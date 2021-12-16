@@ -15,16 +15,16 @@ import javax.net.ssl.SSLParameters;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class d extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Method f28353c;
+    public final Method f28728c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Method f28354d;
+    public final Method f28729d;
 
     public d(Method method, Method method2) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public final class d extends g {
                 return;
             }
         }
-        this.f28353c = method;
-        this.f28354d = method2;
+        this.f28728c = method;
+        this.f28729d = method2;
     }
 
     public static d y() {
@@ -65,7 +65,7 @@ public final class d extends g {
             try {
                 SSLParameters sSLParameters = sSLSocket.getSSLParameters();
                 List<String> b2 = g.b(list);
-                this.f28353c.invoke(sSLParameters, b2.toArray(new String[b2.size()]));
+                this.f28728c.invoke(sSLParameters, b2.toArray(new String[b2.size()]));
                 sSLSocket.setSSLParameters(sSLParameters);
             } catch (IllegalAccessException | InvocationTargetException e2) {
                 throw c.d.b.e0.e.b("unable to set ssl parameters", e2);
@@ -80,7 +80,7 @@ public final class d extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sSLSocket)) == null) {
             try {
-                String str = (String) this.f28354d.invoke(sSLSocket, new Object[0]);
+                String str = (String) this.f28729d.invoke(sSLSocket, new Object[0]);
                 if (str != null) {
                     if (!str.equals("")) {
                         return str;

@@ -8,7 +8,7 @@ import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.g;
 import com.kwad.sdk.reward.presenter.platdetail.kwai.d;
 import com.kwad.sdk.reward.presenter.platdetail.kwai.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

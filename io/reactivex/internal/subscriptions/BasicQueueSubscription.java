@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.internal.fuseable.QueueSubscription;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class BasicQueueSubscription<T> extends AtomicLong implements QueueSubscription<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6671519529404341862L;

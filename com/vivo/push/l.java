@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.cache.ISubscribeAppAliasManager;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class l implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ List a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f62495b;
+    public final /* synthetic */ LocalAliasTagsManager f63076b;
 
     public l(LocalAliasTagsManager localAliasTagsManager, List list) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class l implements Runnable {
                 return;
             }
         }
-        this.f62495b = localAliasTagsManager;
+        this.f63076b = localAliasTagsManager;
         this.a = list;
     }
 
@@ -42,7 +42,7 @@ public final class l implements Runnable {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.a) == null || list.size() <= 0) {
             return;
         }
-        iSubscribeAppAliasManager = this.f62495b.mSubscribeAppAliasManager;
+        iSubscribeAppAliasManager = this.f63076b.mSubscribeAppAliasManager;
         iSubscribeAppAliasManager.delAliasSuccess((String) this.a.get(0));
     }
 }

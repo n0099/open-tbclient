@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KTTimer implements NativeModule {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

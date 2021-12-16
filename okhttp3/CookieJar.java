@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface CookieJar {
     public static final CookieJar NO_COOKIES = new CookieJar() { // from class: okhttp3.CookieJar.1
         public static /* synthetic */ Interceptable $ic;

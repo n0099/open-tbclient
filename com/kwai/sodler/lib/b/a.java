@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f60090b;
+    public static String f60671b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, String> f60091c;
+    public static final Map<String, String> f60672c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,12 +37,12 @@ public class a {
             }
         }
         HashMap hashMap = new HashMap();
-        f60091c = hashMap;
+        f60672c = hashMap;
         hashMap.put(IDevices.ABI_MIPS, IDevices.ABI_MIPS);
-        f60091c.put("mips64", "mips64");
-        f60091c.put("x86", "x86");
-        f60091c.put("x86_64", "x86_64");
-        f60091c.put("arm64", "arm64-v8a");
+        f60672c.put("mips64", "mips64");
+        f60672c.put("x86", "x86");
+        f60672c.put("x86_64", "x86_64");
+        f60672c.put("arm64", "arm64-v8a");
     }
 
     public static boolean a() {

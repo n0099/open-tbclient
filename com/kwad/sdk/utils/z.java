@@ -13,31 +13,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f59668b;
+        public int f60249b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f59669c;
+        public int f60250c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f59670d;
+        public int f60251d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f59671e;
+        public int f60252e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f59672f;
+        public int f60253f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -53,11 +53,11 @@ public final class z {
                 }
             }
             this.a = -1;
-            this.f59668b = -1;
-            this.f59669c = -1;
-            this.f59670d = -1;
-            this.f59671e = -1;
-            this.f59672f = -1;
+            this.f60249b = -1;
+            this.f60250c = -1;
+            this.f60251d = -1;
+            this.f60252e = -1;
+            this.f60253f = -1;
         }
 
         public a(int i2, int i3) {
@@ -76,13 +76,13 @@ public final class z {
                 }
             }
             this.a = -1;
-            this.f59668b = -1;
-            this.f59669c = -1;
-            this.f59670d = -1;
-            this.f59671e = -1;
-            this.f59672f = -1;
+            this.f60249b = -1;
+            this.f60250c = -1;
+            this.f60251d = -1;
+            this.f60252e = -1;
+            this.f60253f = -1;
             this.a = i2;
-            this.f59668b = i3;
+            this.f60249b = i3;
         }
 
         public int a() {
@@ -94,8 +94,8 @@ public final class z {
         public void a(float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                this.f59669c = (int) f2;
-                this.f59670d = (int) f3;
+                this.f60250c = (int) f2;
+                this.f60251d = (int) f3;
             }
         }
 
@@ -103,46 +103,46 @@ public final class z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
                 this.a = i2;
-                this.f59668b = i3;
+                this.f60249b = i3;
             }
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59668b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60249b : invokeV.intValue;
         }
 
         public void b(float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                this.f59671e = (int) f2;
-                this.f59672f = (int) f3;
+                this.f60252e = (int) f2;
+                this.f60253f = (int) f3;
             }
         }
 
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59669c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f60250c : invokeV.intValue;
         }
 
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59670d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f60251d : invokeV.intValue;
         }
 
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59671e : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f60252e : invokeV.intValue;
         }
 
         public int f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59672f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60253f : invokeV.intValue;
         }
 
         @NonNull
@@ -150,7 +150,7 @@ public final class z {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                return PreferencesUtil.LEFT_MOUNT + this.a + "," + this.f59668b + "," + this.f59669c + "," + this.f59670d + "," + this.f59671e + "," + this.f59672f + PreferencesUtil.RIGHT_MOUNT;
+                return PreferencesUtil.LEFT_MOUNT + this.a + "," + this.f60249b + "," + this.f60250c + "," + this.f60251d + "," + this.f60252e + "," + this.f60253f + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }

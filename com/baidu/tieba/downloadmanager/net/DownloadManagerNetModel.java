@@ -1,8 +1,8 @@
 package com.baidu.tieba.downloadmanager.net;
 
-import c.a.q0.l0.b.g;
-import c.a.r0.p0.e.a;
-import c.a.r0.p0.e.b;
+import c.a.r0.l0.b.g;
+import c.a.s0.p0.e.a;
+import c.a.s0.p0.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class DownloadManagerNetModel<T> extends NetAutoModel<a, b, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

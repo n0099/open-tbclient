@@ -32,10 +32,10 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UiEventType;
 import j.a.a.e.e;
-import j.a.a.e.k.i;
-import j.a.a.e.l.f;
-import j.a.a.e.n.l;
-import j.a.a.e.n.n;
+import j.a.a.e.g;
+import j.a.a.e.n.f;
+import j.a.a.e.p.o;
+import j.a.a.e.p.q;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,52 +43,52 @@ import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayFlowType;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayWayView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class YYPayWayView extends LinearLayout implements IYYPayWayView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<f> f64861e;
+    public List<f> f65434e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GridView f64862f;
+    public GridView f65435f;
 
     /* renamed from: g  reason: collision with root package name */
-    public j.a.a.e.o.e.c f64863g;
+    public j.a.a.e.q.e.b f65436g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f64864h;
+    public View f65437h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f64865i;
+    public ImageView f65438i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f64866j;
+    public int f65439j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f64867k;
+    public int f65440k;
     public IYYPayWayView.a l;
     public f m;
     public Button n;
-    public j.a.a.e.l.c o;
+    public j.a.a.e.n.c o;
     public IYYPayWayView.b p;
     public Context q;
     public TextView r;
     public PayUIKitConfig s;
     public String t;
     public AppCustomExpand u;
-    public j.a.a.e.l.b v;
+    public j.a.a.e.n.b v;
     public TextView w;
     public TextView x;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YYPayWayView f64868e;
+        public final /* synthetic */ YYPayWayView f65441e;
 
         public a(YYPayWayView yYPayWayView) {
             Interceptable interceptable = $ic;
@@ -105,25 +105,25 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
                     return;
                 }
             }
-            this.f64868e = yYPayWayView;
+            this.f65441e = yYPayWayView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                this.f64868e.h(i2);
+                this.f65441e.h(i2);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends j.a.a.e.q.a {
+    /* loaded from: classes5.dex */
+    public class b extends j.a.a.e.s.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ YYPayWayView f64869f;
+        public final /* synthetic */ YYPayWayView f65442f;
 
         public b(YYPayWayView yYPayWayView) {
             Interceptable interceptable = $ic;
@@ -140,25 +140,25 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
                     return;
                 }
             }
-            this.f64869f = yYPayWayView;
+            this.f65442f = yYPayWayView;
         }
 
-        @Override // j.a.a.e.q.a
+        @Override // j.a.a.e.s.a
         public void a(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f64869f.confirmPayBtnClick();
+                this.f65442f.confirmPayBtnClick();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YYPayWayView f64870e;
+        public final /* synthetic */ YYPayWayView f65443e;
 
         public c(YYPayWayView yYPayWayView) {
             Interceptable interceptable = $ic;
@@ -175,19 +175,19 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
                     return;
                 }
             }
-            this.f64870e = yYPayWayView;
+            this.f65443e = yYPayWayView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f64870e.k();
+                this.f65443e.k();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements IResult<ProductListResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -239,13 +239,13 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public YYPayWayView(Activity activity, int i2, int i3, IYYPayWayView.b bVar, j.a.a.e.l.b bVar2, PayUIKitConfig payUIKitConfig, i iVar) {
+    public YYPayWayView(Activity activity, int i2, int i3, IYYPayWayView.b bVar, j.a.a.e.n.b bVar2, PayUIKitConfig payUIKitConfig, j.a.a.e.m.d dVar) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i2), Integer.valueOf(i3), bVar, bVar2, payUIKitConfig, iVar};
+            Object[] objArr = {activity, Integer.valueOf(i2), Integer.valueOf(i3), bVar, bVar2, payUIKitConfig, dVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -256,46 +256,46 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
                 return;
             }
         }
-        this.f64861e = new ArrayList();
+        this.f65434e = new ArrayList();
         this.t = "";
         if (bVar == null) {
             RLog.error("YYPayWayView", "YYPayWayView construct error viewParams null", new Object[0]);
         }
-        LayoutInflater.from(new ContextThemeWrapper(activity, l.a.a(payUIKitConfig))).inflate(e.pay_ui_layout_pay_way_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(activity, o.a.a(payUIKitConfig))).inflate(g.pay_ui_layout_pay_way_view, (ViewGroup) this, true);
         this.p = bVar;
-        this.o = bVar.f64813b;
+        this.o = bVar.f65385b;
         this.q = activity;
         this.s = payUIKitConfig;
-        this.f64866j = i2;
-        this.f64867k = i3;
+        this.f65439j = i2;
+        this.f65440k = i3;
         this.v = bVar2;
-        this.u = bVar.f64814c;
-        this.f64863g = new j.a.a.e.o.e.c(activity, payUIKitConfig, this.f64861e);
-        GridView gridView = (GridView) findViewById(j.a.a.e.d.grid_recharge_way);
-        this.f64862f = gridView;
-        gridView.setSelector(j.a.a.e.c.pay_ui_selector_transparent);
-        this.f64862f.setAdapter((ListAdapter) this.f64863g);
-        this.f64862f.setOnItemClickListener(new a(this));
-        Button button = (Button) findViewById(j.a.a.e.d.btn_confirm_recharge);
+        this.u = bVar.f65386c;
+        this.f65436g = new j.a.a.e.q.e.b(activity, payUIKitConfig, this.f65434e);
+        GridView gridView = (GridView) findViewById(j.a.a.e.f.grid_recharge_way);
+        this.f65435f = gridView;
+        gridView.setSelector(e.pay_ui_selector_transparent);
+        this.f65435f.setAdapter((ListAdapter) this.f65436g);
+        this.f65435f.setOnItemClickListener(new a(this));
+        Button button = (Button) findViewById(j.a.a.e.f.btn_confirm_recharge);
         this.n = button;
         button.setOnClickListener(new b(this));
-        this.w = (TextView) findViewById(j.a.a.e.d.tv_total_src_amount);
-        this.x = (TextView) findViewById(j.a.a.e.d.tv_total_dst_amount);
-        TextView textView = (TextView) findViewById(j.a.a.e.d.tv_use_item);
+        this.w = (TextView) findViewById(j.a.a.e.f.tv_total_src_amount);
+        this.x = (TextView) findViewById(j.a.a.e.f.tv_total_dst_amount);
+        TextView textView = (TextView) findViewById(j.a.a.e.f.tv_use_item);
         this.r = textView;
         textView.setOnClickListener(new c(this));
-        this.f64864h = findViewById(j.a.a.e.d.root_loading);
-        this.f64865i = (ImageView) findViewById(j.a.a.e.d.iv_loading_circle);
+        this.f65437h = findViewById(j.a.a.e.f.root_loading);
+        this.f65438i = (ImageView) findViewById(j.a.a.e.f.iv_loading_circle);
         IYYPayWayView.b bVar3 = this.p;
-        j.a.a.e.m.b.d(this.f64866j, this.f64867k, (bVar3 != null ? bVar3.f64817f : null) == PayFlowType.ACTIVITY_PAY_FLOW ? "11" : "4", "", "", "");
+        j.a.a.e.o.b.d(this.f65439j, this.f65440k, (bVar3 != null ? bVar3.f65389f : null) == PayFlowType.WALLET_PAY_FLOW ? "11" : "4", "", "", "");
         m();
         o(this.p.a);
     }
 
     public void confirmPayBtnClick() {
         ProductInfo productInfo;
-        j.a.a.e.l.c cVar;
-        j.a.a.e.l.c cVar2;
+        j.a.a.e.n.c cVar;
+        j.a.a.e.n.c cVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             f fVar = this.m;
@@ -317,17 +317,17 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
                 IYYPayWayView.a aVar = this.l;
                 if (aVar != null && (cVar = this.o) != null && cVar.a != null) {
                     aVar.a(this.m, cVar, this.u);
-                    j.a.a.e.m.b.c(this.f64866j, this.f64867k, UiEventType.paypagepaybt, String.valueOf(this.o.a.srcAmount));
+                    j.a.a.e.o.b.c(this.f65439j, this.f65440k, UiEventType.paypagepaybt, String.valueOf(this.o.a.srcAmount));
                     RLog.warn("YYPayWayView", "paypagepaybt amount:" + this.o.a.srcAmount);
                 } else {
                     RLog.error("YYPayWayView", "mCallback or mPayAmount or productInfo null", new Object[0]);
                 }
-                j.a.a.e.l.c cVar3 = this.o;
+                j.a.a.e.n.c cVar3 = this.o;
                 if (cVar3 != null && (productInfo = cVar3.a) != null) {
                     i2 = productInfo.cid;
                 }
                 IYYPayWayView.b bVar = this.p;
-                j.a.a.e.m.b.d(this.f64866j, this.f64867k, (bVar != null ? bVar.f64817f : null) == PayFlowType.ACTIVITY_PAY_FLOW ? "12" : "5", this.m.a.getChannel(), this.m.a.getMethod(), String.valueOf(i2));
+                j.a.a.e.o.b.d(this.f65439j, this.f65440k, (bVar != null ? bVar.f65389f : null) == PayFlowType.WALLET_PAY_FLOW ? "12" : "5", this.m.a.getChannel(), this.m.a.getMethod(), String.valueOf(i2));
                 RLog.info("YYPayWayView", "comfirm paychannel:" + this.m.a.getChannel() + " paymethod:" + this.m.a.getMethod());
             }
         }
@@ -366,11 +366,11 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            j.a.a.e.n.e.a(this.f64864h, this.f64865i);
+            j.a.a.e.p.e.a(this.f65437h, this.f65438i);
         }
     }
 
-    @Override // j.a.a.e.o.a
+    @Override // j.a.a.e.q.a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -381,15 +381,15 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
         ProductInfo productInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.m = this.f64863g.getItem(i2);
-            if (this.f64863g.b() != i2) {
-                this.f64863g.c(i2);
-                this.f64863g.notifyDataSetChanged();
+            this.m = this.f65436g.getItem(i2);
+            if (this.f65436g.b() != i2) {
+                this.f65436g.c(i2);
+                this.f65436g.notifyDataSetChanged();
             }
-            j.a.a.e.l.c cVar = this.o;
+            j.a.a.e.n.c cVar = this.o;
             int i3 = (cVar == null || (productInfo = cVar.a) == null) ? 0 : productInfo.cid;
             IYYPayWayView.b bVar = this.p;
-            j.a.a.e.m.b.d(this.f64866j, this.f64867k, (bVar != null ? bVar.f64817f : null) == PayFlowType.ACTIVITY_PAY_FLOW ? "13" : "6", this.m.a.getChannel(), this.m.a.getMethod(), String.valueOf(i3));
+            j.a.a.e.o.b.d(this.f65439j, this.f65440k, (bVar != null ? bVar.f65389f : null) == PayFlowType.WALLET_PAY_FLOW ? "13" : "6", this.m.a.getChannel(), this.m.a.getMethod(), String.valueOf(i3));
             RLog.info("YYPayWayView", "choose paychannel:" + this.m.a.getChannel() + " paymethod:" + this.m.a.getMethod());
             if (this.m.a == PayType.WECHAT_PAY && !PackageInstallUtil.isInstallWechat(this.q)) {
                 Toast.makeText(this.q, "未安装微信", 1).show();
@@ -403,7 +403,7 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
     public final void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            if (n.a.a(this.q)) {
+            if (q.a.a(this.q)) {
                 Toast.makeText(this.q, "请求服务失败(" + i2 + "e)", 1).show();
             }
             IYYPayWayView.a aVar = this.l;
@@ -426,7 +426,7 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
         StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, str) == null) {
-            if (n.a.a(this.q)) {
+            if (q.a.a(this.q)) {
                 if (i3 == -500) {
                     sb = new StringBuilder();
                     sb.append("网络不给力,请稍后重试(");
@@ -456,36 +456,41 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (payUIKitConfig = this.s) == null) {
             return;
         }
-        String d2 = j.a.a.e.l.e.d(payUIKitConfig);
+        String d2 = j.a.a.e.n.e.d(payUIKitConfig);
         RLog.debug("YYPayWayView", "agreeUrl:" + d2);
-        Context context = this.q;
-        if (context instanceof Activity) {
-            j.a.a.e.n.f.a(this.f64866j, this.f64867k, this.s, (Activity) context, d2, "Y币充值协议");
+        if (this.q instanceof Activity) {
+            IYYPayWayView.b bVar = this.p;
+            PayFlowType payFlowType = bVar != null ? bVar.f65389f : null;
+            if (payFlowType != null) {
+                j.a.a.e.p.f.a(payFlowType, this.f65439j, this.f65440k, this.s, (Activity) this.q, d2, "Y币充值协议");
+            } else {
+                RLog.error("YYPayWayView", "onUserItemClick error payFlowType null", new Object[0]);
+            }
         } else {
             RLog.error("YYPayWayView", "mContext not Activity", new Object[0]);
         }
-        j.a.a.e.m.b.b(this.f64866j, this.f64867k, UiEventType.paypageprotocol);
+        j.a.a.e.o.b.b(this.f65439j, this.f65440k, UiEventType.paypageprotocol);
         RLog.warn("YYPayWayView", UiEventType.paypageprotocol);
     }
 
     public final void l() {
         GridView gridView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f64861e.size() <= 4 || (gridView = this.f64862f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f65434e.size() <= 4 || (gridView = this.f65435f) == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = gridView.getLayoutParams();
-        layoutParams.height += j.a.a.e.n.c.a(24.0f);
-        this.f64862f.setLayoutParams(layoutParams);
+        layoutParams.height += j.a.a.e.p.c.a(24.0f);
+        this.f65435f.setLayoutParams(layoutParams);
     }
 
     public final void m() {
         IYYPayWayView.b bVar;
-        j.a.a.e.l.c cVar;
+        j.a.a.e.n.c cVar;
         String format;
         String format2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (bVar = this.p) == null || (cVar = bVar.f64813b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (bVar = this.p) == null || (cVar = bVar.f65385b) == null) {
             return;
         }
         double b2 = cVar.b();
@@ -495,7 +500,7 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
             format = new DecimalFormat("0.00").format(b2);
         }
         this.w.setText(format);
-        double a2 = this.p.f64813b.a();
+        double a2 = this.p.f65385b.a();
         if (a2 == ((double) ((long) a2))) {
             format2 = new DecimalFormat("0").format(a2);
         } else {
@@ -509,37 +514,37 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            j.a.a.e.n.e.b(this.f64864h, this.f64865i);
+            j.a.a.e.p.e.b(this.f65437h, this.f65438i);
         }
     }
 
     public final void o(List<PayWayInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.f64861e.clear();
-            this.f64861e.addAll(createRechargeWayList(list));
-            if (this.f64861e.size() > 0) {
-                this.m = this.f64861e.get(0);
-                this.f64863g.c(0);
+            this.f65434e.clear();
+            this.f65434e.addAll(createRechargeWayList(list));
+            if (this.f65434e.size() > 0) {
+                this.m = this.f65434e.get(0);
+                this.f65436g.c(0);
             }
-            if (Env.instance().isTestEnv() && this.f64861e.size() > 0) {
-                this.f64861e.add(new f(PayType.MOCK_TEST_PAY, "MOCK支付", ""));
+            if (Env.instance().isTestEnv() && this.f65434e.size() > 0) {
+                this.f65434e.add(new f(PayType.MOCK_TEST_PAY, "MOCK支付", ""));
             }
-            this.f64863g.notifyDataSetChanged();
+            this.f65436g.notifyDataSetChanged();
             l();
         }
     }
 
-    @Override // j.a.a.e.o.a
+    @Override // j.a.a.e.q.a
     public void refreshView() {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.f64861e.size() > 0 || this.v == null) {
+            if (this.f65434e.size() > 0 || this.v == null) {
                 z = false;
             } else {
                 n();
-                j.a.a.e.l.d.c(this.v.d(), new d(this));
+                j.a.a.e.n.d.c(this.v.d(), new d(this));
                 z = true;
             }
             RLog.info("YYPayWayView", "refreshView isQueryProductList:" + z);

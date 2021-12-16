@@ -4,9 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import c.a.d.f.p.l;
-import c.a.q0.i0.c;
-import c.a.q0.i0.d;
+import c.a.d.f.p.m;
+import c.a.r0.i0.c;
+import c.a.r0.i0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -23,13 +23,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
-public class RecommendFrsDelegateStatic extends c.a.q0.i0.b {
+/* loaded from: classes12.dex */
+public class RecommendFrsDelegateStatic extends c.a.r0.i0.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class RecommendFrsDelegateStatic extends c.a.q0.i0.b {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,24 +151,24 @@ public class RecommendFrsDelegateStatic extends c.a.q0.i0.b {
         }
     }
 
-    @Override // c.a.q0.i0.b
+    @Override // c.a.r0.i0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
             cVar.a = new RecommendFrsControlFragment();
-            cVar.f12326e = 2;
-            cVar.f12323b = R.string.home_recommend;
-            cVar.f12327f = R.raw.lottie_tab_home;
-            cVar.f12330i = c.l;
-            cVar.f12329h = c.a.q0.i0.e.c.d().c("homePage");
+            cVar.f12653e = 2;
+            cVar.f12650b = R.string.home_recommend;
+            cVar.f12654f = R.raw.lottie_tab_home;
+            cVar.f12657i = c.l;
+            cVar.f12656h = c.a.r0.i0.e.c.d().c("homePage");
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // c.a.q0.i0.b
+    @Override // c.a.r0.i0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -176,8 +176,8 @@ public class RecommendFrsDelegateStatic extends c.a.q0.i0.b {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
             this.a = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f41872f = this.mIndicator;
-            aVar.f41869c = l.d(context, 12.0f);
+            aVar.f42363f = this.mIndicator;
+            aVar.f42360c = m.d(context, 12.0f);
             MessageRedDotView messageRedDotView = this.a;
             aVar.a = messageRedDotView;
             messageRedDotView.setVisibility(8);
@@ -187,7 +187,7 @@ public class RecommendFrsDelegateStatic extends c.a.q0.i0.b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.q0.i0.b
+    @Override // c.a.r0.i0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -197,7 +197,7 @@ public class RecommendFrsDelegateStatic extends c.a.q0.i0.b {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.q0.i0.b
+    @Override // c.a.r0.i0.b
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -205,7 +205,7 @@ public class RecommendFrsDelegateStatic extends c.a.q0.i0.b {
         }
     }
 
-    @Override // c.a.q0.i0.b
+    @Override // c.a.r0.i0.b
     public void onRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

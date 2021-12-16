@@ -25,7 +25,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class JavaBeanSerializer extends SerializeFilterable implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -397,7 +397,7 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:430:0x05da
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:430:0x05db
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
@@ -406,7 +406,7 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         /*
             r35 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.alibaba.fastjson.serializer.JavaBeanSerializer.$ic
-            if (r0 != 0) goto L5e0
+            if (r0 != 0) goto L5e1
         L4:
             r8 = r35
             r9 = r36
@@ -1175,7 +1175,7 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
             r0 = move-exception
             r1 = r0
             r5 = r24
-            goto L5dd
+            goto L5de
         L511:
             r0 = move-exception
             r2 = r24
@@ -1194,7 +1194,7 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
             r0 = move-exception
             r1 = r0
             r5 = r11
-            goto L5dd
+            goto L5de
         L523:
             r0 = move-exception
             r1 = r10
@@ -1204,96 +1204,96 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
             r12 = r17
         L529:
             java.lang.String r4 = "write javaBean error, fastjson version 1.2.75"
-            if (r1 == 0) goto L54f
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L54a
-            r5.<init>()     // Catch: java.lang.Throwable -> L54a
-            r5.append(r4)     // Catch: java.lang.Throwable -> L54a
+            if (r1 == 0) goto L550
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L54b
+            r5.<init>()     // Catch: java.lang.Throwable -> L54b
+            r5.append(r4)     // Catch: java.lang.Throwable -> L54b
             java.lang.String r4 = ", class "
-            r5.append(r4)     // Catch: java.lang.Throwable -> L54a
-            java.lang.Class r1 = r37.getClass()     // Catch: java.lang.Throwable -> L54a
-            java.lang.String r1 = r1.getName()     // Catch: java.lang.Throwable -> L54a
-            r5.append(r1)     // Catch: java.lang.Throwable -> L54a
-            java.lang.String r4 = r5.toString()     // Catch: java.lang.Throwable -> L54a
-            goto L54f
-        L54a:
+            r5.append(r4)     // Catch: java.lang.Throwable -> L54b
+            java.lang.Class r1 = r37.getClass()     // Catch: java.lang.Throwable -> L54b
+            java.lang.String r1 = r1.getName()     // Catch: java.lang.Throwable -> L54b
+            r5.append(r1)     // Catch: java.lang.Throwable -> L54b
+            java.lang.String r4 = r5.toString()     // Catch: java.lang.Throwable -> L54b
+            goto L550
+        L54b:
             r0 = move-exception
             r1 = r0
             r5 = r2
-            goto L5dd
-        L54f:
+            goto L5de
+        L550:
             java.lang.String r1 = ", fieldName : "
             r5 = r2
             r2 = r38
-            if (r2 == 0) goto L56c
-            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L569
-            r6.<init>()     // Catch: java.lang.Throwable -> L569
-            r6.append(r4)     // Catch: java.lang.Throwable -> L569
-            r6.append(r1)     // Catch: java.lang.Throwable -> L569
-            r6.append(r2)     // Catch: java.lang.Throwable -> L569
-            java.lang.String r4 = r6.toString()     // Catch: java.lang.Throwable -> L569
-            goto L5a9
-        L569:
+            if (r2 == 0) goto L56d
+            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L56a
+            r6.<init>()     // Catch: java.lang.Throwable -> L56a
+            r6.append(r4)     // Catch: java.lang.Throwable -> L56a
+            r6.append(r1)     // Catch: java.lang.Throwable -> L56a
+            r6.append(r2)     // Catch: java.lang.Throwable -> L56a
+            java.lang.String r4 = r6.toString()     // Catch: java.lang.Throwable -> L56a
+            goto L5aa
+        L56a:
             r0 = move-exception
-            goto L5dc
-        L56c:
-            if (r12 == 0) goto L5a9
-            com.alibaba.fastjson.util.FieldInfo r2 = r12.fieldInfo     // Catch: java.lang.Throwable -> L569
-            if (r2 == 0) goto L5a9
-            com.alibaba.fastjson.util.FieldInfo r2 = r12.fieldInfo     // Catch: java.lang.Throwable -> L569
-            java.lang.reflect.Method r6 = r2.method     // Catch: java.lang.Throwable -> L569
-            if (r6 == 0) goto L593
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L569
-            r1.<init>()     // Catch: java.lang.Throwable -> L569
-            r1.append(r4)     // Catch: java.lang.Throwable -> L569
+            goto L5dd
+        L56d:
+            if (r12 == 0) goto L5aa
+            com.alibaba.fastjson.util.FieldInfo r2 = r12.fieldInfo     // Catch: java.lang.Throwable -> L56a
+            if (r2 == 0) goto L5aa
+            com.alibaba.fastjson.util.FieldInfo r2 = r12.fieldInfo     // Catch: java.lang.Throwable -> L56a
+            java.lang.reflect.Method r6 = r2.method     // Catch: java.lang.Throwable -> L56a
+            if (r6 == 0) goto L594
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L56a
+            r1.<init>()     // Catch: java.lang.Throwable -> L56a
+            r1.append(r4)     // Catch: java.lang.Throwable -> L56a
             java.lang.String r4 = ", method : "
-            r1.append(r4)     // Catch: java.lang.Throwable -> L569
-            java.lang.reflect.Method r2 = r2.method     // Catch: java.lang.Throwable -> L569
-            java.lang.String r2 = r2.getName()     // Catch: java.lang.Throwable -> L569
-            r1.append(r2)     // Catch: java.lang.Throwable -> L569
-            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L569
-            goto L5a9
-        L593:
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L569
-            r2.<init>()     // Catch: java.lang.Throwable -> L569
-            r2.append(r4)     // Catch: java.lang.Throwable -> L569
-            r2.append(r1)     // Catch: java.lang.Throwable -> L569
-            com.alibaba.fastjson.util.FieldInfo r1 = r12.fieldInfo     // Catch: java.lang.Throwable -> L569
-            java.lang.String r1 = r1.name     // Catch: java.lang.Throwable -> L569
-            r2.append(r1)     // Catch: java.lang.Throwable -> L569
-            java.lang.String r4 = r2.toString()     // Catch: java.lang.Throwable -> L569
-        L5a9:
-            java.lang.String r1 = r3.getMessage()     // Catch: java.lang.Throwable -> L569
-            if (r1 == 0) goto L5c7
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L569
-            r1.<init>()     // Catch: java.lang.Throwable -> L569
-            r1.append(r4)     // Catch: java.lang.Throwable -> L569
+            r1.append(r4)     // Catch: java.lang.Throwable -> L56a
+            java.lang.reflect.Method r2 = r2.method     // Catch: java.lang.Throwable -> L56a
+            java.lang.String r2 = r2.getName()     // Catch: java.lang.Throwable -> L56a
+            r1.append(r2)     // Catch: java.lang.Throwable -> L56a
+            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L56a
+            goto L5aa
+        L594:
+            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L56a
+            r2.<init>()     // Catch: java.lang.Throwable -> L56a
+            r2.append(r4)     // Catch: java.lang.Throwable -> L56a
+            r2.append(r1)     // Catch: java.lang.Throwable -> L56a
+            com.alibaba.fastjson.util.FieldInfo r1 = r12.fieldInfo     // Catch: java.lang.Throwable -> L56a
+            java.lang.String r1 = r1.name     // Catch: java.lang.Throwable -> L56a
+            r2.append(r1)     // Catch: java.lang.Throwable -> L56a
+            java.lang.String r4 = r2.toString()     // Catch: java.lang.Throwable -> L56a
+        L5aa:
+            java.lang.String r1 = r3.getMessage()     // Catch: java.lang.Throwable -> L56a
+            if (r1 == 0) goto L5c8
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L56a
+            r1.<init>()     // Catch: java.lang.Throwable -> L56a
+            r1.append(r4)     // Catch: java.lang.Throwable -> L56a
             java.lang.String r2 = ", "
-            r1.append(r2)     // Catch: java.lang.Throwable -> L569
-            java.lang.String r2 = r3.getMessage()     // Catch: java.lang.Throwable -> L569
-            r1.append(r2)     // Catch: java.lang.Throwable -> L569
-            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L569
-        L5c7:
-            boolean r1 = r3 instanceof java.lang.reflect.InvocationTargetException     // Catch: java.lang.Throwable -> L569
-            if (r1 == 0) goto L5cf
-            java.lang.Throwable r17 = r3.getCause()     // Catch: java.lang.Throwable -> L569
-        L5cf:
-            if (r17 != 0) goto L5d2
-            goto L5d4
-        L5d2:
+            r1.append(r2)     // Catch: java.lang.Throwable -> L56a
+            java.lang.String r2 = r3.getMessage()     // Catch: java.lang.Throwable -> L56a
+            r1.append(r2)     // Catch: java.lang.Throwable -> L56a
+            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L56a
+        L5c8:
+            boolean r1 = r3 instanceof java.lang.reflect.InvocationTargetException     // Catch: java.lang.Throwable -> L56a
+            if (r1 == 0) goto L5d0
+            java.lang.Throwable r17 = r3.getCause()     // Catch: java.lang.Throwable -> L56a
+        L5d0:
+            if (r17 != 0) goto L5d3
+            goto L5d5
+        L5d3:
             r3 = r17
-        L5d4:
-            com.alibaba.fastjson.JSONException r1 = new com.alibaba.fastjson.JSONException     // Catch: java.lang.Throwable -> L569
-            r1.<init>(r4, r3)     // Catch: java.lang.Throwable -> L569
-            throw r1     // Catch: java.lang.Throwable -> L569
-        L5da:
+        L5d5:
+            com.alibaba.fastjson.JSONException r1 = new com.alibaba.fastjson.JSONException     // Catch: java.lang.Throwable -> L56a
+            r1.<init>(r4, r3)     // Catch: java.lang.Throwable -> L56a
+            throw r1     // Catch: java.lang.Throwable -> L56a
+        L5db:
             r0 = move-exception
             r5 = r2
-        L5dc:
-            r1 = r0
         L5dd:
+            r1 = r0
+        L5de:
             r9.context = r5
             throw r1
-        L5e0:
+        L5e1:
             r3 = 6
             java.lang.Object[] r3 = new java.lang.Object[r3]
             r1 = 0

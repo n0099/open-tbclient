@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import c.a.d.f.m.b;
-import c.a.d.f.p.l;
-import c.a.r0.t3.l0.a;
+import c.a.d.f.p.m;
+import c.a.s0.v3.l0.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SkinInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ThreadSkinView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class ThreadSkinView extends TbImageView {
                     this.R.e();
                 }
                 this.Q = skinInfo;
-                int k2 = l.k(tbPageContext.getPageActivity());
+                int k2 = m.k(tbPageContext.getPageActivity());
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 layoutParams.width = k2;
                 if (!StringUtils.isNull(skinInfo.skin_size)) {

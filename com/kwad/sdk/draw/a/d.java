@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.detail.video.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends com.kwad.sdk.draw.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f58360b;
+    public TextView f58941b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f58361c;
+    public com.kwad.sdk.contentalliance.detail.video.d f58942c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class d extends com.kwad.sdk.draw.kwai.a {
                 return;
             }
         }
-        this.f58361c = new e(this) { // from class: com.kwad.sdk.draw.a.d.1
+        this.f58942c = new e(this) { // from class: com.kwad.sdk.draw.a.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -59,7 +59,7 @@ public class d extends com.kwad.sdk.draw.kwai.a {
             public void a(int i4, int i5) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeII(1048576, this, i4, i5) == null) {
-                    this.a.f58360b.setVisibility(0);
+                    this.a.f58941b.setVisibility(0);
                 }
             }
 
@@ -67,7 +67,7 @@ public class d extends com.kwad.sdk.draw.kwai.a {
             public void c() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.a.f58360b.setVisibility(8);
+                    this.a.f58941b.setVisibility(8);
                 }
             }
 
@@ -75,7 +75,7 @@ public class d extends com.kwad.sdk.draw.kwai.a {
             public void d() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.a.f58360b.setVisibility(8);
+                    this.a.f58941b.setVisibility(8);
                 }
             }
         };
@@ -89,14 +89,14 @@ public class d extends com.kwad.sdk.draw.kwai.a {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
             if (com.ksad.download.c.b.a(q())) {
-                textView = this.f58360b;
+                textView = this.f58941b;
                 i2 = 8;
             } else {
-                textView = this.f58360b;
+                textView = this.f58941b;
                 i2 = 0;
             }
             textView.setVisibility(i2);
-            ((com.kwad.sdk.draw.kwai.a) this).a.f58381e.a(this.f58361c);
+            ((com.kwad.sdk.draw.kwai.a) this).a.f58962e.a(this.f58942c);
         }
     }
 
@@ -105,7 +105,7 @@ public class d extends com.kwad.sdk.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.c();
-            ((com.kwad.sdk.draw.kwai.a) this).a.f58381e.b(this.f58361c);
+            ((com.kwad.sdk.draw.kwai.a) this).a.f58962e.b(this.f58942c);
         }
     }
 
@@ -114,7 +114,7 @@ public class d extends com.kwad.sdk.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.c_();
-            this.f58360b = (TextView) a(R.id.ksad_video_fail_tip);
+            this.f58941b = (TextView) a(R.id.ksad_video_fail_tip);
         }
     }
 }

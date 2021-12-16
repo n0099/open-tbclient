@@ -8,9 +8,10 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.f;
-import c.a.d.f.p.m;
-import c.a.d.f.p.q;
+import c.a.d.f.p.g;
+import c.a.d.f.p.n;
+import c.a.d.f.p.r;
+import c.a.d.i.k.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
@@ -31,13 +32,13 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 import java.util.HashSet;
 import kotlin.UShort;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class VersionCompare {
         public static final /* synthetic */ VersionCompare[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -98,17 +99,17 @@ public final class Util {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f31750b;
+        public String f32120b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f31751c;
+        public int f32121c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -124,8 +125,8 @@ public final class Util {
                 }
             }
             this.a = false;
-            this.f31750b = null;
-            this.f31751c = 0;
+            this.f32120b = null;
+            this.f32121c = 0;
         }
     }
 
@@ -160,7 +161,7 @@ public final class Util {
             a aVar = new a();
             if (inputStream != null && file != null) {
                 if (file.exists()) {
-                    f.n(file);
+                    g.n(file);
                 }
                 FileOutputStream fileOutputStream2 = null;
                 try {
@@ -188,7 +189,7 @@ public final class Util {
                     e = e3;
                     fileOutputStream2 = fileOutputStream;
                     aVar.a = false;
-                    aVar.f31750b = e.toString();
+                    aVar.f32120b = e.toString();
                     c.a.d.f.m.a.d(fileOutputStream2);
                     return aVar;
                 } catch (Throwable th2) {
@@ -200,7 +201,7 @@ public final class Util {
                 c.a.d.f.m.a.d(fileOutputStream2);
                 return aVar;
             }
-            aVar.f31750b = "illegal_param";
+            aVar.f32120b = "illegal_param";
             return aVar;
         }
         return (a) invokeLL.objValue;
@@ -460,7 +461,7 @@ public final class Util {
         return invokeLI.intValue;
     }
 
-    public static c.a.d.i.k.f t(InputStream inputStream) throws IOException {
+    public static f t(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, inputStream)) == null) {
@@ -473,11 +474,11 @@ public final class Util {
             }
             int s = s(bArr, 6);
             int s2 = s(bArr, 8);
-            c.a.d.i.k.f fVar = new c.a.d.i.k.f();
+            f fVar = new f();
             fVar.b(((s2 >> 9) & 127) + 1980, (s2 >> 5) & 15, s2 & 31, (s >> 11) & 31, (s >> 5) & 63, (s & 31) << 1);
             return fVar;
         }
-        return (c.a.d.i.k.f) invokeL.objValue;
+        return (f) invokeL.objValue;
     }
 
     public static String u(InputStream inputStream, byte[] bArr) {
@@ -502,13 +503,13 @@ public final class Util {
                         }
                         messageDigest.update(bArr2, 0, read);
                     }
-                    str = q.a(messageDigest.digest());
+                    str = r.a(messageDigest.digest());
                 } catch (Exception e2) {
                     BdLog.e(e2.toString());
                 }
                 return str;
             } finally {
-                m.e(inputStream);
+                n.e(inputStream);
             }
         }
         return (String) invokeLL.objValue;

@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBError;
 import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class k4 implements q1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a5 f30825b;
+    public final /* synthetic */ a5 f31195b;
 
     public k4(a5 a5Var) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class k4 implements q1 {
                 return;
             }
         }
-        this.f30825b = a5Var;
+        this.f31195b = a5Var;
         this.a = 0L;
     }
 
@@ -40,14 +40,14 @@ public class k4 implements q1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
             long currentTimeMillis = System.currentTimeMillis() - this.a;
-            y2 a = c3.a(this.f30825b.a);
+            y2 a = c3.a(this.f31195b.a);
             g3 g3Var = new g3(null);
-            g3Var.a = this.f30825b.f30733b;
+            g3Var.a = this.f31195b.f31103b;
             a.g(g3Var, currentTimeMillis, i2, 0);
             a.m();
-            this.f30825b.f30741j.removeMessages(100101);
-            this.f30825b.f30735d = false;
-            this.f30825b.d(this.f30825b.a(i2));
+            this.f31195b.f31111j.removeMessages(100101);
+            this.f31195b.f31105d = false;
+            this.f31195b.d(this.f31195b.a(i2));
         }
     }
 
@@ -56,8 +56,8 @@ public class k4 implements q1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = System.currentTimeMillis();
-            a5 a5Var = this.f30825b;
-            a5Var.f30741j.sendEmptyMessageDelayed(100101, a5Var.f30737f * 1000);
+            a5 a5Var = this.f31195b;
+            a5Var.f31111j.sendEmptyMessageDelayed(100101, a5Var.f31107f * 1000);
         }
     }
 
@@ -66,30 +66,30 @@ public class k4 implements q1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             j0 j0Var = (j0) obj;
-            this.f30825b.f30741j.removeMessages(100101);
-            this.f30825b.f30735d = false;
+            this.f31195b.f31111j.removeMessages(100101);
+            this.f31195b.f31105d = false;
             int size = j0Var.a.size();
             long currentTimeMillis = System.currentTimeMillis() - this.a;
             Info info = size > 0 ? (Info) j0Var.a.get(0) : null;
-            y2 a = c3.a(this.f30825b.a);
+            y2 a = c3.a(this.f31195b.a);
             g3 g3Var = new g3(info);
-            g3Var.a = this.f30825b.f30733b;
+            g3Var.a = this.f31195b.f31103b;
             a.g(g3Var, currentTimeMillis, 200, size);
             a.m();
-            this.f30825b.c(j0Var);
-            c4 c4Var = this.f30825b.f30734c;
+            this.f31195b.c(j0Var);
+            c4 c4Var = this.f31195b.f31104c;
             if (c4Var != null && !c4Var.d()) {
-                a5 a5Var = this.f30825b;
-                if (a5Var.f30739h) {
+                a5 a5Var = this.f31195b;
+                if (a5Var.f31109h) {
                     return;
                 }
-                Info c2 = a5Var.f30734c.c();
+                Info c2 = a5Var.f31104c.c();
                 if (c2 != null) {
-                    this.f30825b.e(c2);
+                    this.f31195b.e(c2);
                     return;
                 }
             }
-            this.f30825b.d(PBError.NO_FILL);
+            this.f31195b.d(PBError.NO_FILL);
         }
     }
 }

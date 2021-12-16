@@ -20,23 +20,23 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "r";
 
     /* renamed from: c  reason: collision with root package name */
-    public static r f36484c;
+    public static r f36973c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comjni.map.basemap.a f36485b;
+    public com.baidu.mapsdkplatform.comjni.map.basemap.a f36974b;
 
     /* renamed from: d  reason: collision with root package name */
-    public w f36486d;
+    public w f36975d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f36487e;
+    public Handler f36976e;
 
     static {
         InterceptResult invokeClinit;
@@ -71,12 +71,12 @@ public class r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f36484c == null) {
+            if (f36973c == null) {
                 r rVar = new r();
-                f36484c = rVar;
+                f36973c = rVar;
                 rVar.g();
             }
-            return f36484c;
+            return f36973c;
         }
         return (r) invokeV.objValue;
     }
@@ -85,9 +85,9 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             h();
-            this.f36486d = new w();
+            this.f36975d = new w();
             s sVar = new s(this);
-            this.f36487e = sVar;
+            this.f36976e = sVar;
             MessageCenter.registMessage(65289, sVar);
         }
     }
@@ -98,7 +98,7 @@ public class r {
             Context context = BMapManager.getContext();
             EnvironmentUtilities.initAppDirectory(context);
             com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = new com.baidu.mapsdkplatform.comjni.map.basemap.a();
-            this.f36485b = aVar;
+            this.f36974b = aVar;
             aVar.a(context.hashCode());
             String moduleFileName = SysOSUtil.getModuleFileName();
             String appSDCardPath = EnvironmentUtilities.getAppSDCardPath();
@@ -113,8 +113,8 @@ public class r {
             String str4 = str3 + str;
             String str5 = str3 + str;
             String str6 = appCachePath + "/tmp/";
-            this.f36485b.a(str2 + "/a/", str4, str6, appSecondCachePath + "/tmp/", str5, str2 + "/a/", null, 0, str2 + "/idrres/", SysOSUtil.getScreenSizeX(), SysOSUtil.getScreenSizeY(), SysOSUtil.getDensityDpi(), mapTmpStgMax, domTmpStgMax, itsTmpStgMax, 0);
-            this.f36485b.d();
+            this.f36974b.a(str2 + "/a/", str4, str6, appSecondCachePath + "/tmp/", str5, str2 + "/a/", null, 0, str2 + "/idrres/", SysOSUtil.getScreenSizeX(), SysOSUtil.getScreenSizeY(), SysOSUtil.getDensityDpi(), mapTmpStgMax, domTmpStgMax, itsTmpStgMax, 0);
+            this.f36974b.d();
         }
     }
 
@@ -124,7 +124,7 @@ public class r {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!str.equals("") && (aVar = this.f36485b) != null) {
+            if (!str.equals("") && (aVar = this.f36974b) != null) {
                 String a2 = aVar.a(str);
                 if (a2 == null || a2.equals("")) {
                     return null;
@@ -141,9 +141,9 @@ public class r {
                         int optInt = jSONObject2.optInt("id");
                         if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
                             qVar.a = optInt;
-                            qVar.f36480b = jSONObject2.optString("name");
-                            qVar.f36481c = jSONObject2.optInt("mapsize");
-                            qVar.f36482d = jSONObject2.optInt("cty");
+                            qVar.f36969b = jSONObject2.optString("name");
+                            qVar.f36970c = jSONObject2.optInt("mapsize");
+                            qVar.f36971d = jSONObject2.optInt("cty");
                             if (jSONObject2.has("child")) {
                                 JSONArray optJSONArray2 = jSONObject2.optJSONArray("child");
                                 ArrayList<q> arrayList2 = new ArrayList<>();
@@ -151,9 +151,9 @@ public class r {
                                     q qVar2 = new q();
                                     JSONObject optJSONObject = optJSONArray2.optJSONObject(i3);
                                     qVar2.a = optJSONObject.optInt("id");
-                                    qVar2.f36480b = optJSONObject.optString("name");
-                                    qVar2.f36481c = optJSONObject.optInt("mapsize");
-                                    qVar2.f36482d = optJSONObject.optInt("cty");
+                                    qVar2.f36969b = optJSONObject.optString("name");
+                                    qVar2.f36970c = optJSONObject.optInt("mapsize");
+                                    qVar2.f36971d = optJSONObject.optInt("cty");
                                     arrayList2.add(qVar2);
                                 }
                                 qVar.a(arrayList2);
@@ -175,7 +175,7 @@ public class r {
     public void a(v vVar) {
         w wVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vVar) == null) || (wVar = this.f36486d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vVar) == null) || (wVar = this.f36975d) == null) {
             return;
         }
         wVar.a(vVar);
@@ -185,11 +185,11 @@ public class r {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (this.f36485b == null || i2 < 0) {
+            if (this.f36974b == null || i2 < 0) {
                 return false;
             }
             if (i2 <= 2000 || i2 == 2912 || i2 == 2911 || i2 == 9000) {
-                return this.f36485b.d(i2);
+                return this.f36974b.d(i2);
             }
             return false;
         }
@@ -200,7 +200,7 @@ public class r {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36485b;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36974b;
             if (aVar == null) {
                 return false;
             }
@@ -212,16 +212,16 @@ public class r {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageCenter.unregistMessage(65289, this.f36487e);
-            this.f36485b.b(BMapManager.getContext().hashCode());
-            f36484c = null;
+            MessageCenter.unregistMessage(65289, this.f36976e);
+            this.f36974b.b(BMapManager.getContext().hashCode());
+            f36973c = null;
         }
     }
 
     public void b(v vVar) {
         w wVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, vVar) == null) || (wVar = this.f36486d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, vVar) == null) || (wVar = this.f36975d) == null) {
             return;
         }
         wVar.b(vVar);
@@ -231,11 +231,11 @@ public class r {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (this.f36485b == null || i2 < 0) {
+            if (this.f36974b == null || i2 < 0) {
                 return false;
             }
             if (i2 <= 2000 || i2 == 2912 || i2 == 2911 || i2 == 9000) {
-                return this.f36485b.a(i2, false, 0);
+                return this.f36974b.a(i2, false, 0);
             }
             return false;
         }
@@ -246,7 +246,7 @@ public class r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36485b;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36974b;
             if (aVar == null) {
                 return null;
             }
@@ -258,9 +258,9 @@ public class r {
                     q qVar = new q();
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     qVar.a = optJSONObject.optInt("id");
-                    qVar.f36480b = optJSONObject.optString("name");
-                    qVar.f36481c = optJSONObject.optInt("mapsize");
-                    qVar.f36482d = optJSONObject.optInt("cty");
+                    qVar.f36969b = optJSONObject.optString("name");
+                    qVar.f36970c = optJSONObject.optInt("mapsize");
+                    qVar.f36971d = optJSONObject.optInt("cty");
                     if (optJSONObject.has("child")) {
                         JSONArray optJSONArray2 = optJSONObject.optJSONArray("child");
                         ArrayList<q> arrayList2 = new ArrayList<>();
@@ -268,9 +268,9 @@ public class r {
                             q qVar2 = new q();
                             JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
                             qVar2.a = optJSONObject2.optInt("id");
-                            qVar2.f36480b = optJSONObject2.optString("name");
-                            qVar2.f36481c = optJSONObject2.optInt("mapsize");
-                            qVar2.f36482d = optJSONObject2.optInt("cty");
+                            qVar2.f36969b = optJSONObject2.optString("name");
+                            qVar2.f36970c = optJSONObject2.optInt("mapsize");
+                            qVar2.f36971d = optJSONObject2.optInt("cty");
                             arrayList2.add(qVar2);
                         }
                         qVar.a(arrayList2);
@@ -290,7 +290,7 @@ public class r {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36485b;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36974b;
             if (aVar == null || i2 < 0) {
                 return false;
             }
@@ -303,7 +303,7 @@ public class r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36485b;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36974b;
             ArrayList<q> arrayList = null;
             if (aVar == null) {
                 return null;
@@ -319,9 +319,9 @@ public class r {
                     int optInt = optJSONObject.optInt("id");
                     if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
                         qVar.a = optInt;
-                        qVar.f36480b = optJSONObject.optString("name");
-                        qVar.f36481c = optJSONObject.optInt("mapsize");
-                        qVar.f36482d = optJSONObject.optInt("cty");
+                        qVar.f36969b = optJSONObject.optString("name");
+                        qVar.f36970c = optJSONObject.optInt("mapsize");
+                        qVar.f36971d = optJSONObject.optInt("cty");
                         if (optJSONObject.has("child")) {
                             JSONArray optJSONArray2 = optJSONObject.optJSONArray("child");
                             ArrayList<q> arrayList3 = new ArrayList<>();
@@ -330,9 +330,9 @@ public class r {
                                 JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
                                 try {
                                     qVar2.a = optJSONObject2.optInt("id");
-                                    qVar2.f36480b = optJSONObject2.optString("name");
-                                    qVar2.f36481c = optJSONObject2.optInt("mapsize");
-                                    qVar2.f36482d = optJSONObject2.optInt("cty");
+                                    qVar2.f36969b = optJSONObject2.optString("name");
+                                    qVar2.f36970c = optJSONObject2.optInt("mapsize");
+                                    qVar2.f36971d = optJSONObject2.optInt("cty");
                                     arrayList3.add(qVar2);
                                 } catch (JSONException unused) {
                                     return null;
@@ -361,7 +361,7 @@ public class r {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36485b;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36974b;
             if (aVar == null) {
                 return false;
             }
@@ -375,7 +375,7 @@ public class r {
         String l;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36485b;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36974b;
             if (aVar != null && (l = aVar.l()) != null && !l.equals("")) {
                 ArrayList<u> arrayList = new ArrayList<>();
                 try {
@@ -389,22 +389,22 @@ public class r {
                         t tVar = new t();
                         JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                         tVar.a = optJSONObject.optInt("id");
-                        tVar.f36488b = optJSONObject.optString("name");
-                        tVar.f36489c = optJSONObject.optString("pinyin");
-                        tVar.f36494h = optJSONObject.optInt("mapoldsize");
-                        tVar.f36495i = optJSONObject.optInt("ratio");
+                        tVar.f36977b = optJSONObject.optString("name");
+                        tVar.f36978c = optJSONObject.optString("pinyin");
+                        tVar.f36983h = optJSONObject.optInt("mapoldsize");
+                        tVar.f36984i = optJSONObject.optInt("ratio");
                         tVar.l = optJSONObject.optInt("status");
-                        tVar.f36493g = new GeoPoint(optJSONObject.optInt("y"), optJSONObject.optInt("x"));
+                        tVar.f36982g = new GeoPoint(optJSONObject.optInt("y"), optJSONObject.optInt("x"));
                         boolean z = true;
                         if (optJSONObject.optInt("up") != 1) {
                             z = false;
                         }
-                        tVar.f36496j = z;
-                        tVar.f36491e = optJSONObject.optInt("lev");
-                        if (tVar.f36496j) {
-                            tVar.f36497k = optJSONObject.optInt("mapsize");
+                        tVar.f36985j = z;
+                        tVar.f36980e = optJSONObject.optInt("lev");
+                        if (tVar.f36985j) {
+                            tVar.f36986k = optJSONObject.optInt("mapsize");
                         } else {
-                            tVar.f36497k = 0;
+                            tVar.f36986k = 0;
                         }
                         uVar.a(tVar);
                         arrayList.add(uVar);
@@ -423,7 +423,7 @@ public class r {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36485b;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36974b;
             if (aVar == null || i2 < 0) {
                 return false;
             }
@@ -436,11 +436,11 @@ public class r {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            if (this.f36485b == null || i2 < 0) {
+            if (this.f36974b == null || i2 < 0) {
                 return false;
             }
             if (i2 <= 2000 || i2 == 2912 || i2 == 2911 || i2 == 9000) {
-                return this.f36485b.a(i2, false);
+                return this.f36974b.a(i2, false);
             }
             return false;
         }
@@ -452,7 +452,7 @@ public class r {
         String e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36485b;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36974b;
             if (aVar != null && i2 >= 0 && (e2 = aVar.e(i2)) != null && !e2.equals("")) {
                 u uVar = new u();
                 t tVar = new t();
@@ -464,25 +464,25 @@ public class r {
                     int optInt = jSONObject.optInt("id");
                     if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
                         tVar.a = optInt;
-                        tVar.f36488b = jSONObject.optString("name");
-                        tVar.f36489c = jSONObject.optString("pinyin");
-                        tVar.f36490d = jSONObject.optString("headchar");
-                        tVar.f36494h = jSONObject.optInt("mapoldsize");
-                        tVar.f36495i = jSONObject.optInt("ratio");
+                        tVar.f36977b = jSONObject.optString("name");
+                        tVar.f36978c = jSONObject.optString("pinyin");
+                        tVar.f36979d = jSONObject.optString("headchar");
+                        tVar.f36983h = jSONObject.optInt("mapoldsize");
+                        tVar.f36984i = jSONObject.optInt("ratio");
                         tVar.l = jSONObject.optInt("status");
-                        tVar.f36493g = new GeoPoint(jSONObject.optInt("y"), jSONObject.optInt("x"));
+                        tVar.f36982g = new GeoPoint(jSONObject.optInt("y"), jSONObject.optInt("x"));
                         boolean z = true;
                         if (jSONObject.optInt("up") != 1) {
                             z = false;
                         }
-                        tVar.f36496j = z;
-                        tVar.f36491e = jSONObject.optInt("lev");
-                        if (tVar.f36496j) {
-                            tVar.f36497k = jSONObject.optInt("mapsize");
+                        tVar.f36985j = z;
+                        tVar.f36980e = jSONObject.optInt("lev");
+                        if (tVar.f36985j) {
+                            tVar.f36986k = jSONObject.optInt("mapsize");
                         } else {
-                            tVar.f36497k = 0;
+                            tVar.f36986k = 0;
                         }
-                        tVar.f36492f = jSONObject.optInt("ver");
+                        tVar.f36981f = jSONObject.optInt("ver");
                         uVar.a(tVar);
                         return uVar;
                     }

@@ -27,15 +27,15 @@ import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.ad.sdk.internal.api.utils.NumberUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class k extends q<TTNativeAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final FunNativeAdListenerHelper<TTNativeAd, TTNativeAd.AdInteractionListener> f28636i;
+    public final FunNativeAdListenerHelper<TTNativeAd, TTNativeAd.AdInteractionListener> f29006i;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements TTAdNative.NativeAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,14 +83,14 @@ public class k extends q<TTNativeAd> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements TTNativeAd.AdInteractionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final TTNativeAd a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ k f28637b;
+        public final /* synthetic */ k f29007b;
 
         public b(k kVar, TTNativeAd tTNativeAd) {
             Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class k extends q<TTNativeAd> {
                     return;
                 }
             }
-            this.f28637b = kVar;
+            this.f29007b = kVar;
             this.a = tTNativeAd;
         }
 
@@ -116,7 +116,7 @@ public class k extends q<TTNativeAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, view, tTNativeAd) == null) {
                 LogPrinter.d();
-                this.f28637b.f28636i.onAdClick(this.a);
+                this.f29007b.f29006i.onAdClick(this.a);
             }
         }
 
@@ -125,7 +125,7 @@ public class k extends q<TTNativeAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, tTNativeAd) == null) {
                 LogPrinter.d();
-                this.f28637b.f28636i.onAdClick(this.a);
+                this.f29007b.f29006i.onAdClick(this.a);
             }
         }
 
@@ -134,7 +134,7 @@ public class k extends q<TTNativeAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
                 LogPrinter.d();
-                this.f28637b.f28636i.onAdShow(this.a);
+                this.f29007b.f29006i.onAdShow(this.a);
             }
         }
     }
@@ -158,7 +158,7 @@ public class k extends q<TTNativeAd> {
                 return;
             }
         }
-        this.f28636i = new FunNativeAdListenerHelper<>(this);
+        this.f29006i = new FunNativeAdListenerHelper<>(this);
     }
 
     public void b(Activity activity, TTNativeAd tTNativeAd, ViewGroup viewGroup, com.fun.module.csj.e0 e0Var, TTNativeAd.AdInteractionListener adInteractionListener) {
@@ -176,7 +176,7 @@ public class k extends q<TTNativeAd> {
             if (viewGroup instanceof FunNativeView) {
                 viewGroup = ((FunNativeView) viewGroup).getRoot();
             }
-            this.f28636i.startShow(tTNativeAd, str, this.mPid, adInteractionListener, funAdInteractionListener);
+            this.f29006i.startShow(tTNativeAd, str, this.mPid, adInteractionListener, funAdInteractionListener);
             if (context instanceof Activity) {
                 tTNativeAd.setActivityForDownloadApp((Activity) context);
             }
@@ -195,7 +195,7 @@ public class k extends q<TTNativeAd> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, funAdSlot) == null) {
             AdSlot.Builder downloadType = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType);
             Ssp.Pid pid = this.mPid;
-            this.f28662h.loadNativeAd(downloadType.setImageAcceptedSize(pid.width, pid.height).setNativeAdType(1).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
+            this.f29032h.loadNativeAd(downloadType.setImageAcceptedSize(pid.width, pid.height).setNativeAdType(1).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
         }
     }
 
@@ -203,7 +203,7 @@ public class k extends q<TTNativeAd> {
     public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            this.f28636i.destroy((TTNativeAd) obj);
+            this.f29006i.destroy((TTNativeAd) obj);
         }
     }
 

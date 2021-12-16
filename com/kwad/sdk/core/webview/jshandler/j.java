@@ -15,40 +15,40 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final WebView f58026b;
+    public final WebView f58607b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.c f58027c;
+    public com.kwad.sdk.core.webview.kwai.c f58608c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public b f58028d;
+    public b f58609d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58029e;
+    public boolean f58610e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58031b;
+        public int f58612b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f58032c;
+        public int f58613c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f58033d;
+        public int f58614d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -71,9 +71,9 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
                 return;
             }
             this.a = jSONObject.optInt("height");
-            this.f58031b = jSONObject.optInt("leftMargin");
-            this.f58032c = jSONObject.optInt("rightMargin");
-            this.f58033d = jSONObject.optInt("bottomMargin");
+            this.f58612b = jSONObject.optInt("leftMargin");
+            this.f58613c = jSONObject.optInt("rightMargin");
+            this.f58614d = jSONObject.optInt("bottomMargin");
         }
 
         @Override // com.kwad.sdk.core.b
@@ -83,16 +83,16 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 com.kwad.sdk.utils.t.a(jSONObject, "height", this.a);
-                com.kwad.sdk.utils.t.a(jSONObject, "leftMargin", this.f58031b);
-                com.kwad.sdk.utils.t.a(jSONObject, "rightMargin", this.f58032c);
-                com.kwad.sdk.utils.t.a(jSONObject, "bottomMargin", this.f58033d);
+                com.kwad.sdk.utils.t.a(jSONObject, "leftMargin", this.f58612b);
+                com.kwad.sdk.utils.t.a(jSONObject, "rightMargin", this.f58613c);
+                com.kwad.sdk.utils.t.a(jSONObject, "bottomMargin", this.f58614d);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         @MainThread
         void a(@NonNull a aVar);
@@ -134,11 +134,11 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
                 return;
             }
         }
-        this.f58029e = true;
+        this.f58610e = true;
         this.a = new Handler(Looper.getMainLooper());
-        this.f58026b = aVar.f57958e;
-        this.f58028d = bVar;
-        this.f58029e = z;
+        this.f58607b = aVar.f58539e;
+        this.f58609d = bVar;
+        this.f58610e = z;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
@@ -153,7 +153,7 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.f58027c = cVar;
+            this.f58608c = cVar;
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 a aVar = new a();
@@ -164,7 +164,7 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
                     public final /* synthetic */ a a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ j f58030b;
+                    public final /* synthetic */ j f58611b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -181,7 +181,7 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
                                 return;
                             }
                         }
-                        this.f58030b = this;
+                        this.f58611b = this;
                         this.a = aVar;
                     }
 
@@ -189,18 +189,18 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (this.f58030b.f58026b != null && this.f58030b.f58029e) {
-                                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f58030b.f58026b.getLayoutParams();
+                            if (this.f58611b.f58607b != null && this.f58611b.f58610e) {
+                                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f58611b.f58607b.getLayoutParams();
                                 marginLayoutParams.width = -1;
                                 a aVar2 = this.a;
                                 marginLayoutParams.height = aVar2.a;
-                                marginLayoutParams.leftMargin = aVar2.f58031b;
-                                marginLayoutParams.rightMargin = aVar2.f58032c;
-                                marginLayoutParams.bottomMargin = aVar2.f58033d;
-                                this.f58030b.f58026b.setLayoutParams(marginLayoutParams);
+                                marginLayoutParams.leftMargin = aVar2.f58612b;
+                                marginLayoutParams.rightMargin = aVar2.f58613c;
+                                marginLayoutParams.bottomMargin = aVar2.f58614d;
+                                this.f58611b.f58607b.setLayoutParams(marginLayoutParams);
                             }
-                            if (this.f58030b.f58028d != null) {
-                                this.f58030b.f58028d.a(this.a);
+                            if (this.f58611b.f58609d != null) {
+                                this.f58611b.f58609d.a(this.a);
                             }
                         }
                     }
@@ -231,10 +231,10 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.f58027c == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.f58608c == null) {
                             return;
                         }
-                        this.a.f58027c.a(null);
+                        this.a.f58608c.a(null);
                     }
                 });
             } catch (JSONException e2) {
@@ -248,8 +248,8 @@ public class j implements com.kwad.sdk.core.webview.kwai.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f58027c = null;
-            this.f58028d = null;
+            this.f58608c = null;
+            this.f58609d = null;
             this.a.removeCallbacksAndMessages(null);
         }
     }

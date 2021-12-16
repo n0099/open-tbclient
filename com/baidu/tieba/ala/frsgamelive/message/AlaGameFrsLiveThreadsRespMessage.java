@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.frsgamelive.message;
 
 import c.a.d.m.e.n;
-import c.a.q0.s.q.d2;
-import c.a.r0.a0.g.b.c;
+import c.a.r0.s.r.d2;
+import c.a.s0.a0.g.b.c;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                         c cVar = new c();
                         d2 d2Var = new d2();
                         d2Var.b3(optJSONObject2);
-                        cVar.f14286e = d2Var;
+                        cVar.f14626e = d2Var;
                         this.liveList.add(cVar);
                     }
                 }
@@ -79,7 +79,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                         c cVar2 = new c();
                         d2 d2Var2 = new d2();
                         d2Var2.b3(optJSONObject3);
-                        cVar2.f14286e = d2Var2;
+                        cVar2.f14626e = d2Var2;
                         this.recommandList.add(cVar2);
                     }
                 }

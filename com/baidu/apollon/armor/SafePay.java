@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SafePay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INPUT_ID_CVV = 2;
@@ -27,13 +27,13 @@ public final class SafePay {
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f32879b = "SafePay";
+    public static final String f33249b = "SafePay";
 
     /* renamed from: c  reason: collision with root package name */
-    public static SafePay f32880c = null;
+    public static SafePay f33250c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f32881d = true;
+    public static boolean f33251d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,7 +52,7 @@ public final class SafePay {
         try {
             System.loadLibrary("bd_wsp_v1_1");
         } catch (UnsatisfiedLinkError e2) {
-            f32881d = false;
+            f33251d = false;
             String str = "load library failed, " + e2.getMessage();
         }
     }
@@ -77,15 +77,15 @@ public final class SafePay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (SafePay.class) {
-                if (f32880c == null) {
+                if (f33250c == null) {
                     SafePay safePay2 = new SafePay();
-                    f32880c = safePay2;
+                    f33250c = safePay2;
                     try {
                         safePay2.init();
                     } catch (Throwable unused) {
                     }
                 }
-                safePay = f32880c;
+                safePay = f33250c;
             }
             return safePay;
         }
@@ -221,7 +221,7 @@ public final class SafePay {
     public boolean prepareCompleted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? f32881d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? f33251d : invokeV.booleanValue;
     }
 
     public native String rsaDecrypt(String str);

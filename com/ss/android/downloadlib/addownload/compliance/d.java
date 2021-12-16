@@ -23,18 +23,18 @@ import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends h<Long, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<Long, SoftReference<a>> a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static d a;
@@ -124,13 +124,13 @@ public class d extends h<Long, Bitmap> {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ long f61270b;
+                    public final /* synthetic */ long f61851b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ long f61271c;
+                    public final /* synthetic */ long f61852c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ d f61272d;
+                    public final /* synthetic */ d f61853d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -147,10 +147,10 @@ public class d extends h<Long, Bitmap> {
                                 return;
                             }
                         }
-                        this.f61272d = this;
+                        this.f61853d = this;
                         this.a = str;
-                        this.f61270b = j3;
-                        this.f61271c = j2;
+                        this.f61851b = j3;
+                        this.f61852c = j2;
                     }
 
                     @Override // com.ss.android.downloadlib.g.c.a
@@ -199,8 +199,8 @@ public class d extends h<Long, Bitmap> {
                                     } catch (Exception e3) {
                                         e3.printStackTrace();
                                     }
-                                    com.ss.android.downloadlib.d.a.a().a("ttd_pref_monitor", jSONObject, this.f61270b);
-                                    this.f61272d.put(Long.valueOf(this.f61271c), decodeStream);
+                                    com.ss.android.downloadlib.d.a.a().a("ttd_pref_monitor", jSONObject, this.f61851b);
+                                    this.f61853d.put(Long.valueOf(this.f61852c), decodeStream);
                                     f.a(bufferedInputStream);
                                 } catch (Exception e4) {
                                     e = e4;
@@ -223,7 +223,7 @@ public class d extends h<Long, Bitmap> {
                     public final /* synthetic */ long a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ d f61269b;
+                    public final /* synthetic */ d f61850b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -240,7 +240,7 @@ public class d extends h<Long, Bitmap> {
                                 return;
                             }
                         }
-                        this.f61269b = this;
+                        this.f61850b = this;
                         this.a = j2;
                     }
 
@@ -249,11 +249,11 @@ public class d extends h<Long, Bitmap> {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) {
-                            SoftReference softReference = (SoftReference) this.f61269b.a.remove(Long.valueOf(this.a));
+                            SoftReference softReference = (SoftReference) this.f61850b.a.remove(Long.valueOf(this.a));
                             if (softReference == null || softReference.get() == null) {
                                 return null;
                             }
-                            ((a) softReference.get()).a(this.f61269b.get(Long.valueOf(this.a)));
+                            ((a) softReference.get()).a(this.f61850b.get(Long.valueOf(this.a)));
                             return null;
                         }
                         return invokeL.objValue;

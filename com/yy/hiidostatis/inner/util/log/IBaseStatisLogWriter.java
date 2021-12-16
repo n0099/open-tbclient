@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.inner.util.log;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IBaseStatisLogWriter {
     public static final int TYPE_DEBUG = 1;
     public static final int TYPE_ERROR = 4;

@@ -1,205 +1,80 @@
 package c.a.q0.g;
 
-import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.j;
-import c.a.d.f.p.l;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.util.CheckBaiduSimResponseMessage;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class a {
-    public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static a f12269d;
+/* loaded from: classes6.dex */
+public final class a {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int abc_fade_in = 2130771968;
+    public static final int abc_fade_out = 2130771969;
+    public static final int abc_grow_fade_in_from_bottom = 2130771970;
+    public static final int abc_popup_enter = 2130771971;
+    public static final int abc_popup_exit = 2130771972;
+    public static final int abc_shrink_fade_out_from_bottom = 2130771973;
+    public static final int abc_slide_in_bottom = 2130771974;
+    public static final int abc_slide_in_top = 2130771975;
+    public static final int abc_slide_out_bottom = 2130771976;
+    public static final int abc_slide_out_top = 2130771977;
+    public static final int abc_tooltip_enter = 2130771978;
+    public static final int abc_tooltip_exit = 2130771979;
+    public static final int aiapp_menu_popupwindow_grow_fade_in = 2130771984;
+    public static final int aiapp_menu_popupwindow_grow_fade_in_from_bottom = 2130771985;
+    public static final int aiapp_menu_popupwindow_shrink_fade_out = 2130771986;
+    public static final int aiapp_menu_popupwindow_shrink_fade_out_from_bottom = 2130771987;
+    public static final int aiapps_accelerate_quad = 2130771988;
+    public static final int aiapps_action_sheet_enter = 2130771989;
+    public static final int aiapps_action_sheet_exit = 2130771990;
+    public static final int aiapps_big_pic_toast_enter = 2130771991;
+    public static final int aiapps_big_pic_toast_exit = 2130771992;
+    public static final int aiapps_brower_menu_close = 2130771993;
+    public static final int aiapps_brower_menu_open = 2130771994;
+    public static final int aiapps_highlight_toast_show = 2130771995;
+    public static final int aiapps_highlight_toast_show_d20 = 2130771996;
+    public static final int aiapps_hold = 2130771997;
+    public static final int aiapps_loading_progress = 2130771998;
+    public static final int aiapps_pop_window_dismiss_anim = 2130771999;
+    public static final int aiapps_pop_window_show_anim = 2130772000;
+    public static final int aiapps_slide_in_from_right = 2130772003;
+    public static final int aiapps_slide_out_to_bottom = 2130772004;
+    public static final int aiapps_slide_out_to_right = 2130772006;
+    public static final int aiapps_slide_out_to_right_zadjustment_top = 2130772007;
+    public static final int aiapps_toast_enter = 2130772008;
+    public static final int aiapps_toast_exit = 2130772009;
+    public static final int aiapps_update_loading_progressbar_anim = 2130772010;
+    public static final int aiapps_wx_pay_loading_anim = 2130772011;
+    public static final int btn_checkbox_to_checked_box_inner_merged_animation = 2130772036;
+    public static final int btn_checkbox_to_checked_box_outer_merged_animation = 2130772037;
+    public static final int btn_checkbox_to_checked_icon_null_animation = 2130772038;
+    public static final int btn_checkbox_to_unchecked_box_inner_merged_animation = 2130772039;
+    public static final int btn_checkbox_to_unchecked_check_path_merged_animation = 2130772041;
+    public static final int btn_checkbox_to_unchecked_icon_null_animation = 2130772042;
+    public static final int btn_radio_to_off_mtrl_dot_group_animation = 2130772043;
+    public static final int btn_radio_to_off_mtrl_ring_outer_animation = 2130772044;
+    public static final int btn_radio_to_off_mtrl_ring_outer_path_animation = 2130772045;
+    public static final int btn_radio_to_on_mtrl_dot_group_animation = 2130772046;
+    public static final int btn_radio_to_on_mtrl_ring_outer_animation = 2130772047;
+    public static final int btn_radio_to_on_mtrl_ring_outer_path_animation = 2130772048;
+    public static final int loading_rotate = 2130772132;
+    public static final int ng_game_ad_close = 2130772155;
+    public static final int ng_game_ad_open = 2130772156;
+    public static final int poly_sdk_common_dialog_fragment_in = 2130772211;
+    public static final int poly_sdk_common_dialog_fragment_out = 2130772212;
+    public static final int popupwindow_grow_fade_in = 2130772217;
+    public static final int popupwindow_grow_fade_in_from_bottom = 2130772218;
+    public static final int popupwindow_shrink_fade_out = 2130772219;
+    public static final int popupwindow_shrink_fade_out_from_bottom = 2130772220;
+    public static final int slide_in_bottom = 2130772278;
+    public static final int slide_left_2_right = 2130772279;
+    public static final int slide_out_bottom = 2130772280;
+    public static final int slide_right_2_left = 2130772281;
+    public static final int swanapp_album_checkshake = 2130772294;
+    public static final int swanapp_album_floating_layer_in_animation = 2130772295;
+    public static final int swanapp_album_floating_layer_out_animation = 2130772296;
+    public static final int swanapp_album_preview_enter = 2130772297;
+    public static final int swanapp_album_preview_img_enter = 2130772298;
+    public static final int swanapp_album_preview_img_exit = 2130772299;
+    public static final int swanapp_album_rotate_loading = 2130772300;
+    public static final int swanapp_album_slide_bottom_in = 2130772301;
+    public static final int swanapp_album_slide_bottom_out = 2130772302;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomMessageListener a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f12270b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f12271c;
-
-    /* renamed from: c.a.q0.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C0779a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0779a(a aVar, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && l.C() && j.x()) {
-                this.a.c();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(a aVar, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003392 && (httpResponsedMessage instanceof CheckBaiduSimResponseMessage)) {
-                this.a.f12270b = false;
-                CheckBaiduSimResponseMessage checkBaiduSimResponseMessage = (CheckBaiduSimResponseMessage) httpResponsedMessage;
-                if (checkBaiduSimResponseMessage.isSuc) {
-                    c.a.q0.s.e0.b.j().x("key_baidu_sim_card_writting_tip", checkBaiduSimResponseMessage.isBaiduSim ? TbadkCoreApplication.getInst().getResources().getString(R.string.baidu_sim_traffic_free) : "");
-                    MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1522667860, "Lc/a/q0/g/a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1522667860, "Lc/a/q0/g/a;");
-        }
-    }
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new C0779a(this, 2000994);
-        this.f12270b = false;
-        this.f12271c = new b(this, CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
-    }
-
-    public static a d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f12269d == null) {
-                f12269d = new a();
-            }
-            return f12269d;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && !this.f12270b) {
-            this.f12270b = true;
-            if (System.currentTimeMillis() >= c.a.q0.s.e0.b.j().l("key_next_check_baidu_sim_time", 0L)) {
-                c.a.q0.s.e0.b.j().w("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
-                TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
-                tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
-                MessageManager.getInstance().registerTask(tbHttpMessageTask);
-                MessageManager.getInstance().registerListener(this.f12271c);
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
-                httpMessage.addParam("localip", UtilHelper.getGprsIpv4Address());
-                httpMessage.addParam("network", e());
-                MessageManager.getInstance().sendMessage(httpMessage);
-                return;
-            }
-            this.f12270b = false;
-        }
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int f2 = j.f();
-            return f2 != 1 ? f2 != 2 ? f2 != 3 ? RomUtils.UNKNOWN : "TELECOM" : "UNICOM" : "MOBILE";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.a);
-        }
-    }
 }

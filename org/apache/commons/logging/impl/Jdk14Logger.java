@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.logging.Log;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Jdk14Logger implements Log, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Level dummyLevel = null;

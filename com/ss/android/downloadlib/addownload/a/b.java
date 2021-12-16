@@ -12,7 +12,7 @@ import com.ss.android.downloadlib.addownload.j;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class b {
             while (it.hasNext()) {
                 com.ss.android.downloadlib.addownload.b.a next = it.next();
                 if (next != null) {
-                    jSONObject.put(String.valueOf(next.f61193b), next.a());
+                    jSONObject.put(String.valueOf(next.f61774b), next.a());
                 }
             }
         } catch (Exception e2) {

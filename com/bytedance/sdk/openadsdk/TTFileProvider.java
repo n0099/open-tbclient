@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.api.plugin.f;
 import com.bytedance.sdk.openadsdk.api.plugin.g;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class TTFileProvider extends FileProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

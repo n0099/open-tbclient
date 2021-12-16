@@ -9,31 +9,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwai.adclient.kscommerciallogger.kwai.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwai.adclient.kscommerciallogger.kwai.b f59834b;
+    public com.kwai.adclient.kscommerciallogger.kwai.b f60415b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f59835c;
+    public JSONObject f60416c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f59836d;
+    public boolean f60417d;
 
     /* renamed from: com.kwai.adclient.kscommerciallogger.a$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.kwai.adclient.kscommerciallogger.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static final class C2067a {
+    /* loaded from: classes3.dex */
+    public static final class C2128a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class a {
                 return;
             }
         }
-        this.f59836d = false;
+        this.f60417d = false;
     }
 
     public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
@@ -74,7 +74,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2067a.a() : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2128a.a() : (a) invokeV.objValue;
     }
 
     private void b(@NonNull com.kwai.adclient.kscommerciallogger.model.a aVar) {
@@ -98,9 +98,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{aVar, bVar, jSONObject, Boolean.valueOf(z)}) == null) {
             this.a = aVar;
-            this.f59834b = bVar;
-            this.f59835c = jSONObject;
-            this.f59836d = z;
+            this.f60415b = bVar;
+            this.f60416c = jSONObject;
+            this.f60417d = z;
         }
     }
 
@@ -108,7 +108,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             b(aVar);
-            com.kwai.adclient.kscommerciallogger.kwai.b bVar = this.f59834b;
+            com.kwai.adclient.kscommerciallogger.kwai.b bVar = this.f60415b;
             if (bVar != null) {
                 bVar.a(aVar.a(), aVar.toString());
             }
@@ -118,12 +118,12 @@ public class a {
     public JSONObject b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59835c : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60416c : (JSONObject) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59836d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60417d : invokeV.booleanValue;
     }
 }

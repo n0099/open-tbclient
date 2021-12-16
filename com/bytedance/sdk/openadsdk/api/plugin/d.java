@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.download.PluginDownloadBean;
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class d extends PluginDownloadBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f54750b;
+    public File f55330b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class d extends PluginDownloadBean {
             }
         }
         this.a = "";
-        this.f54750b = null;
+        this.f55330b = null;
         this.mOrder = 0;
         this.isOffline = false;
         this.isWifiOnly = true;

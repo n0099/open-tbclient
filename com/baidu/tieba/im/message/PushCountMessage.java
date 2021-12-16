@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.CommitPusherCount.CommitPusherCountReqIdl;
 import protobuf.CommitPusherCount.DataReq;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PushCountMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

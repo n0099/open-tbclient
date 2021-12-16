@@ -4,41 +4,41 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27398b;
+    public int f27773b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27399c;
+    public int f27774c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27400d;
+    public int f27775d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27401e;
+    public int f27776e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27402f;
+    public int f27777f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27403g;
+    public int f27778g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27404h;
+    public boolean f27779h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f27405i;
+    public boolean f27780i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f27406j;
+    public boolean f27781j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f27407k;
+    public boolean f27782k;
     public int l;
     public int m;
     public boolean n;
@@ -66,16 +66,16 @@ public class b {
             }
         }
         this.a = 8;
-        this.f27398b = 8;
-        this.f27399c = 8;
-        this.f27400d = 0;
-        this.f27401e = 16;
-        this.f27402f = 0;
-        this.f27403g = 0;
-        this.f27404h = true;
-        this.f27405i = false;
-        this.f27406j = true;
-        this.f27407k = false;
+        this.f27773b = 8;
+        this.f27774c = 8;
+        this.f27775d = 0;
+        this.f27776e = 16;
+        this.f27777f = 0;
+        this.f27778g = 0;
+        this.f27779h = true;
+        this.f27780i = false;
+        this.f27781j = true;
+        this.f27782k = false;
         this.l = 1;
         this.m = 0;
         this.n = false;

@@ -2,8 +2,8 @@ package com.baidu.tieba.ala.alasquare.live.message;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.d.l;
-import c.a.r0.a0.f.a.d;
-import c.a.r0.a0.f.b.b.a;
+import c.a.s0.a0.f.a.d;
+import c.a.s0.a0.f.b.b.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.ala.AlaCmdConfigSocket;
@@ -20,7 +20,7 @@ import tbclient.LiveSquare.DataRes;
 import tbclient.LiveSquare.FunctionListInfo;
 import tbclient.LiveSquare.HeadLiveInfo;
 import tbclient.LiveSquare.LiveSquareResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaSquareLiveSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

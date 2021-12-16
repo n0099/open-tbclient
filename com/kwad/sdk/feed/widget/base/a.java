@@ -22,7 +22,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.KSFrameLayout;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a extends KSFrameLayout implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener, d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,21 +30,21 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f58528b;
+    public AdTemplate f59109b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f58529c;
+    public AdInfo f59110c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC2042a f58530d;
+    public InterfaceC2103a f59111d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f58531e;
+    public Context f59112e;
 
     /* renamed from: com.kwad.sdk.feed.widget.base.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC2042a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC2103a {
         void a();
 
         void b();
@@ -117,7 +117,7 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
                 return;
             }
         }
-        this.f58531e = context;
+        this.f59112e = context;
         d();
     }
 
@@ -129,7 +129,7 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
                 b2 = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
                 viewGroup.addView(b2);
             }
-            b2.setViewCallback(new a.InterfaceC2024a(this) { // from class: com.kwad.sdk.feed.widget.base.a.1
+            b2.setViewCallback(new a.InterfaceC2085a(this) { // from class: com.kwad.sdk.feed.widget.base.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
@@ -152,14 +152,14 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
                     this.a = this;
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC2024a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC2085a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     }
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC2024a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC2085a
                 public void a(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
@@ -167,14 +167,14 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
                     }
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC2024a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC2085a
                 public void a(boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                     }
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC2024a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC2085a
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
@@ -203,7 +203,7 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            FrameLayout.inflate(this.f58531e, getLayoutId(), this);
+            FrameLayout.inflate(this.f59112e, getLayoutId(), this);
             setRatio(getHWRatio());
             c();
             this.a = new f(this, 70);
@@ -224,8 +224,8 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
     public void a(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            this.f58528b = adTemplate;
-            this.f58529c = com.kwad.sdk.core.response.a.d.j(adTemplate);
+            this.f59109b = adTemplate;
+            this.f59110c = com.kwad.sdk.core.response.a.d.j(adTemplate);
         }
     }
 
@@ -266,71 +266,71 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
     public abstract int getLayoutId();
 
     public void j() {
-        InterfaceC2042a interfaceC2042a;
+        InterfaceC2103a interfaceC2103a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (!this.f58528b.mPvReported && (interfaceC2042a = this.f58530d) != null) {
-                interfaceC2042a.b();
+            if (!this.f59109b.mPvReported && (interfaceC2103a = this.f59111d) != null) {
+                interfaceC2103a.b();
             }
-            com.kwad.sdk.core.report.a.a(this.f58528b, (JSONObject) null);
+            com.kwad.sdk.core.report.a.a(this.f59109b, (JSONObject) null);
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            com.kwad.sdk.core.report.a.a(this.f58528b, getTouchCoords());
-            InterfaceC2042a interfaceC2042a = this.f58530d;
-            if (interfaceC2042a != null) {
-                interfaceC2042a.a();
+            com.kwad.sdk.core.report.a.a(this.f59109b, getTouchCoords());
+            InterfaceC2103a interfaceC2103a = this.f59111d;
+            if (interfaceC2103a != null) {
+                interfaceC2103a.a();
             }
         }
     }
 
     public void l() {
-        InterfaceC2042a interfaceC2042a;
+        InterfaceC2103a interfaceC2103a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (interfaceC2042a = this.f58530d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (interfaceC2103a = this.f59111d) == null) {
             return;
         }
-        interfaceC2042a.a();
+        interfaceC2103a.a();
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            com.kwad.sdk.core.report.a.a(this.f58528b);
-            InterfaceC2042a interfaceC2042a = this.f58530d;
-            if (interfaceC2042a != null) {
-                interfaceC2042a.c();
+            com.kwad.sdk.core.report.a.a(this.f59109b);
+            InterfaceC2103a interfaceC2103a = this.f59111d;
+            if (interfaceC2103a != null) {
+                interfaceC2103a.c();
             }
         }
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        InterfaceC2042a interfaceC2042a;
+        InterfaceC2103a interfaceC2103a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, dialogInterface) == null) || (interfaceC2042a = this.f58530d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, dialogInterface) == null) || (interfaceC2103a = this.f59111d) == null) {
             return;
         }
-        interfaceC2042a.e();
+        interfaceC2103a.e();
     }
 
     @Override // android.content.DialogInterface.OnShowListener
     public void onShow(DialogInterface dialogInterface) {
-        InterfaceC2042a interfaceC2042a;
+        InterfaceC2103a interfaceC2103a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, dialogInterface) == null) || (interfaceC2042a = this.f58530d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, dialogInterface) == null) || (interfaceC2103a = this.f59111d) == null) {
             return;
         }
-        interfaceC2042a.d();
+        interfaceC2103a.d();
     }
 
-    public void setInnerAdInteractionListener(InterfaceC2042a interfaceC2042a) {
+    public void setInnerAdInteractionListener(InterfaceC2103a interfaceC2103a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, interfaceC2042a) == null) {
-            this.f58530d = interfaceC2042a;
+        if (interceptable == null || interceptable.invokeL(1048590, this, interfaceC2103a) == null) {
+            this.f59111d = interfaceC2103a;
         }
     }
 

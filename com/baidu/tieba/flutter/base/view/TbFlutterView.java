@@ -12,7 +12,7 @@ import com.idlefish.flutterboost.FlutterBoost;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import java.lang.reflect.Field;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class TbFlutterView extends FlutterView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

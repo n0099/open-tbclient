@@ -24,13 +24,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.r.a.a.j;
-import c.a.p0.r.a.a.l;
-import c.a.p0.r.a.a.m;
-import c.a.p0.r.a.a.n;
-import c.a.p0.r.a.a.r;
-import c.a.p0.r.a.c.c;
-import c.a.p0.r.a.c.f;
+import c.a.q0.r.a.a.j;
+import c.a.q0.r.a.a.l;
+import c.a.q0.r.a.a.m;
+import c.a.q0.r.a.a.n;
+import c.a.q0.r.a.a.r;
+import c.a.q0.r.a.c.c;
+import c.a.q0.r.a.c.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -43,7 +43,7 @@ import com.bumptech.glide.load.engine.GlideException;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuListener {
     public static /* synthetic */ Interceptable $ic;
     public static final f<String, Class<?>> d0;
@@ -80,25 +80,25 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public SharedElementCallback c0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40705e;
+    public int f41194e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f40706f;
+    public View f41195f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40707g;
+    public int f41196g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bundle f40708h;
+    public Bundle f41197h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SparseArray<Parcelable> f40709i;
+    public SparseArray<Parcelable> f41198i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f40710j;
+    public int f41199j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f40711k;
+    public String f41200k;
     public Bundle l;
     public Fragment m;
     public int n;
@@ -115,7 +115,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public n y;
     public Fragment z;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class InstantiationException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +142,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a extends j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             this.a = fragment;
         }
 
-        @Override // c.a.p0.r.a.a.j
+        @Override // c.a.q0.r.a.a.j
         @Nullable
         public View a(int i2) {
             InterceptResult invokeI;
@@ -181,7 +181,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             return (View) invokeI.objValue;
         }
 
-        @Override // c.a.p0.r.a.a.j
+        @Override // c.a.q0.r.a.a.j
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -219,8 +219,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 return;
             }
         }
-        this.f40705e = 0;
-        this.f40710j = -1;
+        this.f41194e = 0;
+        this.f41199j = -1;
         this.n = -1;
         this.I = true;
         this.P = true;
@@ -312,7 +312,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             u();
             n nVar = this.y;
             nVar.J();
-            c.a.p0.r.a.d.a.a(n, nVar);
+            c.a.q0.r.a.d.a.a(n, nVar);
             return n;
         }
         return (LayoutInflater) invokeL.objValue;
@@ -706,7 +706,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 this.R = false;
                 if (!this.S) {
                     this.S = true;
-                    this.Q = this.x.i(this.f40711k, false, false);
+                    this.Q = this.x.i(this.f41200k, false, false);
                 }
                 r rVar = this.Q;
                 if (rVar != null) {
@@ -870,10 +870,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public final void j1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, bundle) == null) {
-            SparseArray<Parcelable> sparseArray = this.f40709i;
+            SparseArray<Parcelable> sparseArray = this.f41198i;
             if (sparseArray != null) {
                 this.N.restoreHierarchyState(sparseArray);
-                this.f40709i = null;
+                this.f41198i = null;
             }
             this.J = false;
             Q0(bundle);
@@ -887,7 +887,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void k1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, bundle) == null) {
-            if (this.f40710j < 0) {
+            if (this.f41199j < 0) {
                 this.l = bundle;
                 return;
             }
@@ -898,12 +898,12 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public final void l1(int i2, Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048629, this, i2, fragment) == null) {
-            this.f40710j = i2;
+            this.f41199j = i2;
             if (fragment != null) {
-                this.f40711k = fragment.f40711k + ":" + this.f40710j;
+                this.f41200k = fragment.f41200k + ":" + this.f41199j;
                 return;
             }
-            this.f40711k = "android:fragment:" + this.f40710j;
+            this.f41200k = "android:fragment:" + this.f41199j;
         }
     }
 
@@ -925,8 +925,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void n0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
-            this.f40710j = -1;
-            this.f40711k = null;
+            this.f41199j = -1;
+            this.f41200k = null;
             this.p = false;
             this.q = false;
             this.r = false;
@@ -952,7 +952,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void n1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048633, this, z) == null) {
-            if (!this.P && z && this.f40705e < 4) {
+            if (!this.P && z && this.f41194e < 4) {
                 this.w.W(this);
             }
             this.P = z;
@@ -989,7 +989,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             this.J = true;
             if (!this.S) {
                 this.S = true;
-                this.Q = this.x.i(this.f40711k, this.R, false);
+                this.Q = this.x.i(this.f41200k, this.R, false);
             }
             r rVar = this.Q;
             if (rVar != null) {
@@ -1030,7 +1030,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             this.R = true;
             if (!this.S) {
                 this.S = true;
-                this.Q = this.x.i(this.f40711k, true, false);
+                this.Q = this.x.i(this.f41200k, true, false);
             }
             r rVar = this.Q;
             if (rVar != null) {
@@ -1058,11 +1058,11 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             printWriter.println(this.C);
             printWriter.print(str);
             printWriter.print("mState=");
-            printWriter.print(this.f40705e);
+            printWriter.print(this.f41194e);
             printWriter.print(" mIndex=");
-            printWriter.print(this.f40710j);
+            printWriter.print(this.f41199j);
             printWriter.print(" mWho=");
-            printWriter.print(this.f40711k);
+            printWriter.print(this.f41200k);
             printWriter.print(" mBackStackNesting=");
             printWriter.println(this.v);
             printWriter.print(str);
@@ -1112,15 +1112,15 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 printWriter.print("mArguments=");
                 printWriter.println(this.l);
             }
-            if (this.f40708h != null) {
+            if (this.f41197h != null) {
                 printWriter.print(str);
                 printWriter.print("mSavedFragmentState=");
-                printWriter.println(this.f40708h);
+                printWriter.println(this.f41197h);
             }
-            if (this.f40709i != null) {
+            if (this.f41198i != null) {
                 printWriter.print(str);
                 printWriter.print("mSavedViewState=");
-                printWriter.println(this.f40709i);
+                printWriter.println(this.f41198i);
             }
             if (this.m != null) {
                 printWriter.print(str);
@@ -1149,13 +1149,13 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 printWriter.print("mInnerView=");
                 printWriter.println(this.M);
             }
-            if (this.f40706f != null) {
+            if (this.f41195f != null) {
                 printWriter.print(str);
                 printWriter.print("mAnimatingAway=");
-                printWriter.println(this.f40706f);
+                printWriter.println(this.f41195f);
                 printWriter.print(str);
                 printWriter.print("mStateAfterAnimating=");
-                printWriter.println(this.f40707g);
+                printWriter.println(this.f41196g);
             }
             if (this.Q != null) {
                 printWriter.print(str);
@@ -1273,9 +1273,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
             StringBuilder sb = new StringBuilder(128);
             c.a(this, sb);
-            if (this.f40710j >= 0) {
+            if (this.f41199j >= 0) {
                 sb.append(" #");
-                sb.append(this.f40710j);
+                sb.append(this.f41199j);
             }
             if (this.A != 0) {
                 sb.append(" id=0x");
@@ -1297,7 +1297,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (interceptable == null || (invokeV = interceptable.invokeV(1048655, this)) == null) {
             if (this.y == null) {
                 q0();
-                int i2 = this.f40705e;
+                int i2 = this.f41194e;
                 if (i2 >= 5) {
                     this.y.A();
                 } else if (i2 >= 4) {
@@ -1371,14 +1371,14 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class SavedState implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public final Bundle mState;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public static class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

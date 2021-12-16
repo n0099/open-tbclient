@@ -12,14 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements com.kwad.sdk.collector.model.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f57142b;
+    public List<String> f57723b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class c implements com.kwad.sdk.collector.model.d {
                 return;
             }
         }
-        this.f57142b = new ArrayList();
+        this.f57723b = new ArrayList();
     }
 
     public String a() {
@@ -46,7 +46,7 @@ public class c implements com.kwad.sdk.collector.model.d {
     public List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57142b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57723b : (List) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.core.b
@@ -59,10 +59,10 @@ public class c implements com.kwad.sdk.collector.model.d {
             this.a = jSONObject.optString("packageName");
             JSONArray optJSONArray = jSONObject.optJSONArray("paths");
             if (optJSONArray != null) {
-                this.f57142b.clear();
+                this.f57723b.clear();
                 int length = optJSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
-                    this.f57142b.add(optJSONArray.getString(i2));
+                    this.f57723b.add(optJSONArray.getString(i2));
                 }
             }
         } catch (Exception e2) {
@@ -78,7 +78,7 @@ public class c implements com.kwad.sdk.collector.model.d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             t.a(jSONObject, "packageName", this.a);
-            t.a(jSONObject, "paths", this.f57142b);
+            t.a(jSONObject, "paths", this.f57723b);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

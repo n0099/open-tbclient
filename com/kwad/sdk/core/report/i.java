@@ -10,7 +10,7 @@ import com.kwad.sdk.core.report.CommercialAction;
 import com.kwai.adclient.kscommerciallogger.model.BusinessType;
 import com.kwai.adclient.kscommerciallogger.model.a;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class i {
                         d.a(str, str2, "ad_client_error_log".equalsIgnoreCase(str));
                     }
                 }
-            }, null, com.kwad.sdk.b.f57044c.booleanValue());
+            }, null, com.kwad.sdk.b.f57625c.booleanValue());
         }
     }
 
@@ -90,7 +90,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, jSONObject) == null) {
             try {
-                com.kwai.adclient.kscommerciallogger.a.a().a(("ad_client_error_log".equals(str) ? a.C2068a.a() : a.C2068a.b()).a(BusinessType.TACHIKOMA).a(str2).b(str2).a(jSONObject).c());
+                com.kwai.adclient.kscommerciallogger.a.a().a(("ad_client_error_log".equals(str) ? a.C2129a.a() : a.C2129a.b()).a(BusinessType.TACHIKOMA).a(str2).b(str2).a(jSONObject).c());
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.a(th);
                 com.kwad.sdk.core.kwai.a.a(th);

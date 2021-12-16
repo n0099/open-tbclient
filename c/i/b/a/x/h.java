@@ -10,28 +10,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.audio.AudioProcessor;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class h implements AudioProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30422b;
+    public int f30792b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30423c;
+    public int f30793c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30424d;
+    public int f30794d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ByteBuffer f30425e;
+    public ByteBuffer f30795e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ByteBuffer f30426f;
+    public ByteBuffer f30796f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30427g;
+    public boolean f30797g;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -46,12 +46,12 @@ public final class h implements AudioProcessor {
                 return;
             }
         }
-        this.f30422b = -1;
-        this.f30423c = -1;
-        this.f30424d = 0;
+        this.f30792b = -1;
+        this.f30793c = -1;
+        this.f30794d = 0;
         ByteBuffer byteBuffer = AudioProcessor.a;
-        this.f30425e = byteBuffer;
-        this.f30426f = byteBuffer;
+        this.f30795e = byteBuffer;
+        this.f30796f = byteBuffer;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x002f  */
@@ -71,54 +71,54 @@ public final class h implements AudioProcessor {
             int position = byteBuffer.position();
             int limit = byteBuffer.limit();
             int i4 = limit - position;
-            int i5 = this.f30424d;
+            int i5 = this.f30794d;
             if (i5 == Integer.MIN_VALUE) {
                 i4 /= 3;
             } else if (i5 != 3) {
                 if (i5 == 1073741824) {
                     i2 = i4 / 2;
-                    if (this.f30425e.capacity() >= i2) {
-                        this.f30425e = ByteBuffer.allocateDirect(i2).order(ByteOrder.nativeOrder());
+                    if (this.f30795e.capacity() >= i2) {
+                        this.f30795e = ByteBuffer.allocateDirect(i2).order(ByteOrder.nativeOrder());
                     } else {
-                        this.f30425e.clear();
+                        this.f30795e.clear();
                     }
-                    i3 = this.f30424d;
+                    i3 = this.f30794d;
                     if (i3 != Integer.MIN_VALUE) {
                         while (position < limit) {
-                            this.f30425e.put(byteBuffer.get(position + 1));
-                            this.f30425e.put(byteBuffer.get(position + 2));
+                            this.f30795e.put(byteBuffer.get(position + 1));
+                            this.f30795e.put(byteBuffer.get(position + 2));
                             position += 3;
                         }
                     } else if (i3 == 3) {
                         while (position < limit) {
-                            this.f30425e.put((byte) 0);
-                            this.f30425e.put((byte) ((byteBuffer.get(position) & 255) + com.alipay.sdk.encrypt.a.f31350g));
+                            this.f30795e.put((byte) 0);
+                            this.f30795e.put((byte) ((byteBuffer.get(position) & 255) + com.alipay.sdk.encrypt.a.f31720g));
                             position++;
                         }
                     } else if (i3 != 1073741824) {
                         throw new IllegalStateException();
                     } else {
                         while (position < limit) {
-                            this.f30425e.put(byteBuffer.get(position + 2));
-                            this.f30425e.put(byteBuffer.get(position + 3));
+                            this.f30795e.put(byteBuffer.get(position + 2));
+                            this.f30795e.put(byteBuffer.get(position + 3));
                             position += 4;
                         }
                     }
                     byteBuffer.position(byteBuffer.limit());
-                    this.f30425e.flip();
-                    this.f30426f = this.f30425e;
+                    this.f30795e.flip();
+                    this.f30796f = this.f30795e;
                 }
                 throw new IllegalStateException();
             }
             i2 = i4 * 2;
-            if (this.f30425e.capacity() >= i2) {
+            if (this.f30795e.capacity() >= i2) {
             }
-            i3 = this.f30424d;
+            i3 = this.f30794d;
             if (i3 != Integer.MIN_VALUE) {
             }
             byteBuffer.position(byteBuffer.limit());
-            this.f30425e.flip();
-            this.f30426f = this.f30425e;
+            this.f30795e.flip();
+            this.f30796f = this.f30795e;
         }
     }
 
@@ -126,21 +126,21 @@ public final class h implements AudioProcessor {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30427g && this.f30426f == AudioProcessor.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30797g && this.f30796f == AudioProcessor.a : invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30423c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30793c : invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30422b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30792b : invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -157,7 +157,7 @@ public final class h implements AudioProcessor {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f30427g = true;
+            this.f30797g = true;
         }
     }
 
@@ -165,8 +165,8 @@ public final class h implements AudioProcessor {
     public void flush() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f30426f = AudioProcessor.a;
-            this.f30427g = false;
+            this.f30796f = AudioProcessor.a;
+            this.f30797g = false;
         }
     }
 
@@ -175,8 +175,8 @@ public final class h implements AudioProcessor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ByteBuffer byteBuffer = this.f30426f;
-            this.f30426f = AudioProcessor.a;
+            ByteBuffer byteBuffer = this.f30796f;
+            this.f30796f = AudioProcessor.a;
             return byteBuffer;
         }
         return (ByteBuffer) invokeV.objValue;
@@ -190,14 +190,14 @@ public final class h implements AudioProcessor {
             if (i4 != 3 && i4 != 2 && i4 != Integer.MIN_VALUE && i4 != 1073741824) {
                 throw new AudioProcessor.UnhandledFormatException(i2, i3, i4);
             }
-            if (this.f30422b == i2 && this.f30423c == i3 && this.f30424d == i4) {
+            if (this.f30792b == i2 && this.f30793c == i3 && this.f30794d == i4) {
                 return false;
             }
-            this.f30422b = i2;
-            this.f30423c = i3;
-            this.f30424d = i4;
+            this.f30792b = i2;
+            this.f30793c = i3;
+            this.f30794d = i4;
             if (i4 == 2) {
-                this.f30425e = AudioProcessor.a;
+                this.f30795e = AudioProcessor.a;
                 return true;
             }
             return true;
@@ -210,7 +210,7 @@ public final class h implements AudioProcessor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int i2 = this.f30424d;
+            int i2 = this.f30794d;
             return (i2 == 0 || i2 == 2) ? false : true;
         }
         return invokeV.booleanValue;
@@ -221,10 +221,10 @@ public final class h implements AudioProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             flush();
-            this.f30425e = AudioProcessor.a;
-            this.f30422b = -1;
-            this.f30423c = -1;
-            this.f30424d = 0;
+            this.f30795e = AudioProcessor.a;
+            this.f30792b = -1;
+            this.f30793c = -1;
+            this.f30794d = 0;
         }
     }
 }

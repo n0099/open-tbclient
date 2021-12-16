@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FilePart extends PartBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CHARSET = "ISO-8859-1";

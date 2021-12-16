@@ -8,28 +8,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public static final double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f58165b;
+    public static final Pattern f58746b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f58166c;
+    public static final Pattern f58747c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f58167d;
+    public static final Pattern f58748d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f58168e;
+    public static final Pattern f58749e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f58169f;
+    public static int f58750f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f58170g;
+    public static String f58751g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,12 +46,12 @@ public final class c {
             }
         }
         a = Runtime.getRuntime().maxMemory();
-        f58165b = Pattern.compile("/data/user");
-        f58166c = Pattern.compile("/data");
-        f58167d = Pattern.compile("/data/data/(.*)/data/.*");
-        f58168e = Pattern.compile("/data/user/.*/(.*)/data/.*");
-        f58169f = 20;
-        f58170g = "sessionId";
+        f58746b = Pattern.compile("/data/user");
+        f58747c = Pattern.compile("/data");
+        f58748d = Pattern.compile("/data/data/(.*)/data/.*");
+        f58749e = Pattern.compile("/data/user/.*/(.*)/data/.*");
+        f58750f = 20;
+        f58751g = "sessionId";
     }
 
     public c() {

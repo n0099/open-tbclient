@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class StagingArea {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;

@@ -15,7 +15,7 @@ import java.util.List;
 import protobuf.ForumRalatedInfo;
 import protobuf.GetLivableForumList.DataRes;
 import protobuf.GetLivableForumList.GetLivableForumListResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ResponseGetLivableForumList extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

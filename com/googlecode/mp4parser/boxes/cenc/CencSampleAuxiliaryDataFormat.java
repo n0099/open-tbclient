@@ -12,14 +12,14 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CencSampleAuxiliaryDataFormat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] iv;
     public List<Pair> pairs;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Pair {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -18,12 +18,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static i a;
@@ -122,7 +122,7 @@ public class i {
                             public final /* synthetic */ Collection a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ i f61232b;
+                            public final /* synthetic */ i f61813b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -139,7 +139,7 @@ public class i {
                                         return;
                                     }
                                 }
-                                this.f61232b = this;
+                                this.f61813b = this;
                                 this.a = collection;
                             }
 
@@ -147,7 +147,7 @@ public class i {
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    SharedPreferences.Editor edit = this.f61232b.c().edit();
+                                    SharedPreferences.Editor edit = this.f61813b.c().edit();
                                     for (com.ss.android.downloadad.api.a.b bVar : this.a) {
                                         if (bVar != null && bVar.b() != 0) {
                                             edit.putString(String.valueOf(bVar.b()), bVar.ae().toString());
@@ -174,7 +174,7 @@ public class i {
             public final /* synthetic */ List a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ i f61233b;
+            public final /* synthetic */ i f61814b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -191,7 +191,7 @@ public class i {
                         return;
                     }
                 }
-                this.f61233b = this;
+                this.f61814b = this;
                 this.a = list;
             }
 
@@ -199,7 +199,7 @@ public class i {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    SharedPreferences.Editor edit = this.f61233b.c().edit();
+                    SharedPreferences.Editor edit = this.f61814b.c().edit();
                     for (String str : this.a) {
                         edit.remove(str);
                     }

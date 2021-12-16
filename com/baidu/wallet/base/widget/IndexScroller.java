@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class IndexScroller {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int p = 0;
@@ -31,41 +31,41 @@ public class IndexScroller {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f52095b;
+    public float f52675b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f52096c;
+    public float f52676c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f52097d;
+    public float f52677d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f52098e;
+    public float f52678e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f52099f;
+    public float f52679f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52100g;
+    public int f52680g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52101h;
+    public int f52681h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f52102i;
+    public int f52682i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f52103j;
+    public int f52683j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f52104k;
+    public boolean f52684k;
     public ListView l;
     public SectionIndexer m;
     public String[] n;
     public RectF o;
     public final a t;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,11 +98,11 @@ public class IndexScroller {
                 if (indexScroller == null) {
                     return;
                 }
-                int i2 = indexScroller.f52100g;
+                int i2 = indexScroller.f52680g;
                 if (i2 == 1) {
-                    indexScroller.f52099f = (float) (indexScroller.f52099f + ((1.0f - indexScroller.f52099f) * 0.2d));
-                    if (indexScroller.f52099f > 0.9d) {
-                        indexScroller.f52099f = 1.0f;
+                    indexScroller.f52679f = (float) (indexScroller.f52679f + ((1.0f - indexScroller.f52679f) * 0.2d));
+                    if (indexScroller.f52679f > 0.9d) {
+                        indexScroller.f52679f = 1.0f;
                         indexScroller.a(2);
                     }
                     indexScroller.l.invalidate();
@@ -111,9 +111,9 @@ public class IndexScroller {
                     indexScroller.a(3);
                 } else if (i2 != 3) {
                 } else {
-                    indexScroller.f52099f = (float) (indexScroller.f52099f - (indexScroller.f52099f * 0.2d));
-                    if (indexScroller.f52099f < 0.1d) {
-                        indexScroller.f52099f = 0.0f;
+                    indexScroller.f52679f = (float) (indexScroller.f52679f - (indexScroller.f52679f * 0.2d));
+                    if (indexScroller.f52679f < 0.1d) {
+                        indexScroller.f52679f = 0.0f;
                         indexScroller.a(0);
                     }
                     indexScroller.l.invalidate();
@@ -138,21 +138,21 @@ public class IndexScroller {
                 return;
             }
         }
-        this.f52100g = 0;
-        this.f52103j = -1;
-        this.f52104k = false;
+        this.f52680g = 0;
+        this.f52683j = -1;
+        this.f52684k = false;
         this.l = null;
         this.m = null;
         this.n = null;
         this.t = new a(this);
-        this.f52097d = context.getResources().getDisplayMetrics().density;
-        this.f52098e = context.getResources().getDisplayMetrics().scaledDensity;
+        this.f52677d = context.getResources().getDisplayMetrics().density;
+        this.f52678e = context.getResources().getDisplayMetrics().scaledDensity;
         this.l = listView;
         setAdapter(listView.getAdapter());
-        float f2 = this.f52097d;
+        float f2 = this.f52677d;
         this.a = 20.0f * f2;
-        this.f52095b = 10.0f * f2;
-        this.f52096c = f2 * 5.0f;
+        this.f52675b = 10.0f * f2;
+        this.f52676c = f2 * 5.0f;
     }
 
     public boolean contains(float f2, float f3) {
@@ -178,7 +178,7 @@ public class IndexScroller {
             return;
         }
         int i2 = 0;
-        if (this.f52103j >= 0) {
+        if (this.f52683j >= 0) {
             Paint paint = new Paint();
             paint.setColor(-16777216);
             paint.setAlpha(96);
@@ -187,21 +187,21 @@ public class IndexScroller {
             Paint paint2 = new Paint();
             paint2.setColor(-1);
             paint2.setAntiAlias(true);
-            paint2.setTextSize(this.f52098e * 50.0f);
-            float measureText = paint2.measureText(this.n[this.f52103j]);
-            float descent = ((this.f52096c * 2.0f) + paint2.descent()) - paint2.ascent();
-            int i3 = this.f52101h;
-            int i4 = this.f52102i;
+            paint2.setTextSize(this.f52678e * 50.0f);
+            float measureText = paint2.measureText(this.n[this.f52683j]);
+            float descent = ((this.f52676c * 2.0f) + paint2.descent()) - paint2.ascent();
+            int i3 = this.f52681h;
+            int i4 = this.f52682i;
             RectF rectF = new RectF((i3 - descent) / 2.0f, (i4 - descent) / 2.0f, ((i3 - descent) / 2.0f) + descent, ((i4 - descent) / 2.0f) + descent);
-            float f2 = this.f52097d;
+            float f2 = this.f52677d;
             canvas.drawRoundRect(rectF, f2 * 5.0f, f2 * 5.0f, paint);
-            canvas.drawText(this.n[this.f52103j], (rectF.left + ((descent - measureText) / 2.0f)) - 1.0f, ((rectF.top + this.f52096c) - paint2.ascent()) + 1.0f, paint2);
+            canvas.drawText(this.n[this.f52683j], (rectF.left + ((descent - measureText) / 2.0f)) - 1.0f, ((rectF.top + this.f52676c) - paint2.ascent()) + 1.0f, paint2);
         }
         Paint paint3 = new Paint();
         paint3.setColor(-16099908);
         paint3.setAntiAlias(true);
-        paint3.setTextSize(this.f52098e * 14.0f);
-        float height = (this.o.height() - (this.f52095b * 2.0f)) / this.n.length;
+        paint3.setTextSize(this.f52678e * 14.0f);
+        float height = (this.o.height() - (this.f52675b * 2.0f)) / this.n.length;
         float descent2 = (height - (paint3.descent() - paint3.ascent())) / 2.0f;
         while (true) {
             String[] strArr2 = this.n;
@@ -210,14 +210,14 @@ public class IndexScroller {
             }
             String str = this.n[i2];
             RectF rectF2 = this.o;
-            canvas.drawText(str, rectF2.left + ((this.a - paint3.measureText(strArr2[i2])) / 2.0f), (((rectF2.top + this.f52095b) + (i2 * height)) + descent2) - paint3.ascent(), paint3);
+            canvas.drawText(str, rectF2.left + ((this.a - paint3.measureText(strArr2[i2])) / 2.0f), (((rectF2.top + this.f52675b) + (i2 * height)) + descent2) - paint3.ascent(), paint3);
             i2++;
         }
     }
 
     public void hide() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f52100g == 2) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f52680g == 2) {
             a(3);
         }
     }
@@ -225,10 +225,10 @@ public class IndexScroller {
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
-            this.f52101h = i2;
-            this.f52102i = i3;
+            this.f52681h = i2;
+            this.f52682i = i3;
             float f2 = i2;
-            float f3 = this.f52095b;
+            float f3 = this.f52675b;
             this.o = new RectF((f2 - f3) - this.a, f3, f2 - f3, i3 - f3);
         }
     }
@@ -240,28 +240,28 @@ public class IndexScroller {
             int action = motionEvent.getAction();
             if (action != 0) {
                 if (action != 1) {
-                    if (action == 2 && this.f52104k) {
+                    if (action == 2 && this.f52684k) {
                         if (contains(motionEvent.getX(), motionEvent.getY())) {
                             int a2 = a(motionEvent.getY());
-                            this.f52103j = a2;
+                            this.f52683j = a2;
                             this.l.setSelection(this.m.getPositionForSection(a2));
                         }
                         return true;
                     }
                 } else {
-                    if (this.f52104k) {
-                        this.f52104k = false;
-                        this.f52103j = -1;
+                    if (this.f52684k) {
+                        this.f52684k = false;
+                        this.f52683j = -1;
                     }
-                    if (this.f52100g == 2) {
+                    if (this.f52680g == 2) {
                         a(3);
                     }
                 }
             } else if (contains(motionEvent.getX(), motionEvent.getY())) {
                 a(2);
-                this.f52104k = true;
+                this.f52684k = true;
                 int a3 = a(motionEvent.getY());
-                this.f52103j = a3;
+                this.f52683j = a3;
                 this.l.setSelection(this.m.getPositionForSection(a3));
                 return true;
             }
@@ -282,7 +282,7 @@ public class IndexScroller {
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int i2 = this.f52100g;
+            int i2 = this.f52680g;
             if (i2 == 0) {
                 a(1);
             } else if (i2 == 3) {
@@ -297,17 +297,17 @@ public class IndexScroller {
         if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) || i2 < 0 || i2 > 3) {
             return;
         }
-        this.f52100g = i2;
+        this.f52680g = i2;
         if (i2 == 0) {
             this.t.removeMessages(0);
         } else if (i2 == 1) {
-            this.f52099f = 0.0f;
+            this.f52679f = 0.0f;
             a(0L);
         } else if (i2 == 2) {
             this.t.removeMessages(0);
         } else if (i2 != 3) {
         } else {
-            this.f52099f = 1.0f;
+            this.f52679f = 1.0f;
             a(3000L);
         }
     }
@@ -322,16 +322,16 @@ public class IndexScroller {
             }
             RectF rectF = this.o;
             float f3 = rectF.top;
-            if (f2 < this.f52095b + f3) {
+            if (f2 < this.f52675b + f3) {
                 return 0;
             }
             float height = f3 + rectF.height();
-            float f4 = this.f52095b;
+            float f4 = this.f52675b;
             if (f2 >= height - f4) {
                 return this.n.length - 1;
             }
             RectF rectF2 = this.o;
-            return (int) (((f2 - rectF2.top) - f4) / ((rectF2.height() - (this.f52095b * 2.0f)) / this.n.length));
+            return (int) (((f2 - rectF2.top) - f4) / ((rectF2.height() - (this.f52675b * 2.0f)) / this.n.length));
         }
         return invokeF.intValue;
     }

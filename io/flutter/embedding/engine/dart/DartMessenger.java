@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DartMessenger implements BinaryMessenger, PlatformMessageHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DartMessenger";
@@ -29,7 +29,7 @@ public class DartMessenger implements BinaryMessenger, PlatformMessageHandler {
     @NonNull
     public final Map<Integer, BinaryMessenger.BinaryReply> pendingReplies;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Reply implements BinaryMessenger.BinaryReply {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

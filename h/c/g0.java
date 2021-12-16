@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import org.webrtc.TextureBufferImpl;
 import org.webrtc.VideoFrame;
 /* compiled from: CameraSession.java */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final /* synthetic */ class g0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

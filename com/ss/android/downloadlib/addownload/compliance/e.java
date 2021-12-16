@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ss.android.downloadlib.addownload.b.f;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,7 +17,7 @@ public class e {
             if (e2.x()) {
                 return;
             }
-            e2.f61224c.setRefer(str);
+            e2.f61805c.setRefer(str);
             com.ss.android.downloadlib.d.a.a().b("lp_app_dialog_click", e2);
         }
     }

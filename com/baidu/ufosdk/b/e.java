@@ -6,16 +6,16 @@ import android.content.pm.PackageManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f51524b;
+    public static PackageManager f52073b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static PackageInfo f51525c;
+    public static PackageInfo f52074c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
@@ -33,9 +33,9 @@ public final class e {
         if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && a == null) {
             a = context;
             PackageManager packageManager = context.getPackageManager();
-            f51524b = packageManager;
+            f52073b = packageManager;
             try {
-                f51525c = packageManager.getPackageInfo(a.getPackageName(), 0);
+                f52074c = packageManager.getPackageInfo(a.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e2) {
                 com.baidu.ufosdk.f.c.a("PackageCollector.init fail.", e2);
             }
@@ -46,7 +46,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            PackageInfo packageInfo = f51525c;
+            PackageInfo packageInfo = f52074c;
             return packageInfo == null ? "N/A" : packageInfo.versionName;
         }
         return (String) invokeV.objValue;

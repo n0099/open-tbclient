@@ -10,45 +10,45 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class HomeWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final IntentFilter f55224b;
+    public final IntentFilter f55804b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OnHomePressedListener f55225c;
+    public OnHomePressedListener f55805c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f55226d;
+    public a f55806d;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public interface OnHomePressedListener {
         void onHomeLongPressed();
 
         void onHomePressed();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f55227b;
+        public final String f55807b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f55228c;
+        public final String f55808c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f55229d;
+        public final String f55809d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HomeWatcher f55230e;
+        public final /* synthetic */ HomeWatcher f55810e;
 
         public a(HomeWatcher homeWatcher) {
             Interceptable interceptable = $ic;
@@ -65,24 +65,24 @@ public class HomeWatcher {
                     return;
                 }
             }
-            this.f55230e = homeWatcher;
+            this.f55810e = homeWatcher;
             this.a = "reason";
-            this.f55227b = "globalactions";
-            this.f55228c = PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS;
-            this.f55229d = "homekey";
+            this.f55807b = "globalactions";
+            this.f55808c = PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS;
+            this.f55809d = "homekey";
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             String stringExtra;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || !intent.getAction().equals("android.intent.action.CLOSE_SYSTEM_DIALOGS") || (stringExtra = intent.getStringExtra("reason")) == null || this.f55230e.f55225c == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || !intent.getAction().equals("android.intent.action.CLOSE_SYSTEM_DIALOGS") || (stringExtra = intent.getStringExtra("reason")) == null || this.f55810e.f55805c == null) {
                 return;
             }
             if (stringExtra.equals("homekey")) {
-                this.f55230e.f55225c.onHomePressed();
+                this.f55810e.f55805c.onHomePressed();
             } else if (stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS)) {
-                this.f55230e.f55225c.onHomeLongPressed();
+                this.f55810e.f55805c.onHomeLongPressed();
             }
         }
     }
@@ -103,30 +103,30 @@ public class HomeWatcher {
             }
         }
         this.a = context;
-        this.f55224b = new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS");
+        this.f55804b = new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS");
     }
 
     public void setOnHomePressedListener(OnHomePressedListener onHomePressedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onHomePressedListener) == null) {
-            this.f55225c = onHomePressedListener;
-            this.f55226d = new a(this);
+            this.f55805c = onHomePressedListener;
+            this.f55806d = new a(this);
         }
     }
 
     public void startWatch() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f55226d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f55806d) == null) {
             return;
         }
-        this.a.registerReceiver(aVar, this.f55224b);
+        this.a.registerReceiver(aVar, this.f55804b);
     }
 
     public void stopWatch() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f55226d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f55806d) == null) {
             return;
         }
         this.a.unregisterReceiver(aVar);

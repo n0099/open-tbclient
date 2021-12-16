@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class al {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class al {
     public volatile boolean f120a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f62714b;
+    public final boolean f63295b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class al {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -200,7 +200,7 @@ public class al {
         this.f120a = false;
         this.a = 0;
         this.f117a = new am(this, Looper.getMainLooper());
-        this.f62714b = z;
+        this.f63295b = z;
         this.a = i2;
     }
 
@@ -222,7 +222,7 @@ public class al {
                 if (this.f118a == null) {
                     a aVar = new a(this);
                     this.f118a = aVar;
-                    aVar.setDaemon(this.f62714b);
+                    aVar.setDaemon(this.f63295b);
                     this.f120a = false;
                     this.f118a.start();
                 }

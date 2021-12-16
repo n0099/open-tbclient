@@ -2,7 +2,7 @@ package com.baidu.tieba.view.anniversary.model;
 
 import androidx.annotation.NonNull;
 import c.a.d.a.f;
-import c.a.r0.k4.i.b;
+import c.a.s0.m4.i.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AnniversaryEtModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f50416e;
+    public b f50964e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.k4.i.e.a f50417f;
+    public c.a.s0.m4.i.e.a f50965f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a.d.c.g.a f50418g;
+    public final c.a.d.c.g.a f50966g;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,23 +58,23 @@ public class AnniversaryEtModel extends BdBaseModel {
         @Override // c.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.a.f50416e == null || this.a.f50417f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.a.f50964e == null || this.a.f50965f == null) {
                 return;
             }
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                this.a.f50416e.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                this.a.f50964e.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                 return;
             }
-            c.a.r0.k4.i.d.b bVar = null;
+            c.a.s0.m4.i.d.b bVar = null;
             if (responsedMessage instanceof AnniversaryEtSocketResMessage) {
                 bVar = ((AnniversaryEtSocketResMessage) responsedMessage).getResultData();
             } else if (responsedMessage instanceof AnniversaryEtHttpResMessage) {
                 bVar = ((AnniversaryEtHttpResMessage) responsedMessage).getResultData();
             }
             if (bVar != null) {
-                this.a.f50416e.onResponeSucess(bVar);
+                this.a.f50964e.onResponeSucess(bVar);
             } else {
-                this.a.f50416e.onError(-1, "请求失败，请稍后重试");
+                this.a.f50964e.onError(-1, "请求失败，请稍后重试");
             }
         }
     }
@@ -97,16 +97,16 @@ public class AnniversaryEtModel extends BdBaseModel {
                 return;
             }
         }
-        this.f50418g = new a(this, CmdConfigHttp.CMD_HTTP_ET_VIDEO, 309725);
-        this.f50416e = bVar;
-        this.f50417f = new c.a.r0.k4.i.e.a(tbPageContext, bVar);
+        this.f50966g = new a(this, CmdConfigHttp.CMD_HTTP_ET_VIDEO, 309725);
+        this.f50964e = bVar;
+        this.f50965f = new c.a.s0.m4.i.e.a(tbPageContext, bVar);
         init();
     }
 
     public void cancel() {
-        c.a.r0.k4.i.e.a aVar;
+        c.a.s0.m4.i.e.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f50417f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f50965f) == null) {
             return;
         }
         aVar.i();
@@ -125,9 +125,9 @@ public class AnniversaryEtModel extends BdBaseModel {
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.r0.t3.f0.a.h(309725, AnniversaryEtSocketResMessage.class, false, false);
-            c.a.r0.t3.f0.a.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
-            registerListener(this.f50418g);
+            c.a.s0.v3.f0.a.h(309725, AnniversaryEtSocketResMessage.class, false, false);
+            c.a.s0.v3.f0.a.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
+            registerListener(this.f50966g);
         }
     }
 
@@ -151,10 +151,10 @@ public class AnniversaryEtModel extends BdBaseModel {
         }
     }
 
-    public void z(c.a.r0.k4.i.d.b bVar) {
-        c.a.r0.k4.i.e.a aVar;
+    public void z(c.a.s0.m4.i.d.b bVar) {
+        c.a.s0.m4.i.e.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || (aVar = this.f50417f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || (aVar = this.f50965f) == null) {
             return;
         }
         aVar.m(bVar);

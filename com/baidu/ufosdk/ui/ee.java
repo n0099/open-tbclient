@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ee implements TextWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ FeedbackReportActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51693b;
+    public int f52242b;
 
     public ee(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public final class ee implements TextWatcher {
                 textView2.setTextColor(-5131855);
                 this.a.H = false;
             }
-            int i2 = this.f51693b;
+            int i2 = this.f52242b;
             if (i2 == 0) {
                 aVar = this.a.U;
                 if (aVar.c().size() <= 0) {
@@ -113,7 +113,7 @@ public final class ee implements TextWatcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
             editText = this.a.t;
-            this.f51693b = editText.getText().toString().trim().length() < 4 ? 0 : 1;
+            this.f52242b = editText.getText().toString().trim().length() < 4 ? 0 : 1;
         }
     }
 

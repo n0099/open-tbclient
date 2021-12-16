@@ -1,7 +1,7 @@
 package com.kwad.sdk.d.a;
 
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface d {
     void a();
 

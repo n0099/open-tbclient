@@ -1,7 +1,7 @@
 package com.baidu.searchbox.launch;
 
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IExternalTransferSpeedStatsInterface {
     void addEvent(String str);
 

@@ -1,8 +1,8 @@
 package com.baidu.tieba.newinterest.fragment;
 
 import android.view.View;
-import c.a.r0.m2.c.b;
-import c.a.r0.m2.e.a;
+import c.a.s0.o2.c.b;
+import c.a.s0.o2.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class BaseInterestedForumFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCENE = "scene";

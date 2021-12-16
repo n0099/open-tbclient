@@ -13,7 +13,7 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {5})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DecoderSpecificInfo extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

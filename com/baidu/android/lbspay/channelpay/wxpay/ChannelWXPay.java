@@ -22,7 +22,7 @@ import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.modelpay.PayResp;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ChannelWXPay extends AbstractChannelPay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int WX_PAY_CANCLE = -2;
@@ -31,13 +31,13 @@ public class ChannelWXPay extends AbstractChannelPay {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.lbspay.channelpay.wxpay.ChannelWXPay$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static ChannelWXPay a;

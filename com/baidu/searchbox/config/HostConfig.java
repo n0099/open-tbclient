@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"BDOfflineUrl"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class HostConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_ABTEST_SCOP = "scop_abtest";
@@ -28,7 +28,7 @@ public final class HostConfig {
     public static ConfigInterceptor sConfigInterceptor;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ConfigInterceptor {
         boolean getBooleanConfig(String str, String str2);
     }

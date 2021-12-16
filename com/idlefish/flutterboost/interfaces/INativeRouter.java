@@ -2,7 +2,7 @@ package com.idlefish.flutterboost.interfaces;
 
 import android.content.Context;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface INativeRouter {
     void openContainer(Context context, String str, Map<String, Object> map, int i2, Map<String, Object> map2);
 }

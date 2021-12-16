@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class DomainConfig implements c.f.b.b.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.f.b.b.b.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.f.b.b.b.a f55508b;
+    public c.f.b.b.b.a f56089b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.f.b.b.b.a f55509c;
+    public c.f.b.b.b.a f56090c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class DomainStrategyType {
         public static final /* synthetic */ DomainStrategyType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -83,7 +83,7 @@ public class DomainConfig implements c.f.b.b.b.a {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -115,7 +115,7 @@ public class DomainConfig implements c.f.b.b.b.a {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final DomainConfig a;
@@ -149,31 +149,31 @@ public class DomainConfig implements c.f.b.b.b.a {
     }
 
     @Override // c.f.b.b.b.a
-    public String getAIHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getAIHost() : (String) invokeV.objValue;
-    }
-
-    @Override // c.f.b.b.b.a
     public String getAppHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getAppHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getAppHost() : (String) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
     public String getAppPayHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getAppPayHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getAppPayHost() : (String) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
     public String getInitHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getInitHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getInitHost() : (String) invokeV.objValue;
+    }
+
+    @Override // c.f.b.b.b.a
+    public String getRtcHost(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.a.getRtcHost(str) : (String) invokeL.objValue;
     }
 
     @Override // c.f.b.b.b.a
@@ -215,10 +215,10 @@ public class DomainConfig implements c.f.b.b.b.a {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, domainStrategyType) == null) {
             int i2 = a.a[domainStrategyType.ordinal()];
             if (i2 == 1) {
-                this.a = this.f55509c;
+                this.a = this.f56090c;
             } else if (i2 != 2) {
             } else {
-                this.a = this.f55508b;
+                this.a = this.f56089b;
             }
         }
     }
@@ -236,9 +236,9 @@ public class DomainConfig implements c.f.b.b.b.a {
                 return;
             }
         }
-        this.f55508b = new c.f.b.b.b.b();
-        this.f55509c = c.a();
-        this.a = this.f55508b;
+        this.f56089b = new c.f.b.b.b.b();
+        this.f56090c = c.a();
+        this.a = this.f56089b;
     }
 
     public void setStrategy(DomainStrategyType domainStrategyType, String str) {
@@ -246,9 +246,9 @@ public class DomainConfig implements c.f.b.b.b.a {
         if (interceptable == null || interceptable.invokeLL(1048585, this, domainStrategyType, str) == null) {
             int i2 = a.a[domainStrategyType.ordinal()];
             if (i2 == 1) {
-                this.a = this.f55509c;
+                this.a = this.f56090c;
             } else if (i2 == 2) {
-                this.a = this.f55508b;
+                this.a = this.f56089b;
             }
             this.a.setDomainConfig(str);
         }

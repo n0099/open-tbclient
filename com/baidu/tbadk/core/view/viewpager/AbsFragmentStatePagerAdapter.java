@@ -16,23 +16,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FragmentTransaction f41512b;
+    public FragmentTransaction f42003b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<Fragment.SavedState> f41513c;
+    public ArrayList<Fragment.SavedState> f42004c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<Fragment> f41514d;
+    public ArrayList<Fragment> f42005d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Fragment f41515e;
+    public Fragment f42006e;
 
     public AbsFragmentStatePagerAdapter(FragmentManager fragmentManager) {
         Interceptable interceptable = $ic;
@@ -49,10 +49,10 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
                 return;
             }
         }
-        this.f41512b = null;
-        this.f41513c = new ArrayList<>();
-        this.f41514d = new ArrayList<>();
-        this.f41515e = null;
+        this.f42003b = null;
+        this.f42004c = new ArrayList<>();
+        this.f42005d = new ArrayList<>();
+        this.f42006e = null;
         this.a = fragmentManager;
     }
 
@@ -61,15 +61,15 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) {
             Fragment fragment = (Fragment) obj;
-            if (this.f41512b == null) {
-                this.f41512b = this.a.beginTransaction();
+            if (this.f42003b == null) {
+                this.f42003b = this.a.beginTransaction();
             }
-            while (this.f41513c.size() <= i2) {
-                this.f41513c.add(null);
+            while (this.f42004c.size() <= i2) {
+                this.f42004c.add(null);
             }
-            this.f41513c.set(i2, this.a.saveFragmentInstanceState(fragment));
-            this.f41514d.set(i2, null);
-            this.f41512b.remove(fragment);
+            this.f42004c.set(i2, this.a.saveFragmentInstanceState(fragment));
+            this.f42005d.set(i2, null);
+            this.f42003b.remove(fragment);
         }
     }
 
@@ -77,18 +77,18 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
     public void finishUpdate(ViewGroup viewGroup) {
         FragmentTransaction fragmentTransaction;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || (fragmentTransaction = this.f41512b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || (fragmentTransaction = this.f42003b) == null) {
             return;
         }
         fragmentTransaction.commitAllowingStateLoss();
-        this.f41512b = null;
+        this.f42003b = null;
         this.a.executePendingTransactions();
     }
 
     public final ArrayList<Fragment> getAllFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41514d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42005d : (ArrayList) invokeV.objValue;
     }
 
     public abstract Fragment getItem(int i2);
@@ -100,24 +100,24 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
         Fragment fragment;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i2)) == null) {
-            if (this.f41514d.size() <= i2 || (fragment = this.f41514d.get(i2)) == null) {
-                if (this.f41512b == null) {
-                    this.f41512b = this.a.beginTransaction();
+            if (this.f42005d.size() <= i2 || (fragment = this.f42005d.get(i2)) == null) {
+                if (this.f42003b == null) {
+                    this.f42003b = this.a.beginTransaction();
                 }
                 Fragment item = getItem(i2);
                 if (item == null) {
                     return null;
                 }
-                if (this.f41513c.size() > i2 && (savedState = this.f41513c.get(i2)) != null && !item.isAdded()) {
+                if (this.f42004c.size() > i2 && (savedState = this.f42004c.get(i2)) != null && !item.isAdded()) {
                     item.setInitialSavedState(savedState);
                 }
-                while (this.f41514d.size() <= i2) {
-                    this.f41514d.add(null);
+                while (this.f42005d.size() <= i2) {
+                    this.f42005d.add(null);
                 }
                 item.setMenuVisibility(false);
                 item.setUserVisibleHint(false);
-                this.f41514d.set(i2, item);
-                this.f41512b.add(viewGroup.getId(), item);
+                this.f42005d.set(i2, item);
+                this.f42003b.add(viewGroup.getId(), item);
                 return item;
             }
             return fragment;
@@ -141,11 +141,11 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
         Bundle bundle = (Bundle) parcelable;
         bundle.setClassLoader(classLoader);
         Parcelable[] parcelableArray = bundle.getParcelableArray("states");
-        this.f41513c.clear();
-        this.f41514d.clear();
+        this.f42004c.clear();
+        this.f42005d.clear();
         if (parcelableArray != null) {
             for (Parcelable parcelable2 : parcelableArray) {
-                this.f41513c.add((Fragment.SavedState) parcelable2);
+                this.f42004c.add((Fragment.SavedState) parcelable2);
             }
         }
         for (String str : bundle.keySet()) {
@@ -153,11 +153,11 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
                 int parseInt = Integer.parseInt(str.substring(1));
                 Fragment fragment = this.a.getFragments() != null ? this.a.getFragment(bundle, str) : null;
                 if (fragment != null) {
-                    while (this.f41514d.size() <= parseInt) {
-                        this.f41514d.add(null);
+                    while (this.f42005d.size() <= parseInt) {
+                        this.f42005d.add(null);
                     }
                     fragment.setMenuVisibility(false);
-                    this.f41514d.set(parseInt, fragment);
+                    this.f42005d.set(parseInt, fragment);
                 } else {
                     String str2 = "Badfragment key " + str;
                 }
@@ -171,16 +171,16 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
         Bundle bundle;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f41513c.size() > 0) {
+            if (this.f42004c.size() > 0) {
                 bundle = new Bundle();
-                Fragment.SavedState[] savedStateArr = new Fragment.SavedState[this.f41513c.size()];
-                this.f41513c.toArray(savedStateArr);
+                Fragment.SavedState[] savedStateArr = new Fragment.SavedState[this.f42004c.size()];
+                this.f42004c.toArray(savedStateArr);
                 bundle.putParcelableArray("states", savedStateArr);
             } else {
                 bundle = null;
             }
-            for (int i2 = 0; i2 < this.f41514d.size(); i2++) {
-                Fragment fragment = this.f41514d.get(i2);
+            for (int i2 = 0; i2 < this.f42005d.size(); i2++) {
+                Fragment fragment = this.f42005d.get(i2);
                 if (fragment != null) {
                     if (bundle == null) {
                         bundle = new Bundle();
@@ -198,18 +198,18 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
         Fragment fragment;
         Fragment fragment2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i2, obj) == null) || (fragment = (Fragment) obj) == (fragment2 = this.f41515e)) {
+        if (!(interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i2, obj) == null) || (fragment = (Fragment) obj) == (fragment2 = this.f42006e)) {
             return;
         }
         if (fragment2 != null) {
             fragment2.setMenuVisibility(false);
-            this.f41515e.setUserVisibleHint(false);
+            this.f42006e.setUserVisibleHint(false);
         }
         if (fragment != null) {
             fragment.setMenuVisibility(true);
             fragment.setUserVisibleHint(true);
         }
-        this.f41515e = fragment;
+        this.f42006e = fragment;
     }
 
     public void showOrHideFragment(boolean z, Fragment fragment) {

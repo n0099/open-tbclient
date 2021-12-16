@@ -32,41 +32,41 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static volatile c a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f57051b;
+    public d f57632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f57052c;
+    public final Map<String, String> f57633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f57053d;
+    public Context f57634d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f57054e;
+    public b f57635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<com.kwad.sdk.c.kwai.d> f57055f;
+    public List<com.kwad.sdk.c.kwai.d> f57636f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<com.kwad.sdk.c.kwai.d> f57056g;
+    public List<com.kwad.sdk.c.kwai.d> f57637g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<com.kwad.sdk.c.kwai.d> f57057h;
+    public List<com.kwad.sdk.c.kwai.d> f57638h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Lock f57058i;
+    public final Lock f57639i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f57059j;
+    public volatile boolean f57640j;
 
     /* renamed from: k  reason: collision with root package name */
-    public List<com.kwad.sdk.c.kwai.d> f57060k;
+    public List<com.kwad.sdk.c.kwai.d> f57641k;
     public final LinkedHashSet<String> l;
     public com.kwad.sdk.c.a.c m;
     public final NetworkMonitor.a n;
@@ -84,8 +84,8 @@ public class c {
                 return;
             }
         }
-        this.f57052c = new HashMap();
-        this.f57059j = false;
+        this.f57633c = new HashMap();
+        this.f57640j = false;
         this.l = new LinkedHashSet<>();
         this.n = new NetworkMonitor.a(this) { // from class: com.kwad.sdk.c.c.2
             public static /* synthetic */ Interceptable $ic;
@@ -114,30 +114,30 @@ public class c {
             public void a(NetworkMonitor.NetworkState networkState) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, networkState) == null) {
-                    if ((networkState == NetworkMonitor.NetworkState.NETWORK_WIFI || networkState == NetworkMonitor.NetworkState.NETWORK_MOBILE) && this.a.f57056g != null && this.a.f57056g.size() > 0) {
+                    if ((networkState == NetworkMonitor.NetworkState.NETWORK_WIFI || networkState == NetworkMonitor.NetworkState.NETWORK_MOBILE) && this.a.f57637g != null && this.a.f57637g.size() > 0) {
                         this.a.b();
                     }
                 }
             }
         };
-        this.f57058i = new ReentrantLock();
+        this.f57639i = new ReentrantLock();
     }
 
     private WebResourceResponse a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, str, str2)) == null) {
-            synchronized (this.f57052c) {
-                String str3 = this.f57052c.get(str);
-                com.kwad.sdk.core.d.a.a("WebResourceResponse", str3 + " | " + str2 + " | " + str + "| packageStatusMap size:" + this.f57052c.size());
+            synchronized (this.f57633c) {
+                String str3 = this.f57633c.get(str);
+                com.kwad.sdk.core.d.a.a("WebResourceResponse", str3 + " | " + str2 + " | " + str + "| packageStatusMap size:" + this.f57633c.size());
                 if (TextUtils.isEmpty(str3)) {
                     b(str);
                     return null;
                 }
-                synchronized (this.f57051b) {
+                synchronized (this.f57632b) {
                     com.kwad.sdk.c.kwai.d c2 = c(str);
                     if (c2 != null) {
-                        return this.f57051b.a(str2, c2, str3);
+                        return this.f57632b.a(str2, c2, str3);
                     }
                     return null;
                 }
@@ -229,25 +229,25 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(65541, this, list) == null) || list.size() <= 0) {
             return;
         }
-        this.f57060k = new ArrayList();
+        this.f57641k = new ArrayList();
         for (com.kwad.sdk.c.kwai.d dVar : list) {
-            for (com.kwad.sdk.c.kwai.d dVar2 : this.f57056g) {
-                if (TextUtils.equals(dVar.f57074d, dVar2.f57074d)) {
+            for (com.kwad.sdk.c.kwai.d dVar2 : this.f57637g) {
+                if (TextUtils.equals(dVar.f57655d, dVar2.f57655d)) {
                     if (dVar.c().equals(dVar2.c())) {
-                        if (this.f57057h == null) {
-                            this.f57057h = new ArrayList();
+                        if (this.f57638h == null) {
+                            this.f57638h = new ArrayList();
                         }
-                        list2 = this.f57057h;
+                        list2 = this.f57638h;
                     } else {
-                        list2 = this.f57060k;
+                        list2 = this.f57641k;
                     }
                     list2.add(dVar);
                 }
             }
         }
-        a(this.f57056g, this.f57057h);
-        a(list, this.f57060k);
-        b(this.f57060k);
+        a(this.f57637g, this.f57638h);
+        a(list, this.f57641k);
+        b(this.f57641k);
     }
 
     private void a(List<com.kwad.sdk.c.kwai.d> list, List<com.kwad.sdk.c.kwai.d> list2) {
@@ -267,27 +267,27 @@ public class c {
     private boolean a(com.kwad.sdk.c.kwai.d dVar, com.kwad.sdk.c.kwai.d dVar2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, dVar, dVar2)) == null) ? TextUtils.equals(dVar.f57074d, dVar2.f57074d) && TextUtils.equals(dVar.c(), dVar2.c()) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, dVar, dVar2)) == null) ? TextUtils.equals(dVar.f57655d, dVar2.f57655d) && TextUtils.equals(dVar.c(), dVar2.c()) : invokeLL.booleanValue;
     }
 
     private boolean a(com.kwad.sdk.c.kwai.d dVar, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, dVar, str)) == null) ? dVar.f57077g == 3 && TextUtils.equals(dVar.b(), str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, dVar, str)) == null) ? dVar.f57658g == 3 && TextUtils.equals(dVar.b(), str) : invokeLL.booleanValue;
     }
 
     private void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
             List<com.kwad.sdk.c.kwai.d> c2 = c(context);
-            this.f57055f = c2;
+            this.f57636f = c2;
             if (c2 == null || c2.size() <= 0) {
                 return;
             }
-            for (com.kwad.sdk.c.kwai.d dVar : this.f57055f) {
-                synchronized (this.f57052c) {
-                    this.f57052c.put(dVar.b(), dVar.f57072b);
-                    if (dVar.f57079i) {
+            for (com.kwad.sdk.c.kwai.d dVar : this.f57636f) {
+                synchronized (this.f57633c) {
+                    this.f57633c.put(dVar.b(), dVar.f57653b);
+                    if (dVar.f57660i) {
                         this.l.add(dVar.b());
                     }
                 }
@@ -299,7 +299,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, list) == null) {
             for (com.kwad.sdk.c.kwai.d dVar : list) {
-                String a2 = com.kwad.sdk.c.b.a.a(this.f57053d, dVar.f());
+                String a2 = com.kwad.sdk.c.b.a.a(this.f57634d, dVar.f());
                 if (!TextUtils.isEmpty(a2)) {
                     q.c(new File(a2));
                 }
@@ -311,9 +311,9 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, str)) == null) {
-            for (int i2 = 0; i2 < this.f57055f.size(); i2++) {
-                if (TextUtils.equals(str, this.f57055f.get(i2).a)) {
-                    return this.f57055f.get(i2);
+            for (int i2 = 0; i2 < this.f57636f.size(); i2++) {
+                if (TextUtils.equals(str, this.f57636f.get(i2).a)) {
+                    return this.f57636f.get(i2);
                 }
             }
             return null;
@@ -369,8 +369,8 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, dVar)) == null) {
-            if (dVar.f57077g != 1) {
-                return com.ksad.download.c.b.b(this.f57053d) && dVar.f57077g == 2;
+            if (dVar.f57658g != 1) {
+                return com.ksad.download.c.b.b(this.f57634d) && dVar.f57658g == 2;
             }
             return true;
         }
@@ -380,14 +380,14 @@ public class c {
     private void e(com.kwad.sdk.c.kwai.d dVar) {
         List<com.kwad.sdk.c.kwai.d> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65552, this, dVar) == null) || (list = this.f57056g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65552, this, dVar) == null) || (list = this.f57637g) == null) {
             return;
         }
         int indexOf = list.indexOf(dVar);
         if (indexOf >= 0) {
-            this.f57056g.remove(indexOf);
+            this.f57637g.remove(indexOf);
         }
-        if (this.f57059j) {
+        if (this.f57640j) {
             d();
         }
     }
@@ -396,12 +396,12 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
-            List<com.kwad.sdk.c.kwai.d> list = this.f57056g;
+            List<com.kwad.sdk.c.kwai.d> list = this.f57637g;
             if (list == null || list.size() <= 0) {
                 return false;
             }
-            for (com.kwad.sdk.c.kwai.d dVar : this.f57056g) {
-                if (dVar.f57077g != 3) {
+            for (com.kwad.sdk.c.kwai.d dVar : this.f57637g) {
+                if (dVar.f57658g != 3) {
                     return true;
                 }
             }
@@ -415,8 +415,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, this, dVar) == null) {
             com.kwad.sdk.c.b.b.a(dVar, 3);
-            com.kwad.sdk.core.d.a.a("updatePackageIndexFile", dVar.a + "|" + dVar.f57075e);
-            File file = new File(com.kwad.sdk.c.b.a.c(this.f57053d));
+            com.kwad.sdk.core.d.a.a("updatePackageIndexFile", dVar.a + "|" + dVar.f57656e);
+            File file = new File(com.kwad.sdk.c.b.a.c(this.f57634d));
             if (!file.exists()) {
                 try {
                     z = file.createNewFile();
@@ -428,16 +428,16 @@ public class c {
                     return;
                 }
             }
-            if (this.f57055f == null) {
-                this.f57055f = a(file);
+            if (this.f57636f == null) {
+                this.f57636f = a(file);
             }
-            int indexOf = this.f57055f.indexOf(dVar);
+            int indexOf = this.f57636f.indexOf(dVar);
             if (indexOf >= 0) {
-                this.f57055f.get(indexOf).b(dVar.f57075e);
+                this.f57636f.get(indexOf).b(dVar.f57656e);
             } else {
-                this.f57055f.add(dVar);
+                this.f57636f.add(dVar);
             }
-            String jSONArray = t.b(this.f57055f).toString();
+            String jSONArray = t.b(this.f57636f).toString();
             try {
                 try {
                     FileOutputStream fileOutputStream = new FileOutputStream(file);
@@ -461,7 +461,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String a2 = this.f57051b.a(str);
+            String a2 = this.f57632b.a(str);
             if (!TextUtils.isEmpty(a2)) {
                 this.l.add(a2);
                 return a(a2, str);
@@ -481,9 +481,9 @@ public class c {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && com.kwad.sdk.core.config.b.J()) {
-            this.f57053d = context;
-            this.f57051b = new d(context);
-            this.f57054e = new b(context);
+            this.f57634d = context;
+            this.f57632b = new d(context);
+            this.f57635e = new b(context);
             r.a(context);
             b(context);
             this.m = new d.a();
@@ -493,21 +493,21 @@ public class c {
     public void a(com.kwad.sdk.c.kwai.d dVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) && dVar != null && this.m.a(dVar)) {
-            this.f57058i.lock();
-            String a2 = this.f57054e.a(dVar, false);
-            this.f57058i.unlock();
+            this.f57639i.lock();
+            String a2 = this.f57635e.a(dVar, false);
+            this.f57639i.unlock();
             if (TextUtils.isEmpty(a2)) {
                 return;
             }
             com.kwad.sdk.core.d.a.a("installPackage", "version" + dVar.c());
             f(dVar);
-            if (this.f57055f == null) {
-                this.f57055f = new ArrayList();
+            if (this.f57636f == null) {
+                this.f57636f = new ArrayList();
             }
-            this.f57055f.add(dVar);
-            synchronized (this.f57052c) {
-                this.f57052c.put(dVar.b(), dVar.f57072b);
-                if (dVar.f57079i) {
+            this.f57636f.add(dVar);
+            synchronized (this.f57633c) {
+                this.f57633c.put(dVar.b(), dVar.f57653b);
+                if (dVar.f57660i) {
                     this.l.add(dVar.b());
                 }
                 com.kwad.sdk.c.b.b.a(dVar, 4);
@@ -518,50 +518,50 @@ public class c {
     public void b() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && com.kwad.sdk.core.config.b.J()) {
-            if (this.f57055f == null) {
-                this.f57055f = c(this.f57053d);
+            if (this.f57636f == null) {
+                this.f57636f = c(this.f57634d);
             }
-            boolean z = this.f57055f == null;
+            boolean z = this.f57636f == null;
             List<com.kwad.sdk.c.kwai.d> c2 = c();
             if (c2 == null) {
                 return;
             }
-            this.f57056g = new ArrayList();
+            this.f57637g = new ArrayList();
             if (c2.size() > 0) {
-                this.f57056g.addAll(c2);
+                this.f57637g.addAll(c2);
             }
             if (!z) {
-                a(this.f57055f);
+                a(this.f57636f);
             }
-            ArrayList arrayList = new ArrayList(this.f57056g.size());
-            for (com.kwad.sdk.c.kwai.d dVar : this.f57056g) {
-                if (dVar.f57078h == 1) {
+            ArrayList arrayList = new ArrayList(this.f57637g.size());
+            for (com.kwad.sdk.c.kwai.d dVar : this.f57637g) {
+                if (dVar.f57659h == 1) {
                     arrayList.add(dVar);
                 }
             }
-            this.f57056g.clear();
-            this.f57056g.addAll(arrayList);
-            for (int i2 = 0; i2 < this.f57056g.size(); i2++) {
-                com.kwad.sdk.c.kwai.d dVar2 = this.f57056g.get(i2);
+            this.f57637g.clear();
+            this.f57637g.addAll(arrayList);
+            for (int i2 = 0; i2 < this.f57637g.size(); i2++) {
+                com.kwad.sdk.c.kwai.d dVar2 = this.f57637g.get(i2);
                 if (d(dVar2)) {
-                    new a(this.f57053d).a(dVar2, new com.kwad.sdk.c.a.a(this));
+                    new a(this.f57634d).a(dVar2, new com.kwad.sdk.c.a.a(this));
                 }
-                if (i2 == this.f57056g.size() - 1) {
+                if (i2 == this.f57637g.size() - 1) {
                     if (d(dVar2)) {
-                        this.f57059j = true;
+                        this.f57640j = true;
                     } else {
                         d();
                     }
                 }
             }
-            this.f57052c.clear();
-            List<com.kwad.sdk.c.kwai.d> list = this.f57057h;
+            this.f57633c.clear();
+            List<com.kwad.sdk.c.kwai.d> list = this.f57638h;
             if (list == null || list.size() <= 0) {
                 return;
             }
-            for (com.kwad.sdk.c.kwai.d dVar3 : this.f57057h) {
-                synchronized (this.f57052c) {
-                    this.f57052c.put(dVar3.b(), dVar3.f57072b);
+            for (com.kwad.sdk.c.kwai.d dVar3 : this.f57638h) {
+                synchronized (this.f57633c) {
+                    this.f57633c.put(dVar3.b(), dVar3.f57653b);
                 }
             }
         }
@@ -571,17 +571,17 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
             com.kwad.sdk.core.d.a.a("download", "success");
-            List<com.kwad.sdk.c.kwai.d> list = this.f57056g;
+            List<com.kwad.sdk.c.kwai.d> list = this.f57637g;
             if (list == null) {
                 return;
             }
             int indexOf = list.indexOf(dVar);
             if (indexOf >= 0) {
-                dVar = this.f57056g.remove(indexOf);
+                dVar = this.f57637g.remove(indexOf);
             }
             com.kwad.sdk.core.d.a.a("performDownloadSuccess", "installPackage");
             a(dVar);
-            if (this.f57059j) {
+            if (this.f57640j) {
                 d();
             }
         }
@@ -590,12 +590,12 @@ public class c {
     public void b(String str) {
         List<com.kwad.sdk.c.kwai.d> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (list = this.f57056g) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (list = this.f57637g) == null || list.size() <= 0) {
             return;
         }
-        for (com.kwad.sdk.c.kwai.d dVar : this.f57056g) {
+        for (com.kwad.sdk.c.kwai.d dVar : this.f57637g) {
             if (a(dVar, str)) {
-                new a(this.f57053d).a(dVar, new com.kwad.sdk.c.a.a(this));
+                new a(this.f57634d).a(dVar, new com.kwad.sdk.c.a.a(this));
             }
         }
     }

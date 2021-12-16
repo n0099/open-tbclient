@@ -19,17 +19,17 @@ import com.baidu.wallet.paysdk.ui.widget.HalfScreenContainerLayout;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.core.BaseActivity;
 import com.dxmpay.wallet.core.SDKBaseActivity;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class HalfScreenBaseActivity extends PayBaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AnimationDrawable f53752b;
+    public AnimationDrawable f54332b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f53753c;
+    public View f54333c;
     public View mActionBar;
     public ViewGroup mContentView;
     public HalfScreenContainerLayout mHalfScreenContainer;
@@ -152,7 +152,7 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
             setContentView(ResUtils.layout(getActivity(), "wallet_cashdesk_half_scrren_activity"));
             this.mHalfScreenPageView = (ViewGroup) findViewById(ResUtils.id(getActivity(), "ebpay_half_screen_page"));
             View findViewById = findViewById(ResUtils.id(getActivity(), "welcome_page"));
-            this.f53753c = findViewById;
+            this.f54333c = findViewById;
             findViewById.setVisibility(8);
             this.mRootView = findViewById(ResUtils.id(getActivity(), "root_view"));
             this.mHalfScreenContainer = (HalfScreenContainerLayout) findViewById(ResUtils.id(getActivity(), "ebpay_half_screen_container"));
@@ -162,7 +162,7 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
             this.mTitle = (TextView) findViewById(ResUtils.id(getActivity(), "action_bar_title"));
             this.mRightTxt = (TextView) findViewById(ResUtils.id(getActivity(), "action_bar_left_txt"));
             b();
-            this.f53752b = (AnimationDrawable) ((ImageView) findViewById(ResUtils.id(getActivity(), "img_anim"))).getDrawable();
+            this.f54332b = (AnimationDrawable) ((ImageView) findViewById(ResUtils.id(getActivity(), "img_anim"))).getDrawable();
             addContentView();
         }
     }
@@ -190,8 +190,8 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
     public void showLikeDismissLadingPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f53753c.setVisibility(8);
-            this.f53752b.stop();
+            this.f54333c.setVisibility(8);
+            this.f54332b.stop();
         }
     }
 
@@ -201,13 +201,13 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
             setPageTransparent(false);
             if (z) {
                 this.mHalfScreenPageView.setVisibility(8);
-                this.f53753c.setVisibility(0);
-                this.f53752b.start();
+                this.f54333c.setVisibility(0);
+                this.f54332b.start();
                 return;
             }
             this.mHalfScreenPageView.setVisibility(0);
-            this.f53753c.setVisibility(8);
-            this.f53752b.stop();
+            this.f54333c.setVisibility(8);
+            this.f54332b.stop();
         }
     }
 }

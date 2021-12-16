@@ -12,11 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PlayerSpeedDurationFlow implements IUbcFlow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Flow mFlow;
+    public final UBCManager mUBCService;
 
     public PlayerSpeedDurationFlow() {
         Interceptable interceptable = $ic;
@@ -28,8 +29,10 @@ public class PlayerSpeedDurationFlow implements IUbcFlow {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.mUBCService = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
     }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
@@ -43,7 +46,7 @@ public class PlayerSpeedDurationFlow implements IUbcFlow {
     public void createFlow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mFlow = ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SPEED_DURATION);
+            this.mFlow = this.mUBCService.beginFlow(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SPEED_DURATION);
         }
     }
 
@@ -90,8 +93,8 @@ public class PlayerSpeedDurationFlow implements IUbcFlow {
             try {
                 String ubcContent = BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject2);
                 if (this.mFlow != null) {
-                    this.mFlow.setValueWithDuration(ubcContent);
-                    this.mFlow.end();
+                    this.mUBCService.flowSetValue(this.mFlow, ubcContent);
+                    this.mUBCService.flowEnd(this.mFlow);
                     this.mFlow = null;
                 }
             } catch (Exception e2) {

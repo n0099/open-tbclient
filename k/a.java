@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bumptech.glide.load.engine.GlideException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,12 +59,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return ContextCompat.getColor(c.a.b0.e.a.b(), i2);
+                return ContextCompat.getColor(c.a.c0.e.a.b(), i2);
             }
             try {
                 return Color.parseColor(str);
             } catch (IllegalArgumentException unused) {
-                return ContextCompat.getColor(c.a.b0.e.a.b(), i2);
+                return ContextCompat.getColor(c.a.c0.e.a.b(), i2);
             }
         }
         return invokeLI.intValue;

@@ -15,14 +15,14 @@ import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BIMCancelRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMCancelRtcInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public List<BIMCancelUser> mCancelUsers;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class BIMCancelUser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

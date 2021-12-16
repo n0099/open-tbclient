@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class x implements TTFullScreenVideoAd.FullScreenVideoAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28678b;
+    public boolean f29048b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ TTFullScreenVideoAd f28679c;
+    public final /* synthetic */ TTFullScreenVideoAd f29049c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ w f28680d;
+    public final /* synthetic */ w f29050d;
 
     public x(w wVar, TTFullScreenVideoAd tTFullScreenVideoAd) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class x implements TTFullScreenVideoAd.FullScreenVideoAdInteractionListen
                 return;
             }
         }
-        this.f28680d = wVar;
-        this.f28679c = tTFullScreenVideoAd;
+        this.f29050d = wVar;
+        this.f29049c = tTFullScreenVideoAd;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
@@ -46,7 +46,7 @@ public class x implements TTFullScreenVideoAd.FullScreenVideoAdInteractionListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.f28680d.onAdClose();
+            this.f29050d.onAdClose();
         }
     }
 
@@ -55,7 +55,7 @@ public class x implements TTFullScreenVideoAd.FullScreenVideoAdInteractionListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            this.f28680d.onAdShow(this.f28679c, this.a);
+            this.f29050d.onAdShow(this.f29049c, this.a);
             this.a = true;
         }
     }
@@ -65,8 +65,8 @@ public class x implements TTFullScreenVideoAd.FullScreenVideoAdInteractionListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LogPrinter.d();
-            this.f28680d.onAdClicked(this.f28678b);
-            this.f28678b = true;
+            this.f29050d.onAdClicked(this.f29048b);
+            this.f29048b = true;
         }
     }
 

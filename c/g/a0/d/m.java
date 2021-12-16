@@ -34,15 +34,15 @@ import com.kwad.sdk.api.KsNativeAd;
 import com.kwad.sdk.api.KsScene;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class m extends ReporterPidLoader<KsNativeAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final FunNativeAdListenerHelper<KsNativeAd, KsNativeAd.AdInteractionListener> f28799h;
+    public final FunNativeAdListenerHelper<KsNativeAd, KsNativeAd.AdInteractionListener> f29169h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements KsLoadManager.NativeAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,14 +90,14 @@ public class m extends ReporterPidLoader<KsNativeAd> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b extends t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final KsNativeAd a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ m f28800b;
+        public final /* synthetic */ m f29170b;
 
         public b(m mVar, KsNativeAd ksNativeAd) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class m extends ReporterPidLoader<KsNativeAd> {
                     return;
                 }
             }
-            this.f28800b = mVar;
+            this.f29170b = mVar;
             this.a = ksNativeAd;
         }
 
@@ -132,7 +132,7 @@ public class m extends ReporterPidLoader<KsNativeAd> {
         public void onAdClicked(View view, KsNativeAd ksNativeAd) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, ksNativeAd) == null) {
-                this.f28800b.f28799h.onAdClick(this.a);
+                this.f29170b.f29169h.onAdClick(this.a);
             }
         }
 
@@ -140,7 +140,7 @@ public class m extends ReporterPidLoader<KsNativeAd> {
         public void onAdShow(KsNativeAd ksNativeAd) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
-                this.f28800b.f28799h.onAdShow(this.a);
+                this.f29170b.f29169h.onAdShow(this.a);
             }
         }
     }
@@ -164,7 +164,7 @@ public class m extends ReporterPidLoader<KsNativeAd> {
                 return;
             }
         }
-        this.f28799h = new FunNativeAdListenerHelper<>(this);
+        this.f29169h = new FunNativeAdListenerHelper<>(this);
     }
 
     public final com.fun.module.ks.x a(Context context, KsNativeAd ksNativeAd) {
@@ -216,14 +216,14 @@ public class m extends ReporterPidLoader<KsNativeAd> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) || (ksNativeAd = (KsNativeAd) obj) == null) {
             return;
         }
-        this.f28799h.destroy(ksNativeAd);
+        this.f29169h.destroy(ksNativeAd);
     }
 
     /* JADX DEBUG: Incorrect args count in method signature: (Landroid/content/Context;Lcom/kwad/sdk/api/KsNativeAd;Ljava/lang/String;Landroid/view/ViewGroup;Ljava/util/List<Landroid/view/View;>;Lc/g/a0/d/m$b;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
     public void f(KsNativeAd ksNativeAd, String str, ViewGroup viewGroup, List list, b bVar, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{ksNativeAd, str, viewGroup, list, bVar, funAdInteractionListener}) == null) {
-            this.f28799h.startShow(ksNativeAd, str, this.mPid, bVar, funAdInteractionListener);
+            this.f29169h.startShow(ksNativeAd, str, this.mPid, bVar, funAdInteractionListener);
             if (viewGroup instanceof FunNativeView) {
                 viewGroup = ((FunNativeView) viewGroup).getRoot();
             }

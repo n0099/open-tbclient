@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StatusBarManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a mBarParams;
 
     /* renamed from: com.baidu.apollon.statusbar.StatusBarManager$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,20 +47,20 @@ public class StatusBarManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, activity) == null) {
             a aVar = this.mBarParams;
-            if (aVar.f33201d == null) {
-                aVar.f33201d = new View(activity);
+            if (aVar.f33571d == null) {
+                aVar.f33571d = new View(activity);
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, StatusBarUtils.getStatusBarHeight(activity));
             layoutParams.gravity = 48;
-            this.mBarParams.f33201d.setLayoutParams(layoutParams);
+            this.mBarParams.f33571d.setLayoutParams(layoutParams);
             a aVar2 = this.mBarParams;
-            aVar2.f33201d.setBackgroundColor(StatusBarUtils.blendARGB(aVar2.a, aVar2.f33199b, aVar2.f33200c));
-            this.mBarParams.f33201d.setVisibility(0);
-            ViewGroup viewGroup = (ViewGroup) this.mBarParams.f33201d.getParent();
+            aVar2.f33571d.setBackgroundColor(StatusBarUtils.blendARGB(aVar2.a, aVar2.f33569b, aVar2.f33570c));
+            this.mBarParams.f33571d.setVisibility(0);
+            ViewGroup viewGroup = (ViewGroup) this.mBarParams.f33571d.getParent();
             if (viewGroup != null) {
-                viewGroup.removeView(this.mBarParams.f33201d);
+                viewGroup.removeView(this.mBarParams.f33571d);
             }
-            ((ViewGroup) activity.getWindow().getDecorView()).addView(this.mBarParams.f33201d);
+            ((ViewGroup) activity.getWindow().getDecorView()).addView(this.mBarParams.f33571d);
         }
     }
 
@@ -73,20 +73,20 @@ public class StatusBarManager {
         if (i2 >= 27) {
             activity.getWindow().clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
             activity.getWindow().addFlags(Integer.MIN_VALUE);
-            r2 = this.mBarParams.f33202e ? 9472 : 1280;
+            r2 = this.mBarParams.f33572e ? 9472 : 1280;
             Window window = activity.getWindow();
             a aVar = this.mBarParams;
-            window.setStatusBarColor(StatusBarUtils.blendARGB(aVar.a, aVar.f33199b, aVar.f33200c));
+            window.setStatusBarColor(StatusBarUtils.blendARGB(aVar.a, aVar.f33569b, aVar.f33570c));
             activity.getWindow().getDecorView().setSystemUiVisibility(r2);
         } else if (i2 >= 19) {
             int i3 = 256;
             if (i2 >= 21 && !ImmersiveOSUtils.isEMUI3_1()) {
                 activity.getWindow().clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
                 activity.getWindow().addFlags(Integer.MIN_VALUE);
-                r2 = (Build.VERSION.SDK_INT < 23 || !this.mBarParams.f33202e) ? 1280 : 1280;
+                r2 = (Build.VERSION.SDK_INT < 23 || !this.mBarParams.f33572e) ? 1280 : 1280;
                 Window window2 = activity.getWindow();
                 a aVar2 = this.mBarParams;
-                window2.setStatusBarColor(StatusBarUtils.blendARGB(aVar2.a, aVar2.f33199b, aVar2.f33200c));
+                window2.setStatusBarColor(StatusBarUtils.blendARGB(aVar2.a, aVar2.f33569b, aVar2.f33570c));
                 i3 = r2;
             } else {
                 activity.getWindow().addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
@@ -94,15 +94,15 @@ public class StatusBarManager {
             }
             activity.getWindow().getDecorView().setSystemUiVisibility(i3);
             if (ImmersiveOSUtils.isMIUI6Plus()) {
-                StatusBarUtils.setMIUIStatusBarDarkFont(activity.getWindow(), this.mBarParams.f33202e);
+                StatusBarUtils.setMIUIStatusBarDarkFont(activity.getWindow(), this.mBarParams.f33572e);
             }
             if (ImmersiveOSUtils.isFlymeOS4Plus()) {
                 a aVar3 = this.mBarParams;
-                int i4 = aVar3.f33203f;
+                int i4 = aVar3.f33573f;
                 if (i4 != 0) {
                     FlymeStatusBarFontUtils.setStatusBarDarkIcon(activity, i4);
                 } else if (Build.VERSION.SDK_INT < 23) {
-                    FlymeStatusBarFontUtils.setStatusBarDarkIcon(activity, aVar3.f33202e);
+                    FlymeStatusBarFontUtils.setStatusBarDarkIcon(activity, aVar3.f33572e);
                 }
             }
         }
@@ -125,7 +125,7 @@ public class StatusBarManager {
     public void setFlymeStatusBarFontColor(Context context, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, context, i2) == null) {
-            this.mBarParams.f33203f = context.getResources().getColor(i2);
+            this.mBarParams.f33573f = context.getResources().getColor(i2);
         }
     }
 
@@ -140,7 +140,7 @@ public class StatusBarManager {
     public void statusBarAlpha(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.mBarParams.f33200c = f2;
+            this.mBarParams.f33570c = f2;
         }
     }
 
@@ -162,47 +162,47 @@ public class StatusBarManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f2)}) == null) {
             if (!z) {
-                this.mBarParams.f33203f = 0;
+                this.mBarParams.f33573f = 0;
             }
             if (ImmersiveOSUtils.isSupportStatusBarDarkFont()) {
                 if (ImmersiveOSUtils.isSpecialOS() && z) {
                     a aVar = this.mBarParams;
-                    aVar.f33200c = f2;
-                    aVar.f33202e = false;
+                    aVar.f33570c = f2;
+                    aVar.f33572e = false;
                     return;
                 }
                 a aVar2 = this.mBarParams;
-                aVar2.f33202e = z;
-                aVar2.f33200c = 0.0f;
+                aVar2.f33572e = z;
+                aVar2.f33570c = 0.0f;
                 return;
             }
-            this.mBarParams.f33200c = f2;
+            this.mBarParams.f33570c = f2;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f33199b;
+        public int f33569b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f33200c;
+        public float f33570c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f33201d;
+        public View f33571d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f33202e;
+        public boolean f33572e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f33203f;
+        public int f33573f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ StatusBarManager f33204g;
+        public final /* synthetic */ StatusBarManager f33574g;
 
         public a(StatusBarManager statusBarManager) {
             Interceptable interceptable = $ic;
@@ -219,11 +219,11 @@ public class StatusBarManager {
                     return;
                 }
             }
-            this.f33204g = statusBarManager;
+            this.f33574g = statusBarManager;
             this.a = 0;
-            this.f33199b = -16777216;
-            this.f33200c = 0.0f;
-            this.f33202e = false;
+            this.f33569b = -16777216;
+            this.f33570c = 0.0f;
+            this.f33572e = false;
         }
 
         public /* synthetic */ a(StatusBarManager statusBarManager, AnonymousClass1 anonymousClass1) {

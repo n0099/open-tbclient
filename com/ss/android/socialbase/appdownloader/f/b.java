@@ -11,7 +11,7 @@ import com.ss.android.socialbase.downloader.depend.z;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,10 +37,10 @@ public class b {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f61558b;
+                public final /* synthetic */ DownloadInfo f62139b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f61559c;
+                public final /* synthetic */ int f62140c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -58,8 +58,8 @@ public class b {
                         }
                     }
                     this.a = N;
-                    this.f61558b = downloadInfo;
-                    this.f61559c = r8;
+                    this.f62139b = downloadInfo;
+                    this.f62140c = r8;
                 }
 
                 @Override // java.lang.Runnable
@@ -67,21 +67,21 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         com.ss.android.socialbase.appdownloader.c.d b2 = com.ss.android.socialbase.appdownloader.d.j().b();
-                        z downloadNotificationEventListener = Downloader.getInstance(this.a).getDownloadNotificationEventListener(this.f61558b.getId());
+                        z downloadNotificationEventListener = Downloader.getInstance(this.a).getDownloadNotificationEventListener(this.f62139b.getId());
                         if (b2 == null && downloadNotificationEventListener == null) {
                             return;
                         }
-                        File file = new File(this.f61558b.getSavePath(), this.f61558b.getName());
+                        File file = new File(this.f62139b.getSavePath(), this.f62139b.getName());
                         if (file.exists()) {
                             try {
-                                PackageInfo a = com.ss.android.socialbase.appdownloader.c.a(this.f61558b, file);
+                                PackageInfo a = com.ss.android.socialbase.appdownloader.c.a(this.f62139b, file);
                                 if (a != null) {
-                                    String packageName = (this.f61559c == 1 || TextUtils.isEmpty(this.f61558b.getPackageName())) ? a.packageName : this.f61558b.getPackageName();
+                                    String packageName = (this.f62140c == 1 || TextUtils.isEmpty(this.f62139b.getPackageName())) ? a.packageName : this.f62139b.getPackageName();
                                     if (b2 != null) {
-                                        b2.a(this.f61558b.getId(), 1, packageName, -3, this.f61558b.getDownloadTime());
+                                        b2.a(this.f62139b.getId(), 1, packageName, -3, this.f62139b.getDownloadTime());
                                     }
                                     if (downloadNotificationEventListener != null) {
-                                        downloadNotificationEventListener.a(1, this.f61558b, packageName, "");
+                                        downloadNotificationEventListener.a(1, this.f62139b, packageName, "");
                                     }
                                 }
                             } catch (Exception e2) {

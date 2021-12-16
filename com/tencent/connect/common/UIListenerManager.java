@@ -1,6 +1,7 @@
 package com.tencent.connect.common;
 
 import android.content.Intent;
+import com.baidu.bdtask.model.response.TaskProcessData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,16 +20,16 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UIListenerManager {
     public static /* synthetic */ Interceptable $ic;
     public static UIListenerManager a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, ApiTask> f62223b;
+    public Map<String, ApiTask> f62804b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class ApiTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,9 +87,9 @@ public class UIListenerManager {
             }
         }
         Map<String, ApiTask> synchronizedMap = Collections.synchronizedMap(new HashMap());
-        this.f62223b = synchronizedMap;
+        this.f62804b = synchronizedMap;
         if (synchronizedMap == null) {
-            this.f62223b = Collections.synchronizedMap(new HashMap());
+            this.f62804b = Collections.synchronizedMap(new HashMap());
         }
     }
 
@@ -129,9 +130,9 @@ public class UIListenerManager {
                 SLog.e("openSDK_LOG.UIListenerManager", "getListnerWithAction action is null!");
                 return null;
             }
-            synchronized (this.f62223b) {
-                apiTask = this.f62223b.get(str);
-                this.f62223b.remove(str);
+            synchronized (this.f62804b) {
+                apiTask = this.f62804b.get(str);
+                this.f62804b.remove(str);
             }
             if (apiTask == null) {
                 return null;
@@ -191,7 +192,7 @@ public class UIListenerManager {
                     iUiListener.onCancel();
                 } else if ("error".equals(stringExtra3)) {
                     iUiListener.onError(new UiError(-6, "unknown error", stringExtra4 + ""));
-                } else if ("complete".equals(stringExtra3)) {
+                } else if (TaskProcessData.keyComplete.equals(stringExtra3)) {
                     try {
                         iUiListener.onComplete(new JSONObject(stringExtra4 == null ? "{\"ret\": 0}" : stringExtra4));
                     } catch (JSONException e3) {
@@ -266,7 +267,7 @@ public class UIListenerManager {
                         listnerWithRequestCode.onCancel();
                     } else if ("error".equals(stringExtra4)) {
                         listnerWithRequestCode.onError(new UiError(-6, "unknown error", stringExtra5 + ""));
-                    } else if ("complete".equals(stringExtra4)) {
+                    } else if (TaskProcessData.keyComplete.equals(stringExtra4)) {
                         try {
                             listnerWithRequestCode.onComplete(new JSONObject(stringExtra5 == null ? "{\"ret\": 0}" : stringExtra5));
                         } catch (JSONException e3) {
@@ -291,8 +292,8 @@ public class UIListenerManager {
                 SLog.e("openSDK_LOG.UIListenerManager", "setListener action is null! rquestCode=" + i2);
                 return null;
             }
-            synchronized (this.f62223b) {
-                put = this.f62223b.put(a2, new ApiTask(this, i2, iUiListener));
+            synchronized (this.f62804b) {
+                put = this.f62804b.put(a2, new ApiTask(this, i2, iUiListener));
             }
             if (put == null) {
                 return null;
@@ -312,8 +313,8 @@ public class UIListenerManager {
                 SLog.e("openSDK_LOG.UIListenerManager", "setListnerWithAction fail, action = " + str);
                 return null;
             }
-            synchronized (this.f62223b) {
-                put = this.f62223b.put(str, new ApiTask(this, a2, iUiListener));
+            synchronized (this.f62804b) {
+                put = this.f62804b.put(str, new ApiTask(this, a2, iUiListener));
             }
             if (put == null) {
                 return null;

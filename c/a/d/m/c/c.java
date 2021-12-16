@@ -13,7 +13,7 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2886b;
+    public int f2850b;
 
     public c(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class c {
             }
         }
         this.a = i2;
-        this.f2886b = i3;
+        this.f2850b = i3;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2886b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2850b : invokeV.intValue;
     }
 
     public int b() {

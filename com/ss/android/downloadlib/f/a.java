@@ -11,7 +11,7 @@ import com.ss.android.downloadlib.addownload.b.f;
 import com.ss.android.socialbase.appdownloader.c.i;
 import com.ss.android.socialbase.appdownloader.c.j;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class a implements j {
                     public final /* synthetic */ com.ss.android.downloadlib.guide.install.a a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f61402b;
+                    public final /* synthetic */ a f61983b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -61,7 +61,7 @@ public class a implements j {
                                 return;
                             }
                         }
-                        this.f61402b = this;
+                        this.f61983b = this;
                         this.a = aVar;
                     }
 
@@ -89,7 +89,7 @@ public class a implements j {
                 public final /* synthetic */ i a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f61399b;
+                public final /* synthetic */ a f61980b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -106,7 +106,7 @@ public class a implements j {
                             return;
                         }
                     }
-                    this.f61399b = this;
+                    this.f61980b = this;
                     this.a = iVar;
                 }
 
@@ -132,10 +132,10 @@ public class a implements j {
                     public final /* synthetic */ DownloadInfo a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ com.ss.android.downloadlib.guide.install.a f61400b;
+                    public final /* synthetic */ com.ss.android.downloadlib.guide.install.a f61981b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f61401c;
+                    public final /* synthetic */ a f61982c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -152,16 +152,16 @@ public class a implements j {
                                 return;
                             }
                         }
-                        this.f61401c = this;
+                        this.f61982c = this;
                         this.a = downloadInfo;
-                        this.f61400b = aVar;
+                        this.f61981b = aVar;
                     }
 
                     @Override // com.ss.android.downloadlib.guide.install.a
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f61401c.b(this.a, this.f61400b);
+                            this.f61982c.b(this.a, this.f61981b);
                         }
                     }
                 });

@@ -15,13 +15,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class o1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 2048;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f56785b = ".gz";
+    public static final String f57366b = ".gz";
     public transient /* synthetic */ FieldHolder $fh;
 
     public o1() {
@@ -49,7 +49,7 @@ public abstract class o1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65538, null, file, z) == null) {
             FileInputStream fileInputStream = new FileInputStream(file);
-            FileOutputStream fileOutputStream = new FileOutputStream(file.getPath() + f56785b);
+            FileOutputStream fileOutputStream = new FileOutputStream(file.getPath() + f57366b);
             a(fileInputStream, fileOutputStream);
             fileInputStream.close();
             fileOutputStream.flush();
@@ -212,7 +212,7 @@ public abstract class o1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65544, null, file, z) == null) {
             FileInputStream fileInputStream = new FileInputStream(file);
-            FileOutputStream fileOutputStream = new FileOutputStream(file.getPath().replace(f56785b, ""));
+            FileOutputStream fileOutputStream = new FileOutputStream(file.getPath().replace(f57366b, ""));
             b(fileInputStream, fileOutputStream);
             fileInputStream.close();
             fileOutputStream.flush();

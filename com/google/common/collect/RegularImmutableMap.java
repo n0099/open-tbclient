@@ -17,7 +17,7 @@ import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.Map;
 import kotlin.UShort;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte ABSENT = -1;
@@ -32,7 +32,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public final transient Object hashTable;
     public final transient int size;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class EntrySet<K, V> extends ImmutableSet<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +170,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class KeySet<K> extends ImmutableSet<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -243,7 +243,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class KeysOrValuesAsList extends ImmutableList<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

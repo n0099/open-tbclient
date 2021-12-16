@@ -12,14 +12,14 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1941263519515554943L;
     public transient /* synthetic */ FieldHolder $fh;
     public ShareUrlInfo data;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ShareUrlInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7887599282226106153L;

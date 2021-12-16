@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<byte[]> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f30286b;
+    public final int f30656b;
 
     public b(List<byte[]> list, int i2) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public final class b {
             }
         }
         this.a = list;
-        this.f30286b = i2;
+        this.f30656b = i2;
     }
 
     public static b a(l lVar) throws ParserException {

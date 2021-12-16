@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.notification.DownloadNotificationService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -59,10 +59,10 @@ public class DownloadReceiver extends BroadcastReceiver {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f61707b;
+                public final /* synthetic */ String f62288b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadReceiver f61708c;
+                public final /* synthetic */ DownloadReceiver f62289c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -79,9 +79,9 @@ public class DownloadReceiver extends BroadcastReceiver {
                             return;
                         }
                     }
-                    this.f61708c = this;
+                    this.f62289c = this;
                     this.a = context;
-                    this.f61707b = str;
+                    this.f62288b = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -90,7 +90,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             Intent intent = new Intent(this.a, DownloadNotificationService.class);
-                            intent.setAction(this.f61707b);
+                            intent.setAction(this.f62288b);
                             this.a.startService(intent);
                         } catch (Throwable th) {
                             th.printStackTrace();

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -40,47 +40,47 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ApkDetail;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ItemCardHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f41436b;
+    public static final String f41927b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f41437c;
+    public static final String f41928c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f41438d;
+    public static final String f41929d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f41439e;
+    public static final String f41930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f41440f;
+    public static final String f41931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f41441g;
+    public static final String f41932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f41442h;
+    public static final String f41933h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f41443i;
+    public static final String f41934i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static c f41444j;
+    public static c f41935j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static TBSpecificationBtn f41445k;
+    public static TBSpecificationBtn f41936k;
     public static TextView l;
     public static String m;
     public static final HttpMessageListener n;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class OrderTipStatus {
         public static final /* synthetic */ OrderTipStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -141,7 +141,7 @@ public class ItemCardHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -175,32 +175,32 @@ public class ItemCardHelper {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 long parseLong = Long.parseLong((String) ((HttpMessage) httpResponsedMessage.getOrginalMessage()).getParams().get("item_id"));
                 if (statusCode != 200 || error != 0) {
-                    if (ItemCardHelper.f41444j != null) {
-                        ItemCardHelper.f41444j.b();
+                    if (ItemCardHelper.f41935j != null) {
+                        ItemCardHelper.f41935j.b();
                     }
-                } else if (ItemCardHelper.f41444j != null) {
-                    ItemCardHelper.f41444j.a(parseLong);
+                } else if (ItemCardHelper.f41935j != null) {
+                    ItemCardHelper.f41935j.a(parseLong);
                     ItemCardHelper.z();
                 }
-                TBSpecificationBtn unused = ItemCardHelper.f41445k = null;
+                TBSpecificationBtn unused = ItemCardHelper.f41936k = null;
                 TextView unused2 = ItemCardHelper.l = null;
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f41446e;
+        public final /* synthetic */ String f41937e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f41447f;
+        public final /* synthetic */ long f41938f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f41448g;
+        public final /* synthetic */ Context f41939g;
 
         public b(String str, long j2, Context context) {
             Interceptable interceptable = $ic;
@@ -217,22 +217,22 @@ public class ItemCardHelper {
                     return;
                 }
             }
-            this.f41446e = str;
-            this.f41447f = j2;
-            this.f41448g = context;
+            this.f41937e = str;
+            this.f41938f = j2;
+            this.f41939g = context;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ItemCardHelper.g(2, this.f41446e, this.f41447f);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new DownloadManagerActivityConfig(this.f41448g, 3)));
+                ItemCardHelper.g(2, this.f41937e, this.f41938f);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new DownloadManagerActivityConfig(this.f41939g, 3)));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface c {
         void a(long j2);
 
@@ -253,15 +253,15 @@ public class ItemCardHelper {
             }
         }
         a = TbadkCoreApplication.getInst().getResources().getString(R.string.item_order);
-        f41436b = TbadkCoreApplication.getInst().getResources().getString(R.string.item_download);
-        f41437c = TbadkCoreApplication.getInst().getResources().getString(R.string.item_try_play);
-        f41438d = TbadkCoreApplication.getInst().getResources().getString(R.string.item_order_complete);
-        f41439e = TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse);
-        f41440f = TbadkCoreApplication.getInst().getResources().getString(R.string.item_coming_soon);
-        f41441g = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_completed);
-        f41442h = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_successs);
-        f41443i = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_fail);
-        f41444j = null;
+        f41927b = TbadkCoreApplication.getInst().getResources().getString(R.string.item_download);
+        f41928c = TbadkCoreApplication.getInst().getResources().getString(R.string.item_try_play);
+        f41929d = TbadkCoreApplication.getInst().getResources().getString(R.string.item_order_complete);
+        f41930e = TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse);
+        f41931f = TbadkCoreApplication.getInst().getResources().getString(R.string.item_coming_soon);
+        f41932g = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_completed);
+        f41933h = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_successs);
+        f41934i = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_fail);
+        f41935j = null;
         n = new a(CmdConfigHttp.CMD_GAME_ITEM_ORDER);
     }
 
@@ -269,13 +269,13 @@ public class ItemCardHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (f41436b.equals(str)) {
+            if (f41927b.equals(str)) {
                 return 2;
             }
             if (a.equals(str)) {
                 return 1;
             }
-            return f41439e.equals(str) ? 3 : -1;
+            return f41930e.equals(str) ? 3 : -1;
         }
         return invokeL.intValue;
     }
@@ -308,7 +308,7 @@ public class ItemCardHelper {
 
     public static void h(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) || k.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) || l.isEmpty(str)) {
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, "", str, true)));
@@ -336,8 +336,8 @@ public class ItemCardHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, bdUniqueId, view, Integer.valueOf(i2), viewGroup}) == null) {
             Object tag = view.getTag(R.id.item_data);
-            if (tag instanceof c.a.q0.s.g0.p.a) {
-                c.a.q0.s.g0.p.a aVar = (c.a.q0.s.g0.p.a) tag;
+            if (tag instanceof c.a.r0.s.i0.p.a) {
+                c.a.r0.s.i0.p.a aVar = (c.a.r0.s.i0.p.a) tag;
                 ItemData a2 = aVar.a();
                 int b2 = aVar.b();
                 boolean z = view instanceof TBSpecificationBtn;
@@ -349,14 +349,14 @@ public class ItemCardHelper {
                 String str = charSequence;
                 int intValue = a2.buttonLinkType.intValue();
                 ApkDetail apkDetail = a2.apkDetail;
-                int a3 = c.a.q0.s.g0.p.c.a(intValue, apkDetail != null ? apkDetail.pkg_source.intValue() : 0);
+                int a3 = c.a.r0.s.i0.p.c.a(intValue, apkDetail != null ? apkDetail.pkg_source.intValue() : 0);
                 if (a.equals(str)) {
                     if (StringUtils.isNull(a2.buttonLink)) {
                         if (z) {
                             l = null;
-                            f41445k = (TBSpecificationBtn) view;
+                            f41936k = (TBSpecificationBtn) view;
                         } else if (view instanceof TextView) {
-                            f41445k = null;
+                            f41936k = null;
                             l = (TextView) view;
                         }
                         u(bdUniqueId, a2);
@@ -367,13 +367,13 @@ public class ItemCardHelper {
                         p(b2, a2.itemId, e(a2.buttonName), aVar.c(), a3, "");
                     }
                 }
-                if (f41436b.equals(str) && a2.buttonLinkType.intValue() == 2) {
+                if (f41927b.equals(str) && a2.buttonLinkType.intValue() == 2) {
                     h(context, a2.buttonLink);
                     if (b2 != 7) {
                         p(b2, a2.itemId, e(a2.buttonName), aVar.c(), a3, "");
                     }
                 }
-                if (f41439e.equals(str)) {
+                if (f41930e.equals(str)) {
                     Object tag2 = view.getTag(R.id.item_coming_soon);
                     boolean booleanValue = tag2 instanceof Boolean ? ((Boolean) tag2).booleanValue() : false;
                     ItemClickJumpUtil.itemClickJump(a2.forumName, String.valueOf(a2.itemId), i2);
@@ -381,7 +381,7 @@ public class ItemCardHelper {
                         p(b2, a2.itemId, booleanValue ? 9 : e(a2.buttonName), aVar.c(), a3, "");
                     }
                 }
-                if (f41438d.equals(str)) {
+                if (f41929d.equals(str)) {
                     x(context, OrderTipStatus.COMPLETED, viewGroup, 0L);
                 }
             }
@@ -395,17 +395,17 @@ public class ItemCardHelper {
         }
     }
 
-    public static boolean m(TextView textView, c.a.q0.s.g0.p.a aVar, String str) {
+    public static boolean m(TextView textView, c.a.r0.s.i0.p.a aVar, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, textView, aVar, str)) == null) {
             m = str;
             ItemData a2 = aVar.a();
-            if (!a.equals(a2.buttonName) && !f41436b.equals(a2.buttonName) && !f41438d.equals(a2.buttonName) && !f41440f.equals(a2.buttonName)) {
-                a2.buttonName = f41439e;
+            if (!a.equals(a2.buttonName) && !f41927b.equals(a2.buttonName) && !f41929d.equals(a2.buttonName) && !f41931f.equals(a2.buttonName)) {
+                a2.buttonName = f41930e;
             }
-            if ((f41436b.equals(a2.buttonName) || f41437c.equals(a2.buttonName)) && w(a2) && !o(a2)) {
-                a2.buttonName = f41439e;
+            if ((f41927b.equals(a2.buttonName) || f41928c.equals(a2.buttonName)) && w(a2) && !o(a2)) {
+                a2.buttonName = f41930e;
             }
             textView.setTag(R.id.item_data, aVar);
             return true;
@@ -413,28 +413,28 @@ public class ItemCardHelper {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean n(TBSpecificationBtn tBSpecificationBtn, c.a.q0.s.g0.p.a aVar) {
+    public static boolean n(TBSpecificationBtn tBSpecificationBtn, c.a.r0.s.i0.p.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, tBSpecificationBtn, aVar)) == null) {
             ItemData a2 = aVar.a();
-            boolean equals = f41440f.equals(a2.buttonName);
-            if (!a.equals(a2.buttonName) && !f41436b.equals(a2.buttonName) && !f41438d.equals(a2.buttonName) && !f41437c.equals(a2.buttonName)) {
-                a2.buttonName = f41439e;
+            boolean equals = f41931f.equals(a2.buttonName);
+            if (!a.equals(a2.buttonName) && !f41927b.equals(a2.buttonName) && !f41929d.equals(a2.buttonName) && !f41928c.equals(a2.buttonName)) {
+                a2.buttonName = f41930e;
             }
-            if (((f41436b.equals(a2.buttonName) || f41437c.equals(a2.buttonName)) && w(a2) && !o(a2)) || (!w(a2) && (f41437c.equals(a2.buttonName) || (f41436b.equals(a2.buttonName) && a2.buttonLinkType.intValue() != 2)))) {
-                a2.buttonName = f41439e;
+            if (((f41927b.equals(a2.buttonName) || f41928c.equals(a2.buttonName)) && w(a2) && !o(a2)) || (!w(a2) && (f41928c.equals(a2.buttonName) || (f41927b.equals(a2.buttonName) && a2.buttonLinkType.intValue() != 2)))) {
+                a2.buttonName = f41930e;
             }
             TBSpecificationButtonConfig styleConfig = tBSpecificationBtn.getStyleConfig();
-            if (styleConfig instanceof c.a.q0.s.g0.n.c) {
-                if (f41438d.equals(a2.buttonName)) {
-                    ((c.a.q0.s.g0.n.c) styleConfig).p(R.color.CAM_X0109);
+            if (styleConfig instanceof c.a.r0.s.i0.n.c) {
+                if (f41929d.equals(a2.buttonName)) {
+                    ((c.a.r0.s.i0.n.c) styleConfig).p(R.color.CAM_X0109);
                 }
-            } else if (styleConfig instanceof c.a.q0.s.g0.n.b) {
-                if (f41438d.equals(a2.buttonName)) {
-                    ((c.a.q0.s.g0.n.b) styleConfig).s(R.color.CAM_X0109);
+            } else if (styleConfig instanceof c.a.r0.s.i0.n.b) {
+                if (f41929d.equals(a2.buttonName)) {
+                    ((c.a.r0.s.i0.n.b) styleConfig).s(R.color.CAM_X0109);
                 } else {
-                    ((c.a.q0.s.g0.n.b) styleConfig).p(R.color.CAM_X0302, R.color.CAM_X0101);
+                    ((c.a.r0.s.i0.n.b) styleConfig).p(R.color.CAM_X0302, R.color.CAM_X0101);
                 }
             }
             tBSpecificationBtn.setConfig(styleConfig);
@@ -518,7 +518,7 @@ public class ItemCardHelper {
     public static void v(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65558, null, cVar) == null) {
-            f41444j = cVar;
+            f41935j = cVar;
         }
     }
 
@@ -534,18 +534,18 @@ public class ItemCardHelper {
         if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{context, orderTipStatus, viewGroup, Long.valueOf(j2)}) == null) {
             boolean z = false;
             if (orderTipStatus == OrderTipStatus.COMPLETED) {
-                str = f41441g;
+                str = f41932g;
             } else if (orderTipStatus == OrderTipStatus.SUCCESS) {
                 String simpleName = ((Activity) context).getClass().getSimpleName();
-                if (!"DownloadManagerActivity".equals(simpleName) && c.a.q0.s.e0.b.j().g("key_download_manager_first_toast", true)) {
-                    c.a.q0.s.e0.b.j().t("key_download_manager_first_toast", false);
+                if (!"DownloadManagerActivity".equals(simpleName) && c.a.r0.s.g0.b.j().g("key_download_manager_first_toast", true)) {
+                    c.a.r0.s.g0.b.j().t("key_download_manager_first_toast", false);
                     g(1, simpleName, j2);
                     new ScreenTopToast(context).setTitle(context.getString(R.string.item_first_use_download_manager_toast)).setBtnText(context.getString(R.string.dialog_confirm_see)).setBtnClickListener(new b(simpleName, j2, context)).show(viewGroup);
                     return;
                 }
-                str = f41442h;
+                str = f41933h;
             } else {
-                str = f41443i;
+                str = f41934i;
                 new BdTopToast(context).setIcon(z).setContent(str).show(viewGroup);
             }
             z = true;
@@ -557,21 +557,21 @@ public class ItemCardHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65561, null, textView, str) == null) {
             m = str;
-            if (textView.getBackground() instanceof c.a.q0.s.u.b) {
-                c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(textView);
-                if (!f41438d.equals(textView.getText().toString()) && !f41440f.equals(textView.getText().toString())) {
+            if (textView.getBackground() instanceof c.a.r0.s.v.b) {
+                c.a.r0.s.v.c d2 = c.a.r0.s.v.c.d(textView);
+                if (!f41929d.equals(textView.getText().toString()) && !f41931f.equals(textView.getText().toString())) {
                     textView.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), R.color.CAM_X0101));
                     d2.n(R.string.J_X01);
                     d2.k(R.color.transparent);
-                    d2.g(c.a.r0.t3.c.d(m));
+                    d2.g(c.a.s0.v3.c.d(m));
                 } else if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                    textView.setTextColor(c.a.r0.t3.c.a(c.a.r0.t3.c.d(m), c.a.q0.s.u.a.a(R.string.A_X01)));
+                    textView.setTextColor(c.a.s0.v3.c.a(c.a.s0.v3.c.d(m), c.a.r0.s.v.a.a(R.string.A_X01)));
                     d2.l(R.dimen.tbds1);
-                    d2.t(c.a.r0.t3.c.a(c.a.r0.t3.c.d(m), c.a.q0.s.u.a.a(R.string.A_X07)));
+                    d2.t(c.a.s0.v3.c.a(c.a.s0.v3.c.d(m), c.a.r0.s.v.a.a(R.string.A_X07)));
                     d2.n(R.string.J_X01);
                     d2.f(R.color.CAM_X0209);
                 } else {
-                    c.a.q0.s.u.c.d(textView).v(R.color.CAM_X0103);
+                    c.a.r0.s.v.c.d(textView).v(R.color.CAM_X0103);
                     d2.l(R.dimen.tbds1);
                     d2.k(R.color.CAM_X0209);
                     d2.n(R.string.J_X01);
@@ -584,27 +584,27 @@ public class ItemCardHelper {
     public static void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
-            TBSpecificationBtn tBSpecificationBtn = f41445k;
+            TBSpecificationBtn tBSpecificationBtn = f41936k;
             if (tBSpecificationBtn != null) {
                 TBSpecificationButtonConfig styleConfig = tBSpecificationBtn.getStyleConfig();
-                if (styleConfig instanceof c.a.q0.s.g0.n.c) {
-                    ((c.a.q0.s.g0.n.c) styleConfig).p(R.color.CAM_X0109);
-                } else if (styleConfig instanceof c.a.q0.s.g0.n.b) {
-                    ((c.a.q0.s.g0.n.b) styleConfig).s(R.color.CAM_X0109);
+                if (styleConfig instanceof c.a.r0.s.i0.n.c) {
+                    ((c.a.r0.s.i0.n.c) styleConfig).p(R.color.CAM_X0109);
+                } else if (styleConfig instanceof c.a.r0.s.i0.n.b) {
+                    ((c.a.r0.s.i0.n.b) styleConfig).s(R.color.CAM_X0109);
                 }
-                if ((f41445k.getTag(R.id.item_data) instanceof c.a.q0.s.g0.p.a) && ((c.a.q0.s.g0.p.a) f41445k.getTag(R.id.item_data)).a() != null) {
-                    ((c.a.q0.s.g0.p.a) f41445k.getTag(R.id.item_data)).a().buttonName = f41438d;
+                if ((f41936k.getTag(R.id.item_data) instanceof c.a.r0.s.i0.p.a) && ((c.a.r0.s.i0.p.a) f41936k.getTag(R.id.item_data)).a() != null) {
+                    ((c.a.r0.s.i0.p.a) f41936k.getTag(R.id.item_data)).a().buttonName = f41929d;
                 }
-                f41445k.setConfig(styleConfig);
-                f41445k.setText(f41438d);
-                f41445k.refreshDrawableState();
+                f41936k.setConfig(styleConfig);
+                f41936k.setText(f41929d);
+                f41936k.refreshDrawableState();
             }
             TextView textView = l;
             if (textView != null) {
-                if ((textView.getTag(R.id.item_data) instanceof c.a.q0.s.g0.p.a) && ((c.a.q0.s.g0.p.a) l.getTag(R.id.item_data)).a() != null) {
-                    ((c.a.q0.s.g0.p.a) l.getTag(R.id.item_data)).a().buttonName = f41438d;
+                if ((textView.getTag(R.id.item_data) instanceof c.a.r0.s.i0.p.a) && ((c.a.r0.s.i0.p.a) l.getTag(R.id.item_data)).a() != null) {
+                    ((c.a.r0.s.i0.p.a) l.getTag(R.id.item_data)).a().buttonName = f41929d;
                 }
-                l.setText(f41438d);
+                l.setText(f41929d);
                 y(l, m);
             }
         }

@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LightEstimate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Session a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f55943b;
+    public long f56524b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -114,9 +114,9 @@ public class LightEstimate {
                 return;
             }
         }
-        this.f55943b = 0L;
+        this.f56524b = 0L;
         this.a = session;
-        this.f55943b = nativeCreateLightEstimate(session.a);
+        this.f56524b = nativeCreateLightEstimate(session.a);
     }
 
     public static native long nativeCreateLightEstimate(long j2);
@@ -132,7 +132,7 @@ public class LightEstimate {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.f55943b;
+            long j2 = this.f56524b;
             if (j2 != 0) {
                 nativeDestroyLightEstimate(j2);
             }
@@ -153,7 +153,7 @@ public class LightEstimate {
                 return;
             }
         }
-        this.f55943b = 0L;
-        this.f55943b = 0L;
+        this.f56524b = 0L;
+        this.f56524b = 0L;
     }
 }

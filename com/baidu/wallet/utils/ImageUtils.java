@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ImageUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public class ImageUtils {
                     }
                     if ((i8 & 1) == 0) {
                         int i12 = i7 + 1;
-                        i10 = (bArr[i7] & 255) + a.f31350g;
+                        i10 = (bArr[i7] & 255) + a.f31720g;
                         i7 = i12 + 1;
-                        i9 = (bArr[i12] & 255) + a.f31350g;
+                        i9 = (bArr[i12] & 255) + a.f31720g;
                     }
                     int i13 = i11 * 1192;
                     int i14 = (i10 * 1634) + i13;

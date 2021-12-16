@@ -5,16 +5,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.q0.s.q.d2;
-import c.a.q0.s.q.f;
-import c.a.r0.q2.g;
-import c.a.r0.q2.i;
-import c.a.r0.q2.j;
-import c.a.r0.q2.r.r;
-import c.a.r0.q2.u.f.a1.c;
-import c.a.r0.q2.u.f.n;
-import c.a.r0.q2.y.b;
+import c.a.d.f.p.m;
+import c.a.r0.s.r.d2;
+import c.a.r0.s.r.f;
+import c.a.s0.s2.g;
+import c.a.s0.s2.i;
+import c.a.s0.s2.j;
+import c.a.s0.s2.r.r;
+import c.a.s0.s2.u.f.a1.c;
+import c.a.s0.s2.u.f.n;
+import c.a.s0.s2.y.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommentAndPraiseViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public static int x;
@@ -38,7 +38,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
     public boolean v;
     public b w;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class PbFirstFloorCommentAndPraiseViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
         @NonNull
 
         /* renamed from: b  reason: collision with root package name */
-        public f f47707b;
+        public f f48214b;
         public View mBottomDividerLine;
         public PbThreadCommentAndPraiseInfoLayout mCommentAndPraiseLayout;
 
@@ -68,17 +68,17 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
                     return;
                 }
             }
-            this.f47707b = new f();
+            this.f48214b = new f();
             if (view == null) {
                 return;
             }
             this.mCommentAndPraiseLayout = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(i.card_bottom_func_layout);
-            f fVar = this.f47707b;
-            fVar.f12929b = 4;
-            fVar.f12935h = 7;
-            fVar.f12930c = this.a;
-            fVar.f12933f = PbFirstFloorCommentAndPraiseAdapter.x;
-            this.mCommentAndPraiseLayout.setAgreeStatisticData(this.f47707b);
+            f fVar = this.f48214b;
+            fVar.f13309b = 4;
+            fVar.f13315h = 7;
+            fVar.f13310c = this.a;
+            fVar.f13313f = PbFirstFloorCommentAndPraiseAdapter.x;
+            this.mCommentAndPraiseLayout.setAgreeStatisticData(this.f48214b);
             View findViewById = view.findViewById(i.bottom_divider_line);
             this.mBottomDividerLine = findViewById;
             findViewById.setVisibility(0);
@@ -99,8 +99,8 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
                     } else {
                         this.a = 1;
                     }
-                    if (rVar.f21563f) {
-                        getView().setPadding(0, 0, 0, l.f(getView().getContext(), g.tbds32));
+                    if (rVar.f22569f) {
+                        getView().setPadding(0, 0, 0, m.f(getView().getContext(), g.tbds32));
                     }
                     this.mCommentAndPraiseLayout.showOperationMaskView(rVar.i());
                 }
@@ -111,7 +111,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
         public void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                SkinManager.setBackgroundColor(this.mBottomDividerLine, c.a.r0.q2.f.CAM_X0203);
+                SkinManager.setBackgroundColor(this.mBottomDividerLine, c.a.s0.s2.f.CAM_X0203);
                 this.mCommentAndPraiseLayout.onChangeSkinType();
             }
         }
@@ -119,7 +119,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
         public void setFromForumId(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f47707b.f12937j = str;
+                this.f48214b.f13317j = str;
             }
         }
 
@@ -166,7 +166,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
         this.t = new c(bVar);
     }
 
-    @Override // c.a.r0.q2.u.f.n, c.a.d.m.e.a
+    @Override // c.a.s0.s2.u.f.n, c.a.d.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         s0(i2, view, viewGroup, (r) obj, (PbFirstFloorCommentAndPraiseViewHolder) viewHolder);
         return view;
@@ -263,7 +263,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<r, PbFirstFloorCommen
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewGroup)) == null) {
-            PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.f2907e).inflate(j.layout_pb_thread_praise_item, viewGroup, false));
+            PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.f2871e).inflate(j.layout_pb_thread_praise_item, viewGroup, false));
             pbFirstFloorCommentAndPraiseViewHolder.setTopicId(o0());
             pbFirstFloorCommentAndPraiseViewHolder.setTopicSubjectName(p0());
             this.u.add(pbFirstFloorCommentAndPraiseViewHolder);

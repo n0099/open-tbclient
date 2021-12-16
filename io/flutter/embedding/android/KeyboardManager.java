@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.Log;
 import io.flutter.plugin.editing.TextInputPlugin;
 import java.util.HashSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KeyboardManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "KeyboardManager";
@@ -26,13 +26,13 @@ public class KeyboardManager {
     public final View view;
 
     /* renamed from: io.flutter.embedding.android.KeyboardManager$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class PerEventCallbackBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class KeyboardManager {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Callback(this, null) : (Responder.OnKeyEventHandledCallback) invokeV.objValue;
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class Callback implements Responder.OnKeyEventHandledCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -121,10 +121,10 @@ public class KeyboardManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface Responder {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public interface OnKeyEventHandledCallback {
             void onKeyEventHandled(Boolean bool);
         }

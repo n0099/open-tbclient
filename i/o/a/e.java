@@ -8,30 +8,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import i.d;
 import java.util.Arrays;
 import rx.exceptions.CompositeException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e<T> implements d.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.e<? super T> f63654e;
+    public final i.e<? super T> f64235e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.d<T> f63655f;
+    public final i.d<T> f64236f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T> extends i.j<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final i.j<? super T> f63656i;
+        public final i.j<? super T> f64237i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final i.e<? super T> f63657j;
+        public final i.e<? super T> f64238j;
 
         /* renamed from: k  reason: collision with root package name */
-        public boolean f63658k;
+        public boolean f64239k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(i.j<? super T> jVar, i.e<? super T> eVar) {
@@ -51,20 +51,20 @@ public class e<T> implements d.a<T> {
                     return;
                 }
             }
-            this.f63656i = jVar;
-            this.f63657j = eVar;
+            this.f64237i = jVar;
+            this.f64238j = eVar;
         }
 
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f63658k) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f64239k) {
                 return;
             }
             try {
-                this.f63657j.onCompleted();
-                this.f63658k = true;
-                this.f63656i.onCompleted();
+                this.f64238j.onCompleted();
+                this.f64239k = true;
+                this.f64237i.onCompleted();
             } catch (Throwable th) {
                 i.m.a.f(th, this);
             }
@@ -74,17 +74,17 @@ public class e<T> implements d.a<T> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.f63658k) {
+                if (this.f64239k) {
                     i.r.c.j(th);
                     return;
                 }
-                this.f63658k = true;
+                this.f64239k = true;
                 try {
-                    this.f63657j.onError(th);
-                    this.f63656i.onError(th);
+                    this.f64238j.onError(th);
+                    this.f64237i.onError(th);
                 } catch (Throwable th2) {
                     i.m.a.e(th2);
-                    this.f63656i.onError(new CompositeException(Arrays.asList(th, th2)));
+                    this.f64237i.onError(new CompositeException(Arrays.asList(th, th2)));
                 }
             }
         }
@@ -92,12 +92,12 @@ public class e<T> implements d.a<T> {
         @Override // i.e
         public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f63658k) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f64239k) {
                 return;
             }
             try {
-                this.f63657j.onNext(t);
-                this.f63656i.onNext(t);
+                this.f64238j.onNext(t);
+                this.f64237i.onNext(t);
             } catch (Throwable th) {
                 i.m.a.g(th, this, t);
             }
@@ -119,8 +119,8 @@ public class e<T> implements d.a<T> {
                 return;
             }
         }
-        this.f63655f = dVar;
-        this.f63654e = eVar;
+        this.f64236f = dVar;
+        this.f64235e = eVar;
     }
 
     @Override // i.d.a, i.n.b
@@ -131,7 +131,7 @@ public class e<T> implements d.a<T> {
     public void call(i.j<? super T> jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            this.f63655f.D(new a(jVar, this.f63654e));
+            this.f64236f.D(new a(jVar, this.f64235e));
         }
     }
 }

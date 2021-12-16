@@ -24,24 +24,24 @@ import com.ss.android.socialbase.appdownloader.d;
 import com.ss.android.socialbase.appdownloader.h;
 import com.ss.android.socialbase.appdownloader.i;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class JumpUnknownSourceActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f61590b;
+    public Intent f62171b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public Intent f61591c;
+    public Intent f62172c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f61592d;
+    public int f62173d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f61593e;
+    public JSONObject f62174e;
 
     public JumpUnknownSourceActivity() {
         Interceptable interceptable = $ic;
@@ -83,17 +83,17 @@ public class JumpUnknownSourceActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onResume();
             Intent intent = getIntent();
-            this.f61590b = intent;
+            this.f62171b = intent;
             if (intent != null) {
-                this.f61591c = (Intent) intent.getParcelableExtra("intent");
-                this.f61592d = intent.getIntExtra("id", -1);
+                this.f62172c = (Intent) intent.getParcelableExtra("intent");
+                this.f62173d = intent.getIntExtra("id", -1);
                 try {
-                    this.f61593e = new JSONObject(intent.getStringExtra(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
+                    this.f62174e = new JSONObject(intent.getStringExtra(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
-            if (this.f61593e == null) {
+            if (this.f62174e == null) {
                 c.a((Activity) this);
                 return;
             }
@@ -119,7 +119,7 @@ public class JumpUnknownSourceActivity extends Activity {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.a == null && this.f61590b != null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.a == null && this.f62171b != null) {
             try {
                 com.ss.android.socialbase.appdownloader.c.c a = d.j().a();
                 l a2 = a != null ? a.a(this) : null;
@@ -129,7 +129,7 @@ public class JumpUnknownSourceActivity extends Activity {
                 int a3 = i.a(this, "tt_appdownloader_tip");
                 int a4 = i.a(this, "tt_appdownloader_label_ok");
                 int a5 = i.a(this, "tt_appdownloader_label_cancel");
-                String optString = this.f61593e.optString("jump_unknown_source_tips");
+                String optString = this.f62174e.optString("jump_unknown_source_tips");
                 if (TextUtils.isEmpty(optString)) {
                     optString = getString(i.a(this, "tt_appdownloader_jump_unknown_source_tips"));
                 }
@@ -161,13 +161,13 @@ public class JumpUnknownSourceActivity extends Activity {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
                             JumpUnknownSourceActivity jumpUnknownSourceActivity = this.a;
-                            if (b.a(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f61591c, this.a.f61592d, this.a.f61593e)) {
-                                b.c(this.a.f61592d, this.a.f61593e);
+                            if (b.a(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f62172c, this.a.f62173d, this.a.f62174e)) {
+                                b.c(this.a.f62173d, this.a.f62174e);
                             } else {
                                 JumpUnknownSourceActivity jumpUnknownSourceActivity2 = this.a;
-                                b.a((Context) jumpUnknownSourceActivity2, jumpUnknownSourceActivity2.f61591c, true);
+                                b.a((Context) jumpUnknownSourceActivity2, jumpUnknownSourceActivity2.f62172c, true);
                             }
-                            b.a(this.a.f61592d, this.a.f61593e);
+                            b.a(this.a.f62173d, this.a.f62174e);
                             this.a.finish();
                         }
                     }
@@ -198,11 +198,11 @@ public class JumpUnknownSourceActivity extends Activity {
                     public void onClick(DialogInterface dialogInterface, int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                            if (this.a.f61591c != null) {
+                            if (this.a.f62172c != null) {
                                 JumpUnknownSourceActivity jumpUnknownSourceActivity = this.a;
-                                b.a((Context) jumpUnknownSourceActivity, jumpUnknownSourceActivity.f61591c, true);
+                                b.a((Context) jumpUnknownSourceActivity, jumpUnknownSourceActivity.f62172c, true);
                             }
-                            b.b(this.a.f61592d, this.a.f61593e);
+                            b.b(this.a.f62173d, this.a.f62174e);
                             this.a.finish();
                         }
                     }
@@ -233,11 +233,11 @@ public class JumpUnknownSourceActivity extends Activity {
                     public void onCancel(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            if (this.a.f61591c != null) {
+                            if (this.a.f62172c != null) {
                                 JumpUnknownSourceActivity jumpUnknownSourceActivity = this.a;
-                                b.a((Context) jumpUnknownSourceActivity, jumpUnknownSourceActivity.f61591c, true);
+                                b.a((Context) jumpUnknownSourceActivity, jumpUnknownSourceActivity.f62172c, true);
                             }
-                            b.b(this.a.f61592d, this.a.f61593e);
+                            b.b(this.a.f62173d, this.a.f62174e);
                             this.a.finish();
                         }
                     }

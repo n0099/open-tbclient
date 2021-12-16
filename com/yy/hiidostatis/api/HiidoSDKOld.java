@@ -69,7 +69,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HiidoSDKOld implements HiidoApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_METRICS_NAME = "DEFAULT_METRICS";
@@ -113,7 +113,7 @@ public class HiidoSDKOld implements HiidoApi {
     public volatile boolean userAgreed;
 
     /* renamed from: com.yy.hiidostatis.api.HiidoSDKOld$41  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class AnonymousClass41 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -215,12 +215,12 @@ public class HiidoSDKOld implements HiidoApi {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface HdidReceiver {
         void onHdidReceived(String str);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class QuitTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -483,7 +483,7 @@ public class HiidoSDKOld implements HiidoApi {
     public boolean imeiPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65579, this)) == null) ? !HiidoSDK.instance().getOptions().isUseOaid() || Build.VERSION.SDK_INT > 28 || this.appRunIsCalled || ArdUtil.checkPermissions(this.mContext, s.f56838c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65579, this)) == null) ? !HiidoSDK.instance().getOptions().isUseOaid() || Build.VERSION.SDK_INT > 28 || this.appRunIsCalled || ArdUtil.checkPermissions(this.mContext, s.f57419c) : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

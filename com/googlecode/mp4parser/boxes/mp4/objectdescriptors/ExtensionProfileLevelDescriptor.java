@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {19})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ExtensionProfileLevelDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

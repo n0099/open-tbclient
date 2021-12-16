@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ARPScriptEnvironment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AR_KEY = "ar_key";
@@ -202,7 +202,7 @@ public class ARPScriptEnvironment {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             nativeGetSharedEnvironment();
             String str = "getSharedEnvironmentValue(KEY_AR_KEY) :" + getSharedEnvironmentValue("ar_key");
-            getSharedEnvironmentValue(com.baidu.fsg.base.a.f34139g);
+            getSharedEnvironmentValue(com.baidu.fsg.base.a.f34607g);
         }
     }
 }

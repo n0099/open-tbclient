@@ -1,7 +1,7 @@
 package com.kwad.sdk.plugin;
 
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface h {
     void a();
 

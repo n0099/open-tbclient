@@ -19,41 +19,41 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RimSuccessView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f35006b;
+    public float f35474b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f35007c;
+    public float f35475c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f35008d;
+    public Paint f35476d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PathMeasure f35009e;
+    public PathMeasure f35477e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f35010f;
+    public Path f35478f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Path f35011g;
+    public Path f35479g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f35012h;
+    public Path f35480h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Path f35013i;
+    public Path f35481i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Path f35014j;
+    public Path f35482j;
 
     /* renamed from: k  reason: collision with root package name */
-    public ValueAnimator f35015k;
+    public ValueAnimator f35483k;
     public float l;
     public float m;
 
@@ -89,11 +89,11 @@ public class RimSuccessView extends View {
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             this.m = 0.0f;
             this.l = 0.0f;
-            this.f35010f.reset();
-            this.f35011g.reset();
-            this.f35013i.reset();
-            this.f35014j.reset();
-            this.f35012h.reset();
+            this.f35478f.reset();
+            this.f35479g.reset();
+            this.f35481i.reset();
+            this.f35482j.reset();
+            this.f35480h.reset();
         }
     }
 
@@ -101,7 +101,7 @@ public class RimSuccessView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.f35015k = ofFloat;
+            this.f35483k = ofFloat;
             ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.baidu.fsg.face.liveness.view.RimSuccessView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +168,7 @@ public class RimSuccessView extends View {
                 }
             });
             AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.play(this.f35015k).after(ofFloat2);
+            animatorSet.play(this.f35483k).after(ofFloat2);
             animatorSet.setDuration(500L);
             animatorSet.start();
         }
@@ -188,28 +188,28 @@ public class RimSuccessView extends View {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
             canvas.translate(getPaddingLeft(), getPaddingTop());
-            this.f35008d.setColor(this.a);
+            this.f35476d.setColor(this.a);
             RectF rectF = new RectF();
-            rectF.left = (getWidth() / 2) - this.f35007c;
-            rectF.top = (getWidth() / 2) - this.f35007c;
-            rectF.right = (getWidth() / 2) + this.f35007c;
-            float f2 = this.f35007c;
+            rectF.left = (getWidth() / 2) - this.f35475c;
+            rectF.top = (getWidth() / 2) - this.f35475c;
+            rectF.right = (getWidth() / 2) + this.f35475c;
+            float f2 = this.f35475c;
             rectF.bottom = (getWidth() / 2) + f2;
             float f3 = (f2 * 2.0f) / 76.0f;
-            this.f35012h.moveTo(rectF.left + (23.0f * f3), rectF.top + (30.0f * f3));
-            this.f35012h.lineTo(rectF.left + (38.0f * f3), rectF.top + (45.0f * f3));
-            this.f35012h.lineTo(rectF.left + (68.0f * f3), rectF.top + (f3 * 17.0f));
-            this.f35009e.setPath(this.f35012h, false);
-            PathMeasure pathMeasure = this.f35009e;
-            pathMeasure.getSegment(0.0f, this.m * pathMeasure.getLength(), this.f35011g, true);
-            canvas.drawPath(this.f35011g, this.f35008d);
+            this.f35480h.moveTo(rectF.left + (23.0f * f3), rectF.top + (30.0f * f3));
+            this.f35480h.lineTo(rectF.left + (38.0f * f3), rectF.top + (45.0f * f3));
+            this.f35480h.lineTo(rectF.left + (68.0f * f3), rectF.top + (f3 * 17.0f));
+            this.f35477e.setPath(this.f35480h, false);
+            PathMeasure pathMeasure = this.f35477e;
+            pathMeasure.getSegment(0.0f, this.m * pathMeasure.getLength(), this.f35479g, true);
+            canvas.drawPath(this.f35479g, this.f35476d);
             if (this.m == 1.0f) {
-                this.f35010f.rLineTo(0.0f, 0.0f);
-                this.f35010f.addArc(rectF, -36.0f, -320.0f);
-                this.f35009e.setPath(this.f35010f, false);
-                PathMeasure pathMeasure2 = this.f35009e;
-                pathMeasure2.getSegment(0.0f, this.l * pathMeasure2.getLength(), this.f35011g, true);
-                canvas.drawPath(this.f35011g, this.f35008d);
+                this.f35478f.rLineTo(0.0f, 0.0f);
+                this.f35478f.addArc(rectF, -36.0f, -320.0f);
+                this.f35477e.setPath(this.f35478f, false);
+                PathMeasure pathMeasure2 = this.f35477e;
+                pathMeasure2.getSegment(0.0f, this.l * pathMeasure2.getLength(), this.f35479g, true);
+                canvas.drawPath(this.f35479g, this.f35476d);
             }
         }
     }
@@ -221,12 +221,12 @@ public class RimSuccessView extends View {
             int mode = View.MeasureSpec.getMode(i2);
             int size = View.MeasureSpec.getSize(i2);
             if (mode != 1073741824) {
-                size = (int) ((this.f35007c * 2.0f) + this.f35006b + getPaddingLeft() + getPaddingRight());
+                size = (int) ((this.f35475c * 2.0f) + this.f35474b + getPaddingLeft() + getPaddingRight());
             }
             int mode2 = View.MeasureSpec.getMode(i3);
             int size2 = View.MeasureSpec.getSize(i3);
             if (mode2 != 1073741824) {
-                size2 = (int) ((this.f35007c * 2.0f) + this.f35006b + getPaddingTop() + getPaddingBottom());
+                size2 = (int) ((this.f35475c * 2.0f) + this.f35474b + getPaddingTop() + getPaddingBottom());
             }
             setMeasuredDimension(size, size2);
         }
@@ -257,24 +257,24 @@ public class RimSuccessView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             Paint paint = new Paint();
-            this.f35008d = paint;
+            this.f35476d = paint;
             paint.setStyle(Paint.Style.STROKE);
-            this.f35008d.setDither(true);
-            this.f35008d.setAntiAlias(true);
-            this.f35008d.setStrokeWidth(this.f35006b);
-            this.f35008d.setStrokeCap(Paint.Cap.ROUND);
+            this.f35476d.setDither(true);
+            this.f35476d.setAntiAlias(true);
+            this.f35476d.setStrokeWidth(this.f35474b);
+            this.f35476d.setStrokeCap(Paint.Cap.ROUND);
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.f35010f = new Path();
-            this.f35009e = new PathMeasure();
-            this.f35011g = new Path();
-            this.f35012h = new Path();
-            this.f35013i = new Path();
-            this.f35014j = new Path();
+            this.f35478f = new Path();
+            this.f35477e = new PathMeasure();
+            this.f35479g = new Path();
+            this.f35480h = new Path();
+            this.f35481i = new Path();
+            this.f35482j = new Path();
         }
     }
 
@@ -299,8 +299,8 @@ public class RimSuccessView extends View {
         }
         TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.RimSuccessView, i2, 0);
         this.a = obtainStyledAttributes.getColor(R.styleable.RimSuccessView_rim_progress_color, ContextCompat.getColor(context, R.color.rim_base_white));
-        this.f35006b = obtainStyledAttributes.getDimension(R.styleable.RimSuccessView_rim_progress_width, 2.0f);
-        this.f35007c = obtainStyledAttributes.getDimension(R.styleable.RimSuccessView_rim_progress_radius, 35.0f);
+        this.f35474b = obtainStyledAttributes.getDimension(R.styleable.RimSuccessView_rim_progress_width, 2.0f);
+        this.f35475c = obtainStyledAttributes.getDimension(R.styleable.RimSuccessView_rim_progress_radius, 35.0f);
         obtainStyledAttributes.recycle();
         a();
         b();

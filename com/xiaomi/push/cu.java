@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class cu extends co {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public class cu extends co {
     public final /* synthetic */ cs f213a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ co f62772b;
+    public final /* synthetic */ co f63353b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cu(cs csVar, String str, co coVar) {
@@ -39,12 +39,12 @@ public class cu extends co {
             }
         }
         this.f213a = csVar;
-        this.f62772b = coVar;
-        co coVar2 = this.f62772b;
+        this.f63353b = coVar;
+        co coVar2 = this.f63353b;
         this.a = coVar2;
         ((co) this).f199b = ((co) this).f199b;
         if (coVar2 != null) {
-            this.f62764f = coVar2.f62764f;
+            this.f63345f = coVar2.f63345f;
         }
     }
 
@@ -59,8 +59,8 @@ public class cu extends co {
                 if (this.a != null) {
                     arrayList.addAll(this.a.a(true));
                 }
-                synchronized (cs.f62769b) {
-                    co coVar = cs.f62769b.get(((co) this).f199b);
+                synchronized (cs.f63350b) {
+                    co coVar = cs.f63350b.get(((co) this).f199b);
                     if (coVar != null) {
                         Iterator<String> it = coVar.a(true).iterator();
                         while (it.hasNext()) {

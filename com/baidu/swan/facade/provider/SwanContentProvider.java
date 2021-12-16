@@ -10,9 +10,9 @@ import android.os.Process;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.k;
-import c.a.p0.g.o.a.a;
-import c.a.p0.g.o.b.c;
+import c.a.q0.a.k;
+import c.a.q0.g.o.a.a;
+import c.a.q0.g.o.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.facade.provider.processor.ProcessorInfo;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SwanContentProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHORITY;
@@ -88,7 +88,7 @@ public class SwanContentProvider extends ContentProvider {
                 return true;
             }
             String a = c.a(callingPackage);
-            Set<String> a2 = c.a.p0.d.g.c.e().a();
+            Set<String> a2 = c.a.q0.d.g.c.e().a();
             z = (a2 == null || !a2.contains(a)) ? false : false;
             if (z) {
                 sAccreditedSet.add(callingPackage);

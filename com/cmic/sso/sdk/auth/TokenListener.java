@@ -1,7 +1,7 @@
 package com.cmic.sso.sdk.auth;
 
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface TokenListener {
     void onGetTokenComplete(JSONObject jSONObject);
 }

@@ -14,21 +14,21 @@ import com.google.common.collect.Lists;
 import java.util.AbstractCollection;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a<E> extends AbstractCollection<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Collection<E> f30577e;
+        public final Collection<E> f30947e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final c.i.d.a.o<? super E> f30578f;
+        public final c.i.d.a.o<? super E> f30948f;
 
         public a(Collection<E> collection, c.i.d.a.o<? super E> oVar) {
             Interceptable interceptable = $ic;
@@ -45,14 +45,14 @@ public final class n {
                     return;
                 }
             }
-            this.f30577e = collection;
-            this.f30578f = oVar;
+            this.f30947e = collection;
+            this.f30948f = oVar;
         }
 
         public a<E> a(c.i.d.a.o<? super E> oVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, oVar)) == null) ? new a<>(this.f30577e, Predicates.c(this.f30578f, oVar)) : (a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, oVar)) == null) ? new a<>(this.f30947e, Predicates.c(this.f30948f, oVar)) : (a) invokeL.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
@@ -60,8 +60,8 @@ public final class n {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2)) == null) {
-                c.i.d.a.n.d(this.f30578f.apply(e2));
-                return this.f30577e.add(e2);
+                c.i.d.a.n.d(this.f30948f.apply(e2));
+                return this.f30947e.add(e2);
             }
             return invokeL.booleanValue;
         }
@@ -72,9 +72,9 @@ public final class n {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
                 for (E e2 : collection) {
-                    c.i.d.a.n.d(this.f30578f.apply(e2));
+                    c.i.d.a.n.d(this.f30948f.apply(e2));
                 }
-                return this.f30577e.addAll(collection);
+                return this.f30947e.addAll(collection);
             }
             return invokeL.booleanValue;
         }
@@ -83,7 +83,7 @@ public final class n {
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                o0.k(this.f30577e, this.f30578f);
+                o0.k(this.f30947e, this.f30948f);
             }
         }
 
@@ -92,8 +92,8 @@ public final class n {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-                if (n.e(this.f30577e, obj)) {
-                    return this.f30578f.apply(obj);
+                if (n.e(this.f30947e, obj)) {
+                    return this.f30948f.apply(obj);
                 }
                 return false;
             }
@@ -111,21 +111,21 @@ public final class n {
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !o0.b(this.f30577e, this.f30578f) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !o0.b(this.f30947e, this.f30948f) : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
         public Iterator<E> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Iterators.l(this.f30577e.iterator(), this.f30578f) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Iterators.l(this.f30947e.iterator(), this.f30948f) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean remove(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) ? contains(obj) && this.f30577e.remove(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) ? contains(obj) && this.f30947e.remove(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
@@ -133,11 +133,11 @@ public final class n {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, collection)) == null) {
-                Iterator<E> it = this.f30577e.iterator();
+                Iterator<E> it = this.f30947e.iterator();
                 boolean z = false;
                 while (it.hasNext()) {
                     E next = it.next();
-                    if (this.f30578f.apply(next) && collection.contains(next)) {
+                    if (this.f30948f.apply(next) && collection.contains(next)) {
                         it.remove();
                         z = true;
                     }
@@ -152,11 +152,11 @@ public final class n {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, collection)) == null) {
-                Iterator<E> it = this.f30577e.iterator();
+                Iterator<E> it = this.f30947e.iterator();
                 boolean z = false;
                 while (it.hasNext()) {
                     E next = it.next();
-                    if (this.f30578f.apply(next) && !collection.contains(next)) {
+                    if (this.f30948f.apply(next) && !collection.contains(next)) {
                         it.remove();
                         z = true;
                     }
@@ -172,8 +172,8 @@ public final class n {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
                 int i2 = 0;
-                for (E e2 : this.f30577e) {
-                    if (this.f30578f.apply(e2)) {
+                for (E e2 : this.f30947e) {
+                    if (this.f30948f.apply(e2)) {
                         i2++;
                     }
                 }

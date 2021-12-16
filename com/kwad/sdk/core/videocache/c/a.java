@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.videocache.j;
 import com.kwad.sdk.core.videocache.n;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends SQLiteOpenHelper implements b {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;
@@ -65,8 +65,8 @@ public class a extends SQLiteOpenHelper implements b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, nVar)) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("url", nVar.a);
-            contentValues.put("length", Long.valueOf(nVar.f57934b));
-            contentValues.put("mime", nVar.f57935c);
+            contentValues.put("length", Long.valueOf(nVar.f58515b));
+            contentValues.put("mime", nVar.f58516c);
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;

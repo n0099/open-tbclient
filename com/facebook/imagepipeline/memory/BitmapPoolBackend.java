@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class BitmapPoolBackend extends LruBucketsPoolBackend<Bitmap> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BitmapPoolBackend";

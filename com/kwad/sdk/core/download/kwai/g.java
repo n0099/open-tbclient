@@ -19,50 +19,50 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends com.kwad.sdk.widget.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57430b;
+    public String f58011b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57431c;
+    public String f58012c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f57432d;
+    public int f58013d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57433e;
+    public String f58014e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57434f;
+    public int f58015f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f57435b;
+        public b f58016b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f57436c;
+        public String f58017c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f57437d;
+        public String f58018d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f57438e;
+        public int f58019e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f57439f;
+        public String f58020f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f57440g;
+        public int f58021g;
 
         public a(@NonNull Context context) {
             Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public class g extends com.kwad.sdk.widget.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                this.f57435b = bVar;
+                this.f58016b = bVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -96,7 +96,7 @@ public class g extends com.kwad.sdk.widget.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f57436c = str;
+                this.f58017c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -109,7 +109,7 @@ public class g extends com.kwad.sdk.widget.a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(DialogInterface dialogInterface);
 
@@ -177,10 +177,10 @@ public class g extends com.kwad.sdk.widget.a {
                 }
             });
             TextView textView = (TextView) inflate.findViewById(R.id.ksad_no_title_common_positive_btn);
-            if (!TextUtils.isEmpty(this.f57431c)) {
-                textView.setText(this.f57431c);
+            if (!TextUtils.isEmpty(this.f58012c)) {
+                textView.setText(this.f58012c);
             }
-            textView.setTextColor(this.f57432d);
+            textView.setTextColor(this.f58013d);
             textView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.core.download.kwai.g.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -214,10 +214,10 @@ public class g extends com.kwad.sdk.widget.a {
                 }
             });
             TextView textView2 = (TextView) inflate.findViewById(R.id.ksad_no_title_common_negative_btn);
-            if (!TextUtils.isEmpty(this.f57433e)) {
-                textView2.setText(this.f57433e);
+            if (!TextUtils.isEmpty(this.f58014e)) {
+                textView2.setText(this.f58014e);
             }
-            textView2.setTextColor(this.f57434f);
+            textView2.setTextColor(this.f58015f);
             textView2.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.core.download.kwai.g.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -250,7 +250,7 @@ public class g extends com.kwad.sdk.widget.a {
                     this.a.a.b(this.a);
                 }
             });
-            ((TextView) inflate.findViewById(R.id.ksad_no_title_common_content_text)).setText(this.f57430b);
+            ((TextView) inflate.findViewById(R.id.ksad_no_title_common_content_text)).setText(this.f58011b);
             return inflate;
         }
         return (View) invokeV.objValue;
@@ -262,12 +262,12 @@ public class g extends com.kwad.sdk.widget.a {
             if (aVar.a instanceof Activity) {
                 setOwnerActivity((Activity) aVar.a);
             }
-            this.a = aVar.f57435b;
-            this.f57430b = aVar.f57436c;
-            this.f57431c = !TextUtils.isEmpty(aVar.f57437d) ? aVar.f57437d : aVar.a.getString(R.string.ksad_no_title_common_dialog_positivebtn_title);
-            this.f57432d = aVar.f57438e != 0 ? aVar.f57438e : aVar.a.getResources().getColor(R.color.ksad_no_title_common_dialog_positivebtn_color);
-            this.f57433e = !TextUtils.isEmpty(aVar.f57439f) ? aVar.f57439f : aVar.a.getString(R.string.ksad_no_title_common_dialog_negativebtn_title);
-            this.f57434f = aVar.f57440g != 0 ? aVar.f57440g : aVar.a.getResources().getColor(R.color.ksad_no_title_common_dialog_negativebtn_color);
+            this.a = aVar.f58016b;
+            this.f58011b = aVar.f58017c;
+            this.f58012c = !TextUtils.isEmpty(aVar.f58018d) ? aVar.f58018d : aVar.a.getString(R.string.ksad_no_title_common_dialog_positivebtn_title);
+            this.f58013d = aVar.f58019e != 0 ? aVar.f58019e : aVar.a.getResources().getColor(R.color.ksad_no_title_common_dialog_positivebtn_color);
+            this.f58014e = !TextUtils.isEmpty(aVar.f58020f) ? aVar.f58020f : aVar.a.getString(R.string.ksad_no_title_common_dialog_negativebtn_title);
+            this.f58015f = aVar.f58021g != 0 ? aVar.f58021g : aVar.a.getResources().getColor(R.color.ksad_no_title_common_dialog_negativebtn_color);
         }
     }
 

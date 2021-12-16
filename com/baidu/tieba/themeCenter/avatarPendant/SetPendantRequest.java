@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.avatarPendant;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SetPendant.DataReq;
 import tbclient.SetPendant.SetPendantReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SetPendantRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class SetPendantRequest extends NetMessage {
             builder.props_id = Long.valueOf(this.pendantId);
             builder.type = Integer.valueOf(this.type);
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             SetPendantReqIdl.Builder builder2 = new SetPendantReqIdl.Builder();
             builder2.data = builder.build(false);

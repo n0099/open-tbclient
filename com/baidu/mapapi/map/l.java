@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l implements com.baidu.mapsdkplatform.comapi.map.l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,22 +57,22 @@ public class l implements com.baidu.mapsdkplatform.comapi.map.l {
         com.baidu.mapsdkplatform.comapi.map.j jVar8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jVar = this.a.f35878e;
+            jVar = this.a.f36367e;
             if (jVar != null) {
-                jVar2 = this.a.f35878e;
+                jVar2 = this.a.f36367e;
                 if (jVar2.a() == null) {
                     return;
                 }
-                jVar3 = this.a.f35878e;
+                jVar3 = this.a.f36367e;
                 float f3 = jVar3.a().E().a;
-                jVar4 = this.a.f35878e;
-                if (f3 < jVar4.a().f36433b) {
-                    jVar8 = this.a.f35878e;
-                    f3 = jVar8.a().f36433b;
+                jVar4 = this.a.f36367e;
+                if (f3 < jVar4.a().f36922b) {
+                    jVar8 = this.a.f36367e;
+                    f3 = jVar8.a().f36922b;
                 } else {
-                    jVar5 = this.a.f35878e;
+                    jVar5 = this.a.f36367e;
                     if (f3 > jVar5.a().a) {
-                        jVar6 = this.a.f35878e;
+                        jVar6 = this.a.f36367e;
                         f3 = jVar6.a().a;
                     }
                 }
@@ -80,7 +80,7 @@ public class l implements com.baidu.mapsdkplatform.comapi.map.l {
                 if (Math.abs(f2 - f3) > 0.0f) {
                     sparseArray = MapView.q;
                     int intValue = ((Integer) sparseArray.get(Math.round(f3))).intValue();
-                    jVar7 = this.a.f35878e;
+                    jVar7 = this.a.f36367e;
                     imageView = this.a.o;
                     int i2 = ((int) (intValue / jVar7.a().E().m)) / 2;
                     imageView.setPadding(i2, 0, i2, 0);

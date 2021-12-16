@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.armor.SecurePay;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f28582d;
+    public static final int[] f28957d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f28583b;
+    public long f28958b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28584c;
+    public int f28959c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class a implements b {
                 return;
             }
         }
-        f28582d = new int[]{1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000};
+        f28957d = new int[]{1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000};
     }
 
     public a(String str, long j2, int i2) {
@@ -57,8 +57,8 @@ public class a implements b {
             }
         }
         this.a = str;
-        this.f28583b = j2;
-        this.f28584c = i2;
+        this.f28958b = j2;
+        this.f28959c = i2;
     }
 
     public static byte[] c(String str) {
@@ -82,15 +82,15 @@ public class a implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             byte[] bArr = new byte[8];
-            long j2 = this.f28583b;
+            long j2 = this.f28958b;
             for (int i2 = 7; i2 >= 0; i2--) {
                 bArr[i2] = (byte) (255 & j2);
                 j2 >>= 8;
             }
             SecurePay securePay = SecurePay.getInstance();
             byte[] c2 = c(this.a);
-            int[] iArr = f28582d;
-            int i3 = this.f28584c;
+            int[] iArr = f28957d;
+            int i3 = this.f28959c;
             return securePay.getDyKey(c2, bArr, iArr[i3], i3);
         }
         return (String) invokeL.objValue;
@@ -99,8 +99,8 @@ public class a implements b {
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f28583b = j2;
-            String str = "+++++++++HotpToken movingFactor is " + this.f28583b;
+            this.f28958b = j2;
+            String str = "+++++++++HotpToken movingFactor is " + this.f28958b;
         }
     }
 }

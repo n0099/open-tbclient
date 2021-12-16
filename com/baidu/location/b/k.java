@@ -23,51 +23,51 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static long f35555j = 12000;
+    public static long f36044j = 12000;
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f35556b;
+    public Context f36045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f35557c;
+    public WebView f36046c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LocationClient f35558d;
+    public LocationClient f36047d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f35559e;
+    public a f36048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b> f35560f;
+    public List<b> f36049f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f35561g;
+    public boolean f36050g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f35562h;
+    public long f36051h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BDLocation f35563i;
+    public BDLocation f36052i;
 
     /* renamed from: k  reason: collision with root package name */
-    public f f35564k;
+    public f f36053k;
     public boolean l;
 
     /* renamed from: com.baidu.location.b.k$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,18 +134,18 @@ public class k {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
                 if (this.a.l) {
-                    this.a.f35559e.removeCallbacks(this.a.f35564k);
+                    this.a.f36048e.removeCallbacks(this.a.f36053k);
                     this.a.l = false;
                 }
-                if (this.a.f35560f == null || this.a.f35560f.size() <= 0) {
+                if (this.a.f36049f == null || this.a.f36049f.size() <= 0) {
                     return;
                 }
-                Iterator it = this.a.f35560f.iterator();
+                Iterator it = this.a.f36049f.iterator();
                 while (it.hasNext()) {
                     try {
                         b bVar = (b) it.next();
                         if (bVar.b() != null) {
-                            this.a.f35557c.loadUrl("javascript:" + bVar.b() + "('" + str + "')");
+                            this.a.f36046c.loadUrl("javascript:" + bVar.b() + "('" + str + "')");
                         }
                         it.remove();
                     } catch (Exception unused) {
@@ -169,31 +169,31 @@ public class k {
                 switch (message.what) {
                     case 1:
                         b bVar = (b) message.obj;
-                        if (this.a.f35560f != null) {
-                            this.a.f35560f.add(bVar);
+                        if (this.a.f36049f != null) {
+                            this.a.f36049f.add(bVar);
                         }
-                        if (this.a.f35558d == null) {
+                        if (this.a.f36047d == null) {
                             return;
                         }
-                        if (this.a.f35558d.requestLocation() != 0) {
-                            long currentTimeMillis = System.currentTimeMillis() - this.a.f35562h;
-                            if (this.a.f35563i != null && currentTimeMillis <= 10000) {
-                                Message obtainMessage = this.a.f35559e.obtainMessage(2);
-                                obtainMessage.obj = this.a.f35563i;
+                        if (this.a.f36047d.requestLocation() != 0) {
+                            long currentTimeMillis = System.currentTimeMillis() - this.a.f36051h;
+                            if (this.a.f36052i != null && currentTimeMillis <= 10000) {
+                                Message obtainMessage = this.a.f36048e.obtainMessage(2);
+                                obtainMessage.obj = this.a.f36052i;
                                 obtainMessage.sendToTarget();
                                 z = false;
                                 if (z) {
                                     return;
                                 }
                                 if (this.a.l) {
-                                    this.a.f35559e.removeCallbacks(this.a.f35564k);
+                                    this.a.f36048e.removeCallbacks(this.a.f36053k);
                                     this.a.l = false;
                                 }
-                                if (this.a.f35564k == null) {
+                                if (this.a.f36053k == null) {
                                     k kVar = this.a;
-                                    kVar.f35564k = new f(kVar, null);
+                                    kVar.f36053k = new f(kVar, null);
                                 }
-                                this.a.f35559e.postDelayed(this.a.f35564k, k.f35555j);
+                                this.a.f36048e.postDelayed(this.a.f36053k, k.f36044j);
                                 this.a.l = true;
                                 return;
                             }
@@ -206,23 +206,23 @@ public class k {
                         a(a((BDLocation) message.obj));
                         return;
                     case 3:
-                        if (this.a.f35560f == null) {
-                            this.a.f35560f = new ArrayList();
+                        if (this.a.f36049f == null) {
+                            this.a.f36049f = new ArrayList();
                         } else {
-                            this.a.f35560f.clear();
+                            this.a.f36049f.clear();
                         }
-                        this.a.f35558d.registerLocationListener(this.a.a);
+                        this.a.f36047d.registerLocationListener(this.a.a);
                         return;
                     case 4:
-                        if (this.a.f35560f != null) {
-                            this.a.f35560f.clear();
-                            this.a.f35560f = null;
+                        if (this.a.f36049f != null) {
+                            this.a.f36049f.clear();
+                            this.a.f36049f = null;
                         }
-                        this.a.f35558d.unRegisterLocationListener(this.a.a);
-                        this.a.f35562h = 0L;
-                        this.a.f35563i = null;
-                        if (this.a.f35564k != null && this.a.l) {
-                            this.a.f35559e.removeCallbacks(this.a.f35564k);
+                        this.a.f36047d.unRegisterLocationListener(this.a.a);
+                        this.a.f36051h = 0L;
+                        this.a.f36052i = null;
+                        if (this.a.f36053k != null && this.a.l) {
+                            this.a.f36048e.removeCallbacks(this.a.f36053k);
                         }
                         this.a.l = false;
                         return;
@@ -256,20 +256,20 @@ public class k {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f35565b;
+        public String f36054b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f35566c;
+        public String f36055c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f35567d;
+        public long f36056d;
 
         public b(k kVar, String str) {
             Interceptable interceptable = $ic;
@@ -287,44 +287,44 @@ public class k {
                 }
             }
             this.a = kVar;
-            this.f35565b = null;
-            this.f35566c = null;
-            this.f35567d = 0L;
+            this.f36054b = null;
+            this.f36055c = null;
+            this.f36056d = 0L;
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.has("action")) {
-                    this.f35565b = jSONObject.getString("action");
+                    this.f36054b = jSONObject.getString("action");
                 }
                 if (jSONObject.has("callback")) {
-                    this.f35566c = jSONObject.getString("callback");
+                    this.f36055c = jSONObject.getString("callback");
                 }
                 if (jSONObject.has(com.alipay.sdk.data.a.O)) {
                     long j2 = jSONObject.getLong(com.alipay.sdk.data.a.O);
                     if (j2 >= 1000) {
-                        long unused = k.f35555j = j2;
+                        long unused = k.f36044j = j2;
                     }
                 }
-                this.f35567d = System.currentTimeMillis();
+                this.f36056d = System.currentTimeMillis();
             } catch (Exception unused2) {
-                this.f35565b = null;
-                this.f35566c = null;
+                this.f36054b = null;
+                this.f36055c = null;
             }
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35565b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36054b : (String) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35566c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36055c : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public static final k a;
@@ -347,7 +347,7 @@ public class k {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -378,12 +378,12 @@ public class k {
         @JavascriptInterface
         public void sendMessage(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && this.a.f35561g) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && this.a.f36050g) {
                 b bVar = new b(this.a, str);
-                if (bVar.a() == null || !bVar.a().equals("requestLoc") || this.a.f35559e == null) {
+                if (bVar.a() == null || !bVar.a().equals("requestLoc") || this.a.f36048e == null) {
                     return;
                 }
-                Message obtainMessage = this.a.f35559e.obtainMessage(1);
+                Message obtainMessage = this.a.f36048e.obtainMessage(1);
                 obtainMessage.obj = bVar;
                 obtainMessage.sendToTarget();
             }
@@ -397,7 +397,7 @@ public class k {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class e extends BDAbstractLocationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -426,7 +426,7 @@ public class k {
             Message obtainMessage;
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) && this.a.f35561g && bDLocation != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) && this.a.f36050g && bDLocation != null) {
                 BDLocation bDLocation2 = new BDLocation(bDLocation);
                 int locType = bDLocation2.getLocType();
                 String coorType = bDLocation2.getCoorType();
@@ -443,19 +443,19 @@ public class k {
                             bDLocation2 = LocationClient.getBDLocationInCoorType(LocationClient.getBDLocationInCoorType(bDLocation2, str), "gcj2wgs");
                         }
                     }
-                    this.a.f35562h = System.currentTimeMillis();
-                    this.a.f35563i = new BDLocation(bDLocation2);
-                    obtainMessage = this.a.f35559e.obtainMessage(2);
+                    this.a.f36051h = System.currentTimeMillis();
+                    this.a.f36052i = new BDLocation(bDLocation2);
+                    obtainMessage = this.a.f36048e.obtainMessage(2);
                     obtainMessage.obj = bDLocation2;
                 } else {
-                    obtainMessage = this.a.f35559e.obtainMessage(5);
+                    obtainMessage = this.a.f36048e.obtainMessage(5);
                 }
                 obtainMessage.sendToTarget();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -488,7 +488,7 @@ public class k {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.l = false;
-                this.a.f35559e.obtainMessage(6).sendToTarget();
+                this.a.f36048e.obtainMessage(6).sendToTarget();
             }
         }
     }
@@ -521,15 +521,15 @@ public class k {
                 return;
             }
         }
-        this.f35556b = null;
-        this.f35558d = null;
+        this.f36045b = null;
+        this.f36047d = null;
         this.a = new e(this);
-        this.f35559e = null;
-        this.f35560f = null;
-        this.f35561g = false;
-        this.f35562h = 0L;
-        this.f35563i = null;
-        this.f35564k = null;
+        this.f36048e = null;
+        this.f36049f = null;
+        this.f36050g = false;
+        this.f36051h = 0L;
+        this.f36052i = null;
+        this.f36053k = null;
         this.l = false;
     }
 
@@ -553,25 +553,25 @@ public class k {
 
     public void a(Context context, WebView webView, LocationClient locationClient) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, webView, locationClient) == null) || this.f35561g || Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, webView, locationClient) == null) || this.f36050g || Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
             return;
         }
-        this.f35556b = context;
-        this.f35557c = webView;
-        this.f35558d = locationClient;
+        this.f36045b = context;
+        this.f36046c = webView;
+        this.f36047d = locationClient;
         a aVar = new a(this, Looper.getMainLooper());
-        this.f35559e = aVar;
+        this.f36048e = aVar;
         aVar.obtainMessage(3).sendToTarget();
         webView.getSettings().setJavaScriptEnabled(true);
-        a(this.f35557c);
-        this.f35561g = true;
+        a(this.f36046c);
+        this.f36050g = true;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f35561g) {
-            this.f35559e.obtainMessage(4).sendToTarget();
-            this.f35561g = false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f36050g) {
+            this.f36048e.obtainMessage(4).sendToTarget();
+            this.f36050g = false;
         }
     }
 }

@@ -33,13 +33,13 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "UTF-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static OkHttpClient f57519b;
+    public static OkHttpClient f58100b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,7 +55,7 @@ public class b {
                 return;
             }
         }
-        f57519b = new OkHttpClient.Builder().connectTimeout(3000L, TimeUnit.MILLISECONDS).readTimeout(6000L, TimeUnit.MILLISECONDS).connectionSpecs(Collections.singletonList(ConnectionSpec.MODERN_TLS)).build();
+        f58100b = new OkHttpClient.Builder().connectTimeout(3000L, TimeUnit.MILLISECONDS).readTimeout(6000L, TimeUnit.MILLISECONDS).connectionSpecs(Collections.singletonList(ConnectionSpec.MODERN_TLS)).build();
     }
 
     public static c a(String str, @Nullable Map<String, String> map) {
@@ -78,7 +78,7 @@ public class b {
                 b(url, map2);
                 Response execute = a().newCall(url.build()).execute();
                 cVar.a = execute.code();
-                cVar.f57506b = a(execute);
+                cVar.f58087b = a(execute);
             } catch (Exception e2) {
                 a(cVar, e2);
             }
@@ -101,7 +101,7 @@ public class b {
                 a(url, jSONObject);
                 Response execute = a().newCall(url.build()).execute();
                 cVar.a = execute.code();
-                cVar.f57506b = a(execute);
+                cVar.f58087b = a(execute);
             } catch (Exception e2) {
                 a(cVar, e2);
             }
@@ -123,7 +123,7 @@ public class b {
                 a(url, map);
                 Response execute = a().newCall(url.build()).execute();
                 cVar.a = execute.code();
-                cVar.f57506b = z ? a(execute) : "";
+                cVar.f58087b = z ? a(execute) : "";
             } catch (Exception e2) {
                 a(cVar, e2);
             }
@@ -227,16 +227,16 @@ public class b {
     public static OkHttpClient a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f57519b : (OkHttpClient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f58100b : (OkHttpClient) invokeV.objValue;
     }
 
     public static void a(@NonNull c cVar, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, cVar, exc) == null) {
-            f fVar = exc instanceof SocketTimeoutException ? f.a : f.f57507b;
+            f fVar = exc instanceof SocketTimeoutException ? f.a : f.f58088b;
             cVar.a = fVar.n;
-            cVar.f57506b = fVar.o;
-            if (com.kwad.sdk.b.f57044c.booleanValue()) {
+            cVar.f58087b = fVar.o;
+            if (com.kwad.sdk.b.f57625c.booleanValue()) {
                 com.kwad.sdk.core.d.a.b(exc);
             }
         }

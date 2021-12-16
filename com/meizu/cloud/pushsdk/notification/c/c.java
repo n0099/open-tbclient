@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.notification.c;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static int a(Context context) {
         return d.a(context).a("push_expandable_big_image_notification", "layout");

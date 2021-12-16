@@ -20,14 +20,14 @@ import com.ss.android.socialbase.downloader.impls.r;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BroadcastReceiver f61508b;
+    public BroadcastReceiver f62089b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -62,10 +62,10 @@ public class b implements l {
             a(N, downloadInfo, b2, i2);
         }
         List<Integer> list2 = this.a;
-        if (list2 == null || list2.isEmpty() || this.f61508b != null) {
+        if (list2 == null || list2.isEmpty() || this.f62089b != null) {
             return;
         }
-        this.f61508b = new BroadcastReceiver(this) { // from class: com.ss.android.socialbase.appdownloader.d.b.2
+        this.f62089b = new BroadcastReceiver(this) { // from class: com.ss.android.socialbase.appdownloader.d.b.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -101,7 +101,7 @@ public class b implements l {
                             public final /* synthetic */ Context a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f61511b;
+                            public final /* synthetic */ AnonymousClass2 f62092b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -118,7 +118,7 @@ public class b implements l {
                                         return;
                                     }
                                 }
-                                this.f61511b = this;
+                                this.f62092b = this;
                                 this.a = applicationContext;
                             }
 
@@ -127,15 +127,15 @@ public class b implements l {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                     try {
-                                        if (this.f61511b.a.a != null && !this.f61511b.a.a.isEmpty()) {
-                                            int size = this.f61511b.a.a.size();
+                                        if (this.f62092b.a.a != null && !this.f62092b.a.a.isEmpty()) {
+                                            int size = this.f62092b.a.a.size();
                                             Integer[] numArr = new Integer[size];
-                                            this.f61511b.a.a.toArray(numArr);
-                                            this.f61511b.a.a.clear();
+                                            this.f62092b.a.a.toArray(numArr);
+                                            this.f62092b.a.a.clear();
                                             for (int i3 = 0; i3 < size; i3++) {
                                                 DownloadInfo downloadInfo2 = Downloader.getInstance(this.a).getDownloadInfo(numArr[i3].intValue());
                                                 if (downloadInfo2 != null && (downloadInfo2.getRealStatus() == -5 || (downloadInfo2.getRealStatus() == -2 && downloadInfo2.isPauseReserveOnWifi()))) {
-                                                    this.f61511b.a.a(this.a, downloadInfo2, true, 2);
+                                                    this.f62092b.a.a(this.a, downloadInfo2, true, 2);
                                                 }
                                             }
                                         }
@@ -146,11 +146,11 @@ public class b implements l {
                             }
                         });
                         try {
-                            applicationContext.unregisterReceiver(this.a.f61508b);
+                            applicationContext.unregisterReceiver(this.a.f62089b);
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
-                        this.a.f61508b = null;
+                        this.a.f62089b = null;
                     }
                 }
             }
@@ -158,10 +158,10 @@ public class b implements l {
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            N.registerReceiver(this.f61508b, intentFilter);
+            N.registerReceiver(this.f62089b, intentFilter);
         } catch (Throwable th) {
             th.printStackTrace();
-            this.f61508b = null;
+            this.f62089b = null;
         }
     }
 
@@ -183,10 +183,10 @@ public class b implements l {
                     public final /* synthetic */ List a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f61509b;
+                    public final /* synthetic */ int f62090b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ b f61510c;
+                    public final /* synthetic */ b f62091c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -203,9 +203,9 @@ public class b implements l {
                                 return;
                             }
                         }
-                        this.f61510c = this;
+                        this.f62091c = this;
                         this.a = list;
-                        this.f61509b = i2;
+                        this.f62090b = i2;
                     }
 
                     @Override // java.lang.Runnable
@@ -213,7 +213,7 @@ public class b implements l {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                this.f61510c.b(this.a, this.f61509b);
+                                this.f62091c.b(this.a, this.f62090b);
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }

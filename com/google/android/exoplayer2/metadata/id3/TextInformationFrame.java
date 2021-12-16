@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class TextInformationFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TextInformationFrame> CREATOR;
@@ -20,7 +20,7 @@ public final class TextInformationFrame extends Id3Frame {
     public final String description;
     public final String value;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<TextInformationFrame> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

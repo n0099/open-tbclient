@@ -1,147 +1,86 @@
 package c.a.c0.i;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.AccessibleObject;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
+    public static m a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static k f1777b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Field a(Class<?> cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, cls, str)) == null) {
-            for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
-                try {
-                    Field declaredField = cls2.getDeclaredField(str);
-                    h(declaredField, true);
-                    return declaredField;
-                } catch (NoSuchFieldException unused) {
-                }
-            }
-            Field field = null;
-            for (Class<?> cls3 : cls.getInterfaces()) {
-                try {
-                    Field field2 = cls3.getField(str);
-                    k.a(field == null, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
-                    field = field2;
-                } catch (NoSuchFieldException unused2) {
-                }
-            }
-            return field;
-        }
-        return (Field) invokeLL.objValue;
-    }
-
-    public static Method b(Class<?> cls, String str, Class<?>... clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, str, clsArr)) == null) {
-            for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
-                try {
-                    Method declaredMethod = cls2.getDeclaredMethod(str, clsArr);
-                    h(declaredMethod, true);
-                    return declaredMethod;
-                } catch (NoSuchMethodException unused) {
-                }
-            }
-            Method method = null;
-            for (Class<?> cls3 : cls.getInterfaces()) {
-                try {
-                    Method method2 = cls3.getMethod(str, clsArr);
-                    k.a(method == null, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
-                    method = method2;
-                } catch (NoSuchMethodException unused2) {
-                }
-            }
-            return method;
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static Object c(Object obj, String str, Class<?>[] clsArr, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, obj, str, clsArr, objArr)) == null) {
-            Method b2 = b(obj.getClass(), str, clsArr);
-            b2.setAccessible(true);
-            return b2.invoke(obj, objArr);
-        }
-        return invokeLLLL.objValue;
-    }
-
-    public static Object d(Class<?> cls, Object obj, String str) throws IllegalAccessException, NoSuchFieldException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, obj, str)) == null) ? f(a(cls, str), obj) : invokeLLL.objValue;
-    }
-
-    public static Object e(Object obj, String str) throws IllegalAccessException, NoSuchFieldException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str)) == null) ? d(obj.getClass(), obj, str) : invokeLL.objValue;
-    }
-
-    public static Object f(Field field, Object obj) throws IllegalAccessException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, field, obj)) == null) ? field.get(obj) : invokeLL.objValue;
-    }
-
-    public static void g(Field field) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, field) == null) {
-            k.a(field != null, "The field must not be null", new Object[0]);
-            try {
-                if (Modifier.isFinal(field.getModifiers())) {
-                    Field declaredField = Field.class.getDeclaredField("modifiers");
-                    boolean z = !declaredField.isAccessible();
-                    if (z) {
-                        declaredField.setAccessible(true);
-                    }
-                    declaredField.setInt(field, field.getModifiers() & (-17));
-                    if (z) {
-                        declaredField.setAccessible(false);
-                    }
-                }
-            } catch (IllegalAccessException | NoSuchFieldException unused) {
-            }
-        }
-    }
-
-    public static void h(AccessibleObject accessibleObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65543, null, accessibleObject, z) == null) || accessibleObject.isAccessible() == z) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1062757707, "Lc/a/c0/i/h;")) == null) {
             return;
         }
-        accessibleObject.setAccessible(z);
-    }
-
-    public static void i(Class<?> cls, Object obj, String str, Object obj2) throws NoSuchFieldException, IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65544, null, cls, obj, str, obj2) == null) {
-            k(a(cls, str), obj, obj2);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1062757707, "Lc/a/c0/i/h;");
         }
     }
 
-    public static void j(Object obj, String str, Object obj2) throws NoSuchFieldException, IllegalAccessException {
+    public h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, obj, str, obj2) == null) {
-            i(obj.getClass(), obj, str, obj2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static void k(Field field, Object obj, Object obj2) throws IllegalAccessException {
+    public static k a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, field, obj, obj2) == null) {
-            field.set(obj, obj2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f1777b == null) {
+                synchronized (h.class) {
+                    if (f1777b == null) {
+                        f1777b = (k) ServiceManager.getService(k.a);
+                    }
+                    if (f1777b == null) {
+                        f1777b = k.f1778b;
+                    }
+                }
+            }
+            return f1777b;
         }
+        return (k) invokeV.objValue;
+    }
+
+    public static m b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (h.class) {
+                    if (a == null) {
+                        a = (m) ServiceManager.getService(m.a);
+                    }
+                    if (a == null) {
+                        a = m.f1779b;
+                    }
+                }
+            }
+            return a;
+        }
+        return (m) invokeV.objValue;
     }
 }

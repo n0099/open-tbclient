@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class AssistActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_TYPE = "type";
@@ -48,13 +48,13 @@ public final class AssistActivity extends Activity {
     public WebView mWebView;
     public WebViewClient webviewClient;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f63376e;
+        public final /* synthetic */ AssistActivity f63957e;
 
         public a(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -71,26 +71,26 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f63376e = assistActivity;
+            this.f63957e = assistActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AssistActivity assistActivity = this.f63376e;
+                AssistActivity assistActivity = this.f63957e;
                 assistActivity.mWebView.loadUrl(assistActivity.mURL);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f63377e;
+        public final /* synthetic */ AssistActivity f63958e;
 
         public b(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -107,19 +107,19 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f63377e = assistActivity;
+            this.f63958e = assistActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f63377e.finish();
+                this.f63958e.finish();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -299,7 +299,7 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -333,7 +333,7 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -370,19 +370,19 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f extends View {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f63378e;
+        public int f63959e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Paint f63379f;
+        public Paint f63960f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f63380g;
+        public final /* synthetic */ AssistActivity f63961g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(AssistActivity assistActivity, Context context) {
@@ -402,12 +402,12 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f63380g = assistActivity;
+            this.f63961g = assistActivity;
             Paint paint = new Paint();
-            this.f63379f = paint;
+            this.f63960f = paint;
             paint.setColor(-731575);
-            this.f63379f.setAntiAlias(true);
-            this.f63379f.setStyle(Paint.Style.FILL);
+            this.f63960f.setAntiAlias(true);
+            this.f63960f.setStyle(Paint.Style.FILL);
         }
 
         public void a(int i2) {
@@ -418,7 +418,7 @@ public final class AssistActivity extends Activity {
                 } else if (i2 < 0) {
                     i2 = 0;
                 }
-                this.f63378e = i2;
+                this.f63959e = i2;
                 invalidate();
             }
         }
@@ -428,7 +428,7 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
                 canvas.drawColor(-5657689);
-                canvas.drawRect(0.0f, 0.0f, (this.f63378e / 100.0f) * getWidth(), getHeight(), this.f63379f);
+                canvas.drawRect(0.0f, 0.0f, (this.f63959e / 100.0f) * getWidth(), getHeight(), this.f63960f);
                 super.onDraw(canvas);
             }
         }
@@ -443,7 +443,7 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

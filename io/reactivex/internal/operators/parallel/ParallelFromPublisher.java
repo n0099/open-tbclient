@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicLongArray;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
     public final int prefetch;
     public final Publisher<? extends T> source;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ParallelDispatcher<T> extends AtomicInteger implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4470634016609963609L;
@@ -49,13 +49,13 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
         public final AtomicInteger subscriberCount;
         public final Subscriber<? super T>[] subscribers;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public final class RailSubscription implements Subscription {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: j  reason: collision with root package name */
-            public final int f64024j;
+            public final int f64605j;
             public final int m;
             public final /* synthetic */ ParallelDispatcher this$0;
 
@@ -75,7 +75,7 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                     }
                 }
                 this.this$0 = parallelDispatcher;
-                this.f64024j = i2;
+                this.f64605j = i2;
                 this.m = i3;
             }
 
@@ -83,7 +83,7 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
             public void cancel() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.this$0.requests.compareAndSet(this.f64024j + this.m, 0L, 1L)) {
+                    if (this.this$0.requests.compareAndSet(this.f64605j + this.m, 0L, 1L)) {
                         ParallelDispatcher parallelDispatcher = this.this$0;
                         int i2 = this.m;
                         parallelDispatcher.cancel(i2 + i2);
@@ -98,11 +98,11 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                 if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && SubscriptionHelper.validate(j2)) {
                     AtomicLongArray atomicLongArray = this.this$0.requests;
                     do {
-                        j3 = atomicLongArray.get(this.f64024j);
+                        j3 = atomicLongArray.get(this.f64605j);
                         if (j3 == Long.MAX_VALUE) {
                             return;
                         }
-                    } while (!atomicLongArray.compareAndSet(this.f64024j, j3, BackpressureHelper.addCap(j3, j2)));
+                    } while (!atomicLongArray.compareAndSet(this.f64605j, j3, BackpressureHelper.addCap(j3, j2)));
                     if (this.this$0.subscriberCount.get() == this.m) {
                         this.this$0.drain();
                     }

@@ -7,13 +7,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.f;
-import c.a.p0.a.g;
-import c.a.p0.a.k;
-import c.a.p0.a.p.e.c;
-import c.a.p0.a.p.e.e;
-import c.a.p0.a.z2.n0;
-import c.a.p0.a.z2.v;
+import c.a.q0.a.f;
+import c.a.q0.a.g;
+import c.a.q0.a.k;
+import c.a.q0.a.p.e.c;
+import c.a.q0.a.p.e.e;
+import c.a.q0.a.z2.n0;
+import c.a.q0.a.z2.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -34,13 +34,13 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     public c mNgWebView;
     public String mUrl;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppScopeDetailActivity f39268e;
+        public final /* synthetic */ SwanAppScopeDetailActivity f39757e;
 
         public a(SwanAppScopeDetailActivity swanAppScopeDetailActivity) {
             Interceptable interceptable = $ic;
@@ -57,25 +57,25 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                     return;
                 }
             }
-            this.f39268e = swanAppScopeDetailActivity;
+            this.f39757e = swanAppScopeDetailActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f39268e.finish();
+                this.f39757e.finish();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class b extends c.a.p0.a.h0.j.a {
+    /* loaded from: classes10.dex */
+    public class b extends c.a.q0.a.h0.j.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SwanAppScopeDetailActivity f39269c;
+        public final /* synthetic */ SwanAppScopeDetailActivity f39758c;
 
         public b(SwanAppScopeDetailActivity swanAppScopeDetailActivity) {
             Interceptable interceptable = $ic;
@@ -92,10 +92,10 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                     return;
                 }
             }
-            this.f39269c = swanAppScopeDetailActivity;
+            this.f39758c = swanAppScopeDetailActivity;
         }
 
-        @Override // c.a.p0.a.h0.j.a, c.a.p0.a.h0.j.d
+        @Override // c.a.q0.a.h0.j.a, c.a.q0.a.h0.j.d
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -103,7 +103,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                ((TextView) this.f39269c.findViewById(f.title)).setText(str);
+                ((TextView) this.f39758c.findViewById(f.title)).setText(str);
             }
         }
     }
@@ -148,13 +148,13 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [c.a.p0.a.p.e.c] */
+    /* JADX WARN: Type inference failed for: r1v1, types: [c.a.q0.a.p.e.c] */
     private void initWebView() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || TextUtils.isEmpty(this.mUrl)) {
             return;
         }
-        e c2 = c.a.p0.a.c1.a.F0().c(this);
+        e c2 = c.a.q0.a.c1.a.F0().c(this);
         c2.a0(new b(this));
         this.mNgWebView = c2.t();
         c2.loadUrl(this.mUrl);
@@ -182,11 +182,11 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, c.a.p0.r.a.a.g, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, c.a.q0.r.a.a.g, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            setPendingTransition(c.a.p0.a.a.aiapps_hold, c.a.p0.a.a.aiapps_slide_out_to_right);
+            setPendingTransition(c.a.q0.a.a.aiapps_hold, c.a.q0.a.a.aiapps_slide_out_to_right);
             super.onCreate(bundle);
             setContentView(g.swanapp_scope_detail_activity);
             n0.a(this);

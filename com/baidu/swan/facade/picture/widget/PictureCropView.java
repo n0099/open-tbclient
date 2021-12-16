@@ -13,7 +13,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.k;
+import c.a.q0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouchBase;
 import com.baidu.swan.facade.picture.widget.ZoomImageView;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PictureCropView extends PictureView {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean s;
@@ -35,14 +35,14 @@ public class PictureCropView extends PictureView {
     public Paint q;
     public boolean r;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements ZoomImageView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ZoomImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PictureCropView f40336b;
+        public final /* synthetic */ PictureCropView f40825b;
 
         public a(PictureCropView pictureCropView, ZoomImageView zoomImageView) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class PictureCropView extends PictureView {
                     return;
                 }
             }
-            this.f40336b = pictureCropView;
+            this.f40825b = pictureCropView;
             this.a = zoomImageView;
         }
 
@@ -67,9 +67,9 @@ public class PictureCropView extends PictureView {
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-                this.f40336b.r = drawable != null;
+                this.f40825b.r = drawable != null;
                 if (drawable != null) {
-                    this.f40336b.o(this.a, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                    this.f40825b.o(this.a, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 }
             }
         }
@@ -78,22 +78,22 @@ public class PictureCropView extends PictureView {
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                this.f40336b.r = bitmap != null;
+                this.f40825b.r = bitmap != null;
                 if (bitmap != null) {
-                    this.f40336b.o(this.a, bitmap.getWidth(), bitmap.getHeight());
+                    this.f40825b.o(this.a, bitmap.getWidth(), bitmap.getHeight());
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements BdImageViewTouchBase.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ZoomImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PictureCropView f40337b;
+        public final /* synthetic */ PictureCropView f40826b;
 
         public b(PictureCropView pictureCropView, ZoomImageView zoomImageView) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class PictureCropView extends PictureView {
                     return;
                 }
             }
-            this.f40337b = pictureCropView;
+            this.f40826b = pictureCropView;
             this.a = zoomImageView;
         }
 
@@ -118,19 +118,19 @@ public class PictureCropView extends PictureView {
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-                this.f40337b.m(this.a, drawable);
+                this.f40826b.m(this.a, drawable);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c implements ZoomImageView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public RectF a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PictureCropView f40338b;
+        public final /* synthetic */ PictureCropView f40827b;
 
         public c(PictureCropView pictureCropView) {
             Interceptable interceptable = $ic;
@@ -147,7 +147,7 @@ public class PictureCropView extends PictureView {
                     return;
                 }
             }
-            this.f40338b = pictureCropView;
+            this.f40827b = pictureCropView;
             this.a = new RectF();
         }
 
@@ -158,7 +158,7 @@ public class PictureCropView extends PictureView {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{zoomImageView, Double.valueOf(d2), Double.valueOf(d3)})) == null) {
                 RectF bitmapRect = zoomImageView.getBitmapRect();
                 this.a.set((float) d2, (float) d3, 0.0f, 0.0f);
-                this.f40338b.p(bitmapRect, this.a);
+                this.f40827b.p(bitmapRect, this.a);
                 RectF rectF = this.a;
                 zoomImageView.postTranslate(rectF.left, rectF.top);
                 return true;
@@ -236,7 +236,7 @@ public class PictureCropView extends PictureView {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.q.setColor(this.p);
             this.q.setStyle(Paint.Style.FILL);
-            this.n = context.getResources().getDrawable(c.a.p0.g.b.swan_app_picture_crop_bounds);
+            this.n = context.getResources().getDrawable(c.a.q0.g.b.swan_app_picture_crop_bounds);
             ZoomImageView zoomImageView = (ZoomImageView) getImageView();
             zoomImageView.setDoubleTapEnabled(true);
             zoomImageView.setCalcBaseMatrix(false);

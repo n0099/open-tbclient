@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.design.TbTabLayout;
@@ -36,41 +36,41 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class HotUserRankView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragmentActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f43519b;
+    public View f44010b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f43520c;
+    public NavigationBar f44011c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbTabLayout f43521d;
+    public TbTabLayout f44012d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f43522e;
+    public View f44013e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f43523f;
+    public View f44014f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomViewPager f43524g;
+    public CustomViewPager f44015g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FragmentAdapter f43525h;
+    public FragmentAdapter f44016h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<e> f43526i;
+    public List<e> f44017i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.r0.u0.i.b f43527j;
+    public c.a.s0.u0.i.b f44018j;
 
     /* renamed from: k  reason: collision with root package name */
-    public View f43528k;
+    public View f44019k;
     public TextView l;
     public String m;
     public View n;
@@ -82,7 +82,7 @@ public class HotUserRankView {
     public ViewPager.OnPageChangeListener t;
     public CustomMessageListener u;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class FragmentAdapter extends FragmentStatePagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class HotUserRankView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
                 e eVar = this.a.get(i2);
-                return eVar != null ? eVar.f43532b : "";
+                return eVar != null ? eVar.f44023b : "";
             }
             return (CharSequence) invokeI.objValue;
         }
@@ -154,13 +154,13 @@ public class HotUserRankView {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankView f43529e;
+        public final /* synthetic */ HotUserRankView f44020e;
 
         public a(HotUserRankView hotUserRankView) {
             Interceptable interceptable = $ic;
@@ -177,25 +177,25 @@ public class HotUserRankView {
                     return;
                 }
             }
-            this.f43529e = hotUserRankView;
+            this.f44020e = hotUserRankView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43529e.f43524g.setViewPagerScroll();
+                this.f44020e.f44015g.setViewPagerScroll();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankView f43530e;
+        public final /* synthetic */ HotUserRankView f44021e;
 
         public b(HotUserRankView hotUserRankView) {
             Interceptable interceptable = $ic;
@@ -212,22 +212,22 @@ public class HotUserRankView {
                     return;
                 }
             }
-            this.f43530e = hotUserRankView;
+            this.f44021e = hotUserRankView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f43530e.f43528k) {
-                    this.f43530e.a.finish();
-                } else if (view == this.f43530e.l) {
-                    if (TextUtils.isEmpty(this.f43530e.m)) {
-                        this.f43530e.a.showToast(R.string.load_error_retry);
+                if (view == this.f44021e.f44019k) {
+                    this.f44021e.a.finish();
+                } else if (view == this.f44021e.l) {
+                    if (TextUtils.isEmpty(this.f44021e.m)) {
+                        this.f44021e.a.showToast(R.string.load_error_retry);
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(this.f43530e.a.getPageContext(), new String[]{this.f43530e.m});
-                    if (this.f43530e.f43521d.getVisibility() == 0) {
+                    UrlManager.getInstance().dealOneLink(this.f44021e.a.getPageContext(), new String[]{this.f44021e.m});
+                    if (this.f44021e.f44012d.getVisibility() == 0) {
                         StatisticItem statisticItem = new StatisticItem("c13658");
                         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                         statisticItem.param("obj_locate", 1);
@@ -242,13 +242,13 @@ public class HotUserRankView {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class c implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankView f43531e;
+        public final /* synthetic */ HotUserRankView f44022e;
 
         public c(HotUserRankView hotUserRankView) {
             Interceptable interceptable = $ic;
@@ -265,7 +265,7 @@ public class HotUserRankView {
                     return;
                 }
             }
-            this.f43531e = hotUserRankView;
+            this.f44022e = hotUserRankView;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -285,18 +285,18 @@ public class HotUserRankView {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f43531e.f43526i.get(i2) == null || ((e) this.f43531e.f43526i.get(i2)).a == null || ((e) this.f43531e.f43526i.get(i2)).a.getModel() == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f44022e.f44017i.get(i2) == null || ((e) this.f44022e.f44017i.get(i2)).a == null || ((e) this.f44022e.f44017i.get(i2)).a.getModel() == null) {
                 return;
             }
-            this.f43531e.f43527j.e(((e) this.f43531e.f43526i.get(i2)).a.getModel().g());
+            this.f44022e.f44018j.e(((e) this.f44022e.f44017i.get(i2)).a.getModel().g());
             StatisticItem statisticItem = new StatisticItem("c13657");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, ((e) this.f43531e.f43526i.get(i2)).f43532b);
+            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, ((e) this.f44022e.f44017i.get(i2)).f44023b);
             TiebaStatic.log(statisticItem);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -327,25 +327,25 @@ public class HotUserRankView {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.r0.u0.i.c.c) || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() == null || !customResponsedMessage.getOrginalMessage().getTag().equals(this.a.a.getUniqueId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.s0.u0.i.c.c) || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() == null || !customResponsedMessage.getOrginalMessage().getTag().equals(this.a.a.getUniqueId())) {
                 return;
             }
-            c.a.r0.u0.i.c.c cVar = (c.a.r0.u0.i.c.c) customResponsedMessage.getData();
-            if (cVar.f24220c == null) {
+            c.a.s0.u0.i.c.c cVar = (c.a.s0.u0.i.c.c) customResponsedMessage.getData();
+            if (cVar.f24233c == null) {
                 return;
             }
-            this.a.f43527j.e(cVar);
+            this.a.f44018j.e(cVar);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HotUserRankFragment a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f43532b;
+        public String f44023b;
 
         public e(HotUserRankView hotUserRankView) {
             Interceptable interceptable = $ic;
@@ -379,69 +379,69 @@ public class HotUserRankView {
                 return;
             }
         }
-        this.f43526i = new ArrayList();
+        this.f44017i = new ArrayList();
         this.r = new a(this);
         this.s = new b(this);
         this.t = new c(this);
         this.u = new d(this, 2921447);
         this.a = baseFragmentActivity;
         View inflate = LayoutInflater.from(baseFragmentActivity).inflate(R.layout.activity_hot_user_rank, (ViewGroup) null);
-        this.f43519b = inflate;
+        this.f44010b = inflate;
         NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
-        this.f43520c = navigationBar;
+        this.f44011c = navigationBar;
         View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f43528k = addSystemImageButton;
+        this.f44019k = addSystemImageButton;
         addSystemImageButton.setOnClickListener(this.s);
-        TextView addTextButton = this.f43520c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.hot_user_rank_rule));
+        TextView addTextButton = this.f44011c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.hot_user_rank_rule));
         this.l = addTextButton;
         addTextButton.setOnClickListener(this.s);
-        TbTabLayout tbTabLayout = (TbTabLayout) this.f43519b.findViewById(R.id.tablayout);
-        this.f43521d = tbTabLayout;
-        tbTabLayout.setTabTextSize(l.f(baseFragmentActivity, R.dimen.tbds46));
-        this.f43522e = this.f43519b.findViewById(R.id.tab_cover_left);
-        this.f43523f = this.f43519b.findViewById(R.id.tab_cover_right);
-        CustomViewPager customViewPager = (CustomViewPager) this.f43519b.findViewById(R.id.viewpager);
-        this.f43524g = customViewPager;
+        TbTabLayout tbTabLayout = (TbTabLayout) this.f44010b.findViewById(R.id.tablayout);
+        this.f44012d = tbTabLayout;
+        tbTabLayout.setTabTextSize(m.f(baseFragmentActivity, R.dimen.tbds46));
+        this.f44013e = this.f44010b.findViewById(R.id.tab_cover_left);
+        this.f44014f = this.f44010b.findViewById(R.id.tab_cover_right);
+        CustomViewPager customViewPager = (CustomViewPager) this.f44010b.findViewById(R.id.viewpager);
+        this.f44015g = customViewPager;
         customViewPager.addOnPageChangeListener(this.t);
-        this.f43524g.setViewPagerScroll(0);
+        this.f44015g.setViewPagerScroll(0);
         FragmentAdapter fragmentAdapter = new FragmentAdapter(this.a.getSupportFragmentManager());
-        this.f43525h = fragmentAdapter;
-        this.f43524g.setAdapter(fragmentAdapter);
-        this.f43521d.setupWithViewPager(this.f43524g);
-        this.f43527j = new c.a.r0.u0.i.b(this.a.getPageContext(), this.f43519b.findViewById(R.id.bottom_view));
+        this.f44016h = fragmentAdapter;
+        this.f44015g.setAdapter(fragmentAdapter);
+        this.f44012d.setupWithViewPager(this.f44015g);
+        this.f44018j = new c.a.s0.u0.i.b(this.a.getPageContext(), this.f44010b.findViewById(R.id.bottom_view));
         this.a.registerListener(this.u);
-        this.n = this.f43519b.findViewById(R.id.update_tip);
-        this.o = (TextView) this.f43519b.findViewById(R.id.update_tip_text);
-        this.p = this.f43519b.findViewById(R.id.bottom_view_top_line);
+        this.n = this.f44010b.findViewById(R.id.update_tip);
+        this.o = (TextView) this.f44010b.findViewById(R.id.update_tip_text);
+        this.p = this.f44010b.findViewById(R.id.bottom_view_top_line);
     }
 
     public View i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43519b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44010b : (View) invokeV.objValue;
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f43519b, R.color.CAM_X0201);
-            this.f43520c.onChangeSkinType(this.a.getPageContext(), i2);
-            this.f43521d.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
-            this.f43521d.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
-            SkinManager.setBackgroundColor(this.f43521d, R.color.CAM_X0207);
+            SkinManager.setBackgroundColor(this.f44010b, R.color.CAM_X0201);
+            this.f44011c.onChangeSkinType(this.a.getPageContext(), i2);
+            this.f44012d.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
+            this.f44012d.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
+            SkinManager.setBackgroundColor(this.f44012d, R.color.CAM_X0207);
             SkinManager.setViewTextColorSelector(this.l, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
-            this.f43527j.d(i2);
+            this.f44018j.d(i2);
             Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.svg_icon_pure_toast_complete24, R.color.CAM_X0302, null);
-            int f2 = l.f(this.a, R.dimen.tbds63);
-            int f3 = l.f(this.a, R.dimen.tbds2);
+            int f2 = m.f(this.a, R.dimen.tbds63);
+            int f3 = m.f(this.a, R.dimen.tbds2);
             if (pureDrawable != null) {
                 pureDrawable.setBounds(0, f3, f2, f2 + f3);
                 this.o.setCompoundDrawables(pureDrawable, null, null, null);
             }
-            this.o.setCompoundDrawablePadding(l.f(this.a, R.dimen.tbds9));
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.f(this.a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(0).into(this.n);
-            SkinManager.setBackgroundResource(this.f43522e, R.drawable.hot_user_rank_tab_cover_left);
-            SkinManager.setBackgroundResource(this.f43523f, R.drawable.hot_user_rank_tab_cover_right);
+            this.o.setCompoundDrawablePadding(m.f(this.a, R.dimen.tbds9));
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.ALL).setShadowRadius(m.f(this.a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(0).into(this.n);
+            SkinManager.setBackgroundResource(this.f44013e, R.drawable.hot_user_rank_tab_cover_left);
+            SkinManager.setBackgroundResource(this.f44014f, R.drawable.hot_user_rank_tab_cover_right);
             this.p.setVisibility(i2 != 0 ? 8 : 0);
         }
     }
@@ -453,42 +453,42 @@ public class HotUserRankView {
         }
     }
 
-    public void l(List<c.a.r0.u0.i.c.d> list, long j2, int i2, String str) {
+    public void l(List<c.a.s0.u0.i.c.d> list, long j2, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Long.valueOf(j2), Integer.valueOf(i2), str}) == null) {
             this.m = str;
             if (!ListUtils.isEmpty(list) || j2 > 0) {
-                this.f43526i.clear();
+                this.f44017i.clear();
                 if (ListUtils.isEmpty(list)) {
-                    this.f43521d.setVisibility(8);
+                    this.f44012d.setVisibility(8);
                     e eVar = new e(this);
                     HotUserRankFragment hotUserRankFragment = new HotUserRankFragment();
                     eVar.a = hotUserRankFragment;
                     hotUserRankFragment.setForumId(j2);
-                    this.f43526i.add(eVar);
-                    this.f43525h.setData(this.f43526i);
-                    this.f43527j.f(1);
+                    this.f44017i.add(eVar);
+                    this.f44016h.setData(this.f44017i);
+                    this.f44018j.f(1);
                     return;
                 }
-                for (c.a.r0.u0.i.c.d dVar : list) {
-                    this.f43521d.addTab(this.f43521d.newTab());
+                for (c.a.s0.u0.i.c.d dVar : list) {
+                    this.f44012d.addTab(this.f44012d.newTab());
                     e eVar2 = new e(this);
                     HotUserRankFragment hotUserRankFragment2 = new HotUserRankFragment();
                     eVar2.a = hotUserRankFragment2;
-                    hotUserRankFragment2.setCategory(dVar.f24225b);
+                    hotUserRankFragment2.setCategory(dVar.f24238b);
                     eVar2.a.setIsGod(this.q);
-                    eVar2.f43532b = dVar.a;
-                    this.f43526i.add(eVar2);
+                    eVar2.f44023b = dVar.a;
+                    this.f44017i.add(eVar2);
                 }
                 if (this.q) {
-                    this.f43520c.setCenterTextTitle(this.a.getString(R.string.all_god_user_rank));
+                    this.f44011c.setCenterTextTitle(this.a.getString(R.string.all_god_user_rank));
                 } else {
-                    this.f43520c.setCenterTextTitle(this.a.getString(R.string.all_hot_user_rank));
+                    this.f44011c.setCenterTextTitle(this.a.getString(R.string.all_hot_user_rank));
                 }
-                this.f43525h.setData(this.f43526i);
-                this.f43527j.f(2);
+                this.f44016h.setData(this.f44017i);
+                this.f44018j.f(2);
                 if (i2 != 0) {
-                    this.f43524g.setCurrentItem(i2);
+                    this.f44015g.setCurrentItem(i2);
                 }
                 c.a.d.f.m.e.a().postDelayed(this.r, 100L);
             }
@@ -505,7 +505,7 @@ public class HotUserRankView {
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f43520c.setCenterTextTitle(str);
+            this.f44011c.setCenterTextTitle(str);
         }
     }
 

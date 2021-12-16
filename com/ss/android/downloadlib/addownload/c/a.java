@@ -14,7 +14,7 @@ import com.ss.android.socialbase.downloader.depend.q;
 import com.ss.android.socialbase.downloader.depend.r;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

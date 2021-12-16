@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class i0 {
     public static /* synthetic */ Interceptable $ic;
     public static i0 a;
@@ -81,7 +81,7 @@ public class i0 {
                 }
             }
             if (z) {
-                c2.f31011b = System.currentTimeMillis();
+                c2.f31381b = System.currentTimeMillis();
                 t2.b(new v3(c2));
             }
             r0.E(context);

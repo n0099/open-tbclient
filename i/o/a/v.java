@@ -8,27 +8,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import i.d;
 import i.h;
 import java.util.NoSuchElementException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class v<T> implements h.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a<T> f63759e;
+    public final d.a<T> f64340e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T> extends i.j<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final i.i<? super T> f63760i;
+        public final i.i<? super T> f64341i;
 
         /* renamed from: j  reason: collision with root package name */
-        public T f63761j;
+        public T f64342j;
 
         /* renamed from: k  reason: collision with root package name */
-        public int f63762k;
+        public int f64343k;
 
         public a(i.i<? super T> iVar) {
             Interceptable interceptable = $ic;
@@ -45,21 +45,21 @@ public final class v<T> implements h.c<T> {
                     return;
                 }
             }
-            this.f63760i = iVar;
+            this.f64341i = iVar;
         }
 
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f63762k;
+                int i2 = this.f64343k;
                 if (i2 == 0) {
-                    this.f63760i.b(new NoSuchElementException());
+                    this.f64341i.b(new NoSuchElementException());
                 } else if (i2 == 1) {
-                    this.f63762k = 2;
-                    T t = this.f63761j;
-                    this.f63761j = null;
-                    this.f63760i.c(t);
+                    this.f64343k = 2;
+                    T t = this.f64342j;
+                    this.f64342j = null;
+                    this.f64341i.c(t);
                 }
             }
         }
@@ -68,12 +68,12 @@ public final class v<T> implements h.c<T> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.f63762k == 2) {
+                if (this.f64343k == 2) {
                     i.r.c.j(th);
                     return;
                 }
-                this.f63761j = null;
-                this.f63760i.b(th);
+                this.f64342j = null;
+                this.f64341i.b(th);
             }
         }
 
@@ -81,13 +81,13 @@ public final class v<T> implements h.c<T> {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                int i2 = this.f63762k;
+                int i2 = this.f64343k;
                 if (i2 == 0) {
-                    this.f63762k = 1;
-                    this.f63761j = t;
+                    this.f64343k = 1;
+                    this.f64342j = t;
                 } else if (i2 == 1) {
-                    this.f63762k = 2;
-                    this.f63760i.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
+                    this.f64343k = 2;
+                    this.f64341i.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
                 }
             }
         }
@@ -108,7 +108,7 @@ public final class v<T> implements h.c<T> {
                 return;
             }
         }
-        this.f63759e = aVar;
+        this.f64340e = aVar;
     }
 
     @Override // i.h.c, i.n.b
@@ -121,7 +121,7 @@ public final class v<T> implements h.c<T> {
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
             a aVar = new a(iVar);
             iVar.a(aVar);
-            this.f63759e.call(aVar);
+            this.f64340e.call(aVar);
         }
     }
 }

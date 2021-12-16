@@ -12,7 +12,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.Message;
 import com.heytap.mcssdk.utils.LogUtil;
 import com.heytap.mcssdk.utils.Utils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PushParseHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,25 +72,25 @@ public class PushParseHelper {
                         pushManager.getPushCallback().onUnsetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "alias", "aliasId", "aliasName"));
                         return;
                     case CommandMessage.COMMAND_SET_TAGS /* 12295 */:
-                        pushManager.getPushCallback().onSetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "tagId", "tagName"));
+                        pushManager.getPushCallback().onSetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "tags", "tagId", "tagName"));
                         return;
                     case CommandMessage.COMMAND_GET_TAGS /* 12296 */:
-                        pushManager.getPushCallback().onGetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "tagId", "tagName"));
+                        pushManager.getPushCallback().onGetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "tags", "tagId", "tagName"));
                         return;
                     case CommandMessage.COMMAND_UNSET_TAGS /* 12297 */:
-                        pushManager.getPushCallback().onUnsetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "tagId", "tagName"));
+                        pushManager.getPushCallback().onUnsetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "tags", "tagId", "tagName"));
                         return;
                     case CommandMessage.COMMAND_SET_PUSH_TIME /* 12298 */:
                         pushManager.getPushCallback().onSetPushTime(commandMessage.getResponseCode(), commandMessage.getContent());
                         return;
                     case CommandMessage.COMMAND_SET_ACCOUNTS /* 12301 */:
-                        pushManager.getPushCallback().onSetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "accountId", "accountName"));
+                        pushManager.getPushCallback().onSetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "tags", "accountId", "accountName"));
                         return;
                     case 12302:
-                        pushManager.getPushCallback().onGetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "accountId", "accountName"));
+                        pushManager.getPushCallback().onGetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "tags", "accountId", "accountName"));
                         return;
                     case CommandMessage.COMMAND_UNSET_ACCOUNTS /* 12303 */:
-                        pushManager.getPushCallback().onUnsetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "accountId", "accountName"));
+                        pushManager.getPushCallback().onUnsetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "tags", "accountId", "accountName"));
                         return;
                     case CommandMessage.COMMAND_GET_PUSH_STATUS /* 12306 */:
                         pushManager.getPushCallback().onGetPushStatus(commandMessage.getResponseCode(), Utils.parseInt(commandMessage.getContent()));
@@ -142,25 +142,25 @@ public class PushParseHelper {
                         pushCallback.onUnsetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "alias", "aliasId", "aliasName"));
                         return;
                     case CommandMessage.COMMAND_SET_TAGS /* 12295 */:
-                        pushCallback.onSetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "tagId", "tagName"));
+                        pushCallback.onSetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "tags", "tagId", "tagName"));
                         return;
                     case CommandMessage.COMMAND_GET_TAGS /* 12296 */:
-                        pushCallback.onGetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "tagId", "tagName"));
+                        pushCallback.onGetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "tags", "tagId", "tagName"));
                         return;
                     case CommandMessage.COMMAND_UNSET_TAGS /* 12297 */:
-                        pushCallback.onUnsetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "tagId", "tagName"));
+                        pushCallback.onUnsetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "tags", "tagId", "tagName"));
                         return;
                     case CommandMessage.COMMAND_SET_PUSH_TIME /* 12298 */:
                         pushCallback.onSetPushTime(commandMessage.getResponseCode(), commandMessage.getContent());
                         return;
                     case CommandMessage.COMMAND_SET_ACCOUNTS /* 12301 */:
-                        pushCallback.onSetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "accountId", "accountName"));
+                        pushCallback.onSetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "tags", "accountId", "accountName"));
                         return;
                     case 12302:
-                        pushCallback.onGetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "accountId", "accountName"));
+                        pushCallback.onGetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "tags", "accountId", "accountName"));
                         return;
                     case CommandMessage.COMMAND_UNSET_ACCOUNTS /* 12303 */:
-                        pushCallback.onUnsetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "accountId", "accountName"));
+                        pushCallback.onUnsetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "tags", "accountId", "accountName"));
                         return;
                     case CommandMessage.COMMAND_GET_PUSH_STATUS /* 12306 */:
                         pushCallback.onGetPushStatus(commandMessage.getResponseCode(), Utils.parseInt(commandMessage.getContent()));

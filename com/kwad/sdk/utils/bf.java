@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,10 +24,10 @@ public class bf {
                     public final /* synthetic */ WebView a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f59637b;
+                    public final /* synthetic */ String f60218b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ ValueCallback f59638c;
+                    public final /* synthetic */ ValueCallback f60219c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -45,15 +45,15 @@ public class bf {
                             }
                         }
                         this.a = webView;
-                        this.f59637b = str;
-                        this.f59638c = valueCallback;
+                        this.f60218b = str;
+                        this.f60219c = valueCallback;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.a.evaluateJavascript(this.f59637b, this.f59638c);
+                            this.a.evaluateJavascript(this.f60218b, this.f60219c);
                         }
                     }
                 });

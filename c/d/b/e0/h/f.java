@@ -31,7 +31,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public static ScheduledExecutorService s;
@@ -39,34 +39,34 @@ public final class f {
     public final c.d.b.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e.a f28145b;
+    public e.a f28520b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d0 f28146c;
+    public d0 f28521c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final j f28147d;
+    public final j f28522d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.d.b.e f28148e;
+    public final c.d.b.e f28523e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final p f28149f;
+    public final p f28524f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f28150g;
+    public final Object f28525g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final e f28151h;
+    public final e f28526h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28152i;
+    public int f28527i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c f28153j;
+    public c f28528j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f28154k;
+    public boolean f28529k;
     public boolean l;
     public boolean m;
     public c.d.b.e0.i.c n;
@@ -75,31 +75,31 @@ public final class f {
     public boolean q;
     public boolean r;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f28155e;
+        public final int f28530e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f28156f;
+        public final int f28531f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f28157g;
+        public final int f28532g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f28158h;
+        public final int f28533h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final boolean f28159i;
+        public final boolean f28534i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final c f28160j;
+        public final c f28535j;
 
         /* renamed from: k  reason: collision with root package name */
-        public volatile boolean f28161k;
+        public volatile boolean f28536k;
         public final BlockingQueue<a> l;
         public RuntimeException m;
         public final /* synthetic */ f n;
@@ -120,33 +120,33 @@ public final class f {
                 }
             }
             this.n = fVar;
-            this.f28155e = i2;
+            this.f28530e = i2;
             this.l = blockingQueue;
-            this.f28156f = i3;
-            this.f28157g = i4;
-            this.f28158h = i5;
-            this.f28159i = z;
-            this.f28160j = cVar;
+            this.f28531f = i3;
+            this.f28532g = i4;
+            this.f28533h = i5;
+            this.f28534i = z;
+            this.f28535j = cVar;
         }
 
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28161k = true;
+                this.f28536k = true;
             }
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:13:0x0031, code lost:
-            if (r9.f28161k != false) goto L13;
+            if (r9.f28536k != false) goto L13;
          */
         /* JADX WARN: Code restructure failed: missing block: B:14:0x0033, code lost:
-            r9.f28160j.c();
+            r9.f28535j.c();
          */
         /* JADX WARN: Code restructure failed: missing block: B:15:0x0039, code lost:
             r9.l.put(r9);
          */
         /* JADX WARN: Code restructure failed: missing block: B:22:0x0046, code lost:
-            if (r9.f28161k == false) goto L15;
+            if (r9.f28536k == false) goto L15;
          */
         /* JADX WARN: Code restructure failed: missing block: B:24:0x0049, code lost:
             return;
@@ -166,10 +166,10 @@ public final class f {
             try {
                 try {
                     try {
-                        if (this.f28161k) {
+                        if (this.f28536k) {
                             try {
-                                if (this.f28161k) {
-                                    this.f28160j.c();
+                                if (this.f28536k) {
+                                    this.f28535j.c();
                                 } else {
                                     this.l.put(this);
                                 }
@@ -178,7 +178,7 @@ public final class f {
                                 return;
                             }
                         }
-                        this.f28160j.d(this.f28155e, this.f28156f, this.f28157g, this.f28158h, this.f28159i, this.n.f28148e, this.n.f28149f);
+                        this.f28535j.d(this.f28530e, this.f28531f, this.f28532g, this.f28533h, this.f28534i, this.n.f28523e, this.n.f28524f);
                     } catch (RuntimeException e2) {
                         this.m = e2;
                     }
@@ -186,8 +186,8 @@ public final class f {
                 }
             } catch (Throwable th) {
                 try {
-                    if (this.f28161k) {
-                        this.f28160j.c();
+                    if (this.f28536k) {
+                        this.f28535j.c();
                     } else {
                         this.l.put(this);
                     }
@@ -198,7 +198,7 @@ public final class f {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b extends WeakReference<f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,21 +256,21 @@ public final class f {
                 return;
             }
         }
-        this.f28147d = jVar;
+        this.f28522d = jVar;
         this.a = aVar;
-        this.f28148e = eVar;
-        this.f28149f = pVar;
-        this.f28151h = new e(aVar, u(), eVar, pVar);
-        this.f28150g = obj;
+        this.f28523e = eVar;
+        this.f28524f = pVar;
+        this.f28526h = new e(aVar, u(), eVar, pVar);
+        this.f28525g = obj;
     }
 
     public void a(c cVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, cVar, z) == null) {
-            if (this.f28153j == null) {
-                this.f28153j = cVar;
-                this.f28154k = z;
-                cVar.n.add(new b(this, this.f28150g));
+            if (this.f28528j == null) {
+                this.f28528j = cVar;
+                this.f28529k = z;
+                cVar.n.add(new b(this, this.f28525g));
                 return;
             }
             throw new IllegalStateException();
@@ -282,10 +282,10 @@ public final class f {
         c cVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.f28147d) {
+            synchronized (this.f28522d) {
                 this.m = true;
                 cVar = this.n;
-                cVar2 = this.f28153j;
+                cVar2 = this.f28528j;
             }
             if (cVar != null) {
                 cVar.cancel();
@@ -300,7 +300,7 @@ public final class f {
         c.d.b.e0.i.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.f28147d) {
+            synchronized (this.f28522d) {
                 cVar = this.n;
             }
             return cVar;
@@ -314,7 +314,7 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                cVar = this.f28153j;
+                cVar = this.f28528j;
             }
             return cVar;
         }
@@ -332,24 +332,24 @@ public final class f {
             if (z2) {
                 this.l = true;
             }
-            c cVar = this.f28153j;
+            c cVar = this.f28528j;
             if (cVar != null) {
                 if (z) {
-                    cVar.f28136k = true;
+                    cVar.f28511k = true;
                 }
                 if (this.n == null) {
-                    if (this.l || this.f28153j.f28136k) {
-                        q(this.f28153j);
-                        if (this.f28153j.n.isEmpty()) {
-                            this.f28153j.o = System.nanoTime();
-                            if (c.d.b.e0.a.a.e(this.f28147d, this.f28153j)) {
-                                socket = this.f28153j.o();
-                                this.f28153j = null;
+                    if (this.l || this.f28528j.f28511k) {
+                        q(this.f28528j);
+                        if (this.f28528j.n.isEmpty()) {
+                            this.f28528j.o = System.nanoTime();
+                            if (c.d.b.e0.a.a.e(this.f28522d, this.f28528j)) {
+                                socket = this.f28528j.o();
+                                this.f28528j = null;
                                 return socket;
                             }
                         }
                         socket = null;
-                        this.f28153j = null;
+                        this.f28528j = null;
                         return socket;
                     }
                     return null;
@@ -375,32 +375,32 @@ public final class f {
         e.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)})) == null) {
-            synchronized (this.f28147d) {
+            synchronized (this.f28522d) {
                 if (!this.l) {
                     if (this.n == null) {
                         if (!this.m) {
-                            c cVar4 = this.f28153j;
+                            c cVar4 = this.f28528j;
                             s2 = s();
                             socket = null;
-                            if (this.f28153j != null) {
-                                cVar2 = this.f28153j;
+                            if (this.f28528j != null) {
+                                cVar2 = this.f28528j;
                                 cVar = null;
                             } else {
                                 cVar = cVar4;
                                 cVar2 = null;
                             }
-                            if (!this.f28154k) {
+                            if (!this.f28529k) {
                                 cVar = null;
                             }
                             z2 = false;
                             if (cVar2 == null) {
-                                c.d.b.e0.a.a.h(this.f28147d, this.a, this, null);
-                                if (this.f28153j != null) {
-                                    cVar2 = this.f28153j;
+                                c.d.b.e0.a.a.h(this.f28522d, this.a, this, null);
+                                if (this.f28528j != null) {
+                                    cVar2 = this.f28528j;
                                     d0Var = null;
                                     z3 = true;
                                 } else {
-                                    d0Var = this.f28146c;
+                                    d0Var = this.f28521c;
                                 }
                             } else {
                                 d0Var = null;
@@ -418,27 +418,27 @@ public final class f {
             }
             c.d.b.e0.e.g(s2);
             if (cVar != null) {
-                this.f28149f.connectionReleased(this.f28148e, cVar);
+                this.f28524f.connectionReleased(this.f28523e, cVar);
             }
             if (z3) {
-                this.f28149f.connectionAcquired(this.f28148e, cVar2);
+                this.f28524f.connectionAcquired(this.f28523e, cVar2);
             }
             if (cVar2 != null) {
-                this.f28146c = this.f28153j.route();
+                this.f28521c = this.f28528j.route();
                 return cVar2;
             }
-            if (d0Var != null || ((aVar = this.f28145b) != null && aVar.b())) {
+            if (d0Var != null || ((aVar = this.f28520b) != null && aVar.b())) {
                 z4 = false;
             } else {
-                this.f28145b = this.f28151h.e();
+                this.f28520b = this.f28526h.e();
                 z4 = true;
             }
-            synchronized (this.f28147d) {
+            synchronized (this.f28522d) {
                 if (this.m) {
                     throw new IOException(ResponseException.CANCELED);
                 }
                 if (z4) {
-                    List<d0> a2 = this.f28145b.a();
+                    List<d0> a2 = this.f28520b.a();
                     int size = a2.size();
                     int i6 = 0;
                     while (true) {
@@ -446,10 +446,10 @@ public final class f {
                             break;
                         }
                         d0 d0Var2 = a2.get(i6);
-                        c.d.b.e0.a.a.h(this.f28147d, this.a, this, d0Var2);
-                        if (this.f28153j != null) {
-                            cVar2 = this.f28153j;
-                            this.f28146c = d0Var2;
+                        c.d.b.e0.a.a.h(this.f28522d, this.a, this, d0Var2);
+                        if (this.f28528j != null) {
+                            cVar2 = this.f28528j;
+                            this.f28521c = d0Var2;
                             z3 = true;
                             break;
                         }
@@ -458,21 +458,21 @@ public final class f {
                 }
                 if (!z3) {
                     if (d0Var == null) {
-                        d0Var = this.f28145b.d();
+                        d0Var = this.f28520b.d();
                     }
-                    this.f28146c = d0Var;
-                    this.f28152i = 0;
-                    cVar2 = new c(this.f28147d, d0Var);
+                    this.f28521c = d0Var;
+                    this.f28527i = 0;
+                    cVar2 = new c(this.f28522d, d0Var);
                     a(cVar2, false);
                 }
                 cVar3 = cVar2;
             }
             if (z3) {
-                this.f28149f.connectionAcquired(this.f28148e, cVar3);
+                this.f28524f.connectionAcquired(this.f28523e, cVar3);
                 return cVar3;
             }
-            if (this.f28145b == null) {
-                this.f28145b = this.f28151h.e();
+            if (this.f28520b == null) {
+                this.f28520b = this.f28526h.e();
             }
             d0 h2 = h();
             if (this.o > 0 && k(cVar3.route()) && h2 != null && this.q) {
@@ -482,19 +482,19 @@ public final class f {
                 this.r = true;
                 cVar3 = i(i2, i3, i4, i5, z, cVar3, h2);
             } else {
-                cVar3.d(i2, i3, i4, i5, z, this.f28148e, this.f28149f);
+                cVar3.d(i2, i3, i4, i5, z, this.f28523e, this.f28524f);
             }
             u().a(cVar3.route());
-            synchronized (this.f28147d) {
-                this.f28154k = true;
-                c.d.b.e0.a.a.j(this.f28147d, cVar3);
+            synchronized (this.f28522d) {
+                this.f28529k = true;
+                c.d.b.e0.a.a.j(this.f28522d, cVar3);
                 if (cVar3.m()) {
-                    socket = c.d.b.e0.a.a.f(this.f28147d, this.a, this);
-                    cVar3 = this.f28153j;
+                    socket = c.d.b.e0.a.a.f(this.f28522d, this.a, this);
+                    cVar3 = this.f28528j;
                 }
             }
             c.d.b.e0.e.g(socket);
-            this.f28149f.connectionAcquired(this.f28148e, cVar3);
+            this.f28524f.connectionAcquired(this.f28523e, cVar3);
             return cVar3;
         }
         return (c) invokeCommon.objValue;
@@ -508,7 +508,7 @@ public final class f {
         }
         while (true) {
             c f2 = f(i2, i3, i4, i5, z);
-            synchronized (this.f28147d) {
+            synchronized (this.f28522d) {
                 if (f2.l == 0 && !f2.m()) {
                     return f2;
                 }
@@ -524,8 +524,8 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            for (int i2 = 0; i2 < this.f28145b.a().size(); i2++) {
-                d0 d0Var = this.f28145b.a().get(i2);
+            for (int i2 = 0; i2 < this.f28520b.a().size(); i2++) {
+                d0 d0Var = this.f28520b.a().get(i2);
                 if (d0Var.d().getAddress() instanceof Inet4Address) {
                     return d0Var;
                 }
@@ -542,36 +542,36 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z), cVar, d0Var})) == null) {
             SynchronousQueue synchronousQueue = new SynchronousQueue();
-            synchronized (this.f28147d) {
+            synchronized (this.f28522d) {
                 if (s == null) {
                     s = Executors.newScheduledThreadPool(2);
                 }
             }
             a aVar2 = new a(this, cVar, synchronousQueue, i2, i3, i4, i5, z);
-            a aVar3 = new a(this, new c(this.f28147d, d0Var), synchronousQueue, i2, i3, i4, i5, z);
+            a aVar3 = new a(this, new c(this.f28522d, d0Var), synchronousQueue, i2, i3, i4, i5, z);
             s.execute(aVar2);
             s.schedule(aVar3, this.o, TimeUnit.MILLISECONDS);
             c cVar3 = null;
             try {
                 aVar = (a) synchronousQueue.take();
-                cVar2 = aVar.f28160j;
+                cVar2 = aVar.f28535j;
             } catch (InterruptedException unused) {
             }
             try {
-                this.f28146c = cVar2.route();
+                this.f28521c = cVar2.route();
                 if (aVar == aVar2) {
                     aVar3.cancel();
                 } else {
                     aVar2.cancel();
                     this.p = true;
-                    this.f28145b.c();
+                    this.f28520b.c();
                 }
                 if (aVar.m != null) {
                     throw aVar.m;
                 }
-                synchronized (this.f28147d) {
-                    q(this.f28153j);
-                    this.f28153j = null;
+                synchronized (this.f28522d) {
+                    q(this.f28528j);
+                    this.f28528j = null;
                     a(cVar2, false);
                 }
                 return cVar2;
@@ -587,7 +587,7 @@ public final class f {
         InterceptResult invokeV;
         e.a aVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f28146c != null || ((aVar = this.f28145b) != null && aVar.b()) || this.f28151h.c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f28521c != null || ((aVar = this.f28520b) != null && aVar.b()) || this.f28526h.c() : invokeV.booleanValue;
     }
 
     public final boolean k(d0 d0Var) {
@@ -621,7 +621,7 @@ public final class f {
             this.q = wVar.r();
             try {
                 c.d.b.e0.i.c n = g(connectTimeoutMillis, readTimeoutMillis, writeTimeoutMillis, w, C, z).n(wVar, aVar, this);
-                synchronized (this.f28147d) {
+                synchronized (this.f28522d) {
                     this.n = n;
                 }
                 return n;
@@ -637,16 +637,16 @@ public final class f {
         Socket e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            synchronized (this.f28147d) {
-                cVar = this.f28153j;
+            synchronized (this.f28522d) {
+                cVar = this.f28528j;
                 e2 = e(true, false, false);
-                if (this.f28153j != null) {
+                if (this.f28528j != null) {
                     cVar = null;
                 }
             }
             c.d.b.e0.e.g(e2);
             if (cVar != null) {
-                this.f28149f.connectionReleased(this.f28148e, cVar);
+                this.f28524f.connectionReleased(this.f28523e, cVar);
             }
         }
     }
@@ -656,18 +656,18 @@ public final class f {
         Socket e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            synchronized (this.f28147d) {
-                cVar = this.f28153j;
+            synchronized (this.f28522d) {
+                cVar = this.f28528j;
                 e2 = e(false, true, false);
-                if (this.f28153j != null) {
+                if (this.f28528j != null) {
                     cVar = null;
                 }
             }
             c.d.b.e0.e.g(e2);
             if (cVar != null) {
-                c.d.b.e0.a.a.l(this.f28148e, null);
-                this.f28149f.connectionReleased(this.f28148e, cVar);
-                this.f28149f.callEnd(this.f28148e);
+                c.d.b.e0.a.a.l(this.f28523e, null);
+                this.f28524f.connectionReleased(this.f28523e, cVar);
+                this.f28524f.callEnd(this.f28523e);
             }
         }
     }
@@ -690,10 +690,10 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, cVar)) == null) {
-            if (this.n == null && this.f28153j.n.size() == 1) {
+            if (this.n == null && this.f28528j.n.size() == 1) {
                 Socket e2 = e(true, false, false);
-                this.f28153j = cVar;
-                cVar.n.add(this.f28153j.n.get(0));
+                this.f28528j = cVar;
+                cVar.n.add(this.f28528j.n.get(0));
                 return e2;
             }
             throw new IllegalStateException();
@@ -705,8 +705,8 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            c cVar = this.f28153j;
-            if (cVar == null || !cVar.f28136k) {
+            c cVar = this.f28528j;
+            if (cVar == null || !cVar.f28511k) {
                 return null;
             }
             return e(false, false, true);
@@ -717,7 +717,7 @@ public final class f {
     public d0 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f28146c : (d0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f28521c : (d0) invokeV.objValue;
     }
 
     public String toString() {
@@ -733,7 +733,7 @@ public final class f {
     public final d u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? c.d.b.e0.a.a.k(this.f28147d) : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? c.d.b.e0.a.a.k(this.f28522d) : (d) invokeV.objValue;
     }
 
     public void v(IOException iOException) {
@@ -742,46 +742,46 @@ public final class f {
         Socket e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, iOException) == null) {
-            synchronized (this.f28147d) {
+            synchronized (this.f28522d) {
                 cVar = null;
                 if (iOException instanceof StreamResetException) {
                     ErrorCode errorCode = ((StreamResetException) iOException).errorCode;
                     if (errorCode == ErrorCode.REFUSED_STREAM) {
-                        int i2 = this.f28152i + 1;
-                        this.f28152i = i2;
+                        int i2 = this.f28527i + 1;
+                        this.f28527i = i2;
                         if (i2 > 1) {
-                            this.f28146c = null;
+                            this.f28521c = null;
                             z = true;
                         }
                         z = false;
                     } else {
                         if (errorCode != ErrorCode.CANCEL) {
-                            this.f28146c = null;
+                            this.f28521c = null;
                             z = true;
                         }
                         z = false;
                     }
                 } else {
-                    if (this.f28153j != null && (!this.f28153j.m() || (iOException instanceof ConnectionShutdownException))) {
-                        if (this.f28153j.l == 0) {
-                            if (this.f28146c != null && iOException != null) {
-                                this.f28151h.a(this.f28146c, iOException);
+                    if (this.f28528j != null && (!this.f28528j.m() || (iOException instanceof ConnectionShutdownException))) {
+                        if (this.f28528j.l == 0) {
+                            if (this.f28521c != null && iOException != null) {
+                                this.f28526h.a(this.f28521c, iOException);
                             }
-                            this.f28146c = null;
+                            this.f28521c = null;
                         }
                         z = true;
                     }
                     z = false;
                 }
-                c cVar2 = this.f28153j;
+                c cVar2 = this.f28528j;
                 e2 = e(z, false, true);
-                if (this.f28153j == null && this.f28154k) {
+                if (this.f28528j == null && this.f28529k) {
                     cVar = cVar2;
                 }
             }
             c.d.b.e0.e.g(e2);
             if (cVar != null) {
-                this.f28149f.connectionReleased(this.f28148e, cVar);
+                this.f28524f.connectionReleased(this.f28523e, cVar);
             }
         }
     }
@@ -792,16 +792,16 @@ public final class f {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), cVar, Long.valueOf(j2), iOException}) == null) {
-            this.f28149f.responseBodyEnd(this.f28148e, j2);
-            synchronized (this.f28147d) {
+            this.f28524f.responseBodyEnd(this.f28523e, j2);
+            synchronized (this.f28522d) {
                 if (cVar != null) {
                     if (cVar == this.n) {
                         if (!z) {
-                            this.f28153j.l++;
+                            this.f28528j.l++;
                         }
-                        cVar2 = this.f28153j;
+                        cVar2 = this.f28528j;
                         e2 = e(z, false, true);
-                        if (this.f28153j != null) {
+                        if (this.f28528j != null) {
                             cVar2 = null;
                         }
                         z2 = this.l;
@@ -811,13 +811,13 @@ public final class f {
             }
             c.d.b.e0.e.g(e2);
             if (cVar2 != null) {
-                this.f28149f.connectionReleased(this.f28148e, cVar2);
+                this.f28524f.connectionReleased(this.f28523e, cVar2);
             }
             if (iOException != null) {
-                this.f28149f.callFailed(this.f28148e, c.d.b.e0.a.a.l(this.f28148e, iOException));
+                this.f28524f.callFailed(this.f28523e, c.d.b.e0.a.a.l(this.f28523e, iOException));
             } else if (z2) {
-                c.d.b.e0.a.a.l(this.f28148e, null);
-                this.f28149f.callEnd(this.f28148e);
+                c.d.b.e0.a.a.l(this.f28523e, null);
+                this.f28524f.callEnd(this.f28523e);
             }
         }
     }

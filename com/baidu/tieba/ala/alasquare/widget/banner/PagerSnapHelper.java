@@ -9,27 +9,27 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.r0.a0.f.i.h.d;
+import c.a.s0.a0.f.i.h.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PagerSnapHelper extends SnapHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public d f42939d;
+    public d f43430d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public d f42940e;
+    public d f43431e;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a extends LinearSmoothScroller {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,11 +210,11 @@ public class PagerSnapHelper extends SnapHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, layoutManager)) == null) {
-            d dVar = this.f42940e;
+            d dVar = this.f43431e;
             if (dVar == null || dVar.a != layoutManager) {
-                this.f42940e = d.a(layoutManager);
+                this.f43431e = d.a(layoutManager);
             }
-            return this.f42940e;
+            return this.f43431e;
         }
         return (d) invokeL.objValue;
     }
@@ -224,11 +224,11 @@ public class PagerSnapHelper extends SnapHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layoutManager)) == null) {
-            d dVar = this.f42939d;
+            d dVar = this.f43430d;
             if (dVar == null || dVar.a != layoutManager) {
-                this.f42939d = d.b(layoutManager);
+                this.f43430d = d.b(layoutManager);
             }
-            return this.f42939d;
+            return this.f43430d;
         }
         return (d) invokeL.objValue;
     }

@@ -1,48 +1,118 @@
 package j.a.a.e.n;
 
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
-import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes3.dex */
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.model.ThemeColorConfig;
+/* loaded from: classes4.dex */
 public class e {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static PaysSettingInfo a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f64780b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f64781c = "https://web.yy.com/yy_wallet/wallet.html?";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f64782d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, view, imageView) == null) || view == null || imageView == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-561062514, "Lj/a/a/e/n/e;")) == null) {
             return;
         }
-        view.setVisibility(8);
-        ObjectAnimator objectAnimator = imageView.getTag() != null ? (ObjectAnimator) imageView.getTag() : null;
-        if (objectAnimator != null) {
-            objectAnimator.cancel();
-            imageView.setTag(null);
-            RLog.debug("ObjectAnimatorUtils", "hideDialogLoading->oldRotateAnimator.cancel()");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-561062514, "Lj/a/a/e/n/e;");
         }
     }
 
-    public static void b(View view, ImageView imageView) {
+    public static String a(String str, PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, view, imageView) == null) || view == null || imageView == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, payUIKitConfig)) == null) {
+            if (payUIKitConfig == null || payUIKitConfig.revenueConfig == null) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str);
+            sb.append("&uid=" + payUIKitConfig.revenueConfig.getUid());
+            sb.append("&hostId=" + payUIKitConfig.revenueConfig.getHostId());
+            sb.append("&appid=" + payUIKitConfig.revenueConfig.getAppId());
+            sb.append("&usedChannel=" + payUIKitConfig.revenueConfig.getUseChannel());
+            sb.append("&authType=" + payUIKitConfig.revenueConfig.getAuthType());
+            sb.append("&clientVersion=" + payUIKitConfig.revenueConfig.getVersion());
+            sb.append("&sdkVersion=4.3.9-bdpay212004-SNAPSHOT");
+            int i2 = 0;
+            ThemeColorConfig themeColorConfig = payUIKitConfig.themeColorConfig;
+            if (themeColorConfig != null && themeColorConfig.getThemeResId().intValue() == j.a.a.e.i.PayUi_Yellow_Theme) {
+                i2 = 1;
+            }
+            sb.append("&theme=" + i2);
+            return sb.toString();
         }
-        ObjectAnimator objectAnimator = imageView.getTag() != null ? (ObjectAnimator) imageView.getTag() : null;
-        if (objectAnimator != null) {
-            objectAnimator.cancel();
-            imageView.setTag(null);
-            RLog.debug("ObjectAnimatorUtils", "showDialogLoading->oldRotateAnimator.cancel()");
+        return (String) invokeLL.objValue;
+    }
+
+    public static String b(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(f64782d, payUIKitConfig);
+            }
+            return f64782d;
         }
-        view.setVisibility(0);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "rotation", 0.0f, 360.0f);
-        ofFloat.setDuration(1000L);
-        ofFloat.setInterpolator(new LinearInterpolator());
-        ofFloat.setRepeatCount(-1);
-        ofFloat.start();
-        imageView.setTag(ofFloat);
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(f64781c, payUIKitConfig);
+            }
+            return f64781c;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
+                return f64780b;
+            }
+            return a(f64780b, payUIKitConfig);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
+            if (z) {
+                f64780b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
+                f64781c = "https://webtest.yy.com/yy_wallet/wallet.html?";
+                f64782d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+                return;
+            }
+            f64780b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+            f64781c = "https://web.yy.com/yy_wallet/wallet.html?";
+            f64782d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+        }
     }
 }

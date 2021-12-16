@@ -15,7 +15,7 @@ import io.reactivex.internal.operators.flowable.FlowableAutoConnect;
 import io.reactivex.internal.operators.flowable.FlowableRefCount;
 import io.reactivex.internal.util.ConnectConsumer;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class ConnectableFlowable<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

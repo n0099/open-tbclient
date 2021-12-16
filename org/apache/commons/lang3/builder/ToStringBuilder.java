@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.ObjectUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ToStringBuilder implements Builder<String> {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ToStringStyle defaultStyle;

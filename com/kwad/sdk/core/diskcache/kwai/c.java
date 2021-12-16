@@ -9,13 +9,13 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f57310b;
+    public static final Charset f57891b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public final class c {
             }
         }
         a = Charset.forName("US-ASCII");
-        f57310b = Charset.forName("UTF-8");
+        f57891b = Charset.forName("UTF-8");
     }
 
     public static void a(Closeable closeable) {

@@ -11,7 +11,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.impls.r;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public static com.ss.android.downloadlib.addownload.a.c a;
@@ -63,10 +63,10 @@ public class l {
                         public final /* synthetic */ int a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ com.ss.android.downloadad.api.a.b f61326b;
+                        public final /* synthetic */ com.ss.android.downloadad.api.a.b f61907b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ com.ss.android.downloadlib.addownload.d.c f61327c;
+                        public final /* synthetic */ com.ss.android.downloadlib.addownload.d.c f61908c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -84,8 +84,8 @@ public class l {
                                 }
                             }
                             this.a = id;
-                            this.f61326b = bVar;
-                            this.f61327c = cVar;
+                            this.f61907b = bVar;
+                            this.f61908c = cVar;
                         }
 
                         @Override // com.ss.android.downloadlib.addownload.a.c
@@ -97,9 +97,9 @@ public class l {
                                 if (downloadInfo2 != null) {
                                     downloadInfo2.startPauseReserveOnWifi();
                                     r.a().a(downloadInfo2);
-                                    com.ss.android.downloadlib.d.a.a().b("pause_reserve_wifi_confirm", this.f61326b);
+                                    com.ss.android.downloadlib.d.a.a().b("pause_reserve_wifi_confirm", this.f61907b);
                                 }
-                                this.f61327c.a(this.f61326b);
+                                this.f61908c.a(this.f61907b);
                             }
                         }
 
@@ -112,8 +112,8 @@ public class l {
                                 if (downloadInfo2 != null) {
                                     downloadInfo2.stopPauseReserveOnWifi();
                                 }
-                                com.ss.android.downloadlib.d.a.a().b("pause_reserve_wifi_cancel", this.f61326b);
-                                this.f61327c.a(this.f61326b);
+                                com.ss.android.downloadlib.d.a.a().b("pause_reserve_wifi_cancel", this.f61907b);
+                                this.f61908c.a(this.f61907b);
                             }
                         }
                     });

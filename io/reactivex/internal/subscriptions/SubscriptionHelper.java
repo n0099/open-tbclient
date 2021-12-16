@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class SubscriptionHelper implements Subscription {
     public static final /* synthetic */ SubscriptionHelper[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

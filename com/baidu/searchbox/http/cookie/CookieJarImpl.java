@@ -14,7 +14,7 @@ import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
 import okhttp3.internal.Util;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CookieJarImpl implements CookieJar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class CookieJarImpl implements CookieJar {
             int i2 = 0;
             while (i2 < length) {
                 int delimiterOffset = Util.delimiterOffset(str, i2, length, ';');
-                int delimiterOffset2 = Util.delimiterOffset(str, i2, delimiterOffset, (char) a.f31351h);
+                int delimiterOffset2 = Util.delimiterOffset(str, i2, delimiterOffset, (char) a.f31721h);
                 String trimSubstring = Util.trimSubstring(str, i2, delimiterOffset2);
                 String trimSubstring2 = delimiterOffset2 < delimiterOffset ? Util.trimSubstring(str, delimiterOffset2 + 1, delimiterOffset) : "";
                 if (trimSubstring2.startsWith("\"") && trimSubstring2.endsWith("\"")) {

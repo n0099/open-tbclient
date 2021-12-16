@@ -33,65 +33,65 @@ import com.kwad.sdk.utils.at;
 import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.be;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f59111b;
+    public ViewGroup f59692b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f59112c;
+    public d f59693c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f59113d;
+    public ViewGroup f59694d;
 
     /* renamed from: e  reason: collision with root package name */
-    public C2056a f59114e;
+    public C2117a f59695e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.reward.d.c f59115f;
+    public com.kwad.sdk.reward.d.c f59696f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.reward.d.c f59116g;
+    public com.kwad.sdk.reward.d.c f59697g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.reward.b.kwai.a f59117h;
+    public com.kwad.sdk.reward.b.kwai.a f59698h;
 
     /* renamed from: com.kwad.sdk.reward.presenter.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2056a implements j.b, p.b {
+    /* loaded from: classes3.dex */
+    public static class C2117a implements j.b, p.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public KsAdWebView f59118b;
+        public KsAdWebView f59699b;
 
         /* renamed from: c  reason: collision with root package name */
-        public com.kwad.sdk.core.webview.a f59119c;
+        public com.kwad.sdk.core.webview.a f59700c;
 
         /* renamed from: d  reason: collision with root package name */
-        public com.kwad.sdk.core.webview.kwai.g f59120d;
+        public com.kwad.sdk.core.webview.kwai.g f59701d;
 
         /* renamed from: e  reason: collision with root package name */
-        public x f59121e;
+        public x f59702e;
 
         /* renamed from: f  reason: collision with root package name */
-        public b.c f59122f;
+        public b.c f59703f;
 
         /* renamed from: g  reason: collision with root package name */
-        public b f59123g;
+        public b f59704g;
         @Nullable
 
         /* renamed from: h  reason: collision with root package name */
-        public AdTemplate f59124h;
+        public AdTemplate f59705h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f59125i;
+        public boolean f59706i;
 
-        public C2056a(KsAdWebView ksAdWebView, View view, b.c cVar) {
+        public C2117a(KsAdWebView ksAdWebView, View view, b.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,10 +106,10 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
                     return;
                 }
             }
-            this.f59125i = false;
+            this.f59706i = false;
             this.a = view;
-            this.f59118b = ksAdWebView;
-            this.f59122f = cVar;
+            this.f59699b = ksAdWebView;
+            this.f59703f = cVar;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -127,17 +127,17 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
         private void a(com.kwad.sdk.core.webview.kwai.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, gVar) == null) {
-                gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.f59119c, (com.kwad.sdk.core.download.a.b) null, this.f59122f));
-                gVar.a(new f(this.f59119c));
-                gVar.a(new com.kwad.sdk.core.webview.jshandler.d(this.f59119c));
+                gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.f59700c, (com.kwad.sdk.core.download.a.b) null, this.f59703f));
+                gVar.a(new f(this.f59700c));
+                gVar.a(new com.kwad.sdk.core.webview.jshandler.d(this.f59700c));
                 gVar.a(new p(this));
                 x xVar = new x();
-                this.f59121e = xVar;
+                this.f59702e = xVar;
                 gVar.a(xVar);
-                gVar.a(new k(this.f59119c));
-                gVar.a(new com.kwad.sdk.core.webview.jshandler.g(this.f59119c));
+                gVar.a(new k(this.f59700c));
+                gVar.a(new com.kwad.sdk.core.webview.jshandler.g(this.f59700c));
                 gVar.a(new com.kwad.sdk.core.webview.a.g());
-                gVar.a(new j(this.f59119c, this));
+                gVar.a(new j(this.f59700c, this));
             }
         }
 
@@ -150,11 +150,11 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
                     return;
                 }
                 b();
-                be.b(this.f59118b);
-                this.f59118b.setHttpErrorListener(new KsAdWebView.d(this) { // from class: com.kwad.sdk.reward.presenter.c.a.a.1
+                be.b(this.f59699b);
+                this.f59699b.setHttpErrorListener(new KsAdWebView.d(this) { // from class: com.kwad.sdk.reward.presenter.c.a.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ C2056a a;
+                    public final /* synthetic */ C2117a a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -197,15 +197,15 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
                         }
                     }
                 });
-                com.kwad.sdk.core.webview.kwai.g gVar = new com.kwad.sdk.core.webview.kwai.g(this.f59118b);
-                this.f59120d = gVar;
+                com.kwad.sdk.core.webview.kwai.g gVar = new com.kwad.sdk.core.webview.kwai.g(this.f59699b);
+                this.f59701d = gVar;
                 a(gVar);
-                this.f59118b.addJavascriptInterface(this.f59120d, "KwaiAd");
-                this.f59118b.loadUrl(str);
+                this.f59699b.addJavascriptInterface(this.f59701d, "KwaiAd");
+                this.f59699b.loadUrl(str);
                 ax.a(new Runnable(this) { // from class: com.kwad.sdk.reward.presenter.c.a.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ C2056a a;
+                    public final /* synthetic */ C2117a a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -228,10 +228,10 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.f59125i) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.f59706i) {
                             return;
                         }
-                        this.a.f59125i = true;
+                        this.a.f59706i = true;
                         this.a.a();
                     }
                 }, null, 1000L);
@@ -241,40 +241,40 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
         private void b() {
             com.kwad.sdk.core.webview.kwai.g gVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (gVar = this.f59120d) == null) {
+            if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (gVar = this.f59701d) == null) {
                 return;
             }
             gVar.a();
-            this.f59120d = null;
+            this.f59701d = null;
         }
 
         private void b(AdTemplate adTemplate, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65543, this, adTemplate, viewGroup) == null) {
                 com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
-                this.f59119c = aVar;
+                this.f59700c = aVar;
                 aVar.a(adTemplate);
-                com.kwad.sdk.core.webview.a aVar2 = this.f59119c;
+                com.kwad.sdk.core.webview.a aVar2 = this.f59700c;
                 aVar2.a = 0;
-                aVar2.f57955b = null;
-                aVar2.f57957d = viewGroup;
-                aVar2.f57958e = this.f59118b;
-                aVar2.f57956c = null;
-                aVar2.f57961h = true;
+                aVar2.f58536b = null;
+                aVar2.f58538d = viewGroup;
+                aVar2.f58539e = this.f59699b;
+                aVar2.f58537c = null;
+                aVar2.f58542h = true;
             }
         }
 
         public void a(AdTemplate adTemplate, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, adTemplate, viewGroup) == null) {
-                KsAdWebView ksAdWebView = this.f59118b;
+                KsAdWebView ksAdWebView = this.f59699b;
                 if (ksAdWebView != null) {
                     ksAdWebView.setBackgroundColor(0);
-                    if (this.f59118b.getBackground() != null) {
-                        this.f59118b.getBackground().setAlpha(0);
+                    if (this.f59699b.getBackground() != null) {
+                        this.f59699b.getBackground().setAlpha(0);
                     }
                 }
-                this.f59124h = adTemplate;
+                this.f59705h = adTemplate;
                 b(adTemplate, viewGroup);
                 String b2 = com.kwad.sdk.core.response.a.b.b(adTemplate);
                 com.kwad.sdk.core.d.a.a("LandPageOpenTaskPresenter", "init url: " + b2);
@@ -293,10 +293,10 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
         @Override // com.kwad.sdk.core.webview.jshandler.p.b
         public void a(p.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || this.f59125i) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || this.f59706i) {
                 return;
             }
-            this.f59125i = true;
+            this.f59706i = true;
             com.kwad.sdk.core.d.a.a("LandPageOpenTaskPresenter", getClass().getName() + " updatePageStatus: " + aVar);
             if (aVar.a == 1) {
                 a(true);
@@ -308,7 +308,7 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
         public void a(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-                this.f59123g = bVar;
+                this.f59704g = bVar;
             }
         }
 
@@ -316,7 +316,7 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
                 com.kwad.sdk.core.d.a.a("LandPageOpenTaskPresenter", "switchWebView: " + z);
-                KsAdWebView ksAdWebView = this.f59118b;
+                KsAdWebView ksAdWebView = this.f59699b;
                 if (ksAdWebView == null) {
                     return;
                 }
@@ -325,11 +325,11 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c extends com.kwad.sdk.reward.presenter.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -359,8 +359,8 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class d extends C2056a {
+    /* loaded from: classes3.dex */
+    public static class d extends C2117a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -424,7 +424,7 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
             ((ViewStub) a(R.id.ksad_reward_apk_info_stub)).inflate();
             KSFrameLayout kSFrameLayout = (KSFrameLayout) a(R.id.ksad_reward_apk_info_card_root);
             kSFrameLayout.setRadius(q().getResources().getDimension(R.dimen.ksad_reward_apk_info_card_step_icon_radius));
-            int size = com.kwad.sdk.core.response.a.c.i(((g) this).a.f58874g).size();
+            int size = com.kwad.sdk.core.response.a.c.i(((g) this).a.f59455g).size();
             kSFrameLayout.setRatio(0.0f);
             if (size == 0) {
                 q = q();
@@ -435,16 +435,16 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
             }
             com.kwad.sdk.a.kwai.a.a(kSFrameLayout, com.kwad.sdk.a.kwai.a.a(q, f2));
             ViewGroup viewGroup = (ViewGroup) a(R.id.ksad_reward_apk_info_card_native_container);
-            this.f59113d = viewGroup;
+            this.f59694d = viewGroup;
             viewGroup.setClickable(true);
-            new com.kwad.sdk.widget.f(this.f59113d, this);
-            com.kwad.sdk.reward.d.c cVar = new com.kwad.sdk.reward.d.c(this.f59113d);
-            this.f59115f = cVar;
+            new com.kwad.sdk.widget.f(this.f59694d, this);
+            com.kwad.sdk.reward.d.c cVar = new com.kwad.sdk.reward.d.c(this.f59694d);
+            this.f59696f = cVar;
             cVar.a(this);
-            this.f59115f.a(((g) this).a.f58874g, true);
-            C2056a c2056a = new C2056a((KsAdWebView) a(R.id.ksad_reward_apk_info_card_h5), this.f59113d, this);
-            this.f59114e = c2056a;
-            c2056a.a(new b(this) { // from class: com.kwad.sdk.reward.presenter.c.a.1
+            this.f59696f.a(((g) this).a.f59455g, true);
+            C2117a c2117a = new C2117a((KsAdWebView) a(R.id.ksad_reward_apk_info_card_h5), this.f59694d, this);
+            this.f59695e = c2117a;
+            c2117a.a(new b(this) { // from class: com.kwad.sdk.reward.presenter.c.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
@@ -467,7 +467,7 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
                     this.a = this;
                 }
             });
-            this.f59114e.a(((g) this).a.f58874g, adBaseFrameLayout);
+            this.f59695e.a(((g) this).a.f59455g, adBaseFrameLayout);
         }
     }
 
@@ -486,22 +486,22 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
             com.kwad.sdk.core.d.a.a("LandPageOpenTaskPresenter", "onBind");
             if (g()) {
                 com.kwad.sdk.reward.b.kwai.a b2 = com.kwad.sdk.reward.b.c.b();
-                this.f59117h = b2;
+                this.f59698h = b2;
                 ((g) this).a.z = b2;
                 b2.g();
                 AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) a(R.id.ksad_root_container);
                 ViewGroup viewGroup = (ViewGroup) a(R.id.ksad_activity_apk_info_area_native);
-                this.f59111b = viewGroup;
+                this.f59692b = viewGroup;
                 viewGroup.setClickable(true);
-                new com.kwad.sdk.widget.f(this.f59111b, this);
-                com.kwad.sdk.reward.d.c cVar = new com.kwad.sdk.reward.d.c(this.f59111b);
-                this.f59116g = cVar;
+                new com.kwad.sdk.widget.f(this.f59692b, this);
+                com.kwad.sdk.reward.d.c cVar = new com.kwad.sdk.reward.d.c(this.f59692b);
+                this.f59697g = cVar;
                 cVar.a(this);
-                this.f59116g.a(((g) this).a.f58874g, false);
+                this.f59697g.a(((g) this).a.f59455g, false);
                 ((KSFrameLayout) a(R.id.ksad_activity_apk_info_webview_container)).setWidthBasedRatio(false);
-                d dVar = new d((KsAdWebView) a(R.id.ksad_activity_apk_info_webview), this.f59111b, this);
-                this.f59112c = dVar;
-                dVar.a(((g) this).a.f58874g, adBaseFrameLayout);
+                d dVar = new d((KsAdWebView) a(R.id.ksad_activity_apk_info_webview), this.f59692b, this);
+                this.f59693c = dVar;
+                dVar.a(((g) this).a.f59455g, adBaseFrameLayout);
                 a(adBaseFrameLayout);
             }
         }
@@ -533,7 +533,7 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
     @Override // com.kwad.sdk.widget.d
     public void b(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && com.kwad.sdk.core.response.a.c.g(((g) this).a.f58874g)) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && com.kwad.sdk.core.response.a.c.g(((g) this).a.f59455g)) {
             a(view, false);
         }
     }
@@ -544,8 +544,8 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.c();
             com.kwad.sdk.core.d.a.a("LandPageOpenTaskPresenter", "onUnbind");
-            if (this.f59114e != null) {
-                this.f59114e = null;
+            if (this.f59695e != null) {
+                this.f59695e = null;
             }
             ((g) this).a.z = null;
         }

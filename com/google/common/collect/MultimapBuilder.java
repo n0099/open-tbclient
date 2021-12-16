@@ -27,12 +27,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class MultimapBuilder<K0, V0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ArrayListSupplier<V> implements r<List<V>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public abstract class MultimapBuilder<K0, V0> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class EnumSetSupplier<V extends Enum<V>> implements r<Set<V>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public abstract class MultimapBuilder<K0, V0> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class HashSetSupplier<V> implements r<Set<V>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public abstract class MultimapBuilder<K0, V0> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class LinkedHashSetSupplier<V> implements r<Set<V>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public abstract class MultimapBuilder<K0, V0> {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class LinkedListSupplier implements r<List<Object>> {
         public static final /* synthetic */ LinkedListSupplier[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -240,7 +240,7 @@ public abstract class MultimapBuilder<K0, V0> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TreeSetSupplier<V> implements r<SortedSet<V>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -274,7 +274,7 @@ public abstract class MultimapBuilder<K0, V0> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends b<K0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -306,19 +306,19 @@ public abstract class MultimapBuilder<K0, V0> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class b<K0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a extends c<K0, Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f56356b;
+            public final /* synthetic */ b f56937b;
 
             public a(b bVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -335,7 +335,7 @@ public abstract class MultimapBuilder<K0, V0> {
                         return;
                     }
                 }
-                this.f56356b = bVar;
+                this.f56937b = bVar;
                 this.a = i2;
             }
 
@@ -343,7 +343,7 @@ public abstract class MultimapBuilder<K0, V0> {
             public <K extends K0, V> e1<K, V> b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Multimaps.f(this.f56356b.a(), new LinkedHashSetSupplier(this.a)) : (e1) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Multimaps.f(this.f56937b.a(), new LinkedHashSetSupplier(this.a)) : (e1) invokeV.objValue;
             }
         }
 
@@ -380,7 +380,7 @@ public abstract class MultimapBuilder<K0, V0> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class c<K0, V0> extends MultimapBuilder<K0, V0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

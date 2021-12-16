@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +39,13 @@ public class l extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String c2 = this.f61466b.c("s");
-            String a = com.ss.android.socialbase.appdownloader.f.c.a(this.f61466b.c(ag.f36415h), c2);
-            String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.f61466b.c("ah"), c2);
-            String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.f61466b.c("ai"), c2);
-            String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.f61466b.c("aj"), c2);
+            String c2 = this.f62047b.c("s");
+            String a = com.ss.android.socialbase.appdownloader.f.c.a(this.f62047b.c(ag.f36904h), c2);
+            String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.f62047b.c("ah"), c2);
+            String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.f62047b.c("ai"), c2);
+            String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.f62047b.c("aj"), c2);
             Intent intent = new Intent();
-            intent.putExtra(a, this.f61467c);
+            intent.putExtra(a, this.f62048c);
             intent.putExtra(a2, "*/*");
             intent.putExtra(a3, true);
             intent.setAction(a4);

@@ -33,41 +33,41 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class t0 implements FunAdFactory {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ boolean f28909f;
+    public static final /* synthetic */ boolean f29279f;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, LinkedHashMap<p, FunAdLoader>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f28910b;
+    public final Object f29280b;
     @GuardedBy("mInitializeLock")
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<a> f28911c;
+    public final LinkedList<a> f29281c;
     @GuardedBy("mInitializeLock")
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28912d;
+    public int f29282d;
     @GuardedBy("mInitializeLock")
 
     /* renamed from: e  reason: collision with root package name */
-    public i f28913e;
+    public i f29283e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final FunAdSlot f28914b;
+        public final FunAdSlot f29284b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final FunAdLoadListener f28915c;
+        public final FunAdLoadListener f29285c;
 
         public a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
             Interceptable interceptable = $ic;
@@ -85,8 +85,8 @@ public final class t0 implements FunAdFactory {
                 }
             }
             this.a = context;
-            this.f28914b = funAdSlot;
-            this.f28915c = funAdLoadListener;
+            this.f29284b = funAdSlot;
+            this.f29285c = funAdLoadListener;
         }
     }
 
@@ -103,7 +103,7 @@ public final class t0 implements FunAdFactory {
                 return;
             }
         }
-        f28909f = !t0.class.desiredAssertionStatus();
+        f29279f = !t0.class.desiredAssertionStatus();
     }
 
     public t0() {
@@ -120,9 +120,9 @@ public final class t0 implements FunAdFactory {
             }
         }
         this.a = new HashMap();
-        this.f28910b = new Object();
-        this.f28911c = new LinkedList<>();
-        this.f28912d = 0;
+        this.f29280b = new Object();
+        this.f29281c = new LinkedList<>();
+        this.f29282d = 0;
     }
 
     public final List<FunAdLoader> a(String str) {
@@ -140,7 +140,7 @@ public final class t0 implements FunAdFactory {
                     this.a.put(str, linkedHashMap);
                 }
                 if (linkedHashMap.get(b2) == null) {
-                    linkedHashMap.put(b2, b2.a.a(this.f28913e));
+                    linkedHashMap.put(b2, b2.a.a(this.f29283e));
                 }
                 ArrayList arrayList = new ArrayList(linkedHashMap.values());
                 Collections.reverse(arrayList);
@@ -177,8 +177,8 @@ public final class t0 implements FunAdFactory {
     public void destroyAd(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            synchronized (this.f28910b) {
-                this.f28911c.clear();
+            synchronized (this.f29280b) {
+                this.f29281c.clear();
             }
             synchronized (this.a) {
                 p b2 = h.b(str);
@@ -276,15 +276,15 @@ public final class t0 implements FunAdFactory {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, context, funAdSlot, funAdLoadListener) == null) {
-            synchronized (this.f28910b) {
-                i2 = this.f28912d;
+            synchronized (this.f29280b) {
+                i2 = this.f29282d;
             }
             if (i2 == -1) {
                 LogPrinter.e("loadAd err because of AdSdks initialized failed", new Object[0]);
                 funAdLoadListener.onError(funAdSlot.getSid());
             } else if (i2 == 0) {
-                synchronized (this.f28910b) {
-                    this.f28911c.add(new a(context, funAdSlot, funAdLoadListener));
+                synchronized (this.f29280b) {
+                    this.f29281c.add(new a(context, funAdSlot, funAdLoadListener));
                 }
             } else if (i2 != 1) {
                 throw new RuntimeException("Unknown st:" + i2);

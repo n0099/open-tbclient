@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.TimeZone;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TimeSource {
     public static /* synthetic */ Interceptable $ic;
     public static final TimeSource SYSTEM_TIME_SOURCE;

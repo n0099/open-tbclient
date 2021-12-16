@@ -15,17 +15,17 @@ import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BufferedOutputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FileDescriptor f62014b;
+    public FileDescriptor f62595b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RandomAccessFile f62015c;
+    public RandomAccessFile f62596c;
 
     public e(File file, int i2) throws BaseException {
         Interceptable interceptable = $ic;
@@ -44,18 +44,18 @@ public class e implements Closeable {
         }
         try {
             RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-            this.f62015c = randomAccessFile;
-            this.f62014b = randomAccessFile.getFD();
+            this.f62596c = randomAccessFile;
+            this.f62595b = randomAccessFile.getFD();
             if (i2 > 0) {
                 if (i2 < 8192) {
                     i2 = 8192;
                 } else if (i2 > 131072) {
                     i2 = 131072;
                 }
-                this.a = new BufferedOutputStream(new FileOutputStream(this.f62015c.getFD()), i2);
+                this.a = new BufferedOutputStream(new FileOutputStream(this.f62596c.getFD()), i2);
                 return;
             }
-            this.a = new BufferedOutputStream(new FileOutputStream(this.f62015c.getFD()));
+            this.a = new BufferedOutputStream(new FileOutputStream(this.f62596c.getFD()));
         } catch (IOException e2) {
             throw new BaseException((int) ScanCodeConstant.B_SAO_C_NORMAL_AUTH_SERVICE_TYPE, e2);
         }
@@ -80,7 +80,7 @@ public class e implements Closeable {
     public void c() throws IOException {
         FileDescriptor fileDescriptor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (fileDescriptor = this.f62014b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (fileDescriptor = this.f62595b) == null) {
             return;
         }
         fileDescriptor.sync();
@@ -90,7 +90,7 @@ public class e implements Closeable {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            f.a(this.f62015c, this.a);
+            f.a(this.f62596c, this.a);
         }
     }
 
@@ -101,7 +101,7 @@ public class e implements Closeable {
             if (bufferedOutputStream != null) {
                 bufferedOutputStream.flush();
             }
-            FileDescriptor fileDescriptor = this.f62014b;
+            FileDescriptor fileDescriptor = this.f62595b;
             if (fileDescriptor != null) {
                 fileDescriptor.sync();
             }
@@ -111,14 +111,14 @@ public class e implements Closeable {
     public void b(long j2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f62015c.setLength(j2);
+            this.f62596c.setLength(j2);
         }
     }
 
     public void a(long j2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f62015c.seek(j2);
+            this.f62596c.seek(j2);
         }
     }
 }

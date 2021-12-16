@@ -4,10 +4,10 @@ import android.app.Application;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import c.a.p0.a.c;
-import c.a.p0.a.h;
-import c.a.p0.a.k;
-import c.a.p0.a.z1.b;
+import c.a.q0.a.c;
+import c.a.q0.a.h;
+import c.a.q0.a.k;
+import c.a.q0.a.z1.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +22,7 @@ import java.util.Collections;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ReplyEditorParams implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<ReplyEditorParams> CREATOR;
@@ -38,7 +38,7 @@ public class ReplyEditorParams implements Parcelable {
     public final int sendTextColor;
     public List<String> showList;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Parcelable.Creator<ReplyEditorParams> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +150,7 @@ public class ReplyEditorParams implements Parcelable {
                 }
                 i2 = -1;
             }
-            Application c3 = c.a.p0.a.c1.a.c();
+            Application c3 = c.a.q0.a.c1.a.c();
             String c4 = b.c(jSONObject, "sendBackgroundColor", "#3388FF");
             int color = c3.getResources().getColor(c.swanapp_publish_btn_enable_color);
             try {

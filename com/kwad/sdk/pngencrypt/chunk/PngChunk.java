@@ -10,35 +10,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class PngChunk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f58697b;
+    public final boolean f59278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f58698c;
+    public final boolean f59279c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f58699d;
+    public final boolean f59280d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.pngencrypt.k f58700e;
+    public final com.kwad.sdk.pngencrypt.k f59281e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f58701f;
+    public d f59282f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f58702g;
+    public int f59283g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f58703h;
+    public boolean f59284h;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ChunkOrderingConstraint {
         public static final /* synthetic */ ChunkOrderingConstraint[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -173,20 +173,20 @@ public abstract class PngChunk {
                 return;
             }
         }
-        this.f58703h = false;
-        this.f58702g = -1;
+        this.f59284h = false;
+        this.f59283g = -1;
         this.a = str;
-        this.f58700e = kVar;
-        this.f58697b = b.b(str);
-        this.f58698c = b.c(str);
-        this.f58699d = b.d(str);
+        this.f59281e = kVar;
+        this.f59278b = b.b(str);
+        this.f59279c = b.c(str);
+        this.f59280d = b.d(str);
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d dVar = this.f58701f;
+            d dVar = this.f59282f;
             if (dVar != null) {
                 return dVar.a;
             }
@@ -198,7 +198,7 @@ public abstract class PngChunk {
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f58702g = i2;
+            this.f59283g = i2;
         }
     }
 
@@ -208,7 +208,7 @@ public abstract class PngChunk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            d dVar = this.f58701f;
+            d dVar = this.f59282f;
             if (dVar != null) {
                 return dVar.c();
             }
@@ -220,7 +220,7 @@ public abstract class PngChunk {
     public void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f58701f = dVar;
+            this.f59282f = dVar;
         }
     }
 

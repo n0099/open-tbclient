@@ -28,7 +28,7 @@ import com.kuaishou.weapon.un.x;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Decoder {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] DIGIT_TABLE;
@@ -40,7 +40,7 @@ public final class Decoder {
     public AztecDetectorResult ddata;
 
     /* renamed from: com.google.zxing.aztec.decoder.Decoder$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$aztec$decoder$Decoder$Table;
         public static /* synthetic */ Interceptable $ic;
@@ -85,7 +85,7 @@ public final class Decoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Table {
         public static final /* synthetic */ Table[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

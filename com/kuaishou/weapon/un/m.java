@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class m implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long o = 1;
@@ -13,34 +13,34 @@ public class m implements Serializable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f56743b;
+    public int f57324b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56744c;
+    public String f57325c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f56745d;
+    public String f57326d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f56746e;
+    public String f57327e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56747f;
+    public int f57328f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f56748g;
+    public int f57329g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f56749h;
+    public int f57330h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f56750i;
+    public int f57331i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f56751j;
+    public String f57332j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f56752k;
+    public String f57333k;
     public String l;
     public int m;
     public String n;

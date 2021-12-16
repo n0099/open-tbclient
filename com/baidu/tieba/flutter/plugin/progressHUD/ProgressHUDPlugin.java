@@ -2,8 +2,8 @@ package com.baidu.tieba.flutter.plugin.progressHUD;
 
 import androidx.annotation.NonNull;
 import c.a.d.a.h;
-import c.a.d.f.p.l;
-import c.a.r0.z0.a.i.f;
+import c.a.d.f.p.m;
+import c.a.s0.z0.a.i.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ProgressHUDPlugin implements FlutterPlugin, ProgressHUDAuto.HostProgressHUD {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class ProgressHUDPlugin implements FlutterPlugin, ProgressHUDAuto.HostPro
     public void showAttentionWithStatus(ProgressHUDAuto.StringParam stringParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, stringParam) == null) {
-            l.M(TbadkCoreApplication.getInst().getCurrentActivity(), stringParam.getStatus());
+            m.M(TbadkCoreApplication.getInst().getCurrentActivity(), stringParam.getStatus());
         }
     }
 
@@ -68,7 +68,7 @@ public class ProgressHUDPlugin implements FlutterPlugin, ProgressHUDAuto.HostPro
     public void showAttentionWithStatusForTime(ProgressHUDAuto.AttentionTimeParam attentionTimeParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, attentionTimeParam) == null) {
-            l.N(TbadkCoreApplication.getInst().getCurrentActivity(), attentionTimeParam.getStatus(), attentionTimeParam.getTime().intValue());
+            m.N(TbadkCoreApplication.getInst().getCurrentActivity(), attentionTimeParam.getStatus(), attentionTimeParam.getTime().intValue());
         }
     }
 
@@ -76,7 +76,7 @@ public class ProgressHUDPlugin implements FlutterPlugin, ProgressHUDAuto.HostPro
     public void showErrorWithStatus(ProgressHUDAuto.StringParam stringParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, stringParam) == null) {
-            l.M(TbadkCoreApplication.getInst().getCurrentActivity(), stringParam.getStatus());
+            m.M(TbadkCoreApplication.getInst().getCurrentActivity(), stringParam.getStatus());
         }
     }
 
@@ -84,7 +84,7 @@ public class ProgressHUDPlugin implements FlutterPlugin, ProgressHUDAuto.HostPro
     public void showSuccessWithStatus(ProgressHUDAuto.StringParam stringParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, stringParam) == null) {
-            l.M(TbadkCoreApplication.getInst().getCurrentActivity(), stringParam.getStatus());
+            m.M(TbadkCoreApplication.getInst().getCurrentActivity(), stringParam.getStatus());
         }
     }
 

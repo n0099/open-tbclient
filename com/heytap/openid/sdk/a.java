@@ -5,13 +5,13 @@ import android.os.Looper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f56533b;
+    public static boolean f57114b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static Context a(Context context) {
@@ -23,6 +23,6 @@ public class a {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a && f56533b && Looper.myLooper() != Looper.getMainLooper() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a && f57114b && Looper.myLooper() != Looper.getMainLooper() : invokeV.booleanValue;
     }
 }

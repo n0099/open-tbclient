@@ -1,15 +1,15 @@
 package c.f.b.b.b;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    String getAIHost();
-
     String getAppHost();
 
     String getAppPayHost();
 
     String getInitHost();
+
+    String getRtcHost(String str);
 
     String getSpareInitHost();
 

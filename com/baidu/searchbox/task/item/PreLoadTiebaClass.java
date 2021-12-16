@@ -1,19 +1,21 @@
 package com.baidu.searchbox.task.item;
 
-import c.a.q0.a.d;
-import c.a.q0.d1.p;
-import c.a.q0.r0.l;
+import c.a.d.f.p.m;
+import c.a.r0.a.d;
+import c.a.r0.d1.c0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
+import com.baidu.tbadk.switchs.LaunchUpSpeedSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PreLoadTiebaClass extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,13 +37,13 @@ public class PreLoadTiebaClass extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l.b();
-            p.g();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && LaunchUpSpeedSwitch.getIsOn()) {
+            TbConfig.getVersion();
             RomTypeUtil.check("EMUI");
             d.y();
-            TbConfig.getVersion();
             ItemCardHelper.i();
+            c0.b();
+            m.x(TbadkCoreApplication.getInst());
         }
     }
 
@@ -57,7 +59,7 @@ public class PreLoadTiebaClass extends LaunchTask {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
+            return -1;
         }
         return invokeV.intValue;
     }
