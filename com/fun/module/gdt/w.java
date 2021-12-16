@@ -17,17 +17,17 @@ import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class w extends NativeAdContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f55753b;
+    public TextView f56334b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f55754c;
+    public Button f56335c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public w(Context context) {
@@ -97,8 +97,8 @@ public abstract class w extends NativeAdContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f55754c);
-            arrayList.add(this.f55753b);
+            arrayList.add(this.f56335c);
+            arrayList.add(this.f56334b);
             arrayList.add(this.a);
             return arrayList;
         }
@@ -108,7 +108,7 @@ public abstract class w extends NativeAdContainer {
     public void a(NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData) == null) {
-            this.f55753b.setText(nativeUnifiedADData.getTitle());
+            this.f56334b.setText(nativeUnifiedADData.getTitle());
             this.a.setText(nativeUnifiedADData.getDesc());
             nativeUnifiedADData.bindAdToView(getContext(), this, null, a());
             b(nativeUnifiedADData);
@@ -123,27 +123,27 @@ public abstract class w extends NativeAdContainer {
             if (nativeUnifiedADData.isAppAd()) {
                 int appStatus = nativeUnifiedADData.getAppStatus();
                 if (appStatus == 0) {
-                    button = this.f55754c;
+                    button = this.f56335c;
                     i2 = R.string.fun_ad_interaction_type_download;
                 } else if (appStatus == 1) {
-                    button = this.f55754c;
+                    button = this.f56335c;
                     i2 = R.string.fun_ad_interaction_type_start;
                 } else if (appStatus == 2) {
-                    button = this.f55754c;
+                    button = this.f56335c;
                     i2 = R.string.fun_ad_interaction_type_update;
                 } else if (appStatus == 4) {
-                    this.f55754c.setText(String.format("%s/100", Integer.valueOf(nativeUnifiedADData.getProgress())));
+                    this.f56335c.setText(String.format("%s/100", Integer.valueOf(nativeUnifiedADData.getProgress())));
                     return;
                 } else if (appStatus == 8) {
-                    button = this.f55754c;
+                    button = this.f56335c;
                     i2 = R.string.fun_ad_interaction_type_install;
                 } else if (appStatus == 16) {
-                    button = this.f55754c;
+                    button = this.f56335c;
                     i2 = R.string.fun_ad_interaction_type_redownload;
                 }
                 button.setText(i2);
             }
-            button = this.f55754c;
+            button = this.f56335c;
             i2 = R.string.fun_ad_interaction_type_view;
             button.setText(i2);
         }
@@ -155,8 +155,8 @@ public abstract class w extends NativeAdContainer {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishInflate();
             this.a = (TextView) findViewById(R.id.ad_description);
-            this.f55753b = (TextView) findViewById(R.id.ad_title);
-            this.f55754c = (Button) findViewById(R.id.ad_creative);
+            this.f56334b = (TextView) findViewById(R.id.ad_title);
+            this.f56335c = (Button) findViewById(R.id.ad_creative);
         }
     }
 }

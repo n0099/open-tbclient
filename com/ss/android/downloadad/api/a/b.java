@@ -19,7 +19,7 @@ import com.ss.android.downloadlib.addownload.j;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,34 +59,34 @@ public class b implements a {
     public boolean af;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61119b;
+    public boolean f61700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicBoolean f61120c;
+    public final AtomicBoolean f61701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f61121d;
+    public final AtomicBoolean f61702d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f61122e;
+    public long f61703e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f61123f;
+    public long f61704f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61124g;
+    public String f61705g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f61125h;
+    public int f61706h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f61126i;
+    public String f61707i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f61127j;
+    public String f61708j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f61128k;
+    public String f61709k;
     public String l;
     public int m;
     public int n;
@@ -116,7 +116,7 @@ public class b implements a {
                 return;
             }
         }
-        this.f61125h = 1;
+        this.f61706h = 1;
         this.t = true;
         this.x = false;
         this.y = 0;
@@ -126,9 +126,9 @@ public class b implements a {
         this.J = true;
         this.K = true;
         this.a = true;
-        this.f61119b = true;
-        this.f61120c = new AtomicBoolean(false);
-        this.f61121d = new AtomicBoolean(false);
+        this.f61700b = true;
+        this.f61701c = new AtomicBoolean(false);
+        this.f61702d = new AtomicBoolean(false);
         this.Q = 1;
         this.T = true;
         this.Z = -1L;
@@ -180,7 +180,7 @@ public class b implements a {
     public int G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f61125h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f61706h : invokeV.intValue;
     }
 
     public long H() {
@@ -334,11 +334,11 @@ public class b implements a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("mId", this.f61122e);
-                jSONObject.put("mExtValue", this.f61123f);
-                jSONObject.put("mLogExtra", this.f61124g);
-                jSONObject.put("mDownloadStatus", this.f61125h);
-                jSONObject.put("mPackageName", this.f61126i);
+                jSONObject.put("mId", this.f61703e);
+                jSONObject.put("mExtValue", this.f61704f);
+                jSONObject.put("mLogExtra", this.f61705g);
+                jSONObject.put("mDownloadStatus", this.f61706h);
+                jSONObject.put("mPackageName", this.f61707i);
                 jSONObject.put("mIsAd", this.t);
                 jSONObject.put("mTimeStamp", this.u);
                 jSONObject.put("mExtras", this.v);
@@ -349,13 +349,13 @@ public class b implements a {
                 jSONObject.put("mScene", this.P);
                 jSONObject.put("mEventTag", this.L);
                 jSONObject.put("mEventRefer", this.M);
-                jSONObject.put("mDownloadUrl", this.f61127j);
+                jSONObject.put("mDownloadUrl", this.f61708j);
                 jSONObject.put("mEnableBackDialog", this.x);
-                jSONObject.put("hasSendInstallFinish", this.f61120c.get());
-                jSONObject.put("hasSendDownloadFailedFinally", this.f61121d.get());
+                jSONObject.put("hasSendInstallFinish", this.f61701c.get());
+                jSONObject.put("hasSendDownloadFailedFinally", this.f61702d.get());
                 jSONObject.put("mLastFailedErrCode", this.E);
                 jSONObject.put("mLastFailedErrMsg", this.F);
-                jSONObject.put("mOpenUrl", this.f61128k);
+                jSONObject.put("mOpenUrl", this.f61709k);
                 jSONObject.put("mLinkMode", this.n);
                 jSONObject.put("mDownloadMode", this.o);
                 jSONObject.put("mModelType", this.m);
@@ -382,7 +382,7 @@ public class b implements a {
                 jSONObject.put("enable_new_activity", this.J ? 1 : 0);
                 jSONObject.put("enable_pause", this.K ? 1 : 0);
                 jSONObject.put("enable_ah", this.a ? 1 : 0);
-                if (!this.f61119b) {
+                if (!this.f61700b) {
                     i2 = 0;
                 }
                 jSONObject.put("enable_am", i2);
@@ -397,7 +397,7 @@ public class b implements a {
     public AdDownloadModel af() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? new AdDownloadModel.Builder().setAdId(this.f61122e).setExtraValue(this.f61123f).setLogExtra(this.f61124g).setPackageName(this.f61126i).setExtra(this.v).setIsAd(this.t).setVersionCode(this.p).setVersionName(this.q).setDownloadUrl(this.f61127j).setModelType(this.m).setMimeType(this.H).setAppName(this.r).setAppIcon(this.s).setDeepLink(new DeepLink(this.f61128k, this.l, null)).build() : (AdDownloadModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? new AdDownloadModel.Builder().setAdId(this.f61703e).setExtraValue(this.f61704f).setLogExtra(this.f61705g).setPackageName(this.f61707i).setExtra(this.v).setIsAd(this.t).setVersionCode(this.p).setVersionName(this.q).setDownloadUrl(this.f61708j).setModelType(this.m).setMimeType(this.H).setAppName(this.r).setAppIcon(this.s).setDeepLink(new DeepLink(this.f61709k, this.l, null)).build() : (AdDownloadModel) invokeV.objValue;
     }
 
     public AdDownloadEventConfig ag() {
@@ -409,7 +409,7 @@ public class b implements a {
     public AdDownloadController ah() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? new AdDownloadController.Builder().setIsEnableBackDialog(this.x).setLinkMode(this.n).setDownloadMode(this.o).setEnableShowComplianceDialog(this.T).setEnableAH(this.a).setEnableAM(this.f61119b).build() : (AdDownloadController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? new AdDownloadController.Builder().setIsEnableBackDialog(this.x).setLinkMode(this.n).setDownloadMode(this.o).setEnableShowComplianceDialog(this.T).setEnableAH(this.a).setEnableAM(this.f61700b).build() : (AdDownloadController) invokeV.objValue;
     }
 
     public void b(int i2) {
@@ -436,7 +436,7 @@ public class b implements a {
     public void e(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048633, this, j2) == null) {
-            this.f61123f = j2;
+            this.f61704f = j2;
         }
     }
 
@@ -497,7 +497,7 @@ public class b implements a {
     public long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.f61123f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.f61704f : invokeV.longValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -609,7 +609,7 @@ public class b implements a {
     public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048686, this, z) == null) {
-            this.f61119b = z;
+            this.f61700b = z;
         }
     }
 
@@ -672,14 +672,14 @@ public class b implements a {
     public void d(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048628, this, j2) == null) {
-            this.f61122e = j2;
+            this.f61703e = j2;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
-            this.f61125h = i2;
+            this.f61706h = i2;
         }
     }
 
@@ -771,13 +771,13 @@ public class b implements a {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f61122e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f61703e : invokeV.longValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
-            this.f61124g = str;
+            this.f61705g = str;
         }
     }
 
@@ -785,14 +785,14 @@ public class b implements a {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.f61124g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.f61705g : (String) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.f61126i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.f61707i : (String) invokeV.objValue;
     }
 
     public void f(String str) {
@@ -812,14 +812,14 @@ public class b implements a {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048649, this, str) == null) {
-            this.f61127j = str;
+            this.f61708j = str;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048654, this, str) == null) {
-            this.f61128k = str;
+            this.f61709k = str;
         }
     }
 
@@ -861,7 +861,7 @@ public class b implements a {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
-            this.f61126i = str;
+            this.f61707i = str;
         }
     }
 
@@ -890,7 +890,7 @@ public class b implements a {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.f61128k : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.f61709k : (String) invokeV.objValue;
     }
 
     public void g(long j2) {
@@ -1017,8 +1017,8 @@ public class b implements a {
                 bVar.g(jSONObject.optString("mEventRefer"));
                 bVar.h(jSONObject.optString("mDownloadUrl"));
                 bVar.c(jSONObject.optBoolean("mEnableBackDialog"));
-                bVar.f61120c.set(jSONObject.optBoolean("hasSendInstallFinish"));
-                bVar.f61121d.set(jSONObject.optBoolean("hasSendDownloadFailedFinally"));
+                bVar.f61701c.set(jSONObject.optBoolean("hasSendInstallFinish"));
+                bVar.f61702d.set(jSONObject.optBoolean("hasSendDownloadFailedFinally"));
                 bVar.d(jSONObject.optInt("mLastFailedErrCode"));
                 bVar.a(jSONObject.optString("mLastFailedErrMsg"));
                 bVar.i(jSONObject.optString("mOpenUrl"));
@@ -1064,7 +1064,7 @@ public class b implements a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f61127j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f61708j : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -1103,7 +1103,7 @@ public class b implements a {
                 return;
             }
         }
-        this.f61125h = 1;
+        this.f61706h = 1;
         this.t = true;
         this.x = false;
         this.y = 0;
@@ -1113,23 +1113,23 @@ public class b implements a {
         this.J = true;
         this.K = true;
         this.a = true;
-        this.f61119b = true;
-        this.f61120c = new AtomicBoolean(false);
-        this.f61121d = new AtomicBoolean(false);
+        this.f61700b = true;
+        this.f61701c = new AtomicBoolean(false);
+        this.f61702d = new AtomicBoolean(false);
         this.Q = 1;
         this.T = true;
         this.Z = -1L;
-        this.f61122e = downloadModel.getId();
-        this.f61123f = downloadModel.getExtraValue();
-        this.f61124g = downloadModel.getLogExtra();
-        this.f61126i = downloadModel.getPackageName();
+        this.f61703e = downloadModel.getId();
+        this.f61704f = downloadModel.getExtraValue();
+        this.f61705g = downloadModel.getLogExtra();
+        this.f61707i = downloadModel.getPackageName();
         this.v = downloadModel.getExtra();
         this.t = downloadModel.isAd();
         this.p = downloadModel.getVersionCode();
         this.q = downloadModel.getVersionName();
-        this.f61127j = downloadModel.getDownloadUrl();
+        this.f61708j = downloadModel.getDownloadUrl();
         if (downloadModel.getDeepLink() != null) {
-            this.f61128k = downloadModel.getDeepLink().getOpenUrl();
+            this.f61709k = downloadModel.getDeepLink().getOpenUrl();
             this.l = downloadModel.getDeepLink().getWebUrl();
         }
         this.m = downloadModel.getModelType();
@@ -1146,7 +1146,7 @@ public class b implements a {
         this.U = downloadController.isAutoDownloadOnCardShow();
         this.J = downloadController.enableNewActivity();
         this.a = downloadController.enableAH();
-        this.f61119b = downloadController.enableAM();
+        this.f61700b = downloadController.enableAM();
         this.w = i2;
         long currentTimeMillis = System.currentTimeMillis();
         this.u = currentTimeMillis;

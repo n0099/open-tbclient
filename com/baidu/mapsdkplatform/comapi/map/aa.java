@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class aa {
     public static /* synthetic */ Interceptable $ic;
     public static final aa a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final aa f36386b;
+    public static final aa f36875b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ aa[] f36387d;
+    public static final /* synthetic */ aa[] f36876d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f36388c;
+    public final int f36877c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,8 +38,8 @@ public final class aa {
         }
         a = new aa("GLSurfaceView", 0, 1);
         aa aaVar = new aa("TextureView", 1, 2);
-        f36386b = aaVar;
-        f36387d = new aa[]{a, aaVar};
+        f36875b = aaVar;
+        f36876d = new aa[]{a, aaVar};
     }
 
     public aa(String str, int i2, int i3) {
@@ -60,7 +60,7 @@ public final class aa {
                 return;
             }
         }
-        this.f36388c = i3;
+        this.f36877c = i3;
     }
 
     public static aa valueOf(String str) {
@@ -72,6 +72,6 @@ public final class aa {
     public static aa[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (aa[]) f36387d.clone() : (aa[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (aa[]) f36876d.clone() : (aa[]) invokeV.objValue;
     }
 }

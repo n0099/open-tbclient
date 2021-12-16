@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class UnsignedInts {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class LexicographicalComparator implements Comparator<int[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

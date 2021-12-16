@@ -16,7 +16,7 @@ import java.io.FileFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -120,7 +120,7 @@ public final class DeviceInfoUtils {
         }
         BufferedReader bufferedReader2 = null;
         try {
-            bufferedReader = new BufferedReader(new InputStreamReader(new ProcessBuilder("/system/bin/cat", z.f56920b).start().getInputStream()));
+            bufferedReader = new BufferedReader(new InputStreamReader(new ProcessBuilder("/system/bin/cat", z.f57501b).start().getInputStream()));
             try {
                 long parseLong = Long.parseLong(bufferedReader.readLine());
                 try {

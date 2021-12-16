@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class PrivateCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PrivateCommand> CREATOR;
@@ -21,7 +21,7 @@ public final class PrivateCommand extends SpliceCommand {
     public final long identifier;
     public final long ptsAdjustment;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<PrivateCommand> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

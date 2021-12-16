@@ -1,0 +1,122 @@
+package com.baidu.bdtask.ctrl.repo.api;
+
+import c.a.j.f.g.b;
+import c.a.j.f.g.c;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.framework.utils.DebugTrace;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
+import com.kwad.sdk.api.core.RemoteViewBuilder;
+import kotlin.Metadata;
+import kotlin.jvm.JvmOverloads;
+import org.json.JSONObject;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0010\u0010\u0011J;\u0010\u000b\u001a\u00020\n2\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\u00062\u0006\u0010\t\u001a\u00020\bH\u0007¢\u0006\u0004\b\u000b\u0010\fR\u0016\u0010\u000e\u001a\u00020\r8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u000e\u0010\u000f¨\u0006\u0012"}, d2 = {"Lcom/baidu/bdtask/ctrl/repo/api/BDPTaskRepo;", "", "token", RemoteViewBuilder.ProgressRemoteViewImpl.KEY_TASKID, "", "behavior", "Lorg/json/JSONObject;", LaunchStatsUtils.EXTERNAL_LAUNCH, "Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;", "callback", "", "taskCompletedRequest", "(Ljava/lang/String;Ljava/lang/String;ILorg/json/JSONObject;Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "Lcom/baidu/bdtask/ctrl/repo/TaskRepo;", "repo", "Lcom/baidu/bdtask/ctrl/repo/TaskRepo;", "<init>", "()V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes9.dex */
+public final class a {
+    public static /* synthetic */ Interceptable $ic;
+    public static final com.baidu.bdtask.ctrl.repo.a a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final a f33892b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(796356898, "Lcom/baidu/bdtask/ctrl/repo/api/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(796356898, "Lcom/baidu/bdtask/ctrl/repo/api/a;");
+                return;
+            }
+        }
+        f33892b = new a();
+        a = new com.baidu.bdtask.ctrl.repo.a();
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @JvmOverloads
+    public final void a(String str, String str2, int i2, JSONObject jSONObject, c.a.j.f.g.a.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i2), jSONObject, aVar}) == null) {
+            DebugTrace.a.c(new BDPTaskRepo$taskCompletedRequest$1(str, str2, i2));
+            a.c(str, str2, i2, "", null, jSONObject, new C1762a(aVar));
+        }
+    }
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000-\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0001\u0000\b\n\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0011\u0010\u0012J\u001f\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u000b\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u000f\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000f\u0010\u0010¨\u0006\u0013"}, d2 = {"com/baidu/bdtask/ctrl/repo/api/BDPTaskRepo$taskCompletedRequest$2", "Lc/a/j/f/g/b;", "", "errmsg", "", EnterDxmPayServiceAction.SERVICE_STATUS_CODE, "", "onFail", "(Ljava/lang/String;I)V", "Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;", "parser", "onResponseParsed", "(Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;)V", "Lcom/baidu/bdtask/model/response/TaskResponseData;", "data", "onSucceed", "(Lcom/baidu/bdtask/model/response/TaskResponseData;)V", "<init>", "(Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* renamed from: com.baidu.bdtask.ctrl.repo.api.a$a  reason: collision with other inner class name */
+    /* loaded from: classes9.dex */
+    public static final class C1762a implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c.a.j.f.g.a.a a;
+
+        public C1762a(c.a.j.f.g.a.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        @Override // c.a.j.f.g.b
+        public void a(TaskResponseData taskResponseData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, taskResponseData) == null) {
+                this.a.a(taskResponseData);
+                DebugTrace.a.c(new BDPTaskRepo$taskCompletedRequest$2$onSucceed$1(taskResponseData));
+            }
+        }
+
+        @Override // c.a.j.f.g.b
+        public void b(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            }
+        }
+
+        @Override // c.a.j.f.g.b
+        public void a(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
+                this.a.onError(i2, str);
+                DebugTrace.a.c(new BDPTaskRepo$taskCompletedRequest$2$onFail$1(i2, str));
+            }
+        }
+    }
+}

@@ -2,8 +2,8 @@ package com.baidu.tieba.write.accountAccess;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.r0.l4.j.a;
-import c.a.r0.l4.j.b;
+import c.a.s0.n4.t.a;
+import c.a.s0.n4.t.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNT_ACCESS_CANCEL = "http://tieba.baidu.com/account/access/cancel";

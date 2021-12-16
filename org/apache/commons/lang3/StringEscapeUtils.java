@@ -21,7 +21,7 @@ import org.apache.commons.lang3.text.translate.NumericEntityUnescaper;
 import org.apache.commons.lang3.text.translate.OctalUnescaper;
 import org.apache.commons.lang3.text.translate.UnicodeUnescaper;
 import org.apache.commons.lang3.text.translate.UnicodeUnpairedSurrogateRemover;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class StringEscapeUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final CharSequenceTranslator ESCAPE_CSV;
@@ -43,7 +43,7 @@ public class StringEscapeUtils {
     public static final CharSequenceTranslator UNESCAPE_XML;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CsvEscaper extends CharSequenceTranslator {
         public static /* synthetic */ Interceptable $ic = null;
         public static final char CSV_DELIMITER = ',';
@@ -106,7 +106,7 @@ public class StringEscapeUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CsvUnescaper extends CharSequenceTranslator {
         public static /* synthetic */ Interceptable $ic = null;
         public static final char CSV_DELIMITER = ',';

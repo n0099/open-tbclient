@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FaceAR extends com.baidu.ar.c implements IFace {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceAR";
@@ -58,7 +58,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     public int nw;
     public b nx;
     public a.b ny;
-    public a.C1707a nz;
+    public a.C1746a nz;
 
     static {
         InterceptResult invokeClinit;
@@ -299,7 +299,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             String str3 = bVar2.pZ;
             String str4 = TAG;
             com.baidu.ar.h.b.c(str4, "classification result：" + this.ny.qg);
-            a.C1707a a = this.nx.a(this.ny);
+            a.C1746a a = this.nx.a(this.ny);
             if (a != null) {
                 this.nz = a;
                 this.nw = c.a(a.pO, str, str2, str3);

@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AppRunningInfoNative extends NativeObject implements b<AppRunningInfoNative> {
     public static /* synthetic */ Interceptable $ic;
     public static SimpleDateFormat a;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CommonUtils";

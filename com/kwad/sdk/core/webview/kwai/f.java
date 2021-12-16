@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.b f58098b;
+    public final com.kwad.sdk.core.b f58679b;
 
     public f(com.kwad.sdk.core.b bVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class f implements com.kwad.sdk.core.b {
             }
         }
         this.a = 1;
-        this.f58098b = bVar;
+        this.f58679b = bVar;
     }
 
     @Override // com.kwad.sdk.core.b
@@ -51,7 +51,7 @@ public class f implements com.kwad.sdk.core.b {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             t.a(jSONObject, "result", this.a);
-            t.a(jSONObject, "data", this.f58098b);
+            t.a(jSONObject, "data", this.f58679b);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

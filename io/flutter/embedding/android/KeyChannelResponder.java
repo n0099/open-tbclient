@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.android.KeyboardManager;
 import io.flutter.embedding.engine.systemchannels.KeyEventChannel;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KeyChannelResponder implements KeyboardManager.Responder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "KeyChannelResponder";

@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import c.a.q0.p0.d;
-import c.a.r0.p3.a;
+import c.a.r0.p0.d;
+import c.a.s0.r3.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SplashAdFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AT_ACTIVITY_FLAG = "AT_ACTIVITY_FLAG";
@@ -24,10 +24,10 @@ public class SplashAdFragment extends BaseFragment {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final a f49073e;
+    public final a f49587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49074f;
+    public int f49588f;
 
     public SplashAdFragment() {
         Interceptable interceptable = $ic;
@@ -42,11 +42,11 @@ public class SplashAdFragment extends BaseFragment {
                 return;
             }
         }
-        this.f49074f = 0;
-        this.f49073e = new a();
+        this.f49588f = 0;
+        this.f49587e = new a();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.r0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class SplashAdFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
-            this.f49073e.a(pageStayDurationItem);
+            this.f49587e.a(pageStayDurationItem);
             return pageStayDurationItem;
         }
         return (d) invokeV.objValue;
@@ -72,11 +72,11 @@ public class SplashAdFragment extends BaseFragment {
             super.onActivityCreated(bundle);
             Bundle arguments = getArguments();
             if (arguments != null) {
-                this.f49074f = arguments.getInt(AT_ACTIVITY_FLAG);
+                this.f49588f = arguments.getInt(AT_ACTIVITY_FLAG);
             }
             View view = getView();
             if (view != null) {
-                this.f49073e.b(this, (ViewGroup) view, this.f49074f);
+                this.f49587e.b(this, (ViewGroup) view, this.f49588f);
             }
         }
     }
@@ -86,7 +86,7 @@ public class SplashAdFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            this.f49073e.e(configuration);
+            this.f49587e.e(configuration);
         }
     }
 
@@ -102,7 +102,7 @@ public class SplashAdFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            this.f49073e.h();
+            this.f49587e.h();
         }
     }
 
@@ -111,7 +111,7 @@ public class SplashAdFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            this.f49073e.f();
+            this.f49587e.f();
         }
     }
 
@@ -120,7 +120,7 @@ public class SplashAdFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            this.f49073e.g();
+            this.f49587e.g();
         }
     }
 }

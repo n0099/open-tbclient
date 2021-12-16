@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.l.d;
-import c.a.d.f.p.l;
-import c.a.q0.a.t;
+import c.a.d.f.p.m;
+import c.a.r0.a.t;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public View.OnClickListener mOnClickListener;
     public RoundRelativeLayout mRoundCornerLayout;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRedPackageActivity f48867e;
+        public final /* synthetic */ NewUserRedPackageActivity f49381e;
 
         public a(NewUserRedPackageActivity newUserRedPackageActivity) {
             Interceptable interceptable = $ic;
@@ -59,31 +59,31 @@ public class NewUserRedPackageActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f48867e = newUserRedPackageActivity;
+            this.f49381e = newUserRedPackageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() != this.f48867e.mCloseBtnImage.getId()) {
-                    if (view.getId() == this.f48867e.mBgImage.getId()) {
+                if (view.getId() != this.f49381e.mCloseBtnImage.getId()) {
+                    if (view.getId() == this.f49381e.mBgImage.getId()) {
                         TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 2));
                         if (TbadkCoreApplication.isLogin()) {
-                            if (this.f48867e.mData != null) {
-                                UrlManager.getInstance().dealOneLink(this.f48867e.getPageContext(), new String[]{this.f48867e.mData.clickUrl});
-                                this.f48867e.finish();
+                            if (this.f49381e.mData != null) {
+                                UrlManager.getInstance().dealOneLink(this.f49381e.getPageContext(), new String[]{this.f49381e.mData.clickUrl});
+                                this.f49381e.finish();
                                 return;
                             }
                             return;
                         }
-                        this.f48867e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f48867e.getActivity(), true, 25046)));
+                        this.f49381e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f49381e.getActivity(), true, 25046)));
                         return;
                     }
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 3));
-                this.f48867e.finish();
+                this.f49381e.finish();
             }
         }
     }
@@ -166,7 +166,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
             setContentView(R.layout.activity_new_user_red_package);
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
             this.mRoundCornerLayout = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(l.f(this, R.dimen.tbds31));
+            roundRelativeLayout.setAllCornerRound(m.f(this, R.dimen.tbds31));
             this.mBgImage = (ImageView) findViewById(R.id.img_bg);
             this.mCloseBtnImage = (ImageView) findViewById(R.id.img_btn_close);
             this.mBgImage.setOnClickListener(this.mOnClickListener);

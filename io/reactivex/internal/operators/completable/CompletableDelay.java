@@ -12,7 +12,7 @@ import io.reactivex.Scheduler;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class CompletableDelay extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public final class CompletableDelay extends Completable {
     public final CompletableSource source;
     public final TimeUnit unit;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class Delay implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public final class CompletableDelay extends Completable {
         public final CompositeDisposable set;
         public final /* synthetic */ CompletableDelay this$0;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public final class OnComplete implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -63,13 +63,13 @@ public final class CompletableDelay extends Completable {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public final class OnError implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final Throwable f63966e;
+            public final Throwable f64547e;
             public final /* synthetic */ Delay this$1;
 
             public OnError(Delay delay, Throwable th) {
@@ -88,14 +88,14 @@ public final class CompletableDelay extends Completable {
                     }
                 }
                 this.this$1 = delay;
-                this.f63966e = th;
+                this.f64547e = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$1.s.onError(this.f63966e);
+                    this.this$1.s.onError(this.f64547e);
                 }
             }
         }

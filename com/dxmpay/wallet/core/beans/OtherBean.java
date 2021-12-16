@@ -26,7 +26,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class OtherBean<T> extends NetworkBean<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,9 +57,9 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
         this.mRetMsg = "";
     }
 
-    private void a(int i2, String str) {
+    public void addOnEventWithValues(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
             long currentTimeMillis = System.currentTimeMillis() - this.a;
             try {
                 URL url = new URL(getUrl());
@@ -85,7 +85,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public <T, E> void execBean(Class<T> cls, Class<E> cls2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, cls, cls2) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2) == null) {
             this.a = System.currentTimeMillis();
             super.execBean(cls, cls2);
         }
@@ -95,7 +95,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
     public <T, E> void executeAndHandleResponse(Class<T> cls, Class<E> cls2) {
         RestResponseEntity<T> n;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cls, cls2) == null) {
             if (getHttpMethod() == 0) {
                 n = this.mRestTemplate.i(getUrl(), getRequestParams(), getEncode(), cls);
             } else {
@@ -105,7 +105,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
                 handleResponseHeaders(n);
                 Object body = n.getBody();
                 if (body == null) {
-                    a(-100, "Callback not null,Response is null");
+                    addOnEventWithValues(-100, "Callback not null,Response is null");
                     this.mRspCallback.onBeanExecFailure(getBeanId(), -4, ResUtils.getString(this.mContext, "dxm_ebpay_resolve_error"));
                     return;
                 }
@@ -119,7 +119,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
                             this.mRetCode = -4;
                             this.mRetMsg = "无效的response";
                         }
-                        a(this.mRetCode, this.mRetMsg);
+                        addOnEventWithValues(this.mRetCode, this.mRetMsg);
                         if (beanResponseBase != null && beanResponseBase.ret == 0 && (beanResponseBase.needVerifySignature() || needVerifySignature())) {
                             String string = new JSONObject(n.a()).getString(beanResponseBase.getNameOfRealResponseContent());
                             if (!VerSig.verify(beanResponseBase.signature, string, beanResponseBase.mdAlgorithm)) {
@@ -145,13 +145,13 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
                 this.mRspCallback.onBeanExecSuccess(getBeanId(), body, null);
             } else if (this.mRspCallback != null) {
                 if (n == null) {
-                    a(-100, "Callback not null,Response is null");
+                    addOnEventWithValues(-100, "Callback not null,Response is null");
                 }
                 this.mRspCallback.onBeanExecFailure(getBeanId(), -4, ResUtils.getString(this.mContext, "dxm_ebpay_resolve_error"));
             } else if (n == null) {
-                a(-101, "Callback is null,Response is null");
+                addOnEventWithValues(-101, "Callback is null,Response is null");
             } else {
-                a(-102, "Callback is null,Response not null");
+                addOnEventWithValues(-102, "Callback is null,Response not null");
             }
         }
     }
@@ -159,11 +159,11 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
     @Override // com.dxmpay.wallet.core.beans.NetworkBean, com.dxmpay.apollon.beans.ApollonBean
     public void handleCommonErrors(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
             if (exc != null) {
-                a(-2, exc.toString());
+                addOnEventWithValues(-2, exc.toString());
             } else {
-                a(-2, "Exception is null");
+                addOnEventWithValues(-2, "Exception is null");
             }
             super.handleCommonErrors(exc);
         }
@@ -172,8 +172,8 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
     @Override // com.dxmpay.wallet.core.beans.NetworkBean, com.dxmpay.apollon.beans.ApollonBean
     public void handleNetworkFailureError() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a(-8, ResUtils.getString(this.mContext, "dxm_ebpay_no_network"));
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            addOnEventWithValues(-8, ResUtils.getString(this.mContext, "dxm_ebpay_no_network"));
             super.handleNetworkFailureError();
         }
     }
@@ -181,11 +181,11 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public <T, E> void handleResponse(Class<T> cls, Class<E> cls2, RestResponseEntity<? extends BeanResponseBase> restResponseEntity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, cls, cls2, restResponseEntity) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, cls, cls2, restResponseEntity) == null) {
             if (restResponseEntity != null && restResponseEntity.getBody() != null) {
-                a(restResponseEntity.getBody().ret, restResponseEntity.getBody().msg);
+                addOnEventWithValues(restResponseEntity.getBody().ret, restResponseEntity.getBody().msg);
             } else {
-                a(-104, "Response is error");
+                addOnEventWithValues(-104, "Response is error");
             }
         }
     }
@@ -193,7 +193,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public void prepareRestTemplate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             Context context = this.mContext;
             this.mRestTemplate = new RestTemplate(context, BussinessUtils.getUA(context), "pay bean http request");
             ArrayList arrayList = new ArrayList();

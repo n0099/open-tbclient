@@ -23,7 +23,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
 import okhttp3.internal.Util;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class OkHostnameVerifier implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALT_DNS_NAME = 2;

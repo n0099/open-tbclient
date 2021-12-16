@@ -4,7 +4,7 @@ import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.pangle.flipped.FlippedV2Impl;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

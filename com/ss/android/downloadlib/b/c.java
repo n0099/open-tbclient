@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.downloadlib.g.l;
 import com.ss.android.socialbase.downloader.a.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class c {
             if (b3) {
                 return;
             }
-            com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2112a(bVar, aVar) { // from class: com.ss.android.downloadlib.b.c.1
+            com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2173a(bVar, aVar) { // from class: com.ss.android.downloadlib.b.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.downloadlib.guide.install.a f61353b;
+                public final /* synthetic */ com.ss.android.downloadlib.guide.install.a f61934b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -54,10 +54,10 @@ public class c {
                         }
                     }
                     this.a = bVar;
-                    this.f61353b = aVar;
+                    this.f61934b = aVar;
                 }
 
-                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
+                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2173a
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -68,11 +68,11 @@ public class c {
                         }
                         this.a.m(true);
                         com.ss.android.downloadlib.d.a.a().a("install_delay_invoke", this.a);
-                        this.f61353b.a();
+                        this.f61934b.a();
                     }
                 }
 
-                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
+                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2173a
                 public void c() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

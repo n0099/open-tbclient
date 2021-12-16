@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class i {
                 kVar.g(jSONObject.optInt("pi", 15));
                 kVar.i(jSONObject.optInt("pp", 6));
                 kVar.l(jSONObject.optInt("pu", 0));
-                kVar.a(jSONObject.optInt(com.alipay.sdk.cons.b.f31311k, 1));
+                kVar.a(jSONObject.optInt(com.alipay.sdk.cons.b.f31681k, 1));
                 kVar.b(jSONObject.optInt("pb", 1));
                 kVar.e(jSONObject.optInt("pg", 0));
                 kVar.k(jSONObject.optInt("pt", 20));

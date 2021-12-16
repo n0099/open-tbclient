@@ -8,7 +8,7 @@ import com.airbnb.lottie.utils.MiscUtils;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ShapeData {
     public boolean closed;
     public final List<CubicCurveData> curves;

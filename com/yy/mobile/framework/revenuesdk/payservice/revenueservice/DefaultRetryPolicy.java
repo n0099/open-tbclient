@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.yy.mobile.framework.revenuesdk.baseapi.RetryPolicy;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class DefaultRetryPolicy implements RetryPolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCEL = -1;

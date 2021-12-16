@@ -26,32 +26,32 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, g> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f62388b;
+    public static String f62969b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f62389c;
+    public Context f62970c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f62390d;
+    public String f62971d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f62391e;
+    public JSONObject f62972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f62392f;
+    public long f62973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f62393g;
+    public int f62974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f62394h;
+    public boolean f62975h;
 
     static {
         InterceptResult invokeClinit;
@@ -67,7 +67,7 @@ public class g {
             }
         }
         a = Collections.synchronizedMap(new HashMap());
-        f62388b = null;
+        f62969b = null;
     }
 
     public g(Context context, String str) {
@@ -85,14 +85,14 @@ public class g {
                 return;
             }
         }
-        this.f62389c = null;
-        this.f62390d = null;
-        this.f62391e = null;
-        this.f62392f = 0L;
-        this.f62393g = 0;
-        this.f62394h = true;
-        this.f62389c = context.getApplicationContext();
-        this.f62390d = str;
+        this.f62970c = null;
+        this.f62971d = null;
+        this.f62972e = null;
+        this.f62973f = 0L;
+        this.f62974g = 0;
+        this.f62975h = true;
+        this.f62970c = context.getApplicationContext();
+        this.f62971d = str;
         a();
         b();
     }
@@ -100,14 +100,14 @@ public class g {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            if (this.f62393g != 0) {
+            if (this.f62974g != 0) {
                 d("update thread is running, return");
                 return;
             }
-            this.f62393g = 1;
+            this.f62974g = 1;
             Bundle bundle = new Bundle();
-            bundle.putString("appid", this.f62390d);
-            bundle.putString("appid_for_getting_config", this.f62390d);
+            bundle.putString("appid", this.f62971d);
+            bundle.putString("appid_for_getting_config", this.f62971d);
             bundle.putString("status_os", Build.VERSION.RELEASE);
             bundle.putString("status_machine", Build.MODEL);
             bundle.putString("status_version", Build.VERSION.SDK);
@@ -119,7 +119,7 @@ public class g {
                 public final /* synthetic */ Bundle a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ g f62395b;
+                public final /* synthetic */ g f62976b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -136,7 +136,7 @@ public class g {
                             return;
                         }
                     }
-                    this.f62395b = this;
+                    this.f62976b = this;
                     this.a = bundle;
                 }
 
@@ -145,11 +145,11 @@ public class g {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f62395b.a(l.d(HttpUtils.openUrl2(this.f62395b.f62389c, "https://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", this.a).a));
+                            this.f62976b.a(l.d(HttpUtils.openUrl2(this.f62976b.f62970c, "https://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", this.a).a));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
-                        this.f62395b.f62393g = 0;
+                        this.f62976b.f62974g = 0;
                     }
                 }
             }.start();
@@ -165,14 +165,14 @@ public class g {
             String str3 = "";
             try {
                 try {
-                    if (this.f62390d != null) {
-                        str2 = str + "." + this.f62390d;
+                    if (this.f62971d != null) {
+                        str2 = str + "." + this.f62971d;
                     } else {
                         str2 = str;
                     }
-                    open = this.f62389c.openFileInput(str2);
+                    open = this.f62970c.openFileInput(str2);
                 } catch (FileNotFoundException unused) {
-                    open = this.f62389c.getAssets().open(str);
+                    open = this.f62970c.getAssets().open(str);
                 }
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(open, Charset.forName("UTF-8")));
                 StringBuffer stringBuffer = new StringBuffer();
@@ -217,8 +217,8 @@ public class g {
 
     private void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, this, str) == null) && this.f62394h) {
-            SLog.v("openSDK_LOG.OpenConfig", str + "; appid: " + this.f62390d);
+        if ((interceptable == null || interceptable.invokeL(65548, this, str) == null) && this.f62975h) {
+            SLog.v("openSDK_LOG.OpenConfig", str + "; appid: " + this.f62971d);
         }
     }
 
@@ -230,10 +230,10 @@ public class g {
             synchronized (a) {
                 SLog.v("openSDK_LOG.OpenConfig", "getInstance begin");
                 if (str != null) {
-                    f62388b = str;
+                    f62969b = str;
                 }
                 if (str == null) {
-                    str = f62388b != null ? f62388b : "0";
+                    str = f62969b != null ? f62969b : "0";
                 }
                 gVar = a.get(str);
                 if (gVar == null) {
@@ -253,7 +253,7 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             d("get " + str);
             c();
-            Object opt = this.f62391e.opt(str);
+            Object opt = this.f62972e.opt(str);
             if (opt == null) {
                 return false;
             }
@@ -272,9 +272,9 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             try {
-                this.f62391e = new JSONObject(c("com.tencent.open.config.json"));
+                this.f62972e = new JSONObject(c("com.tencent.open.config.json"));
             } catch (JSONException unused) {
-                this.f62391e = new JSONObject();
+                this.f62972e = new JSONObject();
             }
         }
     }
@@ -283,10 +283,10 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, str, str2) == null) {
             try {
-                if (this.f62390d != null) {
-                    str = str + "." + this.f62390d;
+                if (this.f62971d != null) {
+                    str = str + "." + this.f62971d;
                 }
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.f62389c.openFileOutput(str, 0), Charset.forName("UTF-8"));
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.f62970c.openFileOutput(str, 0), Charset.forName("UTF-8"));
                 outputStreamWriter.write(str2);
                 outputStreamWriter.flush();
                 outputStreamWriter.close();
@@ -299,11 +299,11 @@ public class g {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            int optInt = this.f62391e.optInt("Common_frequency");
+            int optInt = this.f62972e.optInt("Common_frequency");
             if (optInt == 0) {
                 optInt = 1;
             }
-            if (SystemClock.elapsedRealtime() - this.f62392f >= optInt * 3600000) {
+            if (SystemClock.elapsedRealtime() - this.f62973f >= optInt * 3600000) {
                 b();
             }
         }
@@ -314,9 +314,9 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, jSONObject) == null) {
             d("cgi back, do update");
-            this.f62391e = jSONObject;
+            this.f62972e = jSONObject;
             a("com.tencent.open.config.json", jSONObject.toString());
-            this.f62392f = SystemClock.elapsedRealtime();
+            this.f62973f = SystemClock.elapsedRealtime();
         }
     }
 
@@ -326,7 +326,7 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             d("get " + str);
             c();
-            return this.f62391e.optInt(str);
+            return this.f62972e.optInt(str);
         }
         return invokeL.intValue;
     }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.data;
 
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ContriInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class ContriInfo implements Serializable {
     public boolean isShowToast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (k.isEmpty(this.colorMsg) || k.isEmpty(this.afterMsg)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (l.isEmpty(this.colorMsg) || l.isEmpty(this.afterMsg)) ? false : true : invokeV.booleanValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -74,7 +74,7 @@ public class ContriInfo implements Serializable {
         this.colorMsg = jSONObject.optString("color_msg");
         String optString = jSONObject.optString("after_msg");
         this.afterMsg = optString;
-        if (!k.isEmpty(optString) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
+        if (!l.isEmpty(optString) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.afterMsg.substring(0, indexOf));
             sb.append(StringUtils.LF);

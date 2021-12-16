@@ -16,7 +16,7 @@ import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
 import com.airbnb.lottie.animation.keyframe.ValueCallbackKeyframeAnimation;
 import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.LottieValueCallback;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ImageLayer extends BaseLayer {
     @Nullable
     public BaseKeyframeAnimation<ColorFilter, ColorFilter> colorFilterAnimation;

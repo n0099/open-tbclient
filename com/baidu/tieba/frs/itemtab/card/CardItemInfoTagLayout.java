@@ -12,12 +12,12 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.f.p.l;
-import c.a.k.q;
-import c.a.r0.d1.c1;
-import c.a.r0.d1.d1;
-import c.a.r0.d1.e1;
-import c.a.r0.t3.j0.n;
+import c.a.d.f.p.m;
+import c.a.l.q;
+import c.a.s0.d1.c1;
+import c.a.s0.d1.d1;
+import c.a.s0.d1.e1;
+import c.a.s0.v3.j0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -41,30 +41,30 @@ import java.util.HashMap;
 import java.util.List;
 import tbclient.ItemInfo;
 import tbclient.TagInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class CardItemInfoTagLayout extends FrameLayout implements q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdRecyclerView f44553e;
+    public BdRecyclerView f45044e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f44554f;
+    public b f45045f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f44555g;
+    public View f45046g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Point f44556h;
+    public final Point f45047h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<TagInfo> f44557i;
+    public List<TagInfo> f45048i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ItemInfo f44558j;
+    public ItemInfo f45049j;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends RecyclerView.ItemDecoration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,47 +93,47 @@ public class CardItemInfoTagLayout extends FrameLayout implements q {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i2, recyclerView) == null) {
                 if (i2 != 0) {
-                    if (i2 == this.a.f44557i.size() - 1) {
-                        rect.set(0, 0, l.f(TbadkCoreApplication.getInst().getContext(), d1.M_W_X005), 0);
+                    if (i2 == this.a.f45048i.size() - 1) {
+                        rect.set(0, 0, m.f(TbadkCoreApplication.getInst().getContext(), d1.M_W_X005), 0);
                         return;
                     } else {
-                        rect.set(0, 0, l.f(TbadkCoreApplication.getInst().getContext(), d1.M_W_X006), 0);
+                        rect.set(0, 0, m.f(TbadkCoreApplication.getInst().getContext(), d1.M_W_X006), 0);
                         return;
                     }
                 }
-                rect.set(l.f(TbadkCoreApplication.getInst().getContext(), d1.M_W_X005), 0, l.f(TbadkCoreApplication.getInst().getContext(), d1.M_W_X006), 0);
+                rect.set(m.f(TbadkCoreApplication.getInst().getContext(), d1.M_W_X005), 0, m.f(TbadkCoreApplication.getInst().getContext(), d1.M_W_X006), 0);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b extends RecyclerView.Adapter<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CardItemInfoTagLayout a;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes12.dex */
         public class a extends RecyclerView.ViewHolder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final TBSpecificationBtn a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f44559b;
+            public final /* synthetic */ b f45050b;
 
             /* renamed from: com.baidu.tieba.frs.itemtab.card.CardItemInfoTagLayout$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes10.dex */
-            public class View$OnClickListenerC1832a implements View.OnClickListener {
+            /* loaded from: classes12.dex */
+            public class View$OnClickListenerC1891a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ View f44560e;
+                public final /* synthetic */ View f45051e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ a f44561f;
+                public final /* synthetic */ a f45052f;
 
-                public View$OnClickListenerC1832a(a aVar, b bVar, View view) {
+                public View$OnClickListenerC1891a(a aVar, b bVar, View view) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,21 +148,21 @@ public class CardItemInfoTagLayout extends FrameLayout implements q {
                             return;
                         }
                     }
-                    this.f44561f = aVar;
-                    this.f44560e = view;
+                    this.f45052f = aVar;
+                    this.f45051e = view;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                        Integer valueOf = Integer.valueOf(this.f44561f.f44559b.a.f44553e.getChildLayoutPosition(this.f44560e) + 1);
+                        Integer valueOf = Integer.valueOf(this.f45052f.f45050b.a.f45044e.getChildLayoutPosition(this.f45051e) + 1);
                         if (view instanceof TBSpecificationBtn) {
                             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view;
                             if (tBSpecificationBtn.btnState instanceof HashMap) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(TbadkApplication.getInst().getApplicationContext(), "CatetoryRecommendList", (HashMap) tBSpecificationBtn.btnState)));
                                 if (valueOf instanceof Integer) {
-                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c.a.q0.s.g0.p.b(2, valueOf.intValue())));
+                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c.a.r0.s.i0.p.b(2, valueOf.intValue())));
                                 }
                             }
                         }
@@ -188,30 +188,30 @@ public class CardItemInfoTagLayout extends FrameLayout implements q {
                         return;
                     }
                 }
-                this.f44559b = bVar;
+                this.f45050b = bVar;
                 FrameLayout frameLayout = (FrameLayout) view;
-                c.a.q0.s.g0.n.b bVar2 = new c.a.q0.s.g0.n.b();
+                c.a.r0.s.i0.n.b bVar2 = new c.a.r0.s.i0.n.b();
                 bVar2.i(0, e1.icon_pure_arrow12_right, TBSpecificationButtonConfig.IconType.WEBP);
                 bVar2.h(c1.CAM_X0107);
-                bVar2.g(l.f(TbadkCoreApplication.getInst().getContext(), d1.tbds31));
+                bVar2.g(m.f(TbadkCoreApplication.getInst().getContext(), d1.tbds31));
                 bVar2.f(0);
                 bVar2.s(c1.CAM_X0105);
                 bVar2.j(1, 0);
-                bVar2.n(l.f(TbadkCoreApplication.getInst().getContext(), d1.M_H_X003));
-                bVar2.m(l.f(TbadkCoreApplication.getInst().getContext(), d1.M_W_X006), l.f(TbadkCoreApplication.getInst().getContext(), d1.tbds24));
+                bVar2.n(m.f(TbadkCoreApplication.getInst().getContext(), d1.M_H_X003));
+                bVar2.m(m.f(TbadkCoreApplication.getInst().getContext(), d1.M_W_X006), m.f(TbadkCoreApplication.getInst().getContext(), d1.tbds24));
                 TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(view.getContext());
                 this.a = tBSpecificationBtn;
                 tBSpecificationBtn.setConfig(bVar2);
                 if (this.a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) this.a.getLayoutParams()).rightMargin = TbadkApplication.getInst().getResources().getDimensionPixelSize(d1.M_W_X006);
                 }
-                this.a.setOnClickListener(new View$OnClickListenerC1832a(this, bVar, view));
+                this.a.setOnClickListener(new View$OnClickListenerC1891a(this, bVar, view));
                 frameLayout.addView(this.a);
             }
 
             public void a(TagInfo tagInfo) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, tagInfo) == null) || tagInfo == null || this.f44559b.a.f44558j == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, tagInfo) == null) || tagInfo == null || this.f45050b.a.f45049j == null) {
                     return;
                 }
                 HashMap hashMap = new HashMap();
@@ -219,7 +219,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements q {
                 hashMap.put("tab_name", tagInfo.tag_name);
                 hashMap.put("rank_type", String.valueOf(tagInfo.rank_type));
                 hashMap.put("class_id", String.valueOf(tagInfo.class_id));
-                hashMap.put("home_tab_name", this.f44559b.a.f44558j.template_name);
+                hashMap.put("home_tab_name", this.f45050b.a.f45049j.template_name);
                 this.a.setText(tagInfo.tag_name);
                 TBSpecificationBtn tBSpecificationBtn = this.a;
                 tBSpecificationBtn.btnState = hashMap;
@@ -251,10 +251,10 @@ public class CardItemInfoTagLayout extends FrameLayout implements q {
         /* renamed from: a */
         public void onBindViewHolder(@NonNull a aVar, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || ListUtils.getItem(this.a.f44557i, i2) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || ListUtils.getItem(this.a.f45048i, i2) == null) {
                 return;
             }
-            aVar.a((TagInfo) ListUtils.getItem(this.a.f44557i, i2));
+            aVar.a((TagInfo) ListUtils.getItem(this.a.f45048i, i2));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -272,10 +272,10 @@ public class CardItemInfoTagLayout extends FrameLayout implements q {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.a.f44557i == null) {
+                if (this.a.f45048i == null) {
                     return 0;
                 }
-                return this.a.f44557i.size();
+                return this.a.f45048i.size();
             }
             return invokeV.intValue;
         }
@@ -299,8 +299,8 @@ public class CardItemInfoTagLayout extends FrameLayout implements q {
                 return;
             }
         }
-        this.f44556h = new Point();
-        this.f44557i = new ArrayList();
+        this.f45047h = new Point();
+        this.f45048i = new ArrayList();
         d();
     }
 
@@ -308,32 +308,32 @@ public class CardItemInfoTagLayout extends FrameLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-            setPadding(0, l.f(TbadkCoreApplication.getInst().getContext(), d1.M_H_X004), 0, 0);
+            setPadding(0, m.f(TbadkCoreApplication.getInst().getContext(), d1.M_H_X004), 0, 0);
             BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
-            this.f44553e = bdRecyclerView;
+            this.f45044e = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-            this.f44553e.addItemDecoration(new a(this));
-            this.f44553e.setNestedScrollingEnabled(false);
-            addView(this.f44553e, new FrameLayout.LayoutParams(-1, -2));
-            this.f44555g = new View(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.f(TbadkCoreApplication.getInst().getContext(), d1.tbds52), -1);
+            this.f45044e.addItemDecoration(new a(this));
+            this.f45044e.setNestedScrollingEnabled(false);
+            addView(this.f45044e, new FrameLayout.LayoutParams(-1, -2));
+            this.f45046g = new View(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(m.f(TbadkCoreApplication.getInst().getContext(), d1.tbds52), -1);
             layoutParams.gravity = 5;
-            this.f44555g.setLayoutParams(layoutParams);
-            addView(this.f44555g);
+            this.f45046g.setLayoutParams(layoutParams);
+            addView(this.f45046g);
             b bVar = new b(this);
-            this.f44554f = bVar;
-            this.f44553e.setAdapter(bVar);
+            this.f45045f = bVar;
+            this.f45044e.setAdapter(bVar);
         }
     }
 
-    @Override // c.a.k.q
+    @Override // c.a.l.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) {
             SkinManager.setBackgroundColor(this, c1.CAM_X0205);
-            SkinManager.setBackgroundColor(this.f44553e, c1.CAM_X0205);
-            SkinManager.setBackgroundResource(this.f44555g, e1.bg_gradient_card_item_info_tag);
-            this.f44554f.notifyDataSetChanged();
+            SkinManager.setBackgroundColor(this.f45044e, c1.CAM_X0205);
+            SkinManager.setBackgroundResource(this.f45046g, e1.bg_gradient_card_item_info_tag);
+            this.f45045f.notifyDataSetChanged();
         }
     }
 
@@ -344,8 +344,8 @@ public class CardItemInfoTagLayout extends FrameLayout implements q {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             if (motionEvent != null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f44556h.set((int) motionEvent.getX(), (int) motionEvent.getY());
-                    if (this.f44553e.getFirstCompletelyVisiblePosition() != 0 && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+                    this.f45047h.set((int) motionEvent.getX(), (int) motionEvent.getY());
+                    if (this.f45044e.getFirstCompletelyVisiblePosition() != 0 && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
                         ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
                     }
                 } else {
@@ -353,7 +353,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements q {
                     if (motionEvent.getAction() == 2) {
                         boolean z2 = (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled();
                         ViewParent parent = getParent();
-                        if (!z2 && Math.abs(this.f44556h.x - motionEvent.getX()) > Math.abs(this.f44556h.y - motionEvent.getY())) {
+                        if (!z2 && Math.abs(this.f45047h.x - motionEvent.getX()) > Math.abs(this.f45047h.y - motionEvent.getY())) {
                             z = true;
                         }
                         parent.requestDisallowInterceptTouchEvent(z);
@@ -372,9 +372,9 @@ public class CardItemInfoTagLayout extends FrameLayout implements q {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, itemInfo) == null) || itemInfo == null || ListUtils.isEmpty(itemInfo.tag_info)) {
             return;
         }
-        this.f44558j = itemInfo;
-        this.f44557i = itemInfo.tag_info;
-        this.f44554f.notifyDataSetChanged();
+        this.f45049j = itemInfo;
+        this.f45048i = itemInfo.tag_info;
+        this.f45045f.notifyDataSetChanged();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -396,8 +396,8 @@ public class CardItemInfoTagLayout extends FrameLayout implements q {
                 return;
             }
         }
-        this.f44556h = new Point();
-        this.f44557i = new ArrayList();
+        this.f45047h = new Point();
+        this.f45048i = new ArrayList();
         d();
     }
 
@@ -420,8 +420,8 @@ public class CardItemInfoTagLayout extends FrameLayout implements q {
                 return;
             }
         }
-        this.f44556h = new Point();
-        this.f44557i = new ArrayList();
+        this.f45047h = new Point();
+        this.f45048i = new ArrayList();
         d();
     }
 }

@@ -38,10 +38,10 @@ public final class FunAdSdk {
     public static s0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static FunAdConfig f55618b;
+    public static FunAdConfig f56199b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f55619c;
+    public static volatile boolean f56200c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -73,8 +73,8 @@ public final class FunAdSdk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f55619c) {
-                return h.f28867e;
+            if (f56200c) {
+                return h.f29237e;
             }
             throw new RuntimeException("FunAdSdk not initialized, please call init first.");
         }
@@ -84,14 +84,14 @@ public final class FunAdSdk {
     public static Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f55618b.appContext : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f56199b.appContext : (Context) invokeV.objValue;
     }
 
     public static String getBaiduCustomUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            SharedPreferences sharedPreferences = v.f28935b;
+            SharedPreferences sharedPreferences = v.f29305b;
             String string = sharedPreferences.getString("key_bd_tk", null);
             if (TextUtils.isEmpty(string)) {
                 String substring = UUID.randomUUID().toString().replace("-", "").substring(0, 16);
@@ -106,7 +106,7 @@ public final class FunAdSdk {
     public static FunAdConfig getFunAdConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f55618b : (FunAdConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f56199b : (FunAdConfig) invokeV.objValue;
     }
 
     public static String getPlatformId(String str) {
@@ -118,7 +118,7 @@ public final class FunAdSdk {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            z zVar = h.f28866d;
+            z zVar = h.f29236d;
             synchronized (zVar) {
                 cVar = zVar.a;
             }
@@ -150,14 +150,14 @@ public final class FunAdSdk {
             if (funAdConfig != null) {
                 if (funAdConfig.userId != null) {
                     if (Looper.myLooper() == Looper.getMainLooper()) {
-                        if (f55619c) {
-                            if (f55618b.logEnabled) {
+                        if (f56200c) {
+                            if (f56199b.logEnabled) {
                                 LogPrinter.e("Please don't init FunAdSdk duplicated.", new Object[0]);
                             }
                             return false;
                         }
-                        f55618b = funAdConfig;
-                        SharedPreferences sharedPreferences = v.f28935b;
+                        f56199b = funAdConfig;
+                        SharedPreferences sharedPreferences = v.f29305b;
                         if (sharedPreferences.getLong("key_flt", 0L) <= 0) {
                             sharedPreferences.edit().putLong("key_flt", System.currentTimeMillis()).apply();
                         }
@@ -255,15 +255,15 @@ public final class FunAdSdk {
                             }
                         }
                         e.a aVar = e.a;
-                        e.f28841b = System.currentTimeMillis();
-                        e.f28842c = SystemClock.currentThreadTimeMillis();
-                        f55619c = true;
-                        h.f28864b = sdkInitializeCallback;
+                        e.f29211b = System.currentTimeMillis();
+                        e.f29212c = SystemClock.currentThreadTimeMillis();
+                        f56200c = true;
+                        h.f29234b = sdkInitializeCallback;
                         h.e(true);
-                        t0 t0Var = h.f28867e;
+                        t0 t0Var = h.f29237e;
                         e.a aVar2 = e.a;
-                        aVar2.f28844c = System.currentTimeMillis() - e.f28841b;
-                        aVar2.f28845d = SystemClock.currentThreadTimeMillis() - e.f28842c;
+                        aVar2.f29214c = System.currentTimeMillis() - e.f29211b;
+                        aVar2.f29215d = SystemClock.currentThreadTimeMillis() - e.f29212c;
                         return true;
                     }
                     throw new IllegalStateException("This method could only be called on main thread.");
@@ -279,7 +279,7 @@ public final class FunAdSdk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            FunAdConfig funAdConfig = f55618b;
+            FunAdConfig funAdConfig = f56199b;
             return funAdConfig != null && funAdConfig.logEnabled;
         }
         return invokeV.booleanValue;
@@ -288,6 +288,6 @@ public final class FunAdSdk {
     public static boolean isSdkInitializeComplete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? h.f28869g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? h.f29239g : invokeV.booleanValue;
     }
 }

@@ -13,7 +13,7 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ReflectUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String sReflectErrorDetail = "none";

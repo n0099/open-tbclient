@@ -1,7 +1,7 @@
 package com.kuaishou.weapon.i;
 
 import android.content.IntentFilter;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface WeaponAI {
     void cm(String str, String str2, String str3, WeaponCB weaponCB, Class<?>[] clsArr, Object... objArr);
 

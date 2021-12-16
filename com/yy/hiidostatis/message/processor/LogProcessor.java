@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.hiidostatis.message.MessageProcessor;
 import com.yy.hiidostatis.message.bean.Message;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LogProcessor implements MessageProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

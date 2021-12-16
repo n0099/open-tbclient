@@ -1,221 +1,133 @@
 package c.a.q0.t.f;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.TbCheckBox;
+import android.text.TextUtils;
+import c.a.q0.t.d;
+import com.baidu.android.ddmlib.tools.perflib.vmtrace.utils.Strings;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetAddressList.LbsInfo;
-import tbclient.GetAddressList.friendList;
-/* loaded from: classes5.dex */
-public class a implements TbCheckBox.c {
+import com.bumptech.glide.load.engine.GlideException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes6.dex */
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f13534e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f13535f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f13536g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f13537h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f13538i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f13539j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f13540k;
-    public b l;
-    public String m;
-
-    public a() {
+    public static Map<String, Integer> a(Set<String> set) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, set)) == null) {
+            HashMap hashMap = new HashMap();
+            int i2 = 0;
+            for (String str : set) {
+                hashMap.put(str, Integer.valueOf(i2));
+                i2++;
             }
+            return hashMap;
         }
-        this.f13534e = false;
+        return (Map) invokeL.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static StringBuilder b(StringBuilder... sbArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13540k : (String) invokeV.objValue;
-    }
-
-    public b b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (b) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder(64);
-            String str = this.f13535f;
-            if (str != null) {
-                sb.append(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sbArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (StringBuilder sb2 : sbArr) {
+                sb.append((CharSequence) sb2);
             }
-            String str2 = this.f13539j;
-            if (str2 != null) {
-                sb.append(str2);
-            }
-            return sb.toString();
+            return sb;
         }
-        return (String) invokeV.objValue;
+        return (StringBuilder) invokeL.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public static String c(List<c.a.q0.t.a> list, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13539j : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, str)) == null) {
+            Set<String> d2 = d.b().d();
+            int size = d2.size();
+            Map<String, Integer> a = a(d2);
+            StringBuilder[] sbArr = new StringBuilder[size];
+            for (int i2 = 0; i2 < size; i2++) {
+                sbArr[i2] = new StringBuilder();
+            }
+            for (c.a.q0.t.a aVar : list) {
+                Integer num = a.get(aVar.f());
+                if (num != null) {
+                    sbArr[num.intValue()].append(Strings.repeat(GlideException.IndentedAppendable.INDENT, aVar.d()));
+                    sbArr[num.intValue()].append("- ");
+                    StringBuilder sb = sbArr[num.intValue()];
+                    sb.append(aVar.b() / 1000);
+                    sb.append("ms");
+                    sbArr[num.intValue()].append("   ");
+                    sbArr[num.intValue()].append(aVar.f());
+                    sbArr[num.intValue()].append("   ");
+                    sbArr[num.intValue()].append(aVar.c().getFullName());
+                    sbArr[num.intValue()].append(StringUtils.LF);
+                }
+            }
+            String sb2 = b(sbArr).toString();
+            d(sb2, str);
+            return sb2;
+        }
+        return (String) invokeLL.objValue;
     }
 
-    public long e() {
-        InterceptResult invokeV;
+    public static void d(String str, String str2) {
+        FileWriter fileWriter;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13536g : invokeV.longValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13535f : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.m : (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13538i : (String) invokeV.objValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13537h : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
-    public boolean isChecked() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f13534e : invokeV.booleanValue;
-    }
-
-    public void j(friendList friendlist) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, friendlist) == null) || friendlist == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f13535f = friendlist.user_name;
-        this.f13536g = friendlist.user_id.longValue();
-        this.f13538i = friendlist.portrait;
-        this.m = friendlist.name_show;
-        this.f13539j = friendlist.quanpin;
-        LbsInfo lbsInfo = friendlist.location;
-        int i2 = -1;
-        long j2 = 0;
-        if (lbsInfo == null) {
-            this.l = new b("", 0L, -1);
-            return;
+        FileWriter fileWriter2 = null;
+        try {
+            try {
+                try {
+                    File parentFile = new File(str2).getParentFile();
+                    if (parentFile != null && !parentFile.exists()) {
+                        parentFile.mkdirs();
+                    }
+                    fileWriter = new FileWriter(str2);
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                    return;
+                }
+            } catch (IOException e3) {
+                e = e3;
+            }
+        } catch (Throwable th) {
+            th = th;
         }
-        Long l = lbsInfo.time;
-        if (l != null && l.longValue() > 0) {
-            j2 = friendlist.location.time.longValue();
-        }
-        Integer num = friendlist.location.is_hide;
-        if (num != null && num.intValue() >= 0) {
-            i2 = friendlist.location.is_hide.intValue();
-        }
-        this.l = new b(friendlist.location.distance, j2, i2);
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f13540k = str;
-        }
-    }
-
-    public void l(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            this.l = bVar;
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f13539j = str;
-        }
-    }
-
-    public void n(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.f13536g = j2;
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f13535f = str;
-        }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.m = str;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f13538i = str;
-        }
-    }
-
-    public void r(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f13537h = i2;
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
-    public void setChecked(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.f13534e = z;
+        try {
+            fileWriter.write(str);
+            fileWriter.flush();
+            fileWriter.close();
+        } catch (IOException e4) {
+            e = e4;
+            fileWriter2 = fileWriter;
+            e.printStackTrace();
+            if (fileWriter2 != null) {
+                fileWriter2.close();
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            fileWriter2 = fileWriter;
+            if (fileWriter2 != null) {
+                try {
+                    fileWriter2.close();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                }
+            }
+            throw th;
         }
     }
 }

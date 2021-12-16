@@ -11,7 +11,7 @@ import com.baidu.wallet.base.controllers.IdCardDetectionController;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class EnterWalletIdCardDetectAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.ChannelNativeAds;
 import com.fun.ad.sdk.FunNativeAd;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class r implements o.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ FunNativeAd a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ NativeUnifiedADData f28718b;
+    public final /* synthetic */ NativeUnifiedADData f29088b;
 
     public r(o oVar, FunNativeAd funNativeAd, NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class r implements o.e {
             }
         }
         this.a = funNativeAd;
-        this.f28718b = nativeUnifiedADData;
+        this.f29088b = nativeUnifiedADData;
     }
 
     @Override // c.g.a0.b.o.e
@@ -43,6 +43,6 @@ public class r implements o.e {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gdtADStatusChangeListener = this.a.getChannelNativeAds().getGdtADStatusChangeListener()) == null) {
             return;
         }
-        gdtADStatusChangeListener.onADStatusChanged(this.f28718b);
+        gdtADStatusChangeListener.onADStatusChanged(this.f29088b);
     }
 }

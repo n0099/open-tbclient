@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 import io.flutter.embedding.android.ExclusiveAppComponent;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ActivityControlSurface {
     @Deprecated
     void attachToActivity(@NonNull Activity activity, @NonNull Lifecycle lifecycle);

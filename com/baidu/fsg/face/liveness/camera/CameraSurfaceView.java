@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SurfaceHolder a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f34813b;
+    public b f35281b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CameraSurfaceView(Context context, AttributeSet attributeSet) {
@@ -50,14 +50,14 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
     public void setCameraInterface(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f34813b = bVar;
+            this.f35281b = bVar;
         }
     }
 
     public void startPreview() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (getContext() instanceof Activity)) {
-            this.f34813b.a((Activity) getContext(), this.a);
+            this.f35281b.a((Activity) getContext(), this.a);
         }
     }
 
@@ -67,7 +67,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
         if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, surfaceHolder, i2, i3, i4) == null) {
             LogUtil.d("surfaceChanged被调用了");
             if (getContext() instanceof Activity) {
-                this.f34813b.a((Activity) getContext(), this.a);
+                this.f35281b.a((Activity) getContext(), this.a);
             }
         }
     }
@@ -84,7 +84,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, surfaceHolder) == null) {
             LogUtil.d("surfaceDestroyed被调用了");
-            this.f34813b.d();
+            this.f35281b.d();
         }
     }
 }

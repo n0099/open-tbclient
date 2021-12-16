@@ -17,7 +17,7 @@ import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.widget.BdMenuItem;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class BdMenu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,27 +32,27 @@ public abstract class BdMenu {
     public OnMenuStateChangeListener mStateChangeListener;
     public final View mViewToAttach;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public interface OnMenuSetChangedListener {
         void onMenuItemUpdated(BdMenuItem bdMenuItem);
 
         void onMenuSetChanged();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public interface OnMenuStateChangeListener {
         void onDismissMenu();
 
         void onShowMenu();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f55283e;
+        public final /* synthetic */ BdMenu f55864e;
 
         public a(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f55283e = bdMenu;
+            this.f55864e = bdMenu;
         }
 
         @Override // android.view.View.OnKeyListener
@@ -79,9 +79,9 @@ public abstract class BdMenu {
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
                 if (keyEvent.getAction() == 1) {
                     if (i2 == 4 || i2 == 82) {
-                        this.f55283e.dismiss();
-                        if (this.f55283e.mKeyClickListener != null) {
-                            this.f55283e.mKeyClickListener.onKey(view, i2, keyEvent);
+                        this.f55864e.dismiss();
+                        if (this.f55864e.mKeyClickListener != null) {
+                            this.f55864e.mKeyClickListener.onKey(view, i2, keyEvent);
                         }
                         return true;
                     }
@@ -93,7 +93,7 @@ public abstract class BdMenu {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class b implements BdMenuItem.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public abstract class BdMenu {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class c implements BdMenuItem.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,13 +165,13 @@ public abstract class BdMenu {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class d implements PopupWindow.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f55284e;
+        public final /* synthetic */ BdMenu f55865e;
 
         public d(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -188,26 +188,26 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f55284e = bdMenu;
+            this.f55865e = bdMenu;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f55284e.mStateChangeListener == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f55865e.mStateChangeListener == null) {
                 return;
             }
-            this.f55284e.mStateChangeListener.onDismissMenu();
+            this.f55865e.mStateChangeListener.onDismissMenu();
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f55285e;
+        public final /* synthetic */ BdMenu f55866e;
 
         public e(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -224,7 +224,7 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f55285e = bdMenu;
+            this.f55866e = bdMenu;
         }
 
         @Override // java.lang.Runnable
@@ -232,7 +232,7 @@ public abstract class BdMenu {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f55285e.showMenu(this.f55285e.mPopupWindow);
+                    this.f55866e.showMenu(this.f55866e.mPopupWindow);
                 } catch (Exception unused) {
                 }
             }

@@ -9,14 +9,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import c.a.p0.a.z2.f0;
-import c.a.p0.a.z2.q0;
-import c.a.p0.a.z2.w;
-import c.a.p0.h.b;
-import c.a.p0.h.c;
-import c.a.p0.h.d;
-import c.a.p0.h.e;
-import c.a.p0.h.f;
+import c.a.q0.a.z2.f0;
+import c.a.q0.a.z2.q0;
+import c.a.q0.a.z2.w;
+import c.a.q0.h.b;
+import c.a.q0.h.c;
+import c.a.q0.h.d;
+import c.a.q0.h.e;
+import c.a.q0.h.f;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 @SuppressLint({"BaseActivity"})
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class GameNowInstallAntiBlockingActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TYPE = "type";
@@ -35,13 +35,13 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
     public String mType;
     public JSONObject mUbcParams;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameNowInstallAntiBlockingActivity f40457e;
+        public final /* synthetic */ GameNowInstallAntiBlockingActivity f40946e;
 
         public a(GameNowInstallAntiBlockingActivity gameNowInstallAntiBlockingActivity) {
             Interceptable interceptable = $ic;
@@ -58,15 +58,15 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
                     return;
                 }
             }
-            this.f40457e = gameNowInstallAntiBlockingActivity;
+            this.f40946e = gameNowInstallAntiBlockingActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TextUtils.equals(this.f40457e.mType, "authorize");
-                this.f40457e.finish();
+                TextUtils.equals(this.f40946e.mType, "authorize");
+                this.f40946e.finish();
             }
         }
     }
@@ -92,7 +92,7 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
             int c0 = q0.c0(this);
             super.onCreate(bundle);
             q0.g(this, c0);
-            c.a.p0.h.j.o.a.q();
+            c.a.q0.h.j.o.a.q();
             setContentView(f.aiapps_install_guide_layout);
             Intent intent = getIntent();
             if (intent != null) {
@@ -109,7 +109,7 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
                 findViewById(e.install_guide_image_mask).setVisibility(0);
                 imageView.setImageResource(d.aiapps_install_guide_request);
                 findViewById(e.install_guide_bg_mask).setBackgroundResource(b.aiapps_install_guide_mask);
-                c.a.p0.h.j.o.a.n();
+                c.a.q0.h.j.o.a.n();
             } else {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(c.aiapps_install_guide_image_height));
                 layoutParams2.gravity = 80;
@@ -125,7 +125,7 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
                     imageView.setImageResource(d.aiapps_install_guide_default);
                 }
                 findViewById(e.install_guide_bg_mask).setBackgroundResource(b.aiapps_anti_block_mask);
-                c.a.p0.h.j.o.a.o();
+                c.a.q0.h.j.o.a.o();
             }
             findViewById.setOnClickListener(new a(this));
             LogUtil.logActivity(this, "onCreate");

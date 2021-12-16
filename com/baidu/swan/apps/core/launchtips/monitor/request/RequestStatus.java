@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.tachikoma.core.component.input.ReturnKeyType;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class RequestStatus {
     public static final /* synthetic */ RequestStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

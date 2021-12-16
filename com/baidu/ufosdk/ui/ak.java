@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
 import com.baidu.webkit.sdk.WebKitFactory;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ak implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,9 +61,9 @@ public final class ak implements View.OnClickListener {
                 String b2 = com.baidu.ufosdk.f.i.b(System.currentTimeMillis());
                 String str2 = UfoSDK.startStr;
                 if (str2.equals(b2 + "-enable")) {
-                    sharedPreferences = this.a.f51583b;
+                    sharedPreferences = this.a.f52132b;
                     if (!sharedPreferences.getBoolean("robotUv_has", false)) {
-                        sharedPreferences2 = this.a.f51583b;
+                        sharedPreferences2 = this.a.f52132b;
                         int i2 = sharedPreferences2.getInt("robotUv", 0);
                         editor2 = this.a.a;
                         editor2.putInt("robotUv", i2 + 1);
@@ -79,7 +79,7 @@ public final class ak implements View.OnClickListener {
                 intent.putExtra("msgid", str);
                 intent.putExtra("fromlist", "no");
                 intent.putExtra("from_facepage", true);
-                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f51521j);
+                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f52070j);
                 this.a.startActivity(intent);
             } catch (Exception e2) {
                 e2.printStackTrace();

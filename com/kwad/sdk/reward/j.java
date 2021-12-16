@@ -38,44 +38,44 @@ import com.kwad.sdk.utils.w;
 import com.kwad.sdk.widget.KSCornerImageView;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j extends com.kwad.sdk.h.e {
     public static /* synthetic */ Interceptable $ic = null;
     public static j a = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f58953d = "奖励还差 %s 步到手，\n确认放弃吗？";
+    public static String f59534d = "奖励还差 %s 步到手，\n确认放弃吗？";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f58954b;
+    public AdTemplate f59535b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f58955c;
+    public b f59536c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58966b;
+        public String f59547b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f58967c;
+        public String f59548c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f58968d;
+        public String f59549d;
 
         /* renamed from: e  reason: collision with root package name */
-        public com.kwad.sdk.reward.b.a.a f58969e;
+        public com.kwad.sdk.reward.b.a.a f59550e;
 
         /* renamed from: f  reason: collision with root package name */
-        public com.kwad.sdk.reward.b.kwai.a f58970f;
+        public com.kwad.sdk.reward.b.kwai.a f59551f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f58971g;
+        public String f59552g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -97,8 +97,8 @@ public class j extends com.kwad.sdk.h.e {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) {
                 a aVar = new a();
                 aVar.a = 3;
-                aVar.f58966b = com.kwad.sdk.core.response.a.a.aD(adInfo);
-                aVar.f58971g = com.kwad.sdk.core.response.a.a.aE(adInfo);
+                aVar.f59547b = com.kwad.sdk.core.response.a.a.aD(adInfo);
+                aVar.f59552g = com.kwad.sdk.core.response.a.a.aE(adInfo);
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -110,8 +110,8 @@ public class j extends com.kwad.sdk.h.e {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aVar, adTemplate)) == null) {
                 a aVar2 = new a();
                 aVar2.a = 1;
-                aVar2.f58969e = aVar;
-                aVar2.f58971g = com.kwad.sdk.core.response.a.a.au(com.kwad.sdk.core.response.a.d.j(adTemplate));
+                aVar2.f59550e = aVar;
+                aVar2.f59552g = com.kwad.sdk.core.response.a.a.au(com.kwad.sdk.core.response.a.d.j(adTemplate));
                 return aVar2;
             }
             return (a) invokeLL.objValue;
@@ -123,8 +123,8 @@ public class j extends com.kwad.sdk.h.e {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, aVar, adTemplate)) == null) {
                 a aVar2 = new a();
                 aVar2.a = 2;
-                aVar2.f58970f = aVar;
-                aVar2.f58971g = com.kwad.sdk.core.response.a.a.au(com.kwad.sdk.core.response.a.d.j(adTemplate));
+                aVar2.f59551f = aVar;
+                aVar2.f59552g = com.kwad.sdk.core.response.a.a.au(com.kwad.sdk.core.response.a.d.j(adTemplate));
                 return aVar2;
             }
             return (a) invokeLL.objValue;
@@ -136,9 +136,9 @@ public class j extends com.kwad.sdk.h.e {
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
                 a aVar = new a();
                 aVar.a = 0;
-                aVar.f58966b = str;
-                aVar.f58967c = "关闭广告";
-                aVar.f58968d = "继续观看";
+                aVar.f59547b = str;
+                aVar.f59548c = "关闭广告";
+                aVar.f59549d = "继续观看";
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -151,8 +151,8 @@ public class j extends com.kwad.sdk.h.e {
                 a aVar = new a();
                 aVar.a = 4;
                 AdProductInfo aK = com.kwad.sdk.core.response.a.a.aK(adInfo);
-                aVar.f58966b = com.kwad.sdk.core.response.a.a.s(adInfo);
-                aVar.f58971g = aK.getIcon();
+                aVar.f59547b = com.kwad.sdk.core.response.a.a.s(adInfo);
+                aVar.f59552g = aK.getIcon();
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -164,9 +164,9 @@ public class j extends com.kwad.sdk.h.e {
             if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
                 a aVar = new a();
                 aVar.a = 0;
-                aVar.f58966b = str;
-                aVar.f58967c = "奖励不要了";
-                aVar.f58968d = "返回";
+                aVar.f59547b = str;
+                aVar.f59548c = "奖励不要了";
+                aVar.f59549d = "返回";
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -199,17 +199,17 @@ public class j extends com.kwad.sdk.h.e {
                 super.afterParseJson(jSONObject);
                 JSONObject optJSONObject = jSONObject.optJSONObject("mLaunchAppTask");
                 if (optJSONObject != null) {
-                    if (this.f58969e == null) {
-                        this.f58969e = new com.kwad.sdk.reward.b.a.a();
+                    if (this.f59550e == null) {
+                        this.f59550e = new com.kwad.sdk.reward.b.a.a();
                     }
-                    this.f58969e.parseJson(optJSONObject);
+                    this.f59550e.parseJson(optJSONObject);
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("mLandPageOpenTask");
                 if (optJSONObject2 != null) {
-                    if (this.f58970f == null) {
-                        this.f58970f = new com.kwad.sdk.reward.b.kwai.a();
+                    if (this.f59551f == null) {
+                        this.f59551f = new com.kwad.sdk.reward.b.kwai.a();
                     }
-                    this.f58970f.parseJson(optJSONObject2);
+                    this.f59551f.parseJson(optJSONObject2);
                 }
             }
         }
@@ -219,11 +219,11 @@ public class j extends com.kwad.sdk.h.e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
                 super.afterToJson(jSONObject);
-                com.kwad.sdk.reward.b.a.a aVar = this.f58969e;
+                com.kwad.sdk.reward.b.a.a aVar = this.f59550e;
                 if (aVar != null) {
                     t.a(jSONObject, "mLaunchAppTask", aVar);
                 }
-                com.kwad.sdk.reward.b.kwai.a aVar2 = this.f58970f;
+                com.kwad.sdk.reward.b.kwai.a aVar2 = this.f59551f;
                 if (aVar2 != null) {
                     t.a(jSONObject, "mLandPageOpenTask", aVar2);
                 }
@@ -233,41 +233,41 @@ public class j extends com.kwad.sdk.h.e {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58966b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59547b : (String) invokeV.objValue;
         }
 
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.isEmpty(this.f58967c) ? "关闭广告" : this.f58967c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.isEmpty(this.f59548c) ? "关闭广告" : this.f59548c : (String) invokeV.objValue;
         }
 
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TextUtils.isEmpty(this.f58968d) ? "继续观看" : this.f58968d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TextUtils.isEmpty(this.f59549d) ? "继续观看" : this.f59549d : (String) invokeV.objValue;
         }
 
         public com.kwad.sdk.reward.b.a.a e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f58969e : (com.kwad.sdk.reward.b.a.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59550e : (com.kwad.sdk.reward.b.a.a) invokeV.objValue;
         }
 
         public com.kwad.sdk.reward.b.kwai.a f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f58970f : (com.kwad.sdk.reward.b.kwai.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59551f : (com.kwad.sdk.reward.b.kwai.a) invokeV.objValue;
         }
 
         public String g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f58971g : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59552g : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a();
 
@@ -280,7 +280,7 @@ public class j extends com.kwad.sdk.h.e {
         void e();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -377,7 +377,7 @@ public class j extends com.kwad.sdk.h.e {
             TextView textView2 = (TextView) inflate.findViewById(R.id.ksad_reward_task_dialog_continue);
             TextView textView3 = (TextView) inflate.findViewById(R.id.ksad_reward_task_dialog_title);
             String str = e2.l() + "";
-            String format = String.format(f58953d, str);
+            String format = String.format(f59534d, str);
             int indexOf = format.indexOf(str);
             if (indexOf < 0) {
                 textView3.setText(format);
@@ -393,7 +393,7 @@ public class j extends com.kwad.sdk.h.e {
                 public final /* synthetic */ DialogFragment a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f58964b;
+                public final /* synthetic */ b f59545b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -411,7 +411,7 @@ public class j extends com.kwad.sdk.h.e {
                         }
                     }
                     this.a = dialogFragment;
-                    this.f58964b = bVar;
+                    this.f59545b = bVar;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -419,7 +419,7 @@ public class j extends com.kwad.sdk.h.e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        b bVar2 = this.f58964b;
+                        b bVar2 = this.f59545b;
                         if (bVar2 != null) {
                             bVar2.b();
                         }
@@ -432,7 +432,7 @@ public class j extends com.kwad.sdk.h.e {
                 public final /* synthetic */ DialogFragment a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f58965b;
+                public final /* synthetic */ b f59546b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -450,7 +450,7 @@ public class j extends com.kwad.sdk.h.e {
                         }
                     }
                     this.a = dialogFragment;
-                    this.f58965b = bVar;
+                    this.f59546b = bVar;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -458,7 +458,7 @@ public class j extends com.kwad.sdk.h.e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        b bVar2 = this.f58965b;
+                        b bVar2 = this.f59546b;
                         if (bVar2 != null) {
                             bVar2.c();
                         }
@@ -486,7 +486,7 @@ public class j extends com.kwad.sdk.h.e {
                 public final /* synthetic */ DialogFragment a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f58962b;
+                public final /* synthetic */ b f59543b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -504,7 +504,7 @@ public class j extends com.kwad.sdk.h.e {
                         }
                     }
                     this.a = dialogFragment;
-                    this.f58962b = bVar;
+                    this.f59543b = bVar;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -512,7 +512,7 @@ public class j extends com.kwad.sdk.h.e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        b bVar2 = this.f58962b;
+                        b bVar2 = this.f59543b;
                         if (bVar2 != null) {
                             bVar2.b();
                         }
@@ -525,7 +525,7 @@ public class j extends com.kwad.sdk.h.e {
                 public final /* synthetic */ DialogFragment a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f58963b;
+                public final /* synthetic */ b f59544b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -543,7 +543,7 @@ public class j extends com.kwad.sdk.h.e {
                         }
                     }
                     this.a = dialogFragment;
-                    this.f58963b = bVar;
+                    this.f59544b = bVar;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -551,7 +551,7 @@ public class j extends com.kwad.sdk.h.e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        b bVar2 = this.f58963b;
+                        b bVar2 = this.f59544b;
                         if (bVar2 != null) {
                             bVar2.c();
                         }
@@ -589,7 +589,7 @@ public class j extends com.kwad.sdk.h.e {
     private void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, bVar) == null) {
-            this.f58955c = bVar;
+            this.f59536c = bVar;
         }
     }
 
@@ -615,7 +615,7 @@ public class j extends com.kwad.sdk.h.e {
             TextView textView2 = (TextView) inflate.findViewById(R.id.ksad_reward_task_dialog_continue);
             TextView textView3 = (TextView) inflate.findViewById(R.id.ksad_reward_task_dialog_title);
             String str = f2.i() + "";
-            String format = String.format(f58953d, str);
+            String format = String.format(f59534d, str);
             int indexOf = format.indexOf(str);
             if (indexOf < 0) {
                 textView3.setText(format);
@@ -631,7 +631,7 @@ public class j extends com.kwad.sdk.h.e {
                 public final /* synthetic */ DialogFragment a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f58956b;
+                public final /* synthetic */ b f59537b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -649,7 +649,7 @@ public class j extends com.kwad.sdk.h.e {
                         }
                     }
                     this.a = dialogFragment;
-                    this.f58956b = bVar;
+                    this.f59537b = bVar;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -657,7 +657,7 @@ public class j extends com.kwad.sdk.h.e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        b bVar2 = this.f58956b;
+                        b bVar2 = this.f59537b;
                         if (bVar2 != null) {
                             bVar2.b();
                         }
@@ -670,7 +670,7 @@ public class j extends com.kwad.sdk.h.e {
                 public final /* synthetic */ DialogFragment a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f58957b;
+                public final /* synthetic */ b f59538b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -688,7 +688,7 @@ public class j extends com.kwad.sdk.h.e {
                         }
                     }
                     this.a = dialogFragment;
-                    this.f58957b = bVar;
+                    this.f59538b = bVar;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -696,7 +696,7 @@ public class j extends com.kwad.sdk.h.e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        b bVar2 = this.f58957b;
+                        b bVar2 = this.f59538b;
                         if (bVar2 != null) {
                             bVar2.c();
                         }
@@ -720,7 +720,7 @@ public class j extends com.kwad.sdk.h.e {
                 public final /* synthetic */ DialogFragment a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f58958b;
+                public final /* synthetic */ b f59539b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -738,7 +738,7 @@ public class j extends com.kwad.sdk.h.e {
                         }
                     }
                     this.a = dialogFragment;
-                    this.f58958b = bVar;
+                    this.f59539b = bVar;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -746,7 +746,7 @@ public class j extends com.kwad.sdk.h.e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        b bVar2 = this.f58958b;
+                        b bVar2 = this.f59539b;
                         if (bVar2 != null) {
                             bVar2.c();
                         }
@@ -792,7 +792,7 @@ public class j extends com.kwad.sdk.h.e {
                 public final /* synthetic */ DialogFragment a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f58959b;
+                public final /* synthetic */ b f59540b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -810,7 +810,7 @@ public class j extends com.kwad.sdk.h.e {
                         }
                     }
                     this.a = dialogFragment;
-                    this.f58959b = bVar;
+                    this.f59540b = bVar;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -818,7 +818,7 @@ public class j extends com.kwad.sdk.h.e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        b bVar2 = this.f58959b;
+                        b bVar2 = this.f59540b;
                         if (bVar2 != null) {
                             bVar2.b();
                         }
@@ -836,7 +836,7 @@ public class j extends com.kwad.sdk.h.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{dialogFragment, layoutInflater, viewGroup, aVar, adTemplate, bVar})) == null) {
             View inflate = layoutInflater.inflate(R.layout.ksad_reward_order_dialog, viewGroup, false);
-            KSImageLoader.loadImage((KSCornerImageView) inflate.findViewById(R.id.ksad_reward_order_dialog_icon), aVar.f58971g, adTemplate);
+            KSImageLoader.loadImage((KSCornerImageView) inflate.findViewById(R.id.ksad_reward_order_dialog_icon), aVar.f59552g, adTemplate);
             ((TextView) inflate.findViewById(R.id.ksad_reward_order_dialog_desc)).setText(aVar.b());
             inflate.findViewById(R.id.ksad_reward_order_dialog_btn_close).setOnClickListener(new View.OnClickListener(dialogFragment, bVar) { // from class: com.kwad.sdk.reward.j.3
                 public static /* synthetic */ Interceptable $ic;
@@ -844,7 +844,7 @@ public class j extends com.kwad.sdk.h.e {
                 public final /* synthetic */ DialogFragment a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f58960b;
+                public final /* synthetic */ b f59541b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -862,7 +862,7 @@ public class j extends com.kwad.sdk.h.e {
                         }
                     }
                     this.a = dialogFragment;
-                    this.f58960b = bVar;
+                    this.f59541b = bVar;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -870,7 +870,7 @@ public class j extends com.kwad.sdk.h.e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        b bVar2 = this.f58960b;
+                        b bVar2 = this.f59541b;
                         if (bVar2 != null) {
                             bVar2.c();
                         }
@@ -916,7 +916,7 @@ public class j extends com.kwad.sdk.h.e {
                 public final /* synthetic */ DialogFragment a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f58961b;
+                public final /* synthetic */ b f59542b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -934,7 +934,7 @@ public class j extends com.kwad.sdk.h.e {
                         }
                     }
                     this.a = dialogFragment;
-                    this.f58961b = bVar;
+                    this.f59542b = bVar;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -942,7 +942,7 @@ public class j extends com.kwad.sdk.h.e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        b bVar2 = this.f58961b;
+                        b bVar2 = this.f59542b;
                         if (bVar2 != null) {
                             bVar2.b();
                         }
@@ -968,27 +968,27 @@ public class j extends com.kwad.sdk.h.e {
             try {
                 String string2 = arguments.getString("key_template_json");
                 AdTemplate adTemplate = new AdTemplate();
-                this.f58954b = adTemplate;
+                this.f59535b = adTemplate;
                 adTemplate.parseJson(new JSONObject(string2));
             } catch (Throwable unused) {
             }
             a c2 = a.c(string);
             int a3 = c2.a();
             if (a3 == 1) {
-                a2 = a(this, layoutInflater, viewGroup, c2, this.f58954b, this.f58955c);
+                a2 = a(this, layoutInflater, viewGroup, c2, this.f59535b, this.f59536c);
             } else if (a3 != 2) {
                 if (a3 == 3) {
-                    a2 = b(this, layoutInflater, viewGroup, c2, this.f58955c);
+                    a2 = b(this, layoutInflater, viewGroup, c2, this.f59536c);
                     cVar = new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aJ());
                 } else if (a3 != 4) {
-                    a2 = a(this, layoutInflater, viewGroup, c2, this.f58955c);
+                    a2 = a(this, layoutInflater, viewGroup, c2, this.f59536c);
                 } else {
-                    a2 = c(this, layoutInflater, viewGroup, c2, this.f58954b, this.f58955c);
+                    a2 = c(this, layoutInflater, viewGroup, c2, this.f59535b, this.f59536c);
                     cVar = new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aL());
                 }
                 w.a(cVar, (ViewGroup) a2);
             } else {
-                a2 = b(this, layoutInflater, viewGroup, c2, this.f58954b, this.f58955c);
+                a2 = b(this, layoutInflater, viewGroup, c2, this.f59535b, this.f59536c);
             }
             getDialog().setOnKeyListener(new DialogInterface.OnKeyListener(this) { // from class: com.kwad.sdk.reward.j.1
                 public static /* synthetic */ Interceptable $ic;
@@ -1050,7 +1050,7 @@ public class j extends com.kwad.sdk.h.e {
             getDialog().setCanceledOnTouchOutside(false);
             window.setLayout(-1, -1);
             getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
-            b bVar = this.f58955c;
+            b bVar = this.f59536c;
             if (bVar != null) {
                 bVar.a();
             }

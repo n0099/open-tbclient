@@ -6,20 +6,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.p;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Method a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Object f62528b;
+    public final /* synthetic */ Object f63109b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Object[] f62529c;
+    public final /* synthetic */ Object[] f63110c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f62530d;
+    public final /* synthetic */ a f63111d;
 
     public b(a aVar, Method method, Object obj, Object[] objArr) {
         Interceptable interceptable = $ic;
@@ -36,10 +36,10 @@ public final class b implements Runnable {
                 return;
             }
         }
-        this.f62530d = aVar;
+        this.f63111d = aVar;
         this.a = method;
-        this.f62528b = obj;
-        this.f62529c = objArr;
+        this.f63109b = obj;
+        this.f63110c = objArr;
     }
 
     @Override // java.lang.Runnable
@@ -47,7 +47,7 @@ public final class b implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.a.invoke(this.f62528b, this.f62529c);
+                this.a.invoke(this.f63109b, this.f63110c);
             } catch (Exception e2) {
                 p.b("CommandWorker", "reflect e: ", e2);
             }

@@ -2,7 +2,7 @@ package com.dxmpay.wallet.router;
 
 import com.dxmpay.wallet.core.NoProguard;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface RouterCallback extends NoProguard {
     public static final int CODE_ERROR = 1;
     public static final int CODE_INVALID = 3;

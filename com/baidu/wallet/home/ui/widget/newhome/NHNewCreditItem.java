@@ -22,7 +22,7 @@ import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class NHNewCreditItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

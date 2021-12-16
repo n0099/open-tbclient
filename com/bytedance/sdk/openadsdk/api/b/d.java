@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f54706b = 4;
+    public static int f55286b = 4;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,28 +33,28 @@ public class d {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f54706b = i2;
+            f55286b = i2;
         }
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && a && str2 != null) {
-            int i2 = f54706b;
+            int i2 = f55286b;
         }
     }
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && a && str2 != null) {
-            int i2 = f54706b;
+            int i2 = f55286b;
         }
     }
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) && a && str2 != null) {
-            int i2 = f54706b;
+            int i2 = f55286b;
         }
     }
 
@@ -72,14 +72,14 @@ public class d {
             if (str2 == null && th == null) {
                 return;
             }
-            int i2 = f54706b;
+            int i2 = f55286b;
         }
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && a && str2 != null) {
-            int i2 = f54706b;
+            int i2 = f55286b;
         }
     }
 
@@ -96,7 +96,7 @@ public class d {
             if (str2 == null && th == null) {
                 return;
             }
-            int i2 = f54706b;
+            int i2 = f55286b;
         }
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class dq implements AdapterView.OnItemLongClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,8 +49,8 @@ public final class dq implements AdapterView.OnItemLongClickListener {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            list = this.a.f51617e;
-            list2 = this.a.f51617e;
+            list = this.a.f52166e;
+            list2 = this.a.f52166e;
             FeedbackListActivity feedbackListActivity = this.a;
             a = feedbackListActivity.a(feedbackListActivity.getApplicationContext(), com.baidu.ufosdk.f.s.a("3"), (String) ((Map) list.get(i2)).get("id"), (String) ((Map) list2.get(i2)).get("appid"));
             this.a.z = new PopupWindow(a, com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 79.0f), com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 68.0f));

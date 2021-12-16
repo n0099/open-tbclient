@@ -5,8 +5,9 @@ import android.content.Context;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
-import c.a.q0.s.q.d2;
-import c.a.q0.s.s.a;
+import c.a.d.f.p.m;
+import c.a.r0.s.r.d2;
+import c.a.r0.s.t.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -28,13 +29,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.MessageFormat;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AntiHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class OperationType {
         public static final /* synthetic */ OperationType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -99,7 +100,7 @@ public class AntiHelper {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,29 +119,29 @@ public class AntiHelper {
             }
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // c.a.r0.s.t.a.e
+        public void onClick(c.a.r0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                c.a.q0.s.e0.b.j().t("anti_vcode_no_longer_tip", true);
+                c.a.r0.s.g0.b.j().t("anti_vcode_no_longer_tip", true);
                 aVar.dismiss();
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f49332e;
+        public final /* synthetic */ k f49846e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f49333f;
+        public final /* synthetic */ Context f49847f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f49334g;
+        public final /* synthetic */ BlockPopInfoData f49848g;
 
         public b(k kVar, Context context, BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
@@ -157,32 +158,32 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f49332e = kVar;
-            this.f49333f = context;
-            this.f49334g = blockPopInfoData;
+            this.f49846e = kVar;
+            this.f49847f = context;
+            this.f49848g = blockPopInfoData;
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // c.a.r0.s.t.a.e
+        public void onClick(c.a.r0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                k kVar = this.f49332e;
+                k kVar = this.f49846e;
                 if (kVar != null) {
                     kVar.onPositiveButtonClick(aVar);
                 }
                 aVar.dismiss();
-                c.a.q0.m.a.m(this.f49333f, this.f49334g.ahead_url);
+                c.a.r0.m.a.m(this.f49847f, this.f49848g.ahead_url);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f49335e;
+        public final /* synthetic */ k f49849e;
 
         public c(k kVar) {
             Interceptable interceptable = $ic;
@@ -199,14 +200,14 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f49335e = kVar;
+            this.f49849e = kVar;
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // c.a.r0.s.t.a.e
+        public void onClick(c.a.r0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                k kVar = this.f49335e;
+                k kVar = this.f49849e;
                 if (kVar != null) {
                     kVar.onNavigationButtonClick(aVar);
                 }
@@ -215,13 +216,13 @@ public class AntiHelper {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class d implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f49336e;
+        public final /* synthetic */ Context f49850e;
 
         public d(Context context) {
             Interceptable interceptable = $ic;
@@ -238,20 +239,20 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f49336e = context;
+            this.f49850e = context;
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // c.a.r0.s.t.a.e
+        public void onClick(c.a.r0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                c.a.q0.m.a.m(this.f49336e, "http://tieba.baidu.com/mo/q/userappeal");
+                c.a.r0.m.a.m(this.f49850e, "http://tieba.baidu.com/mo/q/userappeal");
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class e implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -270,8 +271,8 @@ public class AntiHelper {
             }
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // c.a.r0.s.t.a.e
+        public void onClick(c.a.r0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -279,13 +280,13 @@ public class AntiHelper {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class f implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f49337e;
+        public final /* synthetic */ Context f49851e;
 
         public f(Context context) {
             Interceptable interceptable = $ic;
@@ -302,20 +303,20 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f49337e = context;
+            this.f49851e = context;
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // c.a.r0.s.t.a.e
+        public void onClick(c.a.r0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                c.a.q0.m.a.m(this.f49337e, "http://tieba.baidu.com/mo/q/userappeal");
+                c.a.r0.m.a.m(this.f49851e, "http://tieba.baidu.com/mo/q/userappeal");
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class g implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -334,8 +335,8 @@ public class AntiHelper {
             }
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // c.a.r0.s.t.a.e
+        public void onClick(c.a.r0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -343,7 +344,7 @@ public class AntiHelper {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class h implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -362,8 +363,8 @@ public class AntiHelper {
             }
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // c.a.r0.s.t.a.e
+        public void onClick(c.a.r0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -371,16 +372,16 @@ public class AntiHelper {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class i implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f49338e;
+        public final /* synthetic */ Context f49852e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PageType f49339f;
+        public final /* synthetic */ PageType f49853f;
 
         public i(Context context, PageType pageType) {
             Interceptable interceptable = $ic;
@@ -397,21 +398,21 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f49338e = context;
-            this.f49339f = pageType;
+            this.f49852e = context;
+            this.f49853f = pageType;
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // c.a.r0.s.t.a.e
+        public void onClick(c.a.r0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f49338e, this.f49339f)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f49852e, this.f49853f)));
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class j implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -430,8 +431,8 @@ public class AntiHelper {
             }
         }
 
-        @Override // c.a.q0.s.s.a.e
-        public void onClick(c.a.q0.s.s.a aVar) {
+        @Override // c.a.r0.s.t.a.e
+        public void onClick(c.a.r0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -439,11 +440,11 @@ public class AntiHelper {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface k {
-        void onNavigationButtonClick(c.a.q0.s.s.a aVar);
+        void onNavigationButtonClick(c.a.r0.s.t.a aVar);
 
-        void onPositiveButtonClick(c.a.q0.s.s.a aVar);
+        void onPositiveButtonClick(c.a.r0.s.t.a aVar);
     }
 
     public static void A(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
@@ -451,7 +452,7 @@ public class AntiHelper {
         String string2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65536, null, context, antiData, operationType, pageType) == null) {
-            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(c.a.d.a.j.a(context).getPageActivity());
+            c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(c.a.d.a.j.a(context).getPageActivity());
             if (operationType == OperationType.SIGN) {
                 String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
                 if (n(antiData)) {
@@ -496,7 +497,7 @@ public class AntiHelper {
             if (tbPageContext == null || !j(d2Var)) {
                 return false;
             }
-            l.M(tbPageContext.getPageActivity(), StringUtils.isNull(d2Var.p2) ? tbPageContext.getString(R.string.forbiden_comment_text) : d2Var.p2);
+            m.M(tbPageContext.getPageActivity(), StringUtils.isNull(d2Var.p2) ? tbPageContext.getString(R.string.forbiden_comment_text) : d2Var.p2);
             return true;
         }
         return invokeLL.booleanValue;
@@ -509,7 +510,7 @@ public class AntiHelper {
             if (tbPageContext == null || !k(videoItemData)) {
                 return false;
             }
-            l.M(tbPageContext.getPageActivity(), StringUtils.isNull(videoItemData.noCommetStr) ? tbPageContext.getString(R.string.forbiden_comment_text) : videoItemData.noCommetStr);
+            m.M(tbPageContext.getPageActivity(), StringUtils.isNull(videoItemData.noCommetStr) ? tbPageContext.getString(R.string.forbiden_comment_text) : videoItemData.noCommetStr);
             return true;
         }
         return invokeLL.booleanValue;
@@ -531,7 +532,7 @@ public class AntiHelper {
             if (context == null || !o(d2Var)) {
                 return false;
             }
-            l.L(context, R.string.feed_thread_state_under_review_text);
+            m.L(context, R.string.feed_thread_state_under_review_text);
             return true;
         }
         return invokeLL.booleanValue;
@@ -586,7 +587,7 @@ public class AntiHelper {
             if (i2 != 3250013) {
                 return i2 == 3250002 || i2 == 3250001 || i2 == 3250003 || i2 == 3250004 || i2 == 3250013;
             }
-            if (c.a.d.f.p.k.isEmpty(str)) {
+            if (l.isEmpty(str)) {
                 str = TbadkCoreApplication.getInst().getContext().getString(R.string.anti_account_exception_appealing);
             }
             BdToast.h(TbadkCoreApplication.getInst().getContext(), str, R.drawable.icon_pure_toast_mistake40_svg, 3000, false).q();
@@ -609,29 +610,29 @@ public class AntiHelper {
 
     public static void p(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65552, null, context, str) == null) || context == null || c.a.d.f.p.k.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65552, null, context, str) == null) || context == null || l.isEmpty(str)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(new Pair("nomenu", "1"));
         arrayList.add(new Pair("noshare", "1"));
-        c.a.q0.m.a.m(context, c.a.q0.m.a.c(str, arrayList));
+        c.a.r0.m.a.m(context, c.a.r0.m.a.c(str, arrayList));
     }
 
     public static void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            c.a.q0.s.e0.b.j().C("anti_vcode_no_longer_tip");
+            c.a.r0.s.g0.b.j().C("anti_vcode_no_longer_tip");
         }
     }
 
     public static void r(Context context, AntiData antiData, PageType pageType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65554, null, context, antiData, pageType) == null) || c.a.q0.s.e0.b.j().g("anti_vcode_no_longer_tip", false)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65554, null, context, antiData, pageType) == null) || c.a.r0.s.g0.b.j().g("anti_vcode_no_longer_tip", false)) {
             return;
         }
         boolean isHas_chance = antiData.isHas_chance();
-        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(c.a.d.a.j.a(context).getPageActivity());
+        c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(c.a.d.a.j.a(context).getPageActivity());
         aVar.setMessage(context.getString(isHas_chance ? R.string.anti_vocode_on_chance_tip : R.string.anti_vcode_tip));
         if (!isHas_chance) {
             aVar.setNegativeButton(context.getString(R.string.anti_vcode_pos), new i(context, pageType));
@@ -644,42 +645,42 @@ public class AntiHelper {
         }
     }
 
-    public static c.a.q0.s.s.a s(Context context, BlockPopInfoData blockPopInfoData) {
+    public static c.a.r0.s.t.a s(Context context, BlockPopInfoData blockPopInfoData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, context, blockPopInfoData)) == null) ? t(context, blockPopInfoData, null) : (c.a.q0.s.s.a) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, context, blockPopInfoData)) == null) ? t(context, blockPopInfoData, null) : (c.a.r0.s.t.a) invokeLL.objValue;
     }
 
-    public static c.a.q0.s.s.a t(Context context, BlockPopInfoData blockPopInfoData, k kVar) {
+    public static c.a.r0.s.t.a t(Context context, BlockPopInfoData blockPopInfoData, k kVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65556, null, context, blockPopInfoData, kVar)) == null) {
             if (blockPopInfoData == null) {
                 return null;
             }
-            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(c.a.d.a.j.a(context).getPageActivity());
+            c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(c.a.d.a.j.a(context).getPageActivity());
             if (blockPopInfoData.block_info == null) {
                 blockPopInfoData.block_info = "";
             }
             aVar.setMessage(blockPopInfoData.block_info);
-            aVar.setPositiveButton(c.a.d.f.p.k.isEmpty(blockPopInfoData.ahead_info) ? context.getString(R.string.anti_vcode_pos) : blockPopInfoData.ahead_info, new b(kVar, context, blockPopInfoData));
-            aVar.setNegativeButton(c.a.d.f.p.k.isEmpty(blockPopInfoData.ok_info) ? context.getString(R.string.anti_account_exception_neg) : blockPopInfoData.ok_info, new c(kVar));
+            aVar.setPositiveButton(l.isEmpty(blockPopInfoData.ahead_info) ? context.getString(R.string.anti_vcode_pos) : blockPopInfoData.ahead_info, new b(kVar, context, blockPopInfoData));
+            aVar.setNegativeButton(l.isEmpty(blockPopInfoData.ok_info) ? context.getString(R.string.anti_account_exception_neg) : blockPopInfoData.ok_info, new c(kVar));
             if (context instanceof Activity) {
                 aVar.create(c.a.d.a.j.a(context)).show();
                 return aVar;
             }
             return null;
         }
-        return (c.a.q0.s.s.a) invokeLLL.objValue;
+        return (c.a.r0.s.t.a) invokeLLL.objValue;
     }
 
-    public static c.a.q0.s.s.a u(Context context, String str) {
+    public static c.a.r0.s.t.a u(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, context, str)) == null) ? v(context, str, 0) : (c.a.q0.s.s.a) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, context, str)) == null) ? v(context, str, 0) : (c.a.r0.s.t.a) invokeLL.objValue;
     }
 
-    public static c.a.q0.s.s.a v(Context context, String str, int i2) {
+    public static c.a.r0.s.t.a v(Context context, String str, int i2) {
         InterceptResult invokeLLI;
         String str2;
         Interceptable interceptable = $ic;
@@ -697,10 +698,10 @@ public class AntiHelper {
             blockPopInfoData.ahead_url = str2;
             return s(context, blockPopInfoData);
         }
-        return (c.a.q0.s.s.a) invokeLLI.objValue;
+        return (c.a.r0.s.t.a) invokeLLI.objValue;
     }
 
-    public static c.a.q0.s.s.a w(Context context, String str, int i2, k kVar) {
+    public static c.a.r0.s.t.a w(Context context, String str, int i2, k kVar) {
         InterceptResult invokeLLIL;
         String str2;
         Interceptable interceptable = $ic;
@@ -718,7 +719,7 @@ public class AntiHelper {
             blockPopInfoData.ahead_url = str2;
             return t(context, blockPopInfoData, kVar);
         }
-        return (c.a.q0.s.s.a) invokeLLIL.objValue;
+        return (c.a.r0.s.t.a) invokeLLIL.objValue;
     }
 
     public static boolean x(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
@@ -751,7 +752,7 @@ public class AntiHelper {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65561, null, context, antiData, operationType) == null) {
-            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(c.a.d.a.j.a(context).getPageActivity());
+            c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(c.a.d.a.j.a(context).getPageActivity());
             if (operationType == OperationType.SIGN) {
                 String string2 = context.getString(R.string.anti_appeal_sign_base_tip);
                 if (n(antiData)) {
@@ -781,7 +782,7 @@ public class AntiHelper {
         String string2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65562, null, context, antiData, operationType) == null) {
-            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(c.a.d.a.j.a(context).getPageActivity());
+            c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(c.a.d.a.j.a(context).getPageActivity());
             if (operationType == OperationType.SIGN) {
                 String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
                 if (n(antiData)) {

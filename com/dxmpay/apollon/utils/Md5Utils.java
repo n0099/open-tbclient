@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class Md5Utils implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static char[] hexChars;

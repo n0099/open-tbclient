@@ -7,10 +7,10 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.t.c;
-import c.a.x0.t.h;
-import c.a.x0.t.q;
-import c.a.x0.t.w;
+import c.a.y0.t.c;
+import c.a.y0.t.h;
+import c.a.y0.t.q;
+import c.a.y0.t.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +21,7 @@ import com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel;
 import com.baidu.ugc.editvideo.magicmusic.VideoEffectData;
 import java.io.Closeable;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
     public String mPath;
     public VideoKeyFrameModel mVideoKeyFrameModel;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface OnGetFrameAtExactTimeListener {
         void onFinish(Bitmap bitmap);
     }

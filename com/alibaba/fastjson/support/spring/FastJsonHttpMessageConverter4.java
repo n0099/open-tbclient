@@ -14,7 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FastJsonHttpMessageConverter4 extends FastJsonHttpMessageConverter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

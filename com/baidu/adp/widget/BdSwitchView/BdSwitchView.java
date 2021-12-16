@@ -18,31 +18,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BdSwitchView extends View implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SwitchState f31757e;
+    public SwitchState f32127e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f31758f;
+    public float f32128f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f31759g;
+    public float f32129g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f31760h;
+    public Bitmap f32130h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Bitmap f31761i;
+    public Bitmap f32131i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Bitmap f31762j;
+    public Bitmap f32132j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f31763k;
+    public boolean f32133k;
     public boolean l;
     public boolean m;
     public Paint n;
@@ -53,7 +53,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     public Runnable s;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SwitchState {
         public static final /* synthetic */ SwitchState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -113,7 +113,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SwitchStyle {
         public static final /* synthetic */ SwitchStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -174,13 +174,13 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSwitchView f31764e;
+        public final /* synthetic */ BdSwitchView f32134e;
 
         public a(BdSwitchView bdSwitchView) {
             Interceptable interceptable = $ic;
@@ -197,19 +197,19 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                     return;
                 }
             }
-            this.f31764e = bdSwitchView;
+            this.f32134e = bdSwitchView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f31764e.b();
+                this.f32134e.b();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void OnSwitchStateChange(View view, SwitchState switchState);
     }
@@ -232,8 +232,8 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.f31757e = SwitchState.ON;
-        this.f31763k = false;
+        this.f32127e = SwitchState.ON;
+        this.f32133k = false;
         this.l = false;
         this.m = false;
         this.n = new Paint();
@@ -248,7 +248,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SwitchState switchState = this.f31757e;
+            SwitchState switchState = this.f32127e;
             if (switchState == SwitchState.ON) {
                 e(SwitchState.OFF, true);
             } else if (switchState == SwitchState.OFF) {
@@ -260,12 +260,12 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f31760h = BitmapFactory.decodeResource(getResources(), R.drawable.bg_switch_open);
-            this.f31761i = BitmapFactory.decodeResource(getResources(), R.drawable.bg_switch_close);
-            this.f31762j = BitmapFactory.decodeResource(getResources(), R.drawable.btn_handle);
-            this.o = this.f31760h.getWidth();
-            this.p = this.f31760h.getHeight();
-            this.q = this.f31762j.getWidth();
+            this.f32130h = BitmapFactory.decodeResource(getResources(), R.drawable.bg_switch_open);
+            this.f32131i = BitmapFactory.decodeResource(getResources(), R.drawable.bg_switch_close);
+            this.f32132j = BitmapFactory.decodeResource(getResources(), R.drawable.btn_handle);
+            this.o = this.f32130h.getWidth();
+            this.p = this.f32130h.getHeight();
+            this.q = this.f32132j.getWidth();
             setOnTouchListener(this);
         }
     }
@@ -278,14 +278,14 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         }
         this.m = true;
         if (switchState == SwitchState.ON) {
-            this.f31759g = this.o;
+            this.f32129g = this.o;
         } else if (switchState == SwitchState.OFF) {
-            this.f31759g = 0.0f;
+            this.f32129g = 0.0f;
         }
-        if (z && switchState != this.f31757e && (bVar = this.r) != null) {
+        if (z && switchState != this.f32127e && (bVar = this.r) != null) {
             bVar.OnSwitchStateChange(this, switchState);
         }
-        this.f31757e = switchState;
+        this.f32127e = switchState;
         this.m = false;
         invalidate();
     }
@@ -293,7 +293,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     public boolean isOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31757e == SwitchState.ON : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32127e == SwitchState.ON : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -304,30 +304,30 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f31763k) {
-                if (this.f31759g < this.o / 2.0f) {
-                    canvas.drawBitmap(this.f31761i, 0.0f, 0.0f, this.n);
+            if (this.f32133k) {
+                if (this.f32129g < this.o / 2.0f) {
+                    canvas.drawBitmap(this.f32131i, 0.0f, 0.0f, this.n);
                 } else {
-                    canvas.drawBitmap(this.f31760h, 0.0f, 0.0f, this.n);
+                    canvas.drawBitmap(this.f32130h, 0.0f, 0.0f, this.n);
                 }
             } else {
-                SwitchState switchState = this.f31757e;
+                SwitchState switchState = this.f32127e;
                 if (switchState == SwitchState.ON) {
-                    canvas.drawBitmap(this.f31760h, 0.0f, 0.0f, this.n);
+                    canvas.drawBitmap(this.f32130h, 0.0f, 0.0f, this.n);
                 } else if (switchState == SwitchState.OFF) {
-                    canvas.drawBitmap(this.f31761i, 0.0f, 0.0f, this.n);
+                    canvas.drawBitmap(this.f32131i, 0.0f, 0.0f, this.n);
                 }
             }
-            if (this.f31763k) {
-                if (this.f31759g > this.f31760h.getWidth()) {
+            if (this.f32133k) {
+                if (this.f32129g > this.f32130h.getWidth()) {
                     f3 = this.o;
                     i2 = this.q;
                 } else {
-                    f3 = this.f31759g;
+                    f3 = this.f32129g;
                     i2 = this.q;
                 }
                 f2 = f3 - (i2 / 2.0f);
-            } else if (this.f31757e == SwitchState.ON) {
+            } else if (this.f32127e == SwitchState.ON) {
                 f2 = this.o - this.q;
             } else {
                 SwitchState switchState2 = SwitchState.OFF;
@@ -342,7 +342,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                     f2 = i3 - i4;
                 }
             }
-            canvas.drawBitmap(this.f31762j, f2, 0.0f, this.n);
+            canvas.drawBitmap(this.f32132j, f2, 0.0f, this.n);
         }
     }
 
@@ -376,26 +376,26 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                     return false;
                 }
                 postDelayed(this.s, 200L);
-                this.f31763k = true;
+                this.f32133k = true;
                 float x = motionEvent.getX();
-                this.f31758f = x;
-                this.f31759g = x;
+                this.f32128f = x;
+                this.f32129g = x;
                 return true;
             } else if (action == 1) {
-                this.f31763k = false;
-                SwitchState switchState3 = this.f31757e;
-                if (Math.abs(this.f31759g - this.f31758f) <= this.o * 0.02d) {
+                this.f32133k = false;
+                SwitchState switchState3 = this.f32127e;
+                if (Math.abs(this.f32129g - this.f32128f) <= this.o * 0.02d) {
                     invalidate();
                     return true;
                 }
                 removeCallbacks(this.s);
                 this.m = true;
                 if (motionEvent.getX() >= this.o / 2.0f) {
-                    this.f31757e = SwitchState.ON;
+                    this.f32127e = SwitchState.ON;
                 } else {
-                    this.f31757e = SwitchState.OFF;
+                    this.f32127e = SwitchState.OFF;
                 }
-                if (this.l && switchState3 != (switchState = this.f31757e) && (bVar = this.r) != null) {
+                if (this.l && switchState3 != (switchState = this.f32127e) && (bVar = this.r) != null) {
                     bVar.OnSwitchStateChange(this, switchState);
                 }
                 this.m = false;
@@ -403,10 +403,10 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                 return true;
             } else if (action == 2) {
                 float x2 = motionEvent.getX();
-                this.f31759g = x2;
-                if (Math.abs(x2 - this.f31758f) > this.o * 0.05d) {
+                this.f32129g = x2;
+                if (Math.abs(x2 - this.f32128f) > this.o * 0.05d) {
                     removeCallbacks(this.s);
-                    if (Math.abs(this.f31759g - this.f31758f) > this.o * 0.1d) {
+                    if (Math.abs(this.f32129g - this.f32128f) > this.o * 0.1d) {
                         invalidate();
                     }
                 }
@@ -414,16 +414,16 @@ public class BdSwitchView extends View implements View.OnTouchListener {
             } else if (action != 3) {
                 return true;
             } else {
-                this.f31763k = false;
-                SwitchState switchState4 = this.f31757e;
+                this.f32133k = false;
+                SwitchState switchState4 = this.f32127e;
                 removeCallbacks(this.s);
                 this.m = true;
-                if (this.f31759g >= this.o / 2.0f) {
-                    this.f31757e = SwitchState.ON;
+                if (this.f32129g >= this.o / 2.0f) {
+                    this.f32127e = SwitchState.ON;
                 } else {
-                    this.f31757e = SwitchState.OFF;
+                    this.f32127e = SwitchState.OFF;
                 }
-                if (this.l && switchState4 != (switchState2 = this.f31757e) && (bVar2 = this.r) != null) {
+                if (this.l && switchState4 != (switchState2 = this.f32127e) && (bVar2 = this.r) != null) {
                     bVar2.OnSwitchStateChange(this, switchState2);
                 }
                 this.m = false;
@@ -437,9 +437,9 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     public void setBackgroundRes(Bitmap bitmap, Bitmap bitmap2, Bitmap bitmap3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, bitmap, bitmap2, bitmap3) == null) {
-            this.f31760h = bitmap;
-            this.f31761i = bitmap2;
-            this.f31762j = bitmap3;
+            this.f32130h = bitmap;
+            this.f32131i = bitmap2;
+            this.f32132j = bitmap3;
             invalidate();
         }
     }
@@ -462,7 +462,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     public void turnOffNoCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            SwitchState switchState = this.f31757e;
+            SwitchState switchState = this.f32127e;
             SwitchState switchState2 = SwitchState.OFF;
             if (switchState == switchState2) {
                 return;
@@ -481,7 +481,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     public void turnOnNoCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            SwitchState switchState = this.f31757e;
+            SwitchState switchState = this.f32127e;
             SwitchState switchState2 = SwitchState.ON;
             if (switchState == switchState2) {
                 return;
@@ -492,7 +492,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
 
     public void turnOff(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || this.f31757e == SwitchState.OFF) {
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || this.f32127e == SwitchState.OFF) {
             return;
         }
         turnOff();
@@ -500,7 +500,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
 
     public void turnOn(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || this.f31757e == SwitchState.ON) {
+        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || this.f32127e == SwitchState.ON) {
             return;
         }
         turnOn();
@@ -525,8 +525,8 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.f31757e = SwitchState.ON;
-        this.f31763k = false;
+        this.f32127e = SwitchState.ON;
+        this.f32133k = false;
         this.l = false;
         this.m = false;
         this.n = new Paint();

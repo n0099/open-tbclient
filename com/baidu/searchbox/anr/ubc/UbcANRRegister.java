@@ -25,7 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UbcANRRegister implements IANRRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static String KEY_ANR_ACTIVE_UPLOAD = "key_anr_active_upload";

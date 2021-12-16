@@ -19,13 +19,13 @@ import com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener;
 import com.kwad.sdk.core.imageloader.utils.BlurUtils;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.reward.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f59021b;
+    public ImageView f59602b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class a extends com.kwad.sdk.reward.g {
         if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f59021b.setVisibility(i());
-        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, this.f59021b, new DisplayImageOptionsCompat.Builder().setBlurRadius(50).build(), new SimpleImageLoadingListener(this) { // from class: com.kwad.sdk.reward.presenter.a.1
+        this.f59602b.setVisibility(i());
+        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, this.f59602b, new DisplayImageOptionsCompat.Builder().setBlurRadius(50).build(), new SimpleImageLoadingListener(this) { // from class: com.kwad.sdk.reward.presenter.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -95,7 +95,7 @@ public class a extends com.kwad.sdk.reward.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            AdTemplate adTemplate = ((com.kwad.sdk.reward.g) this).a.f58874g;
+            AdTemplate adTemplate = ((com.kwad.sdk.reward.g) this).a.f59455g;
             if (adTemplate.adInfoList.size() > 0) {
                 a(com.kwad.sdk.core.response.a.a.h(adTemplate.adInfoList.get(0)));
             }
@@ -107,7 +107,7 @@ public class a extends com.kwad.sdk.reward.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.c_();
-            this.f59021b = (ImageView) a(e());
+            this.f59602b = (ImageView) a(e());
         }
     }
 

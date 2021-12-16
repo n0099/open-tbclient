@@ -7,7 +7,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.i0.b.a.a;
+import c.a.j0.b.a.a;
 import com.baidu.searchbox.logsystem.basic.LokiService;
 import com.baidu.searchbox.logsystem.logsys.CrashUtil;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LogSystemServiceUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LogSystemServiceUtil";

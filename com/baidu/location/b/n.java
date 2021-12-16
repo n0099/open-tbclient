@@ -11,32 +11,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class n implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static n f35575d;
+    public static n f36064d;
     public transient /* synthetic */ FieldHolder $fh;
     public float[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float[] f35576b;
+    public float[] f36065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SensorManager f35577c;
+    public SensorManager f36066c;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f35578e;
+    public float f36067e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f35579f;
+    public boolean f36068f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f35580g;
+    public boolean f36069g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f35581h;
+    public boolean f36070h;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -51,9 +51,9 @@ public class n implements SensorEventListener {
                 return;
             }
         }
-        this.f35579f = false;
-        this.f35580g = false;
-        this.f35581h = false;
+        this.f36068f = false;
+        this.f36069g = false;
+        this.f36070h = false;
     }
 
     public static synchronized n a() {
@@ -62,10 +62,10 @@ public class n implements SensorEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (n.class) {
-                if (f35575d == null) {
-                    f35575d = new n();
+                if (f36064d == null) {
+                    f36064d = new n();
                 }
-                nVar = f35575d;
+                nVar = f36064d;
             }
             return nVar;
         }
@@ -75,7 +75,7 @@ public class n implements SensorEventListener {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f35579f = z;
+            this.f36068f = z;
         }
     }
 
@@ -83,24 +83,24 @@ public class n implements SensorEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                if (this.f35581h) {
+                if (this.f36070h) {
                     return;
                 }
-                if (this.f35579f) {
-                    if (this.f35577c == null) {
-                        this.f35577c = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+                if (this.f36068f) {
+                    if (this.f36066c == null) {
+                        this.f36066c = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
                     }
-                    if (this.f35577c != null) {
-                        Sensor defaultSensor = this.f35577c.getDefaultSensor(11);
-                        if (defaultSensor != null && this.f35579f) {
-                            this.f35577c.registerListener(this, defaultSensor, 3);
+                    if (this.f36066c != null) {
+                        Sensor defaultSensor = this.f36066c.getDefaultSensor(11);
+                        if (defaultSensor != null && this.f36068f) {
+                            this.f36066c.registerListener(this, defaultSensor, 3);
                         }
-                        Sensor defaultSensor2 = this.f35577c.getDefaultSensor(2);
-                        if (defaultSensor2 != null && this.f35579f) {
-                            this.f35577c.registerListener(this, defaultSensor2, 3);
+                        Sensor defaultSensor2 = this.f36066c.getDefaultSensor(2);
+                        if (defaultSensor2 != null && this.f36068f) {
+                            this.f36066c.registerListener(this, defaultSensor2, 3);
                         }
                     }
-                    this.f35581h = true;
+                    this.f36070h = true;
                 }
             }
         }
@@ -110,12 +110,12 @@ public class n implements SensorEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f35581h) {
-                    if (this.f35577c != null) {
-                        this.f35577c.unregisterListener(this);
-                        this.f35577c = null;
+                if (this.f36070h) {
+                    if (this.f36066c != null) {
+                        this.f36066c.unregisterListener(this);
+                        this.f36066c = null;
                     }
-                    this.f35581h = false;
+                    this.f36070h = false;
                 }
             }
         }
@@ -124,13 +124,13 @@ public class n implements SensorEventListener {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35579f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36068f : invokeV.booleanValue;
     }
 
     public float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35578e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36067e : invokeV.floatValue;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -148,9 +148,9 @@ public class n implements SensorEventListener {
             int type = sensorEvent.sensor.getType();
             if (type == 2) {
                 float[] fArr = (float[]) sensorEvent.values.clone();
-                this.f35576b = fArr;
+                this.f36065b = fArr;
                 Math.sqrt((fArr[0] * fArr[0]) + (fArr[1] * fArr[1]) + (fArr[2] * fArr[2]));
-                float[] fArr2 = this.f35576b;
+                float[] fArr2 = this.f36065b;
             } else if (type != 11) {
             } else {
                 float[] fArr3 = (float[]) sensorEvent.values.clone();
@@ -162,13 +162,13 @@ public class n implements SensorEventListener {
                         float[] fArr5 = new float[3];
                         SensorManager.getOrientation(fArr4, fArr5);
                         float degrees = (float) Math.toDegrees(fArr5[0]);
-                        this.f35578e = degrees;
+                        this.f36067e = degrees;
                         if (degrees < 0.0f) {
                             degrees += 360.0f;
                         }
-                        this.f35578e = (float) Math.floor(degrees);
+                        this.f36067e = (float) Math.floor(degrees);
                     } catch (Exception unused) {
-                        this.f35578e = 0.0f;
+                        this.f36067e = 0.0f;
                     }
                 }
             }

@@ -1,114 +1,68 @@
 package c.a.d.f.p;
 
-import android.os.Build;
-import android.os.Handler;
-import android.os.Message;
-import android.widget.Toast;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Paint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
-    public static Field a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Field f2659b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Handler a;
-
-        public a(Handler handler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = handler;
-        }
-
-        @Override // android.os.Handler
-        public void dispatchMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                try {
-                    super.dispatchMessage(message);
-                } catch (Exception unused) {
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-                try {
-                    if (this.a != null) {
-                        this.a.handleMessage(message);
-                    }
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-502488609, "Lc/a/d/f/p/u;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-502488609, "Lc/a/d/f/p/u;");
-                return;
-            }
-        }
-        try {
-            if (Build.VERSION.SDK_INT < 28) {
-                Field declaredField = Toast.class.getDeclaredField("mTN");
-                a = declaredField;
-                declaredField.setAccessible(true);
-                Field declaredField2 = a.getType().getDeclaredField("mHandler");
-                f2659b = declaredField2;
-                declaredField2.setAccessible(true);
-            }
-        } catch (Exception unused) {
-        }
-    }
-
-    public static void a(Toast toast) {
-        Object obj;
-        Handler handler;
+    public static int a(float f2, Paint paint, String str, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, toast) == null) {
-            try {
-                if (Build.VERSION.SDK_INT >= 28 || a == null || f2659b == null || (obj = a.get(toast)) == null || (handler = (Handler) f2659b.get(obj)) == null) {
-                    return;
-                }
-                f2659b.set(obj, new a(handler));
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f2), paint, str, Integer.valueOf(i2)})) == null) {
+            if (f2 == 0.0f || i2 == 0 || str == null || str.isEmpty()) {
+                return 0;
             }
+            return Math.min((int) Math.ceil(paint.measureText(str) / f2), i2);
         }
+        return invokeCommon.intValue;
+    }
+
+    public static boolean b(float f2, Paint paint, String str, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), paint, str, Integer.valueOf(i2)})) == null) ? c(f2, paint, str, i2, 5) : invokeCommon.booleanValue;
+    }
+
+    public static boolean c(float f2, Paint paint, String str, int i2, int i3) {
+        InterceptResult invokeCommon;
+        float measureText;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), paint, str, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            float f3 = 0.0f;
+            if (f2 != 0.0f && i2 != 0 && str != null && !str.isEmpty() && paint != null) {
+                if (!str.contains(StringUtils.LF)) {
+                    return paint.measureText(str) >= f2 * ((float) i2);
+                }
+                String[] split = str.split(StringUtils.LF);
+                if (split.length > i2) {
+                    return true;
+                }
+                int i4 = 0;
+                for (int i5 = 0; i5 < i2 && split.length > i5; i5++) {
+                    if (i5 < i2 - 1) {
+                        measureText = paint.measureText(split[i5]);
+                        int ceil = (int) Math.ceil(measureText / f2);
+                        i4 += ceil;
+                        if (i4 < i3) {
+                            measureText = ceil * f2;
+                        }
+                    } else {
+                        measureText = paint.measureText(split[i5]);
+                        i4++;
+                    }
+                    f3 += measureText;
+                    if (i4 >= 5) {
+                        return f3 >= f2 * ((float) i2);
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 }

@@ -29,31 +29,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SurfaceHolder f46822e;
+    public SurfaceHolder f47321e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f46823f;
+    public Paint f47322f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g[] f46824g;
+    public g[] f47323g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f46825h;
+    public volatile boolean f47324h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f46826i;
+    public volatile boolean f47325i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Random f46827j;
+    public Random f47326j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f46828k;
+    public int f47327k;
     public int l;
     public List<Pair<PointF, PointF>> m;
     public PointF n;
@@ -65,13 +65,13 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     public float t;
     public ViewTreeObserver.OnGlobalLayoutListener u;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HeartSurfaceView f46829e;
+        public final /* synthetic */ HeartSurfaceView f47328e;
 
         public a(HeartSurfaceView heartSurfaceView) {
             Interceptable interceptable = $ic;
@@ -88,44 +88,44 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     return;
                 }
             }
-            this.f46829e = heartSurfaceView;
+            this.f47328e = heartSurfaceView;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f46829e.m != null && this.f46829e.l == this.f46829e.getWidth() && this.f46829e.f46828k == this.f46829e.getHeight()) {
+                if (this.f47328e.m != null && this.f47328e.l == this.f47328e.getWidth() && this.f47328e.f47327k == this.f47328e.getHeight()) {
                     return;
                 }
-                HeartSurfaceView heartSurfaceView = this.f46829e;
+                HeartSurfaceView heartSurfaceView = this.f47328e;
                 heartSurfaceView.l = heartSurfaceView.getWidth();
-                HeartSurfaceView heartSurfaceView2 = this.f46829e;
-                heartSurfaceView2.f46828k = heartSurfaceView2.getHeight();
-                float dimensionPixelSize = this.f46829e.getResources().getDimensionPixelSize(c.a.r0.z1.c.liveshow_heart_start_x);
-                float dimensionPixelSize2 = this.f46829e.getResources().getDimensionPixelSize(c.a.r0.z1.c.liveshow_heart_start_x1);
-                float dimensionPixelSize3 = this.f46829e.getResources().getDimensionPixelSize(c.a.r0.z1.c.liveshow_heart_padding_bottom);
-                float dimensionPixelSize4 = this.f46829e.getResources().getDimensionPixelSize(c.a.r0.z1.c.liveshow_heart_padding_top);
-                PointF pointF = new PointF(dimensionPixelSize, this.f46829e.f46828k - dimensionPixelSize3);
+                HeartSurfaceView heartSurfaceView2 = this.f47328e;
+                heartSurfaceView2.f47327k = heartSurfaceView2.getHeight();
+                float dimensionPixelSize = this.f47328e.getResources().getDimensionPixelSize(c.a.s0.a2.c.liveshow_heart_start_x);
+                float dimensionPixelSize2 = this.f47328e.getResources().getDimensionPixelSize(c.a.s0.a2.c.liveshow_heart_start_x1);
+                float dimensionPixelSize3 = this.f47328e.getResources().getDimensionPixelSize(c.a.s0.a2.c.liveshow_heart_padding_bottom);
+                float dimensionPixelSize4 = this.f47328e.getResources().getDimensionPixelSize(c.a.s0.a2.c.liveshow_heart_padding_top);
+                PointF pointF = new PointF(dimensionPixelSize, this.f47328e.f47327k - dimensionPixelSize3);
                 PointF pointF2 = new PointF(dimensionPixelSize, dimensionPixelSize4);
-                PointF pointF3 = new PointF(dimensionPixelSize2, this.f46829e.f46828k - dimensionPixelSize3);
+                PointF pointF3 = new PointF(dimensionPixelSize2, this.f47328e.f47327k - dimensionPixelSize3);
                 PointF pointF4 = new PointF(dimensionPixelSize2, dimensionPixelSize4);
-                this.f46829e.m = new ArrayList();
-                this.f46829e.m.add(Pair.create(pointF, pointF2));
-                this.f46829e.m.add(Pair.create(pointF3, pointF4));
-                this.f46829e.n = new PointF(0.0f, this.f46829e.f46828k * 0.5f);
-                this.f46829e.o = new PointF(this.f46829e.l + this.f46829e.getResources().getDimensionPixelSize(c.a.r0.z1.c.liveshow_heart_padding_right), this.f46829e.f46828k * 0.5f);
+                this.f47328e.m = new ArrayList();
+                this.f47328e.m.add(Pair.create(pointF, pointF2));
+                this.f47328e.m.add(Pair.create(pointF3, pointF4));
+                this.f47328e.n = new PointF(0.0f, this.f47328e.f47327k * 0.5f);
+                this.f47328e.o = new PointF(this.f47328e.l + this.f47328e.getResources().getDimensionPixelSize(c.a.s0.a2.c.liveshow_heart_padding_right), this.f47328e.f47327k * 0.5f);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HeartSurfaceView f46830e;
+        public final /* synthetic */ HeartSurfaceView f47329e;
 
         public b(HeartSurfaceView heartSurfaceView) {
             Interceptable interceptable = $ic;
@@ -142,18 +142,18 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     return;
                 }
             }
-            this.f46830e = heartSurfaceView;
+            this.f47329e = heartSurfaceView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                while (this.f46830e.f46825h) {
+                while (this.f47329e.f47324h) {
                     SystemClock.sleep(10L);
-                    while (this.f46830e.f46825h && this.f46830e.p > 0) {
-                        if (this.f46830e.p()) {
-                            HeartSurfaceView.k(this.f46830e);
+                    while (this.f47329e.f47324h && this.f47329e.p > 0) {
+                        if (this.f47329e.p()) {
+                            HeartSurfaceView.k(this.f47329e);
                         }
                         SystemClock.sleep(120L);
                     }
@@ -162,13 +162,13 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HeartSurfaceView f46831e;
+        public final /* synthetic */ HeartSurfaceView f47330e;
 
         public c(HeartSurfaceView heartSurfaceView) {
             Interceptable interceptable = $ic;
@@ -185,24 +185,24 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     return;
                 }
             }
-            this.f46831e = heartSurfaceView;
+            this.f47330e = heartSurfaceView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                while (this.f46831e.f46825h) {
+                while (this.f47330e.f47324h) {
                     try {
-                        while (this.f46831e.f46825h && !this.f46831e.f46826i) {
+                        while (this.f47330e.f47324h && !this.f47330e.f47325i) {
                             SystemClock.sleep(300L);
                         }
-                        if (!this.f46831e.f46825h) {
+                        if (!this.f47330e.f47324h) {
                             return;
                         }
                         long currentTimeMillis = System.currentTimeMillis();
                         try {
-                            this.f46831e.s();
+                            this.f47330e.s();
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
@@ -223,22 +223,22 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class d extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f46832h;
+        public float f47331h;
 
         /* renamed from: i  reason: collision with root package name */
-        public float f46833i;
+        public float f47332i;
 
         /* renamed from: j  reason: collision with root package name */
-        public float f46834j;
+        public float f47333j;
 
         /* renamed from: k  reason: collision with root package name */
-        public float f46835k;
+        public float f47334k;
         public float l;
         public float m;
         public float n;
@@ -263,10 +263,10 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     return;
                 }
             }
-            this.f46832h = 0.22f;
-            this.f46833i = 0.88f;
-            this.f46834j = 0.7f;
-            this.f46835k = 0.5f;
+            this.f47331h = 0.22f;
+            this.f47332i = 0.88f;
+            this.f47333j = 0.7f;
+            this.f47334k = 0.5f;
             this.l = 0.85f;
             this.m = 0.2f;
             this.n = 7.0f;
@@ -280,13 +280,13 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             float f3;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-                float f4 = this.f46832h;
+                float f4 = this.f47331h;
                 if (f2 < f4) {
-                    f3 = this.f46835k + f2;
+                    f3 = this.f47334k + f2;
                 } else {
-                    float f5 = this.f46833i;
+                    float f5 = this.f47332i;
                     if (f2 < f5) {
-                        f3 = this.f46834j + (this.m * (f2 - f4));
+                        f3 = this.f47333j + (this.m * (f2 - f4));
                     } else {
                         f3 = f2 < ((float) this.o) ? this.l - (this.n * (f2 - f5)) : 0.0f;
                     }
@@ -297,34 +297,34 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface e {
         void a(int i2, int i3);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static abstract class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f46836b;
+        public long f47335b;
 
         /* renamed from: c  reason: collision with root package name */
-        public volatile boolean f46837c;
+        public volatile boolean f47336c;
 
         /* renamed from: d  reason: collision with root package name */
-        public h f46838d;
+        public h f47337d;
 
         /* renamed from: e  reason: collision with root package name */
-        public volatile boolean f46839e;
+        public volatile boolean f47338e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f46840f;
+        public float f47339f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f46841g;
+        public float f47340g;
 
         public f(int i2) {
             Interceptable interceptable = $ic;
@@ -341,9 +341,9 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     return;
                 }
             }
-            this.f46839e = false;
-            this.f46840f = 1.0f;
-            this.f46841g = 0.5f;
+            this.f47338e = false;
+            this.f47339f = 1.0f;
+            this.f47340g = 0.5f;
             this.a = i2;
         }
 
@@ -352,13 +352,13 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46839e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47338e : invokeV.booleanValue;
         }
 
         public void c(h hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) {
-                this.f46838d = hVar;
+                this.f47337d = hVar;
             }
         }
 
@@ -372,39 +372,39 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f46836b = System.currentTimeMillis();
-                this.f46837c = true;
-                this.f46839e = true;
+                this.f47335b = System.currentTimeMillis();
+                this.f47336c = true;
+                this.f47338e = true;
             }
         }
 
         public void update(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                float f2 = ((float) (j2 - this.f46836b)) / this.a;
+                float f2 = ((float) (j2 - this.f47335b)) / this.a;
                 if (f2 < 0.0f) {
                     f2 = 0.0f;
                 }
-                if (f2 >= this.f46840f) {
-                    this.f46839e = false;
-                    h hVar = this.f46838d;
+                if (f2 >= this.f47339f) {
+                    this.f47338e = false;
+                    h hVar = this.f47337d;
                     if (hVar != null) {
                         hVar.onUpdate(a(f2));
-                        this.f46838d.onOver();
+                        this.f47337d.onOver();
                         return;
                     }
                     return;
                 }
-                if (f2 < this.f46841g) {
-                    this.f46837c = true;
-                } else if (this.f46837c) {
-                    h hVar2 = this.f46838d;
+                if (f2 < this.f47340g) {
+                    this.f47336c = true;
+                } else if (this.f47336c) {
+                    h hVar2 = this.f47337d;
                     if (hVar2 != null) {
                         hVar2.a();
                     }
-                    this.f46837c = false;
+                    this.f47336c = false;
                 }
-                h hVar3 = this.f46838d;
+                h hVar3 = this.f47337d;
                 if (hVar3 != null) {
                     hVar3.onUpdate(a(f2));
                 }
@@ -412,46 +412,46 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f46842b;
+        public int f47341b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Bitmap f46843c;
+        public Bitmap f47342c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f46844d;
+        public int f47343d;
 
         /* renamed from: e  reason: collision with root package name */
-        public RectF f46845e;
+        public RectF f47344e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f46846f;
+        public float f47345f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f46847g;
+        public int f47346g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f46848h;
+        public int f47347h;
 
         /* renamed from: i  reason: collision with root package name */
-        public i f46849i;
+        public i f47348i;
 
         /* renamed from: j  reason: collision with root package name */
-        public j f46850j;
+        public j f47349j;
 
         /* renamed from: k  reason: collision with root package name */
-        public d f46851k;
+        public d f47350k;
         public PointF l;
         public volatile boolean m;
         public e n;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes12.dex */
         public class a implements h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -494,12 +494,12 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             public void onUpdate(Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                    this.a.f46844d = ((Integer) obj).intValue();
+                    this.a.f47343d = ((Integer) obj).intValue();
                 }
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes12.dex */
         public class b implements h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -538,7 +538,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (eVar = (gVar = this.a).n) == null) {
                     return;
                 }
-                RectF rectF = gVar.f46845e;
+                RectF rectF = gVar.f47344e;
                 eVar.a((int) rectF.left, (int) rectF.top);
             }
 
@@ -548,16 +548,16 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                     PointF pointF = (PointF) obj;
                     g gVar = this.a;
-                    RectF rectF = gVar.f46845e;
+                    RectF rectF = gVar.f47344e;
                     float f2 = pointF.x;
-                    rectF.set(f2, pointF.y, (gVar.f46848h * this.a.f46846f) + f2, pointF.y + (this.a.f46847g * this.a.f46846f));
+                    rectF.set(f2, pointF.y, (gVar.f47347h * this.a.f47345f) + f2, pointF.y + (this.a.f47346g * this.a.f47345f));
                     g gVar2 = this.a;
-                    gVar2.f46845e.offset(((-gVar2.f46848h) * this.a.f46846f) / this.a.f46842b, ((-this.a.f46847g) * this.a.f46846f) / this.a.f46842b);
+                    gVar2.f47344e.offset(((-gVar2.f47347h) * this.a.f47345f) / this.a.f47341b, ((-this.a.f47346g) * this.a.f47345f) / this.a.f47341b);
                 }
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes12.dex */
         public class c implements h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -599,11 +599,11 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             public void onUpdate(Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                    this.a.f46846f = ((Float) obj).floatValue();
+                    this.a.f47345f = ((Float) obj).floatValue();
                     g gVar = this.a;
-                    gVar.f46845e.set(gVar.l.x, this.a.l.y, this.a.l.x + (this.a.f46848h * this.a.f46846f), this.a.l.y + (this.a.f46847g * this.a.f46846f));
+                    gVar.f47344e.set(gVar.l.x, this.a.l.y, this.a.l.x + (this.a.f47347h * this.a.f47345f), this.a.l.y + (this.a.f47346g * this.a.f47345f));
                     g gVar2 = this.a;
-                    gVar2.f46845e.offset(((-gVar2.f46848h) * this.a.f46846f) / this.a.f46842b, ((-this.a.f46847g) * this.a.f46846f) / this.a.f46842b);
+                    gVar2.f47344e.offset(((-gVar2.f47347h) * this.a.f47345f) / this.a.f47341b, ((-this.a.f47346g) * this.a.f47345f) / this.a.f47341b);
                 }
             }
         }
@@ -624,31 +624,31 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 }
             }
             this.a = 2.0f;
-            this.f46842b = 2;
-            this.f46843c = bitmap;
-            this.f46847g = bitmap.getHeight();
-            this.f46848h = this.f46843c.getWidth();
-            this.f46844d = 128;
-            this.f46846f = 0.28f;
+            this.f47341b = 2;
+            this.f47342c = bitmap;
+            this.f47346g = bitmap.getHeight();
+            this.f47347h = this.f47342c.getWidth();
+            this.f47343d = 128;
+            this.f47345f = 0.28f;
             this.l = pointF;
             float f2 = pointF.x;
             float f3 = pointF.y;
-            RectF rectF = new RectF(f2, f3, this.f46848h + f2, this.f46847g + f3);
-            this.f46845e = rectF;
+            RectF rectF = new RectF(f2, f3, this.f47347h + f2, this.f47346g + f3);
+            this.f47344e = rectF;
             float f4 = this.a;
-            rectF.offset((-this.f46848h) / f4, (-this.f46847g) / f4);
+            rectF.offset((-this.f47347h) / f4, (-this.f47346g) / f4);
             d dVar = new d(1500);
-            this.f46851k = dVar;
+            this.f47350k = dVar;
             dVar.c(new a(this));
-            this.f46851k.e();
+            this.f47350k.e();
             i iVar = new i(pointF, pointF2, pointF3, 1500);
-            this.f46849i = iVar;
+            this.f47348i = iVar;
             iVar.c(new b(this));
-            this.f46849i.e();
+            this.f47348i.e();
             j jVar = new j(300, 1.0f);
-            this.f46850j = jVar;
+            this.f47349j = jVar;
             jVar.c(new c(this));
-            this.f46850j.e();
+            this.f47349j.e();
             j(true);
         }
 
@@ -661,24 +661,24 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         public final void i(Bitmap bitmap, PointF pointF, PointF pointF2, PointF pointF3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, pointF, pointF2, pointF3) == null) {
-                this.f46843c = bitmap;
-                this.f46847g = bitmap.getHeight();
-                int width = this.f46843c.getWidth();
-                this.f46848h = width;
-                this.f46844d = 128;
-                this.f46846f = 0.28f;
+                this.f47342c = bitmap;
+                this.f47346g = bitmap.getHeight();
+                int width = this.f47342c.getWidth();
+                this.f47347h = width;
+                this.f47343d = 128;
+                this.f47345f = 0.28f;
                 this.l = pointF;
-                RectF rectF = this.f46845e;
+                RectF rectF = this.f47344e;
                 float f2 = pointF.x;
                 float f3 = pointF.y;
-                rectF.set(f2, f3, width + f2, this.f46847g + f3);
-                RectF rectF2 = this.f46845e;
+                rectF.set(f2, f3, width + f2, this.f47346g + f3);
+                RectF rectF2 = this.f47344e;
                 float f4 = this.a;
-                rectF2.offset((-this.f46848h) / f4, (-this.f46847g) / f4);
-                this.f46849i.i(pointF, pointF2, pointF3, 1500);
-                this.f46849i.e();
-                this.f46850j.e();
-                this.f46851k.e();
+                rectF2.offset((-this.f47347h) / f4, (-this.f47346g) / f4);
+                this.f47348i.i(pointF, pointF2, pointF3, 1500);
+                this.f47348i.e();
+                this.f47349j.e();
+                this.f47350k.e();
                 j(true);
             }
         }
@@ -695,20 +695,20 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         public void update(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-                if (this.f46850j.b()) {
-                    this.f46850j.update(j2);
+                if (this.f47349j.b()) {
+                    this.f47349j.update(j2);
                 }
-                if (this.f46849i.b()) {
-                    this.f46849i.update(j2);
+                if (this.f47348i.b()) {
+                    this.f47348i.update(j2);
                 }
-                if (this.f46851k.b()) {
-                    this.f46851k.update(j2);
+                if (this.f47350k.b()) {
+                    this.f47350k.update(j2);
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface h {
         void a();
 
@@ -717,23 +717,23 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         void onUpdate(Object obj);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class i extends f {
         public static /* synthetic */ Interceptable $ic = null;
         public static float m = 1.0f;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public PointF f46852h;
+        public PointF f47351h;
 
         /* renamed from: i  reason: collision with root package name */
-        public PointF f46853i;
+        public PointF f47352i;
 
         /* renamed from: j  reason: collision with root package name */
-        public PointF f46854j;
+        public PointF f47353j;
 
         /* renamed from: k  reason: collision with root package name */
-        public PointF f46855k;
+        public PointF f47354k;
         public float l;
 
         static {
@@ -770,10 +770,10 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 }
             }
             this.l = 1.0f;
-            this.f46852h = pointF;
-            this.f46853i = pointF2;
-            this.f46854j = pointF3;
-            this.f46855k = h(m, pointF, pointF2);
+            this.f47351h = pointF;
+            this.f47352i = pointF2;
+            this.f47353j = pointF3;
+            this.f47354k = h(m, pointF, pointF2);
         }
 
         @Override // com.baidu.tieba.medialive.like.HeartSurfaceView.f
@@ -787,9 +787,9 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     if (f2 < f3) {
                         return g(f2);
                     }
-                    return f((f2 - f3) / (f4 - f3), this.f46855k, this.f46854j, this.f46853i);
+                    return f((f2 - f3) / (f4 - f3), this.f47354k, this.f47353j, this.f47352i);
                 }
-                return h(f2, this.f46852h, this.f46853i);
+                return h(f2, this.f47351h, this.f47352i);
             }
             return invokeF.objValue;
         }
@@ -815,7 +815,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2)) == null) {
                 PointF pointF = new PointF();
-                PointF pointF2 = this.f46852h;
+                PointF pointF2 = this.f47351h;
                 pointF.x = pointF2.x;
                 pointF.y = (this.l - f2) * pointF2.y;
                 return pointF;
@@ -841,26 +841,26 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLI(1048580, this, pointF, pointF2, pointF3, i2) == null) {
                 d(i2);
-                this.f46852h = pointF;
-                this.f46853i = pointF2;
-                this.f46854j = pointF3;
+                this.f47351h = pointF;
+                this.f47352i = pointF2;
+                this.f47353j = pointF3;
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class j extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f46856h;
+        public float f47355h;
 
         /* renamed from: i  reason: collision with root package name */
-        public float f46857i;
+        public float f47356i;
 
         /* renamed from: j  reason: collision with root package name */
-        public float f46858j;
+        public float f47357j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(int i2, float f2) {
@@ -880,9 +880,9 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     return;
                 }
             }
-            this.f46856h = 0.28f;
-            this.f46857i = 1.0f;
-            this.f46858j = f2;
+            this.f47355h = 0.28f;
+            this.f47356i = 1.0f;
+            this.f47357j = f2;
         }
 
         @Override // com.baidu.tieba.medialive.like.HeartSurfaceView.f
@@ -890,14 +890,14 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-                float f3 = this.f46858j;
+                float f3 = this.f47357j;
                 float f4 = 1.0f;
                 if (f2 < f3) {
-                    float f5 = this.f46857i;
-                    float f6 = this.f46856h;
+                    float f5 = this.f47356i;
+                    float f6 = this.f47355h;
                     f4 = (((f5 - f6) / f3) * f2) + f6;
                 } else {
-                    float f7 = this.f46857i;
+                    float f7 = this.f47356i;
                     float f8 = (((-f7) / f3) * f2) + (f7 * 2.0f);
                     if (f8 > 1.0f) {
                         f4 = f8;
@@ -968,16 +968,16 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, bitmap, pointF, pointF2, pointF3)) == null) {
             int i2 = 0;
             while (true) {
-                g[] gVarArr = this.f46824g;
+                g[] gVarArr = this.f47323g;
                 if (i2 >= gVarArr.length) {
                     return false;
                 }
                 if (gVarArr[i2] == null) {
                     gVarArr[i2] = new g(bitmap, pointF, pointF2, pointF3);
-                    this.f46824g[i2].n = this.r;
+                    this.f47323g[i2].n = this.r;
                     break;
                 } else if (!gVarArr[i2].h()) {
-                    this.f46824g[i2].i(bitmap, pointF, pointF2, pointF3);
+                    this.f47323g[i2].i(bitmap, pointF, pointF2, pointF3);
                     break;
                 } else {
                     i2++;
@@ -994,7 +994,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
             getViewTreeObserver().addOnGlobalLayoutListener(this.u);
-            this.f46825h = true;
+            this.f47324h = true;
             v();
             u();
         }
@@ -1004,7 +1004,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f46825h = false;
+            this.f47324h = false;
             super.onDetachedFromWindow();
             getViewTreeObserver().removeOnGlobalLayoutListener(this.u);
         }
@@ -1015,7 +1015,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, view, i2) == null) {
             if (i2 != 0) {
-                this.f46826i = false;
+                this.f47325i = false;
             }
             super.onVisibilityChanged(view, i2);
             setVisibility(i2);
@@ -1028,25 +1028,25 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         PointF pointF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!this.f46826i || this.n == null || this.o == null || (list = this.m) == null) {
+            if (!this.f47325i || this.n == null || this.o == null || (list = this.m) == null) {
                 return false;
             }
-            Pair<PointF, PointF> pair = list.get(this.f46827j.nextInt(list.size()));
+            Pair<PointF, PointF> pair = list.get(this.f47326j.nextInt(list.size()));
             PointF pointF2 = (PointF) pair.first;
             PointF pointF3 = (PointF) pair.second;
-            float nextFloat = this.f46827j.nextFloat();
+            float nextFloat = this.f47326j.nextFloat();
             if (nextFloat == 0.0f) {
                 nextFloat = 1.0f;
             }
             float f2 = this.o.x;
             float f3 = (f2 / 4.0f) + ((f2 / 2.0f) * nextFloat);
-            if (this.f46827j.nextBoolean()) {
+            if (this.f47326j.nextBoolean()) {
                 pointF = new PointF(f3, this.n.y * ((nextFloat * this.s) + this.t));
             } else {
                 pointF = new PointF(f3, this.o.y * ((nextFloat * this.s) + this.t));
             }
             ArrayList<Bitmap> arrayList = this.q;
-            return o(arrayList.get(this.f46827j.nextInt(arrayList.size())), pointF2, pointF3, pointF);
+            return o(arrayList.get(this.f47326j.nextInt(arrayList.size())), pointF2, pointF3, pointF);
         }
         return invokeV.booleanValue;
     }
@@ -1067,9 +1067,9 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         Canvas canvas;
         g[] gVarArr;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.m != null && this.f46826i) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.m != null && this.f47325i) {
             try {
-                canvas = this.f46822e.lockCanvas();
+                canvas = this.f47321e.lockCanvas();
             } catch (Exception e2) {
                 e2.printStackTrace();
                 canvas = null;
@@ -1080,27 +1080,27 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                         try {
                             canvas.drawColor(0, PorterDuff.Mode.CLEAR);
                             long currentTimeMillis = System.currentTimeMillis();
-                            for (g gVar : this.f46824g) {
-                                if (!this.f46825h || !this.f46826i) {
+                            for (g gVar : this.f47323g) {
+                                if (!this.f47324h || !this.f47325i) {
                                     break;
                                 }
                                 if (gVar != null && gVar.h()) {
                                     gVar.update(currentTimeMillis);
-                                    this.f46823f.setAlpha(gVar.f46844d);
-                                    canvas.drawBitmap(gVar.f46843c, (Rect) null, gVar.f46845e, this.f46823f);
+                                    this.f47322f.setAlpha(gVar.f47343d);
+                                    canvas.drawBitmap(gVar.f47342c, (Rect) null, gVar.f47344e, this.f47322f);
                                 }
                             }
-                            this.f46822e.unlockCanvasAndPost(canvas);
+                            this.f47321e.unlockCanvasAndPost(canvas);
                         } catch (Exception e3) {
                             e3.printStackTrace();
-                            this.f46822e.unlockCanvasAndPost(canvas);
+                            this.f47321e.unlockCanvasAndPost(canvas);
                         }
                     } catch (Exception e4) {
                         e4.printStackTrace();
                     }
                 } catch (Throwable th) {
                     try {
-                        this.f46822e.unlockCanvasAndPost(canvas);
+                        this.f47321e.unlockCanvasAndPost(canvas);
                     } catch (Exception e5) {
                         e5.printStackTrace();
                     }
@@ -1128,11 +1128,11 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             ArrayList<Bitmap> arrayList = new ArrayList<>();
             this.q = arrayList;
-            arrayList.add(q(c.a.r0.z1.d.liveshow_video_heart_like1));
-            this.q.add(q(c.a.r0.z1.d.liveshow_video_heart_like2));
-            this.q.add(q(c.a.r0.z1.d.liveshow_video_heart_like3));
-            this.q.add(q(c.a.r0.z1.d.liveshow_video_heart_like4));
-            this.q.add(q(c.a.r0.z1.d.liveshow_video_heart_like5));
+            arrayList.add(q(c.a.s0.a2.d.liveshow_video_heart_like1));
+            this.q.add(q(c.a.s0.a2.d.liveshow_video_heart_like2));
+            this.q.add(q(c.a.s0.a2.d.liveshow_video_heart_like3));
+            this.q.add(q(c.a.s0.a2.d.liveshow_video_heart_like4));
+            this.q.add(q(c.a.s0.a2.d.liveshow_video_heart_like5));
         }
     }
 
@@ -1153,7 +1153,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, surfaceHolder) == null) {
-            g[] gVarArr = this.f46824g;
+            g[] gVarArr = this.f47323g;
             if (gVarArr != null) {
                 for (g gVar : gVarArr) {
                     if (gVar != null && gVar.h()) {
@@ -1161,7 +1161,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     }
                 }
             }
-            this.f46826i = true;
+            this.f47325i = true;
         }
     }
 
@@ -1169,7 +1169,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, surfaceHolder) == null) {
-            this.f46826i = false;
+            this.f47325i = false;
         }
     }
 
@@ -1177,22 +1177,22 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             SurfaceHolder holder = getHolder();
-            this.f46822e = holder;
+            this.f47321e = holder;
             holder.addCallback(this);
             Paint paint = new Paint();
-            this.f46823f = paint;
+            this.f47322f = paint;
             paint.setAntiAlias(true);
-            this.f46824g = new g[30];
-            this.f46827j = new Random();
-            this.f46825h = true;
-            this.f46826i = false;
+            this.f47323g = new g[30];
+            this.f47326j = new Random();
+            this.f47324h = true;
+            this.f47325i = false;
             ArrayList<Bitmap> arrayList = new ArrayList<>();
             this.q = arrayList;
-            arrayList.add(r(c.a.r0.z1.d.liveshow_video_heart_like1));
-            this.q.add(r(c.a.r0.z1.d.liveshow_video_heart_like2));
-            this.q.add(r(c.a.r0.z1.d.liveshow_video_heart_like3));
-            this.q.add(r(c.a.r0.z1.d.liveshow_video_heart_like4));
-            this.q.add(r(c.a.r0.z1.d.liveshow_video_heart_like5));
+            arrayList.add(r(c.a.s0.a2.d.liveshow_video_heart_like1));
+            this.q.add(r(c.a.s0.a2.d.liveshow_video_heart_like2));
+            this.q.add(r(c.a.s0.a2.d.liveshow_video_heart_like3));
+            this.q.add(r(c.a.s0.a2.d.liveshow_video_heart_like4));
+            this.q.add(r(c.a.s0.a2.d.liveshow_video_heart_like5));
         }
     }
 
@@ -1250,8 +1250,8 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 return;
             }
         }
-        this.f46825h = false;
-        this.f46826i = false;
+        this.f47324h = false;
+        this.f47325i = false;
         this.s = 0.6f;
         this.t = 0.7f;
         this.u = new a(this);

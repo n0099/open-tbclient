@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.ResumeCallBack;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class FeedbackImageViewFlipperActivity extends Activity implements GestureDetector.OnGestureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureDetector a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewFlipper f51603b;
+    public ViewFlipper f52152b;
 
     public FeedbackImageViewFlipperActivity() {
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
             linearLayout.setGravity(17);
             linearLayout.setBackgroundColor(-16777216);
             ViewFlipper viewFlipper = new ViewFlipper(this);
-            this.f51603b = viewFlipper;
+            this.f52152b = viewFlipper;
             linearLayout.addView(viewFlipper, layoutParams);
             setContentView(linearLayout);
             this.a = new GestureDetector(this);
@@ -65,11 +65,11 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
             imageView.setAdjustViewBounds(true);
             imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
             imageView.setImageBitmap(FeedbackInputActivity.a);
-            this.f51603b.addView(imageView, new ViewGroup.LayoutParams(-1, -1));
-            this.f51603b.setAutoStart(false);
-            this.f51603b.setFlipInterval(3000);
-            if (this.f51603b.isAutoStart() && !this.f51603b.isFlipping()) {
-                this.f51603b.startFlipping();
+            this.f52152b.addView(imageView, new ViewGroup.LayoutParams(-1, -1));
+            this.f52152b.setAutoStart(false);
+            this.f52152b.setFlipInterval(3000);
+            if (this.f52152b.isAutoStart() && !this.f52152b.isFlipping()) {
+                this.f52152b.startFlipping();
             }
             LogUtil.logActivity(this, "onCreate");
         }
@@ -165,8 +165,8 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
-            this.f51603b.stopFlipping();
-            this.f51603b.setAutoStart(false);
+            this.f52152b.stopFlipping();
+            this.f52152b.setAutoStart(false);
             return this.a.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;

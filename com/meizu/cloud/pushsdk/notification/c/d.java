@@ -2,15 +2,15 @@ package com.meizu.cloud.pushsdk.notification.c;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f60540b;
+    public static d f61121b;
     public Context a;
 
     /* renamed from: c  reason: collision with root package name */
-    public AssetManager f60541c;
+    public AssetManager f61122c;
 
     public d(Context context) {
         this.a = context;
@@ -18,14 +18,14 @@ public class d {
     }
 
     public static d a(Context context) {
-        if (f60540b == null) {
-            f60540b = new d(context);
+        if (f61121b == null) {
+            f61121b = new d(context);
         }
-        return f60540b;
+        return f61121b;
     }
 
     private void a() {
-        this.f60541c = this.a.getAssets();
+        this.f61122c = this.a.getAssets();
     }
 
     public int a(String str, String str2) {

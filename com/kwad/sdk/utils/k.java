@@ -13,20 +13,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile k f59657b;
+    public static volatile k f60238b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f59658c;
+    public Context f60239c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f59659d;
+    public a f60240d;
 
     static {
         InterceptResult invokeClinit;
@@ -59,21 +59,21 @@ public class k {
                 return;
             }
         }
-        this.f59658c = context.getApplicationContext();
+        this.f60239c = context.getApplicationContext();
     }
 
     public static k a(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f59657b == null) {
+            if (f60238b == null) {
                 synchronized (k.class) {
-                    if (f59657b == null) {
-                        f59657b = new k(context);
+                    if (f60238b == null) {
+                        f60238b = new k(context);
                     }
                 }
             }
-            return f59657b;
+            return f60238b;
         }
         return (k) invokeL.objValue;
     }
@@ -81,25 +81,25 @@ public class k {
     private void c() {
         Context context;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && a.get() && (context = this.f59658c) != null) {
-            context.unregisterReceiver(this.f59659d);
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && a.get() && (context = this.f60239c) != null) {
+            context.unregisterReceiver(this.f60240d);
             a.set(false);
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f59658c == null || a.get()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f60239c == null || a.get()) {
             return;
         }
-        if (this.f59659d == null) {
-            this.f59659d = new a();
+        if (this.f60240d == null) {
+            this.f60240d = new a();
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
         intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter.addDataScheme("package");
-        this.f59658c.registerReceiver(this.f59659d, intentFilter);
+        this.f60239c.registerReceiver(this.f60240d, intentFilter);
         a.set(true);
     }
 

@@ -5,19 +5,19 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import c.a.q0.x.w.c.c;
+import c.a.r0.x.w.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class KPSwitchRootLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f41783e;
+    public c f42274e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchRootLinearLayout(Context context) {
@@ -43,7 +43,7 @@ public class KPSwitchRootLinearLayout extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41783e = new c(this);
+            this.f42274e = new c(this);
         }
     }
 
@@ -51,7 +51,7 @@ public class KPSwitchRootLinearLayout extends LinearLayout {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            this.f41783e.b(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
+            this.f42274e.b(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
             super.onMeasure(i2, i3);
         }
     }

@@ -4,14 +4,11 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.util.DeviceId;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-import com.baidu.searchbox.player.kernel.DefaultKernelFactory;
+import com.baidu.searchbox.player.kernel.EmptyKernelFactory;
 import com.baidu.searchbox.player.kernel.IKernelFactory;
 import com.baidu.searchbox.player.message.IMessengerFactory;
 import com.baidu.searchbox.player.message.MessengerFactory;
-import com.baidu.searchbox.player.remote.BDRemotePlayerService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,12 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BDPlayerConfig {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int DEFAULT_INSTALL_TYPE = 31;
+    public static /* synthetic */ Interceptable $ic;
     public static Context sApplication;
     public static boolean sIsDebugMode;
     public static IKernelFactory sKernelFactory;
@@ -76,7 +70,7 @@ public class BDPlayerConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             if (sKernelFactory == null) {
-                sKernelFactory = new DefaultKernelFactory();
+                sKernelFactory = new EmptyKernelFactory();
             }
             return sKernelFactory;
         }
@@ -98,17 +92,9 @@ public class BDPlayerConfig {
     }
 
     @PublicMethod
-    public static void initCyber() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            initCyber(true);
-        }
-    }
-
-    @PublicMethod
     public static void initEnv(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
             setDebugMode(z);
             Context context = sApplication;
             if (context != null) {
@@ -123,13 +109,13 @@ public class BDPlayerConfig {
     public static boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? sIsDebugMode : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? sIsDebugMode : invokeV.booleanValue;
     }
 
     @PublicMethod
     public static void setAppContext(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
             sApplication = context;
         }
     }
@@ -137,7 +123,7 @@ public class BDPlayerConfig {
     @PublicMethod
     public static void setDebugMode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
             sIsDebugMode = z;
         }
     }
@@ -145,7 +131,7 @@ public class BDPlayerConfig {
     @PublicMethod
     public static void setKernelFactory(@NonNull IKernelFactory iKernelFactory) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, iKernelFactory) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, null, iKernelFactory) == null) {
             sKernelFactory = iKernelFactory;
         }
     }
@@ -153,30 +139,8 @@ public class BDPlayerConfig {
     @PublicMethod
     public static void setMessengerFactory(@NonNull IMessengerFactory iMessengerFactory) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, iMessengerFactory) == null) {
+        if (interceptable == null || interceptable.invokeL(65546, null, iMessengerFactory) == null) {
             sMessengerFactory = iMessengerFactory;
         }
-    }
-
-    @PublicMethod
-    public static void initCyber(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65542, null, z) == null) || CyberPlayerManager.isCoreLoaded(DEFAULT_INSTALL_TYPE)) {
-            return;
-        }
-        Context appContext = getAppContext();
-        HashMap hashMap = new HashMap();
-        hashMap.put(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE, "2");
-        CyberPlayerManager.install(appContext, DeviceId.getCUID(appContext), (String) null, DEFAULT_INSTALL_TYPE, z ? BDRemotePlayerService.class : null, hashMap, (CyberPlayerManager.InstallListener) null);
-    }
-
-    @PublicMethod
-    public static void initCyber(boolean z, int i2, Map<String, String> map, CyberPlayerManager.InstallListener installListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), map, installListener}) == null) || CyberPlayerManager.isCoreLoaded(i2)) {
-            return;
-        }
-        Context appContext = getAppContext();
-        CyberPlayerManager.install(appContext, DeviceId.getCUID(appContext), (String) null, i2, z ? BDRemotePlayerService.class : null, map, installListener);
     }
 }

@@ -6,29 +6,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ab a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36503b;
+    public boolean f36992b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36504c;
+    public int f36993c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36505d;
+    public boolean f36994d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f36506e;
+    public boolean f36995e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f36507f;
+    public boolean f36996f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36508g;
+    public boolean f36997g;
 
     public z() {
         Interceptable interceptable = $ic;
@@ -44,19 +44,19 @@ public final class z {
             }
         }
         this.a = new ab();
-        this.f36503b = true;
-        this.f36504c = 1;
-        this.f36505d = true;
-        this.f36506e = true;
-        this.f36507f = true;
-        this.f36508g = true;
+        this.f36992b = true;
+        this.f36993c = 1;
+        this.f36994d = true;
+        this.f36995e = true;
+        this.f36996f = true;
+        this.f36997g = true;
     }
 
     public z a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            this.f36504c = i2;
+            this.f36993c = i2;
             return this;
         }
         return (z) invokeI.objValue;
@@ -76,7 +76,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.f36503b = z;
+            this.f36992b = z;
             return this;
         }
         return (z) invokeZ.objValue;
@@ -86,7 +86,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.f36505d = z;
+            this.f36994d = z;
             return this;
         }
         return (z) invokeZ.objValue;
@@ -96,7 +96,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            this.f36506e = z;
+            this.f36995e = z;
             return this;
         }
         return (z) invokeZ.objValue;
@@ -106,7 +106,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            this.f36507f = z;
+            this.f36996f = z;
             return this;
         }
         return (z) invokeZ.objValue;
@@ -116,7 +116,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.f36508g = z;
+            this.f36997g = z;
             return this;
         }
         return (z) invokeZ.objValue;

@@ -51,7 +51,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.CharUtils;
 @TK_EXPORT_CLASS
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TKBasicAnimation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AXIS_X = 1;
@@ -87,7 +87,7 @@ public class TKBasicAnimation {
     public String timeFunction;
     public String timingFunction;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AnimationJsCallback {
         void onJsExecuteComplete(double d2);
     }

@@ -21,7 +21,7 @@ import org.webrtc.Camera1Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
 import org.webrtc.VideoFrame;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Camera1Session implements CameraSession {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NUMBER_OF_CAPTURE_BUFFERS = 3;
@@ -44,7 +44,7 @@ public class Camera1Session implements CameraSession {
     public final SurfaceTextureHelper surfaceTextureHelper;
 
     /* renamed from: org.webrtc.Camera1Session$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class AnonymousClass2 implements Camera.PreviewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class Camera1Session implements CameraSession {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class SessionState {
         public static final /* synthetic */ SessionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

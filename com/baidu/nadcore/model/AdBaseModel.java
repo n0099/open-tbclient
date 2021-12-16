@@ -3,14 +3,14 @@ package com.baidu.nadcore.model;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.p.b;
-import c.a.b0.p.c;
-import c.a.b0.p.f;
-import c.a.b0.p.h;
-import c.a.b0.p.j;
-import c.a.b0.p.l;
-import c.a.b0.p.o;
-import c.a.b0.p.p;
+import c.a.c0.p.b;
+import c.a.c0.p.c;
+import c.a.c0.p.f;
+import c.a.c0.p.h;
+import c.a.c0.p.j;
+import c.a.c0.p.l;
+import c.a.c0.p.o;
+import c.a.c0.p.p;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,53 +19,53 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37572b;
+    public boolean f38061b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f37573c;
+    public final boolean f38062c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public final j f37574d;
+    public final j f38063d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f37575e;
+    public final b f38064e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public final AdOperator f37576f;
+    public final AdOperator f38065f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public final p f37577g;
+    public final p f38066g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final l f37578h;
+    public final l f38067h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final c f37579i;
+    public final c f38068i;
     @Nullable
 
     /* renamed from: j  reason: collision with root package name */
-    public h f37580j;
+    public h f38069j;
     @Nullable
 
     /* renamed from: k  reason: collision with root package name */
-    public f f37581k;
+    public f f38070k;
     public o l;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class STYLE {
         public static final /* synthetic */ STYLE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

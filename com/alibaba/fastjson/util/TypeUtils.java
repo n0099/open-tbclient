@@ -85,7 +85,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TypeUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern NUMBER_WITH_TRAILING_ZEROS_PATTERN;

@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.voice;
 
-import c.a.d.f.p.h;
 import c.a.d.f.p.i;
+import c.a.d.f.p.j;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Amrnb {
     public static /* synthetic */ Interceptable $ic;
     public static boolean bLoadLibrary;
@@ -20,8 +20,8 @@ public class Amrnb {
     public int mDecoderContext;
     public int mEncoderContext;
 
-    /* loaded from: classes8.dex */
-    public static class a extends i {
+    /* loaded from: classes9.dex */
+    public static class a extends j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,7 +39,7 @@ public class Amrnb {
             }
         }
 
-        @Override // c.a.d.f.p.i
+        @Override // c.a.d.f.p.j
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -71,7 +71,7 @@ public class Amrnb {
                 return;
             }
         }
-        boolean i2 = h.d().i("amrnb", 2, new a());
+        boolean i2 = i.d().i("amrnb", 2, new a());
         bLoadLibrary = i2;
         if (i2) {
             try {

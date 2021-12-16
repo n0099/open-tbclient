@@ -8,7 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+import com.dxmpay.wallet.base.statistics.StatServiceEvent;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+/* loaded from: classes2.dex */
 public final class SecurePay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INPUT_ID_CVV = 2;
@@ -27,7 +29,7 @@ public final class SecurePay {
     public static SecurePay a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f55051b = true;
+    public static boolean f55631b = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +48,7 @@ public final class SecurePay {
         try {
             System.loadLibrary("dxm_wsp_v1_1");
         } catch (UnsatisfiedLinkError e2) {
-            f55051b = false;
+            f55631b = false;
             String str = "load library failed, " + e2.getMessage();
         }
     }
@@ -113,7 +115,21 @@ public final class SecurePay {
     public boolean checkLicense(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? checkSign(context) == 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            StatisticManager.onEvent(StatServiceEvent.START_CHECK_SIGN);
+            try {
+                if (checkSign(context) == 0) {
+                    StatisticManager.onEvent(StatServiceEvent.CHECK_SIGN_SUCCESS);
+                    return true;
+                }
+                StatisticManager.onEvent(StatServiceEvent.CHECK_SIGN_FAIL);
+                return false;
+            } catch (Throwable th) {
+                StatisticManager.onEventWithValue(StatServiceEvent.CHECK_SIGN_ERROR, th.getMessage());
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 
     public native int checkSign(Context context);
@@ -223,7 +239,7 @@ public final class SecurePay {
     public boolean prepareCompleted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? f55051b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? f55631b : invokeV.booleanValue;
     }
 
     public native String rsaDecrypt(String str);

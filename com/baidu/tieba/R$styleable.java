@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class R$styleable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] AbsHListView;
@@ -1012,6 +1012,13 @@ public final class R$styleable {
     public static final int[] LiveBroadcastCard;
     public static final int LiveBroadcastCard_intro_singline = 0;
     public static final int LiveBroadcastCard_status = 1;
+    public static final int[] LiveFeedPageRoundRect;
+    public static final int LiveFeedPageRoundRect_live_feed_page_clip_background = 0;
+    public static final int LiveFeedPageRoundRect_live_feed_page_corner_radius = 1;
+    public static final int LiveFeedPageRoundRect_live_feed_page_corner_radius_bottom_left = 2;
+    public static final int LiveFeedPageRoundRect_live_feed_page_corner_radius_bottom_right = 3;
+    public static final int LiveFeedPageRoundRect_live_feed_page_corner_radius_top_left = 4;
+    public static final int LiveFeedPageRoundRect_live_feed_page_corner_radius_top_right = 5;
     public static final int[] LiveFeedPageTabTextView;
     public static final int LiveFeedPageTabTextView_live_feed_page_defaultTextSize = 0;
     public static final int LiveFeedPageTabTextView_live_feed_page_endTextColor = 1;
@@ -2169,6 +2176,11 @@ public final class R$styleable {
     public static final int ad_progress_ad_btn_textBold = 6;
     public static final int ad_progress_ad_btn_textColor = 7;
     public static final int ad_progress_ad_btn_textSize = 8;
+    public static final int[] bdvideoplayer_bdPlayerProgressView;
+    public static final int bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressGravity = 0;
+    public static final int bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressTextColor = 1;
+    public static final int bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressTextMode = 2;
+    public static final int bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressTextSize = 3;
     public static final int[] custom_state;
     public static final int custom_state_custom_state_focused = 0;
     public static final int custom_state_custom_state_skin = 1;
@@ -2537,6 +2549,7 @@ public final class R$styleable {
         ListPopupWindow = new int[]{16843436, 16843437};
         ListView = new int[]{R.attr.dividerHeight, R.attr.footerDividersEnabled, R.attr.headerDividersEnabled, R.attr.overScrollFooter, R.attr.overScrollHeader, R.attr.plaContentBackground};
         LiveBroadcastCard = new int[]{R.attr.intro_singline, R.attr.status};
+        LiveFeedPageRoundRect = new int[]{R.attr.live_feed_page_clip_background, R.attr.live_feed_page_corner_radius, R.attr.live_feed_page_corner_radius_bottom_left, R.attr.live_feed_page_corner_radius_bottom_right, R.attr.live_feed_page_corner_radius_top_left, R.attr.live_feed_page_corner_radius_top_right};
         LiveFeedPageTabTextView = new int[]{R.attr.live_feed_page_defaultTextSize, R.attr.live_feed_page_endTextColor, R.attr.live_feed_page_normalTextColor, R.attr.live_feed_page_selectedBold, R.attr.live_feed_page_selectedTextColor, R.attr.live_feed_page_selectedTextSize, R.attr.live_feed_page_sizeChangeEnable, R.attr.live_feed_page_startTextColor, R.attr.live_feed_page_unselectedBold};
         LiveFeedPage_live_feed_page_SmartTabLayout = new int[]{R.attr.live_feed_page_clickable, R.attr.live_feed_page_customTabLayoutHeight, R.attr.live_feed_page_customTabLayoutId, R.attr.live_feed_page_customTabLayoutWidth, R.attr.live_feed_page_customTabReddotViewId, R.attr.live_feed_page_customTabRednumViewId, R.attr.live_feed_page_customTabTextScrollViewId, R.attr.live_feed_page_customTabTextViewId, R.attr.live_feed_page_defaultTabBackground, R.attr.live_feed_page_defaultTabTextAllCaps, R.attr.live_feed_page_defaultTabTextColor, R.attr.live_feed_page_defaultTabTextHorizontalPadding, R.attr.live_feed_page_defaultTabTextMinWidth, R.attr.live_feed_page_defaultTabTextSize, R.attr.live_feed_page_distributeEvenly, R.attr.live_feed_page_dividerColor, R.attr.live_feed_page_dividerColors, R.attr.live_feed_page_dividerThickness, R.attr.live_feed_page_drawDecorationAfterTab, R.attr.live_feed_page_indicatorAlwaysInCenter, R.attr.live_feed_page_indicatorAlwaysInScreenCenter, R.attr.live_feed_page_indicatorColor, R.attr.live_feed_page_indicatorColors, R.attr.live_feed_page_indicatorCornerRadius, R.attr.live_feed_page_indicatorGravity, R.attr.live_feed_page_indicatorInFront, R.attr.live_feed_page_indicatorInterpolation, R.attr.live_feed_page_indicatorMarginBottom, R.attr.live_feed_page_indicatorThickness, R.attr.live_feed_page_indicatorWidth, R.attr.live_feed_page_indicatorWithoutPadding, R.attr.live_feed_page_overlineColor, R.attr.live_feed_page_overlineThickness, R.attr.live_feed_page_selectedTabTextSize, R.attr.live_feed_page_tabGradientEnable, R.attr.live_feed_page_tabMaxScale, R.attr.live_feed_page_tabScaleEnable, R.attr.live_feed_page_titleOffset, R.attr.live_feed_page_underlineColor, R.attr.live_feed_page_underlineThickness};
         LottieAnimationView = new int[]{R.attr.lottie_autoPlay, R.attr.lottie_colorFilter, R.attr.lottie_enableMergePathsForKitKatAndAbove, R.attr.lottie_fileName, R.attr.lottie_imageAssetsFolder, R.attr.lottie_loop, R.attr.lottie_progress, R.attr.lottie_rawRes, R.attr.lottie_repeatCount, R.attr.lottie_repeatMode, R.attr.lottie_scale, R.attr.lottie_url, R.attr.lottie_cacheComposition, R.attr.lottie_fallbackRes, R.attr.lottie_renderMode, R.attr.lottie_speed};
@@ -2655,6 +2668,7 @@ public final class R$styleable {
         WheelTwoDimensionPickerStyle = new int[]{R.attr.alwaysShowTwoWheel, R.attr.isCurrentSelectVisible, R.attr.leftWheelVisibleLine, R.attr.rightWheelVisibleLine, R.attr.wheelTwoDimensionTextSize};
         XGridLayout = new int[]{R.attr.gridHorizontalSpace, R.attr.gridIsSquare, R.attr.gridMaxItem, R.attr.gridSpan, R.attr.gridVerticalSpace};
         ad_progress = new int[]{R.attr.ad_btn_foreground_end, R.attr.ad_btn_foreground_start, R.attr.ad_btn_max, R.attr.ad_btn_progress, R.attr.ad_btn_radius, R.attr.ad_btn_text, R.attr.ad_btn_textBold, R.attr.ad_btn_textColor, R.attr.ad_btn_textSize};
+        bdvideoplayer_bdPlayerProgressView = new int[]{R.attr.bdvideoplayer_progressGravity, R.attr.bdvideoplayer_progressTextColor, R.attr.bdvideoplayer_progressTextMode, R.attr.bdvideoplayer_progressTextSize};
         custom_state = new int[]{R.attr.custom_state_focused, R.attr.custom_state_skin};
         feed_ad_progress = new int[]{R.attr.btn_foreground, R.attr.btn_max, R.attr.btn_progress, R.attr.btn_radius, R.attr.btn_text, R.attr.btn_textColor, R.attr.btn_textColorInit, R.attr.btn_textSize};
         fixtextview = new int[]{R.attr.measuretext};

@@ -31,45 +31,45 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.a.kwai.a;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KsShakeView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58122b;
+    public int f58703b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f58123c;
+    public Paint f58704c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f58124d;
+    public float f58705d;
     @ColorInt
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58125e;
+    public int f58706e;
     @ColorInt
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58126f;
+    public int f58707f;
     @ColorInt
 
     /* renamed from: g  reason: collision with root package name */
-    public int f58127g;
+    public int f58708g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f58128h;
+    public float f58709h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f58129i;
+    public float f58710i;
     @DrawableRes
 
     /* renamed from: j  reason: collision with root package name */
-    public int f58130j;
+    public int f58711j;
 
     /* renamed from: k  reason: collision with root package name */
-    public Animator f58131k;
+    public Animator f58712k;
     public boolean l;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -133,7 +133,7 @@ public class KsShakeView extends FrameLayout {
                 return;
             }
         }
-        this.f58123c = new Paint();
+        this.f58704c = new Paint();
         this.l = false;
         a(context, attributeSet, i2);
     }
@@ -148,7 +148,7 @@ public class KsShakeView extends FrameLayout {
                 return null;
             }
             AnimatorSet animatorSet = new AnimatorSet();
-            if (this.f58122b == 1) {
+            if (this.f58703b == 1) {
                 create = PathInterpolatorCompat.create(0.22f, 0.59f, 0.36f, 1.0f);
                 view.setPivotX(view.getWidth());
                 height = view.getHeight();
@@ -179,14 +179,14 @@ public class KsShakeView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet, i2) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KsShakeView, i2, 0);
-            this.f58124d = obtainStyledAttributes.getDimension(R.styleable.ksad_KsShakeView_ksad_outerStrokeWidth, 1.0f);
-            this.f58125e = obtainStyledAttributes.getColor(R.styleable.ksad_KsShakeView_ksad_outerStrokeColor, Color.parseColor("#4DFFFFFF"));
-            this.f58126f = obtainStyledAttributes.getColor(R.styleable.ksad_KsShakeView_ksad_solidColor, Color.parseColor("#66000000"));
-            this.f58122b = obtainStyledAttributes.getInteger(R.styleable.ksad_KsShakeView_ksad_shakeViewStyle, 1);
-            this.f58127g = obtainStyledAttributes.getColor(R.styleable.ksad_KsShakeView_ksad_innerCircleStrokeColor, Color.parseColor("#B3FFFFFF"));
-            this.f58128h = obtainStyledAttributes.getDimension(R.styleable.ksad_KsShakeView_ksad_innerCircleStrokeWidth, 1.0f);
-            this.f58130j = obtainStyledAttributes.getResourceId(R.styleable.ksad_KsShakeView_ksad_shakeIcon, R.drawable.ksad_ic_shake_hand);
-            this.f58129i = obtainStyledAttributes.getDimension(R.styleable.ksad_KsShakeView_ksad_innerCirclePadding, a.a(context, 10.0f));
+            this.f58705d = obtainStyledAttributes.getDimension(R.styleable.ksad_KsShakeView_ksad_outerStrokeWidth, 1.0f);
+            this.f58706e = obtainStyledAttributes.getColor(R.styleable.ksad_KsShakeView_ksad_outerStrokeColor, Color.parseColor("#4DFFFFFF"));
+            this.f58707f = obtainStyledAttributes.getColor(R.styleable.ksad_KsShakeView_ksad_solidColor, Color.parseColor("#66000000"));
+            this.f58703b = obtainStyledAttributes.getInteger(R.styleable.ksad_KsShakeView_ksad_shakeViewStyle, 1);
+            this.f58708g = obtainStyledAttributes.getColor(R.styleable.ksad_KsShakeView_ksad_innerCircleStrokeColor, Color.parseColor("#B3FFFFFF"));
+            this.f58709h = obtainStyledAttributes.getDimension(R.styleable.ksad_KsShakeView_ksad_innerCircleStrokeWidth, 1.0f);
+            this.f58711j = obtainStyledAttributes.getResourceId(R.styleable.ksad_KsShakeView_ksad_shakeIcon, R.drawable.ksad_ic_shake_hand);
+            this.f58710i = obtainStyledAttributes.getDimension(R.styleable.ksad_KsShakeView_ksad_innerCirclePadding, a.a(context, 10.0f));
             obtainStyledAttributes.recycle();
             this.a = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
@@ -224,7 +224,7 @@ public class KsShakeView extends FrameLayout {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.a.setImageResource(this.f58130j);
+            this.a.setImageResource(this.f58711j);
         }
     }
 
@@ -233,7 +233,7 @@ public class KsShakeView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(65546, this, paint) == null) {
             paint.reset();
             paint.setStyle(Paint.Style.FILL);
-            paint.setColor(this.f58126f);
+            paint.setColor(this.f58707f);
             paint.setAntiAlias(true);
         }
     }
@@ -243,8 +243,8 @@ public class KsShakeView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(65547, this, paint) == null) {
             paint.reset();
             paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(this.f58128h);
-            paint.setColor(this.f58127g);
+            paint.setStrokeWidth(this.f58709h);
+            paint.setColor(this.f58708g);
             paint.setAntiAlias(true);
         }
     }
@@ -254,8 +254,8 @@ public class KsShakeView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(65548, this, paint) == null) {
             paint.reset();
             paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(this.f58124d);
-            paint.setColor(this.f58125e);
+            paint.setStrokeWidth(this.f58705d);
+            paint.setColor(this.f58706e);
             paint.setAntiAlias(true);
         }
     }
@@ -264,13 +264,13 @@ public class KsShakeView extends FrameLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Animator animator = this.f58131k;
+            Animator animator = this.f58712k;
             if (animator != null) {
                 animator.cancel();
-                this.f58131k = null;
+                this.f58712k = null;
             }
             Animator a = a(this.a, 100L, 16.0f);
-            this.f58131k = a;
+            this.f58712k = a;
             if (a != null) {
                 a.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.sdk.core.widget.KsShakeView.1
                     public static /* synthetic */ Interceptable $ic;
@@ -312,11 +312,11 @@ public class KsShakeView extends FrameLayout {
                             if (this.a.l) {
                                 return;
                             }
-                            this.a.f58131k.start();
+                            this.a.f58712k.start();
                         }
                     }
                 });
-                this.f58131k.start();
+                this.f58712k.start();
             }
         }
     }
@@ -324,7 +324,7 @@ public class KsShakeView extends FrameLayout {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f58122b = i2;
+            this.f58703b = i2;
             setIconDrawableRes(i2 != 2 ? R.drawable.ksad_ic_shake_hand : R.drawable.ksad_ic_shake_phone);
         }
     }
@@ -333,7 +333,7 @@ public class KsShakeView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animatorListenerAdapter) == null) {
             this.l = true;
-            Animator animator = this.f58131k;
+            Animator animator = this.f58712k;
             if (animator != null) {
                 animator.cancel();
             }
@@ -351,13 +351,13 @@ public class KsShakeView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             float min = Math.min(getWidth(), getHeight()) / 2.0f;
-            setBgCirclePaint(this.f58123c);
-            canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.f58123c);
-            setOuterCirclePaint(this.f58123c);
-            canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.f58123c);
-            if (this.f58122b == 2) {
-                setInnerCirclePaint(this.f58123c);
-                canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min - this.f58129i, this.f58123c);
+            setBgCirclePaint(this.f58704c);
+            canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.f58704c);
+            setOuterCirclePaint(this.f58704c);
+            canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.f58704c);
+            if (this.f58703b == 2) {
+                setInnerCirclePaint(this.f58704c);
+                canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min - this.f58710i, this.f58704c);
             }
             super.dispatchDraw(canvas);
         }

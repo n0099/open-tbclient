@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FrameSequence implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicBoolean ISLOADED;
@@ -26,7 +26,7 @@ public class FrameSequence implements Serializable {
     public boolean mOpaque;
     public int mWidth;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class State implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

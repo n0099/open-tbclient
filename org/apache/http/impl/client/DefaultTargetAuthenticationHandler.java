@@ -12,7 +12,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DefaultTargetAuthenticationHandler extends AbstractAuthenticationHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

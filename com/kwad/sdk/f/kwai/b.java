@@ -10,32 +10,32 @@ import com.kwad.sdk.api.KsNativeAd;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBasePvFrameLayout;
 import com.kwad.sdk.f.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.core.e.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public a.InterfaceC2040a a;
+    public a.InterfaceC2101a a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f58501b;
+    public KsNativeAd.VideoPlayListener f59082b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBasePvFrameLayout f58502c;
+    public AdBasePvFrameLayout f59083c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f58503d;
+    public AdTemplate f59084d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f58504e;
+    public com.kwad.sdk.core.download.a.b f59085e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.f.b.a f58505f;
+    public com.kwad.sdk.f.b.a f59086f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -55,11 +55,11 @@ public class b extends com.kwad.sdk.core.e.b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.kwad.sdk.core.download.a.b bVar = this.f58504e;
+            com.kwad.sdk.core.download.a.b bVar = this.f59085e;
             if (bVar != null) {
                 bVar.i();
             }
-            this.f58505f.e();
+            this.f59086f.e();
         }
     }
 }

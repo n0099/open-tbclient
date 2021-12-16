@@ -12,30 +12,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f extends n<e, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f27535b;
+    public a f27910b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.badlogic.gdx.math.a f27536c;
+    public com.badlogic.gdx.math.a f27911c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends c.b.b.j.c<e> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27537b;
+        public String f27912b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f27538c;
+        public int f27913c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String[] f27539d;
+        public String[] f27914d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public class f extends n<e, a> {
                     return;
                 }
             }
-            this.f27537b = "i ";
-            this.f27538c = 1024;
-            this.f27539d = new String[]{"png", "PNG", "jpeg", "JPEG", "jpg", "JPG", "cim", "CIM", "etc1", "ETC1", "ktx", "KTX", "zktx", "ZKTX"};
+            this.f27912b = "i ";
+            this.f27913c = 1024;
+            this.f27914d = new String[]{"png", "PNG", "jpeg", "JPEG", "jpg", "JPG", "cim", "CIM", "etc1", "ETC1", "ktx", "KTX", "zktx", "ZKTX"};
         }
     }
 
@@ -74,8 +74,8 @@ public class f extends n<e, a> {
                 return;
             }
         }
-        this.f27535b = new a();
-        this.f27536c = new com.badlogic.gdx.math.a();
+        this.f27910b = new a();
+        this.f27911c = new com.badlogic.gdx.math.a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -88,15 +88,15 @@ public class f extends n<e, a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar, aVar2)) == null) {
             if (aVar2 == null) {
-                aVar2 = this.f27535b;
+                aVar2 = this.f27910b;
             }
             try {
-                BufferedReader q = aVar.q(aVar2.f27538c);
+                BufferedReader q = aVar.q(aVar2.f27913c);
                 while (true) {
                     String readLine = q.readLine();
                     if (readLine != null) {
-                        if (readLine.startsWith(aVar2.f27537b)) {
-                            str2 = readLine.substring(aVar2.f27537b.length());
+                        if (readLine.startsWith(aVar2.f27912b)) {
+                            str2 = readLine.substring(aVar2.f27912b.length());
                             break;
                         }
                     } else {
@@ -105,7 +105,7 @@ public class f extends n<e, a> {
                     }
                 }
                 q.close();
-                if (str2 == null && (strArr = aVar2.f27539d) != null) {
+                if (str2 == null && (strArr = aVar2.f27914d) != null) {
                     for (String str3 : strArr) {
                         c.b.b.m.a s = aVar.s(aVar.h().concat("." + str3));
                         if (s.c()) {
@@ -162,7 +162,7 @@ public class f extends n<e, a> {
             for (int i2 = 0; i2 < length; i2++) {
                 fArr[i2] = Float.parseFloat(split[i2]);
             }
-            return new e(iVar, fArr, this.f27536c.c(fArr).f());
+            return new e(iVar, fArr, this.f27911c.c(fArr).f());
         }
         return (e) invokeLL.objValue;
     }

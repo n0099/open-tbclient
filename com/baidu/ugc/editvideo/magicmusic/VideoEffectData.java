@@ -2,9 +2,9 @@ package com.baidu.ugc.editvideo.magicmusic;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.j.b;
-import c.a.x0.t.c;
-import c.a.x0.t.h;
+import c.a.y0.j.b;
+import c.a.y0.t.c;
+import c.a.y0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class VideoEffectData implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

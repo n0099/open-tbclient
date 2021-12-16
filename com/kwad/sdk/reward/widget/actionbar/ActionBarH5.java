@@ -20,22 +20,22 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.d;
 import com.kwad.sdk.widget.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ActionBarH5 extends FrameLayout implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f59324b;
+    public TextView f59905b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f59325c;
+    public AdTemplate f59906c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f59326d;
+    public a f59907d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(boolean z);
     }
@@ -110,20 +110,20 @@ public class ActionBarH5 extends FrameLayout implements d {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             FrameLayout.inflate(context, R.layout.ksad_video_actionbar_h5, this);
             this.a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
-            this.f59324b = (TextView) findViewById(R.id.ksad_h5_open_btn);
+            this.f59905b = (TextView) findViewById(R.id.ksad_h5_open_btn);
         }
     }
 
     private void a(View view, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, this, view, z) == null) {
-            com.kwad.sdk.core.download.a.a.a(new a.C2015a(view.getContext()).a(this.f59325c).a(new a.b(this, z) { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
+            com.kwad.sdk.core.download.a.a.a(new a.C2076a(view.getContext()).a(this.f59906c).a(new a.b(this, z) { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ActionBarH5 f59327b;
+                public final /* synthetic */ ActionBarH5 f59908b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -140,17 +140,17 @@ public class ActionBarH5 extends FrameLayout implements d {
                             return;
                         }
                     }
-                    this.f59327b = this;
+                    this.f59908b = this;
                     this.a = z;
                 }
 
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f59327b.f59326d == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f59908b.f59907d == null) {
                         return;
                     }
-                    this.f59327b.f59326d.a(this.a);
+                    this.f59908b.f59907d.a(this.a);
                 }
             }));
         }
@@ -159,11 +159,11 @@ public class ActionBarH5 extends FrameLayout implements d {
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adTemplate, aVar) == null) {
-            this.f59325c = adTemplate;
-            this.f59326d = aVar;
+            this.f59906c = adTemplate;
+            this.f59907d = aVar;
             AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
             this.a.setText(com.kwad.sdk.core.response.a.a.s(j2));
-            this.f59324b.setText(com.kwad.sdk.core.response.a.a.A(j2));
+            this.f59905b.setText(com.kwad.sdk.core.response.a.a.A(j2));
             setClickable(true);
             new f(this, this);
         }
@@ -180,7 +180,7 @@ public class ActionBarH5 extends FrameLayout implements d {
     @Override // com.kwad.sdk.widget.d
     public void b(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && c.g(this.f59325c)) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && c.g(this.f59906c)) {
             a(view, false);
         }
     }

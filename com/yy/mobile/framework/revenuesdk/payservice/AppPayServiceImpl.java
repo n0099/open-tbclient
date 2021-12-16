@@ -76,10 +76,11 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IReq
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayEventType;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, IRevenueDataReceiver, IRevenueService.IRevenueServiceListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AppPayServiceImpl";
@@ -130,7 +131,7 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
         this.mPayReporter = defaultPayReporter;
         this.mPayRespManager = new PayRespManager(defaultPayReporter, this, this.mDefalutServiceName, this.mDefalutFunctionName);
         this.mPayResultPoller = new PayResultPoller(this, this);
-        RLog.info("AppPayServiceImpl", "create AppPayServiceImpl versionName:4.3.0-bdpay appId:" + i2 + " usedChannel:" + i3);
+        RLog.info("AppPayServiceImpl", "create AppPayServiceImpl versionName:4.3.9-bdpay212004-SNAPSHOT appId:" + i2 + " usedChannel:" + i3);
     }
 
     private boolean checkNotNull(RequestParams requestParams, IResult iResult) {
@@ -150,7 +151,7 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
                     iPayCallback.onFail(IPayMethod.Status.NOT_SUPPORT.getCode(), IPayMethod.Status.NOT_SUPPORT.getMessage(), new PayCallBackBean(null, productInfo.productId, null, currentTimeMillis, null, null, null, null, PurchaseStatus.ORDER_FAIL, chargeCurrencyReqParams.getAppClientExpand()));
                     return;
                 }
-                chargeCurrencyReqParams.setContext(activity);
+                chargeCurrencyReqParams.setContextWeakRef(new WeakReference<>(activity));
                 chargeCurrencyReqParams.setCallback(iPayCallback);
                 chargeCurrencyReqParams.setPayChannel(payType.getChannel());
                 chargeCurrencyReqParams.setPayMethod(payType.getMethod());
@@ -179,6 +180,7 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
                 clone.setTraceid(chargeCurrencyReqParams.getTraceid());
                 clone.setFrom(chargeCurrencyReqParams.getFrom());
                 clone.setAppClientExpand(chargeCurrencyReqParams.getAppClientExpand());
+                clone.setPayFlowTypeId(chargeCurrencyReqParams.getPayFlowTypeId());
                 IToken tokenCallback = chargeCurrencyReqParams.getTokenCallback();
                 if (tokenCallback != null && (onUpdateToken = tokenCallback.onUpdateToken()) != null) {
                     clone.setToken(onUpdateToken);
@@ -235,6 +237,7 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
             h5PayParams.payMethod = chargeCurrencyReqParams.getPayMethod();
             h5PayParams.traceid = chargeCurrencyReqParams.getTraceid();
             h5PayParams.cid = chargeCurrencyReqParams.getCid();
+            h5PayParams.payFlowTypeId = chargeCurrencyReqParams.getPayFlowTypeId();
             h5PayParams.appPayService = this;
             h5PayParams.payServiceCallback = this;
             H5PayManager.getInstance().requestH5Pay(chargeCurrencyReqParams.getContext(), str, h5PayParams);

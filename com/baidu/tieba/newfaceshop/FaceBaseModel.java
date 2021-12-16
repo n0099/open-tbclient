@@ -2,28 +2,28 @@ package com.baidu.tieba.newfaceshop;
 
 import android.os.Handler;
 import android.os.Looper;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public abstract class FaceBaseModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Message f47195e;
+        public final /* synthetic */ Message f47702e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FaceBaseModel f47196f;
+        public final /* synthetic */ FaceBaseModel f47703f;
 
         public a(FaceBaseModel faceBaseModel, Message message) {
             Interceptable interceptable = $ic;
@@ -40,15 +40,15 @@ public abstract class FaceBaseModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f47196f = faceBaseModel;
-            this.f47195e = message;
+            this.f47703f = faceBaseModel;
+            this.f47702e = message;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47196f.sendMessage(this.f47195e);
+                this.f47703f.sendMessage(this.f47702e);
             }
         }
     }
@@ -71,7 +71,7 @@ public abstract class FaceBaseModel extends BdBaseModel {
     public void sendMessage(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            if (l.B()) {
+            if (m.B()) {
                 super.sendMessage(message);
             } else {
                 new Handler(Looper.getMainLooper()).post(new a(this, message));

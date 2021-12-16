@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public static volatile Executor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile ScheduledExecutorService f59654b;
+    public static volatile ScheduledExecutorService f60235b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,10 +43,10 @@ public class i {
     public static void a(Runnable runnable, long j2, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j2), timeUnit}) == null) {
-            if (f59654b == null) {
-                f59654b = com.kwad.sdk.core.i.b.o();
+            if (f60235b == null) {
+                f60235b = com.kwad.sdk.core.i.b.o();
             }
-            f59654b.schedule(runnable, j2, timeUnit);
+            f60235b.schedule(runnable, j2, timeUnit);
         }
     }
 }

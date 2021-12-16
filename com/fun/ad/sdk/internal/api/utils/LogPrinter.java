@@ -13,7 +13,7 @@ import com.fun.ad.sdk.FunAdSdk;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class LogPrinter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FunAdSdk";

@@ -1,256 +1,199 @@
 package c.a.r0.u;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.s.c;
-import com.baidu.adp.lib.util.BdLog;
+import c.a.d.f.p.r;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONObject;
+import tbclient.Advertisement;
 /* loaded from: classes6.dex */
-public class a extends BaseAdapter {
+public class a implements Comparable<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity f24067e;
+    public long f13968e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f24068f;
+    public String f13969f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<AccountData> f24069g;
+    public String f13970g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f24070h;
+    public String f13971h;
 
-    /* renamed from: c.a.r0.u.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class C1373a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    /* renamed from: i  reason: collision with root package name */
+    public String f13972i;
 
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
+    /* renamed from: j  reason: collision with root package name */
+    public int f13973j;
 
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f24071b;
+    /* renamed from: k  reason: collision with root package name */
+    public String f13974k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
 
-        /* renamed from: c  reason: collision with root package name */
-        public ImageView f24072c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f24073d;
-
-        public b(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar, C1373a c1373a) {
-            this(aVar);
-        }
-    }
-
-    public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? k() > aVar.k() ? -1 : 1 : invokeL.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13972i : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m : (String) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13973j : invokeV.intValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.o : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.n : (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13971h : (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f13969f : (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f13970g : (String) invokeV.objValue;
+    }
+
+    public long k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f13968e : invokeV.longValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f13974k : (String) invokeV.objValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (StringUtils.isNull(this.f13974k) && StringUtils.isNull(this.l)) {
                 return;
             }
-        }
-        this.f24067e = baseActivity;
-        this.f24069g = null;
-        this.f24068f = false;
-        this.f24070h = onClickListener;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24068f : invokeV.booleanValue;
-    }
-
-    public void b(List<AccountData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f24069g = list;
-        }
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f24068f = z;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<AccountData> list = this.f24069g;
-            return (list != null ? list.size() : 0) + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            List<AccountData> list = this.f24069g;
-            if (list == null || i2 < 0 || i2 >= list.size()) {
-                return null;
+            String c2 = r.c(TbadkApplication.getInst().getAndroidId());
+            String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+            StringBuilder sb = new StringBuilder();
+            sb.append("&ANDROIDID=");
+            sb.append(c2 == null ? "" : c2.toLowerCase());
+            sb.append("&OAID=");
+            sb.append(lastCachedOid != null ? lastCachedOid.toUpperCase() : "");
+            String sb2 = sb.toString();
+            if (!StringUtils.isNull(this.f13974k) && !this.f13974k.contains("ANDROIDID") && !this.f13974k.contains("OAID")) {
+                this.f13974k += sb2;
             }
-            return this.f24069g.get(i2);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            if (getItem(i2) != null) {
-                return i2;
+            if (StringUtils.isNull(this.l) || this.l.contains("ANDROIDID") || this.l.contains("OAID")) {
+                return;
             }
-            return -1L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? getItemId(i2) >= 0 ? 0 : 1 : invokeI.intValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, INVOKE, INVOKE, INVOKE]}, finally: {[IGET, INVOKE, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE, CONST, INVOKE, IGET, INVOKE, INVOKE, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x00ce, code lost:
-        if (com.baidu.tbadk.core.TbadkCoreApplication.getInst().getSkinType() == 1) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00e5, code lost:
-        if (com.baidu.tbadk.core.TbadkCoreApplication.getInst().getSkinType() != 1) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00e8, code lost:
-        r0 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00e9, code lost:
-        r6.k(r0);
-        r5.f24067e.getLayoutMode().j(r7);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00f5, code lost:
-        return r7;
-     */
-    @Override // android.widget.Adapter
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public View getView(int i2, View view, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        c layoutMode;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) != null) {
-            return (View) invokeILL.objValue;
-        }
-        try {
-            try {
-                if (view == null) {
-                    if (getItemViewType(i2) == 0) {
-                        view = LayoutInflater.from(this.f24067e.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
-                        bVar = new b(this, null);
-                        bVar.a = (TextView) view.findViewById(R.id.account);
-                        bVar.f24072c = (ImageView) view.findViewById(R.id.active);
-                        TextView textView = (TextView) view.findViewById(R.id.delete);
-                        bVar.f24073d = textView;
-                        textView.setOnClickListener(this.f24070h);
-                        view.setTag(bVar);
-                    } else {
-                        view = LayoutInflater.from(this.f24067e.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
-                        bVar = new b(this, null);
-                        bVar.f24071b = (TextView) view.findViewById(R.id.add_text);
-                        view.setTag(bVar);
-                    }
-                } else {
-                    bVar = (b) view.getTag();
-                }
-                if (getItemViewType(i2) == 0) {
-                    AccountData accountData = (AccountData) getItem(i2);
-                    bVar.f24072c.setVisibility(8);
-                    bVar.f24073d.setVisibility(8);
-                    bVar.f24073d.setTag(accountData);
-                    if (accountData != null) {
-                        bVar.a.setText(accountData.getAccountNameShow());
-                        if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            bVar.f24072c.setVisibility(0);
-                        }
-                        if (this.f24068f) {
-                            bVar.f24073d.setVisibility(0);
-                        }
-                    }
-                }
-                layoutMode = this.f24067e.getLayoutMode();
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
-                layoutMode = this.f24067e.getLayoutMode();
-            }
-        } catch (Throwable th) {
-            this.f24067e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f24067e.getLayoutMode().j(view);
-            throw th;
+            this.l += sb2;
         }
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
+    public void n(Advertisement advertisement) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 2;
+        if (interceptable == null || interceptable.invokeL(1048590, this, advertisement) == null) {
+            this.f13968e = advertisement.time.longValue();
+            this.f13969f = advertisement.pic;
+            this.f13970g = advertisement.pic_click;
+            this.f13971h = advertisement.jump_link;
+            this.f13972i = advertisement.advertisement_id;
+            this.f13974k = advertisement.view_statistics_url;
+            this.l = advertisement.click_statistics_url;
+            this.m = advertisement.floating_text;
+            this.n = advertisement.scheme;
+            this.o = advertisement.package_name;
+            m();
         }
-        return invokeV.intValue;
+    }
+
+    public void o(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, jSONObject) == null) {
+            this.f13969f = jSONObject.optString("pic");
+            this.f13970g = jSONObject.optString("pic_click");
+            this.f13971h = jSONObject.optString("jump_link");
+            this.f13972i = jSONObject.optString("advertisement_id");
+            this.f13974k = jSONObject.optString("view_statistics_url");
+            this.l = jSONObject.optString("click_statistics_url");
+            this.m = jSONObject.optString("floating_text");
+            this.n = jSONObject.optString("scheme");
+            this.o = jSONObject.optString("package_name");
+            m();
+        }
+    }
+
+    public void p(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.f13973j = i2;
+        }
     }
 }

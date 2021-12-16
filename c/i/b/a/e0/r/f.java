@@ -35,35 +35,35 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import kotlin.text.Typography;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f30052b;
+    public static final Pattern f30422b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f30053c;
+    public static final Pattern f30423c;
     public transient /* synthetic */ FieldHolder $fh;
     public final StringBuilder a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String[] f30054e;
+        public static final String[] f30424e;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30055b;
+        public final int f30425b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f30056c;
+        public final String f30426c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String[] f30057d;
+        public final String[] f30427d;
 
         static {
             InterceptResult invokeClinit;
@@ -78,7 +78,7 @@ public final class f {
                     return;
                 }
             }
-            f30054e = new String[0];
+            f30424e = new String[0];
         }
 
         public a(String str, int i2, String str2, String[] strArr) {
@@ -96,10 +96,10 @@ public final class f {
                     return;
                 }
             }
-            this.f30055b = i2;
+            this.f30425b = i2;
             this.a = str;
-            this.f30056c = str2;
-            this.f30057d = strArr;
+            this.f30426c = str2;
+            this.f30427d = strArr;
         }
 
         public static a a(String str, int i2) {
@@ -125,7 +125,7 @@ public final class f {
                 if (split.length > 1) {
                     strArr = (String[]) Arrays.copyOfRange(split, 1, split.length);
                 } else {
-                    strArr = f30054e;
+                    strArr = f30424e;
                 }
                 return new a(str3, i2, str2, strArr);
             }
@@ -139,16 +139,16 @@ public final class f {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b implements Comparable<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f30058e;
+        public final int f30428e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final d f30059f;
+        public final d f30429f;
 
         public b(int i2, d dVar) {
             Interceptable interceptable = $ic;
@@ -165,8 +165,8 @@ public final class f {
                     return;
                 }
             }
-            this.f30058e = i2;
-            this.f30059f = dVar;
+            this.f30428e = i2;
+            this.f30429f = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -175,7 +175,7 @@ public final class f {
         public int compareTo(@NonNull b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? this.f30058e - bVar.f30058e : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? this.f30428e - bVar.f30428e : invokeL.intValue;
         }
     }
 
@@ -192,8 +192,8 @@ public final class f {
                 return;
             }
         }
-        f30052b = Pattern.compile("^(\\S+)\\s+-->\\s+(\\S+)(.*)?$");
-        f30053c = Pattern.compile("(\\S+?):(\\S+)");
+        f30422b = Pattern.compile("^(\\S+)\\s+-->\\s+(\\S+)(.*)?$");
+        f30423c = Pattern.compile("(\\S+?):(\\S+)");
     }
 
     public f() {
@@ -256,7 +256,7 @@ public final class f {
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, aVar, spannableStringBuilder, list, list2) == null) {
-            int i2 = aVar.f30055b;
+            int i2 = aVar.f30425b;
             int length = spannableStringBuilder.length();
             String str2 = aVar.a;
             int hashCode = str2.hashCode();
@@ -318,7 +318,7 @@ public final class f {
             e(list, str, aVar, list2);
             int size = list2.size();
             for (int i3 = 0; i3 < size; i3++) {
-                c(spannableStringBuilder, list2.get(i3).f30059f, i2, length);
+                c(spannableStringBuilder, list2.get(i3).f30429f, i2, length);
             }
         }
     }
@@ -376,7 +376,7 @@ public final class f {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 d dVar = list.get(i2);
-                int f2 = dVar.f(str, aVar.a, aVar.f30057d, aVar.f30056c);
+                int f2 = dVar.f(str, aVar.a, aVar.f30427d, aVar.f30426c);
                 if (f2 > 0) {
                     list2.add(new b(f2, dVar));
                 }
@@ -472,7 +472,7 @@ public final class f {
     public static void j(String str, e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, str, bVar) == null) {
-            Matcher matcher = f30053c.matcher(str);
+            Matcher matcher = f30423c.matcher(str);
             while (matcher.find()) {
                 String group = matcher.group(1);
                 String group2 = matcher.group(2);
@@ -731,7 +731,7 @@ public final class f {
             if (k2 == null) {
                 return false;
             }
-            Matcher matcher = f30052b.matcher(k2);
+            Matcher matcher = f30422b.matcher(k2);
             if (matcher.matches()) {
                 return i(null, matcher, lVar, bVar, this.a, list);
             }
@@ -739,7 +739,7 @@ public final class f {
             if (k3 == null) {
                 return false;
             }
-            Matcher matcher2 = f30052b.matcher(k3);
+            Matcher matcher2 = f30422b.matcher(k3);
             if (matcher2.matches()) {
                 return i(k2.trim(), matcher2, lVar, bVar, this.a, list);
             }

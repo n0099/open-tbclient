@@ -5,7 +5,7 @@ import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ICloudControlProcessor {
     CloudControlRequestInfo getPostData(String str, boolean z, JSONObject jSONObject);
 

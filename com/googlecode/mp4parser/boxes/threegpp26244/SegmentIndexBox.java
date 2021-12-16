@@ -2,6 +2,7 @@ package com.googlecode.mp4parser.boxes.threegpp26244;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.lbspay.channelpay.IChannelPay;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,7 +26,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SegmentIndexBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "sidx";
@@ -49,7 +50,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     public int reserved;
     public long timeScale;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,7 +260,7 @@ public class SegmentIndexBox extends AbstractFullBox {
         ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getEarliestPresentationTime", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "long"), 152);
         ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setEarliestPresentationTime", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "earliestPresentationTime", "", "void"), 156);
         ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getFirstOffset", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "long"), 160);
-        ajc$tjp_9 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setFirstOffset", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "firstOffset", "", "void"), 164);
+        ajc$tjp_9 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setFirstOffset", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "firstOffset", "", "void"), IChannelPay.ID_IPAY_PAY_GAME);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox

@@ -18,7 +18,7 @@ import com.baidu.wallet.home.WalletHomeBeanConstants;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
     public static /* synthetic */ Interceptable $ic = null;
     public static String PAGE_CREDIT = "3";
@@ -28,19 +28,19 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52559b;
+    public String f53139b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f52560c;
+    public String f53140c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f52561d;
+    public boolean f53141d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52562e;
+    public String f53142e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52563f;
+    public String f53143f;
 
     static {
         InterceptResult invokeClinit;
@@ -76,9 +76,9 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
             }
         }
         this.a = "";
-        this.f52559b = "";
-        this.f52560c = "";
-        this.f52561d = false;
+        this.f53139b = "";
+        this.f53140c = "";
+        this.f53141d = false;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -96,10 +96,10 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new RestNameValuePair("cate[layout_content]", this.a));
-            arrayList.add(new RestNameValuePair("cate[layout_title]", this.f52559b));
-            arrayList.add(new RestNameValuePair("cate[layout_footer]", this.f52560c));
-            arrayList.add(new RestNameValuePair("page", this.f52563f));
-            arrayList.add(new RestNameValuePair("changedSign", this.f52562e));
+            arrayList.add(new RestNameValuePair("cate[layout_title]", this.f53139b));
+            arrayList.add(new RestNameValuePair("cate[layout_footer]", this.f53140c));
+            arrayList.add(new RestNameValuePair("page", this.f53143f));
+            arrayList.add(new RestNameValuePair("changedSign", this.f53142e));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -129,7 +129,7 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(DomainConfig.getInstance().getAppHost(this.tag));
-            sb.append(this.f52561d ? WalletHomeBeanConstants.API_HOME_CFG_ABTYPE : WalletHomeBeanConstants.API_HOME_CFG_NEW);
+            sb.append(this.f53141d ? WalletHomeBeanConstants.API_HOME_CFG_ABTYPE : WalletHomeBeanConstants.API_HOME_CFG_NEW);
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -138,7 +138,7 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
     public void setAbtypeHomePage(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f52561d = z;
+            this.f53141d = z;
         }
     }
 
@@ -152,28 +152,28 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
     public void setChangeSign(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f52562e = str;
+            this.f53142e = str;
         }
     }
 
     public void setFooterFingerPrint(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f52560c = str;
+            this.f53140c = str;
         }
     }
 
     public void setPageId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f52563f = str;
+            this.f53143f = str;
         }
     }
 
     public void setTitleFingerPrint(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f52559b = str;
+            this.f53139b = str;
         }
     }
 }

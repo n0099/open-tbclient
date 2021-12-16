@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import org.apache.http.HttpEntity;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BufferedHttpEntity extends HttpEntityWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

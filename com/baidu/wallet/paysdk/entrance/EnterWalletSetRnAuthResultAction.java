@@ -10,8 +10,9 @@ import com.baidu.wallet.rnauth.RNAuthCallBack;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
+import com.dxmpay.wallet.utils.BdWalletUtils;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class EnterWalletSetRnAuthResultAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,8 +27,10 @@ public class EnterWalletSetRnAuthResultAction implements RouterAction {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        BdWalletUtils.putFunctionNameList("setRnAuthResult");
     }
 
     private void a(int i2, String str) {

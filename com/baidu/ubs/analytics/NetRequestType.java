@@ -12,7 +12,7 @@ import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class NetRequestType {
     public static final /* synthetic */ NetRequestType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

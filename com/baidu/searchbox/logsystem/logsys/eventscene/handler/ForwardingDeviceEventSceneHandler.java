@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ForwardingCrash";

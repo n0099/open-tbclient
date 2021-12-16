@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SwanAppCores extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SwanAppCores> CREATOR;
@@ -22,7 +22,7 @@ public class SwanAppCores extends SwanAppIPCData {
     public ExtensionCore mExtensionCore;
     public SwanCoreVersion mSwanCoreVersion;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Parcelable.Creator<SwanAppCores> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

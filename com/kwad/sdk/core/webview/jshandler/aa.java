@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class aa implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f57978b;
+    public AdTemplate f58559b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f57979c;
+    public a f58560c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         boolean a();
     }
@@ -42,7 +42,7 @@ public class aa implements com.kwad.sdk.core.webview.kwai.a {
             }
         }
         this.a = context;
-        this.f57978b = adTemplate;
+        this.f58559b = adTemplate;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
@@ -56,7 +56,7 @@ public class aa implements com.kwad.sdk.core.webview.kwai.a {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f57979c = aVar;
+            this.f58560c = aVar;
         }
     }
 
@@ -64,11 +64,11 @@ public class aa implements com.kwad.sdk.core.webview.kwai.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) {
-            a aVar = this.f57979c;
+            a aVar = this.f58560c;
             boolean a2 = aVar != null ? aVar.a() : true;
             com.kwad.sdk.core.d.a.a("WebShowPlayableHandler", "handleJsCall launch AdPlayableActivityProxy : " + a2);
             if (a2) {
-                com.kwad.sdk.core.page.a.a(this.a, this.f57978b);
+                com.kwad.sdk.core.page.a.a(this.a, this.f58559b);
             }
         }
     }

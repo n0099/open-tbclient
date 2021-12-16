@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class eb implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,13 +47,13 @@ public final class eb implements View.OnClickListener {
             editText = this.a.u;
             String obj = editText.getText().toString();
             if (obj == null || obj.trim().length() <= 0) {
-                editor = this.a.f51624b;
+                editor = this.a.f52173b;
                 editor.putString("cryptContactData", "");
             } else {
-                editor3 = this.a.f51624b;
+                editor3 = this.a.f52173b;
                 editor3.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
             }
-            editor2 = this.a.f51624b;
+            editor2 = this.a.f52173b;
             editor2.commit();
             FeedbackReportActivity.o(this.a);
         }

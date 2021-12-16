@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.StringUtils;
 import java.io.Serializable;
 import java.math.BigDecimal;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class GetBindMobileResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HUODONG_PRICE_NO = "0";
@@ -33,7 +33,7 @@ public class GetBindMobileResponse implements IBeanResponse, Serializable {
     public FastPayFacePromotionInfoResponse[] promotion_info;
     public String total_mobile_msg;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class BottomItem implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

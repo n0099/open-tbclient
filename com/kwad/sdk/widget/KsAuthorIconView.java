@@ -33,32 +33,32 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.w;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KsAuthorIconView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KSCornerImageView f59734b;
+    public KSCornerImageView f60315b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KSCornerImageView f59735c;
+    public KSCornerImageView f60316c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KSCornerImageView f59736d;
+    public KSCornerImageView f60317d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KSCornerImageView f59737e;
+    public KSCornerImageView f60318e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f59738f;
+    public TextView f60319f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f59739g;
+    public View f60320g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f59740h;
+    public ImageView f60321h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KsAuthorIconView(@NonNull Context context) {
@@ -202,13 +202,13 @@ public class KsAuthorIconView extends FrameLayout {
         if (interceptable == null || interceptable.invokeLLI(65545, this, context, attributeSet, i2) == null) {
             FrameLayout.inflate(context, R.layout.ksad_author_icon, this);
             this.a = (ViewGroup) findViewById(R.id.ksad_author_icon_frame);
-            this.f59735c = (KSCornerImageView) findViewById(R.id.ksad_author_icon);
-            this.f59734b = (KSCornerImageView) findViewById(R.id.ksad_author_icon_outer);
-            this.f59736d = (KSCornerImageView) findViewById(R.id.ksad_author_animator);
-            this.f59737e = (KSCornerImageView) findViewById(R.id.ksad_author_animator2);
-            this.f59738f = (TextView) findViewById(R.id.ksad_fans_count);
-            this.f59739g = findViewById(R.id.ksad_author_btn_follow);
-            this.f59740h = (ImageView) findViewById(R.id.ksad_author_arrow_down);
+            this.f60316c = (KSCornerImageView) findViewById(R.id.ksad_author_icon);
+            this.f60315b = (KSCornerImageView) findViewById(R.id.ksad_author_icon_outer);
+            this.f60317d = (KSCornerImageView) findViewById(R.id.ksad_author_animator);
+            this.f60318e = (KSCornerImageView) findViewById(R.id.ksad_author_animator2);
+            this.f60319f = (TextView) findViewById(R.id.ksad_fans_count);
+            this.f60320g = findViewById(R.id.ksad_author_btn_follow);
+            this.f60321h = (ImageView) findViewById(R.id.ksad_author_arrow_down);
         }
     }
 
@@ -268,10 +268,10 @@ public class KsAuthorIconView extends FrameLayout {
             AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
             String aE = com.kwad.sdk.core.response.a.a.aE(j2);
             if (!TextUtils.isEmpty(aE)) {
-                KSImageLoader.loadImage(this.f59735c, aE, adTemplate);
+                KSImageLoader.loadImage(this.f60316c, aE, adTemplate);
             }
-            this.f59738f.setText(com.kwad.sdk.core.response.a.a.aB(j2));
-            this.f59736d.post(new Runnable(this) { // from class: com.kwad.sdk.widget.KsAuthorIconView.1
+            this.f60319f.setText(com.kwad.sdk.core.response.a.a.aB(j2));
+            this.f60317d.post(new Runnable(this) { // from class: com.kwad.sdk.widget.KsAuthorIconView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsAuthorIconView a;
@@ -299,11 +299,11 @@ public class KsAuthorIconView extends FrameLayout {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         KsAuthorIconView ksAuthorIconView = this.a;
-                        Animator a = ksAuthorIconView.a(ksAuthorIconView.f59736d, 900L);
+                        Animator a = ksAuthorIconView.a(ksAuthorIconView.f60317d, 900L);
                         KsAuthorIconView ksAuthorIconView2 = this.a;
-                        Animator a2 = ksAuthorIconView2.a(ksAuthorIconView2.f59737e, 1000L);
+                        Animator a2 = ksAuthorIconView2.a(ksAuthorIconView2.f60318e, 1000L);
                         KsAuthorIconView ksAuthorIconView3 = this.a;
-                        Animator a3 = ksAuthorIconView3.a(ksAuthorIconView3.f59735c);
+                        Animator a3 = ksAuthorIconView3.a(ksAuthorIconView3.f60316c);
                         if (a == null || a2 == null || a3 == null) {
                             return;
                         }
@@ -316,13 +316,13 @@ public class KsAuthorIconView extends FrameLayout {
                             public final /* synthetic */ Animator a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ Animator f59741b;
+                            public final /* synthetic */ Animator f60322b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ Animator f59742c;
+                            public final /* synthetic */ Animator f60323c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f59743d;
+                            public final /* synthetic */ AnonymousClass1 f60324d;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -339,10 +339,10 @@ public class KsAuthorIconView extends FrameLayout {
                                         return;
                                     }
                                 }
-                                this.f59743d = this;
+                                this.f60324d = this;
                                 this.a = a;
-                                this.f59741b = a2;
-                                this.f59742c = a3;
+                                this.f60322b = a2;
+                                this.f60323c = a3;
                             }
 
                             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -351,8 +351,8 @@ public class KsAuthorIconView extends FrameLayout {
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, animator) == null) {
                                     super.onAnimationEnd(animator);
                                     this.a.start();
-                                    this.f59741b.start();
-                                    this.f59742c.start();
+                                    this.f60322b.start();
+                                    this.f60323c.start();
                                 }
                             }
                         });
@@ -369,16 +369,16 @@ public class KsAuthorIconView extends FrameLayout {
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, cVar) == null) {
             w.a(cVar, this);
             if (z) {
-                imageView = this.f59740h;
+                imageView = this.f60321h;
                 i2 = R.drawable.ksad_reward_follow_arrow_down;
             } else {
-                imageView = this.f59740h;
+                imageView = this.f60321h;
                 i2 = R.drawable.ksad_reward_follow_arrow_down_orange;
             }
             imageView.setImageResource(i2);
-            a(cVar, this.f59736d.getBackground());
-            a(cVar, this.f59734b.getBackground());
-            a(cVar, this.f59737e.getBackground());
+            a(cVar, this.f60317d.getBackground());
+            a(cVar, this.f60315b.getBackground());
+            a(cVar, this.f60318e.getBackground());
             a(cVar, this.a.getBackground());
         }
     }

@@ -5,7 +5,7 @@ import android.view.View;
 import com.fun.ad.sdk.CustomInflater;
 import com.fun.ad.sdk.ExpressInflater;
 import com.fun.ad.sdk.FunAdInteractionListener;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface FunNativeAd2Bridger<A, B extends View> {
     B createExpressView(A a);
 

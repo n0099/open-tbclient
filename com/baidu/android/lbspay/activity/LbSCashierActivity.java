@@ -63,7 +63,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INoSupportAliAuthorizePay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHPAY_CANCEL_HOST = "BdwAliPayWithholdingCancel";
@@ -579,7 +579,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                     iChannelPay2.payCancel();
                 }
             } else {
-                string.equalsIgnoreCase(f.f31418j);
+                string.equalsIgnoreCase(f.f31788j);
             }
         }
     }

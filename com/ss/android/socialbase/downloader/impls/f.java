@@ -12,7 +12,7 @@ import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f implements com.ss.android.socialbase.downloader.network.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,10 +56,10 @@ public class f implements com.ss.android.socialbase.downloader.network.h {
                         public final /* synthetic */ Response a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Call f61936b;
+                        public final /* synthetic */ Call f62517b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ f f61937c;
+                        public final /* synthetic */ f f62518c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -76,9 +76,9 @@ public class f implements com.ss.android.socialbase.downloader.network.h {
                                     return;
                                 }
                             }
-                            this.f61937c = this;
+                            this.f62518c = this;
                             this.a = execute;
-                            this.f61936b = newCall;
+                            this.f62517b = newCall;
                         }
 
                         @Override // com.ss.android.socialbase.downloader.network.g
@@ -99,10 +99,10 @@ public class f implements com.ss.android.socialbase.downloader.network.h {
                         public void c() {
                             Call call;
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (call = this.f61936b) == null || call.isCanceled()) {
+                            if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (call = this.f62517b) == null || call.isCanceled()) {
                                 return;
                             }
-                            this.f61936b.cancel();
+                            this.f62517b.cancel();
                         }
                     };
                 }

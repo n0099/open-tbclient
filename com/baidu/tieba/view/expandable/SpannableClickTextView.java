@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SpannableClickTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f50486e;
+    public boolean f51034e;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a extends LinkMovementMethod {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
@@ -79,7 +79,7 @@ public class SpannableClickTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableClickTextView) {
-                        ((SpannableClickTextView) textView).f50486e = true;
+                        ((SpannableClickTextView) textView).f51034e = true;
                     }
                     return true;
                 }
@@ -116,7 +116,7 @@ public class SpannableClickTextView extends TextView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            this.f50486e = false;
+            this.f51034e = false;
             return super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -127,7 +127,7 @@ public class SpannableClickTextView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f50486e) {
+            if (this.f51034e) {
                 return true;
             }
             return super.performClick();

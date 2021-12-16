@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class EditorInfoView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49255e;
+    public int f49769e;
     public int paddingHor;
     public int paddingVer;
 
@@ -43,11 +43,11 @@ public class EditorInfoView extends TextView {
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == this.f49255e) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == this.f49769e) {
             return;
         }
         SkinManager.setViewTextColor(this, R.color.CAM_X0106);
-        this.f49255e = i2;
+        this.f49769e = i2;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -99,7 +99,7 @@ public class EditorInfoView extends TextView {
                 return;
             }
         }
-        this.f49255e = 3;
+        this.f49769e = 3;
         this.paddingHor = (int) context.getResources().getDimension(R.dimen.ds18);
         int dimension = (int) context.getResources().getDimension(R.dimen.ds6);
         this.paddingVer = dimension;

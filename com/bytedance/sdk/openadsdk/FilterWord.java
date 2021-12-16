@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk;
 
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface FilterWord {
     void addOption(FilterWord filterWord);
 

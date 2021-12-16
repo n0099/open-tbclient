@@ -4,40 +4,40 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34134b = "com.baidu.fsg.base";
+    public static final String f34602b = "com.baidu.fsg.base";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34135c = "release";
+    public static final String f34603c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34136d = "";
+    public static final String f34604d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f34137e = 1;
+    public static final int f34605e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34138f = "1.0";
+    public static final String f34606f = "1.0";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34139g = "test";
+    public static final String f34607g = "test";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34140h = "BgAAAA";
+    public static final String f34608h = "BgAAAA";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f34141i = false;
+    public static final boolean f34609i = false;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f34142j = false;
+    public static final boolean f34610j = false;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f34143k = "2.1.0.0";
+    public static final String f34611k = "2.1.0.0";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

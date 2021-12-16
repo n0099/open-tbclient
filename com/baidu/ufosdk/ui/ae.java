@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ae implements TextWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ FeedbackEditActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51641b;
+    public int f52190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f51642c;
+    public long f52191c;
 
     public ae(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public final class ae implements TextWatcher {
             }
         }
         this.a = feedbackEditActivity;
-        this.f51642c = 0L;
+        this.f52191c = 0L;
     }
 
     @Override // android.text.TextWatcher
@@ -104,9 +104,9 @@ public final class ae implements TextWatcher {
                 FeedbackEditActivity.b(editText4, substring.length());
                 textView2 = this.a.o;
                 textView2.setText("0" + com.baidu.ufosdk.f.s.a("27"));
-                if (System.currentTimeMillis() - this.f51642c > 3000) {
+                if (System.currentTimeMillis() - this.f52191c > 3000) {
                     Toast.makeText(this.a, com.baidu.ufosdk.f.s.a("16"), 0).show();
-                    this.f51642c = System.currentTimeMillis();
+                    this.f52191c = System.currentTimeMillis();
                 }
             } else {
                 textView3 = this.a.o;
@@ -114,7 +114,7 @@ public final class ae implements TextWatcher {
                 textView4 = this.a.o;
                 textView4.setText(String.valueOf(com.baidu.ufosdk.b.aa - editable.length()) + com.baidu.ufosdk.f.s.a("27"));
             }
-            int i4 = this.f51641b;
+            int i4 = this.f52190b;
             if (i4 == 0) {
                 editText5 = this.a.m;
                 if (editText5.getText().toString().length() < 4) {
@@ -207,7 +207,7 @@ public final class ae implements TextWatcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
             editText = this.a.m;
-            this.f51641b = editText.getText().toString().length() < 4 ? 0 : 1;
+            this.f52190b = editText.getText().toString().length() < 4 ? 0 : 1;
         }
     }
 

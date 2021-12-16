@@ -12,22 +12,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.beans.IBeanFactory;
 import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.beans.BeanManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class LbsPayBeanFactory implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BEAN_ID_AUTHORIZE_SIGN = 3;
     public static final int BEAN_ID_GET_PAY = 2;
     public static final int BEAN_ID_NEW_CASHIER = 1;
+    public static final int BEAN_ID_SIGN_RESULT = 4;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.lbspay.beans.LbsPayBeanFactory$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static LbsPayBeanFactory a;
@@ -75,7 +76,7 @@ public final class LbsPayBeanFactory implements IBeanFactory {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0023  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x002c  */
     @Override // com.dxmpay.apollon.beans.IBeanFactory
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -90,14 +91,16 @@ public final class LbsPayBeanFactory implements IBeanFactory {
                 newCashierBean = new NewCashierBean(context);
             } else if (i2 == 2) {
                 newCashierBean = new GetPayBean(context);
-            } else if (i2 != 3) {
+            } else if (i2 == 3) {
+                newCashierBean = new AuthorizeSignBean(context);
+            } else if (i2 != 4) {
                 baseBean = null;
                 if (baseBean != null) {
                     BeanManager.getInstance().addBean(str, baseBean);
                 }
                 return baseBean;
             } else {
-                newCashierBean = new AuthorizeSignBean(context);
+                newCashierBean = new SignResultBean(context);
             }
             baseBean = newCashierBean;
             if (baseBean != null) {

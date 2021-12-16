@@ -38,7 +38,7 @@ import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FlutterBaseFragment extends BaseFragment implements FlutterActivityAndFragmentDelegate.Host {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
@@ -63,7 +63,7 @@ public class FlutterBaseFragment extends BaseFragment implements FlutterActivity
     public LinearLayout linearLayout;
     public boolean sendReumeToDart;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public @interface ActivityCallThrough {
     }
 
@@ -383,13 +383,12 @@ public class FlutterBaseFragment extends BaseFragment implements FlutterActivity
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || FlutterBoost.instance().isCoverWithTransparentActivity) {
-            return;
-        }
-        super.onPause();
-        if (!isHidden() && this.sendReumeToDart && this.isResumedOrVisibleToUser) {
-            this.isResumedOrVisibleToUser = false;
-            this.delegate.onPause();
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            super.onPause();
+            if (!FlutterBoost.instance().isCoverWithTransparentActivity && !isHidden() && this.sendReumeToDart && this.isResumedOrVisibleToUser) {
+                this.isResumedOrVisibleToUser = false;
+                this.delegate.onPause();
+            }
         }
     }
 
@@ -413,18 +412,17 @@ public class FlutterBaseFragment extends BaseFragment implements FlutterActivity
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || FlutterBoost.instance().isCoverWithTransparentActivity) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            super.onResume();
+            if (FlutterBoost.instance().isCoverWithTransparentActivity || isHidden() || !this.sendReumeToDart || this.isResumedOrVisibleToUser) {
+                return;
+            }
+            this.isResumedOrVisibleToUser = true;
+            if (!this.isFlutterFragmentLazySwitchClosed) {
+                doSpeedLoad();
+            }
+            this.delegate.onResume();
         }
-        super.onResume();
-        if (isHidden() || !this.sendReumeToDart || this.isResumedOrVisibleToUser) {
-            return;
-        }
-        this.isResumedOrVisibleToUser = true;
-        if (!this.isFlutterFragmentLazySwitchClosed) {
-            doSpeedLoad();
-        }
-        this.delegate.onResume();
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -568,7 +566,7 @@ public class FlutterBaseFragment extends BaseFragment implements FlutterActivity
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class NewEngineFragmentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

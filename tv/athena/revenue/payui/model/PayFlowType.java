@@ -1,5 +1,6 @@
 package tv.athena.revenue.payui.model;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class PayFlowType {
     public static final /* synthetic */ PayFlowType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
-    public static final PayFlowType ACTIVITY_PAY_FLOW;
     public static final PayFlowType DIOALOG_PAY_FLOW;
-    public static final PayFlowType NO_PAY_FLOW;
+    public static final PayFlowType WALLET_PAY_FLOW;
     public transient /* synthetic */ FieldHolder $fh;
     public final int typeId;
     public final String typeName;
@@ -33,10 +33,9 @@ public final class PayFlowType {
             }
         }
         DIOALOG_PAY_FLOW = new PayFlowType("DIOALOG_PAY_FLOW", 0, 1, "半屏充值流程");
-        ACTIVITY_PAY_FLOW = new PayFlowType("ACTIVITY_PAY_FLOW", 1, 2, "全屏钱包充值流程");
-        PayFlowType payFlowType = new PayFlowType("NO_PAY_FLOW", 2, 3, "支付流程结束状态");
-        NO_PAY_FLOW = payFlowType;
-        $VALUES = new PayFlowType[]{DIOALOG_PAY_FLOW, ACTIVITY_PAY_FLOW, payFlowType};
+        PayFlowType payFlowType = new PayFlowType("WALLET_PAY_FLOW", 1, 2, "全屏钱包充值流程");
+        WALLET_PAY_FLOW = payFlowType;
+        $VALUES = new PayFlowType[]{DIOALOG_PAY_FLOW, payFlowType};
     }
 
     public PayFlowType(String str, int i2, int i3, String str2) {
@@ -71,5 +70,17 @@ public final class PayFlowType {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PayFlowType[]) $VALUES.clone() : (PayFlowType[]) invokeV.objValue;
+    }
+
+    public int getTypeId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.typeId : invokeV.intValue;
+    }
+
+    public String getTypeName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.typeName : (String) invokeV.objValue;
     }
 }

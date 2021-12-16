@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static SharedPreferences a;

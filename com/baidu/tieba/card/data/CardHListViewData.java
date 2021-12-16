@@ -1,6 +1,6 @@
 package com.baidu.tieba.card.data;
 
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import c.a.d.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GuessLikeThreadInfo;
 import tbclient.PbPage.GuessLikeStruct;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CardHListViewData extends BaseCardInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_COUNT = 9;
@@ -94,7 +94,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         }
         this.mList.clear();
         for (GuessLikeThreadInfo guessLikeThreadInfo : list) {
-            if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !k.isEmptyStringAfterTrim(guessLikeThreadInfo.recom_cover) && !k.isEmptyStringAfterTrim(guessLikeThreadInfo.title)) {
+            if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !l.isEmptyStringAfterTrim(guessLikeThreadInfo.recom_cover) && !l.isEmptyStringAfterTrim(guessLikeThreadInfo.title)) {
                 CardHListViewNormalItemData cardHListViewNormalItemData = new CardHListViewNormalItemData();
                 cardHListViewNormalItemData.parseProtobuf(guessLikeThreadInfo);
                 this.mList.add(cardHListViewNormalItemData);

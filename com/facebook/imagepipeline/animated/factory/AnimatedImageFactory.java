@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.facebook.imagepipeline.common.ImageDecodeOptions;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.EncodedImage;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface AnimatedImageFactory {
     CloseableImage decodeGif(EncodedImage encodedImage, ImageDecodeOptions imageDecodeOptions, Bitmap.Config config);
 

@@ -21,7 +21,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class a {
                 int responseCode = httpURLConnection.getResponseCode();
                 cVar.a = responseCode;
                 if (responseCode == 200) {
-                    cVar.f57506b = a(httpURLConnection.getInputStream());
+                    cVar.f58087b = a(httpURLConnection.getInputStream());
                 }
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -198,7 +198,7 @@ public class a {
                         sb.append(new String(bArr, 0, read));
                     }
                 }
-                cVar.f57506b = sb.toString();
+                cVar.f58087b = sb.toString();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
                 }
@@ -348,10 +348,10 @@ public class a {
     public static void a(@NonNull c cVar, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, cVar, exc) == null) {
-            f fVar = exc instanceof SocketTimeoutException ? f.a : f.f57507b;
+            f fVar = exc instanceof SocketTimeoutException ? f.a : f.f58088b;
             cVar.a = fVar.n;
-            cVar.f57506b = fVar.o;
-            if (com.kwad.sdk.b.f57044c.booleanValue()) {
+            cVar.f58087b = fVar.o;
+            if (com.kwad.sdk.b.f57625c.booleanValue()) {
                 com.kwad.sdk.core.d.a.b(exc);
             }
         }

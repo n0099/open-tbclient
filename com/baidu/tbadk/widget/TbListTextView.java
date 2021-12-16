@@ -18,25 +18,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"WrongCall"})
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TbListTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f42076e;
+    public boolean f42567e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<Object> f42077b;
+        public final List<Object> f42568b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<Object> f42078c;
+        public final List<Object> f42569c;
 
         public a(boolean z, List<Object> list, List<Object> list2) {
             Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class TbListTextView extends TextView {
                 }
             }
             this.a = z;
-            this.f42077b = list;
-            this.f42078c = list2;
+            this.f42568b = list;
+            this.f42569c = list2;
         }
 
         public static a a(List<Object> list, List<Object> list2) {
@@ -89,7 +89,7 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f42076e = true;
+        this.f42567e = true;
     }
 
     public final a a(SpannableStringBuilder spannableStringBuilder, int i2, int i3) {
@@ -163,7 +163,7 @@ public class TbListTextView extends TextView {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), spannableStringBuilder, aVar}) == null) {
-            for (Object obj : aVar.f42078c) {
+            for (Object obj : aVar.f42569c) {
                 int spanEnd = spannableStringBuilder.getSpanEnd(obj);
                 spannableStringBuilder.delete(spanEnd, spanEnd + 1);
                 try {
@@ -174,7 +174,7 @@ public class TbListTextView extends TextView {
             }
             loop1: while (true) {
                 z = true;
-                for (Object obj2 : aVar.f42077b) {
+                for (Object obj2 : aVar.f42568b) {
                     int spanStart = spannableStringBuilder.getSpanStart(obj2);
                     int i4 = spanStart - 1;
                     spannableStringBuilder.delete(i4, spanStart);
@@ -219,7 +219,7 @@ public class TbListTextView extends TextView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            if (!this.f42076e) {
+            if (!this.f42567e) {
                 return super.onTouchEvent(motionEvent);
             }
             setLongClickable(false);
@@ -232,7 +232,7 @@ public class TbListTextView extends TextView {
     public void setCheckSelection(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f42076e = z;
+            this.f42567e = z;
         }
     }
 
@@ -255,7 +255,7 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f42076e = true;
+        this.f42567e = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -277,6 +277,6 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f42076e = true;
+        this.f42567e = true;
     }
 }

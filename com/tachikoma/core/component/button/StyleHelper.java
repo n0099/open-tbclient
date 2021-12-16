@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StyleHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_BACKGROUND_COLOR = "backgroundColor";

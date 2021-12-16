@@ -2,108 +2,80 @@ package j.a.a.e;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public final class a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int abc_background_cache_hint_selector_material_dark = 2131100480;
-    public static final int abc_background_cache_hint_selector_material_light = 2131100481;
-    public static final int abc_btn_colored_borderless_text_material = 2131100482;
-    public static final int abc_btn_colored_text_material = 2131100483;
-    public static final int abc_color_highlight_material = 2131100484;
-    public static final int abc_hint_foreground_material_dark = 2131100487;
-    public static final int abc_hint_foreground_material_light = 2131100488;
-    public static final int abc_primary_text_disable_only_material_dark = 2131100489;
-    public static final int abc_primary_text_disable_only_material_light = 2131100490;
-    public static final int abc_primary_text_material_dark = 2131100491;
-    public static final int abc_primary_text_material_light = 2131100492;
-    public static final int abc_search_url_text = 2131100493;
-    public static final int abc_search_url_text_normal = 2131100494;
-    public static final int abc_search_url_text_pressed = 2131100495;
-    public static final int abc_search_url_text_selected = 2131100496;
-    public static final int abc_secondary_text_material_dark = 2131100497;
-    public static final int abc_secondary_text_material_light = 2131100498;
-    public static final int abc_tint_btn_checkable = 2131100499;
-    public static final int abc_tint_default = 2131100500;
-    public static final int abc_tint_edittext = 2131100501;
-    public static final int abc_tint_seek_thumb = 2131100502;
-    public static final int abc_tint_spinner = 2131100503;
-    public static final int abc_tint_switch_track = 2131100504;
-    public static final int accent_material_dark = 2131100505;
-    public static final int accent_material_light = 2131100506;
-    public static final int background_floating_material_dark = 2131100654;
-    public static final int background_floating_material_light = 2131100655;
-    public static final int background_material_dark = 2131100656;
-    public static final int background_material_light = 2131100657;
-    public static final int bright_foreground_disabled_material_dark = 2131100804;
-    public static final int bright_foreground_disabled_material_light = 2131100805;
-    public static final int bright_foreground_inverse_material_dark = 2131100806;
-    public static final int bright_foreground_inverse_material_light = 2131100807;
-    public static final int bright_foreground_material_dark = 2131100808;
-    public static final int bright_foreground_material_light = 2131100809;
-    public static final int button_material_dark = 2131100816;
-    public static final int button_material_light = 2131100817;
-    public static final int dim_foreground_disabled_material_dark = 2131101552;
-    public static final int dim_foreground_disabled_material_light = 2131101553;
-    public static final int dim_foreground_material_dark = 2131101554;
-    public static final int dim_foreground_material_light = 2131101555;
-    public static final int foreground_material_dark = 2131101739;
-    public static final int foreground_material_light = 2131101740;
-    public static final int highlighted_text_material_dark = 2131101763;
-    public static final int highlighted_text_material_light = 2131101764;
-    public static final int material_blue_grey_800 = 2131101868;
-    public static final int material_blue_grey_900 = 2131101869;
-    public static final int material_blue_grey_950 = 2131101870;
-    public static final int material_deep_teal_200 = 2131101871;
-    public static final int material_deep_teal_500 = 2131101872;
-    public static final int material_grey_100 = 2131101873;
-    public static final int material_grey_300 = 2131101874;
-    public static final int material_grey_50 = 2131101875;
-    public static final int material_grey_600 = 2131101876;
-    public static final int material_grey_800 = 2131101877;
-    public static final int material_grey_850 = 2131101878;
-    public static final int material_grey_900 = 2131101879;
-    public static final int notification_action_color_filter = 2131102098;
-    public static final int notification_icon_bg_color = 2131102099;
-    public static final int notification_material_background_media_default_color = 2131102100;
-    public static final int pay_ui_color_858585 = 2131102141;
-    public static final int pay_ui_color_F6F7F8 = 2131102142;
-    public static final int pay_ui_color_FF3333 = 2131102143;
-    public static final int pay_ui_color_FF3355 = 2131102144;
-    public static final int pay_ui_color_white = 2131102145;
-    public static final int pay_ui_color_white_60 = 2131102146;
-    public static final int pay_ui_common_f5_color = 2131102147;
-    public static final int pay_ui_common_list_selector = 2131102148;
-    public static final int pay_ui_common_white_btn_bg = 2131102149;
-    public static final int pay_ui_common_white_btn_stroke = 2131102150;
-    public static final int pay_ui_font_color_6 = 2131102151;
-    public static final int pay_ui_hp_sub_tips = 2131102152;
-    public static final int pay_ui_pei_action_bar_right_color = 2131102153;
-    public static final int pay_ui_pei_action_bar_title_color = 2131102154;
-    public static final int pay_ui_selector_color_list_item = 2131102155;
-    public static final int pay_ui_selector_color_text_bt = 2131102156;
-    public static final int pay_ui_social_color_2 = 2131102157;
-    public static final int pay_ui_transparent = 2131102158;
-    public static final int primary_dark_material_dark = 2131102179;
-    public static final int primary_dark_material_light = 2131102180;
-    public static final int primary_material_dark = 2131102181;
-    public static final int primary_material_light = 2131102182;
-    public static final int primary_text_default_material_dark = 2131102183;
-    public static final int primary_text_default_material_light = 2131102184;
-    public static final int primary_text_disabled_material_dark = 2131102185;
-    public static final int primary_text_disabled_material_light = 2131102186;
-    public static final int ripple_material_dark = 2131102348;
-    public static final int ripple_material_light = 2131102349;
-    public static final int secondary_text_default_material_dark = 2131102658;
-    public static final int secondary_text_default_material_light = 2131102659;
-    public static final int secondary_text_disabled_material_dark = 2131102660;
-    public static final int secondary_text_disabled_material_light = 2131102661;
-    public static final int switch_thumb_disabled_material_dark = 2131102825;
-    public static final int switch_thumb_disabled_material_light = 2131102826;
-    public static final int switch_thumb_material_dark = 2131102827;
-    public static final int switch_thumb_material_light = 2131102828;
-    public static final int switch_thumb_normal_material_dark = 2131102829;
-    public static final int switch_thumb_normal_material_light = 2131102830;
-    public static final int tooltip_background_dark = 2131102841;
-    public static final int tooltip_background_light = 2131102842;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.YYPayUIKit;
+import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
+/* loaded from: classes4.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a(String str, int i2, int i3, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), payFlowType}) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i2, i3);
+            if (uIKit == null) {
+                RLog.error("PayFlowLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
+                return;
+            }
+            j.a.a.e.m.g payFlowLifecycle = uIKit.getPayFlowLifecycle();
+            boolean z = payFlowLifecycle != null;
+            RLog.info("PayFlowLifecycleHandler", "notifyPayActivityDestory  payFlowType:" + payFlowType + " shouldNotify:" + z);
+            if (z) {
+                payFlowLifecycle.b(str, payFlowType);
+            }
+        }
+    }
+
+    public static void b(String str, int i2, int i3, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), payFlowType}) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i2, i3);
+            if (uIKit == null) {
+                RLog.error("PayFlowLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
+                return;
+            }
+            j.a.a.e.m.g payFlowLifecycle = uIKit.getPayFlowLifecycle();
+            boolean z = payFlowLifecycle != null;
+            RLog.info("PayFlowLifecycleHandler", "notifyPayActivityVisit  payFlowType:" + payFlowType + " shouldNotify:" + z);
+            if (z) {
+                payFlowLifecycle.c(str, payFlowType);
+            }
+        }
+    }
+
+    public static void c(int i2, int i3, PayFlowType payFlowType, PayDialogType payDialogType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), payFlowType, payDialogType}) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i2, i3);
+            if (uIKit == null) {
+                RLog.error("PayFlowLifecycleHandler", "notifyPayDialogTypeChange error payUIKit null", new Object[0]);
+                return;
+            }
+            j.a.a.e.m.g payFlowLifecycle = uIKit.getPayFlowLifecycle();
+            boolean z = payFlowLifecycle != null;
+            RLog.info("PayFlowLifecycleHandler", "notifyPayDialogTypeChange mPayFlowType:" + payFlowType + " shouldNotify:" + z);
+            if (z) {
+                payFlowLifecycle.d(payFlowType, payDialogType);
+            }
+        }
+    }
+
+    public static void d(int i2, int i3, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65539, null, i2, i3, payFlowType) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i2, i3);
+            if (uIKit == null) {
+                RLog.error("PayFlowLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
+                return;
+            }
+            j.a.a.e.m.g payFlowLifecycle = uIKit.getPayFlowLifecycle();
+            boolean z = payFlowLifecycle != null;
+            RLog.info("PayFlowLifecycleHandler", "notifyPayFlowWork mPayFlowType:" + payFlowType + " shouldNotify:" + z);
+            if (z) {
+                payFlowLifecycle.a(payFlowType);
+            }
+        }
+    }
 }

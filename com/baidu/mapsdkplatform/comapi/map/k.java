@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class k extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,53 +86,53 @@ public class k extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
-            eVar = this.a.f36462g;
+            eVar = this.a.f36951g;
             if (eVar == null) {
                 return;
             }
             long longValue = ((Long) message.obj).longValue();
-            eVar2 = this.a.f36462g;
-            if (longValue != eVar2.f36440j) {
+            eVar2 = this.a.f36951g;
+            if (longValue != eVar2.f36929j) {
                 return;
             }
             int i17 = message.what;
             boolean z = true;
             int i18 = 0;
             if (i17 == 4000) {
-                eVar27 = this.a.f36462g;
-                if (eVar27.f36438h == null) {
+                eVar27 = this.a.f36951g;
+                if (eVar27.f36927h == null) {
                     return;
                 }
-                eVar28 = this.a.f36462g;
-                for (l lVar : eVar28.f36438h) {
+                eVar28 = this.a.f36951g;
+                for (l lVar : eVar28.f36927h) {
                     Bitmap bitmap = null;
                     if (message.arg2 == 1) {
-                        i4 = this.a.f36459d;
-                        i5 = this.a.f36460e;
+                        i4 = this.a.f36948d;
+                        i5 = this.a.f36949e;
                         int[] iArr = new int[i4 * i5];
-                        i6 = this.a.f36459d;
-                        i7 = this.a.f36460e;
+                        i6 = this.a.f36948d;
+                        i7 = this.a.f36949e;
                         int[] iArr2 = new int[i6 * i7];
-                        eVar29 = this.a.f36462g;
-                        if (eVar29.f36439i == null) {
+                        eVar29 = this.a.f36951g;
+                        if (eVar29.f36928i == null) {
                             return;
                         }
-                        eVar30 = this.a.f36462g;
-                        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = eVar30.f36439i;
-                        i8 = this.a.f36459d;
-                        i9 = this.a.f36460e;
+                        eVar30 = this.a.f36951g;
+                        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = eVar30.f36928i;
+                        i8 = this.a.f36948d;
+                        i9 = this.a.f36949e;
                         int[] a = aVar.a(iArr, i8, i9);
                         for (int i19 = 0; i19 < i10; i19++) {
                             for (int i20 = 0; i20 < i13; i20++) {
-                                i14 = this.a.f36459d;
+                                i14 = this.a.f36948d;
                                 int i21 = a[(i14 * i19) + i20];
-                                i15 = this.a.f36460e;
-                                i16 = this.a.f36459d;
+                                i15 = this.a.f36949e;
+                                i16 = this.a.f36948d;
                                 iArr2[(((i15 - i19) - 1) * i16) + i20] = (i21 & (-16711936)) | ((i21 << 16) & 16711680) | ((i21 >> 16) & 255);
                             }
                         }
-                        i11 = this.a.f36459d;
-                        i12 = this.a.f36460e;
+                        i11 = this.a.f36948d;
+                        i12 = this.a.f36949e;
                         bitmap = Bitmap.createBitmap(iArr2, i11, i12, Bitmap.Config.RGB_565);
                     }
                     if (lVar != null) {
@@ -140,53 +140,53 @@ public class k extends Handler {
                     }
                 }
             } else if (i17 == 39) {
-                eVar15 = this.a.f36462g;
+                eVar15 = this.a.f36951g;
                 if (eVar15 == null) {
                     return;
                 }
-                eVar16 = this.a.f36462g;
-                if (eVar16.f36438h == null) {
+                eVar16 = this.a.f36951g;
+                if (eVar16.f36927h == null) {
                     return;
                 }
                 int i22 = message.arg1;
                 if (i22 == 100) {
-                    eVar26 = this.a.f36462g;
+                    eVar26 = this.a.f36951g;
                     eVar26.B();
                 } else if (i22 == 200) {
-                    eVar20 = this.a.f36462g;
+                    eVar20 = this.a.f36951g;
                     eVar20.L();
                 } else if (i22 == 1) {
                     this.a.requestRender();
                 } else if (i22 == 0) {
                     this.a.requestRender();
-                    eVar19 = this.a.f36462g;
+                    eVar19 = this.a.f36951g;
                     if (!eVar19.b() && this.a.getRenderMode() != 0) {
                         this.a.setRenderMode(0);
                     }
                 } else if (i22 == 2) {
-                    eVar17 = this.a.f36462g;
-                    if (eVar17.f36438h == null) {
+                    eVar17 = this.a.f36951g;
+                    if (eVar17.f36927h == null) {
                         return;
                     }
-                    eVar18 = this.a.f36462g;
-                    for (l lVar2 : eVar18.f36438h) {
+                    eVar18 = this.a.f36951g;
+                    for (l lVar2 : eVar18.f36927h) {
                         if (lVar2 != null) {
                             lVar2.c();
                         }
                     }
                 }
-                eVar21 = this.a.f36462g;
-                if (!eVar21.f36441k) {
-                    i2 = this.a.f36460e;
+                eVar21 = this.a.f36951g;
+                if (!eVar21.f36930k) {
+                    i2 = this.a.f36949e;
                     if (i2 > 0) {
-                        i3 = this.a.f36459d;
+                        i3 = this.a.f36948d;
                         if (i3 > 0) {
-                            eVar23 = this.a.f36462g;
+                            eVar23 = this.a.f36951g;
                             if (eVar23.b(0, 0) != null) {
-                                eVar24 = this.a.f36462g;
-                                eVar24.f36441k = true;
-                                eVar25 = this.a.f36462g;
-                                for (l lVar3 : eVar25.f36438h) {
+                                eVar24 = this.a.f36951g;
+                                eVar24.f36930k = true;
+                                eVar25 = this.a.f36951g;
+                                for (l lVar3 : eVar25.f36927h) {
                                     if (lVar3 != null) {
                                         lVar3.b();
                                     }
@@ -195,58 +195,58 @@ public class k extends Handler {
                         }
                     }
                 }
-                eVar22 = this.a.f36462g;
-                for (l lVar4 : eVar22.f36438h) {
+                eVar22 = this.a.f36951g;
+                for (l lVar4 : eVar22.f36927h) {
                     if (lVar4 != null) {
                         lVar4.a();
                     }
                 }
             } else if (i17 == 41) {
-                eVar9 = this.a.f36462g;
+                eVar9 = this.a.f36951g;
                 if (eVar9 == null) {
                     return;
                 }
-                eVar10 = this.a.f36462g;
-                if (eVar10.f36438h == null) {
+                eVar10 = this.a.f36951g;
+                if (eVar10.f36927h == null) {
                     return;
                 }
-                eVar11 = this.a.f36462g;
+                eVar11 = this.a.f36951g;
                 if (!eVar11.n) {
-                    eVar14 = this.a.f36462g;
+                    eVar14 = this.a.f36951g;
                     if (!eVar14.o) {
                         return;
                     }
                 }
-                eVar12 = this.a.f36462g;
-                for (l lVar5 : eVar12.f36438h) {
+                eVar12 = this.a.f36951g;
+                for (l lVar5 : eVar12.f36927h) {
                     if (lVar5 != null) {
-                        eVar13 = this.a.f36462g;
+                        eVar13 = this.a.f36951g;
                         lVar5.b(eVar13.E());
                     }
                 }
             } else if (i17 == 999) {
-                eVar7 = this.a.f36462g;
-                if (eVar7.f36438h == null) {
+                eVar7 = this.a.f36951g;
+                if (eVar7.f36927h == null) {
                     return;
                 }
-                eVar8 = this.a.f36462g;
-                for (l lVar6 : eVar8.f36438h) {
+                eVar8 = this.a.f36951g;
+                for (l lVar6 : eVar8.f36927h) {
                     if (lVar6 != null) {
                         lVar6.e();
                     }
                 }
             } else if (i17 == 50) {
-                eVar4 = this.a.f36462g;
-                if (eVar4.f36438h == null) {
+                eVar4 = this.a.f36951g;
+                if (eVar4.f36927h == null) {
                     return;
                 }
-                eVar5 = this.a.f36462g;
-                for (l lVar7 : eVar5.f36438h) {
+                eVar5 = this.a.f36951g;
+                for (l lVar7 : eVar5.f36927h) {
                     if (lVar7 != null) {
                         int i23 = message.arg1;
                         if (i23 != 0) {
                             if (i23 == 1) {
-                                eVar6 = this.a.f36462g;
+                                eVar6 = this.a.f36951g;
                                 if (eVar6.E().a >= 18.0f) {
                                     lVar7.a(true);
                                 }
@@ -264,8 +264,8 @@ public class k extends Handler {
                         i18 = i24;
                         z = false;
                     }
-                    eVar3 = this.a.f36462g;
-                    for (l lVar8 : eVar3.f36438h) {
+                    eVar3 = this.a.f36951g;
+                    for (l lVar8 : eVar3.f36927h) {
                         if (lVar8 != null) {
                             lVar8.a(z, i18);
                         }

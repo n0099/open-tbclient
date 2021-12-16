@@ -15,7 +15,7 @@ import com.kwad.sdk.e.e;
 import com.kwad.sdk.e.kwai.c;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KsJsonHolderManangerImpl implements b {
     public static /* synthetic */ Interceptable $ic;
     public static KsJsonHolderManangerImpl mInstance;

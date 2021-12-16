@@ -12,7 +12,7 @@ import com.baidubce.util.CheckUtils;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class CompleteMultipartUploadRequest extends GenericUploadRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

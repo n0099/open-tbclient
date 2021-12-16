@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.LoadingDialog;
 import com.baidu.wallet.core.BaseActivity;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class WalletGlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static Dialog a = null;

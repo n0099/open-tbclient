@@ -24,7 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PlatformChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PlatformChannel";
@@ -38,7 +38,7 @@ public class PlatformChannel {
     public PlatformMessageHandler platformMessageHandler;
 
     /* renamed from: io.flutter.embedding.engine.systemchannels.PlatformChannel$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation;
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiMode;
@@ -108,7 +108,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class AppSwitcherDescription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Brightness {
         public static final /* synthetic */ Brightness[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -217,7 +217,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ClipboardContentFormat {
         public static final /* synthetic */ ClipboardContentFormat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -295,7 +295,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class DeviceOrientation {
         public static final /* synthetic */ DeviceOrientation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -379,7 +379,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class HapticFeedbackType {
         public static final /* synthetic */ HapticFeedbackType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -465,7 +465,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface PlatformMessageHandler {
         boolean clipboardHasStrings();
 
@@ -496,7 +496,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class SoundType {
         public static final /* synthetic */ SoundType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -575,7 +575,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SystemChromeStyle {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -620,7 +620,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class SystemUiMode {
         public static final /* synthetic */ SystemUiMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -704,7 +704,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class SystemUiOverlay {
         public static final /* synthetic */ SystemUiOverlay[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

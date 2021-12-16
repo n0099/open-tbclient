@@ -1,5 +1,5 @@
 package com.baidu.walletfacesdk;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface LightInvokerCallback {
     public static final int RESULT_FAIL = 1;
     public static final int RESULT_OK = 0;

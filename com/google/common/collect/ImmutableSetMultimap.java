@@ -28,7 +28,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implements e1<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -37,7 +37,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
     public transient ImmutableSet<Map.Entry<K, V>> entries;
     public transient ImmutableSetMultimap<V, K> inverse;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class EntrySet<K, V> extends ImmutableSet<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a<K, V> extends ImmutableMultimap.c<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -147,11 +147,11 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 Collection entrySet = this.a.entrySet();
-                Comparator<? super K> comparator = this.f56205b;
+                Comparator<? super K> comparator = this.f56786b;
                 if (comparator != null) {
                     entrySet = Ordering.from(comparator).onKeys().immutableSortedCopy(entrySet);
                 }
-                return ImmutableSetMultimap.fromMapEntries(entrySet, this.f56206c);
+                return ImmutableSetMultimap.fromMapEntries(entrySet, this.f56787c);
             }
             return (ImmutableSetMultimap) invokeV.objValue;
         }
@@ -187,7 +187,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final d1.b<ImmutableSetMultimap> a;
@@ -336,7 +336,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
                 }
                 try {
                     ImmutableMultimap.d.a.b(this, builder.a());
-                    ImmutableMultimap.d.f56207b.a(this, i2);
+                    ImmutableMultimap.d.f56788b.a(this, i2);
                     b.a.b(this, emptySet(comparator));
                     return;
                 } catch (IllegalArgumentException e2) {

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PbNewLocationInfoView extends TextView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_INIT = 0;
@@ -22,7 +22,7 @@ public class PbNewLocationInfoView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41800e;
+    public int f42291e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbNewLocationInfoView(Context context) {
@@ -48,7 +48,7 @@ public class PbNewLocationInfoView extends TextView {
     public int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41800e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42291e : invokeV.intValue;
     }
 
     public void onChangeSkinType() {
@@ -61,7 +61,7 @@ public class PbNewLocationInfoView extends TextView {
     public void setState(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
-            this.f41800e = i2;
+            this.f42291e = i2;
             if (i2 == 1) {
                 if (str == null) {
                     str = getResources().getString(R.string.location_loading);
@@ -103,7 +103,7 @@ public class PbNewLocationInfoView extends TextView {
         setMaxEms(8);
         setSingleLine(true);
         setEllipsize(TextUtils.TruncateAt.END);
-        setTextSize(0, l.f(context, R.dimen.ds24));
+        setTextSize(0, m.f(context, R.dimen.ds24));
         setState(0, null);
     }
 }

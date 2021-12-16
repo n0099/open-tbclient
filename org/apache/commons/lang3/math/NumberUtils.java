@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NumberUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Byte BYTE_MINUS_ONE;

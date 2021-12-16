@@ -17,7 +17,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
-import c.a.r0.t3.c;
+import c.a.s0.v3.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SvgManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DRAWABLE_TYPE_ANIMATED_VECTOR_DRAWABLE = 2;
@@ -40,13 +40,13 @@ public class SvgManager {
     public VectorDrawableCache mVectorDrawableCache;
 
     /* renamed from: com.baidu.tbadk.core.util.SvgManager$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class InstanceHolder {
         public static /* synthetic */ Interceptable $ic;
         public static SvgManager SvgManagerInstance;
@@ -84,7 +84,7 @@ public class SvgManager {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class SvgResourceStateType {
         public static final /* synthetic */ SvgResourceStateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -186,7 +186,7 @@ public class SvgManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class VectorDrawableCache {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COUNT_OF_CACHED_SVG_ICON = 50;

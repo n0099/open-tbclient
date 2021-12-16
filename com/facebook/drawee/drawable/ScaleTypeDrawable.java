@@ -17,7 +17,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ScaleTypeDrawable extends ForwardingDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

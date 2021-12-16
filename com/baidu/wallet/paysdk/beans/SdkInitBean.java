@@ -17,7 +17,7 @@ import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.datamodel.SdkInitResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SdkInitBean extends BaseBean<SdkInitResponse> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACHUP_INIT_YTPE = 3;
@@ -25,7 +25,7 @@ public class SdkInitBean extends BaseBean<SdkInitResponse> {
     public static final int OLD_INIT_TYPE = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f53387b = "";
+    public static String f53967b = "";
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
@@ -68,7 +68,7 @@ public class SdkInitBean extends BaseBean<SdkInitResponse> {
     public static void setContentSignForReq(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            f53387b = str;
+            f53967b = str;
         }
     }
 
@@ -76,7 +76,7 @@ public class SdkInitBean extends BaseBean<SdkInitResponse> {
     public boolean checkSignSame(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(f53387b) && f53387b.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(f53967b) && f53967b.equals(str) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -93,8 +93,8 @@ public class SdkInitBean extends BaseBean<SdkInitResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("contentSign", f53387b));
-            LogUtil.i("SdkInitBean", "contentSign" + f53387b);
+            arrayList.add(new RestNameValuePair("contentSign", f53967b));
+            LogUtil.i("SdkInitBean", "contentSign" + f53967b);
             return arrayList;
         }
         return (List) invokeV.objValue;

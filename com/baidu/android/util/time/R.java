@@ -4,19 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class R {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
-        public static final int time_liveshow_teletext_time_day_before = 0x7f0f15d2;
-        public static final int time_liveshow_teletext_time_hour_before = 0x7f0f15d3;
-        public static final int time_liveshow_teletext_time_min_before = 0x7f0f15d4;
-        public static final int time_liveshow_teletext_time_sec_before = 0x7f0f15d5;
+        public static final int time_liveshow_teletext_time_day_before = 0x7f0f15f8;
+        public static final int time_liveshow_teletext_time_hour_before = 0x7f0f15f9;
+        public static final int time_liveshow_teletext_time_min_before = 0x7f0f15fa;
+        public static final int time_liveshow_teletext_time_sec_before = 0x7f0f15fb;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

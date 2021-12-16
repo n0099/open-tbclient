@@ -6,15 +6,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GiftBagItemInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int count;
+    public String countDisplay;
     public String imgUrl;
     public String name;
     public String pid;
     public String type;
+    public String typeName;
 
     public GiftBagItemInfo() {
         Interceptable interceptable = $ic;
@@ -34,7 +36,7 @@ public class GiftBagItemInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GiftBagItemInfo {type=" + this.type + ", name=" + this.name + ", pid=" + this.pid + ", count=" + this.count + ", imgUrl='" + this.imgUrl + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "GiftBagItemInfo {typeName=" + this.typeName + ", countDisplay=" + this.countDisplay + "type=" + this.type + ", name=" + this.name + ", pid=" + this.pid + ", count=" + this.count + ", imgUrl='" + this.imgUrl + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

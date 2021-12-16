@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class ResponsedMessage<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public abstract class ResponsedMessage<T> {
 
     public void onDecodeFailedInBackGround(int i2, T t, int i3) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), t, Integer.valueOf(i3)}) == null) && i3 == h.f2228c) {
+        if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), t, Integer.valueOf(i3)}) == null) && i3 == h.f2195c) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }

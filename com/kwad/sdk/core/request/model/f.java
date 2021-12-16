@@ -13,20 +13,20 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.t;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SceneImpl a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f57783b;
+    public long f58364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f57784c;
+    public long f58365c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57785d;
+    public String f58366d;
 
     public f(KsScene ksScene) {
         Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class f implements com.kwad.sdk.core.b {
             }
         }
         this.a = (SceneImpl) ksScene;
-        this.f57783b = 0L;
-        this.f57784c = 0L;
+        this.f58364b = 0L;
+        this.f58365c = 0L;
     }
 
     @Nullable
@@ -90,9 +90,9 @@ public class f implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject json = this.a.toJson();
-            t.a(json, "pageScene", this.f57783b);
-            t.a(json, "subPageScene", this.f57784c);
-            t.a(json, "sdkExtraData", this.f57785d);
+            t.a(json, "pageScene", this.f58364b);
+            t.a(json, "subPageScene", this.f58365c);
+            t.a(json, "sdkExtraData", this.f58366d);
             String a = a(PrefetchEvent.EVENT_DATA_EXTRA_DATA);
             if (a != null) {
                 t.a(json, PrefetchEvent.EVENT_DATA_EXTRA_DATA, a);

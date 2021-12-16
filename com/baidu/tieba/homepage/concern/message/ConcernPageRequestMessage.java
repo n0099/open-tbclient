@@ -1,10 +1,10 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import android.text.TextUtils;
-import c.a.q0.d1.e;
-import c.a.q0.d1.z;
-import c.a.r0.h3.l0.b;
-import c.a.r0.n1.c.d;
+import c.a.r0.d1.b0;
+import c.a.r0.d1.g;
+import c.a.s0.j3.l0.b;
+import c.a.s0.o1.c.d;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,11 +17,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ConcernPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e adInfo;
+    public g adInfo;
     public String pageTag;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -52,9 +52,9 @@ public class ConcernPageRequestMessage extends NetMessage {
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
             String str = "";
             String d2 = isEmpty ? "" : b.f().d("CONCERN");
-            e eVar = this.adInfo;
-            if (eVar != null && !isEmpty) {
-                str = eVar.f11878b;
+            g gVar = this.adInfo;
+            if (gVar != null && !isEmpty) {
+                str = gVar.f12200b;
             }
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.g(e2);
@@ -81,11 +81,11 @@ public class ConcernPageRequestMessage extends NetMessage {
                         builder.page_tag = d.u();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(c.a.q0.s.e0.b.j().l(c.a.q0.s.e0.b.n("concern_data_res_request_time"), 0L));
+                builder.last_req_unix = Long.valueOf(c.a.r0.s.g0.b.j().l(c.a.r0.s.g0.b.n("concern_data_res_request_time"), 0L));
                 int i2 = 1;
-                builder.follow_type = Integer.valueOf(c.a.q0.b.d.j() ? c.a.q0.s.e0.b.j().k("key_home_concern_all_status", 0) : 1);
+                builder.follow_type = Integer.valueOf(c.a.r0.b.d.j() ? c.a.r0.s.g0.b.j().k("key_home_concern_all_status", 0) : 1);
                 if (z) {
-                    z.a(builder, true);
+                    b0.a(builder, true);
                 }
                 if (!TextUtils.isEmpty(this.pageTag)) {
                     i2 = 2;
@@ -108,10 +108,10 @@ public class ConcernPageRequestMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageTag : (String) invokeV.objValue;
     }
 
-    public void setAdInfo(e eVar) {
+    public void setAdInfo(g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.adInfo = eVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
+            this.adInfo = gVar;
         }
     }
 

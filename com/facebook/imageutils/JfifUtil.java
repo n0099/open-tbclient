@@ -12,7 +12,7 @@ import com.facebook.common.internal.Preconditions;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class JfifUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP1_EXIF_MAGIC = 1165519206;

@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class TransformationUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Lock BITMAP_DRAWABLE_LOCK;
@@ -45,7 +45,7 @@ public final class TransformationUtils {
     public static final String TAG = "TransformationUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class NoLock implements Lock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

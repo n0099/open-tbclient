@@ -11,20 +11,20 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, Set<c>> a;
 
     /* renamed from: c.f.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class C1574a {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class C1614a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
@@ -47,7 +47,7 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(C1574a c1574a) {
+    public /* synthetic */ a(C1614a c1614a) {
         this();
     }
 

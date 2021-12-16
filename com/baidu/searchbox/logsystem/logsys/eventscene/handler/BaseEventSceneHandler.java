@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BaseEventSceneHandler<T> implements EventSceneHandler<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BaseEventSceneHandler";

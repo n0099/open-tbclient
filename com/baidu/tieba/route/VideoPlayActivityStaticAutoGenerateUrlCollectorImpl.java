@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class VideoPlayActivityStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,6 +51,8 @@ public final class VideoPlayActivityStaticAutoGenerateUrlCollectorImpl implement
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
             arrayList.add("VideoPlayActivityConfig");
+            arrayList.add("VideoRecommentPlayActivityConfig");
+            arrayList.add("FrsVideoTabPlayActivityConfig");
             hashMap.put("com.baidu.tieba.videoplay.VideoPlayActivityStatic", arrayList);
             return hashMap;
         }

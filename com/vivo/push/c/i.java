@@ -7,23 +7,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class i implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f62463b;
+    public final /* synthetic */ List f63044b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f62464c;
+    public final /* synthetic */ List f63045c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f62465d;
+    public final /* synthetic */ String f63046d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ h f62466e;
+    public final /* synthetic */ h f63047e;
 
     public i(h hVar, int i2, List list, List list2, String str) {
         Interceptable interceptable = $ic;
@@ -40,11 +40,11 @@ public final class i implements Runnable {
                 return;
             }
         }
-        this.f62466e = hVar;
+        this.f63047e = hVar;
         this.a = i2;
-        this.f62463b = list;
-        this.f62464c = list2;
-        this.f62465d = str;
+        this.f63044b = list;
+        this.f63045c = list2;
+        this.f63046d = str;
     }
 
     @Override // java.lang.Runnable
@@ -52,10 +52,10 @@ public final class i implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            h hVar = this.f62466e;
-            PushMessageCallback pushMessageCallback = ((ab) hVar).f62451b;
+            h hVar = this.f63047e;
+            PushMessageCallback pushMessageCallback = ((ab) hVar).f63032b;
             context = hVar.a;
-            pushMessageCallback.onDelTags(context, this.a, this.f62463b, this.f62464c, this.f62465d);
+            pushMessageCallback.onDelTags(context, this.a, this.f63044b, this.f63045c, this.f63046d);
         }
     }
 }

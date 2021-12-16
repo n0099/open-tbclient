@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RendererCommon {
     public static /* synthetic */ Interceptable $ic = null;
     public static float BALANCED_VISIBLE_FRACTION = 0.5625f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.webrtc.RendererCommon$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$RendererCommon$ScalingType;
         public static /* synthetic */ Interceptable $ic;
@@ -55,7 +55,7 @@ public class RendererCommon {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface GlDrawer {
         void drawOes(int i2, float[] fArr, int i3, int i4, int i5, int i6, int i7, int i8);
 
@@ -66,7 +66,7 @@ public class RendererCommon {
         void release();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface RendererEvents {
         void onFirstFrameRendered();
 
@@ -74,7 +74,7 @@ public class RendererCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ScalingType {
         public static final /* synthetic */ ScalingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -247,7 +247,7 @@ public class RendererCommon {
         return (float[]) invokeCommon.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class VideoLayoutMeasure {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

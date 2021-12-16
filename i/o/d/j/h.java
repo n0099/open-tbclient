@@ -1,5 +1,5 @@
 package i.o.d.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface h<M> {
     M poll();
 }

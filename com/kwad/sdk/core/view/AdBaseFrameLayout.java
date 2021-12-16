@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.d.a;
 import com.kwad.sdk.utils.z;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AdBaseFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final z.a f57936b;
+    public static final z.a f58517b;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnTouchListener a;
 
@@ -40,7 +40,7 @@ public class AdBaseFrameLayout extends FrameLayout {
                 return;
             }
         }
-        f57936b = new z.a();
+        f58517b = new z.a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,10 +136,10 @@ public class AdBaseFrameLayout extends FrameLayout {
             }
             int action = motionEvent.getAction();
             if (action == 0) {
-                f57936b.a(getWidth(), getHeight());
-                f57936b.a(motionEvent.getX(), motionEvent.getY());
+                f58517b.a(getWidth(), getHeight());
+                f58517b.a(motionEvent.getX(), motionEvent.getY());
             } else if (action == 1) {
-                f57936b.b(motionEvent.getX(), motionEvent.getY());
+                f58517b.b(motionEvent.getX(), motionEvent.getY());
             }
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -150,7 +150,7 @@ public class AdBaseFrameLayout extends FrameLayout {
     public z.a getTouchCoords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f57936b : (z.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f58517b : (z.a) invokeV.objValue;
     }
 
     @Override // android.view.View

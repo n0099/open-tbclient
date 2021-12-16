@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class NewUserGuideActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HAS_LIEK_BAR = "has_like_bar";
@@ -41,6 +41,6 @@ public class NewUserGuideActivityConfig extends IntentConfig {
     public static boolean canResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? j.z() && MessageManager.getInstance().findTask(2012116) != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? k.z() && MessageManager.getInstance().findTask(2012116) != null : invokeV.booleanValue;
     }
 }

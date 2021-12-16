@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a<T> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f60901b;
+    public boolean f61482b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k<?> f60902c;
+    public k<?> f61483c;
 
     public a(T t) {
         Interceptable interceptable = $ic;
@@ -33,26 +33,26 @@ public final class a<T> {
                 return;
             }
         }
-        this.f60901b = false;
+        this.f61482b = false;
         a(t);
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60902c.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61483c.a : invokeV.intValue;
     }
 
     public final void a(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             if (t == null) {
-                this.f60902c = null;
+                this.f61483c = null;
             } else if (!(t instanceof k)) {
-                this.f60902c = new k<>(b.a, t);
+                this.f61483c = new k<>(b.a, t);
             } else {
-                this.f60902c = (k) t;
-                this.f60901b = true;
+                this.f61483c = (k) t;
+                this.f61482b = true;
             }
         }
     }
@@ -62,11 +62,11 @@ public final class a<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ?? r0 = (T) this.f60902c;
+            ?? r0 = (T) this.f61483c;
             if (r0 == 0) {
                 return null;
             }
-            return this.f60901b ? r0 : (T) r0.f60920b;
+            return this.f61482b ? r0 : (T) r0.f61501b;
         }
         return (T) invokeV.objValue;
     }

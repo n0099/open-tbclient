@@ -20,7 +20,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,6 +84,8 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
                     giftBagItemInfo.pid = optJSONObject.optString("pid");
                     giftBagItemInfo.count = optJSONObject.optInt("count");
                     giftBagItemInfo.imgUrl = optJSONObject.optString("imgUrl");
+                    giftBagItemInfo.typeName = optJSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_TYPE_NAME);
+                    giftBagItemInfo.countDisplay = optJSONObject.optString("countDisplay");
                     arrayList.add(giftBagItemInfo);
                 }
             }

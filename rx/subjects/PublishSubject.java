@@ -19,15 +19,15 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class PublishSubject<T> extends d<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final PublishSubjectState<T> f64455f;
+    public final PublishSubjectState<T> f65026f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class PublishSubjectProducer<T> extends AtomicLong implements f, k, e<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6451806817170721536L;
@@ -122,7 +122,7 @@ public final class PublishSubject<T> extends d<T, T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements d.a<T>, e<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final PublishSubjectProducer[] EMPTY;
@@ -309,7 +309,7 @@ public final class PublishSubject<T> extends d<T, T> {
                 return;
             }
         }
-        this.f64455f = publishSubjectState;
+        this.f65026f = publishSubjectState;
     }
 
     public static <T> PublishSubject<T> F() {
@@ -322,7 +322,7 @@ public final class PublishSubject<T> extends d<T, T> {
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f64455f.onCompleted();
+            this.f65026f.onCompleted();
         }
     }
 
@@ -330,7 +330,7 @@ public final class PublishSubject<T> extends d<T, T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f64455f.onError(th);
+            this.f65026f.onError(th);
         }
     }
 
@@ -338,7 +338,7 @@ public final class PublishSubject<T> extends d<T, T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f64455f.onNext(t);
+            this.f65026f.onNext(t);
         }
     }
 }

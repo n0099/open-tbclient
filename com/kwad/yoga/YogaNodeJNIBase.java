@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte BORDER = 4;
@@ -51,7 +51,7 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     public YogaNodeJNIBase mOwner;
 
     /* renamed from: com.kwad.yoga.YogaNodeJNIBase$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$yoga$YogaEdge;
         public static /* synthetic */ Interceptable $ic;

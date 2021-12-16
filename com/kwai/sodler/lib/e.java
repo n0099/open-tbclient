@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.sodler.lib.ext.PluginError;
 import com.kwai.sodler.lib.kwai.g;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e implements com.kwai.sodler.lib.kwai.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g.a f60096b;
+    public g.a f60677b;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -61,12 +61,12 @@ public class e implements com.kwai.sodler.lib.kwai.g {
                 fVar.a(-3);
                 return;
             }
-            a.a("Sodler.update", "Download new plugin, version = " + a.f60083b + ", url = " + a.f60084c);
+            a.a("Sodler.update", "Download new plugin, version = " + a.f60664b + ", url = " + a.f60665c);
             fVar.a(3);
-            fVar.g(a.f60084c);
-            fVar.a(a.f60085d);
-            fVar.f(a.f60087f);
-            fVar.b(a.f60083b);
+            fVar.g(a.f60665c);
+            fVar.a(a.f60666d);
+            fVar.f(a.f60668f);
+            fVar.b(a.f60664b);
         }
     }
 
@@ -84,7 +84,7 @@ public class e implements com.kwai.sodler.lib.kwai.g {
     private void a(com.kwai.sodler.lib.kwai.f fVar, File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, fVar, file) == null) {
-            g.a aVar = this.f60096b;
+            g.a aVar = this.f60677b;
             if (aVar == null) {
                 throw new RuntimeException("not yet supported!");
             }
@@ -222,7 +222,7 @@ public class e implements com.kwai.sodler.lib.kwai.g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            this.f60096b = aVar;
+            this.f60677b = aVar;
             return this;
         }
         return (com.kwai.sodler.lib.kwai.g) invokeL.objValue;

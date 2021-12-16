@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class HotTopicChangeActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_USE_ORIGIN_LIST = "KEY_USE_ORIGIN_LIST";

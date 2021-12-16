@@ -7,7 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.b0.e0.a.d.b;
+import c.a.c0.e0.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,31 +16,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BdVideoBattery extends View {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f37717h;
+    public static final int f38206h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f37718i;
+    public static final int f38207i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f37719j;
+    public static final int f38208j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f37720k;
+    public static final int f38209k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f37721e;
+    public final Context f38210e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f37722f;
+    public Bitmap f38211f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f37723g;
+    public Paint f38212g;
 
     static {
         InterceptResult invokeClinit;
@@ -55,10 +55,10 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        f37717h = b.d(2.0f);
-        f37718i = b.d(2.0f);
-        f37719j = b.d(2.0f);
-        f37720k = b.d(4.0f);
+        f38206h = b.d(2.0f);
+        f38207i = b.d(2.0f);
+        f38208j = b.d(2.0f);
+        f38209k = b.d(4.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -79,7 +79,7 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        this.f37721e = context;
+        this.f38210e = context;
         a();
     }
 
@@ -87,7 +87,7 @@ public class BdVideoBattery extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Paint paint = new Paint();
-            this.f37723g = paint;
+            this.f38212g = paint;
             paint.setColor(-1);
         }
     }
@@ -99,15 +99,15 @@ public class BdVideoBattery extends View {
             super.onDraw(canvas);
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            Bitmap bitmap = this.f37722f;
+            Bitmap bitmap = this.f38211f;
             if (bitmap != null) {
                 canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
             }
-            float f2 = (float) (c.a.b0.s.v0.b.a / 100.0d);
+            float f2 = (float) (c.a.c0.s.v0.b.a / 100.0d);
             float f3 = f2 >= 0.0f ? f2 > 100.0f ? 100.0f : f2 : 0.0f;
-            int i2 = measuredWidth - f37720k;
-            int i3 = f37719j;
-            canvas.drawRect(i3, f37717h, i3 + ((i2 - i3) * f3), measuredHeight - f37718i, this.f37723g);
+            int i2 = measuredWidth - f38209k;
+            int i3 = f38208j;
+            canvas.drawRect(i3, f38206h, i3 + ((i2 - i3) * f3), measuredHeight - f38207i, this.f38212g);
         }
     }
 
@@ -117,14 +117,14 @@ public class BdVideoBattery extends View {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             View.MeasureSpec.getSize(i2);
             View.MeasureSpec.getSize(i3);
-            setMeasuredDimension(this.f37722f.getWidth(), this.f37722f.getHeight());
+            setMeasuredDimension(this.f38211f.getWidth(), this.f38211f.getHeight());
         }
     }
 
     public void setImage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f37722f = BitmapFactory.decodeResource(this.f37721e.getResources(), i2);
+            this.f38211f = BitmapFactory.decodeResource(this.f38210e.getResources(), i2);
         }
     }
 
@@ -147,7 +147,7 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        this.f37721e = context;
+        this.f38210e = context;
         a();
     }
 
@@ -170,7 +170,7 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        this.f37721e = context;
+        this.f38210e = context;
         a();
     }
 }

@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.dxmpay.wallet.core.beans.BeanRequestBase;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class b extends BeanRequestBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53449b;
+    public String f54029b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class b extends BeanRequestBase {
     public boolean checkRequestValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f53449b)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f54029b)) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.dxmpay.wallet.core.beans.BeanRequestBase

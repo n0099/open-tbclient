@@ -14,7 +14,7 @@ import com.kwad.sdk.utils.q;
 import com.kwad.sdk.utils.t;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UploadEntryNative extends NativeObject implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

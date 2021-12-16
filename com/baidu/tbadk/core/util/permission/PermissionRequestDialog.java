@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.d.a.f;
-import c.a.q0.s.s.a;
+import c.a.r0.s.t.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.un.s;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PermissionRequestDialog extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class PermissionRequestDialog extends a {
     public ViewGroup mRootView;
     public TextView mTitleView;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface OnClickCallback {
         void onClickClose(Activity activity, String str);
 
@@ -79,7 +79,7 @@ public class PermissionRequestDialog extends a {
         }
     }
 
-    @Override // c.a.q0.s.s.a
+    @Override // c.a.r0.s.t.a
     public a create(f<?> fVar) {
         InterceptResult invokeL;
         char c2;
@@ -90,7 +90,7 @@ public class PermissionRequestDialog extends a {
             String str = this.mRequestPermission;
             int hashCode = str.hashCode();
             if (hashCode == -63024214) {
-                if (str.equals(s.f56843h)) {
+                if (str.equals(s.f57424h)) {
                     c2 = 2;
                 }
                 c2 = 65535;

@@ -2,7 +2,7 @@ package org.apache.http.auth;
 
 import java.security.Principal;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface Credentials {
     String getPassword();
 

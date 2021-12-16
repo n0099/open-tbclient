@@ -13,7 +13,7 @@ import com.baidu.wallet.core.ContactManager;
 import com.baidu.wallet.core.utils.contacts.ContractInfo;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";

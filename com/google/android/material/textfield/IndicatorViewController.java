@@ -33,7 +33,7 @@ import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.animation.AnimatorSetCompat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class IndicatorViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CAPTION_OPACITY_FADE_ANIMATION_DURATION = 167;

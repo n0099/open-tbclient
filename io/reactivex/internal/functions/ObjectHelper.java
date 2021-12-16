@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.functions.BiPredicate;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObjectHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final BiPredicate<Object, Object> EQUALS;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class BiObjectPredicate implements BiPredicate<Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

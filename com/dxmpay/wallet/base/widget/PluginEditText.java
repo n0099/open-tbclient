@@ -26,19 +26,19 @@ import com.dxmpay.wallet.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.dxmpay.wallet.base.widget.textfilter.IEditTextPasteFilter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class PluginEditText extends EditText implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55379e;
+    public String f55960e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f55380f;
+    public boolean f55961f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<IEditTextPasteFilter> f55381g;
+    public List<IEditTextPasteFilter> f55962g;
     public boolean isAlwaysShow;
     public int off;
 
@@ -61,15 +61,15 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
                 return;
             }
         }
-        this.f55379e = getClass().getSimpleName();
+        this.f55960e = getClass().getSimpleName();
         this.isAlwaysShow = false;
-        this.f55380f = true;
-        this.f55381g = new ArrayList();
+        this.f55961f = true;
+        this.f55962g = new ArrayList();
         List<IEditTextPasteFilter> parseEditTextPasteFilter = EditTextPasteFilterUtils.parseEditTextPasteFilter(attributeSet);
         if (parseEditTextPasteFilter == null || parseEditTextPasteFilter.size() <= 0) {
             return;
         }
-        this.f55381g.addAll(parseEditTextPasteFilter);
+        this.f55962g.addAll(parseEditTextPasteFilter);
     }
 
     public void addEditTextPasteFilter(IEditTextPasteFilter iEditTextPasteFilter) {
@@ -77,13 +77,13 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, iEditTextPasteFilter) == null) || iEditTextPasteFilter == null) {
             return;
         }
-        this.f55381g.add(iEditTextPasteFilter);
+        this.f55962g.add(iEditTextPasteFilter);
     }
 
     public List<IEditTextPasteFilter> getEditTextPasteFilters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55381g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55962g : (List) invokeV.objValue;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -105,7 +105,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             if (i2 == 16908322) {
-                String applyEditTextPasteFilters = EditTextPasteFilterUtils.applyEditTextPasteFilters(getContext(), this.f55381g);
+                String applyEditTextPasteFilters = EditTextPasteFilterUtils.applyEditTextPasteFilters(getContext(), this.f55962g);
                 try {
                     int selectionStart = getSelectionStart();
                     int selectionEnd = getSelectionEnd();
@@ -172,7 +172,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
                     Selection.setSelection(getEditableText(), this.off, offsetForHorizontal2);
                 }
             }
-            if (this.f55380f) {
+            if (this.f55961f) {
                 GlobalUtils.showInputMethod(getContext(), view);
             }
             return true;
@@ -206,7 +206,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
     public void setShowSystemMethodFlag(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f55380f = z;
+            this.f55961f = z;
         }
     }
 
@@ -229,15 +229,15 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
                 return;
             }
         }
-        this.f55379e = getClass().getSimpleName();
+        this.f55960e = getClass().getSimpleName();
         this.isAlwaysShow = false;
-        this.f55380f = true;
-        this.f55381g = new ArrayList();
+        this.f55961f = true;
+        this.f55962g = new ArrayList();
         List<IEditTextPasteFilter> parseEditTextPasteFilter = EditTextPasteFilterUtils.parseEditTextPasteFilter(attributeSet);
         if (parseEditTextPasteFilter == null || parseEditTextPasteFilter.size() <= 0) {
             return;
         }
-        this.f55381g.addAll(parseEditTextPasteFilter);
+        this.f55962g.addAll(parseEditTextPasteFilter);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

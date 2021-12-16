@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SapiDeviceInfo implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_KEY;
@@ -37,7 +37,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static final int VERSION = 11;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DeviceInfoCookieManager {
         public static /* synthetic */ Interceptable $ic;
         public static Map<String, String> cookiesMap;
@@ -264,7 +264,7 @@ public class SapiDeviceInfo implements NoProguard {
             diExceptIndex.contains(35);
             arrayList.add("");
             arrayList.add(diExceptIndex.contains(36) ? "" : SapiUtils.getIccid(context));
-            arrayList.add(diExceptIndex.contains(37) ? "" : "9.4.7.5");
+            arrayList.add(diExceptIndex.contains(37) ? "" : "9.4.7.8.2");
             return arrayList;
         }
         return (List) invokeL.objValue;

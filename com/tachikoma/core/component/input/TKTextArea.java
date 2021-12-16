@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.annotation.TK_EXPORT_CLASS;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TKTextArea extends TKInput {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

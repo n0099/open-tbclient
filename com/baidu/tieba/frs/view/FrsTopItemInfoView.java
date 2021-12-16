@@ -11,15 +11,15 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.l;
-import c.a.q0.s.s.a;
-import c.a.q0.s.u.c;
-import c.a.r0.d1.c1;
-import c.a.r0.d1.d1;
-import c.a.r0.d1.e1;
-import c.a.r0.d1.f1;
-import c.a.r0.d1.g1;
-import c.a.r0.d1.i1;
+import c.a.d.f.p.m;
+import c.a.r0.s.t.a;
+import c.a.r0.s.v.c;
+import c.a.s0.d1.c1;
+import c.a.s0.d1.d1;
+import c.a.s0.d1.e1;
+import c.a.s0.d1.f1;
+import c.a.s0.d1.g1;
+import c.a.s0.d1.i1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
@@ -45,7 +45,7 @@ import java.util.Locale;
 import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FrsTopItemInfoView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int A;
@@ -58,25 +58,25 @@ public class FrsTopItemInfoView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f44826e;
+    public Context f45317e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44827f;
+    public TextView f45318f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f44828g;
+    public View f45319g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44829h;
+    public TextView f45320h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f44830i;
+    public ImageView f45321i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f44831j;
+    public TextView f45322j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TextView f44832k;
+    public TextView f45323k;
     public ItemTableView l;
     public TextView m;
     public RelativeLayout n;
@@ -91,13 +91,13 @@ public class FrsTopItemInfoView extends LinearLayout {
     public View.OnClickListener w;
     public View.OnClickListener x;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsTopItemInfoView f44833e;
+        public final /* synthetic */ FrsTopItemInfoView f45324e;
 
         public a(FrsTopItemInfoView frsTopItemInfoView) {
             Interceptable interceptable = $ic;
@@ -114,36 +114,36 @@ public class FrsTopItemInfoView extends LinearLayout {
                     return;
                 }
             }
-            this.f44833e = frsTopItemInfoView;
+            this.f45324e = frsTopItemInfoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || !ViewHelper.checkUpIsLogin(this.f44833e.f44826e) || WriteActivityConfig.isAsyncWriting() || this.f44833e.t == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || !ViewHelper.checkUpIsLogin(this.f45324e.f45317e) || WriteActivityConfig.isAsyncWriting() || this.f45324e.t == null) {
                 return;
             }
-            WriteActivityConfig.newInstance((Activity) this.f44833e.f44826e).setType(9).setFrom("frs").setForumId("0").setIsEvaluate(true).setCallFrom("2").setScoreItemInfo(new SerializableItemInfo(this.f44833e.t)).setItemIsSchool(this.f44833e.t.is_school.intValue() == 1).setStarCount(this.f44833e.t.score != null ? this.f44833e.t.score.comment_star.intValue() : 0).send();
+            WriteActivityConfig.newInstance((Activity) this.f45324e.f45317e).setType(9).setFrom("frs").setForumId("0").setIsEvaluate(true).setCallFrom("2").setScoreItemInfo(new SerializableItemInfo(this.f45324e.t)).setItemIsSchool(this.f45324e.t.is_school.intValue() == 1).setStarCount(this.f45324e.t.score != null ? this.f45324e.t.score.comment_star.intValue() : 0).send();
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsTopItemInfoView f44834e;
+        public final /* synthetic */ FrsTopItemInfoView f45325e;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes12.dex */
         public class a implements a.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.q0.s.s.a f44835e;
+            public final /* synthetic */ c.a.r0.s.t.a f45326e;
 
-            public a(b bVar, c.a.q0.s.s.a aVar) {
+            public a(b bVar, c.a.r0.s.t.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,14 +158,14 @@ public class FrsTopItemInfoView extends LinearLayout {
                         return;
                     }
                 }
-                this.f44835e = aVar;
+                this.f45326e = aVar;
             }
 
-            @Override // c.a.q0.s.s.a.e
-            public void onClick(c.a.q0.s.s.a aVar) {
+            @Override // c.a.r0.s.t.a.e
+            public void onClick(c.a.r0.s.t.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                    this.f44835e.dismiss();
+                    this.f45326e.dismiss();
                 }
             }
         }
@@ -185,17 +185,17 @@ public class FrsTopItemInfoView extends LinearLayout {
                     return;
                 }
             }
-            this.f44834e = frsTopItemInfoView;
+            this.f45325e = frsTopItemInfoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f44834e.f44826e instanceof FrsActivity)) {
-                c.a.q0.s.s.a aVar = new c.a.q0.s.s.a((FrsActivity) this.f44834e.f44826e);
-                aVar.setMessage(this.f44834e.f44826e.getString(i1.comment_tab_dialog_info));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f45325e.f45317e instanceof FrsActivity)) {
+                c.a.r0.s.t.a aVar = new c.a.r0.s.t.a((FrsActivity) this.f45325e.f45317e);
+                aVar.setMessage(this.f45325e.f45317e.getString(i1.comment_tab_dialog_info));
                 aVar.setPositiveButton(i1.comment_tab_dialog_botton_text, new a(this, aVar));
-                aVar.create(((FrsActivity) this.f44834e.f44826e).getPageContext()).show();
+                aVar.create(((FrsActivity) this.f45325e.f45317e).getPageContext()).show();
             }
         }
     }
@@ -215,10 +215,10 @@ public class FrsTopItemInfoView extends LinearLayout {
         }
         y = TbadkCoreApplication.getInst().getString(i1.frs_evaluate_point);
         z = TbadkCoreApplication.getInst().getString(i1.frs_last_seven_days);
-        A = l.f(TbadkCoreApplication.getInst().getContext(), d1.tbds8);
-        B = l.f(TbadkCoreApplication.getInst().getContext(), d1.tbds21);
-        C = l.f(TbadkCoreApplication.getInst().getContext(), d1.tbds28);
-        D = l.f(TbadkCoreApplication.getInst().getContext(), d1.tbds42);
+        A = m.f(TbadkCoreApplication.getInst().getContext(), d1.tbds8);
+        B = m.f(TbadkCoreApplication.getInst().getContext(), d1.tbds21);
+        C = m.f(TbadkCoreApplication.getInst().getContext(), d1.tbds28);
+        D = m.f(TbadkCoreApplication.getInst().getContext(), d1.tbds42);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -251,17 +251,17 @@ public class FrsTopItemInfoView extends LinearLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f44826e = context;
+            this.f45317e = context;
             LayoutInflater.from(context).inflate(g1.frs_top_item_info_view, this);
             setOrientation(1);
-            this.f44827f = (TextView) findViewById(f1.item_title_name);
-            this.f44828g = findViewById(f1.item_split);
-            this.f44829h = (TextView) findViewById(f1.item_title_value);
+            this.f45318f = (TextView) findViewById(f1.item_title_name);
+            this.f45319g = findViewById(f1.item_split);
+            this.f45320h = (TextView) findViewById(f1.item_title_value);
             ImageView imageView = (ImageView) findViewById(f1.icon_question);
-            this.f44830i = imageView;
+            this.f45321i = imageView;
             imageView.setOnClickListener(this.x);
-            this.f44831j = (TextView) findViewById(f1.big_score);
-            this.f44832k = (TextView) findViewById(f1.people_num);
+            this.f45322j = (TextView) findViewById(f1.big_score);
+            this.f45323k = (TextView) findViewById(f1.people_num);
             this.l = (ItemTableView) findViewById(f1.item_table);
             this.m = (TextView) findViewById(f1.time_score);
             this.n = (RelativeLayout) findViewById(f1.evaluate_container);
@@ -270,14 +270,14 @@ public class FrsTopItemInfoView extends LinearLayout {
             this.q = (RankStarView) findViewById(f1.star_view);
             this.r = (ImageView) findViewById(f1.right_arrow);
             this.s = findViewById(f1.bottom_line);
-            this.f44827f.setText(i1.frs_evaluate_item_title);
+            this.f45318f.setText(i1.frs_evaluate_item_title);
             this.p.setText(i1.frs_evaluate_click_tip);
-            this.f44831j.setText(i1.frs_evaluate_exception);
+            this.f45322j.setText(i1.frs_evaluate_exception);
             if (DeviceInfoUtil.isXiaoMi()) {
-                this.f44831j.setPadding(0, -A, 0, 0);
+                this.f45322j.setPadding(0, -A, 0, 0);
             }
             this.o.setPlaceHolder(1);
-            this.q.setStarSpacing(l.f(TbadkCoreApplication.getInst().getContext(), d1.tbds10));
+            this.q.setStarSpacing(m.f(TbadkCoreApplication.getInst().getContext(), d1.tbds10));
             this.n.setOnClickListener(this.w);
         }
     }
@@ -288,17 +288,17 @@ public class FrsTopItemInfoView extends LinearLayout {
             c d2 = c.d(this);
             d2.n(i1.J_X06);
             d2.f(c1.CAM_X0201);
-            c d3 = c.d(this.f44827f);
+            c d3 = c.d(this.f45318f);
             d3.A(i1.F_X02);
             d3.v(c1.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f44828g, c1.CAM_X0109);
-            c d4 = c.d(this.f44829h);
+            SkinManager.setBackgroundColor(this.f45319g, c1.CAM_X0109);
+            c d4 = c.d(this.f45320h);
             d4.A(i1.F_X02);
             d4.v(c1.CAM_X0105);
-            c d5 = c.d(this.f44831j);
+            c d5 = c.d(this.f45322j);
             d5.A(i1.F_X02);
             d5.v(c1.CAM_X0105);
-            SkinManager.setViewTextColor(this.f44832k, c1.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.f45323k, c1.CAM_X0109, 1);
             c d6 = c.d(this.m);
             d6.v(c1.CAM_X0109);
             d6.A(i1.F_X01);
@@ -309,7 +309,7 @@ public class FrsTopItemInfoView extends LinearLayout {
             this.q.updateStarDrawable();
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.r, e1.ic_icon_mybar_pure_list_arrow16_right, c1.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(this.s, c1.CAM_X0210);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f44830i, e1.ic_icon_pure_use_unknown_n_svg, c1.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45321i, e1.ic_icon_pure_use_unknown_n_svg, c1.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
@@ -320,7 +320,7 @@ public class FrsTopItemInfoView extends LinearLayout {
             if (itemInfo == null || itemInfo.score == null) {
                 return;
             }
-            this.f44829h.setText(itemInfo.name);
+            this.f45320h.setText(itemInfo.name);
             ItemTable itemTable = itemInfo.score;
             int intValue = itemTable.total_point_num.intValue();
             List<ItemPoint> list = itemTable.item_point;
@@ -339,33 +339,33 @@ public class FrsTopItemInfoView extends LinearLayout {
             if (currentPortrait != null) {
                 this.o.startLoad(currentPortrait, 12, false);
             }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f44831j.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f44832k.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f45322j.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f45323k.getLayoutParams();
             double d2 = this.u;
             if (d2 > 0.0d && d2 <= 10.0d) {
-                this.f44831j.setText(String.valueOf(d2));
-                this.f44832k.setText(TbadkCoreApplication.getInst().getString(i1.frs_evaluate_people, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(intValue)}));
+                this.f45322j.setText(String.valueOf(d2));
+                this.f45323k.setText(TbadkCoreApplication.getInst().getString(i1.frs_evaluate_people, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(intValue)}));
                 if (itemTable.is_commented.intValue() == 1 && itemTable.comment_star.intValue() >= 0 && itemTable.comment_star.intValue() <= 5) {
                     this.q.setStarCount(itemTable.comment_star.intValue());
                 }
-                this.f44828g.setVisibility(0);
+                this.f45319g.setVisibility(0);
                 this.m.setVisibility(0);
                 this.m.setText(c(this.v), TextView.BufferType.SPANNABLE);
                 this.l.setData(itemTable.item_plot, intValue);
                 return;
             }
-            this.f44831j.setText(i1.frs_evaluate_exception);
-            this.f44831j.setTextSize(0, D);
+            this.f45322j.setText(i1.frs_evaluate_exception);
+            this.f45322j.setTextSize(0, D);
             layoutParams.topMargin = C;
             layoutParams.height = D;
-            this.f44831j.setLayoutParams(layoutParams);
+            this.f45322j.setLayoutParams(layoutParams);
             layoutParams2.topMargin = B;
-            this.f44832k.setGravity(17);
-            this.f44832k.setLayoutParams(layoutParams2);
-            this.f44832k.setText(TbadkCoreApplication.getInst().getString(i1.frs_evaluate_people, new Object[]{"0"}));
+            this.f45323k.setGravity(17);
+            this.f45323k.setLayoutParams(layoutParams2);
+            this.f45323k.setText(TbadkCoreApplication.getInst().getString(i1.frs_evaluate_people, new Object[]{"0"}));
             this.q.setStarCount(0.0f);
             this.m.setVisibility(8);
-            this.f44828g.setVisibility(8);
+            this.f45319g.setVisibility(8);
             this.l.clear();
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.collectTab;
 
 import android.os.Bundle;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class CollectFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EDITOR_ENABLE_EXTRA = "is_enable_edit";
@@ -22,10 +22,10 @@ public abstract class CollectFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CustomMessageListener f40866e;
+    public final CustomMessageListener f41355e;
     public boolean mIsEnableEdit;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public abstract class CollectFragment extends BaseFragment {
             }
         }
         this.mIsEnableEdit = false;
-        this.f40866e = new a(this, 2000994);
+        this.f41355e = new a(this, 2000994);
     }
 
     public abstract int getType();
@@ -100,7 +100,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onStart();
-            registerListener(this.f40866e);
+            registerListener(this.f41355e);
         }
     }
 
@@ -109,7 +109,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onStop();
-            MessageManager.getInstance().unRegisterListener(this.f40866e);
+            MessageManager.getInstance().unRegisterListener(this.f41355e);
         }
     }
 
@@ -117,7 +117,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             Bundle bundle = new Bundle();
-            boolean z = !isEmptyData() && j.z();
+            boolean z = !isEmptyData() && k.z();
             this.mIsEnableEdit = z;
             bundle.putBoolean(EDITOR_ENABLE_EXTRA, z);
             bundle.putInt(FRAGMENT_TYPE, i2);

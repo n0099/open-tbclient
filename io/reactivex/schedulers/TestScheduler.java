@@ -15,7 +15,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import java.util.Queue;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class TestScheduler extends Scheduler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public final class TestScheduler extends Scheduler {
     public final Queue<TimedRunnable> queue;
     public volatile long time;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class TimedRunnable implements Comparable<TimedRunnable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,14 +172,14 @@ public final class TestScheduler extends Scheduler {
         this.time = timeUnit.toNanos(j2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class TestWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean disposed;
         public final /* synthetic */ TestScheduler this$0;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public final class QueueRemove implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.R;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class fa extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f51735b;
+    public View f52284b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fa(Context context, int i2) {
@@ -48,10 +48,10 @@ public final class fa extends Dialog {
         window.setGravity(80);
         window.setWindowAnimations(R.style.dialog_animation);
         View inflate = View.inflate(this.a, R.layout.ufo_show_evaluate_dialog, null);
-        this.f51735b = inflate;
+        this.f52284b = inflate;
         inflate.findViewById(R.id.btn_dialog_close).setOnClickListener(new fb(this));
-        this.f51735b.findViewById(R.id.header_transparent).setOnClickListener(new fc(this));
-        window.setContentView(this.f51735b);
+        this.f52284b.findViewById(R.id.header_transparent).setOnClickListener(new fc(this));
+        window.setContentView(this.f52284b);
         window.setLayout(-1, -2);
     }
 
@@ -66,54 +66,54 @@ public final class fa extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, jSONArray, str) == null) {
             if (jSONArray == null || jSONArray.length() <= 0) {
-                this.f51735b.findViewById(R.id.ll_checkboxs).setVisibility(8);
+                this.f52284b.findViewById(R.id.ll_checkboxs).setVisibility(8);
             } else {
-                this.f51735b.findViewById(R.id.ll_checkboxs).setVisibility(0);
+                this.f52284b.findViewById(R.id.ll_checkboxs).setVisibility(0);
                 int length = jSONArray.length();
                 if (length != 1) {
                     if (length != 2) {
                         if (length != 3) {
                             if (length != 4) {
                                 if (length == 5) {
-                                    this.f51735b.findViewById(R.id.ll_checkboxs_3).setVisibility(0);
-                                    CheckBox checkBox = (CheckBox) this.f51735b.findViewById(R.id.cb_31);
+                                    this.f52284b.findViewById(R.id.ll_checkboxs_3).setVisibility(0);
+                                    CheckBox checkBox = (CheckBox) this.f52284b.findViewById(R.id.cb_31);
                                     checkBox.setVisibility(0);
                                     checkBox.setText(jSONArray.optString(4));
                                 }
                                 if (jSONArray.length() == 4) {
-                                    this.f51735b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
+                                    this.f52284b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
                                 }
                                 if (jSONArray.length() == 3) {
-                                    this.f51735b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
-                                    ((CheckBox) this.f51735b.findViewById(R.id.cb_22)).setVisibility(4);
+                                    this.f52284b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
+                                    ((CheckBox) this.f52284b.findViewById(R.id.cb_22)).setVisibility(4);
                                 }
                                 if (jSONArray.length() == 2) {
-                                    this.f51735b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
-                                    this.f51735b.findViewById(R.id.ll_checkboxs_2).setVisibility(8);
+                                    this.f52284b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
+                                    this.f52284b.findViewById(R.id.ll_checkboxs_2).setVisibility(8);
                                 }
                                 if (jSONArray.length() == 1) {
-                                    this.f51735b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
-                                    this.f51735b.findViewById(R.id.ll_checkboxs_2).setVisibility(8);
-                                    ((CheckBox) this.f51735b.findViewById(R.id.cb_12)).setVisibility(4);
+                                    this.f52284b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
+                                    this.f52284b.findViewById(R.id.ll_checkboxs_2).setVisibility(8);
+                                    ((CheckBox) this.f52284b.findViewById(R.id.cb_12)).setVisibility(4);
                                 }
                             }
-                            this.f51735b.findViewById(R.id.ll_checkboxs_2).setVisibility(0);
-                            CheckBox checkBox2 = (CheckBox) this.f51735b.findViewById(R.id.cb_22);
+                            this.f52284b.findViewById(R.id.ll_checkboxs_2).setVisibility(0);
+                            CheckBox checkBox2 = (CheckBox) this.f52284b.findViewById(R.id.cb_22);
                             checkBox2.setVisibility(0);
                             checkBox2.setText(jSONArray.optString(3));
                         }
-                        this.f51735b.findViewById(R.id.ll_checkboxs_2).setVisibility(0);
-                        CheckBox checkBox3 = (CheckBox) this.f51735b.findViewById(R.id.cb_21);
+                        this.f52284b.findViewById(R.id.ll_checkboxs_2).setVisibility(0);
+                        CheckBox checkBox3 = (CheckBox) this.f52284b.findViewById(R.id.cb_21);
                         checkBox3.setVisibility(0);
                         checkBox3.setText(jSONArray.optString(2));
                     }
-                    this.f51735b.findViewById(R.id.ll_checkboxs_1).setVisibility(0);
-                    CheckBox checkBox4 = (CheckBox) this.f51735b.findViewById(R.id.cb_12);
+                    this.f52284b.findViewById(R.id.ll_checkboxs_1).setVisibility(0);
+                    CheckBox checkBox4 = (CheckBox) this.f52284b.findViewById(R.id.cb_12);
                     checkBox4.setVisibility(0);
                     checkBox4.setText(jSONArray.optString(1));
                 }
-                this.f51735b.findViewById(R.id.ll_checkboxs_1).setVisibility(0);
-                CheckBox checkBox5 = (CheckBox) this.f51735b.findViewById(R.id.cb_11);
+                this.f52284b.findViewById(R.id.ll_checkboxs_1).setVisibility(0);
+                CheckBox checkBox5 = (CheckBox) this.f52284b.findViewById(R.id.cb_11);
                 checkBox5.setVisibility(0);
                 checkBox5.setText(jSONArray.optString(0));
                 if (jSONArray.length() == 4) {
@@ -126,11 +126,11 @@ public final class fa extends Dialog {
                 }
             }
             if (TextUtils.isEmpty(str)) {
-                this.f51735b.findViewById(R.id.rl_show).setVisibility(8);
+                this.f52284b.findViewById(R.id.rl_show).setVisibility(8);
                 return;
             }
-            this.f51735b.findViewById(R.id.rl_show).setVisibility(0);
-            ((TextView) this.f51735b.findViewById(R.id.tv_show_reason)).setText(str);
+            this.f52284b.findViewById(R.id.rl_show).setVisibility(0);
+            ((TextView) this.f52284b.findViewById(R.id.tv_show_reason)).setText(str);
         }
     }
 }

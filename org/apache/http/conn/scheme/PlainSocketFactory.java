@@ -11,7 +11,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class PlainSocketFactory implements SocketFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

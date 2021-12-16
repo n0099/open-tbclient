@@ -1,6 +1,6 @@
 package com.baidu.tieba.newinterest.data;
 
-import c.a.r0.m2.c.c;
+import c.a.s0.o2.c.c;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class InterestedForumHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

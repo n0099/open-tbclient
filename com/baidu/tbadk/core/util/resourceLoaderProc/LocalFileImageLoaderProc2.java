@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import android.graphics.Bitmap;
 import c.a.d.f.l.b;
 import c.a.d.f.l.e;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import c.a.d.m.d.a;
-import c.a.q0.c0.c;
+import c.a.r0.c0.c;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class LocalFileImageLoaderProc2 implements e<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,8 +44,8 @@ public class LocalFileImageLoaderProc2 implements e<a> {
     private void initDefalutMaxSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.width = l.k(TbadkCoreApplication.getInst());
-            this.height = l.i(TbadkCoreApplication.getInst());
+            this.width = m.k(TbadkCoreApplication.getInst());
+            this.height = m.i(TbadkCoreApplication.getInst());
         }
     }
 

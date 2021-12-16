@@ -6,9 +6,9 @@ import android.text.TextUtils;
 import android.util.TypedValue;
 import android.webkit.DownloadListener;
 import android.widget.RelativeLayout;
-import c.a.p0.h.i.k.f.f;
-import c.a.p0.h.i.p.c;
-import c.a.p0.h.i.s.g;
+import c.a.q0.h.i.k.f.f;
+import c.a.q0.h.i.p.c;
+import c.a.q0.h.i.s.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.game.ad.downloader.model.DownloadParams;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
@@ -19,41 +19,41 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class InteractiveEndFrameView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SWAN_GAME_STORAGE = "swan_game_video_ad_storage";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RewardWebView f40403e;
+    public RewardWebView f40892e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f40404f;
+    public c f40893f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdElementInfo f40405g;
+    public AdElementInfo f40894g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DownloadParams f40406h;
+    public DownloadParams f40895h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.p0.h.i.k.f.a f40407i;
+    public c.a.q0.h.i.k.f.a f40896i;
 
     /* renamed from: j  reason: collision with root package name */
-    public JSONObject f40408j;
+    public JSONObject f40897j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f40409k;
+    public String f40898k;
     public String l;
     public DownloadState m;
-    public c.a.p0.h.i.r.c n;
+    public c.a.q0.h.i.r.c n;
     public f o;
     public RelativeLayout p;
     public RelativeLayout.LayoutParams q;
 
-    /* loaded from: classes9.dex */
-    public class a implements c.a.p0.h.i.k.f.a {
+    /* loaded from: classes11.dex */
+    public class a implements c.a.q0.h.i.k.f.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InteractiveEndFrameView a;
@@ -76,7 +76,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             this.a = interactiveEndFrameView;
         }
 
-        @Override // c.a.p0.h.i.k.f.a
+        @Override // c.a.q0.h.i.k.f.a
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
@@ -84,7 +84,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
         }
 
-        @Override // c.a.p0.h.i.k.f.a
+        @Override // c.a.q0.h.i.k.f.a
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -92,7 +92,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
         }
 
-        @Override // c.a.p0.h.i.k.f.a
+        @Override // c.a.q0.h.i.k.f.a
         public void c(DownloadState downloadState, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadState, i2) == null) {
@@ -116,7 +116,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
         }
 
-        @Override // c.a.p0.h.i.k.f.a
+        @Override // c.a.q0.h.i.k.f.a
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -124,19 +124,19 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
         }
 
-        @Override // c.a.p0.h.i.k.f.a
+        @Override // c.a.q0.h.i.k.f.a
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 this.a.n.c("appinstallopen");
                 InteractiveEndFrameView interactiveEndFrameView = this.a;
-                return interactiveEndFrameView.t(interactiveEndFrameView.f40409k);
+                return interactiveEndFrameView.t(interactiveEndFrameView.f40898k);
             }
             return (String) invokeV.objValue;
         }
 
-        @Override // c.a.p0.h.i.k.f.a
+        @Override // c.a.q0.h.i.k.f.a
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || this.a.p == null) {
@@ -151,7 +151,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -179,28 +179,28 @@ public class InteractiveEndFrameView extends RelativeLayout {
         public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
-                c.a.p0.h.i.r.b.h(this.a.f40405g, this.a.f40404f);
-                this.a.f40409k = str;
+                c.a.q0.h.i.r.b.h(this.a.f40894g, this.a.f40893f);
+                this.a.f40898k = str;
                 String t = this.a.t(str);
                 if (!TextUtils.isEmpty(t)) {
                     this.a.l = t;
                 }
                 InteractiveEndFrameView interactiveEndFrameView = this.a;
-                interactiveEndFrameView.f40406h = new DownloadParams(interactiveEndFrameView.f40409k, this.a.l);
-                this.a.o = new c.a.p0.h.i.k.g.b();
+                interactiveEndFrameView.f40895h = new DownloadParams(interactiveEndFrameView.f40898k, this.a.l);
+                this.a.o = new c.a.q0.h.i.k.g.b();
                 InteractiveEndFrameView interactiveEndFrameView2 = this.a;
                 f fVar = interactiveEndFrameView2.o;
-                fVar.c(this.a.getContext(), this.a.f40406h, this.a.f40407i);
+                fVar.c(this.a.getContext(), this.a.f40895h, this.a.f40896i);
                 interactiveEndFrameView2.o = fVar;
-                this.a.o.e(this.a.f40406h);
+                this.a.o.e(this.a.f40895h);
                 this.a.o.f();
-                if (g.a(this.a.getContext(), this.a.f40406h.f40391b) && this.a.p != null) {
+                if (g.a(this.a.getContext(), this.a.f40895h.f40880b) && this.a.p != null) {
                     this.a.p.removeView(this.a.o.getRealView());
                     this.a.p.addView(this.a.o.getRealView(), this.a.q);
                     this.a.o.b(DownloadState.INSTALLED);
                     return;
                 }
-                c.a.p0.h.i.n.a.b().d(this.a.getContext(), this.a.f40406h.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.f40407i);
+                c.a.q0.h.i.n.a.b().d(this.a.getContext(), this.a.f40895h.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.f40896i);
             }
         }
     }
@@ -225,22 +225,22 @@ public class InteractiveEndFrameView extends RelativeLayout {
         }
         this.l = "";
         this.m = DownloadState.NOT_START;
-        this.f40404f = new c(context);
+        this.f40893f = new c(context);
     }
 
     public void addWebView(AdElementInfo adElementInfo, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adElementInfo, relativeLayout) == null) {
-            this.f40405g = adElementInfo;
+            this.f40894g = adElementInfo;
             this.p = relativeLayout;
             String endFrameUrl = adElementInfo.getEndFrameUrl();
             RewardWebView rewardWebView = new RewardWebView(getContext());
-            this.f40403e = rewardWebView;
+            this.f40892e = rewardWebView;
             rewardWebView.setBackgroundColor(-1);
-            this.f40403e.loadUrl(endFrameUrl);
-            addView(this.f40403e, new RelativeLayout.LayoutParams(-1, -1));
-            this.f40408j = adElementInfo.getAdMonitors();
-            this.n = new c.a.p0.h.i.r.c(getContext(), this.f40408j);
+            this.f40892e.loadUrl(endFrameUrl);
+            addView(this.f40892e, new RelativeLayout.LayoutParams(-1, -1));
+            this.f40897j = adElementInfo.getAdMonitors();
+            this.n = new c.a.q0.h.i.r.c(getContext(), this.f40897j);
             initDownload();
             setDownloadListener();
         }
@@ -249,13 +249,13 @@ public class InteractiveEndFrameView extends RelativeLayout {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RewardWebView rewardWebView = this.f40403e;
+            RewardWebView rewardWebView = this.f40892e;
             if (rewardWebView != null) {
                 rewardWebView.destroy();
             }
             if (DownloadState.DOWNLOADING == this.m) {
-                this.f40407i = null;
-                c.a.p0.h.i.n.a.b().d(getContext(), this.f40406h.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.f40407i);
+                this.f40896i = null;
+                c.a.q0.h.i.n.a.b().d(getContext(), this.f40895h.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.f40896i);
             }
         }
     }
@@ -264,7 +264,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             u();
-            this.f40407i = new a(this);
+            this.f40896i = new a(this);
         }
     }
 
@@ -282,7 +282,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
     public void setDownloadListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f40403e.setDownloadListener(new b(this));
+            this.f40892e.setDownloadListener(new b(this));
         }
     }
 
@@ -300,9 +300,9 @@ public class InteractiveEndFrameView extends RelativeLayout {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            float s = s(getContext(), c.a.p0.h.i.c.end_frame_download_btn_width);
-            float s2 = s(getContext(), c.a.p0.h.i.c.end_frame_download_btn_height);
-            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(c.a.p0.h.i.c.end_frame_download_btn_bottom_margin);
+            float s = s(getContext(), c.a.q0.h.i.c.end_frame_download_btn_width);
+            float s2 = s(getContext(), c.a.q0.h.i.c.end_frame_download_btn_height);
+            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(c.a.q0.h.i.c.end_frame_download_btn_bottom_margin);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (getContext().getResources().getDisplayMetrics().widthPixels * s), (int) (getContext().getResources().getDisplayMetrics().heightPixels * s2));
             layoutParams.addRule(12);
             layoutParams.bottomMargin = dimensionPixelSize;
@@ -319,7 +319,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
         Context context = getContext();
         getContext();
         SharedPreferences.Editor edit = context.getSharedPreferences(SWAN_GAME_STORAGE, 0).edit();
-        edit.putString(this.f40409k, str);
+        edit.putString(this.f40898k, str);
         edit.apply();
     }
 }

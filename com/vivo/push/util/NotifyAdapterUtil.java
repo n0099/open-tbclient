@@ -30,7 +30,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NotifyAdapterUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NOTIFY_MULTITERM_STYLE = 1;

@@ -11,13 +11,13 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Class<?>, Class<?>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f30638b;
+    public static final Map<Class<?>, Class<?>> f31008b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public final class a {
         a(linkedHashMap, linkedHashMap2, Short.TYPE, Short.class);
         a(linkedHashMap, linkedHashMap2, Void.TYPE, Void.class);
         a = Collections.unmodifiableMap(linkedHashMap);
-        f30638b = Collections.unmodifiableMap(linkedHashMap2);
+        f31008b = Collections.unmodifiableMap(linkedHashMap2);
     }
 
     public static void a(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
@@ -59,7 +59,7 @@ public final class a {
     public static Set<Class<?>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f30638b.keySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f31008b.keySet() : (Set) invokeV.objValue;
     }
 
     public static <T> Class<T> c(Class<T> cls) {
@@ -67,7 +67,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
             n.p(cls);
-            Class<T> cls2 = (Class<T>) f30638b.get(cls);
+            Class<T> cls2 = (Class<T>) f31008b.get(cls);
             return cls2 == null ? cls : cls2;
         }
         return (Class) invokeL.objValue;

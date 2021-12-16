@@ -1,6 +1,6 @@
 package com.baidu.tieba.tbean.message;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetIconList.GetIconListReqIdl;
 import tbclient.GetIconList.ReqData;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class GetYinJiRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class GetYinJiRequestMessage extends NetMessage {
             ReqData.Builder builder = new ReqData.Builder();
             builder.st_type = getSt_type();
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             GetIconListReqIdl.Builder builder2 = new GetIconListReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a extends com.kwad.sdk.h.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f57594b;
+    public d f58175b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public abstract class a extends com.kwad.sdk.h.d {
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.a.setAdapter(this.f57594b);
+            this.a.setAdapter(this.f58175b);
         }
     }
 
@@ -62,7 +62,7 @@ public abstract class a extends com.kwad.sdk.h.d {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.setItemAnimator(null);
             this.a.setLayoutManager(e());
-            this.f57594b = a(this.a);
+            this.f58175b = a(this.a);
         }
     }
 

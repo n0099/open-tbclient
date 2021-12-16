@@ -1,8 +1,8 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import c.a.d.f.m.b;
-import c.a.d.f.p.l;
-import c.a.r0.h3.j0.a;
+import c.a.d.f.p.m;
+import c.a.s0.j3.j0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.AppPosInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class UtilityLocation implements TiebaUtilityLocationAuto.HostUtilityLocation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class UtilityLocation implements TiebaUtilityLocationAuto.HostUtilityLoca
                 String str = c2.latitude;
                 String str2 = c2.longitude;
                 if ((UtilHelper.isDecimal(str) && UtilHelper.isDecimal(str2)) ? false : false) {
-                    distanceResult.setResult(Double.valueOf(l.g(b.c(str, 0.0d), b.c(str2, 0.0d), doubleValue, doubleValue2)));
+                    distanceResult.setResult(Double.valueOf(m.g(b.c(str, 0.0d), b.c(str2, 0.0d), doubleValue, doubleValue2)));
                     result.success(distanceResult);
                 }
             }

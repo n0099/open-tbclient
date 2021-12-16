@@ -1,16 +1,25 @@
 package com.baidu.searchbox.player.ubc;
 
 import androidx.annotation.Nullable;
-import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IUbcPlayerStatusFetcher {
     int getCurrentPosition();
+
+    @Nullable
+    String getKernelLogId();
 
     float getLaunchSpeedScore();
 
     int getPlayType();
 
+    @Nullable
+    String getPlayUrl();
+
+    @Nullable
+    String getSessionId();
+
     float getStaticDeviceScore();
 
-    void setKernelExternalInfo(@Nullable HashMap<String, String> hashMap);
+    @Nullable
+    String getTraceId();
 }

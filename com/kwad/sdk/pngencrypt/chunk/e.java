@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<PngChunk> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.pngencrypt.k f58726b;
+    public final com.kwad.sdk.pngencrypt.k f59307b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f58727c;
+    public boolean f59308c;
 
     public e(com.kwad.sdk.pngencrypt.k kVar) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class e {
             }
         }
         this.a = new ArrayList();
-        this.f58727c = false;
-        this.f58726b = kVar;
+        this.f59308c = false;
+        this.f59307b = kVar;
     }
 
     public static List<PngChunk> a(List<PngChunk> list, String str, String str2) {
@@ -78,7 +78,7 @@ public class e {
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f58728b;
+            public final /* synthetic */ String f59309b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -96,7 +96,7 @@ public class e {
                     }
                 }
                 this.a = str;
-                this.f58728b = str2;
+                this.f59309b = str2;
             }
 
             @Override // com.kwad.sdk.pngencrypt.chunk.c
@@ -105,8 +105,8 @@ public class e {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, pngChunk)) == null) {
                     if (pngChunk.a.equals(this.a)) {
-                        if (!(pngChunk instanceof ae) || ((ae) pngChunk).c().equals(this.f58728b)) {
-                            return !(pngChunk instanceof x) || ((x) pngChunk).c().equals(this.f58728b);
+                        if (!(pngChunk instanceof ae) || ((ae) pngChunk).c().equals(this.f59309b)) {
+                            return !(pngChunk instanceof x) || ((x) pngChunk).c().equals(this.f59309b);
                         }
                         return false;
                     }
@@ -135,7 +135,7 @@ public class e {
             pngChunk.a(i2);
             this.a.add(pngChunk);
             if (pngChunk.a.equals("PLTE")) {
-                this.f58727c = true;
+                this.f59308c = true;
             }
         }
     }

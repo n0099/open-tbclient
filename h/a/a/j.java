@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import org.brotli.dec.BrotliRuntimeException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,34 +41,34 @@ public final class j {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63504b;
+    public int f64085b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f63505c;
+    public final a f64086c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f63506d;
+    public byte[] f64087d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int[] f63507e;
+    public final int[] f64088e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f63508f;
+    public final int[] f64089f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f63509g;
+    public int f64090g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f63510h;
+    public boolean f64091h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f63511i;
+    public boolean f64092i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f63512j;
+    public boolean f64093j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final g f63513k;
+    public final g f64094k;
     public final g l;
     public final g m;
     public final int[] n;
@@ -99,10 +99,10 @@ public final class j {
             }
         }
         this.a = 0;
-        this.f63505c = new a();
-        this.f63507e = new int[3240];
-        this.f63508f = new int[3240];
-        this.f63513k = new g();
+        this.f64086c = new a();
+        this.f64088e = new int[3240];
+        this.f64089f = new int[3240];
+        this.f64094k = new g();
         this.l = new g();
         this.m = new g();
         this.n = new int[3];
@@ -131,7 +131,7 @@ public final class j {
                 return;
             }
             jVar.a = 11;
-            a.b(jVar.f63505c);
+            a.b(jVar.f64086c);
         }
     }
 
@@ -159,8 +159,8 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, jVar, inputStream) == null) {
             if (jVar.a == 0) {
-                a.e(jVar.f63505c, inputStream);
-                int b2 = b(jVar.f63505c);
+                a.e(jVar.f64086c, inputStream);
+                int b2 = b(jVar.f64086c);
                 if (b2 != 9) {
                     int i2 = 1 << b2;
                     jVar.P = i2;

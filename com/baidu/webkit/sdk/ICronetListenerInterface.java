@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface ICronetListenerInterface {
     void notifyCronetInit();
 }

@@ -20,7 +20,7 @@ import com.baidu.walletfacesdk.LightInvokerImpl;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BdWalletUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEVICE_FP = "rim_device_fp";

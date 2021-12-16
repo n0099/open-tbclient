@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class TimeSignalCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TimeSignalCommand> CREATOR;
@@ -21,7 +21,7 @@ public final class TimeSignalCommand extends SpliceCommand {
     public final long playbackPositionUs;
     public final long ptsTime;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<TimeSignalCommand> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

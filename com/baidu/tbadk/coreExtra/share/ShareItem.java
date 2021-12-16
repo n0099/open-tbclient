@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
-import c.a.q0.s.q.d2;
+import c.a.d.f.p.l;
+import c.a.r0.s.r.d2;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,10 +35,10 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ShareItem {
     public static /* synthetic */ Interceptable $ic;
-    public static final String v0;
+    public static final String y0;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle A;
     public Location B;
@@ -73,43 +73,43 @@ public class ShareItem {
     public WeakReference<Bitmap> a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f41576b;
+    public boolean f42067b;
     public Bundle b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f41577c;
+    public boolean f42068c;
     public boolean c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f41578d;
+    public boolean f42069d;
     public boolean d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f41579e;
+    public boolean f42070e;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f41580f;
+    public boolean f42071f;
     public boolean f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f41581g;
+    public boolean f42072g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f41582h;
+    public boolean f42073h;
     public int h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f41583i;
+    public boolean f42074i;
     public String i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f41584j;
+    public boolean f42075j;
     public boolean j0;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f41585k;
+    public boolean f42076k;
     public boolean k0;
     public boolean l;
     public String l0;
@@ -132,8 +132,11 @@ public class ShareItem {
     public String u;
     public List<Integer> u0;
     public Uri v;
+    public String v0;
     public String w;
+    public String w0;
     public String x;
+    public Uri x0;
     public int y;
     public String z;
 
@@ -150,7 +153,7 @@ public class ShareItem {
                 return;
             }
         }
-        v0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+        y0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
     }
 
     public ShareItem() {
@@ -167,16 +170,16 @@ public class ShareItem {
             }
         }
         this.a = false;
-        this.f41576b = false;
-        this.f41577c = false;
-        this.f41578d = false;
-        this.f41579e = false;
-        this.f41580f = false;
-        this.f41581g = false;
-        this.f41582h = false;
-        this.f41583i = false;
-        this.f41584j = false;
-        this.f41585k = false;
+        this.f42067b = false;
+        this.f42068c = false;
+        this.f42069d = false;
+        this.f42070e = false;
+        this.f42071f = false;
+        this.f42072g = false;
+        this.f42073h = false;
+        this.f42074i = false;
+        this.f42075j = false;
+        this.f42076k = false;
         this.l = false;
         this.m = false;
         this.n = "";
@@ -280,7 +283,7 @@ public class ShareItem {
         try {
             try {
                 if (FileHelper.checkSD()) {
-                    File file = new File(v0);
+                    File file = new File(y0);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -362,7 +365,7 @@ public class ShareItem {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class ForwardInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -449,10 +452,10 @@ public class ShareItem {
                     }
                     forwardInfo.showText = d2Var.A1.d();
                     OriginalThreadInfo originalThreadInfo = d2Var.A1;
-                    forwardInfo.showPicUrl = originalThreadInfo.f40901c;
+                    forwardInfo.showPicUrl = originalThreadInfo.f41392c;
                     forwardInfo.showType = originalThreadInfo.a;
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                    forwardInfo.originalTid = originalThreadInfo.f40904f;
+                    forwardInfo.originalTid = originalThreadInfo.f41395f;
                     if (i2 == 1) {
                         if (postData != null && postData.M() != null) {
                             str = postData.M().toString();
@@ -468,21 +471,21 @@ public class ShareItem {
                     if (d2Var.J() != null && !TextUtils.isEmpty(d2Var.J().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = d2Var.J().getName_show();
                     }
-                    if (i2 == 1 && postData != null && k.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.t() != null) {
+                    if (i2 == 1 && postData != null && l.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.t() != null) {
                         forwardInfo.transmitThreadAuthorNameShow = postData.t().getName_show();
                     }
-                    if (i2 == 2 && k.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
+                    if (i2 == 2 && l.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                     }
                 } else {
                     if (d2Var.L() != null && !TextUtils.isEmpty(d2Var.L().oriUgcNid)) {
                         forwardInfo.isDynamic = true;
                     }
-                    OriginalThreadInfo k2 = OriginalThreadInfo.k(d2Var);
-                    if (k2 != null) {
-                        forwardInfo.showText = k2.d();
-                        forwardInfo.showPicUrl = k2.f40901c;
-                        forwardInfo.showType = k2.a;
+                    OriginalThreadInfo l = OriginalThreadInfo.l(d2Var);
+                    if (l != null) {
+                        forwardInfo.showText = l.d();
+                        forwardInfo.showPicUrl = l.f41392c;
+                        forwardInfo.showType = l.a;
                     }
                     forwardInfo.originalTid = d2Var.v1();
                 }

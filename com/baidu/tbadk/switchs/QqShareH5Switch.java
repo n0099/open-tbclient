@@ -1,14 +1,14 @@
 package com.baidu.tbadk.switchs;
 
 import c.a.d.f.f.a;
-import c.a.q0.s.e0.b;
+import c.a.r0.s.g0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class QqShareH5Switch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int OFF_TYPE = 0;

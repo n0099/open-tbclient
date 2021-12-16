@@ -10,20 +10,20 @@ import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class v4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer f30977b;
+    public ByteBuffer f31347b;
 
     /* renamed from: c  reason: collision with root package name */
-    public r4 f30978c;
+    public r4 f31348c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30979d;
+    public int f31349d;
 
     public v4() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class v4 {
             }
         }
         this.a = new byte[256];
-        this.f30979d = 0;
+        this.f31349d = 0;
     }
 
     public v4 a(byte[] bArr) {
@@ -48,17 +48,17 @@ public class v4 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             if (bArr != null) {
                 ByteBuffer wrap = ByteBuffer.wrap(bArr);
-                this.f30977b = null;
+                this.f31347b = null;
                 Arrays.fill(this.a, (byte) 0);
-                this.f30978c = new r4();
-                this.f30979d = 0;
+                this.f31348c = new r4();
+                this.f31349d = 0;
                 ByteBuffer asReadOnlyBuffer = wrap.asReadOnlyBuffer();
-                this.f30977b = asReadOnlyBuffer;
+                this.f31347b = asReadOnlyBuffer;
                 asReadOnlyBuffer.position(0);
-                this.f30977b.order(ByteOrder.LITTLE_ENDIAN);
+                this.f31347b.order(ByteOrder.LITTLE_ENDIAN);
             } else {
-                this.f30977b = null;
-                this.f30978c.f30898b = 2;
+                this.f31347b = null;
+                this.f31348c.f31268b = 2;
             }
             return this;
         }
@@ -68,7 +68,7 @@ public class v4 {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30978c.f30898b != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31348c.f31268b != 0 : invokeV.booleanValue;
     }
 
     public final int[] c(int i2) {
@@ -78,7 +78,7 @@ public class v4 {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             byte[] bArr = new byte[i2 * 3];
             try {
-                this.f30977b.get(bArr);
+                this.f31347b.get(bArr);
                 iArr = new int[256];
                 int i3 = 0;
                 int i4 = 0;
@@ -92,7 +92,7 @@ public class v4 {
                         i4 = i7;
                         i3 = i8;
                     } catch (BufferUnderflowException unused) {
-                        this.f30978c.f30898b = 1;
+                        this.f31348c.f31268b = 1;
                         return iArr;
                     }
                 }
@@ -109,9 +109,9 @@ public class v4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return this.f30977b.get() & 255;
+                return this.f31347b.get() & 255;
             } catch (Exception unused) {
-                this.f30978c.f30898b = 1;
+                this.f31348c.f31268b = 1;
                 return 0;
             }
         }
@@ -123,16 +123,16 @@ public class v4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int d2 = d();
-            this.f30979d = d2;
+            this.f31349d = d2;
             int i2 = 0;
             if (d2 > 0) {
-                while (i2 < this.f30979d) {
+                while (i2 < this.f31349d) {
                     try {
-                        int i3 = this.f30979d - i2;
-                        this.f30977b.get(this.a, i2, i3);
+                        int i3 = this.f31349d - i2;
+                        this.f31347b.get(this.a, i2, i3);
                         i2 += i3;
                     } catch (Exception unused) {
-                        this.f30978c.f30898b = 1;
+                        this.f31348c.f31268b = 1;
                     }
                 }
             }
@@ -148,7 +148,7 @@ public class v4 {
             do {
                 try {
                     d2 = d();
-                    this.f30977b.position(this.f30977b.position() + d2);
+                    this.f31347b.position(this.f31347b.position() + d2);
                 } catch (IllegalArgumentException unused) {
                     return;
                 }

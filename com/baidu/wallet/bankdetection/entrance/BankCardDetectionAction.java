@@ -9,8 +9,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.bankdetection.BankcardDetectionController;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
+import com.dxmpay.wallet.utils.BdWalletUtils;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class BankCardDetectionAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,8 +26,10 @@ public class BankCardDetectionAction implements RouterAction {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        BdWalletUtils.putFunctionNameList("detectBankCard");
     }
 
     @Override // com.baidu.wallet.router.RouterAction
@@ -39,7 +42,7 @@ public class BankCardDetectionAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BankCardDetectionAction f51898b;
+                public final /* synthetic */ BankCardDetectionAction f52453b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -56,7 +59,7 @@ public class BankCardDetectionAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f51898b = this;
+                    this.f52453b = this;
                     this.a = routerCallback;
                 }
 

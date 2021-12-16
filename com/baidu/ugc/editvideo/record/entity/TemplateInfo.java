@@ -2,9 +2,9 @@ package com.baidu.ugc.editvideo.record.entity;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.j.b;
-import c.a.x0.t.h;
-import c.a.x0.t.w;
+import c.a.y0.j.b;
+import c.a.y0.t.h;
+import c.a.y0.t.w;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTextureData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class TemplateInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TEMPLATE_FILE_NAME = "theme_config.json";
@@ -44,7 +44,7 @@ public class TemplateInfo implements Serializable {
     public String version;
     public String zipPath;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class TemplateFiler implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

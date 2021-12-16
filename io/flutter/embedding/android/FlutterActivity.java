@@ -37,7 +37,7 @@ import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.embedding.engine.plugins.util.GeneratedPluginRegister;
 import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.util.ViewUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FlutterActivity extends Activity implements FlutterActivityAndFragmentDelegate.Host, LifecycleOwner {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLUTTER_VIEW_ID;
@@ -48,7 +48,7 @@ public class FlutterActivity extends Activity implements FlutterActivityAndFragm
     @NonNull
     public LifecycleRegistry lifecycle;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CachedEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class FlutterActivity extends Activity implements FlutterActivityAndFragm
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class NewEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -14,7 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int a0;
@@ -72,16 +72,16 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
     public ValueAnimator.AnimatorUpdateListener U;
     public Animator.AnimatorListener V;
     public ValueAnimator.AnimatorUpdateListener W;
-    public c.a.q0.s.q.d y;
+    public c.a.r0.s.r.d y;
     public boolean z;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41459e;
+        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41950e;
 
         public a(AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout) {
             Interceptable interceptable = $ic;
@@ -98,31 +98,31 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
                     return;
                 }
             }
-            this.f41459e = advancedAdSlideLoadingLayout;
+            this.f41950e = advancedAdSlideLoadingLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41459e.y == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41950e.y == null) {
                 return;
             }
-            boolean C = this.f41459e.C();
-            this.f41459e.closeCompleteAd();
+            boolean C = this.f41950e.C();
+            this.f41950e.closeCompleteAd();
             if (C) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_ADVANCED_AD_AUTO_JUMP_H5).param("fid", this.f41459e.y.f12899j).param("obj_id", this.f41459e.y.f12898i));
-                ThirdStatisticHelper.sendReq(this.f41459e.y.f12894e);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_ADVANCED_AD_AUTO_JUMP_H5).param("fid", this.f41950e.y.f13279j).param("obj_id", this.f41950e.y.f13278i));
+                ThirdStatisticHelper.sendReq(this.f41950e.y.f13274e);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41460e;
+        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41951e;
 
         public b(AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout) {
             Interceptable interceptable = $ic;
@@ -139,32 +139,32 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
                     return;
                 }
             }
-            this.f41460e = advancedAdSlideLoadingLayout;
+            this.f41951e = advancedAdSlideLoadingLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f41460e.y == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f41951e.y == null) {
                 return;
             }
-            boolean C = this.f41460e.C();
-            this.f41460e.closeCompleteAd();
+            boolean C = this.f41951e.C();
+            this.f41951e.closeCompleteAd();
             if (C) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_ADVANCED_AD_CLICK_JUMP_H5).param("fid", this.f41460e.y.f12899j).param("obj_id", this.f41460e.y.f12898i));
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_ADVANCED_AD_AUTO_JUMP_H5).param("fid", this.f41460e.y.f12899j).param("obj_id", this.f41460e.y.f12898i));
-                ThirdStatisticHelper.sendReq(this.f41460e.y.f12894e);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_ADVANCED_AD_CLICK_JUMP_H5).param("fid", this.f41951e.y.f13279j).param("obj_id", this.f41951e.y.f13278i));
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_ADVANCED_AD_AUTO_JUMP_H5).param("fid", this.f41951e.y.f13279j).param("obj_id", this.f41951e.y.f13278i));
+                ThirdStatisticHelper.sendReq(this.f41951e.y.f13274e);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41461e;
+        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41952e;
 
         public c(AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout) {
             Interceptable interceptable = $ic;
@@ -181,7 +181,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
                     return;
                 }
             }
-            this.f41461e = advancedAdSlideLoadingLayout;
+            this.f41952e = advancedAdSlideLoadingLayout;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -195,10 +195,10 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f41461e.K.setAlpha(1.0f);
-                this.f41461e.mLoadingLottieView.setAlpha(0.0f);
-                this.f41461e.O.setStartDelay(150L);
-                this.f41461e.O.start();
+                this.f41952e.K.setAlpha(1.0f);
+                this.f41952e.mLoadingLottieView.setAlpha(0.0f);
+                this.f41952e.O.setStartDelay(150L);
+                this.f41952e.O.start();
             }
         }
 
@@ -217,13 +217,13 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class d implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41462e;
+        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41953e;
 
         public d(AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout) {
             Interceptable interceptable = $ic;
@@ -240,32 +240,32 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
                     return;
                 }
             }
-            this.f41462e = advancedAdSlideLoadingLayout;
+            this.f41953e = advancedAdSlideLoadingLayout;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                int floatValue = (int) ((-this.f41462e.getLoadingVewMaxHeight()) + (((Float) valueAnimator.getAnimatedValue()).floatValue() * this.f41462e.getGuideStayPointToLoadingTopBoundsDistance()));
-                AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout = this.f41462e;
+                int floatValue = (int) ((-this.f41953e.getLoadingVewMaxHeight()) + (((Float) valueAnimator.getAnimatedValue()).floatValue() * this.f41953e.getGuideStayPointToLoadingTopBoundsDistance()));
+                AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout = this.f41953e;
                 FrameLayout.LayoutParams layoutParams = advancedAdSlideLoadingLayout.mLoadingLayoutParams;
                 layoutParams.topMargin = floatValue;
                 advancedAdSlideLoadingLayout.mLoadingLayout.setLayoutParams(layoutParams);
-                float curScrollRatioByTopMargin = this.f41462e.getCurScrollRatioByTopMargin(floatValue);
-                AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout2 = this.f41462e;
+                float curScrollRatioByTopMargin = this.f41953e.getCurScrollRatioByTopMargin(floatValue);
+                AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout2 = this.f41953e;
                 advancedAdSlideLoadingLayout2.onScroll(advancedAdSlideLoadingLayout2.getCurOffsetYByRatio(curScrollRatioByTopMargin), curScrollRatioByTopMargin);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class e implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41463e;
+        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41954e;
 
         public e(AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout) {
             Interceptable interceptable = $ic;
@@ -282,7 +282,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
                     return;
                 }
             }
-            this.f41463e = advancedAdSlideLoadingLayout;
+            this.f41954e = advancedAdSlideLoadingLayout;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -296,15 +296,15 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                AdvancedAdSlideLoadingLayout.v(this.f41463e);
-                if (this.f41463e.M != 2) {
-                    this.f41463e.K.setAlpha(1.0f);
-                    this.f41463e.mLoadingLottieView.setAlpha(0.0f);
-                    this.f41463e.N.setStartDelay(250L);
-                    this.f41463e.N.start();
+                AdvancedAdSlideLoadingLayout.v(this.f41954e);
+                if (this.f41954e.M != 2) {
+                    this.f41954e.K.setAlpha(1.0f);
+                    this.f41954e.mLoadingLottieView.setAlpha(0.0f);
+                    this.f41954e.N.setStartDelay(250L);
+                    this.f41954e.N.start();
                     return;
                 }
-                this.f41463e.setEnable(true);
+                this.f41954e.setEnable(true);
             }
         }
 
@@ -323,13 +323,13 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class f implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41464e;
+        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41955e;
 
         public f(AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout) {
             Interceptable interceptable = $ic;
@@ -346,33 +346,33 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
                     return;
                 }
             }
-            this.f41464e = advancedAdSlideLoadingLayout;
+            this.f41955e = advancedAdSlideLoadingLayout;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                int floatValue = (int) ((-this.f41464e.getLoadingVewMaxHeight()) + (((Float) valueAnimator.getAnimatedValue()).floatValue() * this.f41464e.getGuideStayPointToLoadingTopBoundsDistance()));
-                AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout = this.f41464e;
+                int floatValue = (int) ((-this.f41955e.getLoadingVewMaxHeight()) + (((Float) valueAnimator.getAnimatedValue()).floatValue() * this.f41955e.getGuideStayPointToLoadingTopBoundsDistance()));
+                AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout = this.f41955e;
                 FrameLayout.LayoutParams layoutParams = advancedAdSlideLoadingLayout.mLoadingLayoutParams;
                 layoutParams.topMargin = floatValue;
                 advancedAdSlideLoadingLayout.mLoadingLayout.setLayoutParams(layoutParams);
-                float curScrollRatioByTopMargin = this.f41464e.getCurScrollRatioByTopMargin(floatValue);
-                AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout2 = this.f41464e;
+                float curScrollRatioByTopMargin = this.f41955e.getCurScrollRatioByTopMargin(floatValue);
+                AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout2 = this.f41955e;
                 advancedAdSlideLoadingLayout2.onScroll(advancedAdSlideLoadingLayout2.getCurOffsetYByRatio(curScrollRatioByTopMargin), curScrollRatioByTopMargin);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class g implements TbImageView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41465b;
+        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41956b;
 
         public g(AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout, int i2) {
             Interceptable interceptable = $ic;
@@ -389,7 +389,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
                     return;
                 }
             }
-            this.f41465b = advancedAdSlideLoadingLayout;
+            this.f41956b = advancedAdSlideLoadingLayout;
             this.a = i2;
         }
 
@@ -400,34 +400,34 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
             float f4;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z) {
-                c.a.d.m.d.a bdImage = this.f41465b.A != null ? this.f41465b.A.getBdImage() : null;
+                c.a.d.m.d.a bdImage = this.f41956b.A != null ? this.f41956b.A.getBdImage() : null;
                 if (bdImage == null) {
                     return;
                 }
-                this.f41465b.D = true;
+                this.f41956b.D = true;
                 int r = bdImage.r();
                 int m = bdImage.m();
-                if (this.f41465b.B * r > this.f41465b.C * m) {
-                    f2 = this.f41465b.B / m;
-                    f4 = (this.f41465b.C - (r * f2)) * 0.5f;
+                if (this.f41956b.B * r > this.f41956b.C * m) {
+                    f2 = this.f41956b.B / m;
+                    f4 = (this.f41956b.C - (r * f2)) * 0.5f;
                     f3 = 0.0f;
                 } else {
-                    f2 = this.f41465b.C / r;
-                    f3 = this.f41465b.B - (m * f2);
+                    f2 = this.f41956b.C / r;
+                    f3 = this.f41956b.B - (m * f2);
                     f4 = 0.0f;
                 }
-                if (this.f41465b.A != null) {
-                    this.f41465b.A.getImageMatrix().setScale(f2, f2);
-                    this.f41465b.A.getImageMatrix().setTranslate(f4, f3);
+                if (this.f41956b.A != null) {
+                    this.f41956b.A.getImageMatrix().setScale(f2, f2);
+                    this.f41956b.A.getImageMatrix().setTranslate(f4, f3);
                     int i2 = this.a;
                     if (r < i2) {
-                        this.f41465b.A.setPivotX(0.0f);
-                        this.f41465b.A.setScaleX(i2 / r);
+                        this.f41956b.A.setPivotX(0.0f);
+                        this.f41956b.A.setScaleX(i2 / r);
                     }
                 }
-                this.f41465b.E = f3;
-                if (this.f41465b.L) {
-                    this.f41465b.showGuideAnim();
+                this.f41956b.E = f3;
+                if (this.f41956b.L) {
+                    this.f41956b.showGuideAnim();
                 }
             }
         }
@@ -440,13 +440,13 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41466e;
+        public final /* synthetic */ AdvancedAdSlideLoadingLayout f41957e;
 
         public h(AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout) {
             Interceptable interceptable = $ic;
@@ -463,14 +463,14 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
                     return;
                 }
             }
-            this.f41466e = advancedAdSlideLoadingLayout;
+            this.f41957e = advancedAdSlideLoadingLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f41466e.closeCompleteAd();
+                this.f41957e.closeCompleteAd();
             }
         }
     }
@@ -568,9 +568,9 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
             TbPageContext<?> B = B(getContext());
             if (B != null && this.y != null) {
                 Context baseContext = B.getPageActivity().getBaseContext();
-                c.a.q0.s.q.d dVar = this.y;
-                if (!UtilHelper.isMatchScheme(baseContext, dVar.f12895f, dVar.f12896g)) {
-                    UrlManager.getInstance().dealOneLink(B, new String[]{this.y.f12891b}, true);
+                c.a.r0.s.r.d dVar = this.y;
+                if (!UtilHelper.isMatchScheme(baseContext, dVar.f13275f, dVar.f13276g)) {
+                    UrlManager.getInstance().dealOneLink(B, new String[]{this.y.f13271b}, true);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921586, Boolean.FALSE));
                     return true;
                 }
@@ -580,7 +580,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         return invokeV.booleanValue;
     }
 
-    public void bindAdData(c.a.q0.s.q.d dVar, ViewGroup viewGroup) {
+    public void bindAdData(c.a.r0.s.r.d dVar, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, dVar, viewGroup) == null) {
             if (viewGroup != null) {
@@ -616,10 +616,10 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.A : (TbImageView) invokeV.objValue;
     }
 
-    public c.a.q0.s.q.d getData() {
+    public c.a.r0.s.r.d getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.y : (c.a.q0.s.q.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.y : (c.a.r0.s.r.d) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.LottieSlideLoadingLayout, com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
@@ -763,7 +763,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
     }
 
     public void setAdvancedAdStyle(boolean z) {
-        c.a.q0.s.q.d dVar;
+        c.a.r0.s.r.d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             this.z = z;
@@ -827,20 +827,20 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
             this.P = Boolean.valueOf(((BaseFragmentActivity) getContext()).isSwipeBackEnabled());
             ((BaseFragmentActivity) getContext()).setSwipeBackEnabled(false);
         }
-        int i2 = l.i(getContext()) - this.J.a.getLayoutParams().height;
+        int i2 = m.i(getContext()) - this.J.a.getLayoutParams().height;
         if (i2 < 0) {
             i2 = 0;
         }
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.G, "Y", -i2, 0.0f);
         ofFloat.setDuration((int) (((i2 * 1.0f) / 4800.0f) * 1000.0f));
         ofFloat.start();
-        int i3 = this.y.f12892c;
+        int i3 = this.y.f13272c;
         if (i3 < 500) {
             i3 = 500;
         }
         c.a.d.f.m.e.a().postDelayed(this.R, i3);
-        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_ADVANCED_AD_COMPLETE_SHOW).param("fid", this.y.f12899j).param("obj_id", this.y.f12898i));
-        ThirdStatisticHelper.sendReq(this.y.f12893d);
+        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_ADVANCED_AD_COMPLETE_SHOW).param("fid", this.y.f13279j).param("obj_id", this.y.f13278i));
+        ThirdStatisticHelper.sendReq(this.y.f13273d);
     }
 
     public void showGuideAnim() {

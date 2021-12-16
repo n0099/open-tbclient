@@ -1,0 +1,238 @@
+package c.a.s0.v1.d;
+
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.interestlabel.activity.LabelRecommendActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes8.dex */
+public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public LabelRecommendActivity a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ViewGroup f24733b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f24734c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f24735d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public NoNetworkView f24736e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f24737f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public BdListView f24738g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public c.a.s0.v1.a.a f24739h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public c.a.s0.v1.d.a f24740i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public View.OnClickListener f24741j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public List<c.a.s0.v1.b.a> f24742k;
+    public List<Integer> l;
+    public View.OnClickListener m;
+
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ b f24743e;
+
+        public a(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f24743e = bVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag() instanceof c.a.s0.v1.b.a)) {
+                Integer valueOf = Integer.valueOf(((c.a.s0.v1.b.a) view.getTag()).a);
+                if (this.f24743e.l.contains(valueOf)) {
+                    this.f24743e.l.remove(valueOf);
+                } else {
+                    this.f24743e.l.add(valueOf);
+                }
+                this.f24743e.i();
+            }
+        }
+    }
+
+    public b(LabelRecommendActivity labelRecommendActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {labelRecommendActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f24742k = new ArrayList();
+        this.l = new ArrayList();
+        this.m = new a(this);
+        if (labelRecommendActivity == null) {
+            return;
+        }
+        this.a = labelRecommendActivity;
+        g();
+    }
+
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24733b : (View) invokeV.objValue;
+    }
+
+    public List<Integer> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = new ArrayList(this.l);
+            arrayList.add(0, Integer.valueOf(this.f24740i.b()));
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public View e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24735d : (View) invokeV.objValue;
+    }
+
+    public View f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24737f : (View) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.setContentView(R.layout.activity_label_recommend);
+            this.f24733b = (ViewGroup) this.a.findViewById(R.id.view_root);
+            this.f24734c = this.a.findViewById(R.id.statebar_view);
+            this.f24735d = (TextView) this.a.findViewById(R.id.skip);
+            this.f24736e = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
+            this.f24737f = (TextView) this.a.findViewById(R.id.sub_label);
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                this.f24734c.getLayoutParams().height = UtilHelper.getStatusBarHeight();
+            }
+            l(0, 0);
+            this.f24738g = (BdListView) this.a.findViewById(R.id.listview);
+            c.a.s0.v1.a.a aVar = new c.a.s0.v1.a.a(this.a.getPageContext().getPageActivity());
+            this.f24739h = aVar;
+            aVar.b(this.m);
+            c.a.s0.v1.d.a aVar2 = new c.a.s0.v1.d.a(this.a.getPageContext().getPageActivity());
+            this.f24740i = aVar2;
+            this.f24738g.addHeaderView(aVar2.a());
+            this.f24738g.setAdapter((ListAdapter) this.f24739h);
+            h();
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            SkinManager.setViewTextColor(this.f24735d, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f24737f, R.drawable.color_sub_lable_selector);
+            SkinManager.setBackgroundResource(this.f24737f, R.drawable.bule_bg_commen_label_button);
+            this.f24736e.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            for (c.a.s0.v1.b.a aVar : this.f24742k) {
+                if (aVar != null) {
+                    aVar.f24723c = this.l.contains(Integer.valueOf(aVar.a));
+                }
+            }
+            this.f24739h.a(this.f24742k);
+            l(this.l.size(), this.f24742k.size());
+        }
+    }
+
+    public void j(c.a.s0.v1.b.b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || bVar == null || bVar.c() == null || bVar.b() == null) {
+            return;
+        }
+        for (c.a.s0.v1.b.a aVar : bVar.b()) {
+            if (aVar != null) {
+                aVar.f24723c = false;
+            }
+        }
+        this.f24742k.clear();
+        this.f24742k.addAll(bVar.b());
+        this.f24740i.d(bVar.c());
+        this.f24739h.a(this.f24742k);
+        this.f24738g.setVisibility(0);
+        l(0, this.f24742k.size());
+    }
+
+    public void k(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
+            this.f24741j = onClickListener;
+            this.f24735d.setOnClickListener(onClickListener);
+        }
+    }
+
+    public final void l(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
+            this.f24737f.setEnabled(i2 > 0);
+            this.f24737f.setText(this.a.getString(R.string.start_tieba, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3)}));
+            this.f24737f.setOnClickListener(i2 > 0 ? this.f24741j : null);
+        }
+    }
+}

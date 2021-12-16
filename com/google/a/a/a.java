@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements IInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final IBinder a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f55787b;
+    public final String f56368b;
 
     public a(IBinder iBinder, String str) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a implements IInterface {
             }
         }
         this.a = iBinder;
-        this.f55787b = str;
+        this.f56368b = str;
     }
 
     public final Parcel a() {
@@ -42,7 +42,7 @@ public class a implements IInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Parcel obtain = Parcel.obtain();
-            obtain.writeInterfaceToken(this.f55787b);
+            obtain.writeInterfaceToken(this.f56368b);
             return obtain;
         }
         return (Parcel) invokeV.objValue;

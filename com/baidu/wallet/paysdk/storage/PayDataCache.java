@@ -27,7 +27,7 @@ import com.dxmpay.wallet.base.datamodel.UserData;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class PayDataCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PAY_TYPE_BALANCE = "balance";
@@ -38,34 +38,34 @@ public final class PayDataCache {
     public PayResultContent a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DirectPayContentResponse f53628b;
+    public DirectPayContentResponse f54208b;
 
     /* renamed from: c  reason: collision with root package name */
-    public H5ResultParams f53629c;
+    public H5ResultParams f54209c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DirectPayContentResponse f53630d;
+    public DirectPayContentResponse f54210d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DirectPayContentResponse f53631e;
+    public DirectPayContentResponse f54211e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DirectPayContentResponse f53632f;
+    public DirectPayContentResponse f54212f;
 
     /* renamed from: g  reason: collision with root package name */
-    public DirectPayContentResponse f53633g;
+    public DirectPayContentResponse f54213g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DirectPayContentResponse f53634h;
+    public DirectPayContentResponse f54214h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f53635i;
+    public boolean f54215i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f53636j;
+    public String f54216j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f53637k;
+    public String f54217k;
     public String l;
     public boolean m;
     public boolean n;
@@ -73,10 +73,11 @@ public final class PayDataCache {
     public String[][] p;
     public final List<RestNameValuePair> q;
     public String r;
-    public IBeanResponse s;
+    public String s;
+    public IBeanResponse t;
 
     /* renamed from: com.baidu.wallet.paysdk.storage.PayDataCache$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -108,7 +109,7 @@ public final class PayDataCache {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static PayDataCache a;
@@ -131,14 +132,14 @@ public final class PayDataCache {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class b<A, B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final A a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final B f53638b;
+        public final B f54218b;
 
         public b(A a, B b2) {
             Interceptable interceptable = $ic;
@@ -156,7 +157,7 @@ public final class PayDataCache {
                 }
             }
             this.a = a;
-            this.f53638b = b2;
+            this.f54218b = b2;
         }
     }
 
@@ -177,13 +178,13 @@ public final class PayDataCache {
         PayData.DirectPayBalance directPayBalance;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse != null && (directPayPay = directPayContentResponse.pay) != null && (directPayBalance = directPayPay.balance) != null) {
-                return new b<>(Boolean.valueOf(directPayBalance.enough == 1), this.f53628b.pay.balance.disabled_msg);
+                return new b<>(Boolean.valueOf(directPayBalance.enough == 1), this.f54208b.pay.balance.disabled_msg);
             }
-            DirectPayContentResponse directPayContentResponse2 = this.f53628b;
+            DirectPayContentResponse directPayContentResponse2 = this.f54208b;
             if (directPayContentResponse2 != null && (userModel = directPayContentResponse2.user) != null) {
-                return new b<>(Boolean.valueOf("1".equals(userModel.balance_support_status)), this.f53628b.user.balance_unsupport_reason);
+                return new b<>(Boolean.valueOf("1".equals(userModel.balance_support_status)), this.f54208b.user.balance_unsupport_reason);
             }
             return new b<>(Boolean.FALSE, "");
         }
@@ -196,9 +197,9 @@ public final class PayDataCache {
         PayData.CreditPay creditPay;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse != null && (directPayPay = directPayContentResponse.pay) != null && (creditPay = directPayPay.credit_pay) != null) {
-                return new b<>(Boolean.valueOf("1".equals(creditPay.status)), this.f53628b.pay.credit_pay.disable_msg);
+                return new b<>(Boolean.valueOf("1".equals(creditPay.status)), this.f54208b.pay.credit_pay.disable_msg);
             }
             return new b<>(Boolean.FALSE, "");
         }
@@ -210,7 +211,7 @@ public final class PayDataCache {
         PayData.DirectPayPay directPayPay;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || directPayPay.easypay == null) ? false : true;
         }
         return invokeV.booleanValue;
@@ -221,7 +222,7 @@ public final class PayDataCache {
         PayData.DirectPayPay directPayPay;
         PayData.Detainment detainment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (directPayContentResponse = this.f53628b) == null || (directPayPay = directPayContentResponse.pay) == null || (detainment = directPayPay.detainment) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (directPayContentResponse = this.f54208b) == null || (directPayPay = directPayContentResponse.pay) == null || (detainment = directPayPay.detainment) == null) {
             return;
         }
         detainment.desc = "";
@@ -231,7 +232,7 @@ public final class PayDataCache {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return directPayContentResponse != null && "1".equals(directPayContentResponse.can_bind_card_flag);
         }
         return invokeV.booleanValue;
@@ -243,7 +244,7 @@ public final class PayDataCache {
         PayData.EasyPay easyPay;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (easyPay = directPayPay.easypay) == null || !"1".equals(easyPay.can_bind_card_flag)) ? false : true;
         }
         return invokeV.booleanValue;
@@ -262,8 +263,8 @@ public final class PayDataCache {
         PayData.CreditInfo creditInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
-            return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (creditPay = directPayPay.credit_pay) == null || (creditInfo = creditPay.credit_info) == null || TextUtils.isEmpty(creditInfo.available_credit)) ? "0" : this.f53628b.pay.credit_pay.credit_info.available_credit;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
+            return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (creditPay = directPayPay.credit_pay) == null || (creditInfo = creditPay.credit_info) == null || TextUtils.isEmpty(creditInfo.available_credit)) ? "0" : this.f54208b.pay.credit_pay.credit_info.available_credit;
         }
         return (String) invokeV.objValue;
     }
@@ -274,7 +275,7 @@ public final class PayDataCache {
         PayData.DirectPayBalance directPayBalance;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (directPayBalance = directPayPay.balance) == null) {
                 return null;
             }
@@ -289,7 +290,7 @@ public final class PayDataCache {
         PayData.DirectPayBalance directPayBalance;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (directPayBalance = directPayPay.balance) == null) ? "" : directPayBalance.balance_jump_url;
         }
         return (String) invokeV.objValue;
@@ -303,7 +304,7 @@ public final class PayDataCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse != null && (directPayPay = directPayContentResponse.pay) != null && (directPayBalance = directPayPay.balance) != null && (map = directPayBalance.post_info) != null) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
@@ -319,8 +320,8 @@ public final class PayDataCache {
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
-            return (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null || !"0".equals(userModel.balance_support_status)) ? "" : this.f53628b.user.balance_unsupport_reason;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
+            return (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null || !"0".equals(userModel.balance_support_status)) ? "" : this.f54208b.user.balance_unsupport_reason;
         }
         return (String) invokeV.objValue;
     }
@@ -329,7 +330,7 @@ public final class PayDataCache {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse != null) {
                 return directPayContentResponse.getBondCards();
             }
@@ -342,8 +343,8 @@ public final class PayDataCache {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
-            return (directPayContentResponse == null || directPayContentResponse.user == null || !hasCanAmount()) ? "" : this.f53628b.user.getCanAmount();
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
+            return (directPayContentResponse == null || directPayContentResponse.user == null || !hasCanAmount()) ? "" : this.f54208b.user.getCanAmount();
         }
         return (String) invokeV.objValue;
     }
@@ -353,7 +354,7 @@ public final class PayDataCache {
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) ? "" : userModel.certificate_type;
         }
         return (String) invokeV.objValue;
@@ -365,8 +366,8 @@ public final class PayDataCache {
         PayData.CreditPay creditPay;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
-            return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (creditPay = directPayPay.credit_pay) == null || TextUtils.isEmpty(creditPay.display_name)) ? "" : this.f53628b.pay.credit_pay.display_name;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
+            return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (creditPay = directPayPay.credit_pay) == null || TextUtils.isEmpty(creditPay.display_name)) ? "" : this.f54208b.pay.credit_pay.display_name;
         }
         return (String) invokeV.objValue;
     }
@@ -379,7 +380,7 @@ public final class PayDataCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse != null && (directPayPay = directPayContentResponse.pay) != null && (creditPay = directPayPay.credit_pay) != null && (map = creditPay.post_info) != null) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
@@ -395,7 +396,7 @@ public final class PayDataCache {
         PayData.DirectPayPay directPayPay;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null) {
                 return null;
             }
@@ -410,7 +411,7 @@ public final class PayDataCache {
         PayData.Detainment detainment;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (detainment = directPayPay.detainment) == null) ? "" : detainment.desc;
         }
         return (String) invokeV.objValue;
@@ -421,11 +422,11 @@ public final class PayDataCache {
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null || userModel.getFingerprintMsg() == null) {
                 return null;
             }
-            return this.f53628b.user.getFingerprintMsg();
+            return this.f54208b.user.getFingerprintMsg();
         }
         return (UserData.UserModel.FingerprintMsg) invokeV.objValue;
     }
@@ -446,7 +447,7 @@ public final class PayDataCache {
     public H5ResultParams getH5ResultParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f53629c : (H5ResultParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f54209c : (H5ResultParams) invokeV.objValue;
     }
 
     public String getInsideTransOrder() {
@@ -454,7 +455,7 @@ public final class PayDataCache {
         UserData.Misc misc;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return (directPayContentResponse == null || (misc = directPayContentResponse.misc) == null) ? "" : misc.getInsideTransOrder();
         }
         return (String) invokeV.objValue;
@@ -474,7 +475,7 @@ public final class PayDataCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse != null && (directPayPay = directPayContentResponse.pay) != null && (easyPay = directPayPay.easypay) != null && (map = easyPay.post_info) != null) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
@@ -488,7 +489,7 @@ public final class PayDataCache {
     public DirectPayContentResponse getPayResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f53628b : (DirectPayContentResponse) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f54208b : (DirectPayContentResponse) invokeV.objValue;
     }
 
     public String getPaySessionInfo() {
@@ -496,8 +497,8 @@ public final class PayDataCache {
         PayData.DirectPayPay directPayPay;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
-            return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || TextUtils.isEmpty(directPayPay.session_info)) ? "" : this.f53628b.pay.session_info;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
+            return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || TextUtils.isEmpty(directPayPay.session_info)) ? "" : this.f54208b.pay.session_info;
         }
         return (String) invokeV.objValue;
     }
@@ -519,8 +520,8 @@ public final class PayDataCache {
         Authorize authorize;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
-            return (directPayContentResponse == null || (authorize = directPayContentResponse.authorize) == null || TextUtils.isEmpty(authorize.pure_sign)) ? "" : this.f53628b.authorize.pure_sign;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
+            return (directPayContentResponse == null || (authorize = directPayContentResponse.authorize) == null || TextUtils.isEmpty(authorize.pure_sign)) ? "" : this.f54208b.authorize.pure_sign;
         }
         return (String) invokeV.objValue;
     }
@@ -528,13 +529,13 @@ public final class PayDataCache {
     public String getRemotePayHostName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f53636j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f54216j : (String) invokeV.objValue;
     }
 
     public String getRemotePkg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f53637k : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f54217k : (String) invokeV.objValue;
     }
 
     public String getRemoteWhereToBackAct() {
@@ -548,8 +549,8 @@ public final class PayDataCache {
         PayData.DirectPayPay directPayPay;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
-            return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || TextUtils.isEmpty(directPayPay.selected_card_no)) ? "" : this.f53628b.pay.selected_card_no;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
+            return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || TextUtils.isEmpty(directPayPay.selected_card_no)) ? "" : this.f54208b.pay.selected_card_no;
         }
         return (String) invokeV.objValue;
     }
@@ -559,7 +560,7 @@ public final class PayDataCache {
         UserData.SP sp;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return (directPayContentResponse == null || (sp = directPayContentResponse.sp) == null) ? "" : sp.getSellerUserId();
         }
         return (String) invokeV.objValue;
@@ -571,7 +572,7 @@ public final class PayDataCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse != null && (map = directPayContentResponse.cashdesk) != null && map != null) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
@@ -592,7 +593,7 @@ public final class PayDataCache {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return directPayContentResponse != null ? directPayContentResponse.getSpGoodsName() : "";
         }
         return (String) invokeV.objValue;
@@ -602,7 +603,7 @@ public final class PayDataCache {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return directPayContentResponse != null ? directPayContentResponse.getSpName() : "";
         }
         return (String) invokeV.objValue;
@@ -613,7 +614,7 @@ public final class PayDataCache {
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) ? "0" : userModel.getCanAmount();
         }
         return (String) invokeV.objValue;
@@ -622,7 +623,7 @@ public final class PayDataCache {
     public IBeanResponse getTransferAccountConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.s : (IBeanResponse) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.t : (IBeanResponse) invokeV.objValue;
     }
 
     public String getUserId() {
@@ -630,7 +631,7 @@ public final class PayDataCache {
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) ? "" : userModel.certificate_code;
         }
         return (String) invokeV.objValue;
@@ -641,7 +642,7 @@ public final class PayDataCache {
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) {
                 return null;
             }
@@ -655,17 +656,23 @@ public final class PayDataCache {
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) ? "" : userModel.true_name;
         }
         return (String) invokeV.objValue;
     }
 
+    public String getmWxAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.s : (String) invokeV.objValue;
+    }
+
     public boolean hasBondCards() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse != null) {
                 return directPayContentResponse.hasBindCards();
             }
@@ -678,8 +685,8 @@ public final class PayDataCache {
         InterceptResult invokeV;
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) {
                 return false;
             }
@@ -692,8 +699,8 @@ public final class PayDataCache {
         InterceptResult invokeV;
         PayData.DirectPayPay directPayPay;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || directPayPay.credit_pay == null) ? false : true;
         }
         return invokeV.booleanValue;
@@ -703,8 +710,8 @@ public final class PayDataCache {
         InterceptResult invokeV;
         CardData.BondCard[] enableCardsForFindPWD;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return (directPayContentResponse == null || (enableCardsForFindPWD = directPayContentResponse.getEnableCardsForFindPWD()) == null || enableCardsForFindPWD.length <= 0) ? false : true;
         }
         return invokeV.booleanValue;
@@ -714,8 +721,8 @@ public final class PayDataCache {
         InterceptResult invokeV;
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) {
                 return false;
             }
@@ -729,8 +736,8 @@ public final class PayDataCache {
         PayData.DirectPayPay directPayPay;
         PayData.DirectPayBalance directPayBalance;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53634h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+            DirectPayContentResponse directPayContentResponse = this.f54214h;
             return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (directPayBalance = directPayPay.balance) == null || directPayBalance.enough != 1) ? false : true;
         }
         return invokeV.booleanValue;
@@ -740,8 +747,8 @@ public final class PayDataCache {
         InterceptResult invokeV;
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) {
                 return false;
             }
@@ -753,15 +760,15 @@ public final class PayDataCache {
     public boolean isFromPreCashier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.m : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.m : invokeV.booleanValue;
     }
 
     public boolean isPassFree() {
         InterceptResult invokeV;
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) {
                 return false;
             }
@@ -773,21 +780,21 @@ public final class PayDataCache {
     public boolean isPaySettingOpenFingerprintPay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.n : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.n : invokeV.booleanValue;
     }
 
     public boolean isRemotePay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.f53635i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.f54215i : invokeV.booleanValue;
     }
 
     public boolean isShowCreditPay() {
         InterceptResult invokeV;
         PayData.DirectPayPay directPayPay;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || directPayPay.credit_pay == null) ? false : true;
         }
         return invokeV.booleanValue;
@@ -796,9 +803,9 @@ public final class PayDataCache {
     public boolean isShowDetection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
             if (LocalRouter.getInstance(BaiduWalletDelegate.getInstance().getAppContext()).isProviderExisted("bankdetection")) {
-                DirectPayContentResponse directPayContentResponse = this.f53628b;
+                DirectPayContentResponse directPayContentResponse = this.f54208b;
                 return directPayContentResponse == null || !"0".equals(directPayContentResponse.bank_card_detect_enabled);
             }
             return false;
@@ -810,8 +817,8 @@ public final class PayDataCache {
         InterceptResult invokeV;
         UserData.SP sp;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse == null || (sp = directPayContentResponse.sp) == null) {
                 return false;
             }
@@ -825,8 +832,8 @@ public final class PayDataCache {
         PayData.DirectPayPay directPayPay;
         PayData.CreditPay creditPay;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
-            DirectPayContentResponse directPayContentResponse = this.f53628b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
+            DirectPayContentResponse directPayContentResponse = this.f54208b;
             if (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (creditPay = directPayPay.credit_pay) == null) {
                 return false;
             }
@@ -837,43 +844,43 @@ public final class PayDataCache {
 
     public void resetFromPrecashier() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
             this.m = false;
         }
     }
 
     public void setAccountBankCard(String[][] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, strArr) == null) {
+        if (interceptable == null || interceptable.invokeL(1048637, this, strArr) == null) {
             this.p = strArr;
         }
     }
 
     public void setCurrentPayRequest(PayRequestCache.BindCategory bindCategory) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, bindCategory) == null) {
+        if (interceptable == null || interceptable.invokeL(1048638, this, bindCategory) == null) {
             int i2 = AnonymousClass1.a[bindCategory.ordinal()];
             if (i2 == 1) {
-                this.f53628b = this.f53631e;
+                this.f54208b = this.f54211e;
             } else if (i2 != 2) {
-                this.f53628b = this.f53633g;
+                this.f54208b = this.f54213g;
             } else {
-                this.f53628b = this.f53630d;
+                this.f54208b = this.f54210d;
             }
         }
     }
 
     public void setFromPreCashier() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
             this.m = true;
         }
     }
 
     public void setH5ResultParams(H5ResultParams h5ResultParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, h5ResultParams) == null) {
-            this.f53629c = h5ResultParams;
+        if (interceptable == null || interceptable.invokeL(1048640, this, h5ResultParams) == null) {
+            this.f54209c = h5ResultParams;
         }
     }
 
@@ -881,7 +888,7 @@ public final class PayDataCache {
         DirectPayContentResponse directPayContentResponse;
         UserData.UserModel userModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048640, this) == null) || (directPayContentResponse = this.f53628b) == null || (userModel = directPayContentResponse.user) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048641, this) == null) || (directPayContentResponse = this.f54208b) == null || (userModel = directPayContentResponse.user) == null) {
             return;
         }
         userModel.setHasMobilePwd();
@@ -889,21 +896,21 @@ public final class PayDataCache {
 
     public void setIsRemotePay(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048641, this, z) == null) {
-            this.f53635i = z;
+        if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
+            this.f54215i = z;
         }
     }
 
     public void setOrderExtraInfo(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048643, this, str) == null) {
             this.r = str;
         }
     }
 
     public void setPayReslutContent(PayResultContent payResultContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048643, this, payResultContent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048644, this, payResultContent) == null) {
             this.a = payResultContent;
         }
     }
@@ -911,39 +918,39 @@ public final class PayDataCache {
     public void setPayResponse(DirectPayContentResponse directPayContentResponse) {
         PayData.DirectPayPay directPayPay;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048644, this, directPayContentResponse) == null) {
+        if (interceptable == null || interceptable.invokeL(1048645, this, directPayContentResponse) == null) {
             if (directPayContentResponse instanceof CardAddResponse) {
                 int i2 = ((CardAddResponse) directPayContentResponse).request_type;
                 if (4 == i2) {
-                    this.f53630d = directPayContentResponse;
+                    this.f54210d = directPayContentResponse;
                 } else if (11 == i2) {
-                    this.f53631e = directPayContentResponse;
+                    this.f54211e = directPayContentResponse;
                 } else if (12 == i2) {
-                    this.f53632f = directPayContentResponse;
+                    this.f54212f = directPayContentResponse;
                 } else {
-                    this.f53633g = directPayContentResponse;
+                    this.f54213g = directPayContentResponse;
                 }
             } else {
-                this.f53633g = directPayContentResponse;
+                this.f54213g = directPayContentResponse;
             }
-            this.f53628b = directPayContentResponse;
+            this.f54208b = directPayContentResponse;
             if (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || directPayPay.balance == null) {
                 return;
             }
-            this.f53634h = directPayContentResponse;
+            this.f54214h = directPayContentResponse;
         }
     }
 
     public void setPaySettingOpenFingerprintPay(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048645, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048646, this, z) == null) {
             this.n = z;
         }
     }
 
     public void setPrePayRequestParams(List<RestNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048646, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048647, this, list) == null) {
             this.q.clear();
             this.q.addAll(list);
         }
@@ -951,44 +958,51 @@ public final class PayDataCache {
 
     public void setRemotePayHostName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048647, this, str) == null) {
-            this.f53636j = str;
+        if (interceptable == null || interceptable.invokeL(1048648, this, str) == null) {
+            this.f54216j = str;
         }
     }
 
     public void setRemotePkg(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048648, this, str) == null) {
-            this.f53637k = str;
+        if (interceptable == null || interceptable.invokeL(1048649, this, str) == null) {
+            this.f54217k = str;
         }
     }
 
     public void setRemoteWhereToBackAct(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048649, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048650, this, str) == null) {
             this.l = str;
         }
     }
 
     public void setSessionData(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048650, this, map) == null) || this.f53628b == null || map == null || map.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048651, this, map) == null) || this.f54208b == null || map == null || map.size() <= 0) {
             return;
         }
-        this.f53628b.cashdesk = map;
+        this.f54208b.cashdesk = map;
     }
 
     public void setSignSuccessTips(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048651, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048652, this, str) == null) {
             this.o = str;
         }
     }
 
     public void setTransferAccountConfig(IBeanResponse iBeanResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048652, this, iBeanResponse) == null) {
-            this.s = iBeanResponse;
+        if (interceptable == null || interceptable.invokeL(1048653, this, iBeanResponse) == null) {
+            this.t = iBeanResponse;
+        }
+    }
+
+    public void setmWxAppId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048654, this, str) == null) {
+            this.s = str;
         }
     }
 
@@ -1005,7 +1019,7 @@ public final class PayDataCache {
                 return;
             }
         }
-        this.f53635i = false;
+        this.f54215i = false;
         this.m = false;
         this.n = false;
         this.o = "";

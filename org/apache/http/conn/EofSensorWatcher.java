@@ -3,7 +3,7 @@ package org.apache.http.conn;
 import java.io.IOException;
 import java.io.InputStream;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface EofSensorWatcher {
     boolean eofDetected(InputStream inputStream) throws IOException;
 

@@ -20,7 +20,7 @@ import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import io.reactivex.internal.queue.SpscLinkedArrayQueue;
 import io.reactivex.internal.schedulers.TrampolineScheduler;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
     public final boolean delayError;
     public final Scheduler scheduler;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ObserveOnObserver<T> extends BasicIntQueueDisposable<T> implements Observer<T>, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6576896619930983584L;

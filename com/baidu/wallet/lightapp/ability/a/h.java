@@ -19,7 +19,7 @@ import com.baidu.wallet.api.ILightappInvokerCallback;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.lightapp.ability.datamodle.NativeAbilityDeviceInfoModel;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class h extends com.baidu.wallet.lightapp.ability.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,8 +70,6 @@ public class h extends com.baidu.wallet.lightapp.ability.b {
             deviceInfo2.name = applicationName;
             deviceInfo2.ua = BussinessUtils.getUA(activity);
             nativeAbilityDeviceInfoModel.cnt.data.networktype = "" + NetworkUtils.getNetworkType(activity);
-            String phisicalMac = PhoneUtils.getPhisicalMac(activity);
-            nativeAbilityDeviceInfoModel.cnt.data.macAddress = phisicalMac != null ? phisicalMac : "";
             Bundle a = com.baidu.wallet.lightapp.ability.b.a.a().a(activity, JsonUtils.toJson(nativeAbilityDeviceInfoModel.cnt.data));
             nativeAbilityDeviceInfoModel.cnt.aesdata = a.getString("aesContent");
             nativeAbilityDeviceInfoModel.cnt.aeskey = a.getString("aesKey");

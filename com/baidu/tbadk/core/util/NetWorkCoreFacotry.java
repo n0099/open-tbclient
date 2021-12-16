@@ -1,11 +1,11 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.deeplink.DeepLinkManager1;
 import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkManager1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class NetWorkCoreFacotry {
     public static /* synthetic */ Interceptable $ic = null;
     public static int INTERVAL_TIME = 300000;
@@ -69,7 +69,7 @@ public class NetWorkCoreFacotry {
                             currentType = 0;
                             BdLog.e("切换会老的网络内核");
                             TbadkCoreApplication.getInst().setNetWorkCoreType(currentType);
-                            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "network_core", "current Net：" + j.J() + ", TelType:" + j.f() + ", wap:" + getNetType(), 1, new Object[0]);
+                            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "network_core", "current Net：" + k.J() + ", TelType:" + k.f() + ", wap:" + getNetType(), 1, new Object[0]);
                         }
                     } else {
                         errorTime = 0;
@@ -101,11 +101,11 @@ public class NetWorkCoreFacotry {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
-                if (j.z()) {
-                    if (j.H()) {
+                if (k.z()) {
+                    if (k.H()) {
                         return "wifi";
                     }
-                    String c2 = j.c();
+                    String c2 = k.c();
                     if (c2 != null) {
                         if (c2.length() > 0) {
                             return DeepLinkManager1.AD_WAP;

@@ -19,7 +19,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.fuseable.FuseToObservable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObservableCollectSingle<T, U> extends Single<U> implements FuseToObservable<U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public final class ObservableCollectSingle<T, U> extends Single<U> implements Fu
     public final Callable<? extends U> initialSupplier;
     public final ObservableSource<T> source;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class CollectObserver<T, U> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -11,13 +11,13 @@ import com.ss.android.downloadlib.activity.TTDelegateActivity;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 

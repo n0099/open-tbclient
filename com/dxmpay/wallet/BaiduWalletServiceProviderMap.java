@@ -12,7 +12,7 @@ import com.baidu.wallet.api.WalletServiceBeanConst;
 import com.dxmpay.wallet.core.NoProguard;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class BaiduWalletServiceProviderMap implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PLUGIN_FASTPAY = "fastpay";
@@ -26,13 +26,13 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
     public Map<Long, String> maps;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final BaiduWalletServiceProviderMap a;

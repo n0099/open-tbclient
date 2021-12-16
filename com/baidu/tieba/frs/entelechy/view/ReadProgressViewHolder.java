@@ -4,12 +4,12 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
-import c.a.r0.d1.c1;
-import c.a.r0.d1.d1;
-import c.a.r0.d1.e1;
-import c.a.r0.d1.f1;
-import c.a.r0.d1.i1;
-import c.a.r0.d1.u;
+import c.a.s0.d1.c1;
+import c.a.s0.d1.d1;
+import c.a.s0.d1.e1;
+import c.a.s0.d1.f1;
+import c.a.s0.d1.i1;
+import c.a.s0.d1.u;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -22,13 +22,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f44257b;
+    public static final int f44748b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public View mRoot;
@@ -49,7 +49,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         }
         UtilHelper.getDimenPixelSize(d1.M_H_X002);
         a = UtilHelper.getDimenPixelSize(d1.M_H_X003);
-        f44257b = UtilHelper.getDimenPixelSize(d1.M_H_X005);
+        f44748b = UtilHelper.getDimenPixelSize(d1.M_H_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -73,7 +73,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         this.mRoot = view;
         TextView textView = (TextView) view.findViewById(f1.view_frs_read_progress);
         this.mTipView = textView;
-        int i4 = f44257b;
+        int i4 = f44748b;
         textView.setPadding(0, i4, 0, i4 - a);
         this.mContext = context;
     }

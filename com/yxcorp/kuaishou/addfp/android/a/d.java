@@ -28,13 +28,13 @@ import java.util.ListIterator;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f63364b = "";
+    public static String f63945b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -71,7 +71,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                if (com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f56838c})) {
+                if (com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f57419c})) {
                     String str = "";
                     if (Build.VERSION.SDK_INT < 29) {
                         try {
@@ -181,7 +181,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             try {
-                if (!com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f56838c}) || Build.VERSION.SDK_INT >= 29) {
+                if (!com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f57419c}) || Build.VERSION.SDK_INT >= 29) {
                     return "";
                 }
                 try {
@@ -278,7 +278,7 @@ public final class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (d.class) {
                 try {
-                    if (TextUtils.isEmpty(f63364b)) {
+                    if (TextUtils.isEmpty(f63945b)) {
                         String gMas = Orange.getInstance().gMas();
                         new StringBuilder("user dis :").append(gMas);
                         if (!TextUtils.isEmpty(gMas)) {
@@ -286,15 +286,15 @@ public final class d {
                             for (int i2 = 0; i2 < bytes.length; i2++) {
                                 bytes[i2] = (byte) (bytes[i2] ^ 165);
                             }
-                            f63364b = "fuels:" + Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace(StringUtils.CR, "");
+                            f63945b = "fuels:" + Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace(StringUtils.CR, "");
                         }
-                        if (TextUtils.isEmpty(f63364b)) {
-                            f63364b = "KWE_N";
+                        if (TextUtils.isEmpty(f63945b)) {
+                            f63945b = "KWE_N";
                             return "KWE_N";
                         }
-                        return f63364b;
+                        return f63945b;
                     }
-                    return f63364b;
+                    return f63945b;
                 }
             }
         }
@@ -335,7 +335,7 @@ public final class d {
                 String a3 = a(context, "k_w_o_d_out_dtt");
                 String str2 = "";
                 if (TextUtils.isEmpty(a3)) {
-                    boolean b2 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{s.f56844i, "android.permission.WRITE_EXTERNAL_STORAGE"});
+                    boolean b2 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{s.f57425i, "android.permission.WRITE_EXTERNAL_STORAGE"});
                     com.yxcorp.kuaishou.addfp.android.b.b.a();
                     if (!b2) {
                         str = "KWE_PN";
@@ -371,7 +371,7 @@ public final class d {
                         a(context, "k_w_o_d_out_dtt", str2);
                     }
                 } else {
-                    boolean b3 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{s.f56844i, "android.permission.WRITE_EXTERNAL_STORAGE"});
+                    boolean b3 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{s.f57425i, "android.permission.WRITE_EXTERNAL_STORAGE"});
                     com.yxcorp.kuaishou.addfp.android.b.b.a();
                     if (b3) {
                         str2 = c.a(context).b("Lm91a2R0ZnQ=");

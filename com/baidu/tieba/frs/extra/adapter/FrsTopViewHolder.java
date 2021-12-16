@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FrsTopViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f44261b;
+    public TextView f44752b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsTopViewHolder(View view) {
@@ -37,6 +37,6 @@ public class FrsTopViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = (LinearLayout) view.findViewById(R.id.frs_top_item);
-        this.f44261b = (TextView) view.findViewById(R.id.frs_top_title);
+        this.f44752b = (TextView) view.findViewById(R.id.frs_top_title);
     }
 }

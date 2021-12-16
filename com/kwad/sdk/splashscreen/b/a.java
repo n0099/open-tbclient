@@ -26,41 +26,41 @@ import com.kwad.sdk.utils.j;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Bitmap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59541b;
+    public String f60122b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.a f59542c;
+    public com.kwad.sdk.contentalliance.detail.video.a f60123c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsVideoPlayConfig f59543d;
+    public KsVideoPlayConfig f60124d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f59544e;
+    public long f60125e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoPlayerStatus f59545f;
+    public VideoPlayerStatus f60126f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f59546g;
+    public boolean f60127g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdTemplate f59547h;
+    public AdTemplate f60128h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f59548i;
+    public Context f60129i;
 
     /* renamed from: j  reason: collision with root package name */
-    public DetailVideoView f59549j;
+    public DetailVideoView f60130j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f59550k;
+    public boolean f60131k;
     public final List<j.a> l;
     public j.a m;
     public long n;
@@ -129,25 +129,25 @@ public class a implements d {
             }
         };
         this.n = -1L;
-        this.f59547h = adTemplate;
-        this.f59543d = ksVideoPlayConfig;
-        this.f59548i = detailVideoView.getContext();
+        this.f60128h = adTemplate;
+        this.f60124d = ksVideoPlayConfig;
+        this.f60129i = detailVideoView.getContext();
         String N = com.kwad.sdk.core.response.a.a.N(com.kwad.sdk.core.response.a.d.j(adTemplate));
-        this.f59545f = adTemplate.mVideoPlayerStatus;
+        this.f60126f = adTemplate.mVideoPlayerStatus;
         File b2 = com.kwad.sdk.core.diskcache.a.a.a().b(N);
         if (b2 != null && b2.exists()) {
-            this.f59541b = b2.getAbsolutePath();
+            this.f60122b = b2.getAbsolutePath();
         }
-        this.f59549j = detailVideoView;
-        this.f59542c = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
-        this.f59544e = com.kwad.sdk.core.response.a.a.l(com.kwad.sdk.core.response.a.d.j(adTemplate));
-        this.f59542c.a(new c.e(this, detailVideoView) { // from class: com.kwad.sdk.splashscreen.b.a.2
+        this.f60130j = detailVideoView;
+        this.f60123c = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
+        this.f60125e = com.kwad.sdk.core.response.a.a.l(com.kwad.sdk.core.response.a.d.j(adTemplate));
+        this.f60123c.a(new c.e(this, detailVideoView) { // from class: com.kwad.sdk.splashscreen.b.a.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DetailVideoView a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f59551b;
+            public final /* synthetic */ a f60132b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -164,7 +164,7 @@ public class a implements d {
                         return;
                     }
                 }
-                this.f59551b = this;
+                this.f60132b = this;
                 this.a = detailVideoView;
             }
 
@@ -175,30 +175,30 @@ public class a implements d {
                     boolean a = bb.a(this.a, 50, true);
                     com.kwad.sdk.core.d.a.a("SplashPlayModule", " onPrepared" + a);
                     if (a) {
-                        this.f59551b.f59542c.e();
+                        this.f60132b.f60123c.e();
                     }
                 }
             }
         });
-        b.a(this.f59548i).a(this.m);
+        b.a(this.f60129i).a(this.m);
     }
 
     private void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f59542c.a(new c.a(this.f59547h).a(this.f59545f).a(this.f59541b).b(f.b(com.kwad.sdk.core.response.a.d.k(this.f59547h))).a(com.kwad.sdk.contentalliance.detail.video.b.a(this.f59547h)).a(), this.f59549j);
-            KsVideoPlayConfig ksVideoPlayConfig = this.f59543d;
+            this.f60123c.a(new c.a(this.f60128h).a(this.f60126f).a(this.f60122b).b(f.b(com.kwad.sdk.core.response.a.d.k(this.f60128h))).a(com.kwad.sdk.contentalliance.detail.video.b.a(this.f60128h)).a(), this.f60130j);
+            KsVideoPlayConfig ksVideoPlayConfig = this.f60124d;
             if (ksVideoPlayConfig != null) {
                 a(ksVideoPlayConfig.isVideoSoundEnable(), false);
             }
-            this.f59542c.d();
+            this.f60123c.d();
         }
     }
 
     public TextureView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59549j.a : (TextureView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60130j.a : (TextureView) invokeV.objValue;
     }
 
     @MainThread
@@ -207,7 +207,7 @@ public class a implements d {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) || dVar == null) {
             return;
         }
-        this.f59542c.a(dVar);
+        this.f60123c.a(dVar);
     }
 
     public void a(j.a aVar) {
@@ -220,21 +220,21 @@ public class a implements d {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f59550k = z;
+            this.f60131k = z;
         }
     }
 
     public void a(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f59546g = z;
+            this.f60127g = z;
             if (!z) {
-                this.f59542c.a(0.0f, 0.0f);
+                this.f60123c.a(0.0f, 0.0f);
                 return;
             }
-            this.f59542c.a(1.0f, 1.0f);
+            this.f60123c.a(1.0f, 1.0f);
             if (z2) {
-                b.a(this.f59548i).a(true);
+                b.a(this.f60129i).a(true);
             }
         }
     }
@@ -242,7 +242,7 @@ public class a implements d {
     public AdTemplate b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59547h : (AdTemplate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f60128h : (AdTemplate) invokeV.objValue;
     }
 
     @MainThread
@@ -251,7 +251,7 @@ public class a implements d {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) || dVar == null) {
             return;
         }
-        this.f59542c.b(dVar);
+        this.f60123c.b(dVar);
     }
 
     public void b(j.a aVar) {
@@ -264,17 +264,17 @@ public class a implements d {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59542c.m() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60123c.m() : invokeV.longValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f59542c.f();
-            if (this.f59546g && this.f59550k) {
-                b.a(this.f59548i).a(false);
-                if (b.a(this.f59548i).a()) {
-                    this.f59546g = false;
+            this.f60123c.f();
+            if (this.f60127g && this.f60131k) {
+                b.a(this.f60129i).a(false);
+                if (b.a(this.f60129i).a()) {
+                    this.f60127g = false;
                     a(false, false);
                 }
             }
@@ -300,7 +300,7 @@ public class a implements d {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f59542c.g();
+            this.f60123c.g();
         }
     }
 
@@ -308,12 +308,12 @@ public class a implements d {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            com.kwad.sdk.contentalliance.detail.video.a aVar = this.f59542c;
+            com.kwad.sdk.contentalliance.detail.video.a aVar = this.f60123c;
             if (aVar != null) {
                 aVar.n();
-                this.f59542c.h();
+                this.f60123c.h();
             }
-            b.a(this.f59548i).b(this.m);
+            b.a(this.f60129i).b(this.m);
         }
     }
 
@@ -321,20 +321,20 @@ public class a implements d {
     public void i() {
         com.kwad.sdk.contentalliance.detail.video.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.f59542c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.f60123c) == null) {
             return;
         }
         aVar.n();
-        this.f59542c.g();
+        this.f60123c.g();
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            if (this.f59542c.a() == null) {
+            if (this.f60123c.a() == null) {
                 k();
             }
-            this.f59542c.e();
+            this.f60123c.e();
         }
     }
 }

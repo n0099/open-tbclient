@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class hk {
     public static /* synthetic */ Interceptable $ic;
     public static final hk A;
@@ -95,7 +95,7 @@ public final class hk {
     public static final hk az;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hk f62999b;
+    public static final hk f63580b;
     public static final hk ba;
     public static final hk bb;
     public static final hk bc;
@@ -113,31 +113,31 @@ public final class hk {
     public static final hk bo;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hk f63000c;
+    public static final hk f63581c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hk f63001d;
+    public static final hk f63582d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hk f63002e;
+    public static final hk f63583e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hk f63003f;
+    public static final hk f63584f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hk f63004g;
+    public static final hk f63585g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hk f63005h;
+    public static final hk f63586h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hk f63006i;
+    public static final hk f63587i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final hk f63007j;
+    public static final hk f63588j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final hk f63008k;
+    public static final hk f63589k;
     public static final hk l;
     public static final hk m;
     public static final hk n;
@@ -172,16 +172,16 @@ public final class hk {
             }
         }
         a = new hk("UploadSwitch", 0, 1);
-        f62999b = new hk("UploadFrequency", 1, 2);
-        f63000c = new hk("ScreenSizeCollectionSwitch", 2, 3);
-        f63001d = new hk("MacCollectionSwitch", 3, 4);
-        f63002e = new hk("IMSICollectionSwitch", 4, 5);
-        f63003f = new hk("AndroidVnCollectionSwitch", 5, 6);
-        f63004g = new hk("AndroidVcCollectionSwitch", 6, 7);
-        f63005h = new hk("AndroidIdCollectionSwitch", 7, 8);
-        f63006i = new hk("DeviceInfoCollectionFrequency", 8, 9);
-        f63007j = new hk("AppInstallListCollectionSwitch", 9, 10);
-        f63008k = new hk("AppInstallListCollectionFrequency", 10, 11);
+        f63580b = new hk("UploadFrequency", 1, 2);
+        f63581c = new hk("ScreenSizeCollectionSwitch", 2, 3);
+        f63582d = new hk("MacCollectionSwitch", 3, 4);
+        f63583e = new hk("IMSICollectionSwitch", 4, 5);
+        f63584f = new hk("AndroidVnCollectionSwitch", 5, 6);
+        f63585g = new hk("AndroidVcCollectionSwitch", 6, 7);
+        f63586h = new hk("AndroidIdCollectionSwitch", 7, 8);
+        f63587i = new hk("DeviceInfoCollectionFrequency", 8, 9);
+        f63588j = new hk("AppInstallListCollectionSwitch", 9, 10);
+        f63589k = new hk("AppInstallListCollectionFrequency", 10, 11);
         l = new hk("AppActiveListCollectionSwitch", 11, 12);
         m = new hk("AppActiveListCollectionFrequency", 12, 13);
         n = new hk("BluetoothCollectionSwitch", 13, 14);
@@ -291,7 +291,7 @@ public final class hk {
         bn = new hk("CollectionPluginMd5", 117, 1003);
         hk hkVar = new hk("CollectionPluginForceStop", 118, 1004);
         bo = hkVar;
-        f497a = new hk[]{a, f62999b, f63000c, f63001d, f63002e, f63003f, f63004g, f63005h, f63006i, f63007j, f63008k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP, aQ, aR, aS, aT, aU, aV, aW, aX, aY, aZ, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, hkVar};
+        f497a = new hk[]{a, f63580b, f63581c, f63582d, f63583e, f63584f, f63585g, f63586h, f63587i, f63588j, f63589k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP, aQ, aR, aS, aT, aU, aV, aW, aX, aY, aZ, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, hkVar};
     }
 
     public hk(String str, int i2, int i3) {

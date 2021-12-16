@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SwitchImageView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_NORMAL = 0;
@@ -19,22 +19,22 @@ public class SwitchImageView extends AppCompatImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50390e;
+    public int f50919e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50391f;
+    public int f50920f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50392g;
+    public int f50921g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50393h;
+    public boolean f50922h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AbsSvgType f50394i;
+    public AbsSvgType f50923i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AbsSvgType f50395j;
+    public AbsSvgType f50924j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwitchImageView(Context context) {
@@ -54,41 +54,41 @@ public class SwitchImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.f50393h = false;
+        this.f50922h = false;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f50390e = 0;
-            this.f50391f = 0;
-            this.f50392g = 0;
+            this.f50919e = 0;
+            this.f50920f = 0;
+            this.f50921g = 0;
         }
     }
 
     public int getCurrentState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50390e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50919e : invokeV.intValue;
     }
 
     public void setState(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             if (i2 == 0) {
-                this.f50390e = 0;
-                if (this.f50393h) {
-                    setImageDrawable(this.f50394i.getDrawable());
+                this.f50919e = 0;
+                if (this.f50922h) {
+                    setImageDrawable(this.f50923i.getDrawable());
                 } else {
-                    setImageResource(this.f50391f);
+                    setImageResource(this.f50920f);
                 }
             } else if (i2 == 1) {
-                this.f50390e = 1;
-                if (this.f50393h) {
-                    setImageDrawable(this.f50395j.getDrawable());
+                this.f50919e = 1;
+                if (this.f50922h) {
+                    setImageDrawable(this.f50924j.getDrawable());
                 } else {
-                    setImageResource(this.f50392g);
+                    setImageResource(this.f50921g);
                 }
             }
         }
@@ -97,29 +97,29 @@ public class SwitchImageView extends AppCompatImageView {
     public void setStateImage(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            this.f50391f = i2;
-            this.f50392g = i3;
+            this.f50920f = i2;
+            this.f50921g = i3;
         }
     }
 
     public void setSvgStateImage(AbsSvgType absSvgType, AbsSvgType absSvgType2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, absSvgType, absSvgType2) == null) {
-            this.f50394i = absSvgType;
-            this.f50395j = absSvgType2;
-            this.f50393h = true;
+            this.f50923i = absSvgType;
+            this.f50924j = absSvgType2;
+            this.f50922h = true;
         }
     }
 
     public void switchState() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.f50390e == 0) {
-                this.f50390e = 1;
+            if (this.f50919e == 0) {
+                this.f50919e = 1;
                 setState(1);
                 return;
             }
-            this.f50390e = 0;
+            this.f50919e = 0;
             setState(0);
         }
     }
@@ -143,7 +143,7 @@ public class SwitchImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.f50393h = false;
+        this.f50922h = false;
         a();
     }
 
@@ -166,7 +166,7 @@ public class SwitchImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.f50393h = false;
+        this.f50922h = false;
         a();
     }
 }

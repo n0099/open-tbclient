@@ -29,7 +29,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 @SuppressLint({"BDOfflineUrl"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AppConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_FILE = "searchbox_config.ini";
@@ -54,7 +54,7 @@ public class AppConfig {
     public File mConfigFile;
     public File mTimestampFile;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class AppInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEFAULT_PACKAGE_NAME = "com.baidu.searchbox";
@@ -171,12 +171,12 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ConfigValueFilter {
         boolean isIllegalContent(String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ConfigWhiteList {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] WHITE_LIST;
@@ -228,7 +228,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Debug {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -254,7 +254,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Downloads {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +286,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class HTTPSConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long TMP_USE_HTTP_DELTA = 518400000;
@@ -329,7 +329,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Speed {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -394,7 +394,7 @@ public class AppConfig {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0035 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x004b */
     /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x004e */
-    /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x0079 */
+    /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x0078 */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x004b, code lost:
         if (r2 != 0) goto L19;
      */

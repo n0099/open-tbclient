@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class es implements TextWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +39,13 @@ public final class es implements TextWatcher {
         EditText editText3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-            editText = this.a.f51713j;
+            editText = this.a.f52262j;
             String obj = editText.getText().toString();
             if (obj.length() > 200) {
                 String substring = obj.substring(0, 200);
-                editText2 = this.a.f51713j;
+                editText2 = this.a.f52262j;
                 editText2.setText(substring.substring(0, 200));
-                editText3 = this.a.f51713j;
+                editText3 = this.a.f52262j;
                 editText3.setSelection(substring.length());
             }
         }

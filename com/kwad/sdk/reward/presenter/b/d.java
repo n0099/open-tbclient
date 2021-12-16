@@ -10,16 +10,16 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.core.webview.jshandler.d;
 import com.kwad.sdk.reward.g;
 import com.kwad.sdk.utils.bb;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.presenter.platdetail.a f59101b;
+    public com.kwad.sdk.reward.presenter.platdetail.a f59682b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f59102c;
+    public boolean f59683c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class d extends a {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             m().findViewById(R.id.ksad_video_play_bar_h5).setVisibility(8);
             super.a();
-            if (this.f59102c) {
-                this.f59101b.a(((g) this).a);
+            if (this.f59683c) {
+                this.f59682b.a(((g) this).a);
             }
         }
     }
@@ -53,7 +53,7 @@ public class d extends a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             float c2 = bb.c(q());
             aVar.a = (int) ((bb.b(q()) / c2) + 0.5f);
-            aVar.f57994b = (int) ((bb.a(q()) / c2) + 0.5f);
+            aVar.f58575b = (int) ((bb.a(q()) / c2) + 0.5f);
         }
     }
 
@@ -62,8 +62,8 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.c();
-            if (this.f59102c) {
-                this.f59101b.j();
+            if (this.f59683c) {
+                this.f59682b.j();
             }
         }
     }
@@ -74,7 +74,7 @@ public class d extends a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.c_();
             com.kwad.sdk.reward.presenter.platdetail.a aVar = new com.kwad.sdk.reward.presenter.platdetail.a();
-            this.f59101b = aVar;
+            this.f59682b = aVar;
             aVar.c(m());
             m().findViewById(i()).setVisibility(0);
         }
@@ -98,8 +98,8 @@ public class d extends a {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f59101b.a(((g) this).a);
-            this.f59102c = true;
+            this.f59682b.a(((g) this).a);
+            this.f59683c = true;
         }
     }
 }

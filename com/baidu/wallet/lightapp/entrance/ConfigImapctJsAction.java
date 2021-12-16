@@ -11,7 +11,7 @@ import com.baidu.wallet.paysdk.datamodel.SdkInitResponse;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ConfigImapctJsAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -16,29 +16,29 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IvParameterSpec a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SecretKeySpec f35552b;
+    public SecretKeySpec f36041b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Cipher f35553c;
+    public Cipher f36042c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f35554d;
+    public boolean f36043d;
 
     /* renamed from: com.baidu.location.b.j$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static j a;
@@ -74,7 +74,7 @@ public class j {
                 return;
             }
         }
-        this.f35554d = false;
+        this.f36043d = false;
         try {
             String str = Jni.getldkaiv();
             if (str == null || !str.contains("|")) {
@@ -82,9 +82,9 @@ public class j {
             }
             String[] split = str.split("\\|");
             this.a = new IvParameterSpec(split[1].getBytes("UTF-8"));
-            this.f35552b = new SecretKeySpec(split[0].getBytes("UTF-8"), "AES");
-            this.f35553c = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-            this.f35554d = true;
+            this.f36041b = new SecretKeySpec(split[0].getBytes("UTF-8"), "AES");
+            this.f36042c = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+            this.f36043d = true;
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         } catch (NoSuchAlgorithmException e3) {
@@ -108,10 +108,10 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f35554d) {
+            if (this.f36043d) {
                 try {
-                    this.f35553c.init(2, this.f35552b, this.a);
-                    return new String(this.f35553c.doFinal(Base64.decode(str, 0)), "UTF-8");
+                    this.f36042c.init(2, this.f36041b, this.a);
+                    return new String(this.f36042c.doFinal(Base64.decode(str, 0)), "UTF-8");
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return null;
@@ -125,6 +125,6 @@ public class j {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35554d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36043d : invokeV.booleanValue;
     }
 }

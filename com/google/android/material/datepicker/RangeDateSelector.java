@@ -34,7 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<RangeDateSelector> CREATOR;

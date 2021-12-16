@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import g.a.a.a.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class DrawableSplashScreen implements SplashScreen {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public final class DrawableSplashScreen implements SplashScreen {
     public final ImageView.ScaleType scaleType;
     public DrawableSplashScreenView splashView;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class DrawableSplashScreenView extends ImageView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

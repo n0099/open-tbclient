@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.webview.jshandler.b;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d implements com.kwad.sdk.core.d<b.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,12 +35,12 @@ public class d implements com.kwad.sdk.core.d<b.a> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f57987b = jSONObject.optBoolean("clickActionButton");
-        aVar.f57988c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
-        b.C2032b c2032b = new b.C2032b();
-        aVar.f57989d = c2032b;
-        c2032b.parseJson(jSONObject.optJSONObject("logParam"));
-        aVar.f57990e = jSONObject.optLong("creativeId", new Long("-1").longValue());
+        aVar.f58568b = jSONObject.optBoolean("clickActionButton");
+        aVar.f58569c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
+        b.C2093b c2093b = new b.C2093b();
+        aVar.f58570d = c2093b;
+        c2093b.parseJson(jSONObject.optJSONObject("logParam"));
+        aVar.f58571e = jSONObject.optLong("creativeId", new Long("-1").longValue());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,10 +52,10 @@ public class d implements com.kwad.sdk.core.d<b.a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.t.a(jSONObject, "clickActionButton", aVar.f57987b);
-            com.kwad.sdk.utils.t.a(jSONObject, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, aVar.f57988c);
-            com.kwad.sdk.utils.t.a(jSONObject, "logParam", aVar.f57989d);
-            com.kwad.sdk.utils.t.a(jSONObject, "creativeId", aVar.f57990e);
+            com.kwad.sdk.utils.t.a(jSONObject, "clickActionButton", aVar.f58568b);
+            com.kwad.sdk.utils.t.a(jSONObject, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, aVar.f58569c);
+            com.kwad.sdk.utils.t.a(jSONObject, "logParam", aVar.f58570d);
+            com.kwad.sdk.utils.t.a(jSONObject, "creativeId", aVar.f58571e);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

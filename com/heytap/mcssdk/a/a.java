@@ -13,7 +13,7 @@ import com.heytap.mcssdk.mode.AppMessage;
 import com.heytap.mcssdk.mode.Message;
 import com.heytap.mcssdk.utils.CryptoUtil;
 import com.heytap.mcssdk.utils.LogUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public final class a extends c {
                 appMessage.setEndDate(Long.parseLong(CryptoUtil.desDecrypt(intent.getStringExtra(Message.END_DATE))));
                 appMessage.setTimeRanges(CryptoUtil.desDecrypt(intent.getStringExtra(Message.TIME_RANGES)));
                 appMessage.setTitle(CryptoUtil.desDecrypt(intent.getStringExtra("title")));
-                appMessage.setRule(CryptoUtil.desDecrypt(intent.getStringExtra(Message.RULE)));
+                appMessage.setRule(CryptoUtil.desDecrypt(intent.getStringExtra("rule")));
                 appMessage.setForcedDelivery(Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra(Message.FORCED_DELIVERY))));
                 appMessage.setDistinctBycontent(Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra(Message.DISTINCT_CONTENT))));
                 LogUtil.d("OnHandleIntent-message:" + appMessage.toString());

@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.kwad.sdk.api.KsFullScreenVideoAd;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class h implements KsFullScreenVideoAd.FullScreenVideoAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28786b;
+    public boolean f29156b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ KsFullScreenVideoAd f28787c;
+    public final /* synthetic */ KsFullScreenVideoAd f29157c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ g f28788d;
+    public final /* synthetic */ g f29158d;
 
     public h(g gVar, KsFullScreenVideoAd ksFullScreenVideoAd) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class h implements KsFullScreenVideoAd.FullScreenVideoAdInteractionListen
                 return;
             }
         }
-        this.f28788d = gVar;
-        this.f28787c = ksFullScreenVideoAd;
+        this.f29158d = gVar;
+        this.f29157c = ksFullScreenVideoAd;
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
@@ -46,8 +46,8 @@ public class h implements KsFullScreenVideoAd.FullScreenVideoAdInteractionListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.f28788d.onAdClicked(this.f28786b);
-            this.f28786b = true;
+            this.f29158d.onAdClicked(this.f29156b);
+            this.f29156b = true;
         }
     }
 
@@ -56,7 +56,7 @@ public class h implements KsFullScreenVideoAd.FullScreenVideoAdInteractionListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            this.f28788d.onAdClose();
+            this.f29158d.onAdClose();
         }
     }
 
@@ -81,7 +81,7 @@ public class h implements KsFullScreenVideoAd.FullScreenVideoAdInteractionListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i2), Integer.valueOf(i3));
-            this.f28788d.onAdError(i2, String.valueOf(i3));
+            this.f29158d.onAdError(i2, String.valueOf(i3));
         }
     }
 
@@ -90,7 +90,7 @@ public class h implements KsFullScreenVideoAd.FullScreenVideoAdInteractionListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             LogPrinter.d();
-            this.f28788d.onAdShow(this.f28787c, this.a);
+            this.f29158d.onAdShow(this.f29157c, this.a);
             this.a = true;
         }
     }

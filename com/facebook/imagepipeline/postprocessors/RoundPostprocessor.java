@@ -16,7 +16,7 @@ import com.facebook.imagepipeline.filter.InPlaceRoundFilter;
 import com.facebook.imagepipeline.filter.XferRoundFilter;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class RoundPostprocessor extends BasePostprocessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean ENABLE_ANTI_ALIASING = true;

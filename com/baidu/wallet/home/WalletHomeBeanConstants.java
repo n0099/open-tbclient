@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public abstract class WalletHomeBeanConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_CHECK_NEW = "/wireless/0/check_new/0/";

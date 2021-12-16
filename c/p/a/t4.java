@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class t4 implements z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,12 +41,12 @@ public class t4 implements z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.o.removeMessages(11);
-            this.a.f30990g = true;
-            y2 a = c3.a(this.a.f30989f);
-            a.e(new g3(this.a.f30993j), 200, System.currentTimeMillis() - this.a.n);
+            this.a.f31360g = true;
+            y2 a = c3.a(this.a.f31359f);
+            a.e(new g3(this.a.f31363j), 200, System.currentTimeMillis() - this.a.n);
             a.m();
             x4 x4Var = this.a;
-            if (x4Var.f30992i) {
+            if (x4Var.f31362i) {
                 return;
             }
             x4Var.l.onLoaded();

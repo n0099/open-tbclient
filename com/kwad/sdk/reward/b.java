@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<InterfaceC2048b> a;
+    public Set<InterfaceC2109b> a;
 
     /* renamed from: com.kwad.sdk.reward.b$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static b a;
@@ -47,8 +47,8 @@ public class b {
     }
 
     /* renamed from: com.kwad.sdk.reward.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC2048b {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC2109b {
         void onPageClose();
     }
 
@@ -78,12 +78,12 @@ public class b {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (b) invokeV.objValue;
     }
 
-    public void a(InterfaceC2048b interfaceC2048b) {
+    public void a(InterfaceC2109b interfaceC2109b) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, interfaceC2048b) == null) || interfaceC2048b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, interfaceC2109b) == null) || interfaceC2109b == null) {
             return;
         }
-        this.a.add(interfaceC2048b);
+        this.a.add(interfaceC2109b);
     }
 
     public void b() {
@@ -91,15 +91,15 @@ public class b {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.size() == 0) {
             return;
         }
-        for (InterfaceC2048b interfaceC2048b : this.a) {
-            interfaceC2048b.onPageClose();
+        for (InterfaceC2109b interfaceC2109b : this.a) {
+            interfaceC2109b.onPageClose();
         }
     }
 
-    public void b(InterfaceC2048b interfaceC2048b) {
+    public void b(InterfaceC2109b interfaceC2109b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC2048b) == null) {
-            this.a.remove(interfaceC2048b);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC2109b) == null) {
+            this.a.remove(interfaceC2109b);
         }
     }
 }

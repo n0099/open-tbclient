@@ -17,10 +17,10 @@ public class g implements f.a {
     public final BDHttpDns.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BDHttpDns f3403b;
+    public final BDHttpDns f3418b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final h f3404c;
+    public final h f3419c;
 
     public g(Context context, BDHttpDns.a aVar) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class g implements f.a {
         }
         this.a = aVar;
         BDHttpDns j2 = BDHttpDns.j(context);
-        this.f3403b = j2;
-        this.f3404c = j2.d();
+        this.f3418b = j2;
+        this.f3419c = j2.d();
     }
 
     @Override // c.a.i.f.a
@@ -71,7 +71,7 @@ public class g implements f.a {
                 aVar2.e(System.currentTimeMillis() / 1000);
                 aVar2.b(arrayList);
                 aVar2.f(arrayList2);
-                this.f3404c.c(str, aVar2);
+                this.f3419c.c(str, aVar2);
                 aVar = this.a;
                 if (aVar == null) {
                     return;

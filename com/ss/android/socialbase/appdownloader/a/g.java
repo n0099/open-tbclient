@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,8 +38,8 @@ public class g extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Intent intent = new Intent(com.ss.android.socialbase.downloader.constants.e.f61669c + ".filemanager.intent.action.BROWSER_FILE");
-            intent.putExtra("CurrentDir", this.f61467c);
+            Intent intent = new Intent(com.ss.android.socialbase.downloader.constants.e.f62250c + ".filemanager.intent.action.BROWSER_FILE");
+            intent.putExtra("CurrentDir", this.f62048c);
             intent.putExtra("CurrentMode", 1);
             intent.addFlags(268435456);
             intent.addFlags(32768);

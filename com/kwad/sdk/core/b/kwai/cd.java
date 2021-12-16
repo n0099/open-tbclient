@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.webview.jshandler.n;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class cd implements com.kwad.sdk.core.d<n.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,8 +35,8 @@ public class cd implements com.kwad.sdk.core.d<n.b> {
             return;
         }
         bVar.a = jSONObject.optDouble("progress");
-        bVar.f58051b = jSONObject.optInt("status");
-        bVar.f58052c = jSONObject.optLong("totalBytes");
+        bVar.f58632b = jSONObject.optInt("status");
+        bVar.f58633c = jSONObject.optLong("totalBytes");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,8 +49,8 @@ public class cd implements com.kwad.sdk.core.d<n.b> {
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "progress", bVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "status", bVar.f58051b);
-            com.kwad.sdk.utils.t.a(jSONObject, "totalBytes", bVar.f58052c);
+            com.kwad.sdk.utils.t.a(jSONObject, "status", bVar.f58632b);
+            com.kwad.sdk.utils.t.a(jSONObject, "totalBytes", bVar.f58633c);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.webview.jshandler.p;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class cu implements com.kwad.sdk.core.d<p.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class cu implements com.kwad.sdk.core.d<p.a> {
             return;
         }
         aVar.a = jSONObject.optInt("status");
-        aVar.f58056b = jSONObject.optString("errorMsg");
+        aVar.f58637b = jSONObject.optString("errorMsg");
         if (jSONObject.opt("errorMsg") == JSONObject.NULL) {
-            aVar.f58056b = "";
+            aVar.f58637b = "";
         }
     }
 
@@ -51,7 +51,7 @@ public class cu implements com.kwad.sdk.core.d<p.a> {
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "status", aVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "errorMsg", aVar.f58056b);
+            com.kwad.sdk.utils.t.a(jSONObject, "errorMsg", aVar.f58637b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

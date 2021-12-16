@@ -54,7 +54,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TKJSContext implements ILifeCycle {
     public static /* synthetic */ Interceptable $ic;
     public static Integer fileIndex;
@@ -79,7 +79,7 @@ public class TKJSContext implements ILifeCycle {
     public JSContext.V8AssociateReference mRootViewReference;
     public Context mViewCreateContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class V8ClassRegisterSlot {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

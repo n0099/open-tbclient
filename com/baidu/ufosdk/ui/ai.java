@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ai implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public final class ai implements View.OnClickListener {
                 str = this.a.t;
                 intent.putExtra("msgid", str);
                 intent.putExtra("fromlist", "no");
-                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f51521j);
+                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f52070j);
                 intent.putExtra("come_from", 2);
                 this.a.startActivity(intent);
             } catch (Exception e2) {

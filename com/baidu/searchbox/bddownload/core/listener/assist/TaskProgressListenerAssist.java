@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TaskProgressListenerAssist implements ListenerAssist, ListenerModelHandler.ModelCreator<Listener1Model> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TaskProgressListenerCallback callback;
     public final ListenerModelHandler<Listener1Model> modelHandler;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Listener1Model implements ListenerModelHandler.ListenerModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface TaskProgressListenerCallback {
         void connected(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i2, @IntRange(from = 0) long j2, @IntRange(from = 0) long j3);
 

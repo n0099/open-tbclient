@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.AbstractContainerBox;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class AppleReferenceMovieBox extends AbstractContainerBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "rmra";

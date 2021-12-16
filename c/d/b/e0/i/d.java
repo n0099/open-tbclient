@@ -14,19 +14,19 @@ import java.util.Date;
 import java.util.Locale;
 import org.apache.http.impl.cookie.DateUtils;
 import org.apache.http.impl.cookie.NetscapeDraftSpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadLocal<DateFormat> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f28163b;
+    public static final String[] f28538b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final DateFormat[] f28164c;
+    public static final DateFormat[] f28539c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends ThreadLocal<DateFormat> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public final class d {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", Locale.US);
                 simpleDateFormat.setLenient(false);
-                simpleDateFormat.setTimeZone(c.d.b.e0.e.f28093f);
+                simpleDateFormat.setTimeZone(c.d.b.e0.e.f28468f);
                 return simpleDateFormat;
             }
             return (DateFormat) invokeV.objValue;
@@ -76,8 +76,8 @@ public final class d {
         }
         a = new a();
         String[] strArr = {"EEE, dd MMM yyyy HH:mm:ss zzz", DateUtils.PATTERN_RFC1036, DateUtils.PATTERN_ASCTIME, NetscapeDraftSpec.EXPIRES_PATTERN, "EEE, dd-MMM-yyyy HH-mm-ss z", "EEE, dd MMM yy HH:mm:ss z", "EEE dd-MMM-yyyy HH:mm:ss z", "EEE dd MMM yyyy HH:mm:ss z", "EEE dd-MMM-yyyy HH-mm-ss z", "EEE dd-MMM-yy HH:mm:ss z", "EEE dd MMM yy HH:mm:ss z", "EEE,dd-MMM-yy HH:mm:ss z", "EEE,dd-MMM-yyyy HH:mm:ss z", "EEE, dd-MM-yyyy HH:mm:ss z", "EEE MMM d yyyy HH:mm:ss z"};
-        f28163b = strArr;
-        f28164c = new DateFormat[strArr.length];
+        f28538b = strArr;
+        f28539c = new DateFormat[strArr.length];
     }
 
     public static String a(Date date) {
@@ -98,14 +98,14 @@ public final class d {
             if (parsePosition.getIndex() == str.length()) {
                 return parse;
             }
-            synchronized (f28163b) {
-                int length = f28163b.length;
+            synchronized (f28538b) {
+                int length = f28538b.length;
                 for (int i2 = 0; i2 < length; i2++) {
-                    DateFormat dateFormat = f28164c[i2];
+                    DateFormat dateFormat = f28539c[i2];
                     if (dateFormat == null) {
-                        dateFormat = new SimpleDateFormat(f28163b[i2], Locale.US);
-                        dateFormat.setTimeZone(c.d.b.e0.e.f28093f);
-                        f28164c[i2] = dateFormat;
+                        dateFormat = new SimpleDateFormat(f28538b[i2], Locale.US);
+                        dateFormat.setTimeZone(c.d.b.e0.e.f28468f);
+                        f28539c[i2] = dateFormat;
                     }
                     parsePosition.setIndex(0);
                     Date parse2 = dateFormat.parse(str, parsePosition);

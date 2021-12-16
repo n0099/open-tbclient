@@ -34,19 +34,19 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object[] f61447b;
+    public static Object[] f62028b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object[] f61448c;
+    public static Object[] f62029c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f61449d;
+    public static String f62030d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,10 +62,10 @@ public class l {
                 return;
             }
         }
-        f61447b = new Object[0];
-        f61448c = new Object[73];
+        f62028b = new Object[0];
+        f62029c = new Object[73];
         a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f61449d = null;
+        f62030d = null;
     }
 
     public static boolean a(String str) {
@@ -449,10 +449,10 @@ public class l {
                 PackageInfo packageInfo = com.ss.android.downloadlib.addownload.j.getContext().getPackageManager().getPackageInfo(str, 0);
                 if (packageInfo != null) {
                     cVar.b(packageInfo.versionCode);
-                    cVar.a(com.ss.android.downloadlib.addownload.b.c.f61208b);
+                    cVar.a(com.ss.android.downloadlib.addownload.b.c.f61789b);
                     n g2 = com.ss.android.downloadlib.addownload.j.g();
                     if (g2 != null && g2.a() && !a(packageInfo.versionCode, i2, packageInfo.versionName, str2)) {
-                        cVar.a(com.ss.android.downloadlib.addownload.b.c.f61209c);
+                        cVar.a(com.ss.android.downloadlib.addownload.b.c.f61790c);
                     }
                 }
             } catch (Exception e2) {

@@ -4,15 +4,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APPLICATION_ID = "com.yy.mobile.framework.revenuesdk.paybaseapi";
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;
     public static final String FLAVOR = "";
-    public static final int VERSION_CODE = 164;
-    public static final String VERSION_NAME = "4.3.0-bdpay";
+    public static final int VERSION_CODE = 180;
+    public static final String VERSION_NAME = "4.3.9-bdpay212004-SNAPSHOT";
     public transient /* synthetic */ FieldHolder $fh;
 
     public BuildConfig() {

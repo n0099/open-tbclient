@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class TiebaUtilityDataAuto {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class GetLottieParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,12 +84,12 @@ public class TiebaUtilityDataAuto {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface HostUtilityData {
         void getLottieBytes(GetLottieParam getLottieParam, Result<LottieResult> result);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class LottieResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +145,7 @@ public class TiebaUtilityDataAuto {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface Result<T> {
         void success(T t);
     }

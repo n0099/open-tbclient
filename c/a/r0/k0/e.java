@@ -1,50 +1,52 @@
 package c.a.r0.k0;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import c.a.r0.o;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.app.Application;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class e {
+public class e implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragmentActivity a;
+    public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.q0.s.s.a f18556b;
+    public c f12683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.q0.s.s.a f18557c;
+    public Application f12684c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.q0.s.s.a f18558d;
+    public String f12685d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18559e;
+    public final j f12686e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f18560f;
+    public final k f12687f;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f18561e;
+    /* loaded from: classes6.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e this$0;
 
-        public a(e eVar) {
+        public b(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,72 +61,50 @@ public class e {
                     return;
                 }
             }
-            this.f18561e = eVar;
+            this.this$0 = eVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            c.a.r0.k0.a a;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int id = view.getId();
-                if (id == R.id.private_yes || id == R.id.yesBtn) {
-                    if (this.f18561e.f18556b != null && this.f18561e.f18556b.isShowing()) {
-                        this.f18561e.f18556b.dismiss();
-                        SmartLaunchStats.onConfirmPrivacy();
-                        c.a.r0.p3.f.a.a("1", "1");
-                    }
-                    if (this.f18561e.f18557c != null && this.f18561e.f18557c.isShowing()) {
-                        this.f18561e.f18557c.dismiss();
-                        c.a.r0.p3.f.a.a("2", "1");
-                    }
-                    if (this.f18561e.f18558d != null && this.f18561e.f18558d.isShowing()) {
-                        this.f18561e.f18558d.dismiss();
-                        c.a.r0.p3.f.a.a("3", "1");
-                    }
-                    PermissionUtil.setIsAgreePrivacyPolicy(true);
-                    c.a.q0.s.e0.b.j().w("key_first_enter_app_timestamp", System.currentTimeMillis());
-                    LaunchTaskSchedule.getInstance().start(4);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921639, 2));
-                    c.a.q0.s.y.a.i();
-                } else if (id == R.id.private_no) {
-                    if (this.f18561e.f18556b.isShowing()) {
-                        this.f18561e.f18556b.dismiss();
-                        c.a.r0.p3.f.a.a("1", "2");
-                    }
-                    if (this.f18561e.f18557c == null) {
-                        e eVar = this.f18561e;
-                        eVar.f18557c = o.a(eVar.a.getPageContext(), this.f18561e.f18560f, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
-                    }
-                    this.f18561e.f18557c.show();
-                    c.a.r0.p3.f.a.b("2");
-                } else if (id == R.id.browseBtn) {
-                    e.h(this.f18561e);
-                    if (this.f18561e.f18557c.isShowing()) {
-                        this.f18561e.f18557c.dismiss();
-                        c.a.r0.p3.f.a.a("2", "2");
-                        if (this.f18561e.f18558d == null) {
-                            e eVar2 = this.f18561e;
-                            eVar2.f18558d = o.a(eVar2.a.getPageContext(), this.f18561e.f18560f, R.string.privacy_policy_guide_two, R.string.secret_hint_browser_exit);
-                            this.f18561e.f18558d.show();
-                            c.a.r0.p3.f.a.b("3");
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
+                return;
+            }
+            if (!f.i()) {
+                String c2 = f.c();
+                f.m(c2 + " Process Not In WhiteList，No Receive");
+            } else if ("intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) && (a = this.this$0.f12686e.a(intent)) != null) {
+                int myPid = Process.myPid();
+                int pid = a.getPid();
+                if (a == null || a.getType() != 1) {
+                    if (a.getType() == 2) {
+                        if (myPid != pid) {
+                            return;
                         }
+                    } else if (a.getType() == 3 && !f.l()) {
+                        return;
                     }
-                    if (this.f18561e.f18558d.isShowing() && this.f18561e.f18559e == 2) {
-                        this.f18561e.f18558d.dismiss();
-                        c.a.r0.p3.f.a.a("3", "2");
-                        this.f18561e.a.finish();
-                    }
+                } else if (myPid == pid) {
+                    return;
+                }
+                if (this.this$0.f12683b != null) {
+                    this.this$0.f12683b.a(a);
                 }
             }
         }
+
+        public /* synthetic */ b(e eVar, a aVar) {
+            this(eVar);
+        }
     }
 
-    public e(@NonNull BaseFragmentActivity baseFragmentActivity) {
+    public e(Application application) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
+            Object[] objArr = {application};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -134,43 +114,103 @@ public class e {
                 return;
             }
         }
-        this.f18559e = 0;
-        this.f18560f = new a(this);
-        this.a = baseFragmentActivity;
+        this.f12685d = null;
+        this.f12686e = new j();
+        this.f12687f = new k();
+        this.f12684c = application;
     }
 
-    public static /* synthetic */ int h(e eVar) {
-        int i2 = eVar.f18559e;
-        eVar.f18559e = i2 + 1;
-        return i2;
-    }
-
-    public void i() {
+    private void registerReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.q0.s.s.a aVar = this.f18556b;
-            if (aVar != null) {
-                aVar.dismiss();
-            }
-            c.a.q0.s.s.a aVar2 = this.f18557c;
-            if (aVar2 != null) {
-                aVar2.dismiss();
-            }
-            c.a.q0.s.s.a aVar3 = this.f18558d;
-            if (aVar3 != null) {
-                aVar3.dismiss();
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            try {
+                unregisterReceiver();
+                this.a = new b(this, null);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.setPriority(1000);
+                intentFilter.addAction("intent.action.ACTION.TB.MUTI_PROCESS");
+                this.f12684c.registerReceiver(this.a, intentFilter);
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    public void j() {
+    private void unregisterReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.q0.s.s.a b2 = o.b(this.a.getPageContext(), this.f18560f);
-            this.f18556b = b2;
-            b2.show();
-            SmartLaunchStats.onPrivacyDialogShow();
-            c.a.r0.p3.f.a.b("1");
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            try {
+                if (this.a == null || this.f12684c == null) {
+                    return;
+                }
+                this.f12684c.unregisterReceiver(this.a);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    @Override // c.a.r0.k0.d
+    public void a(c.a.r0.k0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            f(aVar);
+        }
+    }
+
+    @Override // c.a.r0.k0.d
+    public void b(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.f12683b = cVar;
+        }
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Application application;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f12685d == null && (application = this.f12684c) != null) {
+                this.f12685d = application.getPackageName();
+            }
+            return this.f12685d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void f(c.a.r0.k0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            if (aVar != null) {
+                try {
+                    Intent intent = new Intent();
+                    intent.setPackage(e());
+                    intent.setAction("intent.action.ACTION.TB.MUTI_PROCESS");
+                    this.f12687f.a(intent, aVar);
+                    this.f12684c.sendBroadcast(intent);
+                    return;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return;
+                }
+            }
+            throw new NullPointerException("send multi-process message is null");
+        }
+    }
+
+    @Override // c.a.r0.k0.d
+    public void startService() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            registerReceiver();
+        }
+    }
+
+    public void stopService() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            unregisterReceiver();
         }
     }
 }

@@ -13,13 +13,13 @@ import com.kwad.sdk.feed.widget.f;
 import com.kwad.sdk.feed.widget.g;
 import com.kwad.sdk.feed.widget.h;
 import com.kwad.sdk.feed.widget.i;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.feed.a$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;

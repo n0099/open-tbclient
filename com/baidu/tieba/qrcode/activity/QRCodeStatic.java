@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.t3.j0.r;
+import c.a.s0.v3.j0.r;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -23,12 +23,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URISyntaxException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class QRCodeStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,11 +51,11 @@ public class QRCodeStatic {
         public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921388, c.a.r0.e3.b.b.b.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247))) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921388, c.a.s0.g3.b.b.b.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247))) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b implements CustomMessageTask.CustomRunnable<r> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,14 +86,14 @@ public class QRCodeStatic {
                 r data = customMessage.getData();
                 int i2 = data.a;
                 if (i2 == 0) {
-                    str = c.a.r0.e3.b.b.a.b(data.f23843c);
+                    str = c.a.s0.g3.b.b.a.b(data.f24928c);
                 } else if (i2 == 1) {
-                    str = c.a.r0.e3.b.b.a.c(data.f23844d);
+                    str = c.a.s0.g3.b.b.a.c(data.f24929d);
                 }
                 if (TextUtils.isEmpty(str)) {
-                    data.f23845e = "qr_none";
+                    data.f24930e = "qr_none";
                 } else {
-                    data.f23845e = str;
+                    data.f24930e = str;
                 }
                 return new CustomResponsedMessage<>(2921403, data);
             }
@@ -101,7 +101,7 @@ public class QRCodeStatic {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

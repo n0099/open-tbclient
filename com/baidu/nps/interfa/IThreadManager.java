@@ -1,5 +1,5 @@
 package com.baidu.nps.interfa;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IThreadManager {
     void run(Runnable runnable);
 }

@@ -48,7 +48,7 @@ import org.webrtc.SessionDescription;
 import org.webrtc.StatsReport;
 import org.webrtc.VideoTrack;
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConnectionEvents {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AUDIO_BUFFER_MAINTAINABLE_MS = 50;

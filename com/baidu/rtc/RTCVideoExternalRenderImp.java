@@ -20,7 +20,7 @@ import org.webrtc.RendererCommon;
 import org.webrtc.SurfaceEglRenderer;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements RendererCommon.RendererEvents {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ExternalRenderImp";

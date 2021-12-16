@@ -28,7 +28,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public abstract class ImageUtils implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = true;

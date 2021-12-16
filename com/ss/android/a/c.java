@@ -11,36 +11,36 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.ss.android.a.c$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f61047b;
+        public int f61628b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f61048c;
+        public int f61629c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f61049d;
+        public long f61630d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f61050e;
+        public String f61631e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -148,8 +148,8 @@ public class c {
                         if (a2.a > 1) {
                             return 3;
                         }
-                        i2 = a2.f61048c;
-                        j2 = a2.f61049d;
+                        i2 = a2.f61629c;
+                        j2 = a2.f61630d;
                     }
                     a aVar = null;
                     if (bVar != null) {
@@ -158,13 +158,13 @@ public class c {
                         b2 = b(file, i2, j2);
                     }
                     if (b2 != null && b2.length() != 0) {
-                        if (a2 != null && (a2.a != 1 || a2.f61047b != 1)) {
-                            if (a2.f61050e != null) {
+                        if (a2 != null && (a2.a != 1 || a2.f61628b != 1)) {
+                            if (a2.f61631e != null) {
                                 try {
                                     aVar = a(b2);
                                 } catch (Throwable unused2) {
                                 }
-                                if (aVar != null && a2.f61048c == aVar.f61048c && a2.f61049d == aVar.f61049d && a2.f61050e.equals(aVar.f61050e)) {
+                                if (aVar != null && a2.f61629c == aVar.f61629c && a2.f61630d == aVar.f61630d && a2.f61631e.equals(aVar.f61631e)) {
                                     return 0;
                                 }
                             }
@@ -316,11 +316,11 @@ public class c {
                 if (aVar.a > 1) {
                     return aVar;
                 }
-                aVar.f61047b = Integer.parseInt(split2[2]);
+                aVar.f61628b = Integer.parseInt(split2[2]);
                 String[] split3 = split2[3].split("g");
-                aVar.f61048c = (int) b(split3[0]);
-                aVar.f61049d = b(split3[1]);
-                aVar.f61050e = split[1];
+                aVar.f61629c = (int) b(split3[0]);
+                aVar.f61630d = b(split3[1]);
+                aVar.f61631e = split[1];
                 return aVar;
             }
             return null;

@@ -16,38 +16,38 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import okio.BufferedSink;
 import okio.Sink;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class d implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.d.b.e0.m.a f28114e;
+    public final c.d.b.e0.m.a f28489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final File f28115f;
+    public final File f28490f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f28116g;
+    public long f28491g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f28117h;
+    public final int f28492h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f28118i;
+    public long f28493i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BufferedSink f28119j;
+    public BufferedSink f28494j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final LinkedHashMap<String, b> f28120k;
+    public final LinkedHashMap<String, b> f28495k;
     public int l;
     public boolean m;
     public boolean n;
     public final Executor o;
     public final Runnable p;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,23 +61,23 @@ public final class d implements Closeable, Flushable {
         public abstract Sink d(int i2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long[] f28121b;
+        public final long[] f28496b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final File[] f28122c;
+        public final File[] f28497c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f28123d;
+        public a f28498d;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class c implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public final class d implements Closeable, Flushable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int i2 = this.l;
-            return i2 >= 2000 && i2 >= this.f28120k.size();
+            return i2 >= 2000 && i2 >= this.f28495k.size();
         }
         return invokeV.booleanValue;
     }
@@ -130,14 +130,14 @@ public final class d implements Closeable, Flushable {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
                 if (this.m && !this.n) {
-                    for (b bVar : (b[]) this.f28120k.values().toArray(new b[this.f28120k.size()])) {
-                        if (bVar.f28123d != null) {
-                            bVar.f28123d.a();
+                    for (b bVar : (b[]) this.f28495k.values().toArray(new b[this.f28495k.size()])) {
+                        if (bVar.f28498d != null) {
+                            bVar.f28498d.a();
                         }
                     }
                     e();
-                    this.f28119j.close();
-                    this.f28119j = null;
+                    this.f28494j.close();
+                    this.f28494j = null;
                     this.n = true;
                     return;
                 }
@@ -150,20 +150,20 @@ public final class d implements Closeable, Flushable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
-            a aVar = bVar.f28123d;
+            a aVar = bVar.f28498d;
             if (aVar != null) {
                 aVar.c();
             }
-            for (int i2 = 0; i2 < this.f28117h; i2++) {
-                this.f28114e.delete(bVar.f28122c[i2]);
-                long j2 = this.f28118i;
-                long[] jArr = bVar.f28121b;
-                this.f28118i = j2 - jArr[i2];
+            for (int i2 = 0; i2 < this.f28492h; i2++) {
+                this.f28489e.delete(bVar.f28497c[i2]);
+                long j2 = this.f28493i;
+                long[] jArr = bVar.f28496b;
+                this.f28493i = j2 - jArr[i2];
                 jArr[i2] = 0;
             }
             this.l++;
-            this.f28119j.writeUtf8("REMOVE").writeByte(32).writeUtf8(bVar.a).writeByte(10);
-            this.f28120k.remove(bVar.a);
+            this.f28494j.writeUtf8("REMOVE").writeByte(32).writeUtf8(bVar.a).writeByte(10);
+            this.f28495k.remove(bVar.a);
             if (c()) {
                 this.o.execute(this.p);
             }
@@ -176,15 +176,15 @@ public final class d implements Closeable, Flushable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             close();
-            this.f28114e.deleteContents(this.f28115f);
+            this.f28489e.deleteContents(this.f28490f);
         }
     }
 
     public void e() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            while (this.f28118i > this.f28116g) {
-                d(this.f28120k.values().iterator().next());
+            while (this.f28493i > this.f28491g) {
+                d(this.f28495k.values().iterator().next());
             }
         }
     }
@@ -197,7 +197,7 @@ public final class d implements Closeable, Flushable {
                 if (this.m) {
                     a();
                     e();
-                    this.f28119j.flush();
+                    this.f28494j.flush();
                 }
             }
         }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.flutter.plugin.networkService;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.l0.b.g;
+import c.a.r0.l0.b.g;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ProtoHelper {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, Integer> platformImageNameMap;

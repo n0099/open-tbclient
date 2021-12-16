@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class MediaInstanceManagerProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnClientInstanceHandler {
         boolean onDestroyInstance();
 
@@ -33,7 +33,7 @@ public abstract class MediaInstanceManagerProvider {
         }
     }
 
-    public abstract void activeInstance(int i2);
+    public abstract boolean activeInstance(int i2);
 
     public abstract String getInstanceOptionByKey(int i2, String str);
 

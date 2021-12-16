@@ -16,7 +16,7 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import com.kwad.sdk.plugin.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements KsInterstitialAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,13 +24,13 @@ public class a implements KsInterstitialAd {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final AdTemplate f58216b;
+    public final AdTemplate f58797b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsInterstitialAd.AdInteractionListener f58217c;
+    public KsInterstitialAd.AdInteractionListener f58798c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f58218d;
+    public b f58799d;
 
     public a(@NonNull KsScene ksScene, @NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
@@ -48,42 +48,42 @@ public class a implements KsInterstitialAd {
             }
         }
         this.a = ksScene;
-        this.f58216b = adTemplate;
+        this.f58797b = adTemplate;
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.core.response.a.a.F(d.j(this.f58216b)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.core.response.a.a.F(d.j(this.f58797b)) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public int getInteractionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.a.a.E(d.j(this.f58216b)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.a.a.E(d.j(this.f58797b)) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public int getMaterialType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.a.a.R(d.j(this.f58216b)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.a.a.R(d.j(this.f58797b)) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public boolean isVideo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.a.a.P(d.j(this.f58216b)) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.a.a.P(d.j(this.f58797b)) : invokeV.booleanValue;
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, adExposureFailedReason) == null) {
-            com.kwad.sdk.core.report.a.a(this.f58216b, i2, adExposureFailedReason);
+            com.kwad.sdk.core.report.a.a(this.f58797b, i2, adExposureFailedReason);
         }
     }
 
@@ -91,8 +91,8 @@ public class a implements KsInterstitialAd {
     public void setAdInteractionListener(@NonNull KsInterstitialAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, adInteractionListener) == null) {
-            this.f58217c = adInteractionListener;
-            b bVar = this.f58218d;
+            this.f58798c = adInteractionListener;
+            b bVar = this.f58799d;
             if (bVar != null) {
                 bVar.a(adInteractionListener);
             }
@@ -103,7 +103,7 @@ public class a implements KsInterstitialAd {
     public void setBidEcpm(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            AdTemplate adTemplate = this.f58216b;
+            AdTemplate adTemplate = this.f58797b;
             adTemplate.mBidEcpm = i2;
             com.kwad.sdk.core.report.a.m(adTemplate);
         }
@@ -125,16 +125,16 @@ public class a implements KsInterstitialAd {
                 ksVideoPlayConfig.setVideoSoundEnable(((Boolean) a.getValue()).booleanValue());
             }
             if (ksVideoPlayConfig.isVideoSoundEnable()) {
-                adTemplate = this.f58216b;
+                adTemplate = this.f58797b;
                 i2 = 2;
             } else {
-                adTemplate = this.f58216b;
+                adTemplate = this.f58797b;
                 i2 = 1;
             }
             adTemplate.mInitVoiceStatus = i2;
-            if (this.f58218d == null) {
-                b bVar = new b(activity, this.f58216b, ksVideoPlayConfig, this.f58217c);
-                this.f58218d = bVar;
+            if (this.f58799d == null) {
+                b bVar = new b(activity, this.f58797b, ksVideoPlayConfig, this.f58798c);
+                this.f58799d = bVar;
                 bVar.a();
             }
         }

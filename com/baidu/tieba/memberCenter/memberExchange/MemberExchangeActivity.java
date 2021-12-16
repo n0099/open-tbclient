@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.memberExchange;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -20,19 +20,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String descStr;
     public String dueDate;
     public HttpMessageListener getTCodeInfoListener;
-    public c.a.r0.e2.d.a mView;
+    public c.a.s0.f2.d.a mView;
     public String memberImage;
     public String memberLevelIcon;
     public String memberName;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
         if (view.getId() == R.id.go_to_exchange) {
             requestTCodeInfo();
         } else {
-            l.w(getPageContext().getPageActivity(), this.mView.b());
+            m.w(getPageContext().getPageActivity(), this.mView.b());
         }
     }
 
@@ -161,7 +161,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
             }
             initTask();
             initListener();
-            c.a.r0.e2.d.a aVar = new c.a.r0.e2.d.a(this);
+            c.a.s0.f2.d.a aVar = new c.a.s0.f2.d.a(this);
             this.mView = aVar;
             aVar.a(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
         }

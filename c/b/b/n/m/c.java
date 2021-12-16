@@ -19,7 +19,7 @@ import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Application, c.b.b.q.a<c>> m;
@@ -28,83 +28,83 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.b.b.q.a<T> f27697e;
+    public c.b.b.q.a<T> f28072e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27698f;
+    public int f28073f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27699g;
+    public int f28074g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27700h;
+    public int f28075h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27701i;
+    public int f28076i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f27702j;
+    public boolean f28077j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f27703k;
-    public AbstractC1557c<? extends c<T>> l;
+    public boolean f28078k;
+    public AbstractC1597c<? extends c<T>> l;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f27704b;
+        public boolean f28079b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f27705c;
+        public boolean f28080c;
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f27704b || this.f27705c) ? false : true : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f28079b || this.f28080c) ? false : true : invokeV.booleanValue;
         }
     }
 
     /* renamed from: c.b.b.n.m.c$c  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static abstract class AbstractC1557c<U extends c<? extends c.b.b.n.e>> {
+    /* loaded from: classes9.dex */
+    public static abstract class AbstractC1597c<U extends c<? extends c.b.b.n.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27706b;
+        public int f28081b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.b.b.q.a<b> f27707c;
+        public c.b.b.q.a<b> f28082c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f27708d;
+        public a f28083d;
 
         /* renamed from: e  reason: collision with root package name */
-        public a f27709e;
+        public a f28084e;
 
         /* renamed from: f  reason: collision with root package name */
-        public a f27710f;
+        public a f28085f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f27711g;
+        public boolean f28086g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f27712h;
+        public boolean f28087h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f27713i;
+        public boolean f28088i;
     }
 
     static {
@@ -137,7 +137,7 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
                 return;
             }
         }
-        this.f27697e = new c.b.b.q.a<>();
+        this.f28072e = new c.b.b.q.a<>();
     }
 
     public static void a(Application application, c cVar) {
@@ -176,7 +176,7 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sb)) == null) {
             sb.append("Managed buffers/app: { ");
             for (Application application : m.keySet()) {
-                sb.append(m.get(application).f27768f);
+                sb.append(m.get(application).f28143f);
                 sb.append(" ");
             }
             sb.append("}");
@@ -188,10 +188,10 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
     public static void n(Application application) {
         c.b.b.q.a<c> aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, application) == null) || c.b.b.f.f27324f == null || (aVar = m.get(application)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, application) == null) || c.b.b.f.f27699f == null || (aVar = m.get(application)) == null) {
             return;
         }
-        for (int i2 = 0; i2 < aVar.f27768f; i2++) {
+        for (int i2 = 0; i2 < aVar.f28143f; i2++) {
             aVar.get(i2).g();
         }
     }
@@ -200,22 +200,22 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.b.b.n.c cVar = c.b.b.f.f27324f;
-            a.b<T> it = this.f27697e.iterator();
+            c.b.b.n.c cVar = c.b.b.f.f27699f;
+            a.b<T> it = this.f28072e.iterator();
             while (it.hasNext()) {
                 k(it.next());
             }
-            if (this.f27702j) {
-                cVar.p(this.f27701i);
+            if (this.f28077j) {
+                cVar.p(this.f28076i);
             } else {
-                if (this.l.f27712h) {
-                    cVar.p(this.f27699g);
+                if (this.l.f28087h) {
+                    cVar.p(this.f28074g);
                 }
-                if (this.l.f27711g) {
-                    cVar.p(this.f27700h);
+                if (this.l.f28086g) {
+                    cVar.p(this.f28075h);
                 }
             }
-            cVar.r(this.f27698f);
+            cVar.r(this.f28073f);
             if (m.get(c.b.b.f.a) != null) {
                 m.get(c.b.b.f.a).i(this, true);
             }
@@ -228,7 +228,7 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.b.b.n.c cVar = c.b.b.f.f27324f;
+            c.b.b.n.c cVar = c.b.b.f.f27699f;
             h();
             if (!o) {
                 o = true;
@@ -241,122 +241,122 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
                 }
             }
             int Q = cVar.Q();
-            this.f27698f = Q;
+            this.f28073f = Q;
             cVar.f(36160, Q);
-            AbstractC1557c<? extends c<T>> abstractC1557c = this.l;
-            int i3 = abstractC1557c.a;
-            int i4 = abstractC1557c.f27706b;
-            if (abstractC1557c.f27712h) {
+            AbstractC1597c<? extends c<T>> abstractC1597c = this.l;
+            int i3 = abstractC1597c.a;
+            int i4 = abstractC1597c.f28081b;
+            if (abstractC1597c.f28087h) {
                 int P = cVar.P();
-                this.f27699g = P;
+                this.f28074g = P;
                 cVar.m(36161, P);
-                cVar.e(36161, this.l.f27709e.a, i3, i4);
+                cVar.e(36161, this.l.f28084e.a, i3, i4);
             }
-            if (this.l.f27711g) {
+            if (this.l.f28086g) {
                 int P2 = cVar.P();
-                this.f27700h = P2;
+                this.f28075h = P2;
                 cVar.m(36161, P2);
-                cVar.e(36161, this.l.f27708d.a, i3, i4);
+                cVar.e(36161, this.l.f28083d.a, i3, i4);
             }
-            if (this.l.f27713i) {
+            if (this.l.f28088i) {
                 int P3 = cVar.P();
-                this.f27701i = P3;
+                this.f28076i = P3;
                 cVar.m(36161, P3);
-                cVar.e(36161, this.l.f27710f.a, i3, i4);
+                cVar.e(36161, this.l.f28085f.a, i3, i4);
             }
-            boolean z = this.l.f27707c.f27768f > 1;
-            this.f27703k = z;
+            boolean z = this.l.f28082c.f28143f > 1;
+            this.f28078k = z;
             if (z) {
-                a.b<b> it = this.l.f27707c.iterator();
+                a.b<b> it = this.l.f28082c.iterator();
                 int i5 = 0;
                 while (it.hasNext()) {
                     b next = it.next();
                     T j2 = j(next);
-                    this.f27697e.a(j2);
+                    this.f28072e.a(j2);
                     if (next.a()) {
                         cVar.B(36160, i5 + 36064, 3553, j2.i(), 0);
                         i5++;
-                    } else if (next.f27704b) {
+                    } else if (next.f28079b) {
                         cVar.B(36160, 36096, 3553, j2.i(), 0);
-                    } else if (next.f27705c) {
+                    } else if (next.f28080c) {
                         cVar.B(36160, 36128, 3553, j2.i(), 0);
                     }
                 }
                 i2 = i5;
             } else {
-                T j3 = j(this.l.f27707c.first());
-                this.f27697e.a(j3);
-                cVar.N(j3.f27475e, j3.i());
+                T j3 = j(this.l.f28082c.first());
+                this.f28072e.a(j3);
+                cVar.N(j3.f27850e, j3.i());
                 i2 = 0;
             }
-            if (this.f27703k) {
+            if (this.f28078k) {
                 IntBuffer d2 = BufferUtils.d(i2);
                 for (int i6 = 0; i6 < i2; i6++) {
                     d2.put(i6 + 36064);
                 }
                 d2.position(0);
-                c.b.b.f.f27325g.c(i2, d2);
+                c.b.b.f.f27700g.c(i2, d2);
             } else {
-                f(this.f27697e.first());
+                f(this.f28072e.first());
             }
-            if (this.l.f27712h) {
-                cVar.k(36160, 36096, 36161, this.f27699g);
+            if (this.l.f28087h) {
+                cVar.k(36160, 36096, 36161, this.f28074g);
             }
-            if (this.l.f27711g) {
-                cVar.k(36160, 36128, 36161, this.f27700h);
+            if (this.l.f28086g) {
+                cVar.k(36160, 36128, 36161, this.f28075h);
             }
-            if (this.l.f27713i) {
-                cVar.k(36160, 33306, 36161, this.f27701i);
+            if (this.l.f28088i) {
+                cVar.k(36160, 33306, 36161, this.f28076i);
             }
             cVar.m(36161, 0);
-            a.b<T> it2 = this.f27697e.iterator();
+            a.b<T> it2 = this.f28072e.iterator();
             while (it2.hasNext()) {
-                cVar.N(it2.next().f27475e, 0);
+                cVar.N(it2.next().f27850e, 0);
             }
             int t = cVar.t(36160);
             if (t == 36061) {
-                AbstractC1557c<? extends c<T>> abstractC1557c2 = this.l;
-                if (abstractC1557c2.f27712h && abstractC1557c2.f27711g && (c.b.b.f.f27320b.a("GL_OES_packed_depth_stencil") || c.b.b.f.f27320b.a("GL_EXT_packed_depth_stencil"))) {
-                    if (this.l.f27712h) {
-                        cVar.p(this.f27699g);
-                        this.f27699g = 0;
+                AbstractC1597c<? extends c<T>> abstractC1597c2 = this.l;
+                if (abstractC1597c2.f28087h && abstractC1597c2.f28086g && (c.b.b.f.f27695b.a("GL_OES_packed_depth_stencil") || c.b.b.f.f27695b.a("GL_EXT_packed_depth_stencil"))) {
+                    if (this.l.f28087h) {
+                        cVar.p(this.f28074g);
+                        this.f28074g = 0;
                     }
-                    if (this.l.f27711g) {
-                        cVar.p(this.f27700h);
-                        this.f27700h = 0;
+                    if (this.l.f28086g) {
+                        cVar.p(this.f28075h);
+                        this.f28075h = 0;
                     }
-                    if (this.l.f27713i) {
-                        cVar.p(this.f27701i);
-                        this.f27701i = 0;
+                    if (this.l.f28088i) {
+                        cVar.p(this.f28076i);
+                        this.f28076i = 0;
                     }
                     int P4 = cVar.P();
-                    this.f27701i = P4;
-                    this.f27702j = true;
+                    this.f28076i = P4;
+                    this.f28077j = true;
                     cVar.m(36161, P4);
                     cVar.e(36161, 35056, i3, i4);
                     cVar.m(36161, 0);
-                    cVar.k(36160, 36096, 36161, this.f27701i);
-                    cVar.k(36160, 36128, 36161, this.f27701i);
+                    cVar.k(36160, 36096, 36161, this.f28076i);
+                    cVar.k(36160, 36128, 36161, this.f28076i);
                     t = cVar.t(36160);
                 }
             }
             cVar.f(36160, n);
             if (t != 36053) {
-                a.b<T> it3 = this.f27697e.iterator();
+                a.b<T> it3 = this.f28072e.iterator();
                 while (it3.hasNext()) {
                     k(it3.next());
                 }
-                if (this.f27702j) {
-                    cVar.b(this.f27701i);
+                if (this.f28077j) {
+                    cVar.b(this.f28076i);
                 } else {
-                    if (this.l.f27712h) {
-                        cVar.p(this.f27699g);
+                    if (this.l.f28087h) {
+                        cVar.p(this.f28074g);
                     }
-                    if (this.l.f27711g) {
-                        cVar.p(this.f27700h);
+                    if (this.l.f28086g) {
+                        cVar.p(this.f28075h);
                     }
                 }
-                cVar.r(this.f27698f);
+                cVar.r(this.f28073f);
                 if (t == 36054) {
                     throw new IllegalStateException("Frame buffer couldn't be constructed: incomplete attachment");
                 }
@@ -377,19 +377,19 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || c.b.b.f.f27320b.b()) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || c.b.b.f.f27695b.b()) {
             return;
         }
-        AbstractC1557c<? extends c<T>> abstractC1557c = this.l;
-        if (!abstractC1557c.f27713i) {
-            c.b.b.q.a<b> aVar = abstractC1557c.f27707c;
-            if (aVar.f27768f <= 1) {
+        AbstractC1597c<? extends c<T>> abstractC1597c = this.l;
+        if (!abstractC1597c.f28088i) {
+            c.b.b.q.a<b> aVar = abstractC1597c.f28082c;
+            if (aVar.f28143f <= 1) {
                 a.b<b> it = aVar.iterator();
                 while (it.hasNext()) {
                     b next = it.next();
-                    if (!next.f27704b) {
-                        if (!next.f27705c) {
-                            if (next.a && !c.b.b.f.f27320b.a("OES_texture_float")) {
+                    if (!next.f28079b) {
+                        if (!next.f28080c) {
+                            if (next.a && !c.b.b.f.f27695b.a("OES_texture_float")) {
                                 throw new GdxRuntimeException("Float texture FrameBuffer Attachment not available on GLES 2.0");
                             }
                         } else {

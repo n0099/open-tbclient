@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.interfaces.callback;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface LiveLoadStatusCallback {
     void onResult(boolean z);
 }

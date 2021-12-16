@@ -9,7 +9,7 @@ import com.xiaomi.push.fa;
 import com.xiaomi.push.fq;
 import com.xiaomi.push.gc;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class br implements fq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwai.library.widget.refresh.RefreshLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends RefreshLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

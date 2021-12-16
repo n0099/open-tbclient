@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.downloader;
 
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface l {
     List<String> a();
 

@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface f extends IInterface {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,24 +59,24 @@ public interface f extends IInterface {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static abstract class b extends Binder implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String a = "com.baidu.helios.bridge.multiprocess.OnGetResultRemoteCallback";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f35044b = 1;
+        public static final int f35512b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f35045c = 2;
+        public static final int f35513c = 2;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public static class a implements f {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: b  reason: collision with root package name */
-            public static f f35046b;
+            public static f f35514b;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
@@ -199,10 +199,10 @@ public interface f extends IInterface {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fVar)) == null) {
-                if (a.f35046b != null || fVar == null) {
+                if (a.f35514b != null || fVar == null) {
                     return false;
                 }
-                a.f35046b = fVar;
+                a.f35514b = fVar;
                 return true;
             }
             return invokeL.booleanValue;
@@ -211,7 +211,7 @@ public interface f extends IInterface {
         public static f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f35046b : (f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f35514b : (f) invokeV.objValue;
         }
 
         @Override // android.os.IInterface

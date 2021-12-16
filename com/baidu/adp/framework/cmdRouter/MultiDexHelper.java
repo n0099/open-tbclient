@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MultiDexHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_SUFFIX = "UrlCollectorImpl";
@@ -38,7 +38,7 @@ public class MultiDexHelper {
     public static StaticLoadAsyncTask task;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class StaticLoadAsyncTask extends BdAsyncTask<List<String>, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class MultiDexHelper {
                                 this.loading = nextElement;
                                 Class.forName(nextElement);
                                 this.loading = "";
-                                String str2 = nextElement + l.B();
+                                String str2 = nextElement + m.B();
                             }
                         }
                     } catch (IOException unused) {

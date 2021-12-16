@@ -5,8 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.player.helper.NetUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,37 +12,50 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BDVideoPlayerUbcHelper {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static float sPlayerCurrentSpreed = 1.0f;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1464196636, "Lcom/baidu/searchbox/player/ubc/BDVideoPlayerUbcHelper;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1464196636, "Lcom/baidu/searchbox/player/ubc/BDVideoPlayerUbcHelper;");
-        }
-    }
 
     public BDVideoPlayerUbcHelper() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static void appendSessionContent(@NonNull JSONObject jSONObject, @NonNull IUbcPlayerStatusFetcher iUbcPlayerStatusFetcher) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, jSONObject, iUbcPlayerStatusFetcher) == null) {
+            String sessionId = iUbcPlayerStatusFetcher.getSessionId();
+            String kernelLogId = iUbcPlayerStatusFetcher.getKernelLogId();
+            String traceId = iUbcPlayerStatusFetcher.getTraceId();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("plogid", sessionId);
+                jSONObject2.put("klogid", kernelLogId);
+                jSONObject2.put("traceid", traceId);
+                jSONObject.put("player_log", jSONObject2);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static void appendUrlContent(@NonNull JSONObject jSONObject, @NonNull IUbcPlayerStatusFetcher iUbcPlayerStatusFetcher) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, jSONObject, iUbcPlayerStatusFetcher) == null) && TextUtils.isEmpty(jSONObject.optString("url"))) {
+            try {
+                jSONObject.put("url", iUbcPlayerStatusFetcher.getPlayUrl());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
     }
@@ -52,7 +63,7 @@ public class BDVideoPlayerUbcHelper {
     public static String getNetType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             String networkClass = NetUtils.getNetworkClass();
             return (networkClass.equals("no") || networkClass.equals("unknown")) ? "other" : networkClass;
         }
@@ -63,7 +74,7 @@ public class BDVideoPlayerUbcHelper {
     public static String getUbcContent(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bDVideoPlayerUbcContent, jSONObject)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bDVideoPlayerUbcContent, jSONObject)) == null) {
             if (jSONObject == null) {
                 try {
                     jSONObject = new JSONObject();
@@ -73,10 +84,15 @@ public class BDVideoPlayerUbcHelper {
             }
             jSONObject.put("from", bDVideoPlayerUbcContent.getFrom());
             jSONObject.put("page", bDVideoPlayerUbcContent.getPage());
+            if (!TextUtils.isEmpty(bDVideoPlayerUbcContent.getType())) {
+                jSONObject.put("type", bDVideoPlayerUbcContent.getType());
+            }
             jSONObject.put("network", getNetType());
             JSONObject extStatisticsLog = bDVideoPlayerUbcContent.getExtStatisticsLog();
             extStatisticsLog.put("currentPosition", positive(bDVideoPlayerUbcContent.getPlayerFetcher().getCurrentPosition()));
             extStatisticsLog.put("auto_play", bDVideoPlayerUbcContent.getPlayerFetcher().getPlayType());
+            appendSessionContent(extStatisticsLog, bDVideoPlayerUbcContent.getPlayerFetcher());
+            appendUrlContent(extStatisticsLog, bDVideoPlayerUbcContent.getPlayerFetcher());
             jSONObject.put("ext", extStatisticsLog.toString());
             return jSONObject.toString();
         }
@@ -86,14 +102,14 @@ public class BDVideoPlayerUbcHelper {
     public static int positive(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? Math.max(i2, 0) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? Math.max(i2, 0) : invokeI.intValue;
     }
 
     @NonNull
     public static String getUbcContent(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable JSONObject jSONObject, @Nullable String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bDVideoPlayerUbcContent, jSONObject, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, bDVideoPlayerUbcContent, jSONObject, str)) == null) {
             if (jSONObject == null) {
                 try {
                     jSONObject = new JSONObject();
@@ -107,10 +123,15 @@ public class BDVideoPlayerUbcHelper {
             } else {
                 jSONObject.put("page", str);
             }
+            if (!TextUtils.isEmpty(bDVideoPlayerUbcContent.getType())) {
+                jSONObject.put("type", bDVideoPlayerUbcContent.getType());
+            }
             jSONObject.put("network", getNetType());
             JSONObject extStatisticsLog = bDVideoPlayerUbcContent.getExtStatisticsLog();
             extStatisticsLog.put("currentPosition", positive(bDVideoPlayerUbcContent.getPlayerFetcher().getCurrentPosition()));
             extStatisticsLog.put("auto_play", bDVideoPlayerUbcContent.getPlayerFetcher().getPlayType());
+            appendSessionContent(extStatisticsLog, bDVideoPlayerUbcContent.getPlayerFetcher());
+            appendUrlContent(extStatisticsLog, bDVideoPlayerUbcContent.getPlayerFetcher());
             jSONObject.put("ext", extStatisticsLog.toString());
             return jSONObject.toString();
         }
@@ -121,7 +142,7 @@ public class BDVideoPlayerUbcHelper {
     public static String getUbcContent(@NonNull JSONObject jSONObject, @NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable JSONObject jSONObject2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, jSONObject, bDVideoPlayerUbcContent, jSONObject2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, jSONObject, bDVideoPlayerUbcContent, jSONObject2)) == null) {
             if (jSONObject2 == null) {
                 try {
                     jSONObject2 = new JSONObject();
@@ -132,6 +153,9 @@ public class BDVideoPlayerUbcHelper {
             jSONObject2.put("from", bDVideoPlayerUbcContent.getFrom());
             jSONObject2.put("page", bDVideoPlayerUbcContent.getPage());
             jSONObject2.put("network", getNetType());
+            if (!TextUtils.isEmpty(bDVideoPlayerUbcContent.getType())) {
+                jSONObject2.put("type", bDVideoPlayerUbcContent.getType());
+            }
             jSONObject.put("currentPosition", positive(bDVideoPlayerUbcContent.getPlayerFetcher().getCurrentPosition()));
             jSONObject.put("auto_play", bDVideoPlayerUbcContent.getPlayerFetcher().getPlayType());
             float launchSpeedScore = bDVideoPlayerUbcContent.getPlayerFetcher().getLaunchSpeedScore();
@@ -142,6 +166,8 @@ public class BDVideoPlayerUbcHelper {
             if (staticDeviceScore >= 0.0f) {
                 jSONObject.put("staticScore", staticDeviceScore);
             }
+            appendSessionContent(jSONObject, bDVideoPlayerUbcContent.getPlayerFetcher());
+            appendUrlContent(jSONObject, bDVideoPlayerUbcContent.getPlayerFetcher());
             jSONObject2.put("ext", jSONObject.toString());
             return jSONObject2.toString();
         }

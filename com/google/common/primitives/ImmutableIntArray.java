@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ImmutableIntArray implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final ImmutableIntArray EMPTY;
@@ -26,7 +26,7 @@ public final class ImmutableIntArray implements Serializable {
     public final int end;
     public final transient int start;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AsList extends AbstractList<Integer> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,20 +154,20 @@ public final class ImmutableIntArray implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f56502b;
+        public int f57083b;
 
         public b(int i2) {
             Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public final class ImmutableIntArray implements Serializable {
                     return;
                 }
             }
-            this.f56502b = 0;
+            this.f57083b = 0;
             this.a = new int[i2];
         }
 
@@ -213,9 +213,9 @@ public final class ImmutableIntArray implements Serializable {
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
                 e(1);
                 int[] iArr = this.a;
-                int i3 = this.f56502b;
+                int i3 = this.f57083b;
                 iArr[i3] = i2;
-                this.f56502b = i3 + 1;
+                this.f57083b = i3 + 1;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -244,8 +244,8 @@ public final class ImmutableIntArray implements Serializable {
                 e(collection.size());
                 for (Integer num : collection) {
                     int[] iArr = this.a;
-                    int i2 = this.f56502b;
-                    this.f56502b = i2 + 1;
+                    int i2 = this.f57083b;
+                    this.f57083b = i2 + 1;
                     iArr[i2] = num.intValue();
                 }
                 return this;
@@ -256,17 +256,17 @@ public final class ImmutableIntArray implements Serializable {
         public ImmutableIntArray d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56502b == 0 ? ImmutableIntArray.EMPTY : new ImmutableIntArray(this.a, 0, this.f56502b, null) : (ImmutableIntArray) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f57083b == 0 ? ImmutableIntArray.EMPTY : new ImmutableIntArray(this.a, 0, this.f57083b, null) : (ImmutableIntArray) invokeV.objValue;
         }
 
         public final void e(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                int i3 = this.f56502b + i2;
+                int i3 = this.f57083b + i2;
                 int[] iArr = this.a;
                 if (i3 > iArr.length) {
                     int[] iArr2 = new int[f(iArr.length, i3)];
-                    System.arraycopy(this.a, 0, iArr2, 0, this.f56502b);
+                    System.arraycopy(this.a, 0, iArr2, 0, this.f57083b);
                     this.a = iArr2;
                 }
             }

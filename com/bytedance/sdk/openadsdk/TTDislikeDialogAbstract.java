@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.dislike.TTDislikeListView;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class TTDislikeDialogAbstract extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTDislikeController f54697b;
+    public TTDislikeController f55277b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TTDislikeDialogAbstract(Context context) {
@@ -44,7 +44,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54697b == null || this.a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f55277b == null || this.a == null) {
             return;
         }
         int[] tTDislikeListViewIds = getTTDislikeListViewIds();
@@ -53,7 +53,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
                 View findViewById = this.a.findViewById(i2);
                 if (findViewById != null) {
                     if (findViewById instanceof TTDislikeListView) {
-                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f54697b);
+                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f55277b);
                     } else {
                         throw new IllegalArgumentException("getTTDislikeListViewIds找到的view类型异常，请检查");
                     }
@@ -69,7 +69,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public void b() {
         TTDislikeController tTDislikeController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tTDislikeController = this.f54697b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tTDislikeController = this.f55277b) == null) {
             return;
         }
         tTDislikeController.onDislikeEvent(getContext(), true);
@@ -105,7 +105,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public void setDislikeModel(TTDislikeController tTDislikeController) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tTDislikeController) == null) {
-            this.f54697b = tTDislikeController;
+            this.f55277b = tTDislikeController;
             a();
         }
     }
@@ -122,11 +122,11 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public void startPersonalizePromptActivity() {
         TTDislikeController tTDislikeController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (tTDislikeController = this.f54697b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (tTDislikeController = this.f55277b) == null) {
             return;
         }
         tTDislikeController.openWebPage(getContext(), true);
-        this.f54697b.onDislikeEvent(getContext(), false);
+        this.f55277b.onDislikeEvent(getContext(), false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

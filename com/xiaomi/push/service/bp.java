@@ -18,7 +18,7 @@ import com.xiaomi.push.im;
 import com.xiaomi.push.io;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.iq;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

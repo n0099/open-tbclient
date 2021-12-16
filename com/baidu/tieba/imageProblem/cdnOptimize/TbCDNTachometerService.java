@@ -9,7 +9,7 @@ import android.os.Looper;
 import android.os.Message;
 import c.a.d.f.m.b;
 import c.a.d.f.m.f;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.framework.MessageManager;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class TbCDNTachometerService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAST_GETCDNLIST_TIME = "com.baidu.tbadk.opTimize.lastGetCdnListTiem";
@@ -66,35 +66,35 @@ public class TbCDNTachometerService extends BdBaseService {
     public int startID;
     public final TbCdnTachometerModel.TbCdnTachometerModelCallBack tachometerModelCallBack;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class CustomMsgData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TbCdnIpListData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f46369b;
+        public int f46868b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f46370c;
+        public boolean f46869c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f46371d;
+        public long f46870d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f46372e;
+        public String f46871e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbCdnTachometerModel f46373f;
+        public TbCdnTachometerModel f46872f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f46374g;
+        public boolean f46873g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f46375h;
+        public String f46874h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ TbCDNTachometerService f46376i;
+        public final /* synthetic */ TbCDNTachometerService f46875i;
 
         public CustomMsgData(TbCDNTachometerService tbCDNTachometerService, TbCdnIpListData tbCdnIpListData, int i2) {
             Interceptable interceptable = $ic;
@@ -111,11 +111,11 @@ public class TbCDNTachometerService extends BdBaseService {
                     return;
                 }
             }
-            this.f46376i = tbCDNTachometerService;
-            this.f46374g = false;
-            this.f46375h = null;
+            this.f46875i = tbCDNTachometerService;
+            this.f46873g = false;
+            this.f46874h = null;
             this.a = tbCdnIpListData;
-            this.f46369b = i2;
+            this.f46868b = i2;
         }
     }
 
@@ -203,12 +203,12 @@ public class TbCDNTachometerService extends BdBaseService {
                             if (customMsgData == null) {
                                 return;
                             }
-                            String str = customMsgData.f46372e;
-                            boolean z = customMsgData.f46370c;
-                            long j2 = customMsgData.f46371d;
+                            String str = customMsgData.f46871e;
+                            boolean z = customMsgData.f46869c;
+                            long j2 = customMsgData.f46870d;
                             String valueOf = String.valueOf(j2);
                             int i4 = 0;
-                            if (customMsgData.f46375h != null && customMsgData.f46375h.length() > 0) {
+                            if (customMsgData.f46874h != null && customMsgData.f46874h.length() > 0) {
                                 this.a.canBroadCast = true;
                                 if (!z || j2 > this.a.hiPhotosMaxTime) {
                                     this.a.isNormal = false;
@@ -450,39 +450,39 @@ public class TbCDNTachometerService extends BdBaseService {
         if (interceptable == null || interceptable.invokeL(65555, this, tbCdnIpListData) == null) {
             this.numOfThrowIp = 0;
             if (tbCdnIpListData != null && tbCdnIpListData.a == 0) {
-                if (!tbCdnIpListData.f46381f) {
+                if (!tbCdnIpListData.f46880f) {
                     broadCastAndStopSelf(null);
                     return;
-                } else if (tbCdnIpListData.f46380e.size() == 0) {
+                } else if (tbCdnIpListData.f46879e.size() == 0) {
                     broadCastAndStopSelf(null);
                     return;
                 } else {
-                    breakUpIpList(tbCdnIpListData.f46380e);
-                    String str = tbCdnIpListData.f46378c;
-                    String str2 = tbCdnIpListData.f46382g;
-                    String str3 = tbCdnIpListData.f46379d;
+                    breakUpIpList(tbCdnIpListData.f46879e);
+                    String str = tbCdnIpListData.f46877c;
+                    String str2 = tbCdnIpListData.f46881g;
+                    String str3 = tbCdnIpListData.f46878d;
                     if (str == null || str2 == null || str3 == null) {
                         return;
                     }
-                    int size = tbCdnIpListData.f46380e.size();
+                    int size = tbCdnIpListData.f46879e.size();
                     if (size > 0) {
                         CustomMsgData customMsgData = new CustomMsgData(this, tbCdnIpListData, 0);
-                        customMsgData.f46373f = this.cdnTachometerModel;
-                        customMsgData.f46374g = this.isNormal;
-                        customMsgData.f46375h = "c.hiphotos.baidu.com";
+                        customMsgData.f46872f = this.cdnTachometerModel;
+                        customMsgData.f46873g = this.isNormal;
+                        customMsgData.f46874h = "c.hiphotos.baidu.com";
                         CustomMessage customMessage = new CustomMessage(2017000, customMsgData);
                         customMessage.setTag(this.mId);
                         MessageManager.getInstance().sendMessage(customMessage);
                     }
                     for (int i2 = 0; i2 < size; i2++) {
-                        ArrayList<String> arrayList = tbCdnIpListData.f46380e.get(i2);
+                        ArrayList<String> arrayList = tbCdnIpListData.f46879e.get(i2);
                         String str4 = arrayList.size() > 0 ? arrayList.get(0) : "";
                         if (!this.cdnIpMap.containsKey(str4)) {
                             this.cdnIpMap.put(str4, arrayList);
                         }
                         CustomMsgData customMsgData2 = new CustomMsgData(this, tbCdnIpListData, i2);
-                        customMsgData2.f46373f = this.cdnTachometerModel;
-                        customMsgData2.f46374g = this.isNormal;
+                        customMsgData2.f46872f = this.cdnTachometerModel;
+                        customMsgData2.f46873g = this.isNormal;
                         CustomMessage customMessage2 = new CustomMessage(2017000, customMsgData2);
                         customMessage2.setTag(this.mId);
                         MessageManager.getInstance().sendMessage(customMessage2);
@@ -496,18 +496,18 @@ public class TbCDNTachometerService extends BdBaseService {
 
     public static void startTachometerService(Context context, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && context != null && j.H() && TbadkCoreApplication.getInst().isMainProcess(true)) {
+        if ((interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && context != null && k.H() && TbadkCoreApplication.getInst().isMainProcess(true)) {
             if (!z2) {
                 synchronized (lock) {
                     if (0 == lastTachometerTime) {
-                        lastTachometerTime = c.a.q0.s.e0.b.j().l(LAST_GETCDNLIST_TIME, 0L);
+                        lastTachometerTime = c.a.r0.s.g0.b.j().l(LAST_GETCDNLIST_TIME, 0L);
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     if (0 != lastTachometerTime && currentTimeMillis - lastTachometerTime < 300000) {
                         return;
                     }
                     lastTachometerTime = currentTimeMillis;
-                    c.a.q0.s.e0.b.j().w(LAST_GETCDNLIST_TIME, currentTimeMillis);
+                    c.a.r0.s.g0.b.j().w(LAST_GETCDNLIST_TIME, currentTimeMillis);
                 }
             }
             Intent intent = new Intent(context, TbCDNTachometerService.class);

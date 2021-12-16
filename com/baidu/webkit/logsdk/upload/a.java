@@ -6,35 +6,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.logsdk.d.c;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54347b;
+    public int f54927b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f54348c;
+    public boolean f54928c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f54349d;
+    public long f54929d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.webkit.logsdk.b.a f54350e;
+    public com.baidu.webkit.logsdk.b.a f54930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f54351f;
+    public String f54931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54352g;
+    public String f54932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f54353h;
+    public String f54933h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f54354i;
+    public String f54934i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(com.baidu.webkit.logsdk.b.a aVar, String str) {
@@ -73,15 +73,15 @@ public final class a {
             }
         }
         this.a = str;
-        this.f54347b = 0;
-        this.f54348c = false;
-        this.f54350e = aVar;
+        this.f54927b = 0;
+        this.f54928c = false;
+        this.f54930e = aVar;
         int a = !TextUtils.isEmpty(str2) ? c.a(str2) : -1;
         if (a <= 1 && a >= 0) {
-            this.f54351f = str2;
+            this.f54931f = str2;
             return;
         }
-        this.f54351f = aVar.f54327c;
-        this.f54352g = aVar.f54328d;
+        this.f54931f = aVar.f54907c;
+        this.f54932g = aVar.f54908d;
     }
 }

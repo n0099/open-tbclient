@@ -23,53 +23,53 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 100;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34495c = ".BD_SAPI_CACHE";
+    public static final String f34963c = ".BD_SAPI_CACHE";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34496d = "so_zips";
+    public static final String f34964d = "so_zips";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34497e = "1.0.1";
+    public static final String f34965e = "1.0.1";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34498f = "1.0.3";
+    public static final String f34966f = "1.0.3";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34499g = "FaceSDKLibs";
+    public static final String f34967g = "FaceSDKLibs";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String[] f34500h;
+    public static final String[] f34968h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static b f34501i;
+    public static b f34969i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34502b;
+    public String f34970b;
 
     /* renamed from: j  reason: collision with root package name */
-    public SharedPreferences f34503j;
+    public SharedPreferences f34971j;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34504b;
+        public String f34972b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f34505c;
+        public String f34973c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String[] f34506d;
+        public String[] f34974d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class b {
                 return;
             }
         }
-        f34500h = new String[]{License.LICENSE_ASSETS_FILE, FaceAuth.TAG};
+        f34968h = new String[]{License.LICENSE_ASSETS_FILE, FaceAuth.TAG};
     }
 
     public b(Context context) {
@@ -117,7 +117,7 @@ public class b {
                 return;
             }
         }
-        this.f34503j = context.getApplicationContext().getSharedPreferences("rim_liveness_base_system_v1", 0);
+        this.f34971j = context.getApplicationContext().getSharedPreferences("rim_liveness_base_system_v1", 0);
     }
 
     public static b a(Context context) {
@@ -125,10 +125,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             Context applicationContext = context.getApplicationContext();
-            if (f34501i == null) {
-                f34501i = new b(applicationContext);
+            if (f34969i == null) {
+                f34969i = new b(applicationContext);
             }
-            return f34501i;
+            return f34969i;
         }
         return (b) invokeL.objValue;
     }
@@ -148,7 +148,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, aVar)) == null) {
             String a2 = a(context, aVar);
-            return new File(a2 + File.separator + aVar.a + File.separator + aVar.a + "-" + aVar.f34504b + ".zip").getAbsolutePath();
+            return new File(a2 + File.separator + aVar.a + File.separator + aVar.a + "-" + aVar.f34972b + ".zip").getAbsolutePath();
         }
         return (String) invokeLL.objValue;
     }
@@ -157,14 +157,14 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, context)) == null) {
-            if (TextUtils.isEmpty(this.f34502b)) {
+            if (TextUtils.isEmpty(this.f34970b)) {
                 try {
-                    this.f34502b = MD5Util.toMd5((context.getPackageName() + h.a(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+                    this.f34970b = MD5Util.toMd5((context.getPackageName() + h.a(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
                 } catch (UnsupportedEncodingException e2) {
                     com.baidu.fsg.face.base.d.d.a(e2);
                 }
             }
-            return this.f34502b;
+            return this.f34970b;
         }
         return (String) invokeL.objValue;
     }
@@ -172,14 +172,14 @@ public class b {
     public static String a(Context context, a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, aVar)) == null) ? context.getDir(aVar.f34505c, 0).getAbsolutePath() : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, aVar)) == null) ? context.getDir(aVar.f34973c, 0).getAbsolutePath() : (String) invokeLL.objValue;
     }
 
     public static String a(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, aVar)) == null) {
-            return ShareStorage.SP_FILE_PATH + aVar.a + "/" + aVar.a + "-" + aVar.f34504b + ".zip";
+            return ShareStorage.SP_FILE_PATH + aVar.a + "/" + aVar.a + "-" + aVar.f34972b + ".zip";
         }
         return (String) invokeL.objValue;
     }
@@ -187,16 +187,16 @@ public class b {
     private String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) ? this.f34503j.getString(str, "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) ? this.f34971j.getString(str, "") : (String) invokeL.objValue;
     }
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, str, str2) == null) {
             if (Build.VERSION.SDK_INT > 8) {
-                this.f34503j.edit().putString(str, str2).apply();
+                this.f34971j.edit().putString(str, str2).apply();
             } else {
-                this.f34503j.edit().putString(str, str2).commit();
+                this.f34971j.edit().putString(str, str2).commit();
             }
         }
     }
@@ -235,10 +235,10 @@ public class b {
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             a aVar = new a();
             if (i2 == 4) {
-                aVar.a = f34496d;
-                aVar.f34504b = "1.0.3";
-                aVar.f34505c = f34499g;
-                aVar.f34506d = f34500h;
+                aVar.a = f34964d;
+                aVar.f34972b = "1.0.3";
+                aVar.f34973c = f34967g;
+                aVar.f34974d = f34968h;
                 return aVar;
             }
             throw new IllegalArgumentException("the so modle type = " + i2 + " is not support");

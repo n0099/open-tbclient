@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hk;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<e, a> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f62706b;
+        public String f63287b;
 
         public a(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class l {
                 }
             }
             this.a = str;
-            this.f62706b = str2;
+            this.f63287b = str2;
         }
     }
 
@@ -60,9 +60,9 @@ public class l {
         }
         a = new HashMap<>();
         a(e.a, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
-        a(e.f62703b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
-        a(e.f62704c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
-        a(e.f62705d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
+        a(e.f63284b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
+        a(e.f63285c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
+        a(e.f63286d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
     }
 
     public static at a(e eVar) {
@@ -76,13 +76,13 @@ public class l {
                         if (i2 != 4) {
                             return null;
                         }
-                        return at.f62695f;
+                        return at.f63276f;
                     }
-                    return at.f62694e;
+                    return at.f63275e;
                 }
-                return at.f62693d;
+                return at.f63274d;
             }
-            return at.f62692c;
+            return at.f63273c;
         }
         return (at) invokeL.objValue;
     }

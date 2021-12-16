@@ -30,41 +30,41 @@ import com.kwad.sdk.reward.widget.AppScoreView;
 import com.kwad.sdk.widget.KsLogoView;
 import com.kwad.sdk.widget.d;
 import com.kwad.sdk.widget.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ActionBarPortraitHorizontal extends FrameLayout implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f59340b;
+    public ViewGroup f59921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f59341c;
+    public ImageView f59922c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AppScoreView f59342d;
+    public AppScoreView f59923d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f59343e;
+    public TextView f59924e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f59344f;
+    public View f59925f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f59345g;
+    public ViewGroup f59926g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f59346h;
+    public TextView f59927h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f59347i;
+    public TextView f59928i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f59348j;
+    public TextView f59929j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TextProgressBar f59349k;
+    public TextProgressBar f59930k;
     public View l;
     public AdTemplate m;
     public AdInfo n;
@@ -73,7 +73,7 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements d {
     public KsAppDownloadListener q;
     public KsLogoView r;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(boolean z);
     }
@@ -148,19 +148,19 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements d {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             FrameLayout.inflate(context, R.layout.ksad_video_actionbar_portrait_horizontal, this);
             this.a = (ViewGroup) findViewById(R.id.ksad_top_container);
-            this.f59340b = (ViewGroup) findViewById(R.id.ksad_top_container_product);
-            this.f59341c = (ImageView) findViewById(R.id.ksad_app_icon);
-            this.f59342d = (AppScoreView) findViewById(R.id.ksad_app_score);
-            this.f59343e = (TextView) findViewById(R.id.ksad_app_download_count);
-            this.f59344f = findViewById(R.id.ksad_video_place_holder);
-            this.f59345g = (ViewGroup) findViewById(R.id.ksad_bottom_container);
-            this.f59346h = (TextView) findViewById(R.id.ksad_app_name);
-            this.f59347i = (TextView) findViewById(R.id.ksad_product_name);
-            this.f59348j = (TextView) findViewById(R.id.ksad_app_desc);
+            this.f59921b = (ViewGroup) findViewById(R.id.ksad_top_container_product);
+            this.f59922c = (ImageView) findViewById(R.id.ksad_app_icon);
+            this.f59923d = (AppScoreView) findViewById(R.id.ksad_app_score);
+            this.f59924e = (TextView) findViewById(R.id.ksad_app_download_count);
+            this.f59925f = findViewById(R.id.ksad_video_place_holder);
+            this.f59926g = (ViewGroup) findViewById(R.id.ksad_bottom_container);
+            this.f59927h = (TextView) findViewById(R.id.ksad_app_name);
+            this.f59928i = (TextView) findViewById(R.id.ksad_product_name);
+            this.f59929j = (TextView) findViewById(R.id.ksad_app_desc);
             TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_app_download_btn);
-            this.f59349k = textProgressBar;
+            this.f59930k = textProgressBar;
             textProgressBar.setTextDimen(com.kwad.sdk.a.kwai.a.a(getContext(), 16.0f));
-            this.f59349k.setTextColor(-1);
+            this.f59930k.setTextColor(-1);
             View findViewById = findViewById(R.id.ksad_app_download_btn_cover);
             this.l = findViewById;
             new f(findViewById, this);
@@ -178,7 +178,7 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements d {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ActionBarPortraitHorizontal f59350b;
+                    public final /* synthetic */ ActionBarPortraitHorizontal f59931b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -195,15 +195,15 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements d {
                                 return;
                             }
                         }
-                        this.f59350b = this;
+                        this.f59931b = this;
                     }
 
                     @Override // com.kwad.sdk.core.download.a.c
                     public void a(int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                            this.f59350b.f59349k.a(com.kwad.sdk.core.response.a.a.b(i2), i2);
-                            this.f59350b.l.setVisibility(8);
+                            this.f59931b.f59930k.a(com.kwad.sdk.core.response.a.a.b(i2), i2);
+                            this.f59931b.l.setVisibility(8);
                         }
                     }
 
@@ -211,8 +211,8 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements d {
                     public void onDownloadFailed() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            this.f59350b.f59349k.a(com.kwad.sdk.core.response.a.a.A(this.f59350b.n), 0);
-                            this.f59350b.l.setVisibility(0);
+                            this.f59931b.f59930k.a(com.kwad.sdk.core.response.a.a.A(this.f59931b.n), 0);
+                            this.f59931b.l.setVisibility(0);
                         }
                     }
 
@@ -220,8 +220,8 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements d {
                     public void onDownloadFinished() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                            this.f59350b.f59349k.a(com.kwad.sdk.core.response.a.a.a(this.f59350b.m), 0);
-                            this.f59350b.l.setVisibility(0);
+                            this.f59931b.f59930k.a(com.kwad.sdk.core.response.a.a.a(this.f59931b.m), 0);
+                            this.f59931b.l.setVisibility(0);
                         }
                     }
 
@@ -229,8 +229,8 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements d {
                     public void onIdle() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                            this.f59350b.f59349k.a(com.kwad.sdk.core.response.a.a.A(this.f59350b.n), 0);
-                            this.f59350b.l.setVisibility(0);
+                            this.f59931b.f59930k.a(com.kwad.sdk.core.response.a.a.A(this.f59931b.n), 0);
+                            this.f59931b.l.setVisibility(0);
                         }
                     }
 
@@ -238,8 +238,8 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements d {
                     public void onInstalled() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                            this.f59350b.f59349k.a(com.kwad.sdk.core.response.a.a.m(this.f59350b.n), 0);
-                            this.f59350b.l.setVisibility(0);
+                            this.f59931b.f59930k.a(com.kwad.sdk.core.response.a.a.m(this.f59931b.n), 0);
+                            this.f59931b.l.setVisibility(0);
                         }
                     }
 
@@ -247,8 +247,8 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements d {
                     public void onProgressUpdate(int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048581, this, i2) == null) {
-                            this.f59350b.f59349k.a(com.kwad.sdk.core.response.a.a.a(i2), i2);
-                            this.f59350b.l.setVisibility(8);
+                            this.f59931b.f59930k.a(com.kwad.sdk.core.response.a.a.a(i2), i2);
+                            this.f59931b.l.setVisibility(8);
                         }
                     }
                 };
@@ -261,13 +261,13 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements d {
     public void a(View view, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-            com.kwad.sdk.core.download.a.a.a(new a.C2015a(view.getContext()).a(this.m).a(new a.b(this, z) { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarPortraitHorizontal.2
+            com.kwad.sdk.core.download.a.a.a(new a.C2076a(view.getContext()).a(this.m).a(new a.b(this, z) { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarPortraitHorizontal.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ActionBarPortraitHorizontal f59351b;
+                public final /* synthetic */ ActionBarPortraitHorizontal f59932b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -284,19 +284,19 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements d {
                             return;
                         }
                     }
-                    this.f59351b = this;
+                    this.f59932b = this;
                     this.a = z;
                 }
 
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f59351b.o == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f59932b.o == null) {
                         return;
                     }
-                    this.f59351b.o.a(this.a);
+                    this.f59932b.o.a(this.a);
                 }
-            }).a(this.p).a(view == this.f59349k).a(view == this.l ? 1 : 2));
+            }).a(this.p).a(view == this.f59930k).a(view == this.l ? 1 : 2));
         }
     }
 
@@ -308,45 +308,45 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements d {
             AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.m);
             this.n = j2;
             if (com.kwad.sdk.core.response.a.a.B(j2)) {
-                this.f59340b.setVisibility(8);
+                this.f59921b.setVisibility(8);
                 this.a.setVisibility(0);
                 new f(this.a, this);
-                this.f59346h.setText(com.kwad.sdk.core.response.a.a.t(this.n));
+                this.f59927h.setText(com.kwad.sdk.core.response.a.a.t(this.n));
             } else {
-                this.f59340b.setVisibility(0);
+                this.f59921b.setVisibility(0);
                 this.a.setVisibility(8);
-                this.f59347i.setText(this.n.adBaseInfo.productName);
-                new f(this.f59340b, this);
+                this.f59928i.setText(this.n.adBaseInfo.productName);
+                new f(this.f59921b, this);
             }
-            new f(this.f59349k, this);
+            new f(this.f59930k, this);
             this.o = aVar;
             this.p = bVar;
-            KSImageLoader.loadAppIcon(this.f59341c, com.kwad.sdk.core.response.a.a.au(this.n), adTemplate, 16);
+            KSImageLoader.loadAppIcon(this.f59922c, com.kwad.sdk.core.response.a.a.au(this.n), adTemplate, 16);
             float x = com.kwad.sdk.core.response.a.a.x(this.n);
             if (x >= 3.0f) {
-                this.f59342d.setScore(x);
-                this.f59342d.setVisibility(0);
+                this.f59923d.setScore(x);
+                this.f59923d.setVisibility(0);
             } else {
-                this.f59342d.setVisibility(8);
+                this.f59923d.setVisibility(8);
             }
             String w = com.kwad.sdk.core.response.a.a.w(this.n);
             if (!TextUtils.isEmpty(w)) {
-                this.f59343e.setText(w);
-                this.f59343e.setVisibility(0);
+                this.f59924e.setText(w);
+                this.f59924e.setVisibility(0);
             } else {
-                this.f59343e.setVisibility(8);
+                this.f59924e.setVisibility(8);
             }
-            ViewGroup.LayoutParams layoutParams = this.f59344f.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f59925f.getLayoutParams();
             layoutParams.height = i2;
-            this.f59344f.setLayoutParams(layoutParams);
-            this.f59348j.setText(com.kwad.sdk.core.response.a.a.s(this.n));
-            this.f59349k.a(com.kwad.sdk.core.response.a.a.A(this.n), this.f59349k.getMax());
+            this.f59925f.setLayoutParams(layoutParams);
+            this.f59929j.setText(com.kwad.sdk.core.response.a.a.s(this.n));
+            this.f59930k.a(com.kwad.sdk.core.response.a.a.A(this.n), this.f59930k.getMax());
             this.l.setVisibility(8);
             b bVar2 = this.p;
             if (bVar2 != null) {
                 bVar2.a(getAppDownloadListener());
             }
-            new f(this.f59345g, this);
+            new f(this.f59926g, this);
         }
     }
 

@@ -14,19 +14,19 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ThreadUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.webrtc.ThreadUtils$1CaughtException  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class C1CaughtException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f64312e;
+        public Exception f64883e;
 
         public C1CaughtException() {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class ThreadUtils {
     }
 
     /* renamed from: org.webrtc.ThreadUtils$1Result  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class C1Result {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,12 +65,12 @@ public class ThreadUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface BlockingOperation {
         void run() throws InterruptedException;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ThreadChecker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -252,18 +252,18 @@ public class ThreadUtils {
                         try {
                             this.val$result.value = this.val$callable.call();
                         } catch (Exception e3) {
-                            this.val$caughtException.f64312e = e3;
+                            this.val$caughtException.f64883e = e3;
                         }
                         this.val$barrier.countDown();
                     }
                 }
             });
             awaitUninterruptibly(countDownLatch);
-            if (c1CaughtException.f64312e == null) {
+            if (c1CaughtException.f64883e == null) {
                 return c1Result.value;
             }
-            RuntimeException runtimeException = new RuntimeException(c1CaughtException.f64312e);
-            runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f64312e.getStackTrace(), runtimeException.getStackTrace()));
+            RuntimeException runtimeException = new RuntimeException(c1CaughtException.f64883e);
+            runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f64883e.getStackTrace(), runtimeException.getStackTrace()));
             throw runtimeException;
         }
         return (V) invokeLL.objValue;

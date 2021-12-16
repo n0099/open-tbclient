@@ -29,45 +29,45 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OkHttpClient f54527b;
+    public final OkHttpClient f55107b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f54528b;
+        public static final a f55108b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f54529c;
+        public static final a f55109c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f54530d;
+        public static final a f55110d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f54531e;
+        public static final a f55111e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f54532f;
+        public static final a f55112f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f54533g;
+        public static final a f55113g;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ a[] f54534i;
+        public static final /* synthetic */ a[] f55114i;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f54535h;
+        public final int f55115h;
 
         static {
             InterceptResult invokeClinit;
@@ -83,14 +83,14 @@ public class d {
                 }
             }
             a = new a(RomUtils.UNKNOWN, 0, -1);
-            f54528b = new a(PolyActivity.NONE_PANEL_TYPE, 1, 0);
-            f54529c = new a("MOBILE", 2, 1);
-            f54530d = new a("MOBILE_2G", 3, 2);
-            f54531e = new a("MOBILE_3G", 4, 3);
-            f54532f = new a(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 5, 4);
+            f55108b = new a(PolyActivity.NONE_PANEL_TYPE, 1, 0);
+            f55109c = new a("MOBILE", 2, 1);
+            f55110d = new a("MOBILE_2G", 3, 2);
+            f55111e = new a("MOBILE_3G", 4, 3);
+            f55112f = new a(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 5, 4);
             a aVar = new a("MOBILE_4G", 6, 5);
-            f54533g = aVar;
-            f54534i = new a[]{a, f54528b, f54529c, f54530d, f54531e, f54532f, aVar};
+            f55113g = aVar;
+            f55114i = new a[]{a, f55108b, f55109c, f55110d, f55111e, f55112f, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -111,7 +111,7 @@ public class d {
                     return;
                 }
             }
-            this.f54535h = i3;
+            this.f55115h = i3;
         }
 
         public static a valueOf(String str) {
@@ -123,7 +123,7 @@ public class d {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f54534i.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f55114i.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -155,7 +155,7 @@ public class d {
                 return;
             }
         }
-        this.f54527b = new OkHttpClient.Builder().connectTimeout(5L, TimeUnit.SECONDS).readTimeout(5L, TimeUnit.SECONDS).writeTimeout(5L, TimeUnit.SECONDS).build();
+        this.f55107b = new OkHttpClient.Builder().connectTimeout(5L, TimeUnit.SECONDS).readTimeout(5L, TimeUnit.SECONDS).writeTimeout(5L, TimeUnit.SECONDS).build();
     }
 
     public static d a() {
@@ -184,7 +184,7 @@ public class d {
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     int type = activeNetworkInfo.getType();
                     if (1 == type) {
-                        return a.f54532f;
+                        return a.f55112f;
                     }
                     if (type == 0) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -197,21 +197,21 @@ public class d {
                             case 12:
                             case 14:
                             case 15:
-                                return a.f54531e;
+                                return a.f55111e;
                             case 4:
                             case 7:
                             case 11:
                             default:
-                                return a.f54529c;
+                                return a.f55109c;
                             case 13:
-                                return a.f54533g;
+                                return a.f55113g;
                         }
                     }
-                    return a.f54529c;
+                    return a.f55109c;
                 }
-                return a.f54528b;
+                return a.f55108b;
             } catch (Throwable unused) {
-                return a.f54529c;
+                return a.f55109c;
             }
         }
         return (a) invokeL.objValue;
@@ -222,7 +222,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             a b2 = b(context);
-            return b2 == a.f54532f ? "wifi" : b2 == a.f54530d ? "2g" : b2 == a.f54531e ? "3g" : b2 == a.f54533g ? "4g" : b2 == a.f54529c ? "mobile" : "";
+            return b2 == a.f55112f ? "wifi" : b2 == a.f55110d ? "2g" : b2 == a.f55111e ? "3g" : b2 == a.f55113g ? "4g" : b2 == a.f55109c ? "mobile" : "";
         }
         return (String) invokeL.objValue;
     }
@@ -237,10 +237,10 @@ public class d {
             ZeusLogger.i(ZeusLogger.TAG_DOWNLOAD, "executePost, body: ".concat(String.valueOf(str2)));
             RequestBody create = RequestBody.create(MediaType.parse(str3), str2);
             Request.Builder url = new Request.Builder().url(str);
-            com.bytedance.pangle.util.b.a(url, str2, com.bytedance.pangle.i.a().f54604b.getAppKey(), com.bytedance.pangle.i.a().f54604b.getAppSecretKey());
+            com.bytedance.pangle.util.b.a(url, str2, com.bytedance.pangle.i.a().f55184b.getAppKey(), com.bytedance.pangle.i.a().f55184b.getAppSecretKey());
             url.addHeader("Content-Type", str3);
             try {
-                execute = this.f54527b.newCall(url.post(create).build()).execute();
+                execute = this.f55107b.newCall(url.post(create).build()).execute();
             } catch (Throwable th) {
                 String concat = "Request plugin failed! ".concat(String.valueOf(th));
                 hVar = new com.bytedance.pangle.h(concat, th);
@@ -250,7 +250,7 @@ public class d {
             if (execute.isSuccessful() && execute.body() != null) {
                 String string = execute.body().string();
                 if (TextUtils.isEmpty(string)) {
-                    a(b.a.f54472c, str2, "", null);
+                    a(b.a.f55052c, str2, "", null);
                 } else {
                     a(b.a.a, str2, string, null);
                 }
@@ -259,7 +259,7 @@ public class d {
             String format = String.format("Request plugin failed! code = %s, message = %s", Integer.valueOf(execute.code()), execute.message());
             hVar = new com.bytedance.pangle.h(format, execute.code());
             ZeusLogger.e(ZeusLogger.TAG_DOWNLOAD, format);
-            a(b.a.f54471b, str2, "", hVar);
+            a(b.a.f55051b, str2, "", hVar);
             return "";
         }
         return (String) invokeLLL.objValue;
@@ -298,7 +298,7 @@ public class d {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            com.bytedance.pangle.b.b.a().a(com.bytedance.pangle.b.b.f54462b, jSONObject, null, jSONObject2);
+            com.bytedance.pangle.b.b.a().a(com.bytedance.pangle.b.b.f55042b, jSONObject, null, jSONObject2);
         }
     }
 }

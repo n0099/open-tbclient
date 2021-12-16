@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c2 {
     public static /* synthetic */ Interceptable $ic;
     public static final c2 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ConcurrentHashMap f30760b;
+    public static ConcurrentHashMap f31130b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f30761c;
+    public static Context f31131c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class c2 {
             }
         }
         a = new c2();
-        f30760b = new ConcurrentHashMap();
+        f31130b = new ConcurrentHashMap();
     }
 
     public c2() {
@@ -61,7 +61,7 @@ public class c2 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            f30761c = context.getApplicationContext();
+            f31131c = context.getApplicationContext();
             return a;
         }
         return (c2) invokeL.objValue;
@@ -71,10 +71,10 @@ public class c2 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Long l = (Long) f30760b.get(str);
+            Long l = (Long) f31130b.get(str);
             if (l == null || l.longValue() <= 0) {
                 try {
-                    String C = m2.C(f30761c);
+                    String C = m2.C(f31131c);
                     if (!TextUtils.isEmpty(C)) {
                         JSONObject jSONObject = new JSONObject(C);
                         Iterator<String> keys = jSONObject.keys();
@@ -98,12 +98,12 @@ public class c2 {
     public void c(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
-            f30760b.put(str, Long.valueOf(j2));
+            f31130b.put(str, Long.valueOf(j2));
             try {
-                String C = m2.C(f30761c);
+                String C = m2.C(f31131c);
                 JSONObject jSONObject = !TextUtils.isEmpty(C) ? new JSONObject(C) : new JSONObject();
                 jSONObject.put(str, j2);
-                Context context = f30761c;
+                Context context = f31131c;
                 String jSONObject2 = jSONObject.toString();
                 SharedPreferences.Editor edit = context.getSharedPreferences("res_prefs", 0).edit();
                 edit.putString("key_local_res", jSONObject2);

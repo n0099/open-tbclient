@@ -30,7 +30,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class BufferedDiskCache {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;

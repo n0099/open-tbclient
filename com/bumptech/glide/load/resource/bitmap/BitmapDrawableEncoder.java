@@ -15,7 +15,7 @@ import com.bumptech.glide.load.ResourceEncoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class BitmapDrawableEncoder implements ResourceEncoder<BitmapDrawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

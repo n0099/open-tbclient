@@ -36,16 +36,16 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f57392b;
+    public static ExecutorService f57973b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,12 +100,12 @@ public class d {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         boolean a(int i2, int i3, Object obj);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c extends Closeable {
         void a(int i2, Map<String, List<String>> map);
 
@@ -128,7 +128,7 @@ public class d {
             }
         }
         a = aq.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
-        f57392b = com.kwad.sdk.core.i.b.i();
+        f57973b = com.kwad.sdk.core.i.b.i();
     }
 
     public static URLConnection a(String str, int i2, int i3, boolean z, boolean z2) {

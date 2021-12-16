@@ -9,29 +9,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout.LayoutParams a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f51729b;
+    public LinearLayout f52278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f51730c;
+    public LinearLayout f52279c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList f51731d;
+    public ArrayList f52280d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList f51732e;
+    public ArrayList f52281e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f51733f;
+    public Context f52282f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ey f51734g;
+    public ey f52283g;
 
     public f(ArrayList arrayList, Context context, ey eyVar) {
         Interceptable interceptable = $ic;
@@ -48,10 +48,10 @@ public final class f {
                 return;
             }
         }
-        this.f51733f = context;
-        this.f51734g = eyVar;
-        this.f51731d = new ArrayList();
-        this.f51732e = new ArrayList();
+        this.f52282f = context;
+        this.f52283g = eyVar;
+        this.f52280d = new ArrayList();
+        this.f52281e = new ArrayList();
         a(arrayList);
     }
 
@@ -61,7 +61,7 @@ public final class f {
             int i2 = 0;
             while (i2 < arrayList.size()) {
                 int i3 = i2 + 1;
-                (i3 % 2 == 1 ? this.f51731d : this.f51732e).add(arrayList.get(i2));
+                (i3 % 2 == 1 ? this.f52280d : this.f52281e).add(arrayList.get(i2));
                 i2 = i3;
             }
         }
@@ -71,22 +71,22 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f51733f);
-            this.f51729b = linearLayout;
+            LinearLayout linearLayout = new LinearLayout(this.f52282f);
+            this.f52278b = linearLayout;
             linearLayout.setOrientation(1);
-            this.f51729b.setBackgroundColor(-1);
+            this.f52278b.setBackgroundColor(-1);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             this.a = layoutParams;
-            layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f51733f, 15.0f), com.baidu.ufosdk.f.i.a(this.f51733f, 2.0f), com.baidu.ufosdk.f.i.a(this.f51733f, 15.0f), com.baidu.ufosdk.f.i.a(this.f51733f, 14.0f));
-            for (int i2 = 0; i2 < this.f51731d.size(); i2++) {
-                e eVar = new e(this.f51733f);
+            layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f52282f, 15.0f), com.baidu.ufosdk.f.i.a(this.f52282f, 2.0f), com.baidu.ufosdk.f.i.a(this.f52282f, 15.0f), com.baidu.ufosdk.f.i.a(this.f52282f, 14.0f));
+            for (int i2 = 0; i2 < this.f52280d.size(); i2++) {
+                e eVar = new e(this.f52282f);
                 eVar.a();
-                eVar.a((String) this.f51731d.get(i2));
+                eVar.a((String) this.f52280d.get(i2));
                 eVar.a(com.baidu.ufosdk.b.U);
-                this.f51729b.addView(eVar, this.a);
+                this.f52278b.addView(eVar, this.a);
                 eVar.setOnClickListener(new g(this, eVar));
             }
-            return this.f51729b;
+            return this.f52278b;
         }
         return (LinearLayout) invokeV.objValue;
     }
@@ -95,22 +95,22 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f51733f);
-            this.f51730c = linearLayout;
+            LinearLayout linearLayout = new LinearLayout(this.f52282f);
+            this.f52279c = linearLayout;
             linearLayout.setOrientation(1);
-            this.f51730c.setBackgroundColor(-1);
+            this.f52279c.setBackgroundColor(-1);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             this.a = layoutParams;
-            layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f51733f, 5.0f), com.baidu.ufosdk.f.i.a(this.f51733f, 2.0f), com.baidu.ufosdk.f.i.a(this.f51733f, 15.0f), com.baidu.ufosdk.f.i.a(this.f51733f, 14.0f));
-            for (int i2 = 0; i2 < this.f51732e.size(); i2++) {
-                e eVar = new e(this.f51733f);
+            layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f52282f, 5.0f), com.baidu.ufosdk.f.i.a(this.f52282f, 2.0f), com.baidu.ufosdk.f.i.a(this.f52282f, 15.0f), com.baidu.ufosdk.f.i.a(this.f52282f, 14.0f));
+            for (int i2 = 0; i2 < this.f52281e.size(); i2++) {
+                e eVar = new e(this.f52282f);
                 eVar.a();
-                eVar.a((String) this.f51732e.get(i2));
+                eVar.a((String) this.f52281e.get(i2));
                 eVar.a(com.baidu.ufosdk.b.U);
-                this.f51730c.addView(eVar, this.a);
+                this.f52279c.addView(eVar, this.a);
                 eVar.setOnClickListener(new h(this, eVar));
             }
-            return this.f51730c;
+            return this.f52279c;
         }
         return (LinearLayout) invokeV.objValue;
     }

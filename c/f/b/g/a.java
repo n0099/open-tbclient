@@ -9,20 +9,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcurrentHashMap<String, Object> a;
 
     /* renamed from: c.f.b.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class C1585a {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class C1625a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
@@ -45,7 +45,7 @@ public final class a {
         }
     }
 
-    public /* synthetic */ a(C1585a c1585a) {
+    public /* synthetic */ a(C1625a c1625a) {
         this();
     }
 

@@ -15,7 +15,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BindTestPhoneController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

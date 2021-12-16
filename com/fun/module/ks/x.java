@@ -17,7 +17,7 @@ import com.fun.ad.sdk.channel.ks.R;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class x extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

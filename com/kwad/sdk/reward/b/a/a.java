@@ -16,27 +16,27 @@ import com.kwad.sdk.utils.t;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.reward.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f58881b;
+    public c f59462b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C2047a f58882c;
+    public C2108a f59463c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final b f58883d;
+    public final b f59464d;
 
     /* renamed from: com.kwad.sdk.reward.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2047a extends com.kwad.sdk.reward.b.a {
+    /* loaded from: classes3.dex */
+    public static class C2108a extends com.kwad.sdk.reward.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2047a() {
+        public C2108a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public class a extends com.kwad.sdk.reward.b.a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b extends com.kwad.sdk.reward.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class a extends com.kwad.sdk.reward.b.a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c extends com.kwad.sdk.reward.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,9 +112,9 @@ public class a extends com.kwad.sdk.reward.b.a {
                 return;
             }
         }
-        this.f58881b = new c();
-        this.f58882c = new C2047a();
-        this.f58883d = new b(com.kwad.sdk.core.config.b.az());
+        this.f59462b = new c();
+        this.f59463c = new C2108a();
+        this.f59464d = new b(com.kwad.sdk.core.config.b.az());
     }
 
     public static void a(a aVar, Context context, AdTemplate adTemplate) {
@@ -131,7 +131,7 @@ public class a extends com.kwad.sdk.reward.b.a {
     private void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (this.f58881b.d() && this.f58882c.d() && this.f58883d.d()) {
+            if (this.f59462b.d() && this.f59463c.d() && this.f59464d.d()) {
                 a();
             } else {
                 b();
@@ -143,14 +143,14 @@ public class a extends com.kwad.sdk.reward.b.a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58881b.d() && this.f58882c.d() && this.f58883d.d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59462b.d() && this.f59463c.d() && this.f59464d.d() : invokeV.booleanValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.kwad.sdk.core.d.a.a("LaunchAppTask", "markWatchVideoCompleted");
-            this.f58881b.a();
+            this.f59462b.a();
             n();
         }
     }
@@ -159,7 +159,7 @@ public class a extends com.kwad.sdk.reward.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             com.kwad.sdk.core.d.a.a("LaunchAppTask", "markInstallCompleted");
-            this.f58882c.a();
+            this.f59463c.a();
             n();
         }
     }
@@ -168,7 +168,7 @@ public class a extends com.kwad.sdk.reward.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             com.kwad.sdk.core.d.a.a("LaunchAppTask", "markInstallUncompleted");
-            this.f58882c.b();
+            this.f59463c.b();
             n();
         }
     }
@@ -177,7 +177,7 @@ public class a extends com.kwad.sdk.reward.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             com.kwad.sdk.core.d.a.a("LaunchAppTask", "markUseAppCompleted");
-            this.f58883d.a();
+            this.f59464d.a();
             n();
         }
     }
@@ -187,7 +187,7 @@ public class a extends com.kwad.sdk.reward.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             com.kwad.sdk.core.d.a.a("LaunchAppTask", "isInstallCompleted");
-            return this.f58882c.d();
+            return this.f59463c.d();
         }
         return invokeV.booleanValue;
     }
@@ -212,9 +212,9 @@ public class a extends com.kwad.sdk.reward.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f58881b);
-            arrayList.add(this.f58882c);
-            arrayList.add(this.f58883d);
+            arrayList.add(this.f59462b);
+            arrayList.add(this.f59463c);
+            arrayList.add(this.f59464d);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -225,9 +225,9 @@ public class a extends com.kwad.sdk.reward.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
             try {
-                this.f58881b.parseJson(jSONObject.optJSONObject("mWatchVideoTask"));
-                this.f58882c.parseJson(jSONObject.optJSONObject("mInstallAppTask"));
-                this.f58883d.parseJson(jSONObject.optJSONObject("mUseAppTask"));
+                this.f59462b.parseJson(jSONObject.optJSONObject("mWatchVideoTask"));
+                this.f59463c.parseJson(jSONObject.optJSONObject("mInstallAppTask"));
+                this.f59464d.parseJson(jSONObject.optJSONObject("mUseAppTask"));
             } catch (Throwable unused) {
             }
         }
@@ -239,9 +239,9 @@ public class a extends com.kwad.sdk.reward.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            t.a(jSONObject, "mWatchVideoTask", this.f58881b);
-            t.a(jSONObject, "mInstallAppTask", this.f58882c);
-            t.a(jSONObject, "mUseAppTask", this.f58883d);
+            t.a(jSONObject, "mWatchVideoTask", this.f59462b);
+            t.a(jSONObject, "mInstallAppTask", this.f59463c);
+            t.a(jSONObject, "mUseAppTask", this.f59464d);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

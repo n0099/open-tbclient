@@ -1,7 +1,7 @@
 package com.baidu.tieba.wallet;
 
 import c.a.d.a.f;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CurrencySwitchModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class CurrencySwitchModel extends BdBaseModel {
     public OnPostDataCallBack mCallBack;
     public final HttpMessageListener mSwitchCurrencyListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface OnPostDataCallBack {
         void callback(boolean z, int i2, String str);
     }
@@ -137,7 +137,7 @@ public class CurrencySwitchModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.isSending) {
-                l.L(TbadkCoreApplication.getInst().getContext(), R.string.wallet_t_dou_switching_toast);
+                m.L(TbadkCoreApplication.getInst().getContext(), R.string.wallet_t_dou_switching_toast);
                 return;
             }
             this.isSending = true;

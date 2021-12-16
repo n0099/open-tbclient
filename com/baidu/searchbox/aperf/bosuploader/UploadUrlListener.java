@@ -1,5 +1,5 @@
 package com.baidu.searchbox.aperf.bosuploader;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface UploadUrlListener {
     public static final String BASE_UPLOAD_URL = BaseUrlManager.getBaseUploadUrl();
 

@@ -10,7 +10,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import org.apache.http.HttpHost;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class URIUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

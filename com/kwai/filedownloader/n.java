@@ -12,20 +12,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.design.provider.ServiceProvider;
 import com.kwai.filedownloader.services.FileDownloadServiceProxy;
 import com.kwai.filedownloader.services.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n implements u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final u a;
 
     /* renamed from: com.kwai.filedownloader.n$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final n a;
@@ -61,7 +61,7 @@ public class n implements u {
                 return;
             }
         }
-        this.a = com.kwai.filedownloader.e.e.a().f59990d ? new o() : new p(((com.kwad.sdk.design.kwai.b) ServiceProvider.a(com.kwad.sdk.design.kwai.b.class)).a(FileDownloadServiceProxy.SeparateProcessServiceProxy.class));
+        this.a = com.kwai.filedownloader.e.e.a().f60571d ? new o() : new p(((com.kwad.sdk.design.kwai.b) ServiceProvider.a(com.kwad.sdk.design.kwai.b.class)).a(FileDownloadServiceProxy.SeparateProcessServiceProxy.class));
     }
 
     public /* synthetic */ n(AnonymousClass1 anonymousClass1) {

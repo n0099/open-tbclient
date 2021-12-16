@@ -15,36 +15,36 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static byte f2237g = 4;
+    public static byte f2204g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public static byte f2238h = Byte.MIN_VALUE;
+    public static byte f2205h = Byte.MIN_VALUE;
 
     /* renamed from: i  reason: collision with root package name */
-    public static byte f2239i = 64;
+    public static byte f2206i = 64;
 
     /* renamed from: j  reason: collision with root package name */
-    public static byte f2240j = 8;
+    public static byte f2207j = 8;
 
     /* renamed from: k  reason: collision with root package name */
-    public static byte f2241k = 4;
+    public static byte f2208k = 4;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2242b;
+    public boolean f2209b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2243c;
+    public boolean f2210c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2244d;
+    public int f2211d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2245e;
+    public int f2212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f2246f;
+    public boolean f2213f;
 
     static {
         InterceptResult invokeClinit;
@@ -75,9 +75,9 @@ public class a {
             }
         }
         this.a = false;
-        this.f2242b = false;
-        this.f2243c = false;
-        this.f2246f = false;
+        this.f2209b = false;
+        this.f2210c = false;
+        this.f2213f = false;
     }
 
     public static a a(byte[] bArr) {
@@ -87,20 +87,20 @@ public class a {
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, f());
             a aVar = new a();
             byte b2 = wrap.get();
-            if ((f2238h & b2) != 0) {
+            if ((f2205h & b2) != 0) {
                 aVar.a = true;
             }
-            if ((f2239i & b2) != 0) {
-                aVar.f2242b = true;
+            if ((f2206i & b2) != 0) {
+                aVar.f2209b = true;
             }
-            if ((f2240j & b2) != 0) {
-                aVar.f2243c = true;
+            if ((f2207j & b2) != 0) {
+                aVar.f2210c = true;
             }
-            if ((b2 & f2241k) != 0) {
-                aVar.f2246f = true;
+            if ((b2 & f2208k) != 0) {
+                aVar.f2213f = true;
             }
-            aVar.f2244d = wrap.getInt();
-            aVar.f2245e = wrap.getInt();
+            aVar.f2211d = wrap.getInt();
+            aVar.f2212e = wrap.getInt();
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -120,13 +120,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), Integer.valueOf(i3), bArr, Boolean.valueOf(z3)})) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(f() + (bArr != null ? bArr.length : 0));
-            byte b2 = z ? (byte) (f2238h | 0) : (byte) 0;
+            byte b2 = z ? (byte) (f2205h | 0) : (byte) 0;
             if (z2) {
-                b2 = (byte) (f2239i | b2);
+                b2 = (byte) (f2206i | b2);
             }
-            byte b3 = (byte) (f2240j | b2);
+            byte b3 = (byte) (f2207j | b2);
             if (z3) {
-                b3 = (byte) (b3 | f2241k);
+                b3 = (byte) (b3 | f2208k);
             }
             allocate.put(b3);
             allocate.putInt(i2);
@@ -143,13 +143,13 @@ public class a {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2244d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2211d : invokeV.intValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2242b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2209b : invokeV.booleanValue;
     }
 
     public boolean d() {
@@ -161,18 +161,18 @@ public class a {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2246f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2213f : invokeV.booleanValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2243c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2210c : invokeV.booleanValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2245e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2212e : invokeV.intValue;
     }
 }

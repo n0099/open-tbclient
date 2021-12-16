@@ -12,25 +12,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.extractor.flv.TagPayloadReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class d extends TagPayloadReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f29040b;
+    public final l f29410b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final l f29041c;
+    public final l f29411c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29042d;
+    public int f29412d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f29043e;
+    public boolean f29413e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29044f;
+    public int f29414f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(m mVar) {
@@ -50,8 +50,8 @@ public final class d extends TagPayloadReader {
                 return;
             }
         }
-        this.f29040b = new l(j.a);
-        this.f29041c = new l(4);
+        this.f29410b = new l(j.a);
+        this.f29411c = new l(4);
     }
 
     @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
@@ -63,7 +63,7 @@ public final class d extends TagPayloadReader {
             int i2 = (x >> 4) & 15;
             int i3 = x & 15;
             if (i3 == 7) {
-                this.f29044f = i2;
+                this.f29414f = i2;
                 return i2 != 5;
             }
             throw new TagPayloadReader.UnsupportedFormatException("Video format not supported: " + i3);
@@ -77,30 +77,30 @@ public final class d extends TagPayloadReader {
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, j2) == null) {
             int x = lVar.x();
             long j3 = j2 + (lVar.j() * 1000);
-            if (x == 0 && !this.f29043e) {
+            if (x == 0 && !this.f29413e) {
                 l lVar2 = new l(new byte[lVar.a()]);
                 lVar.g(lVar2.a, 0, lVar.a());
                 c.i.b.a.j0.a b2 = c.i.b.a.j0.a.b(lVar2);
-                this.f29042d = b2.f30282b;
-                this.a.b(Format.createVideoSampleFormat(null, "video/avc", null, -1, -1, b2.f30283c, b2.f30284d, -1.0f, b2.a, -1, b2.f30285e, null));
-                this.f29043e = true;
-            } else if (x == 1 && this.f29043e) {
-                byte[] bArr = this.f29041c.a;
+                this.f29412d = b2.f30652b;
+                this.a.b(Format.createVideoSampleFormat(null, "video/avc", null, -1, -1, b2.f30653c, b2.f30654d, -1.0f, b2.a, -1, b2.f30655e, null));
+                this.f29413e = true;
+            } else if (x == 1 && this.f29413e) {
+                byte[] bArr = this.f29411c.a;
                 bArr[0] = 0;
                 bArr[1] = 0;
                 bArr[2] = 0;
-                int i2 = 4 - this.f29042d;
+                int i2 = 4 - this.f29412d;
                 int i3 = 0;
                 while (lVar.a() > 0) {
-                    lVar.g(this.f29041c.a, i2, this.f29042d);
-                    this.f29041c.J(0);
-                    int B = this.f29041c.B();
-                    this.f29040b.J(0);
-                    this.a.a(this.f29040b, 4);
+                    lVar.g(this.f29411c.a, i2, this.f29412d);
+                    this.f29411c.J(0);
+                    int B = this.f29411c.B();
+                    this.f29410b.J(0);
+                    this.a.a(this.f29410b, 4);
                     this.a.a(lVar, B);
                     i3 = i3 + 4 + B;
                 }
-                this.a.c(j3, this.f29044f == 1 ? 1 : 0, i3, 0, null);
+                this.a.c(j3, this.f29414f == 1 ? 1 : 0, i3, 0, null);
             }
         }
     }

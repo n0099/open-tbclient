@@ -57,7 +57,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NavigationView extends ScrimInsetsFrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CHECKED_STATE_SET;
@@ -74,7 +74,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     public final NavigationMenuPresenter presenter;
     public final int[] tmpLocation;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
@@ -502,7 +502,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;

@@ -4,10 +4,10 @@ import android.content.Context;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.api.StatisOption;
 import com.yy.hiidostatis.message.Packer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IStatisAPI {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ReportResult {
         void onReportResult(boolean z);
     }

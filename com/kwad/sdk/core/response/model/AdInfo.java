@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -8738827282880419389L;
@@ -53,7 +53,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
     public int status;
     public long totalBytes;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AdAggregateInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6627768757836702989L;
@@ -77,7 +77,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AdBaseInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1615884096720946547L;
@@ -142,7 +142,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AdConversionInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1623240707193173136L;
@@ -174,7 +174,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AdInsertScreenInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,7 +195,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AdMaterialInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8841259738296866924L;
@@ -205,7 +205,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public int materialType;
         public boolean videoVoice;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class MaterialFeature extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -1118440558210936255L;
@@ -288,7 +288,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AdPreloadInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1208206464894428350L;
@@ -329,7 +329,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AdRewardInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6571091401675622830L;
@@ -353,7 +353,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AdSplashInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6666286195277235837L;
@@ -389,7 +389,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AdTrackInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1185757456598461137L;
@@ -412,7 +412,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AdvertiserInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1779108296418044788L;
@@ -443,7 +443,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ComplianceInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6420581965656630668L;
@@ -468,7 +468,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DownloadSafeInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1575212648797728242L;
@@ -503,7 +503,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class H5Config extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6055740830695990438L;
@@ -528,7 +528,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MaterialSize extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4007237406277888273L;
@@ -551,7 +551,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PlayableStyleInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5205269652522127614L;

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.github.anrwatchdog.ANRError;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public static final f p;
@@ -21,37 +21,37 @@ public class a extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f28938e;
+    public f f29308e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f28939f;
+    public e f29309f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f28940g;
+    public g f29310g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f28941h;
+    public final Handler f29311h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f28942i;
+    public final int f29312i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f28943j;
+    public String f29313j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f28944k;
+    public boolean f29314k;
     public boolean l;
     public volatile long m;
     public volatile boolean n;
     public final Runnable o;
 
     /* renamed from: c.h.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1589a implements f {
+    /* loaded from: classes9.dex */
+    public static class C1628a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1589a() {
+        public C1628a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +74,7 @@ public class a extends Thread {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public class a extends Thread {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class c implements g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,13 +132,13 @@ public class a extends Thread {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f28945e;
+        public final /* synthetic */ a f29315e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -155,30 +155,30 @@ public class a extends Thread {
                     return;
                 }
             }
-            this.f28945e = aVar;
+            this.f29315e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28945e.m = 0L;
-                this.f28945e.n = false;
+                this.f29315e.m = 0L;
+                this.f29315e.n = false;
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface e {
         long a(long j2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface f {
         void onAppNotResponding(ANRError aNRError);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface g {
         void a(InterruptedException interruptedException);
     }
@@ -196,7 +196,7 @@ public class a extends Thread {
                 return;
             }
         }
-        p = new C1589a();
+        p = new C1628a();
         q = new b();
         r = new c();
     }
@@ -216,17 +216,17 @@ public class a extends Thread {
                 return;
             }
         }
-        this.f28938e = p;
-        this.f28939f = q;
-        this.f28940g = r;
-        this.f28941h = new Handler(Looper.getMainLooper());
-        this.f28943j = "";
-        this.f28944k = false;
+        this.f29308e = p;
+        this.f29309f = q;
+        this.f29310g = r;
+        this.f29311h = new Handler(Looper.getMainLooper());
+        this.f29313j = "";
+        this.f29314k = false;
         this.l = true;
         this.m = 0L;
         this.n = false;
         this.o = new d(this);
-        this.f28942i = i2;
+        this.f29312i = i2;
     }
 
     public a c(f fVar) {
@@ -234,9 +234,9 @@ public class a extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
             if (fVar == null) {
-                this.f28938e = p;
+                this.f29308e = p;
             } else {
-                this.f28938e = fVar;
+                this.f29308e = fVar;
             }
             return this;
         }
@@ -247,7 +247,7 @@ public class a extends Thread {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.f28943j = null;
+            this.f29313j = null;
             return this;
         }
         return (a) invokeV.objValue;
@@ -259,12 +259,12 @@ public class a extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setName("|ANR-WatchDog|");
-            long j2 = this.f28942i;
+            long j2 = this.f29312i;
             while (!isInterrupted()) {
                 boolean z = this.m == 0;
                 this.m += j2;
                 if (z) {
-                    this.f28941h.post(this.o);
+                    this.f29311h.post(this.o);
                 }
                 try {
                     Thread.sleep(j2);
@@ -272,21 +272,21 @@ public class a extends Thread {
                         if (!this.l && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
                             this.n = true;
                         } else {
-                            j2 = this.f28939f.a(this.m);
+                            j2 = this.f29309f.a(this.m);
                             if (j2 <= 0) {
-                                if (this.f28943j != null) {
-                                    NewMainOnly = ANRError.New(this.m, this.f28943j, this.f28944k);
+                                if (this.f29313j != null) {
+                                    NewMainOnly = ANRError.New(this.m, this.f29313j, this.f29314k);
                                 } else {
                                     NewMainOnly = ANRError.NewMainOnly(this.m);
                                 }
-                                this.f28938e.onAppNotResponding(NewMainOnly);
-                                j2 = this.f28942i;
+                                this.f29308e.onAppNotResponding(NewMainOnly);
+                                j2 = this.f29312i;
                                 this.n = true;
                             }
                         }
                     }
                 } catch (InterruptedException e2) {
-                    this.f28940g.a(e2);
+                    this.f29310g.a(e2);
                     return;
                 }
             }

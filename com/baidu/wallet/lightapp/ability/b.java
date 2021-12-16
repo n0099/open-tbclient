@@ -11,12 +11,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.ILightappInvokerCallback;
 import com.baidu.wallet.core.utils.LogUtil;
-import com.dxmpay.wallet.core.beans.BeanConstants;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public abstract class b implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +41,7 @@ public abstract class b implements a {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("result", i2);
-                jSONObject2.put(BeanConstants.DXM_OCR_KEY_CNT, jSONObject);
+                jSONObject2.put("cnt", jSONObject);
             } catch (JSONException e2) {
                 LogUtil.e("NativeAbilityBase", "error", e2);
             }
@@ -61,7 +60,7 @@ public abstract class b implements a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("result", z ? 0 : 1);
-                jSONObject.put(BeanConstants.DXM_OCR_KEY_CNT, new JSONObject(map));
+                jSONObject.put("cnt", new JSONObject(map));
             } catch (JSONException e2) {
                 LogUtil.e("NativeAbilityBase", "error", e2);
             }

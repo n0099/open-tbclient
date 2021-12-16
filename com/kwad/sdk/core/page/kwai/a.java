@@ -12,7 +12,7 @@ import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.core.page.recycle.e;
 import com.kwad.sdk.feed.widget.k;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class a extends Presenter {
             e eVar = (e) p();
             KsAdVideoPlayConfig build = new KsAdVideoPlayConfig.Builder().videoSoundEnable(true).build();
             k kVar = (k) m();
-            kVar.a(eVar.f57604c);
+            kVar.a(eVar.f58185c);
             kVar.a(build, eVar.a);
             kVar.setVisibility(0);
             kVar.setOnEndBtnClickListener(new View.OnClickListener(this, eVar) { // from class: com.kwad.sdk.core.page.kwai.a.1
@@ -49,7 +49,7 @@ public class a extends Presenter {
                 public final /* synthetic */ e a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f57561b;
+                public final /* synthetic */ a f58142b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -66,7 +66,7 @@ public class a extends Presenter {
                             return;
                         }
                     }
-                    this.f57561b = this;
+                    this.f58142b = this;
                     this.a = eVar;
                 }
 
@@ -74,19 +74,19 @@ public class a extends Presenter {
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (com.kwad.sdk.core.response.a.a.B(com.kwad.sdk.core.response.a.d.j(this.a.f57604c))) {
+                        if (com.kwad.sdk.core.response.a.a.B(com.kwad.sdk.core.response.a.d.j(this.a.f58185c))) {
                             com.kwad.sdk.core.download.a.b bVar = this.a.a;
                             if (bVar != null) {
-                                bVar.a((Context) this.f57561b.o(), false);
+                                bVar.a((Context) this.f58142b.o(), false);
                                 return;
                             }
                             return;
                         }
-                        RecyclerView recyclerView = this.a.f57603b;
-                        if (recyclerView == null || recyclerView.getAdapter() == null || this.a.f57603b.getAdapter().getItemCount() <= 1) {
+                        RecyclerView recyclerView = this.a.f58184b;
+                        if (recyclerView == null || recyclerView.getAdapter() == null || this.a.f58184b.getAdapter().getItemCount() <= 1) {
                             return;
                         }
-                        this.a.f57603b.scrollToPosition(1);
+                        this.a.f58184b.scrollToPosition(1);
                     }
                 }
             });
@@ -96,7 +96,7 @@ public class a extends Presenter {
                 public final /* synthetic */ e a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f57562b;
+                public final /* synthetic */ a f58143b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -113,7 +113,7 @@ public class a extends Presenter {
                             return;
                         }
                     }
-                    this.f57562b = this;
+                    this.f58143b = this;
                     this.a = eVar;
                 }
 
@@ -121,7 +121,7 @@ public class a extends Presenter {
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f57562b.a = this.a.f57603b.computeVerticalScrollOffset();
+                        this.f58143b.a = this.a.f58184b.computeVerticalScrollOffset();
                     }
                 }
 
@@ -129,7 +129,7 @@ public class a extends Presenter {
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.a.f57603b.scrollToPosition(this.f57562b.a);
+                        this.a.f58184b.scrollToPosition(this.f58143b.a);
                     }
                 }
             });

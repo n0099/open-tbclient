@@ -25,41 +25,41 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static OnHistoryTraceListener f36512b;
+    public static OnHistoryTraceListener f37001b;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f36513h;
+    public static boolean f37002h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public HistoryTraceData f36514c;
+    public HistoryTraceData f37003c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<HistoryTraceData.HistoryTracePoint> f36515d;
+    public List<HistoryTraceData.HistoryTracePoint> f37004d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a f36516e;
+    public b.a f37005e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HistoryTraceQueryOptions f36517f;
+    public HistoryTraceQueryOptions f37006f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36518g;
+    public boolean f37007g;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f36519i;
+    public int f37008i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f36520j;
+    public String f37009j;
 
     /* renamed from: k  reason: collision with root package name */
-    public SparseArray<List<HistoryTraceData.HistoryTracePoint>> f36521k;
+    public SparseArray<List<HistoryTraceData.HistoryTracePoint>> f37010k;
 
     static {
         InterceptResult invokeClinit;
@@ -75,7 +75,7 @@ public class a extends Handler {
             }
         }
         a = a.class.getSimpleName();
-        f36513h = false;
+        f37002h = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -96,12 +96,12 @@ public class a extends Handler {
                 return;
             }
         }
-        this.f36518g = false;
-        this.f36519i = 0;
-        this.f36520j = HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS;
-        this.f36515d = new ArrayList();
-        this.f36514c = new HistoryTraceData();
-        this.f36521k = new SparseArray<>();
+        this.f37007g = false;
+        this.f37008i = 0;
+        this.f37009j = HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS;
+        this.f37004d = new ArrayList();
+        this.f37003c = new HistoryTraceData();
+        this.f37010k = new SparseArray<>();
     }
 
     private LatLng a(String str) {
@@ -159,20 +159,20 @@ public class a extends Handler {
     private void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
-            if (this.f36516e == null) {
-                this.f36516e = new b.a();
+            if (this.f37005e == null) {
+                this.f37005e = new b.a();
             }
-            Message obtainMessage = this.f36516e.obtainMessage();
+            Message obtainMessage = this.f37005e.obtainMessage();
             obtainMessage.what = i2;
-            obtainMessage.obj = this.f36517f;
-            this.f36516e.sendMessage(obtainMessage);
+            obtainMessage.obj = this.f37006f;
+            this.f37005e.sendMessage(obtainMessage);
         }
     }
 
     private void a(int i2, String str, int i3, HistoryTraceData historyTraceData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), historyTraceData}) == null) {
-            OnHistoryTraceListener onHistoryTraceListener = f36512b;
+            OnHistoryTraceListener onHistoryTraceListener = f37001b;
             if (onHistoryTraceListener == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "OnHistoryTraceListener is null");
             } else if (1 == i3) {
@@ -198,13 +198,13 @@ public class a extends Handler {
                     com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "Request result contain error");
                     return false;
                 }
-                this.f36518g = false;
+                this.f37007g = false;
                 int optInt = jSONObject.optInt("total");
                 historyTraceData.setTotalPoints(optInt);
                 int optInt2 = jSONObject.optInt("size");
                 int optInt3 = jSONObject.optInt("req_page_index");
                 if (optInt2 * optInt3 < optInt) {
-                    f36513h = true;
+                    f37002h = true;
                     optInt3++;
                     f.a(optInt3);
                 }
@@ -214,13 +214,13 @@ public class a extends Handler {
                 historyTraceData.setCurrentOrderState(jSONObject.optInt("o_status"));
                 historyTraceData.setOrderStartPosition(a(jSONObject.optString("o_start_point")));
                 historyTraceData.setOrderEndPosition(a(jSONObject.optString("o_end_point")));
-                List<HistoryTraceData.HistoryTracePoint> list = this.f36515d;
+                List<HistoryTraceData.HistoryTracePoint> list = this.f37004d;
                 if (list != null && !list.isEmpty()) {
-                    this.f36515d.clear();
+                    this.f37004d.clear();
                 }
                 List<HistoryTraceData.HistoryTracePoint> a2 = a(jSONObject.optJSONArray("points"));
                 if (a2 != null && !a2.isEmpty()) {
-                    this.f36515d.addAll(a2);
+                    this.f37004d.addAll(a2);
                 }
                 return true;
             } catch (JSONException e2) {
@@ -240,17 +240,17 @@ public class a extends Handler {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "Request result no status");
                 return false;
             }
-            this.f36519i = jSONObject.optInt("status");
-            this.f36520j = jSONObject.optString("message");
-            int i3 = this.f36519i;
+            this.f37008i = jSONObject.optInt("status");
+            this.f37009j = jSONObject.optString("message");
+            int i3 = this.f37008i;
             if (i3 == 0) {
-                this.f36518g = false;
+                this.f37007g = false;
                 return true;
-            } else if (1 != i3 || this.f36518g) {
+            } else if (1 != i3 || this.f37007g) {
                 return true;
             } else {
                 a(i2);
-                this.f36518g = true;
+                this.f37007g = true;
                 return false;
             }
         }
@@ -260,36 +260,36 @@ public class a extends Handler {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (f36512b != null) {
-                f36512b = null;
+            if (f37001b != null) {
+                f37001b = null;
             }
-            List<HistoryTraceData.HistoryTracePoint> list = this.f36515d;
+            List<HistoryTraceData.HistoryTracePoint> list = this.f37004d;
             if (list != null) {
                 list.clear();
-                this.f36515d = null;
+                this.f37004d = null;
             }
-            this.f36514c = null;
+            this.f37003c = null;
         }
     }
 
     public void a(HistoryTraceQueryOptions historyTraceQueryOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, historyTraceQueryOptions) == null) {
-            this.f36517f = historyTraceQueryOptions;
+            this.f37006f = historyTraceQueryOptions;
         }
     }
 
     public void a(OnHistoryTraceListener onHistoryTraceListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onHistoryTraceListener) == null) {
-            f36512b = onHistoryTraceListener;
+            f37001b = onHistoryTraceListener;
         }
     }
 
     public void a(b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f36516e = aVar;
+            this.f37005e = aVar;
         }
     }
 
@@ -309,33 +309,33 @@ public class a extends Handler {
                 a(10008, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_RESULT_NULL, i2, null);
                 return;
             }
-            boolean a2 = a(str2, this.f36514c, i2);
+            boolean a2 = a(str2, this.f37003c, i2);
             if (a2) {
-                this.f36521k.put(this.f36514c.getCurrentPageIndex() - 1, this.f36515d);
-                if (f36513h) {
+                this.f37010k.put(this.f37003c.getCurrentPageIndex() - 1, this.f37004d);
+                if (f37002h) {
                     a(i2);
                     return;
                 }
             }
             ArrayList arrayList = new ArrayList();
-            for (int i3 = 0; i3 < this.f36521k.size(); i3++) {
-                List<HistoryTraceData.HistoryTracePoint> list = this.f36521k.get(i3);
+            for (int i3 = 0; i3 < this.f37010k.size(); i3++) {
+                List<HistoryTraceData.HistoryTracePoint> list = this.f37010k.get(i3);
                 if (list != null && !list.isEmpty()) {
                     arrayList.addAll(list);
                 }
             }
-            this.f36514c.setPointsList(arrayList);
-            HistoryTraceData historyTraceData = this.f36514c;
-            if (a2 && !f36513h) {
-                a(this.f36519i, this.f36520j, i2, historyTraceData);
-                this.f36514c = null;
-                this.f36514c = new HistoryTraceData();
-                this.f36515d.clear();
-                this.f36515d = null;
-                this.f36515d = new ArrayList();
-                this.f36521k.clear();
+            this.f37003c.setPointsList(arrayList);
+            HistoryTraceData historyTraceData = this.f37003c;
+            if (a2 && !f37002h) {
+                a(this.f37008i, this.f37009j, i2, historyTraceData);
+                this.f37003c = null;
+                this.f37003c = new HistoryTraceData();
+                this.f37004d.clear();
+                this.f37004d = null;
+                this.f37004d = new ArrayList();
+                this.f37010k.clear();
             }
-            f36513h = false;
+            f37002h = false;
         }
     }
 }

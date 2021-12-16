@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends com.kwad.sdk.f.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f58451b;
+    public View f59032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f58452c;
+    public com.kwad.sdk.contentalliance.detail.video.d f59033c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class d extends com.kwad.sdk.f.kwai.a {
                 return;
             }
         }
-        this.f58452c = new com.kwad.sdk.contentalliance.detail.video.e(this) { // from class: com.kwad.sdk.f.a.d.1
+        this.f59033c = new com.kwad.sdk.contentalliance.detail.video.e(this) { // from class: com.kwad.sdk.f.a.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -77,8 +77,8 @@ public class d extends com.kwad.sdk.f.kwai.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.f58451b.getVisibility() == 0) {
-            this.f58451b.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.f59032b.getVisibility() == 0) {
+            this.f59032b.setVisibility(8);
         }
     }
 
@@ -87,12 +87,12 @@ public class d extends com.kwad.sdk.f.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            if (com.ksad.download.c.b.a(this.f58451b.getContext())) {
-                this.f58451b.setVisibility(8);
+            if (com.ksad.download.c.b.a(this.f59032b.getContext())) {
+                this.f59032b.setVisibility(8);
                 return;
             }
-            this.f58451b.setVisibility(0);
-            ((com.kwad.sdk.f.kwai.a) this).a.f58505f.a(this.f58452c);
+            this.f59032b.setVisibility(0);
+            ((com.kwad.sdk.f.kwai.a) this).a.f59086f.a(this.f59033c);
         }
     }
 
@@ -101,7 +101,7 @@ public class d extends com.kwad.sdk.f.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.c();
-            ((com.kwad.sdk.f.kwai.a) this).a.f58505f.b(this.f58452c);
+            ((com.kwad.sdk.f.kwai.a) this).a.f59086f.b(this.f59033c);
         }
     }
 
@@ -110,7 +110,7 @@ public class d extends com.kwad.sdk.f.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.c_();
-            this.f58451b = a(R.id.ksad_video_network_unavailable);
+            this.f59032b = a(R.id.ksad_video_network_unavailable);
         }
     }
 }

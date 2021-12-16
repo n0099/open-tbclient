@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.Beta;
 @Beta
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ProtocolViolationException extends IllegalStateException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1644750035281290266L;

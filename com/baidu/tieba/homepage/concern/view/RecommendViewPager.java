@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class RecommendViewPager extends ViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f45154e;
+    public float f45645e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f45155f;
+    public float f45646f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendViewPager(@NonNull Context context) {
@@ -41,8 +41,8 @@ public class RecommendViewPager extends ViewPager {
                 return;
             }
         }
-        this.f45154e = 0.0f;
-        this.f45155f = 0.0f;
+        this.f45645e = 0.0f;
+        this.f45646f = 0.0f;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x002e, code lost:
@@ -62,10 +62,10 @@ public class RecommendViewPager extends ViewPager {
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
-                        float abs = Math.abs(motionEvent.getX() - this.f45154e);
-                        float abs2 = Math.abs(motionEvent.getY() - this.f45155f);
-                        this.f45154e = motionEvent.getX();
-                        this.f45155f = motionEvent.getY();
+                        float abs = Math.abs(motionEvent.getX() - this.f45645e);
+                        float abs2 = Math.abs(motionEvent.getY() - this.f45646f);
+                        this.f45645e = motionEvent.getX();
+                        this.f45646f = motionEvent.getY();
                         if (abs2 / abs < 1.0f && z) {
                             requestParentInterceptTouchEvent(true);
                         } else {
@@ -75,8 +75,8 @@ public class RecommendViewPager extends ViewPager {
                 }
                 requestParentInterceptTouchEvent(false);
             } else {
-                this.f45154e = motionEvent.getX();
-                this.f45155f = motionEvent.getY();
+                this.f45645e = motionEvent.getX();
+                this.f45646f = motionEvent.getY();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -110,7 +110,7 @@ public class RecommendViewPager extends ViewPager {
                 return;
             }
         }
-        this.f45154e = 0.0f;
-        this.f45155f = 0.0f;
+        this.f45645e = 0.0f;
+        this.f45646f = 0.0f;
     }
 }

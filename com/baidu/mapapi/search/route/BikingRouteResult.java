@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BikingRouteResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BikingRouteResult> CREATOR;
@@ -21,7 +21,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public List<BikingRouteLine> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SuggestAddrInfo f36145b;
+    public SuggestAddrInfo f36634b;
 
     static {
         InterceptResult invokeClinit;
@@ -71,7 +71,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
         ArrayList arrayList = new ArrayList();
         this.a = arrayList;
         parcel.readList(arrayList, BikingRouteLine.class.getClassLoader());
-        this.f36145b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.f36634b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -93,7 +93,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public SuggestAddrInfo getSuggestAddrInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36145b : (SuggestAddrInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36634b : (SuggestAddrInfo) invokeV.objValue;
     }
 
     public void setRouteLines(List<BikingRouteLine> list) {
@@ -106,7 +106,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, suggestAddrInfo) == null) {
-            this.f36145b = suggestAddrInfo;
+            this.f36634b = suggestAddrInfo;
         }
     }
 
@@ -115,7 +115,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
             parcel.writeList(this.a);
-            parcel.writeParcelable(this.f36145b, 1);
+            parcel.writeParcelable(this.f36634b, 1);
         }
     }
 }

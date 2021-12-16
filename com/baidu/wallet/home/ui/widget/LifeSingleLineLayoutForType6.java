@@ -14,14 +14,14 @@ import com.baidu.wallet.base.widget.GridLayout;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GridLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<BaseItemView> f52612b;
+    public List<BaseItemView> f53192b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LifeSingleLineLayoutForType6(Context context) {
@@ -41,7 +41,7 @@ public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
                 return;
             }
         }
-        this.f52612b = new ArrayList();
+        this.f53192b = new ArrayList();
     }
 
     private void a(GridLayout gridLayout) {
@@ -55,7 +55,7 @@ public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52612b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53192b : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -92,7 +92,7 @@ public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
                 LifeItemViewForType6 lifeItemViewForType6 = new LifeItemViewForType6(getContext());
                 lifeItemViewForType6.setData(dataItem, getWalletInterface());
                 this.a.addView(lifeItemViewForType6);
-                this.f52612b.add(lifeItemViewForType6);
+                this.f53192b.add(lifeItemViewForType6);
             }
         }
     }
@@ -116,6 +116,6 @@ public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
                 return;
             }
         }
-        this.f52612b = new ArrayList();
+        this.f53192b = new ArrayList();
     }
 }

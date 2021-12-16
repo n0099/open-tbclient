@@ -1,56 +1,39 @@
 package c.a.a0.a.i;
 
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import c.a.a0.a.e;
+import c.a.a0.a.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f1191b;
+    public String f1101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1192c;
+    public String f1102c;
 
-    /* renamed from: d  reason: collision with root package name */
-    public long f1193d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f1194e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f1195f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f1196g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public long f1197h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public long f1198i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public long f1199j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f1200k;
-    public String l;
-    public boolean m;
-    public StringBuilder n;
-
-    public c(String str, String str2) {
+    public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -60,102 +43,240 @@ public class c {
                 return;
             }
         }
-        this.f1195f = 1000L;
-        this.m = false;
-        this.n = new StringBuilder();
-        this.f1200k = str;
-        this.l = str2;
-        e();
+        this.a = null;
+        this.f1101b = null;
+        this.f1102c = null;
+        this.f1102c = "video_session";
+        b(c.a.a0.a.c.a());
     }
 
-    public final void a(String str, String str2) {
+    public c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.f1197h;
-            this.f1198i = currentTimeMillis;
-            this.f1199j = this.f1196g;
-            this.f1197h = 0L;
-            this.f1196g = 0L;
-            if (this.m) {
-                a(this.f1200k, String.format("%s, PeriodTime: %d, Times: %d", this.l, Long.valueOf(currentTimeMillis), Long.valueOf(this.f1199j)));
-            }
-        }
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String format = String.format("%s, Total: %d, Times: %d, Min: %d, Max: %d, Average：%f", this.l, Long.valueOf(this.f1193d), Long.valueOf(this.f1194e), Long.valueOf(this.f1192c), Long.valueOf(this.f1191b), Float.valueOf(((float) this.f1193d) / ((float) this.f1194e)));
-            if (this.m) {
-                a(this.f1200k, format);
-            }
-            return format;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.a == 0) {
-                this.a = System.currentTimeMillis();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            long currentTimeMillis = System.currentTimeMillis() - this.a;
-            this.f1193d += currentTimeMillis;
-            this.f1194e++;
-            if (currentTimeMillis > this.f1191b) {
-                this.f1191b = currentTimeMillis;
-            } else if (currentTimeMillis < this.f1192c) {
-                this.f1192c = currentTimeMillis;
-            }
-            if (this.m) {
-                if (this.n.length() > 0) {
-                    StringBuilder sb = this.n;
-                    sb.delete(0, sb.length());
-                }
-                this.n.append(this.l);
-                for (int i2 = (int) ((currentTimeMillis - 33) / 5); i2 > 0; i2--) {
-                    this.n.append('.');
-                }
-                this.n.append(currentTimeMillis);
-                a(this.f1200k, this.n.toString());
-            }
-            this.f1196g++;
-            if (this.f1195f > 0 && System.currentTimeMillis() - this.f1197h > this.f1195f) {
-                b();
-            }
-            long currentTimeMillis2 = System.currentTimeMillis();
-            this.a = currentTimeMillis2;
-            if (this.f1197h == 0) {
-                this.f1197h = currentTimeMillis2;
-                this.f1196g = 0L;
+        }
+        this.a = null;
+        this.f1101b = null;
+        this.f1102c = null;
+        this.f1102c = str;
+        b(c.a.a0.a.c.a());
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            File file = new File(str);
+            if (file.exists() && file.isFile()) {
+                file.renameTo(new File(str2));
             }
         }
     }
 
-    public void e() {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0065 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:78:0x001c */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.nio.channels.FileLock */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0093 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r3v1, types: [java.io.RandomAccessFile, java.nio.channels.FileLock] */
+    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Type inference failed for: r3v4, types: [java.nio.channels.FileLock] */
+    /* JADX WARN: Type inference failed for: r3v5 */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:50:0x0082 -> B:80:0x0085). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void d(String str, byte[] bArr, String str2) {
+        RandomAccessFile randomAccessFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = 0L;
-            this.f1193d = 0L;
-            this.f1194e = 0L;
-            this.f1191b = Long.MIN_VALUE;
-            this.f1192c = Long.MAX_VALUE;
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, bArr, str2) == null) || bArr == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        FileLock fileLock = 0;
+        fileLock = 0;
+        try {
+            try {
+                try {
+                    randomAccessFile = new RandomAccessFile(str, "rw");
+                    try {
+                    } catch (Exception e2) {
+                        e = e2;
+                        e.b("DpStatFileWriter", "FileWriter invoke write fail:", e);
+                        if (fileLock != 0) {
+                            try {
+                                fileLock.release();
+                            } catch (Exception e3) {
+                                e.b("DpStatFileWriter", "file lock release fail", e3);
+                            }
+                        }
+                        if (randomAccessFile != null) {
+                            randomAccessFile.close();
+                        }
+                        return;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    if (0 != 0) {
+                        try {
+                            fileLock.release();
+                        } catch (Exception e4) {
+                            e.b("DpStatFileWriter", "file lock release fail", e4);
+                        }
+                    }
+                    if (0 != 0) {
+                        try {
+                            fileLock.close();
+                        } catch (Exception e5) {
+                            e.b("DpStatFileWriter", "file close fail", e5);
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception e6) {
+                e = e6;
+                randomAccessFile = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (0 != 0) {
+                }
+                if (0 != 0) {
+                }
+                throw th;
+            }
+        } catch (Exception e7) {
+            e.b("DpStatFileWriter", "file close fail", e7);
+        }
+        if (randomAccessFile.length() > 10485760) {
+            try {
+                randomAccessFile.close();
+                return;
+            } catch (Exception e8) {
+                e.b("DpStatFileWriter", "file close fail", e8);
+                return;
+            }
+        }
+        fileLock = randomAccessFile.getChannel().tryLock();
+        if (fileLock != 0 && fileLock.isValid()) {
+            randomAccessFile.seek(randomAccessFile.length());
+            randomAccessFile.write(bArr);
+            if (!TextUtils.isEmpty(str2)) {
+                randomAccessFile.write(str2.getBytes());
+            }
+        }
+        if (fileLock != 0) {
+            try {
+                fileLock.release();
+            } catch (Exception e9) {
+                e.b("DpStatFileWriter", "file lock release fail", e9);
+            }
+        }
+        randomAccessFile.close();
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            File file = new File(str);
+            return file.exists() && file.isFile() && file.delete();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str);
+            return file.exists() && file.isFile();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f1101b)) {
+            return;
+        }
+        ReentrantLock reentrantLock = new ReentrantLock(true);
+        reentrantLock.lock();
+        try {
+            String str = this.a;
+            if (g(str)) {
+                String str2 = this.f1101b;
+                f(str2);
+                if (h(str, str2)) {
+                    f(str);
+                } else {
+                    f(str);
+                    c(str2, str);
+                }
+                f(str2);
+            }
+        } finally {
+            reentrantLock.unlock();
         }
     }
 
-    public void f(long j2) {
+    public void b(Context context) {
+        String c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.f1195f = j2;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (c2 = h.c(context)) == null) {
+            return;
         }
+        new File(c2).mkdirs();
+    }
+
+    public void e(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.a)) {
+            return;
+        }
+        ReentrantLock reentrantLock = new ReentrantLock(true);
+        reentrantLock.lock();
+        try {
+            try {
+                d(this.a, bArr, "\r\n");
+            } catch (AssertionError unused) {
+                e.e("DpStatFileWriter", "write data to file fail");
+            }
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    public boolean h(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            try {
+                FileInputStream fileInputStream = new FileInputStream(str);
+                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                this.f1102c.equals("live_show_session");
+                bufferedReader.close();
+                inputStreamReader.close();
+                fileInputStream.close();
+                return true;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                e.e("DpStatFileWriter", "readAndUploadLogFile failed");
+                return true;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

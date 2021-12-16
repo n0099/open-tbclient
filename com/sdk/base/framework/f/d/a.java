@@ -24,13 +24,13 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.URL;
 import java.util.Enumeration;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.d.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f61008b;
+    public static final Boolean f61589b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public class a {
                 return;
             }
         }
-        f61008b = Boolean.valueOf(f.f60988b);
+        f61589b = Boolean.valueOf(f.f61569b);
     }
 
     public a() {
@@ -198,7 +198,7 @@ public class a {
                         }
                     }
                 } catch (Throwable th) {
-                    c.b(a, th.getMessage(), f61008b);
+                    c.b(a, th.getMessage(), f61589b);
                 }
             }
             return null;

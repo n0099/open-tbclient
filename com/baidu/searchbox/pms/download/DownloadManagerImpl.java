@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 @Singleton
 @Service
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DownloadManagerImpl implements IDownloadManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class DownloadManagerImpl implements IDownloadManager {
     public Map<String, DownloadTaskExt> mTasks;
 
     /* renamed from: com.baidu.searchbox.pms.download.DownloadManagerImpl$3  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause;
         public static /* synthetic */ Interceptable $ic;
@@ -89,7 +89,7 @@ public class DownloadManagerImpl implements IDownloadManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class DownloadTaskExt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

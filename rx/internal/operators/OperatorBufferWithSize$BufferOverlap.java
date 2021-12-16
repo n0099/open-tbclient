@@ -11,23 +11,23 @@ import java.util.ArrayDeque;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final j<? super List<T>> f64359i;
+    public final j<? super List<T>> f64930i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f64360j;
+    public final int f64931j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final int f64361k;
+    public final int f64932k;
     public final ArrayDeque<List<T>> l;
     public final AtomicLong m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class BufferOverlapProducer extends AtomicBoolean implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4015894850868853147L;
@@ -57,13 +57,13 @@ public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
                 OperatorBufferWithSize$BufferOverlap operatorBufferWithSize$BufferOverlap = this.this$0;
-                if (!a.e(operatorBufferWithSize$BufferOverlap.m, j2, operatorBufferWithSize$BufferOverlap.l, operatorBufferWithSize$BufferOverlap.f64359i) || j2 == 0) {
+                if (!a.e(operatorBufferWithSize$BufferOverlap.m, j2, operatorBufferWithSize$BufferOverlap.l, operatorBufferWithSize$BufferOverlap.f64930i) || j2 == 0) {
                     return;
                 }
                 if (get() || !compareAndSet(false, true)) {
-                    operatorBufferWithSize$BufferOverlap.e(a.c(operatorBufferWithSize$BufferOverlap.f64361k, j2));
+                    operatorBufferWithSize$BufferOverlap.e(a.c(operatorBufferWithSize$BufferOverlap.f64932k, j2));
                 } else {
-                    operatorBufferWithSize$BufferOverlap.e(a.a(a.c(operatorBufferWithSize$BufferOverlap.f64361k, j2 - 1), operatorBufferWithSize$BufferOverlap.f64360j));
+                    operatorBufferWithSize$BufferOverlap.e(a.a(a.c(operatorBufferWithSize$BufferOverlap.f64932k, j2 - 1), operatorBufferWithSize$BufferOverlap.f64931j));
                 }
             }
         }

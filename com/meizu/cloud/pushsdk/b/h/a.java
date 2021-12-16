@@ -12,12 +12,12 @@ import java.net.UnknownHostException;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends SSLSocketFactory {
     public String a = "TlsSessionTicket";
 
     /* renamed from: b  reason: collision with root package name */
-    public SSLSocketFactory f60348b;
+    public SSLSocketFactory f60929b;
 
     public a(Context context) {
         SSLSessionCache sSLSessionCache;
@@ -32,10 +32,10 @@ public class a extends SSLSocketFactory {
             d a = com.meizu.cloud.pushsdk.base.a.a.a(sSLSessionCache).a("install", SSLSessionCache.class, SSLContext.class).a(sSLSessionCache, sSLSessionCache, sSLContext);
             String str = this.a;
             c.k.a.a.a.d(str, "install tls session cache " + a.a);
-            this.f60348b = sSLContext.getSocketFactory();
+            this.f60929b = sSLContext.getSocketFactory();
         } catch (Exception e3) {
             c.k.a.a.a.b(this.a, e3.getMessage());
-            this.f60348b = (SSLSocketFactory) SSLSocketFactory.getDefault();
+            this.f60929b = (SSLSocketFactory) SSLSocketFactory.getDefault();
         }
     }
 
@@ -50,36 +50,36 @@ public class a extends SSLSocketFactory {
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i2) throws IOException {
-        return a(this.f60348b.createSocket(str, i2));
+        return a(this.f60929b.createSocket(str, i2));
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i2, InetAddress inetAddress, int i3) throws IOException, UnknownHostException {
-        return a(this.f60348b.createSocket(str, i2, inetAddress, i3));
+        return a(this.f60929b.createSocket(str, i2, inetAddress, i3));
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i2) throws IOException {
-        return a(this.f60348b.createSocket(inetAddress, i2));
+        return a(this.f60929b.createSocket(inetAddress, i2));
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i2, InetAddress inetAddress2, int i3) throws IOException {
-        return a(this.f60348b.createSocket(inetAddress, i2, inetAddress2, i3));
+        return a(this.f60929b.createSocket(inetAddress, i2, inetAddress2, i3));
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException {
-        return a(this.f60348b.createSocket(socket, str, i2, z));
+        return a(this.f60929b.createSocket(socket, str, i2, z));
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getDefaultCipherSuites() {
-        return this.f60348b.getDefaultCipherSuites();
+        return this.f60929b.getDefaultCipherSuites();
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getSupportedCipherSuites() {
-        return this.f60348b.getSupportedCipherSuites();
+        return this.f60929b.getSupportedCipherSuites();
     }
 }

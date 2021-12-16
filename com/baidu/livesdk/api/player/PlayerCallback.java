@@ -1,5 +1,5 @@
 package com.baidu.livesdk.api.player;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface PlayerCallback {
     void onBufferEnd();
 

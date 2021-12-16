@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.lollipop.json.JSONException;
 import com.baidu.wallet.core.lollipop.json.JSONObject;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class c implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String M = "https://bi-sensors.duxiaoman.com";
@@ -431,7 +431,7 @@ public class c implements a {
             } else {
                 this.A = "https://www.baifubao.com";
             }
-            String optString2 = jSONObject.optString(a.f52392b);
+            String optString2 = jSONObject.optString(a.f52972b);
             if (!TextUtils.isEmpty(optString2) && P.matcher(optString2).matches()) {
                 this.C = optString2;
             } else {
@@ -451,7 +451,7 @@ public class c implements a {
                 this.D = "https://www.baifubao.com";
                 com.baidu.apollon.heartbeat.a.c().b(this.D);
             }
-            String optString5 = jSONObject.optString(a.f52395e);
+            String optString5 = jSONObject.optString(a.f52975e);
             if (!TextUtils.isEmpty(optString5) && P.matcher(optString5).matches()) {
                 this.F = optString5;
                 this.H = optString5;
@@ -463,7 +463,7 @@ public class c implements a {
                 this.J = "https://co.baifubao.com";
                 this.I = "https://qianbao.baidu.com";
             }
-            String optString6 = jSONObject.optString(a.f52396f);
+            String optString6 = jSONObject.optString(a.f52976f);
             if (!TextUtils.isEmpty(optString6) && P.matcher(optString6).matches()) {
                 this.L = optString6;
             } else {
@@ -481,19 +481,19 @@ public class c implements a {
             } else {
                 this.B = "https://www.baifubao.com";
             }
-            String optString9 = jSONObject.optString(a.f52399i);
+            String optString9 = jSONObject.optString(a.f52979i);
             if (!TextUtils.isEmpty(optString9) && P.matcher(optString9).matches()) {
                 this.ad = optString9;
             } else {
                 this.ad = "https://www.baifubao.com";
             }
-            String optString10 = jSONObject.optString(a.f52400j);
+            String optString10 = jSONObject.optString(a.f52980j);
             if (TextUtils.isEmpty(optString10) && P.matcher(optString10).matches()) {
                 this.ae = optString10;
             } else {
                 this.ae = "https://bi-sensors.duxiaoman.com";
             }
-            String optString11 = jSONObject.optString(a.f52401k);
+            String optString11 = jSONObject.optString(a.f52981k);
             if (TextUtils.isEmpty(optString11) && P.matcher(optString11).matches()) {
                 this.af = optString11;
             } else {

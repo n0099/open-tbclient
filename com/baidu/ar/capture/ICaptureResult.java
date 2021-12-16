@@ -2,7 +2,7 @@ package com.baidu.ar.capture;
 
 import android.graphics.Bitmap;
 import com.baidu.ar.face.IFaceResultData;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface ICaptureResult {
     IFaceResultData getFaceData();
 

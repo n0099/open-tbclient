@@ -11,32 +11,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BoundingBox f27621h;
+    public static final BoundingBox f27996h;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27622b;
+    public int f27997b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27623c;
+    public int f27998c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27624d;
+    public int f27999d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Mesh f27625e;
+    public Mesh f28000e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Vector3 f27626f;
+    public final Vector3 f28001f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Vector3 f27627g;
+    public final Vector3 f28002g;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class b {
                 return;
             }
         }
-        f27621h = new BoundingBox();
+        f27996h = new BoundingBox();
     }
 
     public b() {
@@ -67,14 +67,14 @@ public class b {
                 return;
             }
         }
-        this.f27626f = new Vector3();
-        this.f27627g = new Vector3();
+        this.f28001f = new Vector3();
+        this.f28002g = new Vector3();
     }
 
     public boolean a(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? bVar == this || (bVar != null && bVar.f27625e == this.f27625e && bVar.f27622b == this.f27622b && bVar.f27623c == this.f27623c && bVar.f27624d == this.f27624d) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? bVar == this || (bVar != null && bVar.f28000e == this.f28000e && bVar.f27997b == this.f27997b && bVar.f27998c == this.f27998c && bVar.f27999d == this.f27999d) : invokeL.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -98,10 +98,10 @@ public class b {
     public void update() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f27625e.f(f27621h, this.f27623c, this.f27624d);
-            f27621h.getCenter(this.f27626f);
-            f27621h.getDimensions(this.f27627g).m23scl(0.5f);
-            this.f27627g.len();
+            this.f28000e.f(f27996h, this.f27998c, this.f27999d);
+            f27996h.getCenter(this.f28001f);
+            f27996h.getDimensions(this.f28002g).m23scl(0.5f);
+            this.f28002g.len();
         }
     }
 }

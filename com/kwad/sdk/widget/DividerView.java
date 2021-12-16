@@ -16,23 +16,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DividerView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f59673b = 1;
+    public static int f60254b = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f59674c;
+    public Paint f60255c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f59675d;
+    public int f60256d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f59676e;
+    public int f60257e;
 
     static {
         InterceptResult invokeClinit;
@@ -94,16 +94,16 @@ public class DividerView extends View {
             int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ksad_DividerView_ksad_dashGap, 5);
             int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ksad_DividerView_ksad_dashLength, 5);
             int dimensionPixelSize3 = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ksad_DividerView_ksad_dashThickness, 3);
-            this.f59676e = obtainStyledAttributes.getColor(R.styleable.ksad_DividerView_ksad_color, -16777216);
-            this.f59675d = obtainStyledAttributes.getInt(R.styleable.ksad_DividerView_ksad_orientation, a);
+            this.f60257e = obtainStyledAttributes.getColor(R.styleable.ksad_DividerView_ksad_color, -16777216);
+            this.f60256d = obtainStyledAttributes.getInt(R.styleable.ksad_DividerView_ksad_orientation, a);
             obtainStyledAttributes.recycle();
             Paint paint = new Paint();
-            this.f59674c = paint;
+            this.f60255c = paint;
             paint.setAntiAlias(true);
-            this.f59674c.setColor(this.f59676e);
-            this.f59674c.setStyle(Paint.Style.STROKE);
-            this.f59674c.setStrokeWidth(dimensionPixelSize3);
-            this.f59674c.setPathEffect(new DashPathEffect(new float[]{dimensionPixelSize2, dimensionPixelSize}, 0.0f));
+            this.f60255c.setColor(this.f60257e);
+            this.f60255c.setStyle(Paint.Style.STROKE);
+            this.f60255c.setStrokeWidth(dimensionPixelSize3);
+            this.f60255c.setPathEffect(new DashPathEffect(new float[]{dimensionPixelSize2, dimensionPixelSize}, 0.0f));
         } catch (Throwable th) {
             obtainStyledAttributes.recycle();
             throw th;
@@ -120,18 +120,18 @@ public class DividerView extends View {
         float f3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            if (this.f59675d == a) {
+            if (this.f60256d == a) {
                 height = getHeight() * 0.5f;
                 f3 = 0.0f;
                 width = getWidth();
-                paint = this.f59674c;
+                paint = this.f60255c;
                 canvas2 = canvas;
                 f2 = height;
             } else {
                 width = getWidth() * 0.5f;
                 f2 = 0.0f;
                 height = getHeight();
-                paint = this.f59674c;
+                paint = this.f60255c;
                 canvas2 = canvas;
                 f3 = width;
             }
@@ -142,8 +142,8 @@ public class DividerView extends View {
     public void setDividerColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f59676e = i2;
-            this.f59674c.setColor(i2);
+            this.f60257e = i2;
+            this.f60255c.setColor(i2);
             postInvalidate();
         }
     }

@@ -27,26 +27,26 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import org.json.JSONException;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class HomeDataCacheManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f52569c;
+    public static String f53149c;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f52570b;
+    public final String f53150b;
 
     /* renamed from: com.baidu.wallet.home.storage.HomeDataCacheManager$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static HomeDataCacheManager a;
@@ -182,10 +182,10 @@ public class HomeDataCacheManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             synchronized (this) {
-                if (TextUtils.isEmpty(f52569c)) {
-                    f52569c = PayPreferenceManager.getNewPpKey(context);
+                if (TextUtils.isEmpty(f53149c)) {
+                    f53149c = PayPreferenceManager.getNewPpKey(context);
                 }
-                str = f52569c;
+                str = f53149c;
             }
             return str;
         }
@@ -455,7 +455,7 @@ public class HomeDataCacheManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             synchronized (this) {
-                f52569c = PayPreferenceManager.getNewPpKey(context);
+                f53149c = PayPreferenceManager.getNewPpKey(context);
             }
         }
     }
@@ -474,6 +474,6 @@ public class HomeDataCacheManager {
             }
         }
         this.a = "wallet_home_";
-        this.f52570b = StringUtil.NULL_STRING;
+        this.f53150b = StringUtil.NULL_STRING;
     }
 }

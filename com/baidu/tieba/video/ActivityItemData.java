@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ActivityItemData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ActivityItemData> CREATOR;
@@ -27,7 +27,7 @@ public class ActivityItemData implements Serializable, Parcelable {
     public ArrayList<UserItemData> user_list;
     public String video_num;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a implements Parcelable.Creator<ActivityItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

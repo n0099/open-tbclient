@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.appdownloader.e.d;
 import com.ss.android.socialbase.downloader.constants.e;
 import com.ss.android.socialbase.downloader.downloader.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends Fragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class a extends Fragment {
             String packageName = e2.getPackageName();
             if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
                 String lowerCase = Build.MANUFACTURER.toLowerCase();
-                if (lowerCase.contains(e.f61669c)) {
+                if (lowerCase.contains(e.f62250c)) {
                     Intent intent = new Intent();
                     intent.putExtra("packageName", packageName);
                     intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));

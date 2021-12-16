@@ -19,16 +19,16 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class ReflectUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f55191b;
+    public final boolean f55771b;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class NULL {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,16 +50,16 @@ public final class ReflectUtils {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class a implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f55192e;
+        public final /* synthetic */ boolean f55772e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ReflectUtils f55193f;
+        public final /* synthetic */ ReflectUtils f55773f;
 
         public a(ReflectUtils reflectUtils, boolean z) {
             Interceptable interceptable = $ic;
@@ -76,8 +76,8 @@ public final class ReflectUtils {
                     return;
                 }
             }
-            this.f55193f = reflectUtils;
-            this.f55192e = z;
+            this.f55773f = reflectUtils;
+            this.f55772e = z;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -87,10 +87,10 @@ public final class ReflectUtils {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) {
                 String name = method.getName();
                 try {
-                    return ReflectUtils.on(this.f55193f.a).call(name, objArr).get();
+                    return ReflectUtils.on(this.f55773f.a).call(name, objArr).get();
                 } catch (RuntimeException e2) {
-                    if (this.f55192e) {
-                        Map map = (Map) this.f55193f.a;
+                    if (this.f55772e) {
+                        Map map = (Map) this.f55773f.a;
                         int length = objArr == null ? 0 : objArr.length;
                         if (length == 0 && name.startsWith("get")) {
                             return map.get(ReflectUtils.k(name.substring(3)));
@@ -126,7 +126,7 @@ public final class ReflectUtils {
             }
         }
         this.a = cls;
-        this.f55191b = true;
+        this.f55771b = true;
     }
 
     public static ReflectUtils a(Constructor<?> constructor, Object... objArr) throws RuntimeException {
@@ -344,7 +344,7 @@ public final class ReflectUtils {
             Class<?> type = type();
             do {
                 for (Field field : type.getDeclaredFields()) {
-                    if ((!this.f55191b) ^ Modifier.isStatic(field.getModifiers())) {
+                    if ((!this.f55771b) ^ Modifier.isStatic(field.getModifiers())) {
                         String name = field.getName();
                         if (!linkedHashMap.containsKey(name)) {
                             linkedHashMap.put(name, field(name));
@@ -492,7 +492,7 @@ public final class ReflectUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.f55191b) {
+            if (this.f55771b) {
                 return (Class) this.a;
             }
             return this.a.getClass();
@@ -572,7 +572,7 @@ public final class ReflectUtils {
             }
         }
         this.a = obj;
-        this.f55191b = false;
+        this.f55771b = false;
     }
 
     public static ReflectUtils on(Object obj) {

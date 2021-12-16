@@ -24,34 +24,34 @@ public class m {
     public BdTypeRecyclerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j f2985b;
+    public j f2949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2986c;
+    public int f2950c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SparseIntArray f2987d;
+    public SparseIntArray f2951d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2988e;
+    public int f2952e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f2989f;
+    public float f2953f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f2990g;
+    public float f2954g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f2991h;
+    public boolean f2955h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SparseArray<ValueAnimator> f2992i;
+    public SparseArray<ValueAnimator> f2956i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SparseIntArray f2993j;
+    public SparseIntArray f2957j;
 
     /* renamed from: k  reason: collision with root package name */
-    public LinearLayoutManager f2994k;
+    public LinearLayoutManager f2958k;
     public HashSet<Integer> l;
     public HashSet<Integer> m;
 
@@ -61,13 +61,13 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f2995e;
+        public final /* synthetic */ View f2959e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f2996f;
+        public final /* synthetic */ int f2960f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ m f2997g;
+        public final /* synthetic */ m f2961g;
 
         public a(m mVar, View view, int i2) {
             Interceptable interceptable = $ic;
@@ -84,16 +84,16 @@ public class m {
                     return;
                 }
             }
-            this.f2997g = mVar;
-            this.f2995e = view;
-            this.f2996f = i2;
+            this.f2961g = mVar;
+            this.f2959e = view;
+            this.f2960f = i2;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f2997g.q(this.f2995e, this.f2996f, ((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f2961g.q(this.f2959e, this.f2960f, ((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -104,16 +104,16 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f2998e;
+        public final /* synthetic */ int f2962e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f2999f;
+        public final /* synthetic */ View f2963f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f3000g;
+        public final /* synthetic */ int f2964g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ m f3001h;
+        public final /* synthetic */ m f2965h;
 
         public b(m mVar, int i2, View view, int i3) {
             Interceptable interceptable = $ic;
@@ -130,19 +130,19 @@ public class m {
                     return;
                 }
             }
-            this.f3001h = mVar;
-            this.f2998e = i2;
-            this.f2999f = view;
-            this.f3000g = i3;
+            this.f2965h = mVar;
+            this.f2962e = i2;
+            this.f2963f = view;
+            this.f2964g = i3;
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.f3001h.f2992i.delete(this.f2998e);
-                this.f3001h.f2993j.delete(this.f2998e);
-                this.f3001h.q(this.f2999f, this.f3000g, 0.0f);
+                this.f2965h.f2956i.delete(this.f2962e);
+                this.f2965h.f2957j.delete(this.f2962e);
+                this.f2965h.q(this.f2963f, this.f2964g, 0.0f);
             }
         }
 
@@ -150,10 +150,10 @@ public class m {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f3001h.f2992i.delete(this.f2998e);
-                this.f3001h.f2993j.delete(this.f2998e);
-                this.f3001h.f2987d.delete(this.f2998e);
-                this.f3001h.q(this.f2999f, this.f3000g, 0.0f);
+                this.f2965h.f2956i.delete(this.f2962e);
+                this.f2965h.f2957j.delete(this.f2962e);
+                this.f2965h.f2951d.delete(this.f2962e);
+                this.f2965h.q(this.f2963f, this.f2964g, 0.0f);
             }
         }
 
@@ -187,24 +187,24 @@ public class m {
                 return;
             }
         }
-        this.f2991h = false;
+        this.f2955h = false;
         this.l = new HashSet<>();
         this.m = new HashSet<>();
-        this.f2985b = jVar;
-        this.f2987d = new SparseIntArray();
-        this.f2992i = new SparseArray<>();
-        this.f2993j = new SparseIntArray();
+        this.f2949b = jVar;
+        this.f2951d = new SparseIntArray();
+        this.f2956i = new SparseArray<>();
+        this.f2957j = new SparseIntArray();
     }
 
     public void e(BdTypeRecyclerView bdTypeRecyclerView, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, bdTypeRecyclerView, i2) == null) {
             this.a = bdTypeRecyclerView;
-            this.f2986c = i2;
+            this.f2950c = i2;
             if (bdTypeRecyclerView == null || !(bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager)) {
                 return;
             }
-            this.f2994k = (LinearLayoutManager) bdTypeRecyclerView.getLayoutManager();
+            this.f2958k = (LinearLayoutManager) bdTypeRecyclerView.getLayoutManager();
         }
     }
 
@@ -271,7 +271,7 @@ public class m {
             if (view == null) {
                 return 0.0f;
             }
-            return this.f2986c == 2 ? view.getTranslationY() : view.getTranslationX();
+            return this.f2950c == 2 ? view.getTranslationY() : view.getTranslationX();
         }
         return invokeL.floatValue;
     }
@@ -284,10 +284,10 @@ public class m {
         float f2;
         BdTypeRecyclerView bdTypeRecyclerView3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (bdTypeRecyclerView = this.a) == null || this.f2994k == null || this.f2988e == 0 || (h2 = h((childAdapterPosition = bdTypeRecyclerView.getChildAdapterPosition(view)))) < 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (bdTypeRecyclerView = this.a) == null || this.f2958k == null || this.f2952e == 0 || (h2 = h((childAdapterPosition = bdTypeRecyclerView.getChildAdapterPosition(view)))) < 0) {
             return;
         }
-        if (childAdapterPosition <= this.f2994k.findFirstVisibleItemPosition()) {
+        if (childAdapterPosition <= this.f2958k.findFirstVisibleItemPosition()) {
             float i2 = this.a.getChildAt(1) != null ? i(this.a.getChildAt(1)) : 0.0f;
             int h3 = h(childAdapterPosition + 1);
             if (h3 < 0) {
@@ -296,11 +296,11 @@ public class m {
             if (h3 == h2) {
                 r(view, i2);
             } else {
-                float f3 = -this.f2987d.get(h2, 0);
+                float f3 = -this.f2951d.get(h2, 0);
                 if (f3 != 0.0f) {
-                    this.f2989f = f3;
+                    this.f2953f = f3;
                 } else {
-                    f3 = this.f2989f;
+                    f3 = this.f2953f;
                 }
                 r(view, f3 + i2);
             }
@@ -317,11 +317,11 @@ public class m {
             if (h4 == h2) {
                 r(view, f2);
             } else {
-                float f4 = -this.f2987d.get(h2, 0);
+                float f4 = -this.f2951d.get(h2, 0);
                 if (f4 != 0.0f) {
-                    this.f2990g = f4;
+                    this.f2954g = f4;
                 } else {
-                    f4 = this.f2990g;
+                    f4 = this.f2954g;
                 }
                 r(view, f4 + f2);
             }
@@ -337,12 +337,12 @@ public class m {
         r(view, 0.0f);
         int h2 = h(this.a.getChildAdapterPosition(view));
         if (h2 >= 0 && g(h2, 0, true) == -1) {
-            this.f2987d.delete(h2);
-            if (this.f2992i.get(h2) != null) {
-                this.f2992i.get(h2).cancel();
+            this.f2951d.delete(h2);
+            if (this.f2956i.get(h2) != null) {
+                this.f2956i.get(h2).cancel();
             }
-            this.f2992i.delete(h2);
-            this.f2993j.delete(h2);
+            this.f2956i.delete(h2);
+            this.f2957j.delete(h2);
         }
     }
 
@@ -353,30 +353,30 @@ public class m {
         }
         if (i2 < 0) {
             if (i3 < i4) {
-                float i6 = i(view) + (i2 * this.f2985b.l());
-                if (i6 > (-this.f2987d.get(i5)) + f(i5, i3, true)) {
+                float i6 = i(view) + (i2 * this.f2949b.l());
+                if (i6 > (-this.f2951d.get(i5)) + f(i5, i3, true)) {
                     q(view, i3, i6);
                 } else {
                     m(view, i3);
                 }
             } else if (i3 > i4) {
-                float i7 = i(view) + (i2 * this.f2985b.e());
-                if (i7 > (-this.f2987d.get(i5)) + f(i5, i3, false)) {
+                float i7 = i(view) + (i2 * this.f2949b.e());
+                if (i7 > (-this.f2951d.get(i5)) + f(i5, i3, false)) {
                     q(view, i3, i7);
                 } else {
                     m(view, i3);
                 }
             }
         } else if (i3 > i4) {
-            float i8 = i(view) + (i2 * this.f2985b.l());
-            if (i8 < (-this.f2987d.get(i5)) + f(i5, i3, false)) {
+            float i8 = i(view) + (i2 * this.f2949b.l());
+            if (i8 < (-this.f2951d.get(i5)) + f(i5, i3, false)) {
                 q(view, i3, i8);
             } else {
                 m(view, i3);
             }
         } else if (i3 < i4) {
-            float i9 = i(view) + (i2 * this.f2985b.e());
-            if (i9 < (-this.f2987d.get(i5)) + f(i5, i3, true)) {
+            float i9 = i(view) + (i2 * this.f2949b.e());
+            if (i9 < (-this.f2951d.get(i5)) + f(i5, i3, true)) {
                 q(view, i3, i9);
             } else {
                 m(view, i3);
@@ -390,7 +390,7 @@ public class m {
         if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i2) == null) || view == null || (h2 = h(i2)) < 0) {
             return;
         }
-        ValueAnimator valueAnimator = this.f2992i.get(h2);
+        ValueAnimator valueAnimator = this.f2956i.get(h2);
         if (valueAnimator == null) {
             if (Math.abs(i(view)) < 0.1f) {
                 q(view, i2, 0.0f);
@@ -398,11 +398,11 @@ public class m {
             }
             ValueAnimator ofFloat = ValueAnimator.ofFloat(i(view), 0.0f);
             ofFloat.setInterpolator(new k(1.0f));
-            ofFloat.setDuration(this.f2985b.a());
+            ofFloat.setDuration(this.f2949b.a());
             ofFloat.addUpdateListener(new a(this, view, i2));
             ofFloat.addListener(new b(this, h2, view, i2));
-            this.f2992i.append(h2, ofFloat);
-            this.f2993j.append(h2, (int) i(view));
+            this.f2956i.append(h2, ofFloat);
+            this.f2957j.append(h2, (int) i(view));
             ofFloat.start();
             return;
         }
@@ -410,8 +410,8 @@ public class m {
             valueAnimator.start();
         }
         float i3 = i(view);
-        if (Math.abs(i3) > Math.abs(this.f2993j.get(h2)) + this.f2985b.b()) {
-            this.f2993j.append(h2, (int) i3);
+        if (Math.abs(i3) > Math.abs(this.f2957j.get(h2)) + this.f2949b.b()) {
+            this.f2957j.append(h2, (int) i3);
             valueAnimator.setFloatValues(i3, 0.0f);
             valueAnimator.cancel();
             valueAnimator.start();
@@ -440,7 +440,7 @@ public class m {
         int h2;
         int h3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(1048586, this, i2, i3, i4) == null) || this.a == null || (linearLayoutManager = this.f2994k) == null || this.f2988e != 1 || this.f2991h) {
+        if (!(interceptable == null || interceptable.invokeIII(1048586, this, i2, i3, i4) == null) || this.a == null || (linearLayoutManager = this.f2958k) == null || this.f2952e != 1 || this.f2955h) {
             return;
         }
         int findFirstVisibleItemPosition = i4 - linearLayoutManager.findFirstVisibleItemPosition();
@@ -449,7 +449,7 @@ public class m {
             return;
         }
         this.l.add(Integer.valueOf(h4));
-        if (this.f2986c == 2) {
+        if (this.f2950c == 2) {
             i2 = i3;
         }
         int childCount = this.a.getChildCount();
@@ -476,14 +476,14 @@ public class m {
         if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || this.a == null) {
             return;
         }
-        this.f2988e = i2;
+        this.f2952e = i2;
         if (i2 == 0) {
-            this.f2987d.clear();
+            this.f2951d.clear();
             n();
         } else if (i2 == 2) {
             n();
         } else if (i2 == 1) {
-            this.f2987d.clear();
+            this.f2951d.clear();
             n();
         }
     }
@@ -493,7 +493,7 @@ public class m {
         if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{view, Integer.valueOf(i2), Float.valueOf(f2)}) == null) || view == null) {
             return;
         }
-        if (this.f2986c == 2) {
+        if (this.f2950c == 2) {
             CardLinkageManager.INSTANCE.translationY(this.a, i2, f2);
         } else {
             view.setTranslationX(f2);
@@ -505,7 +505,7 @@ public class m {
         if (!(interceptable == null || interceptable.invokeLF(1048589, this, view, f2) == null) || view == null) {
             return;
         }
-        if (this.f2986c == 2) {
+        if (this.f2950c == 2) {
             view.setTranslationY(f2);
         } else {
             view.setTranslationX(f2);
@@ -517,27 +517,27 @@ public class m {
         if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i2)}) == null) || this.a == null) {
             return;
         }
-        if (this.f2986c == 2) {
+        if (this.f2950c == 2) {
             f2 = f3;
         }
         int i3 = 1;
-        if (Math.abs(f2) < this.f2985b.i()) {
-            this.f2991h = true;
+        if (Math.abs(f2) < this.f2949b.i()) {
+            this.f2955h = true;
             n();
             return;
         }
-        this.f2991h = false;
-        if (Math.abs(f2) > this.f2985b.h()) {
-            f2 = f2 > 0.0f ? this.f2985b.h() : -this.f2985b.h();
+        this.f2955h = false;
+        if (Math.abs(f2) > this.f2949b.h()) {
+            f2 = f2 > 0.0f ? this.f2949b.h() : -this.f2949b.h();
         }
-        this.f2987d.clear();
-        float f4 = this.f2985b.f() * f2;
+        this.f2951d.clear();
+        float f4 = this.f2949b.f() * f2;
         int h2 = h(i2);
         if (h2 < 0) {
             return;
         }
         if (f2 < 0.0f) {
-            float g2 = this.f2985b.g();
+            float g2 = this.f2949b.g();
             int i4 = 1;
             while (true) {
                 int i5 = h2 - i4;
@@ -546,14 +546,14 @@ public class m {
                 if (f5 > 0.0f) {
                     break;
                 }
-                float c2 = (f5 / this.f2985b.c()) + this.f2987d.get(i5);
-                if (Math.abs(c2) > this.f2985b.d()) {
-                    c2 = -this.f2985b.d();
+                float c2 = (f5 / this.f2949b.c()) + this.f2951d.get(i5);
+                if (Math.abs(c2) > this.f2949b.d()) {
+                    c2 = -this.f2949b.d();
                 }
-                this.f2987d.append(i5, (int) c2);
+                this.f2951d.append(i5, (int) c2);
                 i4++;
             }
-            float g3 = this.f2985b.g();
+            float g3 = this.f2949b.g();
             while (true) {
                 int i6 = h2 + i3;
                 float f6 = (i3 * g3) + f4;
@@ -561,15 +561,15 @@ public class m {
                 if (f6 > 0.0f) {
                     return;
                 }
-                float j2 = (f6 / this.f2985b.j()) + this.f2987d.get(i6);
-                if (Math.abs(j2) > this.f2985b.k()) {
-                    j2 = -this.f2985b.k();
+                float j2 = (f6 / this.f2949b.j()) + this.f2951d.get(i6);
+                if (Math.abs(j2) > this.f2949b.k()) {
+                    j2 = -this.f2949b.k();
                 }
-                this.f2987d.append(i6, (int) j2);
+                this.f2951d.append(i6, (int) j2);
                 i3++;
             }
         } else {
-            float g4 = this.f2985b.g();
+            float g4 = this.f2949b.g();
             int i7 = 1;
             while (true) {
                 int i8 = h2 - i7;
@@ -578,14 +578,14 @@ public class m {
                 if (f7 < 0.0f) {
                     break;
                 }
-                float j3 = (f7 / this.f2985b.j()) + this.f2987d.get(i8);
-                if (Math.abs(j3) > this.f2985b.k()) {
-                    j3 = this.f2985b.k();
+                float j3 = (f7 / this.f2949b.j()) + this.f2951d.get(i8);
+                if (Math.abs(j3) > this.f2949b.k()) {
+                    j3 = this.f2949b.k();
                 }
-                this.f2987d.append(i8, (int) j3);
+                this.f2951d.append(i8, (int) j3);
                 i7++;
             }
-            float g5 = this.f2985b.g();
+            float g5 = this.f2949b.g();
             while (true) {
                 int i9 = h2 + i3;
                 float f8 = f4 - (i3 * g5);
@@ -593,11 +593,11 @@ public class m {
                 if (f8 < 0.0f) {
                     return;
                 }
-                float c3 = (f8 / this.f2985b.c()) + this.f2987d.get(i9);
-                if (Math.abs(c3) > this.f2985b.d()) {
-                    c3 = this.f2985b.d();
+                float c3 = (f8 / this.f2949b.c()) + this.f2951d.get(i9);
+                if (Math.abs(c3) > this.f2949b.d()) {
+                    c3 = this.f2949b.d();
                 }
-                this.f2987d.append(i9, (int) c3);
+                this.f2951d.append(i9, (int) c3);
                 i3++;
             }
         }

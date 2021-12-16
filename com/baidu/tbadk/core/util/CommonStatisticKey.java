@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class CommonStatisticKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FRIEND_ROOM_CARD_CLICK = "c14008";
@@ -142,6 +142,8 @@ public class CommonStatisticKey {
     public static final String KEY_TIE_PLUS_DOWNLOAD_FINISHED = "c14395";
     public static final String KEY_TIE_PLUS_RICH_TEXT_CLICK = "c14297";
     public static final String KEY_TIE_PLUS_RICH_TEXT_EXPOSE = "c14296";
+    public static final String KEY_TIE_PLUS_WECHAT_DIALOG_CLICK = "c14481";
+    public static final String KEY_TIE_PLUS_WECHAT_DIALOG_EXPOSE = "c14480";
     public static final String KEY_TOAST_DOWNLOAD_MANAGER_CLICK = "c14362";
     public static final String KEY_UEG_POST_CLICKED = "c14048";
     public static final String KEY_VIDEO_EASTER_EGG_REPLAY = "c13044";
@@ -185,7 +187,7 @@ public class CommonStatisticKey {
     public static final String kEY_TIE_PLUS_DIAGLO_CLICK = "c14299";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class Transmitthread {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OBJ_TYPE_PB = "2";

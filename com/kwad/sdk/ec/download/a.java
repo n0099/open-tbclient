@@ -28,7 +28,7 @@ import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.utils.an;
 import com.kwad.sdk.utils.i;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,20 +36,20 @@ public class a implements c {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final AdTemplate f58419b;
+    public final AdTemplate f59000b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public final AdInfo f58420c;
+    public final AdInfo f59001c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsAppDownloadListener f58421d;
+    public KsAppDownloadListener f59002d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58422e;
+    public boolean f59003e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f58423f;
+    public final boolean f59004f;
 
     public a(@NonNull AdTemplate adTemplate, KsAppDownloadListener ksAppDownloadListener) {
         Interceptable interceptable = $ic;
@@ -66,12 +66,12 @@ public class a implements c {
                 return;
             }
         }
-        this.f58419b = adTemplate;
-        this.f58420c = d.j(adTemplate);
-        DownloadStatusManager.a().a(this, this.f58419b);
-        DownloadStatusManager.a().a(this.f58419b);
-        this.f58423f = d.j(this.f58419b).downloadSafeInfo.downloadPauseEnable;
-        this.f58421d = ksAppDownloadListener;
+        this.f59000b = adTemplate;
+        this.f59001c = d.j(adTemplate);
+        DownloadStatusManager.a().a(this, this.f59000b);
+        DownloadStatusManager.a().a(this.f59000b);
+        this.f59004f = d.j(this.f59000b).downloadSafeInfo.downloadPauseEnable;
+        this.f59002d = ksAppDownloadListener;
     }
 
     private int b(Context context) {
@@ -87,10 +87,10 @@ public class a implements c {
     private void f() {
         KsAppDownloadListener ksAppDownloadListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (ksAppDownloadListener = this.f58421d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (ksAppDownloadListener = this.f59002d) == null) {
             return;
         }
-        AdInfo adInfo = this.f58420c;
+        AdInfo adInfo = this.f59001c;
         int i2 = adInfo.progress;
         int i3 = adInfo.status;
         if (i3 == 0) {
@@ -126,37 +126,37 @@ public class a implements c {
         AdDownloadProxy proxyForDownload;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            String str = this.f58420c.adBaseInfo.appPackageName;
+            String str = this.f59001c.adBaseInfo.appPackageName;
             Context context = KsAdSDKImpl.get().getContext();
             if (context == null) {
                 return;
             }
             if (ag.a(context, str)) {
-                this.f58420c.status = 12;
+                this.f59001c.status = 12;
                 return;
             }
-            AdInfo adInfo = this.f58420c;
+            AdInfo adInfo = this.f59001c;
             if (adInfo.status == 12) {
                 adInfo.status = 0;
                 adInfo.progress = 0;
             }
-            AdInfo adInfo2 = this.f58420c;
+            AdInfo adInfo2 = this.f59001c;
             if (adInfo2.status == 8) {
                 String str2 = adInfo2.downloadFilePath;
                 if (TextUtils.isEmpty(str2) || !new File(str2).exists()) {
-                    AdInfo adInfo3 = this.f58420c;
+                    AdInfo adInfo3 = this.f59001c;
                     adInfo3.status = 0;
                     adInfo3.progress = 0;
                 }
             }
-            if (this.f58420c.status != 0 || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
+            if (this.f59001c.status != 0 || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
                 return;
             }
-            String downloadFilePath = proxyForDownload.getDownloadFilePath(DownloadParams.transform(this.f58420c));
+            String downloadFilePath = proxyForDownload.getDownloadFilePath(DownloadParams.transform(this.f59001c));
             if (TextUtils.isEmpty(downloadFilePath) || !new File(downloadFilePath).exists()) {
                 return;
             }
-            AdInfo adInfo4 = this.f58420c;
+            AdInfo adInfo4 = this.f59001c;
             adInfo4.downloadFilePath = downloadFilePath;
             adInfo4.status = 8;
         }
@@ -169,7 +169,7 @@ public class a implements c {
             return;
         }
         if (b.a(context)) {
-            com.kwad.sdk.core.download.d.a(context, this.f58420c, Build.VERSION.SDK_INT >= 26 && an.a());
+            com.kwad.sdk.core.download.d.a(context, this.f59001c, Build.VERSION.SDK_INT >= 26 && an.a());
         } else {
             com.kwad.sdk.core.d.a.e("ApkDownloadHelper", "no network while download app");
         }
@@ -181,7 +181,7 @@ public class a implements c {
         if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (context = KsAdSDKImpl.get().getContext()) == null) {
             return;
         }
-        com.kwad.sdk.core.download.d.a(context, this.f58420c.downloadId);
+        com.kwad.sdk.core.download.d.a(context, this.f59001c.downloadId);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -191,7 +191,7 @@ public class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             g();
-            switch (this.f58420c.status) {
+            switch (this.f59001c.status) {
                 case 0:
                 case 1:
                 case 4:
@@ -202,7 +202,7 @@ public class a implements c {
                     break;
                 case 2:
                 case 3:
-                    if (!this.f58422e || !this.f58423f) {
+                    if (!this.f59003e || !this.f59004f) {
                         i2 = 1;
                         break;
                     } else {
@@ -226,7 +226,7 @@ public class a implements c {
                     i2 = 0;
                     break;
             }
-            this.f58422e = false;
+            this.f59003e = false;
             return i2;
         }
         return invokeL.intValue;
@@ -236,14 +236,14 @@ public class a implements c {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58420c.downloadId : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59001c.downloadId : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.core.download.c
     public void a(String str, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, str, i2, i3, i4) == null) && this.f58420c.downloadId.equals(str)) {
-            AdInfo adInfo = this.f58420c;
+        if ((interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, str, i2, i3, i4) == null) && this.f59001c.downloadId.equals(str)) {
+            AdInfo adInfo = this.f59001c;
             adInfo.status = 3;
             adInfo.progress = i2;
             adInfo.soFarBytes = i3;
@@ -283,13 +283,13 @@ public class a implements c {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.sdk.home.download.a.a().b(this.a.f58419b);
-                        com.kwad.sdk.home.download.a.a().c(this.a.f58419b);
+                        com.kwad.sdk.home.download.a.a().b(this.a.f59000b);
+                        com.kwad.sdk.home.download.a.a().c(this.a.f59000b);
                     }
                 }
             });
-            com.kwad.sdk.core.a.a().d(d.j(this.f58419b).downloadId);
-            this.f58420c.status = 12;
+            com.kwad.sdk.core.a.a().d(d.j(this.f59000b).downloadId);
+            this.f59001c.status = 12;
             f();
         }
     }
@@ -297,8 +297,8 @@ public class a implements c {
     @Override // com.kwad.sdk.core.download.c
     public void a(String str, int i2, String str2, f fVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(1048580, this, str, i2, str2, fVar) == null) && this.f58420c.downloadId.equals(str)) {
-            this.f58420c.status = 7;
+        if ((interceptable == null || interceptable.invokeLILL(1048580, this, str, i2, str2, fVar) == null) && this.f59001c.downloadId.equals(str)) {
+            this.f59001c.status = 7;
             this.a = str2;
             f();
         }
@@ -307,8 +307,8 @@ public class a implements c {
     @Override // com.kwad.sdk.core.download.c
     public void a(String str, f fVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, fVar) == null) && this.f58420c.downloadId.equals(str)) {
-            AdInfo adInfo = this.f58420c;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, fVar) == null) && this.f59001c.downloadId.equals(str)) {
+            AdInfo adInfo = this.f59001c;
             if (adInfo.status != 1) {
                 adInfo.status = 1;
             }
@@ -319,8 +319,8 @@ public class a implements c {
     @Override // com.kwad.sdk.core.download.c
     public void a(String str, String str2, f fVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, fVar) == null) && this.f58420c.downloadId.equals(str)) {
-            AdInfo adInfo = this.f58420c;
+        if ((interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, fVar) == null) && this.f59001c.downloadId.equals(str)) {
+            AdInfo adInfo = this.f59001c;
             adInfo.downloadFilePath = str2;
             adInfo.progress = 100;
             adInfo.status = 8;
@@ -354,14 +354,14 @@ public class a implements c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f58420c.adBaseInfo.appPackageName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59001c.adBaseInfo.appPackageName : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.core.download.c
     public void b(String str, f fVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, fVar) == null) && this.f58420c.downloadId.equals(str)) {
-            this.f58420c.status = 4;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, fVar) == null) && this.f59001c.downloadId.equals(str)) {
+            this.f59001c.status = 4;
             f();
         }
     }
@@ -396,12 +396,12 @@ public class a implements c {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.sdk.home.download.a.a().d(this.a.f58419b);
+                        com.kwad.sdk.home.download.a.a().d(this.a.f59000b);
                     }
                 }
             });
-            if (ag.c(KsAdSDKImpl.get().getContext(), com.kwad.sdk.core.response.a.a.v(this.f58420c))) {
-                com.kwad.sdk.core.report.a.e(this.f58419b);
+            if (ag.c(KsAdSDKImpl.get().getContext(), com.kwad.sdk.core.response.a.a.v(this.f59001c))) {
+                com.kwad.sdk.core.report.a.e(this.f59000b);
             }
         }
     }
@@ -409,8 +409,8 @@ public class a implements c {
     @Override // com.kwad.sdk.core.download.c
     public void c(String str, f fVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048587, this, str, fVar) == null) && this.f58420c.downloadId.equals(str)) {
-            this.f58420c.status = 2;
+        if ((interceptable == null || interceptable.invokeLL(1048587, this, str, fVar) == null) && this.f59001c.downloadId.equals(str)) {
+            this.f59001c.status = 2;
             f();
         }
     }
@@ -418,7 +418,7 @@ public class a implements c {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            String str = this.f58420c.downloadFilePath;
+            String str = this.f59001c.downloadFilePath;
             Context context = KsAdSDKImpl.get().getContext();
             if (context != null && !TextUtils.isEmpty(str)) {
                 if (a(context, str)) {
@@ -434,8 +434,8 @@ public class a implements c {
     @Override // com.kwad.sdk.core.download.c
     public void d(String str, f fVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048589, this, str, fVar) == null) && this.f58420c.downloadId.equals(str)) {
-            this.f58420c.status = 5;
+        if ((interceptable == null || interceptable.invokeLL(1048589, this, str, fVar) == null) && this.f59001c.downloadId.equals(str)) {
+            this.f59001c.status = 5;
             f();
         }
     }
@@ -443,7 +443,7 @@ public class a implements c {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f58421d = null;
+            this.f59002d = null;
             DownloadStatusManager.a().a(this);
         }
     }

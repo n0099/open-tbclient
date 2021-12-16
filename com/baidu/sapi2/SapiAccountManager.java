@@ -7,7 +7,7 @@ import android.os.Looper;
 import android.os.MessageQueue;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a;
+import c.a.o0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.face.platform.utils.MD5Utils;
 import com.baidu.sapi2.SapiOptions;
@@ -42,7 +42,7 @@ import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sofire.ac.FH;
-import com.baidu.tbadk.core.util.deeplink.DeepLinkCode;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SapiAccountManager implements ISAccountManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SESSION_BDUSS = "bduss";
@@ -68,7 +68,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public static final String SESSION_UID = "uid";
     public static final String TAG = "SapiAccountManager";
     public static final int VERSION_CODE = 250;
-    public static final String VERSION_NAME = "9.4.7.5";
+    public static final String VERSION_NAME = "9.4.7.8.2";
     public static CheckUrlIsAvailableListener checkUrlIsAvailablelister;
     public static GlobalCallback globalCallback;
     public static SapiAccountManager instance;
@@ -81,7 +81,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public char isUseOpenBdussTpl;
     public UbcUploadImplCallback ubcUploadImplCallback;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface CheckUrlIsAvailableListener {
         void handleWebPageUrl(String str);
 
@@ -239,7 +239,9 @@ public final class SapiAccountManager implements ISAccountManager {
     public void initSofireSDK(SapiConfiguration sapiConfiguration2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, sapiConfiguration2) == null) {
-            FH.setFaceLicenseId("pass_auth_id_01");
+            if (sapiConfiguration2.supportFaceLogin) {
+                FH.setFaceLicenseId("pass_auth_id_01");
+            }
             FH.init(sapiConfiguration2.context, sapiConfiguration2.sofireAppKey, sapiConfiguration2.sofireSecKey, 1);
         }
     }
@@ -579,7 +581,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public int getSmsCodeLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? EnhancedService.getInstance(sapiConfiguration, "9.4.7.5").getSmsCodeLength() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? EnhancedService.getInstance(sapiConfiguration, "9.4.7.8.2").getSmsCodeLength() : invokeV.intValue;
     }
 
     public String getTpl() {
@@ -642,7 +644,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public String getVersionName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? "9.4.7.5" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? "9.4.7.8.2" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager

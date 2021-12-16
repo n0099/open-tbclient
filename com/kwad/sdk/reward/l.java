@@ -29,19 +29,19 @@ import com.kwad.sdk.widget.KSCornerImageView;
 import com.kwad.sdk.widget.KsPriceView;
 import com.kwad.sdk.widget.KsStyledTextButton;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l extends com.kwad.sdk.h.e {
     public static /* synthetic */ Interceptable $ic;
     public static l a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f58993b;
+    public AdTemplate f59574b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f58994c;
+    public a f59575c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -52,14 +52,14 @@ public class l extends com.kwad.sdk.h.e {
         void d();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public l a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a f58995b;
+        public a f59576b;
 
         public b(@Nullable l lVar, @Nullable a aVar) {
             Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class l extends com.kwad.sdk.h.e {
                     return;
                 }
             }
-            this.f58995b = aVar;
+            this.f59576b = aVar;
             this.a = lVar;
         }
 
@@ -84,7 +84,7 @@ public class l extends com.kwad.sdk.h.e {
         public void a() {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f58995b) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f59576b) == null) {
                 return;
             }
             aVar.a();
@@ -95,7 +95,7 @@ public class l extends com.kwad.sdk.h.e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 e();
-                a aVar = this.f58995b;
+                a aVar = this.f59576b;
                 if (aVar != null) {
                     aVar.b();
                 }
@@ -106,7 +106,7 @@ public class l extends com.kwad.sdk.h.e {
         public void c() {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f58995b) == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f59576b) == null) {
                 return;
             }
             aVar.c();
@@ -117,7 +117,7 @@ public class l extends com.kwad.sdk.h.e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 e();
-                a aVar = this.f58995b;
+                a aVar = this.f59576b;
                 if (aVar != null) {
                     aVar.d();
                 }
@@ -134,38 +134,38 @@ public class l extends com.kwad.sdk.h.e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c extends com.kwad.sdk.reward.d.d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ViewGroup a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a f58996b;
+        public a f59577b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ViewGroup f58997c;
+        public ViewGroup f59578c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f58998d;
+        public TextView f59579d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f58999e;
+        public TextView f59580e;
 
         /* renamed from: f  reason: collision with root package name */
-        public KSCornerImageView f59000f;
+        public KSCornerImageView f59581f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f59001g;
+        public TextView f59582g;
 
         /* renamed from: h  reason: collision with root package name */
-        public KsStyledTextButton f59002h;
+        public KsStyledTextButton f59583h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f59003i;
+        public View f59584i;
 
         /* renamed from: j  reason: collision with root package name */
-        public AdTemplate f59004j;
+        public AdTemplate f59585j;
 
         public c(ViewGroup viewGroup, AdTemplate adTemplate) {
             Interceptable interceptable = $ic;
@@ -183,40 +183,40 @@ public class l extends com.kwad.sdk.h.e {
                 }
             }
             this.a = viewGroup;
-            this.f59004j = adTemplate;
+            this.f59585j = adTemplate;
             b();
         }
 
         private void a(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65537, this, eVar) == null) {
-                this.f58998d.setText(eVar.b());
+                this.f59579d.setText(eVar.b());
                 SpannableString g2 = eVar.g();
                 if (g2 != null) {
-                    this.f58999e.setText(g2);
+                    this.f59580e.setText(g2);
                 }
-                this.f59001g.setText(eVar.c());
-                this.f59002h.setText(eVar.d());
-                KSImageLoader.loadImage(this.f59000f, eVar.a(), this.f59004j);
+                this.f59582g.setText(eVar.c());
+                this.f59583h.setText(eVar.d());
+                KSImageLoader.loadImage(this.f59581f, eVar.a(), this.f59585j);
             }
         }
 
         private void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-                this.f58997c = (ViewGroup) this.a.findViewById(R.id.ksad_reward_follow_end_root);
-                this.f58998d = (TextView) this.a.findViewById(R.id.ksad_reward_follow_end_title);
-                this.f58999e = (TextView) this.a.findViewById(R.id.ksad_reward_follow_end_fans);
-                this.f59000f = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_follow_end_icon);
-                this.f59001g = (TextView) this.a.findViewById(R.id.ksad_reward_follow_end_desc);
-                this.f59002h = (KsStyledTextButton) this.a.findViewById(R.id.ksad_reward_follow_end_btn_follow);
-                this.f59003i = this.a.findViewById(R.id.ksad_reward_follow_end_btn_close);
-                this.f59002h.setOnClickListener(this);
-                this.f59003i.setOnClickListener(this);
-                this.f59000f.setOnClickListener(this);
-                this.f58998d.setOnClickListener(this);
-                this.f58999e.setOnClickListener(this);
-                this.f59001g.setOnClickListener(this);
+                this.f59578c = (ViewGroup) this.a.findViewById(R.id.ksad_reward_follow_end_root);
+                this.f59579d = (TextView) this.a.findViewById(R.id.ksad_reward_follow_end_title);
+                this.f59580e = (TextView) this.a.findViewById(R.id.ksad_reward_follow_end_fans);
+                this.f59581f = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_follow_end_icon);
+                this.f59582g = (TextView) this.a.findViewById(R.id.ksad_reward_follow_end_desc);
+                this.f59583h = (KsStyledTextButton) this.a.findViewById(R.id.ksad_reward_follow_end_btn_follow);
+                this.f59584i = this.a.findViewById(R.id.ksad_reward_follow_end_btn_close);
+                this.f59583h.setOnClickListener(this);
+                this.f59584i.setOnClickListener(this);
+                this.f59581f.setOnClickListener(this);
+                this.f59579d.setOnClickListener(this);
+                this.f59580e.setOnClickListener(this);
+                this.f59582g.setOnClickListener(this);
             }
         }
 
@@ -224,7 +224,7 @@ public class l extends com.kwad.sdk.h.e {
         public ViewGroup a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58997c : (ViewGroup) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59578c : (ViewGroup) invokeV.objValue;
         }
 
         @Override // com.kwad.sdk.reward.d.d
@@ -239,55 +239,55 @@ public class l extends com.kwad.sdk.h.e {
         public void a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                this.f58996b = aVar;
+                this.f59577b = aVar;
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f58996b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f59577b == null) {
                 return;
             }
-            if (view.equals(this.f59003i)) {
-                this.f58996b.b();
-            } else if (view.equals(this.f59002h)) {
-                this.f58996b.c();
-            } else if (view.equals(this.f59001g) || view.equals(this.f58998d) || view.equals(this.f58999e)) {
-                this.f58996b.d();
+            if (view.equals(this.f59584i)) {
+                this.f59577b.b();
+            } else if (view.equals(this.f59583h)) {
+                this.f59577b.c();
+            } else if (view.equals(this.f59582g) || view.equals(this.f59579d) || view.equals(this.f59580e)) {
+                this.f59577b.d();
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d extends com.kwad.sdk.reward.d.d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ViewGroup a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a f59005b;
+        public a f59586b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ViewGroup f59006c;
+        public ViewGroup f59587c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f59007d;
+        public TextView f59588d;
 
         /* renamed from: e  reason: collision with root package name */
-        public KSCornerImageView f59008e;
+        public KSCornerImageView f59589e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f59009f;
+        public TextView f59590f;
 
         /* renamed from: g  reason: collision with root package name */
-        public KsPriceView f59010g;
+        public KsPriceView f59591g;
 
         /* renamed from: h  reason: collision with root package name */
-        public KsStyledTextButton f59011h;
+        public KsStyledTextButton f59592h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f59012i;
+        public View f59593i;
 
         public d(ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -311,29 +311,29 @@ public class l extends com.kwad.sdk.h.e {
         private void a(e eVar, AdTemplate adTemplate) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, this, eVar, adTemplate) == null) {
-                this.f59011h.setText(eVar.d());
-                this.f59007d.setText(eVar.b());
-                this.f59009f.setText(eVar.c());
-                this.f59010g.a(eVar.e(), eVar.f());
-                KSImageLoader.loadImage(this.f59008e, eVar.a(), adTemplate);
+                this.f59592h.setText(eVar.d());
+                this.f59588d.setText(eVar.b());
+                this.f59590f.setText(eVar.c());
+                this.f59591g.a(eVar.e(), eVar.f());
+                KSImageLoader.loadImage(this.f59589e, eVar.a(), adTemplate);
             }
         }
 
         private void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-                this.f59006c = (ViewGroup) this.a.findViewById(R.id.ksad_reward_order_end_card_root);
-                this.f59007d = (TextView) this.a.findViewById(R.id.ksad_reward_order_end_title);
-                this.f59008e = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_end_icon);
-                this.f59009f = (TextView) this.a.findViewById(R.id.ksad_reward_order_end_desc);
-                this.f59010g = (KsPriceView) this.a.findViewById(R.id.ksad_reward_order_end_price);
-                this.f59011h = (KsStyledTextButton) this.a.findViewById(R.id.ksad_reward_order_end_btn_buy);
-                this.f59012i = this.a.findViewById(R.id.ksad_reward_order_end_btn_close);
-                this.f59011h.setOnClickListener(this);
-                this.f59012i.setOnClickListener(this);
-                this.f59009f.setOnClickListener(this);
-                this.f59010g.setOnClickListener(this);
-                this.f59007d.setOnClickListener(this);
+                this.f59587c = (ViewGroup) this.a.findViewById(R.id.ksad_reward_order_end_card_root);
+                this.f59588d = (TextView) this.a.findViewById(R.id.ksad_reward_order_end_title);
+                this.f59589e = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_end_icon);
+                this.f59590f = (TextView) this.a.findViewById(R.id.ksad_reward_order_end_desc);
+                this.f59591g = (KsPriceView) this.a.findViewById(R.id.ksad_reward_order_end_price);
+                this.f59592h = (KsStyledTextButton) this.a.findViewById(R.id.ksad_reward_order_end_btn_buy);
+                this.f59593i = this.a.findViewById(R.id.ksad_reward_order_end_btn_close);
+                this.f59592h.setOnClickListener(this);
+                this.f59593i.setOnClickListener(this);
+                this.f59590f.setOnClickListener(this);
+                this.f59591g.setOnClickListener(this);
+                this.f59588d.setOnClickListener(this);
             }
         }
 
@@ -341,7 +341,7 @@ public class l extends com.kwad.sdk.h.e {
         public ViewGroup a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59006c : (ViewGroup) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59587c : (ViewGroup) invokeV.objValue;
         }
 
         @Override // com.kwad.sdk.reward.d.d
@@ -356,49 +356,49 @@ public class l extends com.kwad.sdk.h.e {
         public void a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                this.f59005b = aVar;
+                this.f59586b = aVar;
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f59005b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f59586b == null) {
                 return;
             }
-            if (view.equals(this.f59012i)) {
-                this.f59005b.b();
-            } else if (view.equals(this.f59011h)) {
-                this.f59005b.c();
-            } else if (view.equals(this.f59009f) || view.equals(this.f59007d) || view.equals(this.f59010g)) {
-                this.f59005b.d();
+            if (view.equals(this.f59593i)) {
+                this.f59586b.b();
+            } else if (view.equals(this.f59592h)) {
+                this.f59586b.c();
+            } else if (view.equals(this.f59590f) || view.equals(this.f59588d) || view.equals(this.f59591g)) {
+                this.f59586b.d();
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59013b;
+        public String f59594b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f59014c;
+        public String f59595c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f59015d;
+        public String f59596d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f59016e;
+        public String f59597e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f59017f;
+        public String f59598f;
 
         /* renamed from: g  reason: collision with root package name */
-        public SpannableString f59018g;
+        public SpannableString f59599g;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -424,11 +424,11 @@ public class l extends com.kwad.sdk.h.e {
                 }
                 AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
                 e eVar = new e();
-                eVar.f59013b = com.kwad.sdk.core.response.a.a.aD(j2);
+                eVar.f59594b = com.kwad.sdk.core.response.a.a.aD(j2);
                 eVar.a = com.kwad.sdk.core.response.a.a.aE(j2);
-                eVar.f59018g = com.kwad.sdk.core.response.a.a.a(j2, com.kwad.sdk.core.config.b.aJ());
-                eVar.f59014c = com.kwad.sdk.core.response.a.a.aC(j2);
-                eVar.f59015d = com.kwad.sdk.core.response.a.a.aA(j2) ? com.kwad.sdk.core.config.b.aD() : com.kwad.sdk.core.config.b.aG();
+                eVar.f59599g = com.kwad.sdk.core.response.a.a.a(j2, com.kwad.sdk.core.config.b.aJ());
+                eVar.f59595c = com.kwad.sdk.core.response.a.a.aC(j2);
+                eVar.f59596d = com.kwad.sdk.core.response.a.a.aA(j2) ? com.kwad.sdk.core.config.b.aD() : com.kwad.sdk.core.config.b.aG();
                 return eVar;
             }
             return (e) invokeL.objValue;
@@ -445,12 +445,12 @@ public class l extends com.kwad.sdk.h.e {
                 AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
                 AdProductInfo aK = com.kwad.sdk.core.response.a.a.aK(j2);
                 e eVar = new e();
-                eVar.f59013b = aK.getName();
+                eVar.f59594b = aK.getName();
                 eVar.a = aK.getIcon();
-                eVar.f59014c = com.kwad.sdk.core.response.a.a.s(j2);
-                eVar.f59015d = com.kwad.sdk.core.config.b.aE();
-                eVar.f59016e = aK.getPrice();
-                eVar.f59017f = aK.getOriginPrice();
+                eVar.f59595c = com.kwad.sdk.core.response.a.a.s(j2);
+                eVar.f59596d = com.kwad.sdk.core.config.b.aE();
+                eVar.f59597e = aK.getPrice();
+                eVar.f59598f = aK.getOriginPrice();
                 return eVar;
             }
             return (e) invokeL.objValue;
@@ -465,37 +465,37 @@ public class l extends com.kwad.sdk.h.e {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59013b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59594b : (String) invokeV.objValue;
         }
 
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59014c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59595c : (String) invokeV.objValue;
         }
 
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59015d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59596d : (String) invokeV.objValue;
         }
 
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59016e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59597e : (String) invokeV.objValue;
         }
 
         public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59017f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59598f : (String) invokeV.objValue;
         }
 
         public SpannableString g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59018g : (SpannableString) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59599g : (SpannableString) invokeV.objValue;
         }
     }
 
@@ -561,25 +561,25 @@ public class l extends com.kwad.sdk.h.e {
             try {
                 String string = getArguments().getString("key_template_json");
                 AdTemplate adTemplate = new AdTemplate();
-                this.f58993b = adTemplate;
+                this.f59574b = adTemplate;
                 adTemplate.parseJson(new JSONObject(string));
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
             }
-            if (a(this.f58993b) != 0) {
+            if (a(this.f59574b) != 0) {
                 inflate = layoutInflater.inflate(R.layout.ksad_reward_order_end_dialog, viewGroup, false);
                 d dVar = new d((ViewGroup) inflate);
-                dVar.a(new b(this, this.f58994c));
+                dVar.a(new b(this, this.f59575c));
                 cVar = new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aL());
                 cVar2 = dVar;
             } else {
                 inflate = layoutInflater.inflate(R.layout.ksad_reward_follow_end_dialog, viewGroup, false);
-                c cVar3 = new c((ViewGroup) inflate, this.f58993b);
-                cVar3.a(new b(this, this.f58994c));
+                c cVar3 = new c((ViewGroup) inflate, this.f59574b);
+                cVar3.a(new b(this, this.f59575c));
                 cVar = new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aJ());
                 cVar2 = cVar3;
             }
-            cVar2.a(this.f58993b);
+            cVar2.a(this.f59574b);
             w.a(cVar, cVar2.a());
             getDialog().setOnKeyListener(new DialogInterface.OnKeyListener(this) { // from class: com.kwad.sdk.reward.l.1
                 public static /* synthetic */ Interceptable $ic;
@@ -619,7 +619,7 @@ public class l extends com.kwad.sdk.h.e {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f58994c = aVar;
+            this.f59575c = aVar;
         }
     }
 
@@ -635,7 +635,7 @@ public class l extends com.kwad.sdk.h.e {
             getDialog().setCanceledOnTouchOutside(false);
             window.setLayout(-1, -1);
             getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
-            a aVar = this.f58994c;
+            a aVar = this.f59575c;
             if (aVar != null) {
                 aVar.a();
             }

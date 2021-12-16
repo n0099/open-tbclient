@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class YunPushOppoproxyEnableSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY = "android_oppo_proxy_enable";

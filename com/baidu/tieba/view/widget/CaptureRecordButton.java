@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.k4.m.a;
+import c.a.s0.m4.m.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,40 +19,40 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes11.dex */
-public class CaptureRecordButton extends FrameLayout implements c.a.r0.k4.m.a {
+/* loaded from: classes12.dex */
+public class CaptureRecordButton extends FrameLayout implements c.a.s0.m4.m.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f50517e;
+    public View f51066e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50518f;
+    public View f51067f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f50519g;
+    public View f51068g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecordCircleProgressBar f50520h;
+    public RecordCircleProgressBar f51069h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ObjectAnimator f50521i;
+    public ObjectAnimator f51070i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ObjectAnimator f50522j;
+    public ObjectAnimator f51071j;
 
     /* renamed from: k  reason: collision with root package name */
-    public AnimatorSet f50523k;
+    public AnimatorSet f51072k;
     public AnimatorSet l;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CaptureRecordButton f50524e;
+        public final /* synthetic */ CaptureRecordButton f51073e;
 
         public a(CaptureRecordButton captureRecordButton) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class CaptureRecordButton extends FrameLayout implements c.a.r0.k4.m.a {
                     return;
                 }
             }
-            this.f50524e = captureRecordButton;
+            this.f51073e = captureRecordButton;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -77,9 +77,9 @@ public class CaptureRecordButton extends FrameLayout implements c.a.r0.k4.m.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                this.f50524e.f50518f.setAlpha(0.0f);
-                this.f50524e.f50520h.setAlpha(1.0f);
-                this.f50524e.resumeRecordAnimator();
+                this.f51073e.f51067f.setAlpha(0.0f);
+                this.f51073e.f51069h.setAlpha(1.0f);
+                this.f51073e.resumeRecordAnimator();
             }
         }
     }
@@ -109,79 +109,79 @@ public class CaptureRecordButton extends FrameLayout implements c.a.r0.k4.m.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             FrameLayout.inflate(getContext(), R.layout.layout_capture_record_button, this);
-            this.f50517e = findViewById(R.id.record_layer1);
+            this.f51066e = findViewById(R.id.record_layer1);
             View findViewById = findViewById(R.id.record_pause);
-            this.f50519g = findViewById;
+            this.f51068g = findViewById;
             findViewById.setAlpha(0.0f);
-            this.f50518f = findViewById(R.id.record_layer2);
-            this.f50520h = (RecordCircleProgressBar) findViewById(R.id.record_progressbar);
+            this.f51067f = findViewById(R.id.record_layer2);
+            this.f51069h = (RecordCircleProgressBar) findViewById(R.id.record_progressbar);
             AnimatorSet animatorSet = new AnimatorSet();
-            this.f50523k = animatorSet;
-            animatorSet.play(ObjectAnimator.ofFloat(this.f50517e, AnimationProperty.SCALE_X, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.f50517e, AnimationProperty.SCALE_Y, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.f50518f, AnimationProperty.SCALE_X, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.f50518f, AnimationProperty.SCALE_Y, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.f50518f, AnimationProperty.OPACITY, 1.0f, 0.66f));
+            this.f51072k = animatorSet;
+            animatorSet.play(ObjectAnimator.ofFloat(this.f51066e, AnimationProperty.SCALE_X, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.f51066e, AnimationProperty.SCALE_Y, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.f51067f, AnimationProperty.SCALE_X, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.f51067f, AnimationProperty.SCALE_Y, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.f51067f, AnimationProperty.OPACITY, 1.0f, 0.66f));
             AnimatorSet animatorSet2 = new AnimatorSet();
             this.l = animatorSet2;
-            animatorSet2.play(ObjectAnimator.ofFloat(this.f50517e, AnimationProperty.OPACITY, 1.0f, 0.0f)).with(ObjectAnimator.ofFloat(this.f50519g, AnimationProperty.OPACITY, 0.0f, 1.0f));
+            animatorSet2.play(ObjectAnimator.ofFloat(this.f51066e, AnimationProperty.OPACITY, 1.0f, 0.0f)).with(ObjectAnimator.ofFloat(this.f51068g, AnimationProperty.OPACITY, 0.0f, 1.0f));
         }
     }
 
-    @Override // c.a.r0.k4.m.a
+    @Override // c.a.s0.m4.m.a
     public void deleteLast() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f50520h.deleteLast();
+            this.f51069h.deleteLast();
         }
     }
 
     public View getLayer1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50517e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51066e : (View) invokeV.objValue;
     }
 
     public View getLayer2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50518f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51067f : (View) invokeV.objValue;
     }
 
     public View getLayer3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50520h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f51069h : (View) invokeV.objValue;
     }
 
-    @Override // c.a.r0.k4.m.a
+    @Override // c.a.s0.m4.m.a
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f50520h.getMaxDuration() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f51069h.getMaxDuration() : invokeV.intValue;
     }
 
     public View getPause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f50519g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f51068g : (View) invokeV.objValue;
     }
 
-    @Override // c.a.r0.k4.m.a
+    @Override // c.a.s0.m4.m.a
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f50520h.getProgress() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f51069h.getProgress() : invokeV.floatValue;
     }
 
-    @Override // c.a.r0.k4.m.a
+    @Override // c.a.s0.m4.m.a
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f50520h.getSlideNum() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f51069h.getSlideNum() : invokeV.intValue;
     }
 
-    @Override // c.a.r0.k4.m.a
+    @Override // c.a.s0.m4.m.a
     public boolean isShowingDeleteLastTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f50520h.isShowingDeleteLastTip() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f51069h.isShowingDeleteLastTip() : invokeV.booleanValue;
     }
 
     public void pauseRecordAnimator() {
@@ -194,11 +194,11 @@ public class CaptureRecordButton extends FrameLayout implements c.a.r0.k4.m.a {
         }
     }
 
-    @Override // c.a.r0.k4.m.a
+    @Override // c.a.s0.m4.m.a
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f50520h.reset();
+            this.f51069h.reset();
         }
     }
 
@@ -212,120 +212,120 @@ public class CaptureRecordButton extends FrameLayout implements c.a.r0.k4.m.a {
         }
     }
 
-    @Override // c.a.r0.k4.m.a
+    @Override // c.a.s0.m4.m.a
     public void setMaxDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f50520h.setMaxDuration(i2);
+            this.f51069h.setMaxDuration(i2);
         }
     }
 
-    @Override // c.a.r0.k4.m.a
+    @Override // c.a.s0.m4.m.a
     public void setMinDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f50520h.setMinDuration(i2);
+            this.f51069h.setMinDuration(i2);
         }
     }
 
-    @Override // c.a.r0.k4.m.a
-    public void setOnProgressListener(a.InterfaceC1123a interfaceC1123a) {
+    @Override // c.a.s0.m4.m.a
+    public void setOnProgressListener(a.InterfaceC1194a interfaceC1194a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, interfaceC1123a) == null) {
-            this.f50520h.setOnProgressListener(interfaceC1123a);
+        if (interceptable == null || interceptable.invokeL(1048591, this, interfaceC1194a) == null) {
+            this.f51069h.setOnProgressListener(interfaceC1194a);
         }
     }
 
-    @Override // c.a.r0.k4.m.a
+    @Override // c.a.s0.m4.m.a
     public void setProgress(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            this.f50520h.setProgress(j2);
+            this.f51069h.setProgress(j2);
         }
     }
 
-    @Override // c.a.r0.k4.m.a
+    @Override // c.a.s0.m4.m.a
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f50520h.setShowDeleteLastTip(z);
+            this.f51069h.setShowDeleteLastTip(z);
         }
     }
 
-    @Override // c.a.r0.k4.m.a
+    @Override // c.a.s0.m4.m.a
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f50520h.start();
+            this.f51069h.start();
         }
     }
 
     public void startRecordAnimator(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.f50523k.cancel();
-            this.f50523k.setDuration(320L);
-            this.f50523k.removeAllListeners();
-            this.f50523k.addListener(new a(this));
-            this.f50523k.start();
+            this.f51072k.cancel();
+            this.f51072k.setDuration(320L);
+            this.f51072k.removeAllListeners();
+            this.f51072k.addListener(new a(this));
+            this.f51072k.start();
         }
     }
 
     public void startTakePhotoAnimator() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            ObjectAnimator objectAnimator = this.f50522j;
+            ObjectAnimator objectAnimator = this.f51071j;
             if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.f50521i.cancel();
+                this.f51070i.cancel();
             }
-            if (this.f50521i == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f50518f, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 1.0f, 0.9f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 1.0f, 0.9f));
-                this.f50521i = ofPropertyValuesHolder;
+            if (this.f51070i == null) {
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f51067f, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 1.0f, 0.9f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 1.0f, 0.9f));
+                this.f51070i = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setDuration(200L);
             }
-            this.f50521i.start();
+            this.f51070i.start();
         }
     }
 
-    @Override // c.a.r0.k4.m.a
+    @Override // c.a.s0.m4.m.a
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f50520h.stop();
+            this.f51069h.stop();
         }
     }
 
     public void stopRecordAnimator() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.f50518f.setAlpha(1.0f);
-            if (this.f50517e.getAlpha() == 0.0f) {
+            this.f51067f.setAlpha(1.0f);
+            if (this.f51066e.getAlpha() == 0.0f) {
                 resumeRecordAnimator();
             }
-            this.f50520h.setAlpha(0.0f);
-            this.f50523k.cancel();
-            this.f50523k.setDuration(320L);
-            this.f50523k.removeAllListeners();
-            this.f50523k.reverse();
+            this.f51069h.setAlpha(0.0f);
+            this.f51072k.cancel();
+            this.f51072k.setDuration(320L);
+            this.f51072k.removeAllListeners();
+            this.f51072k.reverse();
         }
     }
 
     public void stopTakePhotoAnimator() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            ObjectAnimator objectAnimator = this.f50521i;
+            ObjectAnimator objectAnimator = this.f51070i;
             if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.f50521i.cancel();
+                this.f51070i.cancel();
             }
-            if (this.f50518f.getScaleX() == 1.0f) {
+            if (this.f51067f.getScaleX() == 1.0f) {
                 return;
             }
-            if (this.f50522j == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f50518f, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 0.9f, 1.0f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 0.9f, 1.0f));
-                this.f50522j = ofPropertyValuesHolder;
+            if (this.f51071j == null) {
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f51067f, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 0.9f, 1.0f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 0.9f, 1.0f));
+                this.f51071j = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setDuration(200L);
             }
-            this.f50522j.start();
+            this.f51071j.start();
         }
     }
 

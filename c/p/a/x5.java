@@ -14,37 +14,37 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class x5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "https://pp.xdplt.com/";
 
     /* renamed from: b */
-    public static final String f30995b;
+    public static final String f31365b;
 
     /* renamed from: c */
-    public static final String f30996c;
+    public static final String f31366c;
 
     /* renamed from: d */
-    public static String f30997d;
+    public static String f31367d;
 
     /* renamed from: e */
-    public static String f30998e;
+    public static String f31368e;
 
     /* renamed from: f */
-    public static String f30999f;
+    public static String f31369f;
 
     /* renamed from: g */
-    public static String f31000g;
+    public static String f31370g;
 
     /* renamed from: h */
-    public static String f31001h;
+    public static String f31371h;
 
     /* renamed from: i */
-    public static String f31002i;
+    public static String f31372i;
 
     /* renamed from: j */
-    public static String f31003j;
+    public static String f31373j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,15 +60,15 @@ public class x5 {
                 return;
             }
         }
-        f30995b = a + "behavior?";
-        f30996c = a + "report?";
-        f30997d = "https://cd.xdplt.com/";
-        f30998e = "jy/da?";
-        f30999f = "?";
-        f31000g = "jy/da?";
-        f31001h = "jy/da?";
-        f31002i = "jy/da?";
-        f31003j = "jy/da?";
+        f31365b = a + "behavior?";
+        f31366c = a + "report?";
+        f31367d = "https://cd.xdplt.com/";
+        f31368e = "jy/da?";
+        f31369f = "?";
+        f31370g = "jy/da?";
+        f31371h = "jy/da?";
+        f31372i = "jy/da?";
+        f31373j = "jy/da?";
     }
 
     public static /* synthetic */ j0 a(JSONObject jSONObject, Context context) {
@@ -76,8 +76,8 @@ public class x5 {
             try {
                 if (jSONObject.length() != 0) {
                     j0 j0Var = new j0();
-                    j0Var.f30808c = jSONObject.optString("traceid", "");
-                    j0Var.f30807b = jSONObject.optString("pid", "");
+                    j0Var.f31178c = jSONObject.optString("traceid", "");
+                    j0Var.f31177b = jSONObject.optString("pid", "");
                     jSONObject.optString("bt", "");
                     JSONArray optJSONArray = jSONObject.optJSONArray("list");
                     ArrayList arrayList = new ArrayList();
@@ -86,7 +86,7 @@ public class x5 {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                             if (optJSONObject != null && optJSONObject.length() > 0) {
                                 Info info = new Info();
-                                info.setTraceid(j0Var.f30808c);
+                                info.setTraceid(j0Var.f31178c);
                                 info.setPid(j0Var.a());
                                 info.setId(optJSONObject.optString("id", ""));
                                 info.setLoad(optJSONObject.optString("load", ""));
@@ -166,8 +166,8 @@ public class x5 {
     public static /* synthetic */ void b(t5 t5Var) {
         String str;
         if (t5Var != null) {
-            str = t5Var.f30941c;
-            if (TextUtils.isEmpty(str) || t5Var.a == null || TextUtils.isEmpty(t5Var.f30940b)) {
+            str = t5Var.f31311c;
+            if (TextUtils.isEmpty(str) || t5Var.a == null || TextUtils.isEmpty(t5Var.f31310b)) {
                 return;
             }
             t2.b(new p5(t5Var));
@@ -175,7 +175,7 @@ public class x5 {
     }
 
     public static /* synthetic */ void c(t5 t5Var, HashMap hashMap) {
-        if (t5Var.f30940b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
+        if (t5Var.f31310b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
             hashMap.put("lo_timeout", String.valueOf(m2.r(t5Var.a)));
             float a2 = m2.a(t5Var.a, "splash_width", 0.0f);
             if (a2 > 0.0f) {

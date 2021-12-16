@@ -20,25 +20,25 @@ import com.baidu.wallet.core.utils.UAFilterUtil;
 import com.baidu.wallet.utils.NetUtils;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Pattern f51974b;
+    public Pattern f52554b;
 
     /* renamed from: com.baidu.wallet.base.statistics.a$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.base.statistics.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C1895a {
+    /* loaded from: classes13.dex */
+    public static class C1956a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class a {
             a = new a(null);
         }
 
-        public C1895a() {
+        public C1956a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1895a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1956a.a : (a) invokeV.objValue;
     }
 
     public String b(Context context) {
@@ -108,7 +108,7 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f51974b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+                return this.f52554b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
                 LogUtil.d(a, e.getMessage());
@@ -197,7 +197,7 @@ public class a {
                 return;
             }
         }
-        this.f51974b = Pattern.compile("\\s*|\t|\r|\n");
+        this.f52554b = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public String a(Context context) {
@@ -209,7 +209,7 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f51974b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+                return this.f52554b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
                 LogUtil.d(a, e.getMessage());

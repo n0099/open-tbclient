@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PriceInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PriceInfo> CREATOR;
@@ -18,7 +18,7 @@ public class PriceInfo implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f36071b;
+    public double f36560b;
 
     static {
         InterceptResult invokeClinit;
@@ -66,7 +66,7 @@ public class PriceInfo implements Parcelable {
             }
         }
         this.a = parcel.readInt();
-        this.f36071b = parcel.readDouble();
+        this.f36560b = parcel.readDouble();
     }
 
     @Override // android.os.Parcelable
@@ -82,7 +82,7 @@ public class PriceInfo implements Parcelable {
     public double getTicketPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36071b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36560b : invokeV.doubleValue;
     }
 
     public int getTicketType() {
@@ -94,7 +94,7 @@ public class PriceInfo implements Parcelable {
     public void setTicketPrice(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f36071b = d2;
+            this.f36560b = d2;
         }
     }
 
@@ -110,7 +110,7 @@ public class PriceInfo implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
             parcel.writeInt(this.a);
-            parcel.writeDouble(this.f36071b);
+            parcel.writeDouble(this.f36560b);
         }
     }
 }

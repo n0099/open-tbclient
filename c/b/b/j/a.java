@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.utility.FileUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f27326b;
+    public final Class<T> f27701b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f27327c;
+    public final c f27702c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.b.b.m.a f27328d;
+    public c.b.b.m.a f27703d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(String str, Class<T> cls) {
@@ -47,7 +47,7 @@ public class a<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f27326b.getName();
+            return this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f27701b.getName();
         }
         return (String) invokeV.objValue;
     }
@@ -89,8 +89,8 @@ public class a<T> {
             }
         }
         this.a = str.replace(FileUtil.WINDOWS_SEPARATOR, '/');
-        this.f27326b = cls;
-        this.f27327c = cVar;
+        this.f27701b = cls;
+        this.f27702c = cVar;
     }
 
     public a(c.b.b.m.a aVar, Class<T> cls, c<T> cVar) {
@@ -109,8 +109,8 @@ public class a<T> {
             }
         }
         this.a = aVar.j().replace(FileUtil.WINDOWS_SEPARATOR, '/');
-        this.f27328d = aVar;
-        this.f27326b = cls;
-        this.f27327c = cVar;
+        this.f27703d = aVar;
+        this.f27701b = cls;
+        this.f27702c = cVar;
     }
 }

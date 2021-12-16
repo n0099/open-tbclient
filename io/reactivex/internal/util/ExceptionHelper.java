@@ -13,13 +13,13 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ExceptionHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final Throwable TERMINATED;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Termination extends Throwable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4649703670690200604L;

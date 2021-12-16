@@ -16,25 +16,25 @@ import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.PayUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "EbpayClientHttpRequestInterceptor";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f52385b = "wims";
+    public static final String f52965b = "wims";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f52386c = "wloc";
+    public static final String f52966c = "wloc";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f52387d = "wssn";
+    public static final String f52967d = "wssn";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f52388e = "cuid_1";
+    public static final String f52968e = "cuid_1";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f52389f = "wmip";
+    public static final String f52969f = "wmip";
     public transient /* synthetic */ FieldHolder $fh;
 
     public EbpayHttpRequestInterceptor() {

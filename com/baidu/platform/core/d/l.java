@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public /* synthetic */ class l {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ int[] a;
@@ -28,11 +28,11 @@ public /* synthetic */ class l {
         int[] iArr = new int[SearchType.values().length];
         a = iArr;
         try {
-            iArr[SearchType.f38341j.ordinal()] = 1;
+            iArr[SearchType.f38830j.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            a[SearchType.f38342k.ordinal()] = 2;
+            a[SearchType.f38831k.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {

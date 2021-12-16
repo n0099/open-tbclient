@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.engine.Resource;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class UnitTranscoder<Z> implements ResourceTranscoder<Z, Z> {
     public static /* synthetic */ Interceptable $ic;
     public static final UnitTranscoder<?> UNIT_TRANSCODER;

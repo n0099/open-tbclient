@@ -10,19 +10,19 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class v2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ boolean f30973e;
+    public final /* synthetic */ boolean f31343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ String f30974f;
+    public final /* synthetic */ String f31344f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ y2 f30975g;
+    public final /* synthetic */ y2 f31345g;
 
     public v2(y2 y2Var, boolean z, String str) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public class v2 implements Runnable {
                 return;
             }
         }
-        this.f30975g = y2Var;
-        this.f30973e = z;
-        this.f30974f = str;
+        this.f31345g = y2Var;
+        this.f31343e = z;
+        this.f31344f = str;
     }
 
     @Override // java.lang.Runnable
@@ -49,18 +49,18 @@ public class v2 implements Runnable {
         String x;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = this.f30973e ? x5.f30995b : x5.f30996c;
-            HashMap b2 = h5.b(this.f30975g.a);
+            String str = this.f31343e ? x5.f31365b : x5.f31366c;
+            HashMap b2 = h5.b(this.f31345g.a);
             try {
                 str = str + h5.a(b2);
             } catch (UnsupportedEncodingException unused) {
             }
-            String str2 = this.f30974f;
+            String str2 = this.f31344f;
             try {
                 t1 t1Var = new t1(str, "POST", r0.k(null));
-                t1Var.f30927b = r0.L(str2);
+                t1Var.f31297b = r0.L(str2);
                 w1 a = t1Var.a();
-                byte[] bArr = a.f30981b;
+                byte[] bArr = a.f31351b;
                 if (a.a == 200) {
                     JSONObject jSONObject = new JSONObject(new String(bArr, "UTF-8"));
                     jSONObject.optInt(Constants.KEYS.RET);

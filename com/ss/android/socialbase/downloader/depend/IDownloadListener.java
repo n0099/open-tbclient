@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.depend;
 
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IDownloadListener {
     void onCanceled(DownloadInfo downloadInfo);
 

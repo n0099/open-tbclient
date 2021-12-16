@@ -1,6 +1,19 @@
 package com.baidu.searchbox.player.kernel;
+/* loaded from: classes10.dex */
+public interface IKernelPlayer {
+    void onBufferingUpdate(int i2);
 
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-/* loaded from: classes9.dex */
-public interface IKernelPlayer extends CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnVideoSizeChangedListener {
+    void onCompletion();
+
+    boolean onError(int i2, int i3, Object obj);
+
+    boolean onInfo(int i2, int i3, Object obj);
+
+    boolean onMediaSourceChanged(int i2, int i3, Object obj);
+
+    void onPrepared();
+
+    void onSeekComplete();
+
+    void onVideoSizeChanged(int i2, int i3, int i4, int i5);
 }

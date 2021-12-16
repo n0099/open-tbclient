@@ -11,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "/proc/cpuinfo";

@@ -35,20 +35,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
         void a(File file);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,12 +103,12 @@ public class h {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         boolean a(int i2, int i3, Object obj);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface d extends Closeable {
         void a(int i2, Map<String, List<String>> map);
 
@@ -213,10 +213,10 @@ public class h {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ File f57004b;
+                public final /* synthetic */ File f57585b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f57005c;
+                public final /* synthetic */ a f57586c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -234,8 +234,8 @@ public class h {
                         }
                     }
                     this.a = str;
-                    this.f57004b = file;
-                    this.f57005c = aVar;
+                    this.f57585b = file;
+                    this.f57586c = aVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -243,17 +243,17 @@ public class h {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            boolean a2 = h.a(this.a, this.f57004b, null, 0);
-                            if (this.f57005c != null) {
+                            boolean a2 = h.a(this.a, this.f57585b, null, 0);
+                            if (this.f57586c != null) {
                                 if (a2) {
-                                    this.f57005c.a(this.f57004b);
+                                    this.f57586c.a(this.f57585b);
                                 } else {
-                                    this.f57005c.a();
+                                    this.f57586c.a();
                                 }
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();
-                            a aVar2 = this.f57005c;
+                            a aVar2 = this.f57586c;
                             if (aVar2 != null) {
                                 aVar2.a();
                             }

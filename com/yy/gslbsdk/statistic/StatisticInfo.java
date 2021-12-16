@@ -13,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class StatisticInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "StatisticInfo";

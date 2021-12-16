@@ -19,7 +19,7 @@ import com.kwai.sodler.lib.kwai.g;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;

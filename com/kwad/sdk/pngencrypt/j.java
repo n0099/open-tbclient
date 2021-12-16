@@ -11,29 +11,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.zip.Inflater;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j extends DeflatedChunksSet {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f58789g;
+    public byte[] f59370g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f58790h;
+    public byte[] f59371h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final k f58791i;
+    public final k f59372i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final e f58792j;
+    public final e f59373j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final p f58793k;
+    public final p f59374k;
     public int[] l;
 
     /* renamed from: com.kwad.sdk.pngencrypt.j$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -100,7 +100,7 @@ public class j extends DeflatedChunksSet {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(String str, boolean z, k kVar, e eVar, Inflater inflater, byte[] bArr) {
-        super(str, z, (eVar != null ? eVar.h() : kVar.f58803k) + 1, kVar.f58803k + 1, inflater, bArr);
+        super(str, z, (eVar != null ? eVar.h() : kVar.f59384k) + 1, kVar.f59384k + 1, inflater, bArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,9 +118,9 @@ public class j extends DeflatedChunksSet {
             }
         }
         this.l = new int[5];
-        this.f58791i = kVar;
-        this.f58792j = eVar;
-        this.f58793k = new p(kVar, eVar);
+        this.f59372i = kVar;
+        this.f59373j = eVar;
+        this.f59374k = new p(kVar, eVar);
         com.kwad.sdk.core.d.a.a("PNG_ENCRYPT", "Creating IDAT set ");
     }
 
@@ -128,9 +128,9 @@ public class j extends DeflatedChunksSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, this, i2) == null) {
             int i3 = 1;
-            int i4 = 1 - this.f58791i.f58802j;
+            int i4 = 1 - this.f59372i.f59383j;
             while (i3 <= i2) {
-                this.f58789g[i3] = (byte) (this.a[i3] + (((i4 > 0 ? this.f58789g[i4] & 255 : 0) + (this.f58790h[i3] & 255)) / 2));
+                this.f59370g[i3] = (byte) (this.a[i3] + (((i4 > 0 ? this.f59370g[i4] & 255 : 0) + (this.f59371h[i3] & 255)) / 2));
                 i3++;
                 i4++;
             }
@@ -141,7 +141,7 @@ public class j extends DeflatedChunksSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
             for (int i3 = 1; i3 <= i2; i3++) {
-                this.f58789g[i3] = this.a[i3];
+                this.f59370g[i3] = this.a[i3];
             }
         }
     }
@@ -150,14 +150,14 @@ public class j extends DeflatedChunksSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             int i3 = 1;
-            int i4 = 1 - this.f58791i.f58802j;
+            int i4 = 1 - this.f59372i.f59383j;
             while (i3 <= i2) {
                 int i5 = 0;
-                int i6 = i4 > 0 ? this.f58789g[i4] & 255 : 0;
+                int i6 = i4 > 0 ? this.f59370g[i4] & 255 : 0;
                 if (i4 > 0) {
-                    i5 = this.f58790h[i4] & 255;
+                    i5 = this.f59371h[i4] & 255;
                 }
-                this.f58789g[i3] = (byte) (this.a[i3] + n.a(i6, this.f58790h[i3] & 255, i5));
+                this.f59370g[i3] = (byte) (this.a[i3] + n.a(i6, this.f59371h[i3] & 255, i5));
                 i3++;
                 i4++;
             }
@@ -170,17 +170,17 @@ public class j extends DeflatedChunksSet {
         if (interceptable == null || interceptable.invokeI(65541, this, i2) == null) {
             int i4 = 1;
             while (true) {
-                i3 = this.f58791i.f58802j;
+                i3 = this.f59372i.f59383j;
                 if (i4 > i3) {
                     break;
                 }
-                this.f58789g[i4] = this.a[i4];
+                this.f59370g[i4] = this.a[i4];
                 i4++;
             }
             int i5 = i3 + 1;
             int i6 = 1;
             while (i5 <= i2) {
-                byte[] bArr = this.f58789g;
+                byte[] bArr = this.f59370g;
                 bArr[i5] = (byte) (this.a[i5] + bArr[i6]);
                 i5++;
                 i6++;
@@ -192,7 +192,7 @@ public class j extends DeflatedChunksSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65542, this, i2) == null) {
             for (int i3 = 1; i3 <= i2; i3++) {
-                this.f58789g[i3] = (byte) (this.a[i3] + this.f58790h[i3]);
+                this.f59370g[i3] = (byte) (this.a[i3] + this.f59371h[i3]);
             }
         }
     }
@@ -202,10 +202,10 @@ public class j extends DeflatedChunksSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f58793k.a(h());
+            this.f59374k.a(h());
             i();
-            p pVar = this.f58793k;
-            pVar.a(this.f58789g, pVar.m + 1);
+            p pVar = this.f59374k;
+            pVar.a(this.f59370g, pVar.m + 1);
         }
     }
 
@@ -219,18 +219,18 @@ public class j extends DeflatedChunksSet {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            byte[] bArr = this.f58789g;
+            byte[] bArr = this.f59370g;
             if (bArr == null || bArr.length < this.a.length) {
                 byte[] bArr2 = this.a;
-                this.f58789g = new byte[bArr2.length];
-                this.f58790h = new byte[bArr2.length];
+                this.f59370g = new byte[bArr2.length];
+                this.f59371h = new byte[bArr2.length];
             }
-            if (this.f58793k.f58822j == 0) {
-                Arrays.fill(this.f58789g, (byte) 0);
+            if (this.f59374k.f59403j == 0) {
+                Arrays.fill(this.f59370g, (byte) 0);
             }
-            byte[] bArr3 = this.f58789g;
-            this.f58789g = this.f58790h;
-            this.f58790h = bArr3;
+            byte[] bArr3 = this.f59370g;
+            this.f59370g = this.f59371h;
+            this.f59371h = bArr3;
             byte b2 = this.a[0];
             if (!FilterType.isValidStandard(b2)) {
                 throw new PngjException("Filter type " + ((int) b2) + " invalid");
@@ -238,7 +238,7 @@ public class j extends DeflatedChunksSet {
             FilterType byVal = FilterType.getByVal(b2);
             int[] iArr = this.l;
             iArr[b2] = iArr[b2] + 1;
-            this.f58789g[0] = this.a[0];
+            this.f59370g[0] = this.a[0];
             int i3 = AnonymousClass1.a[byVal.ordinal()];
             if (i3 == 1) {
                 d(i2);
@@ -269,15 +269,15 @@ public class j extends DeflatedChunksSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.f();
-            this.f58789g = null;
-            this.f58790h = null;
+            this.f59370g = null;
+            this.f59371h = null;
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            b(this.f58793k.m);
+            b(this.f59374k.m);
         }
     }
 
@@ -290,24 +290,24 @@ public class j extends DeflatedChunksSet {
         int h2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            e eVar = this.f58792j;
+            e eVar = this.f59373j;
             int i2 = 0;
             if (eVar != null) {
                 if (eVar.a()) {
-                    h2 = this.f58792j.h();
+                    h2 = this.f59373j.h();
                     i2 = h2 + 1;
                 }
-                if (!this.f58661c) {
+                if (!this.f59242c) {
                 }
                 return i2;
             }
             int h3 = h();
-            k kVar = this.f58791i;
-            if (h3 < kVar.f58794b - 1) {
-                h2 = kVar.f58803k;
+            k kVar = this.f59372i;
+            if (h3 < kVar.f59375b - 1) {
+                h2 = kVar.f59384k;
                 i2 = h2 + 1;
             }
-            if (!this.f58661c) {
+            if (!this.f59242c) {
                 a(i2);
             }
             return i2;

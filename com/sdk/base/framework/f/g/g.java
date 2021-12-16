@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class g {
     public static /* synthetic */ Interceptable $ic;
     public static final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f61013b;
+    public static final g f61594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static g f61014c;
+    public static g f61595c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public abstract class g {
                 return;
             }
         }
-        f61014c = new g(OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE, 0) { // from class: com.sdk.base.framework.f.g.h
+        f61595c = new g(OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE, 0) { // from class: com.sdk.base.framework.f.g.h
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -99,7 +99,7 @@ public abstract class g {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM : (String) invokeV.objValue;
             }
         };
-        f61013b = new g("CTC", 2) { // from class: com.sdk.base.framework.f.g.j
+        f61594b = new g("CTC", 2) { // from class: com.sdk.base.framework.f.g.j
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

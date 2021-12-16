@@ -33,46 +33,46 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends com.kwad.sdk.core.video.kwai.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: k  reason: collision with root package name */
-    public static volatile boolean f57848k;
+    public static volatile boolean f58429k;
     public static final Queue<d> l;
     public transient /* synthetic */ FieldHolder $fh;
     public final KSVodPlayerWrapper a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f57849b;
+    public final a f58430b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57850c;
+    public String f58431c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaDataSource f57851d;
+    public MediaDataSource f58432d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f57852e;
+    public final Object f58433e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f57853f;
+    public boolean f58434f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f57854g;
+    public boolean f58435g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57855h;
+    public int f58436h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57856i;
+    public int f58437i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f57857j;
+    public boolean f58438j;
     public boolean m;
     public com.kwad.sdk.contentalliance.detail.video.c n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements CacheListener, IKSVodPlayer.OnBufferingUpdateListener, IKSVodPlayer.OnErrorListener, IKSVodPlayer.OnEventListener, IKSVodPlayer.OnPreparedListener, IKSVodPlayer.OnVideoSizeChangedListener, IKSVodPlayer.OnVodPlayerReleaseListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
             if (!(interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) || (a = a()) == null) {
                 return;
             }
-            a.f57857j = false;
+            a.f58438j = false;
             a.b(i2, i3);
         }
 
@@ -205,8 +205,8 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
                 d a = a();
                 if (a != null) {
                     a.a(i2, i3);
-                    a.f57855h = i4;
-                    a.f57856i = i5;
+                    a.f58436h = i4;
+                    a.f58437i = i5;
                 }
             }
         }
@@ -243,15 +243,15 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
                 return;
             }
         }
-        this.f57852e = new Object();
-        this.f57857j = false;
+        this.f58433e = new Object();
+        this.f58438j = false;
         this.m = true;
         Context applicationContext = context.getApplicationContext();
-        synchronized (this.f57852e) {
+        synchronized (this.f58433e) {
             this.a = new KSVodPlayerWrapper(applicationContext);
         }
         a(context);
-        this.f57849b = new a(this);
+        this.f58430b = new a(this);
         r();
         a(false);
     }
@@ -260,8 +260,8 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             synchronized (d.class) {
-                com.kwad.sdk.core.d.a.a("KwaiMediaPlayer", "initConfigSync has init =" + f57848k);
-                if (!f57848k) {
+                com.kwad.sdk.core.d.a.a("KwaiMediaPlayer", "initConfigSync has init =" + f58429k);
+                if (!f58429k) {
                     KSVodPlayerCoreInitConfig.init(context);
                     if (com.kwad.sdk.core.config.b.m()) {
                         KSVodPlayerLogUploader.setLogger(new KSVodPlayerLogUploader.ILogger() { // from class: com.kwad.sdk.core.video.kwai.d.1
@@ -290,7 +290,7 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
                             }
                         });
                     }
-                    f57848k = true;
+                    f58429k = true;
                 }
             }
         }
@@ -299,7 +299,7 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
     private void p() {
         MediaDataSource mediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (mediaDataSource = this.f57851d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (mediaDataSource = this.f58432d) == null) {
             return;
         }
         try {
@@ -307,12 +307,12 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
         } catch (IOException e2) {
             e2.printStackTrace();
         }
-        this.f57851d = null;
+        this.f58432d = null;
     }
 
     private void q() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.f57857j) {
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.f58438j) {
             return;
         }
         try {
@@ -321,19 +321,19 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
         } catch (IllegalStateException e2) {
             com.kwad.sdk.core.d.a.a("KwaiMediaPlayer", "realPrepare failed", e2);
         }
-        this.f57857j = true;
+        this.f58438j = true;
     }
 
     private void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.a.setOnPreparedListener(this.f57849b);
-            this.a.setBufferingUpdateListener(this.f57849b);
-            this.a.setOnEventListener(this.f57849b);
-            this.a.setVideoSizeChangedListener(this.f57849b);
-            this.a.setOnErrorListener(this.f57849b);
+            this.a.setOnPreparedListener(this.f58430b);
+            this.a.setBufferingUpdateListener(this.f58430b);
+            this.a.setOnEventListener(this.f58430b);
+            this.a.setVideoSizeChangedListener(this.f58430b);
+            this.a.setOnErrorListener(this.f58430b);
             if (com.kwad.sdk.core.config.b.u()) {
-                this.a.setCacheSessionListener(this.f57849b);
+                this.a.setCacheSessionListener(this.f58430b);
             }
         }
     }
@@ -429,7 +429,7 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
         }
         KSVodVideoContext kSVodVideoContext = new KSVodVideoContext();
         kSVodVideoContext.mVideoId = String.valueOf(bVar.a);
-        kSVodVideoContext.mClickTime = bVar.f57184b;
+        kSVodVideoContext.mClickTime = bVar.f57765b;
         kSVodVideoContext.mExtra = bVar.a();
         this.a.updateVideoContext(kSVodVideoContext);
     }
@@ -439,15 +439,15 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
             this.n = cVar;
-            a(cVar.f57190e);
-            a((TextUtils.isEmpty(cVar.f57188c) || !com.kwad.sdk.core.config.b.A()) ? cVar.f57187b : cVar.f57188c, (Map<String, String>) null);
+            a(cVar.f57771e);
+            a((TextUtils.isEmpty(cVar.f57769c) || !com.kwad.sdk.core.config.b.A()) ? cVar.f57768b : cVar.f57769c, (Map<String, String>) null);
         }
     }
 
     public void a(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, map) == null) {
-            this.f57850c = str;
+            this.f58431c = str;
             this.a.setDataSource(str, map);
         }
     }
@@ -456,7 +456,7 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f57854g = z;
+            this.f58435g = z;
             this.a.setLooping(z);
         }
     }
@@ -563,7 +563,7 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             boolean remove = l.remove(this);
             com.kwad.sdk.core.d.a.c("KwaiMediaPlayer", "release remote player ret: " + remove + ", player list size: " + l.size());
-            this.f57853f = true;
+            this.f58434f = true;
             this.a.releaseAsync(new IKSVodPlayer.OnVodPlayerReleaseListener(this) { // from class: com.kwad.sdk.core.video.kwai.d.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -604,7 +604,7 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f57857j = false;
+            this.f58438j = false;
             try {
                 IKwaiMediaPlayer kwaiMediaPlayer = this.a.getKwaiMediaPlayer();
                 if (kwaiMediaPlayer != null) {
@@ -622,7 +622,7 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f57854g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f58435g : invokeV.booleanValue;
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c

@@ -12,7 +12,7 @@ import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.proxy.BaseProxyActivity;
 import com.kwad.sdk.api.proxy.IActivityProxy;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FeedDownloadActivity extends BaseProxyActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

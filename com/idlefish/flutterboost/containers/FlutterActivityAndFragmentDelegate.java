@@ -40,7 +40,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = 0;
@@ -59,7 +59,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     @Nullable
     public PlatformPlugin platformPlugin;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Host extends SplashScreenProvider, FlutterEngineProvider, FlutterEngineConfigurator {
         void configureFlutterEngine(@NonNull FlutterEngine flutterEngine);
 
@@ -332,10 +332,11 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
             }
             FlutterSplashView flutterSplashView = new FlutterSplashView(this.host.getContext());
             this.flutterSplashView = flutterSplashView;
+            flutterSplashView.setContainerUrl(getContainerUrl());
             if (Build.VERSION.SDK_INT >= 17) {
-                flutterSplashView.setId(View.generateViewId());
+                this.flutterSplashView.setId(View.generateViewId());
             } else {
-                flutterSplashView.setId(io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.FLUTTER_SPLASH_VIEW_FALLBACK_ID);
+                this.flutterSplashView.setId(io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.FLUTTER_SPLASH_VIEW_FALLBACK_ID);
             }
             this.flutterSplashView.displayFlutterViewWithSplash(this.flutterView, this.host.provideSplashScreen());
             this.mSyncer.onCreate();

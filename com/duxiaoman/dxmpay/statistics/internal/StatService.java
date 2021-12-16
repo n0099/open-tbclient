@@ -16,14 +16,14 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcurrentHashMap<String, Long> a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class ETag {
         public static final /* synthetic */ ETag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -86,7 +86,7 @@ public class StatService {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static StatService a;
@@ -109,7 +109,7 @@ public class StatService {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

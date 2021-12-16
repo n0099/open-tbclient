@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LightAppDeviceInfoModel implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Data cnt;
     public int result;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class Data implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class LightAppDeviceInfoModel implements NoProguard {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class DeviceInfo implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,6 @@ public class LightAppDeviceInfoModel implements NoProguard {
         public String brand;
         public String cuid;
         public String ip;
-        public String macAddress;
         public String model;
         public String name;
         public String networktype;
@@ -80,7 +79,6 @@ public class LightAppDeviceInfoModel implements NoProguard {
             this.name = "";
             this.ua = "";
             this.networktype = "";
-            this.macAddress = "";
         }
     }
 

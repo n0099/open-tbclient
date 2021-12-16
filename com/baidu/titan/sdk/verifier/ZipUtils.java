@@ -6,7 +6,7 @@ import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import kotlin.UShort;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class ZipUtils {
     public static final int UINT16_MAX_VALUE = 65535;
     public static final int ZIP64_EOCD_LOCATOR_SIG_REVERSE_BYTE_ORDER = 1347094023;

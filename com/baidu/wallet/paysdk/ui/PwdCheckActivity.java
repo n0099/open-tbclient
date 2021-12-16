@@ -52,7 +52,7 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIALOG_WHAT_IS_PAY_PASSWORD = 56;
@@ -60,13 +60,13 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
     public u a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53786b;
+    public String f54366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53787c;
+    public boolean f54367c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f53788d;
+    public boolean f54368d;
 
     public PwdCheckActivity() {
         Interceptable interceptable = $ic;
@@ -81,8 +81,8 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 return;
             }
         }
-        this.f53787c = false;
-        this.f53788d = false;
+        this.f54367c = false;
+        this.f54368d = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -104,7 +104,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 findPayPwdUrl = BeanConstants.API_FIND_PAY_PWD_URL;
             }
             BaiduWalletDelegate.getInstance().openH5Module(getActivity(), findPayPwdUrl, false);
-            this.f53788d = true;
+            this.f54368d = true;
         }
     }
 
@@ -235,7 +235,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 }
                 finishWithoutAnim();
                 BaiduWalletUtils.startActivityAnim(this);
-                if (BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.f53786b)) {
+                if (BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.f54366b)) {
                     PasswordController.getPassWordInstance().checkPwdSucceed(str);
                 } else {
                     PasswordController.getPassWordInstance().checkPwdSucceed(getPwd());
@@ -245,7 +245,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 UserInfoContentResponse userInfoContentResponse = (UserInfoContentResponse) obj;
                 userInfoContentResponse.user_info.decrypt();
                 userInfoContentResponse.decrypt();
-                forgetPasswd(this.f53786b);
+                forgetPasswd(this.f54366b);
             } else if (i2 == 529) {
                 WalletGlobalUtils.safeDismissDialog(this, 0);
                 PasswordController.getPassWordInstance().checkPwdSucceed(getPwd());
@@ -263,7 +263,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             int i2 = this.mPwdRequest.mFrom;
             if (i2 == 1) {
-                if (BeanConstants.FROM_CHECK_FOR_SP.equals(this.f53786b)) {
+                if (BeanConstants.FROM_CHECK_FOR_SP.equals(this.f54366b)) {
                     StatisticManager.onEvent("Intermediarypay_cancel");
                 }
                 PasswordController.getPassWordInstance().checkPwdFail(2, "");
@@ -321,9 +321,9 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
             super.onCreate(bundle);
             getWindow().setSoftInputMode(2);
             if (bundle == null) {
-                this.f53786b = getIntent().getStringExtra(BeanConstants.CHECK_PWD_FROM_TYPE_KEY);
+                this.f54366b = getIntent().getStringExtra(BeanConstants.CHECK_PWD_FROM_TYPE_KEY);
             } else {
-                this.f53786b = bundle.getString(SapiAccount.SAPI_ACCOUNT_FROMTYPE);
+                this.f54366b = bundle.getString(SapiAccount.SAPI_ACCOUNT_FROMTYPE);
             }
             this.a = (u) PayBeanFactory.getInstance().getBean((Context) this, getMobilePwdBeanId(), "PwdCheckActivity");
             if (this.mPwdRequest == null) {
@@ -337,29 +337,29 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 string = ResUtils.getString(getActivity(), "ebpay_pwd_check_tip_modify_pwd");
                 str = "ebpay_check_pwd_modify_pwd";
             } else {
-                if (BeanConstants.FROM_PASSFREE_SAVE.equals(this.f53786b)) {
+                if (BeanConstants.FROM_PASSFREE_SAVE.equals(this.f54366b)) {
                     string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_save");
                     str = "ebpay_check_pwd_save";
                 } else {
-                    if (BeanConstants.FROM_UNBIND.equals(this.f53786b)) {
+                    if (BeanConstants.FROM_UNBIND.equals(this.f54366b)) {
                         string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_unbind_card");
-                    } else if (BeanConstants.FROM_BIND_PAY.equals(this.f53786b)) {
+                    } else if (BeanConstants.FROM_BIND_PAY.equals(this.f54366b)) {
                         string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_bind_or_complete_card");
-                    } else if (BeanConstants.FROM_COMPLETE_PAY.equals(this.f53786b)) {
+                    } else if (BeanConstants.FROM_COMPLETE_PAY.equals(this.f54366b)) {
                         string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_complete_pay");
-                    } else if (!BeanConstants.FROM_BIND.equals(this.f53786b) && !BeanConstants.FROM_COMPLETE.equals(this.f53786b)) {
-                        if (BeanConstants.FROM_CLOSE_SHOWCODE.equals(this.f53786b)) {
+                    } else if (!BeanConstants.FROM_BIND.equals(this.f54366b) && !BeanConstants.FROM_COMPLETE.equals(this.f54366b)) {
+                        if (BeanConstants.FROM_CLOSE_SHOWCODE.equals(this.f54366b)) {
                             string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_close_showcode");
-                        } else if (BeanConstants.FROM_FINGERPRINT_PAY.equals(this.f53786b)) {
+                        } else if (BeanConstants.FROM_FINGERPRINT_PAY.equals(this.f54366b)) {
                             string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_tip_save");
-                        } else if (BeanConstants.FROM_CHECK_FOR_SP.equals(this.f53786b)) {
+                        } else if (BeanConstants.FROM_CHECK_FOR_SP.equals(this.f54366b)) {
                             string = ResUtils.getString(getActivity(), "ebpay_intermediarypay_pwdcheck_tip");
                             str = "ebpay_intermediarypay_pwdcheck";
-                        } else if (BeanConstants.FROM_CLOSE_HCE.equals(this.f53786b)) {
+                        } else if (BeanConstants.FROM_CLOSE_HCE.equals(this.f54366b)) {
                             string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_close_hce");
-                        } else if (BeanConstants.FROM_OPEN_HCE_PAY.equals(this.f53786b)) {
+                        } else if (BeanConstants.FROM_OPEN_HCE_PAY.equals(this.f54366b)) {
                             string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_open_hce");
-                        } else if (BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.f53786b) && this.isOpenHalfScreenPwdVerify) {
+                        } else if (BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.f54366b) && this.isOpenHalfScreenPwdVerify) {
                             string2 = ResUtils.getString(getActivity(), "ebpay_pwd_use_explain");
                         }
                         str = "ebpay_check_pwd_close_showcode";
@@ -383,7 +383,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                     public final /* synthetic */ PwdCheckActivity a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public boolean f53789b;
+                    public boolean f54369b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -401,7 +401,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                             }
                         }
                         this.a = this;
-                        this.f53789b = false;
+                        this.f54369b = false;
                     }
 
                     @Override // android.text.TextWatcher
@@ -421,11 +421,11 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                     @Override // android.text.TextWatcher
                     public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) || this.f53789b) {
+                        if (!(interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) || this.f54369b) {
                             return;
                         }
                         StatisticManager.onEvent("clickCheckPwd");
-                        this.f53789b = true;
+                        this.f54369b = true;
                     }
                 });
                 EventBus.getInstance().register(this, BeanConstants.EVT_PAY_PWD_CHANGE, 0, EventBus.ThreadMode.MainThread);
@@ -447,7 +447,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 public final /* synthetic */ PwdCheckActivity a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public boolean f53789b;
+                public boolean f54369b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -465,7 +465,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                         }
                     }
                     this.a = this;
-                    this.f53789b = false;
+                    this.f54369b = false;
                 }
 
                 @Override // android.text.TextWatcher
@@ -485,11 +485,11 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 @Override // android.text.TextWatcher
                 public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) || this.f53789b) {
+                    if (!(interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) || this.f54369b) {
                         return;
                     }
                     StatisticManager.onEvent("clickCheckPwd");
-                    this.f53789b = true;
+                    this.f54369b = true;
                 }
             });
             EventBus.getInstance().register(this, BeanConstants.EVT_PAY_PWD_CHANGE, 0, EventBus.ThreadMode.MainThread);
@@ -505,7 +505,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
             BeanManager.getInstance().removeAllBeans("PwdCheckActivity");
-            if (this.f53788d) {
+            if (this.f54368d) {
                 PasswordController.getPassWordInstance().clearForgetPasswdCallback();
             }
             EventBus.getInstance().unregister(this);
@@ -567,7 +567,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                             }, 1000L);
                         }
                         hideErrorMsg();
-                        this.f53787c = true;
+                        this.f54367c = true;
                     }
                 } catch (Exception e3) {
                     e3.printStackTrace();
@@ -740,13 +740,13 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                             PwdCheckActivity pwdCheckActivity = this.a;
                             pwdCheckActivity.a(ResUtils.getString(pwdCheckActivity.getActivity(), "ebpay_find_password"));
                             WalletGlobalUtils.safeDismissDialog(this.a, 56);
-                            if (!TextUtils.isEmpty(this.a.f53786b) && BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.a.f53786b)) {
-                                this.a.f53787c = false;
+                            if (!TextUtils.isEmpty(this.a.f54366b) && BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.a.f54366b)) {
+                                this.a.f54367c = false;
                                 this.a.d();
                                 return;
                             }
                             PwdCheckActivity pwdCheckActivity2 = this.a;
-                            pwdCheckActivity2.forgetPasswd(pwdCheckActivity2.f53786b);
+                            pwdCheckActivity2.forgetPasswd(pwdCheckActivity2.f54366b);
                         }
                     }
                 });
@@ -800,7 +800,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 }
                 this.mPwdRequest.mPayPass = getPwd();
                 WalletGlobalUtils.safeShowDialog(this, 0, "");
-                if (BeanConstants.FROM_CHECK_FOR_SP.equals(this.f53786b)) {
+                if (BeanConstants.FROM_CHECK_FOR_SP.equals(this.f54366b)) {
                     h hVar = (h) PayBeanFactory.getInstance().getBean((Context) this, PayBeanFactory.BEAN_ID_CHECK_PWD, "PwdCheckActivity");
                     hVar.setResponseCallback(this);
                     hVar.execBean();
@@ -832,7 +832,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            bundle.putString(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.f53786b);
+            bundle.putString(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.f54366b);
         }
     }
 
@@ -938,11 +938,11 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            if ((TextUtils.isEmpty(this.f53786b) || (!BeanConstants.FROM_B_SAO_C_TYPE.equalsIgnoreCase(this.f53786b) && !BeanConstants.FROM_PASSFREE_SAVE.equalsIgnoreCase(this.f53786b))) && !BeanConstants.FROM_CLOSE_SHOWCODE.equals(this.f53786b) && !BeanConstants.FROM_VOICEPRINT_PAY.equals(this.f53786b) && !BeanConstants.FROM_FINGERPRINT_PAY.equals(this.f53786b) && !BeanConstants.FROM_CLOSE_HCE.equals(this.f53786b) && !BeanConstants.FROM_OPEN_HCE_PAY.equals(this.f53786b) && !BeanConstants.FROM_CHECK_FOR_SP.equals(this.f53786b) && !BeanConstants.FROM_COMMON_CHECK_PWD.equals(this.f53786b) && !BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.f53786b) && !this.f53787c) {
-                forgetPasswd(this.f53786b);
+            if ((TextUtils.isEmpty(this.f54366b) || (!BeanConstants.FROM_B_SAO_C_TYPE.equalsIgnoreCase(this.f54366b) && !BeanConstants.FROM_PASSFREE_SAVE.equalsIgnoreCase(this.f54366b))) && !BeanConstants.FROM_CLOSE_SHOWCODE.equals(this.f54366b) && !BeanConstants.FROM_VOICEPRINT_PAY.equals(this.f54366b) && !BeanConstants.FROM_FINGERPRINT_PAY.equals(this.f54366b) && !BeanConstants.FROM_CLOSE_HCE.equals(this.f54366b) && !BeanConstants.FROM_OPEN_HCE_PAY.equals(this.f54366b) && !BeanConstants.FROM_CHECK_FOR_SP.equals(this.f54366b) && !BeanConstants.FROM_COMMON_CHECK_PWD.equals(this.f54366b) && !BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.f54366b) && !this.f54367c) {
+                forgetPasswd(this.f54366b);
                 return;
             }
-            this.f53787c = false;
+            this.f54367c = false;
             d();
         }
     }

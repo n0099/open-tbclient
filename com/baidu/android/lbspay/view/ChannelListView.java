@@ -34,7 +34,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ChannelListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class ChannelListView extends LinearLayout {
                 public final /* synthetic */ ViewGroup a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ChannelListView f32109b;
+                public final /* synthetic */ ChannelListView f32479b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -127,7 +127,7 @@ public class ChannelListView extends LinearLayout {
                             return;
                         }
                     }
-                    this.f32109b = this;
+                    this.f32479b = this;
                     this.a = viewGroup;
                 }
 
@@ -136,10 +136,10 @@ public class ChannelListView extends LinearLayout {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.setVisibility(4);
-                        if (this.f32109b.radioGroupChannels != null) {
-                            this.f32109b.radioGroupChannels.showAllChannels();
+                        if (this.f32479b.radioGroupChannels != null) {
+                            this.f32479b.radioGroupChannels.showAllChannels();
                         }
-                        PayChannelController.DoShowAllChannelClick doShowAllChannelClick = this.f32109b.mShowAllChannelClick;
+                        PayChannelController.DoShowAllChannelClick doShowAllChannelClick = this.f32479b.mShowAllChannelClick;
                         if (doShowAllChannelClick != null) {
                             doShowAllChannelClick.doClick();
                         }
@@ -376,7 +376,7 @@ public class ChannelListView extends LinearLayout {
                     public final /* synthetic */ NewCashierContent.CommonMarketing a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ChannelListView f32108b;
+                    public final /* synthetic */ ChannelListView f32478b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -393,7 +393,7 @@ public class ChannelListView extends LinearLayout {
                                 return;
                             }
                         }
-                        this.f32108b = this;
+                        this.f32478b = this;
                         this.a = commonMarketing;
                     }
 
@@ -404,7 +404,7 @@ public class ChannelListView extends LinearLayout {
                             return;
                         }
                         StatisticManager.onEventWithValue(LbsStatistics.WALLET_LBS_BANNER_CLICK, this.a.url);
-                        BaiduWalletDelegate.getInstance().openH5Module(this.f32108b.getContext(), this.a.url, false);
+                        BaiduWalletDelegate.getInstance().openH5Module(this.f32478b.getContext(), this.a.url, false);
                     }
                 });
             }

@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.network;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface RequestCancelable {
     void cancelRequest();
 

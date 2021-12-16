@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MultiSrcAsyncHttpRequest extends AsyncHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

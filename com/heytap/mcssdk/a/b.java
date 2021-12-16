@@ -12,7 +12,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.Message;
 import com.heytap.mcssdk.utils.CryptoUtil;
 import com.heytap.mcssdk.utils.LogUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class b extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

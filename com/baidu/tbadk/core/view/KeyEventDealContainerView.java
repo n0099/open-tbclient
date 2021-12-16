@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class KeyEventDealContainerView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f41162e;
+    public a f41653e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a();
 
@@ -43,9 +43,9 @@ public class KeyEventDealContainerView extends LinearLayout {
                 return;
             }
         }
-        this.f41162e = null;
+        this.f41653e = null;
         setFocusableInTouchMode(true);
-        this.f41162e = aVar;
+        this.f41653e = aVar;
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
         addView(view);
     }
@@ -57,11 +57,11 @@ public class KeyEventDealContainerView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, keyEvent)) == null) {
             if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
-                a aVar2 = this.f41162e;
+                a aVar2 = this.f41653e;
                 if (aVar2 != null) {
                     aVar2.a();
                 }
-            } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && (aVar = this.f41162e) != null) {
+            } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && (aVar = this.f41653e) != null) {
                 aVar.b();
             }
             return super.dispatchKeyEvent(keyEvent);
@@ -88,6 +88,6 @@ public class KeyEventDealContainerView extends LinearLayout {
                 return;
             }
         }
-        this.f41162e = null;
+        this.f41653e = null;
     }
 }

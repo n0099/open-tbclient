@@ -5,25 +5,25 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.TextView;
-import c.a.p0.b.f;
-import c.a.p0.b.g;
-import c.a.p0.b.i;
+import c.a.q0.b.f;
+import c.a.q0.b.g;
+import c.a.q0.b.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BdLoadingDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40269e;
+    public String f40758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f40270f;
+    public Context f40759f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdLoadingDialog(Context context) {
@@ -44,7 +44,7 @@ public class BdLoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f40270f = context;
+        this.f40759f = context;
     }
 
     public static BdLoadingDialog show(Context context, CharSequence charSequence) {
@@ -59,14 +59,14 @@ public class BdLoadingDialog extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(g.loading_layout);
-            ((TextView) findViewById(f.message)).setText(this.f40269e);
+            ((TextView) findViewById(f.message)).setText(this.f40758e);
         }
     }
 
     public void setMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f40269e = str;
+            this.f40758e = str;
         }
     }
 
@@ -79,7 +79,7 @@ public class BdLoadingDialog extends Dialog {
     public void setMessage(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
-            this.f40269e = charSequence.toString();
+            this.f40758e = charSequence.toString();
         }
     }
 
@@ -100,7 +100,7 @@ public class BdLoadingDialog extends Dialog {
     public void setMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f40269e = this.f40270f.getResources().getString(i2);
+            this.f40758e = this.f40759f.getResources().getString(i2);
         }
     }
 }

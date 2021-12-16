@@ -39,7 +39,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.LockSupport;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MultiPointOutputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExecutorService FILE_IO_EXECUTOR;
@@ -72,7 +72,7 @@ public class MultiPointOutputStream {
     public final Runnable syncRunnable;
     public final DownloadTask task;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class StreamsState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

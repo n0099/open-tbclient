@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LiveStatInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<LiveStatInfo> CREATOR;
@@ -24,8 +24,8 @@ public class LiveStatInfo implements Parcelable {
     public String tpl;
     public String yyuid;
 
-    /* loaded from: classes8.dex */
-    public static class a implements Parcelable.Creator<LiveStatInfo> {
+    /* loaded from: classes10.dex */
+    public class a implements Parcelable.Creator<LiveStatInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

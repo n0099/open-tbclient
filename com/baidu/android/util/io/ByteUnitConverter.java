@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DecimalFormat;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ByteUnitConverter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GB = 1073741824;
@@ -21,7 +21,7 @@ public class ByteUnitConverter {
     public String convertStr;
 
     /* renamed from: com.baidu.android.util.io.ByteUnitConverter$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS;
         public static /* synthetic */ Interceptable $ic;
@@ -62,7 +62,7 @@ public class ByteUnitConverter {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class UNITS {
         public static final /* synthetic */ UNITS[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

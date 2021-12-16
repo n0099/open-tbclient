@@ -1,5 +1,7 @@
 package com.baidu.searchbox.player.callback;
-/* loaded from: classes9.dex */
+
+import android.view.MotionEvent;
+/* loaded from: classes10.dex */
 public interface IUniversalPlayerCallback {
     void onBeforeSwitchToFull();
 
@@ -8,6 +10,8 @@ public interface IUniversalPlayerCallback {
     void onGestureActionEnd();
 
     void onGestureActionStart();
+
+    boolean onGestureDoubleClick(MotionEvent motionEvent);
 
     void onPanelVisibilityChanged(boolean z);
 

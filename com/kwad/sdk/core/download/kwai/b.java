@@ -21,23 +21,23 @@ import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.af;
 import com.kwad.sdk.utils.x;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public static b a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57412b;
+    public String f57993b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f57413c;
+    public a f57994c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f57414d;
+    public AdTemplate f57995d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f57415e;
+    public boolean f57996e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Activity activity, @NonNull AdTemplate adTemplate, String str) {
@@ -57,10 +57,10 @@ public class b extends AlertDialog {
                 return;
             }
         }
-        this.f57415e = false;
+        this.f57996e = false;
         setOwnerActivity(activity);
-        this.f57414d = adTemplate;
-        this.f57412b = str;
+        this.f57995d = adTemplate;
+        this.f57993b = str;
     }
 
     public static b a(Activity activity, AdTemplate adTemplate, String str) {
@@ -132,7 +132,7 @@ public class b extends AlertDialog {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f57415e = z;
+            this.f57996e = z;
             dismiss();
         }
     }
@@ -140,7 +140,7 @@ public class b extends AlertDialog {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57415e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57996e : invokeV.booleanValue;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
@@ -164,7 +164,7 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onBackPressed();
-            com.kwad.sdk.core.report.a.n(this.f57414d);
+            com.kwad.sdk.core.report.a.n(this.f57995d);
         }
     }
 
@@ -173,9 +173,9 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            if (this.f57413c == null) {
-                a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.f57414d, !af.e(getOwnerActivity()) ? 1 : 0, this.f57412b);
-                this.f57413c = aVar;
+            if (this.f57994c == null) {
+                a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.f57995d, !af.e(getOwnerActivity()) ? 1 : 0, this.f57993b);
+                this.f57994c = aVar;
                 aVar.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.core.download.kwai.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -203,13 +203,13 @@ public class b extends AlertDialog {
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            com.kwad.sdk.core.report.a.n(this.a.f57414d);
+                            com.kwad.sdk.core.report.a.n(this.a.f57995d);
                             this.a.dismiss();
                         }
                     }
                 });
             }
-            setContentView(this.f57413c);
+            setContentView(this.f57994c);
             setCanceledOnTouchOutside(true);
             getWindow().getDecorView().setPadding(0, 0, 0, 0);
             getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -222,7 +222,7 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            a aVar = this.f57413c;
+            a aVar = this.f57994c;
             if (aVar != null) {
                 aVar.c();
             }

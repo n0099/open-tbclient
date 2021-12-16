@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
 import c.a.d.f.l.d;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import c.a.d.m.c.c;
 import c.a.d.m.e.a;
 import c.a.d.m.e.n;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PreLoadImageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float IMAGE_MAX_CACHE_SIZE_PERCENT = 0.8f;
@@ -85,7 +85,7 @@ public class PreLoadImageHelper {
         int i5;
         int i6;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65539, null, qVar, bdUniqueId, i2) == null) || qVar == null || !j.H() || (adapter = qVar.getAdapter()) == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(65539, null, qVar, bdUniqueId, i2) == null) || qVar == null || !k.H() || (adapter = qVar.getAdapter()) == null) {
             return;
         }
         int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);

@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class b implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f51643b;
+    public final /* synthetic */ a f52192b;
 
     public b(a aVar, e eVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class b implements View.OnClickListener {
                 return;
             }
         }
-        this.f51643b = aVar;
+        this.f52192b = aVar;
         this.a = eVar;
     }
 
@@ -63,45 +63,45 @@ public final class b implements View.OnClickListener {
         eVar.a = z;
         eVar.a(z);
         if (this.a.a) {
-            arrayList5 = this.f51643b.f51636d;
+            arrayList5 = this.f52192b.f52185d;
             arrayList5.add(this.a.b());
             if (this.a.b().contains("抄袭")) {
-                this.f51643b.f51638f = 1;
+                this.f52192b.f52187f = 1;
             }
             if (this.a.b().equals("播放问题")) {
-                aVar = this.f51643b;
+                aVar = this.f52192b;
                 i2 = 2;
-                aVar.f51638f = i2;
+                aVar.f52187f = i2;
             }
             for (i3 = 0; i3 < arrayList2.size(); i3++) {
                 StringBuilder sb = new StringBuilder("选中的原因：");
-                arrayList4 = this.f51643b.f51636d;
+                arrayList4 = this.f52192b.f52185d;
                 sb.append((String) arrayList4.get(i3));
                 com.baidu.ufosdk.f.c.a(sb.toString());
             }
-            dVar = this.f51643b.f51637e;
+            dVar = this.f52192b.f52186e;
             if (dVar == null) {
-                dVar2 = this.f51643b.f51637e;
-                arrayList3 = this.f51643b.f51636d;
-                i4 = this.f51643b.f51638f;
+                dVar2 = this.f52192b.f52186e;
+                arrayList3 = this.f52192b.f52185d;
+                i4 = this.f52192b.f52187f;
                 dVar2.a(arrayList3, i4);
                 return;
             }
             return;
         }
-        arrayList = this.f51643b.f51636d;
+        arrayList = this.f52192b.f52185d;
         arrayList.remove(this.a.b());
         if (this.a.b().contains("抄袭")) {
-            this.f51643b.f51638f = 3;
+            this.f52192b.f52187f = 3;
         }
         if (this.a.b().equals("播放问题")) {
-            aVar = this.f51643b;
+            aVar = this.f52192b;
             i2 = 4;
-            aVar.f51638f = i2;
+            aVar.f52187f = i2;
         }
         while (i3 < arrayList2.size()) {
         }
-        dVar = this.f51643b.f51637e;
+        dVar = this.f52192b.f52186e;
         if (dVar == null) {
         }
     }

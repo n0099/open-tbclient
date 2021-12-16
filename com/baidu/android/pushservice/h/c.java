@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public short f32503b;
+    public short f32873b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public abstract class c implements Runnable {
                 return;
             }
         }
-        this.f32503b = (short) 99;
+        this.f32873b = (short) 99;
     }
 
     public c(String str, short s) {
@@ -47,9 +47,9 @@ public abstract class c implements Runnable {
                 return;
             }
         }
-        this.f32503b = (short) 99;
+        this.f32873b = (short) 99;
         this.a = str;
-        this.f32503b = s;
+        this.f32873b = s;
     }
 
     public abstract void a();
@@ -57,7 +57,7 @@ public abstract class c implements Runnable {
     public void a(short s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Short.valueOf(s)}) == null) {
-            this.f32503b = s;
+            this.f32873b = s;
         }
     }
 
@@ -71,7 +71,7 @@ public abstract class c implements Runnable {
     public short d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32503b : invokeV.shortValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32873b : invokeV.shortValue;
     }
 
     @Override // java.lang.Runnable

@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AdOperator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TYPE a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f37582b;
+    public final a f38071b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f37583c;
+    public final String f38072c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f37584d;
+    public final String f38073d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class TYPE {
         public static final /* synthetic */ TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -102,7 +102,7 @@ public class AdOperator {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

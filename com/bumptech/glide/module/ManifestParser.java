@@ -13,7 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class ManifestParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GLIDE_MODULE_VALUE = "GlideModule";

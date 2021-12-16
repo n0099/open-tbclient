@@ -6,20 +6,22 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.l4.k.e;
+import c.a.s0.n4.d;
+import c.a.s0.n4.g;
+import c.a.s0.n4.h;
+import c.a.s0.n4.u.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +97,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             if (i3 == -1) {
-                this.albumView.K(intent);
+                this.albumView.G(intent);
             }
         }
     }
@@ -104,7 +106,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.mStatebarView, R.color.CAM_X0201, i2);
+            SkinManager.setBackgroundColor(this.mStatebarView, d.CAM_X0201, i2);
             e eVar = this.albumView;
             if (eVar != null) {
                 eVar.onViewChangeSkinType(i2);
@@ -128,11 +130,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.album_activity);
-            this.mStatebarView = findViewById(R.id.statebar_view);
+            setContentView(h.album_activity);
+            this.mStatebarView = findViewById(g.statebar_view);
             this.canUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
             checkStyleImmersiveStickyStatusBarForBg();
-            int i2 = R.id.fragment;
+            int i2 = g.fragment;
             this.albumView = new e(this, bundle, i2, i2);
         }
     }
@@ -186,7 +188,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onResume();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.C();
+                eVar.onResume();
             }
         }
     }
@@ -198,7 +200,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onSaveInstanceState(bundle);
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.D(bundle);
+                eVar.C(bundle);
             }
         }
     }
@@ -210,7 +212,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onStart();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.E();
+                eVar.D();
             }
         }
     }
@@ -222,7 +224,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onStop();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.F();
+                eVar.E();
             }
         }
     }

@@ -13,25 +13,25 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.internal.schedulers.GenericScheduledExecutorServiceFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class d implements h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ScheduledExecutorService[] f63823f;
+    public static final ScheduledExecutorService[] f64404f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ScheduledExecutorService f63824g;
+    public static final ScheduledExecutorService f64405g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final d f63825h;
+    public static final d f64406h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f63826i;
+    public static int f64407i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<ScheduledExecutorService[]> f63827e;
+    public final AtomicReference<ScheduledExecutorService[]> f64408e;
 
     static {
         InterceptResult invokeClinit;
@@ -46,11 +46,11 @@ public final class d implements h {
                 return;
             }
         }
-        f63823f = new ScheduledExecutorService[0];
+        f64404f = new ScheduledExecutorService[0];
         ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(0);
-        f63824g = newScheduledThreadPool;
+        f64405g = newScheduledThreadPool;
         newScheduledThreadPool.shutdown();
-        f63825h = new d();
+        f64406h = new d();
     }
 
     public d() {
@@ -66,7 +66,7 @@ public final class d implements h {
                 return;
             }
         }
-        this.f63827e = new AtomicReference<>(f63823f);
+        this.f64408e = new AtomicReference<>(f64404f);
         start();
     }
 
@@ -74,15 +74,15 @@ public final class d implements h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ScheduledExecutorService[] scheduledExecutorServiceArr = f63825h.f63827e.get();
-            if (scheduledExecutorServiceArr == f63823f) {
-                return f63824g;
+            ScheduledExecutorService[] scheduledExecutorServiceArr = f64406h.f64408e.get();
+            if (scheduledExecutorServiceArr == f64404f) {
+                return f64405g;
             }
-            int i2 = f63826i + 1;
+            int i2 = f64407i + 1;
             if (i2 >= scheduledExecutorServiceArr.length) {
                 i2 = 0;
             }
-            f63826i = i2;
+            f64407i = i2;
             return scheduledExecutorServiceArr[i2];
         }
         return (ScheduledExecutorService) invokeV.objValue;
@@ -95,12 +95,12 @@ public final class d implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             do {
-                scheduledExecutorServiceArr = this.f63827e.get();
-                scheduledExecutorServiceArr2 = f63823f;
+                scheduledExecutorServiceArr = this.f64408e.get();
+                scheduledExecutorServiceArr2 = f64404f;
                 if (scheduledExecutorServiceArr == scheduledExecutorServiceArr2) {
                     return;
                 }
-            } while (!this.f63827e.compareAndSet(scheduledExecutorServiceArr, scheduledExecutorServiceArr2));
+            } while (!this.f64408e.compareAndSet(scheduledExecutorServiceArr, scheduledExecutorServiceArr2));
             for (ScheduledExecutorService scheduledExecutorService : scheduledExecutorServiceArr) {
                 g.d(scheduledExecutorService);
                 scheduledExecutorService.shutdownNow();
@@ -124,7 +124,7 @@ public final class d implements h {
             for (int i3 = 0; i3 < availableProcessors; i3++) {
                 scheduledExecutorServiceArr[i3] = GenericScheduledExecutorServiceFactory.create();
             }
-            if (!this.f63827e.compareAndSet(f63823f, scheduledExecutorServiceArr)) {
+            if (!this.f64408e.compareAndSet(f64404f, scheduledExecutorServiceArr)) {
                 while (i2 < availableProcessors) {
                     scheduledExecutorServiceArr[i2].shutdownNow();
                     i2++;

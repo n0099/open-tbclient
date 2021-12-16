@@ -6,34 +6,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int[] f29133b;
+        public final int[] f29503b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f29134c;
+        public final int f29504c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long[] f29135d;
+        public final long[] f29505d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int[] f29136e;
+        public final int[] f29506e;
 
         public /* synthetic */ b(long[] jArr, int[] iArr, int i2, long[] jArr2, int[] iArr2, a aVar) {
             this(jArr, iArr, i2, jArr2, iArr2);
@@ -55,10 +55,10 @@ public final class d {
                 }
             }
             this.a = jArr;
-            this.f29133b = iArr;
-            this.f29134c = i2;
-            this.f29135d = jArr2;
-            this.f29136e = iArr2;
+            this.f29503b = iArr;
+            this.f29504c = i2;
+            this.f29505d = jArr2;
+            this.f29506e = iArr2;
         }
     }
 

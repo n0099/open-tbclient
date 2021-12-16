@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class dg implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class dg implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             list = df.f237a;
             simpleDateFormat = df.f236a;
-            str = this.a.f62779b;
+            str = this.a.f63360b;
             list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f240a), this.f241a));
             list2 = df.f237a;
             if (list2.size() > 20000) {
@@ -76,17 +76,17 @@ public class dg implements Runnable {
                 }
                 list4 = df.f237a;
                 simpleDateFormat2 = df.f236a;
-                str2 = this.a.f62779b;
+                str2 = this.a.f63360b;
                 list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str2, "flush " + size + " lines logs."), null));
             }
             try {
                 if (aa.d()) {
                     this.a.m296a();
                 } else {
-                    unused = this.a.f62779b;
+                    unused = this.a.f63360b;
                 }
             } catch (Exception unused4) {
-                unused2 = this.a.f62779b;
+                unused2 = this.a.f63360b;
             }
         }
     }

@@ -14,7 +14,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ByteBufferBitmapDecoder implements ResourceDecoder<ByteBuffer, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

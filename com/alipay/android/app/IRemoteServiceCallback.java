@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface IRemoteServiceCallback extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Stub extends Binder implements IRemoteServiceCallback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.alipay.android.app.IRemoteServiceCallback";
@@ -27,7 +27,7 @@ public interface IRemoteServiceCallback extends IInterface {
         public static final int TRANSACTION_startActivity = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public static class a implements IRemoteServiceCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

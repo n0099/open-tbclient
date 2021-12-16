@@ -19,7 +19,7 @@ import java.lang.Comparable;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.SortedSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Range<C extends Comparable> extends RangeGwtSerializationDependencies implements o<C>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Range<Comparable> ALL;
@@ -28,7 +28,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     public final Cut<C> lowerBound;
     public final Cut<C> upperBound;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class RangeLexOrdering extends Ordering<Range<?>> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final Ordering<Range<?>> INSTANCE;
@@ -74,7 +74,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -106,12 +106,12 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements g<Range, Cut> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f56379e;
+        public static final b f56960e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -127,7 +127,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
                     return;
                 }
             }
-            f56379e = new b();
+            f56960e = new b();
         }
 
         public b() {
@@ -154,12 +154,12 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c implements g<Range, Cut> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final c f56380e;
+        public static final c f56961e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -175,7 +175,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
                     return;
                 }
             }
-            f56380e = new c();
+            f56961e = new c();
         }
 
         public c() {
@@ -350,7 +350,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     public static <C extends Comparable<?>> g<Range<C>, Cut<C>> lowerBoundFn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? b.f56379e : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? b.f56960e : (g) invokeV.objValue;
     }
 
     public static <C extends Comparable<?>> Range<C> open(C c2, C c3) {
@@ -407,7 +407,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     public static <C extends Comparable<?>> g<Range<C>, Cut<C>> upperBoundFn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? c.f56380e : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? c.f56961e : (g) invokeV.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.common.collect.Range<C extends java.lang.Comparable> */

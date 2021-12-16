@@ -15,22 +15,22 @@ import com.tachikoma.core.utility.FileUtil;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class w extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f27447d;
+    public boolean f27822d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f27448e;
+    public long f27823e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a0 f27449f;
+    public a0 f27824f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27450g;
+    public String f27825g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(String str) {
@@ -60,9 +60,9 @@ public class w extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (this.a.getPath().length() == 0) {
-                return new w(new File(str), this.f27470b);
+                return new w(new File(str), this.f27845b);
             }
-            return new w(new File(this.a, str), this.f27470b);
+            return new w(new File(this.a, str), this.f27845b);
         }
         return (c.b.b.m.a) invokeL.objValue;
     }
@@ -71,7 +71,7 @@ public class w extends g {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27447d || this.f27449f.b(v()).length != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27822d || this.f27824f.b(v()).length != 0 : invokeV.booleanValue;
     }
 
     @Override // c.b.b.l.a.g, c.b.b.m.a
@@ -79,8 +79,8 @@ public class w extends g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f27447d) {
-                return this.f27448e;
+            if (this.f27822d) {
+                return this.f27823e;
             }
             return 0L;
         }
@@ -107,7 +107,7 @@ public class w extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                return this.f27449f.c(v());
+                return this.f27824f.c(v());
             } catch (IOException e2) {
                 throw new GdxRuntimeException("Error reading file: " + this.a + " (ZipResourceFile)", e2);
             }
@@ -121,7 +121,7 @@ public class w extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if (this.a.getPath().length() != 0) {
-                return c.b.b.f.f27322d.d(new File(this.a.getParent(), str).getPath(), this.f27470b);
+                return c.b.b.f.f27697d.d(new File(this.a.getParent(), str).getPath(), this.f27845b);
             }
             throw new GdxRuntimeException("Cannot get the sibling of the root.");
         }
@@ -132,34 +132,34 @@ public class w extends g {
     public AssetFileDescriptor u() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27449f.a(v()) : (AssetFileDescriptor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27824f.a(v()) : (AssetFileDescriptor) invokeV.objValue;
     }
 
     public final String v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27450g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27825g : (String) invokeV.objValue;
     }
 
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f27450g = this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, '/');
-            a0 c2 = ((h) c.b.b.f.f27322d).c();
-            this.f27449f = c2;
+            this.f27825g = this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, '/');
+            a0 c2 = ((h) c.b.b.f.f27697d).c();
+            this.f27824f = c2;
             AssetFileDescriptor a = c2.a(v());
             if (a != null) {
-                this.f27447d = true;
-                this.f27448e = a.getLength();
+                this.f27822d = true;
+                this.f27823e = a.getLength();
                 try {
                     a.close();
                 } catch (IOException unused) {
                 }
             } else {
-                this.f27447d = false;
+                this.f27822d = false;
             }
             if (x()) {
-                this.f27450g += "/";
+                this.f27825g += "/";
             }
         }
     }
@@ -167,7 +167,7 @@ public class w extends g {
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? !this.f27447d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? !this.f27822d : invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class TbTabItem extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CharSequence f31925e;
+    public final CharSequence f32295e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Drawable f31926f;
+    public final Drawable f32296f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f31927g;
+    public final int f32297g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbTabItem(Context context) {
@@ -67,9 +67,9 @@ public final class TbTabItem extends View {
             }
         }
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.TabItem);
-        this.f31925e = obtainStyledAttributes.getText(R.styleable.TabItem_android_text);
-        this.f31926f = obtainStyledAttributes.getDrawable(R.styleable.TabItem_android_icon);
-        this.f31927g = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
+        this.f32295e = obtainStyledAttributes.getText(R.styleable.TabItem_android_text);
+        this.f32296f = obtainStyledAttributes.getDrawable(R.styleable.TabItem_android_icon);
+        this.f32297g = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
         obtainStyledAttributes.recycle();
     }
 }

@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.log.SLog;
 import java.lang.ref.WeakReference;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public static h a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile WeakReference<SharedPreferences> f62396b;
+    public volatile WeakReference<SharedPreferences> f62977b;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class h {
                 return;
             }
         }
-        this.f62396b = null;
+        this.f62977b = null;
     }
 
     public static synchronized h a() {
@@ -72,8 +72,8 @@ public class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (this.f62396b == null || this.f62396b.get() == null) {
-                this.f62396b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
+            if (this.f62977b == null || this.f62977b.get() == null) {
+                this.f62977b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
             }
             try {
                 String host = new URL(str).getHost();
@@ -81,7 +81,7 @@ public class h {
                     SLog.e("openSDK_LOG.ServerSetting", "Get host error. url=" + str);
                     return str;
                 }
-                String string = this.f62396b.get().getString(host, null);
+                String string = this.f62977b.get().getString(host, null);
                 if (string != null && !host.equals(string)) {
                     String replace = str.replace(host, string);
                     SLog.v("openSDK_LOG.ServerSetting", "return environment url : " + replace);

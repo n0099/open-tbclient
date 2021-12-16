@@ -1,6 +1,6 @@
 package com.baidu.swan.webcompat.impl;
 
-import c.a.p0.a.d2.d;
+import c.a.q0.a.d2.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +14,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class WebCompatImpl$localAssetDomain$2 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
     public static final WebCompatImpl$localAssetDomain$2 INSTANCE;

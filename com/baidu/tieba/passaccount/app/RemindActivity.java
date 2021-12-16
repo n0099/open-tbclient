@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import c.a.r0.o2.d.c;
+import c.a.s0.q2.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
@@ -17,27 +17,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class RemindActivity extends BaseActivity<RemindActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RemindActivity f47415e;
+        public final /* synthetic */ RemindActivity f47922e;
 
         /* renamed from: com.baidu.tieba.passaccount.app.RemindActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class C1853a implements c.e {
+        /* loaded from: classes12.dex */
+        public class C1912a implements c.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C1853a(a aVar) {
+            public C1912a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,37 +55,37 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
                 this.a = aVar;
             }
 
-            @Override // c.a.r0.o2.d.c.e
+            @Override // c.a.s0.q2.d.c.e
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-                    c.a.r0.o2.d.b.f().d(z, str);
-                    this.a.f47415e.finishActivity(true);
+                    c.a.s0.q2.d.b.f().d(z, str);
+                    this.a.f47922e.finishActivity(true);
                 }
             }
 
-            @Override // c.a.r0.o2.d.c.e
+            @Override // c.a.s0.q2.d.c.e
             public void b(boolean z, boolean z2, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                    c.a.r0.o2.d.b.f().d(z2, str);
-                    this.a.f47415e.finishActivity(true);
+                    c.a.s0.q2.d.b.f().d(z2, str);
+                    this.a.f47922e.finishActivity(true);
                 }
             }
 
-            @Override // c.a.r0.o2.d.c.e
+            @Override // c.a.s0.q2.d.c.e
             public void c() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    c.a.r0.o2.d.b.f().d(false, null);
+                    c.a.s0.q2.d.b.f().d(false, null);
                 }
             }
 
-            @Override // c.a.r0.o2.d.c.e
+            @Override // c.a.s0.q2.d.c.e
             public void onFail() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                    c.a.r0.o2.d.b.f().d(false, null);
+                    c.a.s0.q2.d.b.f().d(false, null);
                 }
             }
         }
@@ -105,25 +105,25 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
                     return;
                 }
             }
-            this.f47415e = remindActivity;
+            this.f47922e = remindActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.i().g(this.f47415e, new C1853a(this));
+                c.i().g(this.f47922e, new C1912a(this));
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RemindActivity f47416e;
+        public final /* synthetic */ RemindActivity f47923e;
 
         public b(RemindActivity remindActivity) {
             Interceptable interceptable = $ic;
@@ -140,14 +140,14 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
                     return;
                 }
             }
-            this.f47416e = remindActivity;
+            this.f47923e = remindActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f47416e.getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
+                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f47923e.getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
             }
         }
     }
@@ -181,7 +181,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
             if (z) {
                 return;
             }
-            c.a.r0.o2.d.b.f().a(null);
+            c.a.s0.q2.d.b.f().a(null);
         }
     }
 

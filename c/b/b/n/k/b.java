@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class b {
         new c.b.b.q.a();
         new c.b.b.q.a();
         new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
-        int i4 = aVar.f27500f.f27768f;
+        int i4 = aVar.f27875f.f28143f;
         if (i4 != 0) {
             float[][] fArr = new float[i4];
             int[] iArr = new int[i4];

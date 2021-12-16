@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
     public static Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f59664b;
+    public static volatile boolean f60245b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class u {
             }
         }
         a = new Handler(Looper.getMainLooper());
-        f59664b = false;
+        f60245b = false;
     }
 
     public static void a(Context context, String str) {
@@ -64,10 +64,10 @@ public class u {
 
     public static void a(Context context, String str, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || f59664b) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || f60245b) {
             return;
         }
-        f59664b = true;
+        f60245b = true;
         View inflate = LayoutInflater.from(context).inflate(i2, (ViewGroup) null);
         ((TextView) inflate.findViewById(R.id.ksad_message_toast_txt)).setText(str);
         Toast toast = new Toast(context.getApplicationContext());
@@ -97,7 +97,7 @@ public class u {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    boolean unused = u.f59664b = false;
+                    boolean unused = u.f60245b = false;
                 }
             }
         }, j2);

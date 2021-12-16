@@ -19,32 +19,32 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Cipher f60885b;
+    public static Cipher f61466b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Cipher f60886c;
+    public static Cipher f61467c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f60887d;
+    public static final String f61468d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final byte[] f60888e;
+    public static final byte[] f61469e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.qq.e.comm.net.rr.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2091a extends Exception {
+    /* loaded from: classes3.dex */
+    public static class C2152a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C2091a(String str, Throwable th) {
+        public C2152a(String str, Throwable th) {
             super(str, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -65,7 +65,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,57 +106,57 @@ public class a {
             }
         }
         a = new byte[]{91, -62};
-        f60887d = String.format("AES/%s/PKCS7Padding", "ECB");
-        f60888e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
+        f61468d = String.format("AES/%s/PKCS7Padding", "ECB");
+        f61469e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
     }
 
-    public static byte[] a(byte[] bArr) throws C2091a {
+    public static byte[] a(byte[] bArr) throws C2152a {
         InterceptResult invokeL;
         Cipher cipher;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
             synchronized (a.class) {
-                cipher = f60886c;
+                cipher = f61467c;
                 if (cipher == null) {
                     try {
-                        cipher = Cipher.getInstance(f60887d);
-                        cipher.init(2, new SecretKeySpec(f60888e, "AES"));
-                        f60886c = cipher;
+                        cipher = Cipher.getInstance(f61468d);
+                        cipher.init(2, new SecretKeySpec(f61469e, "AES"));
+                        f61467c = cipher;
                     } catch (Exception e2) {
-                        throw new C2091a("Fail To Init Cipher", e2);
+                        throw new C2152a("Fail To Init Cipher", e2);
                     }
                 }
             }
             try {
                 return cipher.doFinal(bArr);
             } catch (Exception e3) {
-                throw new C2091a("Exception While dencrypt byte array", e3);
+                throw new C2152a("Exception While dencrypt byte array", e3);
             }
         }
         return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] b(byte[] bArr) throws C2091a {
+    public static byte[] b(byte[] bArr) throws C2152a {
         InterceptResult invokeL;
         Cipher cipher;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             synchronized (a.class) {
-                cipher = f60885b;
+                cipher = f61466b;
                 if (cipher == null) {
                     try {
-                        cipher = Cipher.getInstance(f60887d);
-                        cipher.init(1, new SecretKeySpec(f60888e, "AES"));
-                        f60885b = cipher;
+                        cipher = Cipher.getInstance(f61468d);
+                        cipher.init(1, new SecretKeySpec(f61469e, "AES"));
+                        f61466b = cipher;
                     } catch (Exception e2) {
-                        throw new C2091a("Fail To Init Cipher", e2);
+                        throw new C2152a("Fail To Init Cipher", e2);
                     }
                 }
             }
             try {
                 return cipher.doFinal(bArr);
             } catch (Exception e3) {
-                throw new C2091a("Exception While encrypt byte array", e3);
+                throw new C2152a("Exception While encrypt byte array", e3);
             }
         }
         return (byte[]) invokeL.objValue;

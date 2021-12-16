@@ -11,8 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.d0.d;
-import c.a.b0.p.o;
+import c.a.c0.d0.d;
+import c.a.c0.p.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uitemplate.NadRewardStayDialog;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NadRewardCountDownView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COUNT_DOWNING = 1;
@@ -32,25 +32,25 @@ public class NadRewardCountDownView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f37941e;
+    public TextView f38430e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f37942f;
+    public TextView f38431f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f37943g;
+    public TextView f38432g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.b0.d0.d f37944h;
+    public c.a.c0.d0.d f38433h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f37945i;
+    public int f38434i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f37946j;
+    public int f38435j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f37947k;
+    public int f38436k;
     public String l;
     public String m;
     public String n;
@@ -58,13 +58,13 @@ public class NadRewardCountDownView extends RelativeLayout {
     public g p;
     public NadRewardStayDialog q;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NadRewardCountDownView f37948e;
+        public final /* synthetic */ NadRewardCountDownView f38437e;
 
         public a(NadRewardCountDownView nadRewardCountDownView) {
             Interceptable interceptable = $ic;
@@ -81,39 +81,39 @@ public class NadRewardCountDownView extends RelativeLayout {
                     return;
                 }
             }
-            this.f37948e = nadRewardCountDownView;
+            this.f38437e = nadRewardCountDownView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37948e.o == 1) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38437e.o == 1) {
                 return;
             }
-            if (this.f37948e.o != 2) {
-                if (this.f37948e.o != 3 || this.f37948e.p == null) {
+            if (this.f38437e.o != 2) {
+                if (this.f38437e.o != 3 || this.f38437e.p == null) {
                     return;
                 }
-                this.f37948e.p.e();
+                this.f38437e.p.e();
                 return;
             }
-            this.f37948e.pause();
-            if (this.f37948e.q != null) {
-                c.a.b0.d0.a.b(this.f37948e.q);
-                if (this.f37948e.p != null) {
-                    this.f37948e.p.c();
+            this.f38437e.pause();
+            if (this.f38437e.q != null) {
+                c.a.c0.d0.a.b(this.f38437e.q);
+                if (this.f38437e.p != null) {
+                    this.f38437e.p.c();
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NadRewardCountDownView f37949e;
+        public final /* synthetic */ NadRewardCountDownView f38438e;
 
         public b(NadRewardCountDownView nadRewardCountDownView) {
             Interceptable interceptable = $ic;
@@ -130,19 +130,19 @@ public class NadRewardCountDownView extends RelativeLayout {
                     return;
                 }
             }
-            this.f37949e = nadRewardCountDownView;
+            this.f38438e = nadRewardCountDownView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f37949e.o == 4 && this.f37949e.p != null) {
-                this.f37949e.p.d();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f38438e.o == 4 && this.f38438e.p != null) {
+                this.f38438e.p.d();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class c extends d.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class NadRewardCountDownView extends RelativeLayout {
             this.a = nadRewardCountDownView;
         }
 
-        @Override // c.a.b0.d0.d.c
+        @Override // c.a.c0.d0.d.c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -176,33 +176,33 @@ public class NadRewardCountDownView extends RelativeLayout {
                     nadRewardCountDownView.m = "恭喜您已获得" + this.a.l + "!";
                     this.a.o = 3;
                 }
-                if (this.a.f37942f.getVisibility() != 0) {
-                    this.a.f37942f.setVisibility(0);
+                if (this.a.f38431f.getVisibility() != 0) {
+                    this.a.f38431f.setVisibility(0);
                 }
-                this.a.f37941e.setText(String.format(this.a.m, Integer.valueOf(this.a.f37946j)));
+                this.a.f38430e.setText(String.format(this.a.m, Integer.valueOf(this.a.f38435j)));
                 this.a.invalidate();
             }
         }
 
-        @Override // c.a.b0.d0.d.c
+        @Override // c.a.c0.d0.d.c
         public void f(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
                 super.f(j2);
-                this.a.f37946j = (((int) j2) / 1000) + 1;
-                if (this.a.o < 2 && this.a.f37947k > 0 && this.a.f37945i - this.a.f37946j > this.a.f37947k) {
-                    if (this.a.f37942f.getVisibility() != 0) {
-                        this.a.f37942f.setVisibility(0);
+                this.a.f38435j = (((int) j2) / 1000) + 1;
+                if (this.a.o < 2 && this.a.f38436k > 0 && this.a.f38434i - this.a.f38435j > this.a.f38436k) {
+                    if (this.a.f38431f.getVisibility() != 0) {
+                        this.a.f38431f.setVisibility(0);
                     }
                     this.a.o = 2;
                 }
-                this.a.f37941e.setText(String.format(this.a.m, Integer.valueOf(this.a.f37946j)));
+                this.a.f38430e.setText(String.format(this.a.m, Integer.valueOf(this.a.f38435j)));
                 this.a.invalidate();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class d implements NadRewardStayDialog.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -239,13 +239,13 @@ public class NadRewardCountDownView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class e implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NadRewardCountDownView f37950e;
+        public final /* synthetic */ NadRewardCountDownView f38439e;
 
         public e(NadRewardCountDownView nadRewardCountDownView) {
             Interceptable interceptable = $ic;
@@ -262,20 +262,20 @@ public class NadRewardCountDownView extends RelativeLayout {
                     return;
                 }
             }
-            this.f37950e = nadRewardCountDownView;
+            this.f38439e = nadRewardCountDownView;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f37950e.p == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f38439e.p == null) {
                 return;
             }
-            this.f37950e.p.f();
+            this.f38439e.p.f();
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class f extends d.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -299,7 +299,7 @@ public class NadRewardCountDownView extends RelativeLayout {
             this.a = nadRewardCountDownView;
         }
 
-        @Override // c.a.b0.d0.d.c
+        @Override // c.a.c0.d0.d.c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -308,25 +308,25 @@ public class NadRewardCountDownView extends RelativeLayout {
                     this.a.n = "";
                     this.a.o = 4;
                 }
-                this.a.f37943g.setText(this.a.n);
-                this.a.f37943g.setBackground(this.a.getResources().getDrawable(c.a.b0.b.d.nad_reward_close_icon_bg));
+                this.a.f38432g.setText(this.a.n);
+                this.a.f38432g.setBackground(this.a.getResources().getDrawable(c.a.c0.b.d.nad_reward_close_icon_bg));
                 this.a.requestLayout();
             }
         }
 
-        @Override // c.a.b0.d0.d.c
+        @Override // c.a.c0.d0.d.c
         public void f(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
                 super.f(j2);
-                this.a.f37946j = (((int) j2) / 1000) + 1;
-                this.a.f37943g.setText(String.format(this.a.n, Integer.valueOf(this.a.f37946j)));
+                this.a.f38435j = (((int) j2) / 1000) + 1;
+                this.a.f38432g.setText(String.format(this.a.n, Integer.valueOf(this.a.f38435j)));
                 this.a.invalidate();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface g {
         void a();
 
@@ -365,9 +365,9 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     public void cancel() {
-        c.a.b0.d0.d dVar;
+        c.a.c0.d0.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dVar = this.f37944h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dVar = this.f38433h) == null) {
             return;
         }
         dVar.b();
@@ -390,9 +390,9 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     public void pause() {
-        c.a.b0.d0.d dVar;
+        c.a.c0.d0.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (dVar = this.f37944h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (dVar = this.f38433h) == null) {
             return;
         }
         dVar.d();
@@ -405,34 +405,34 @@ public class NadRewardCountDownView extends RelativeLayout {
     public final void q(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(c.a.b0.b.g.nad_reward_count_down_view, (ViewGroup) this, true);
-            TextView textView = (TextView) findViewById(c.a.b0.b.e.nad_skip_view);
-            this.f37942f = textView;
+            LayoutInflater.from(context).inflate(c.a.c0.b.g.nad_reward_count_down_view, (ViewGroup) this, true);
+            TextView textView = (TextView) findViewById(c.a.c0.b.e.nad_skip_view);
+            this.f38431f = textView;
             textView.setText("跳过");
-            this.f37942f.setVisibility(8);
-            this.f37941e = (TextView) findViewById(c.a.b0.b.e.nad_count_down_view);
-            this.f37943g = (TextView) findViewById(c.a.b0.b.e.nad_tail_count_down_view);
-            this.f37941e.setClickable(true);
-            this.f37942f.setOnClickListener(new a(this));
-            this.f37943g.setOnClickListener(new b(this));
+            this.f38431f.setVisibility(8);
+            this.f38430e = (TextView) findViewById(c.a.c0.b.e.nad_count_down_view);
+            this.f38432g = (TextView) findViewById(c.a.c0.b.e.nad_tail_count_down_view);
+            this.f38430e.setClickable(true);
+            this.f38431f.setOnClickListener(new a(this));
+            this.f38432g.setOnClickListener(new b(this));
             setVisibility(8);
         }
     }
 
     public void release() {
-        c.a.b0.d0.d dVar;
+        c.a.c0.d0.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (dVar = this.f37944h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (dVar = this.f38433h) == null) {
             return;
         }
         dVar.b();
-        this.f37944h = null;
+        this.f38433h = null;
     }
 
     public void resume() {
-        c.a.b0.d0.d dVar;
+        c.a.c0.d0.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (dVar = this.f37944h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (dVar = this.f38433h) == null) {
             return;
         }
         dVar.e();
@@ -450,9 +450,9 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     public void start() {
-        c.a.b0.d0.d dVar;
+        c.a.c0.d0.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (dVar = this.f37944h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (dVar = this.f38433h) == null) {
             return;
         }
         dVar.g();
@@ -462,48 +462,48 @@ public class NadRewardCountDownView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             release();
-            this.f37942f.setVisibility(8);
-            this.f37941e.setVisibility(8);
-            this.f37943g.setVisibility(0);
-            c.a.b0.d0.d dVar = new c.a.b0.d0.d(3000L, 1000L);
-            this.f37944h = dVar;
+            this.f38431f.setVisibility(8);
+            this.f38430e.setVisibility(8);
+            this.f38432g.setVisibility(0);
+            c.a.c0.d0.d dVar = new c.a.c0.d0.d(3000L, 1000L);
+            this.f38433h = dVar;
             dVar.f(new f(this));
-            this.f37944h.g();
+            this.f38433h.g();
         }
     }
 
     public void update(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, adBaseModel) == null) || adBaseModel == null || adBaseModel.f37578h == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, adBaseModel) == null) || adBaseModel == null || adBaseModel.f38067h == null) {
             return;
         }
         setTag(adBaseModel);
         o oVar = adBaseModel.l;
         float f2 = 1.0f;
         if (oVar != null) {
-            this.f37947k = oVar.f1803c;
-            String str = oVar.f1807g;
+            this.f38436k = oVar.f1821c;
+            String str = oVar.f1825g;
             if (!TextUtils.isEmpty(str) && str.length() <= 4) {
                 this.l = str;
                 this.m = "%2ss后可以领取" + this.l;
             }
-            float f3 = adBaseModel.l.f1805e;
+            float f3 = adBaseModel.l.f1823e;
             if (f3 > 0.0f && f3 <= 1.0f) {
                 f2 = f3;
             }
         }
-        int floor = (int) Math.floor(adBaseModel.f37578h.a * f2);
-        this.f37945i = floor;
-        this.f37946j = floor;
-        c.a.b0.d0.d dVar = new c.a.b0.d0.d(floor * 1000, 1000L);
-        this.f37944h = dVar;
+        int floor = (int) Math.floor(adBaseModel.f38067h.a * f2);
+        this.f38434i = floor;
+        this.f38435j = floor;
+        c.a.c0.d0.d dVar = new c.a.c0.d0.d(floor * 1000, 1000L);
+        this.f38433h = dVar;
         dVar.f(new c(this));
         NadRewardStayDialog nadRewardStayDialog = new NadRewardStayDialog(getContext(), adBaseModel, new d(this));
         this.q = nadRewardStayDialog;
         nadRewardStayDialog.setOnDismissListener(new e(this));
-        this.f37941e.setVisibility(0);
+        this.f38430e.setVisibility(0);
         setVisibility(0);
-        this.f37944h.g();
+        this.f38433h.g();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -546,7 +546,7 @@ public class NadRewardCountDownView extends RelativeLayout {
                 return;
             }
         }
-        this.f37947k = -1;
+        this.f38436k = -1;
         this.l = "奖励";
         this.m = "%2ss后可以领取" + this.l;
         this.n = "%2ss";

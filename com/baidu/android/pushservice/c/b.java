@@ -7,38 +7,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32289b;
+    public long f32659b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32290c;
+    public String f32660c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32291d;
+    public String f32661d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f32292e;
+    public String f32662e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32293f;
+    public String f32663f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32294g;
+    public String f32664g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f32295h;
+    public String f32665h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f32296i;
+    public String f32666i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f32297j;
+    public String f32667j;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -54,15 +54,15 @@ public class b {
             }
         }
         this.a = 0L;
-        this.f32289b = 0L;
-        this.f32290c = "";
-        this.f32291d = "";
-        this.f32292e = "";
-        this.f32293f = "";
-        this.f32294g = "";
-        this.f32295h = "";
-        this.f32296i = "";
-        this.f32297j = "";
+        this.f32659b = 0L;
+        this.f32660c = "";
+        this.f32661d = "";
+        this.f32662e = "";
+        this.f32663f = "";
+        this.f32664g = "";
+        this.f32665h = "";
+        this.f32666i = "";
+        this.f32667j = "";
     }
 
     public JSONObject a() throws JSONException {
@@ -74,18 +74,18 @@ public class b {
             if (j2 > -1) {
                 jSONObject.put("push_priority", j2);
             }
-            long j3 = this.f32289b;
+            long j3 = this.f32659b;
             if (j3 > -1) {
                 jSONObject.put("push_version", j3);
             }
-            jSONObject.put("push_channelid", this.f32290c);
-            jSONObject.put("push_newchannelid", this.f32291d);
-            jSONObject.put("push_curpkgname", this.f32292e);
-            jSONObject.put("push_webappbindinfo", this.f32293f);
-            jSONObject.put("push_lightappbindinfo", this.f32294g);
-            jSONObject.put("push_sdkclientbindinfo", this.f32295h);
-            jSONObject.put("push_clientsbindinfo", this.f32296i);
-            jSONObject.put("push_selfbindinfo", this.f32297j);
+            jSONObject.put("push_channelid", this.f32660c);
+            jSONObject.put("push_newchannelid", this.f32661d);
+            jSONObject.put("push_curpkgname", this.f32662e);
+            jSONObject.put("push_webappbindinfo", this.f32663f);
+            jSONObject.put("push_lightappbindinfo", this.f32664g);
+            jSONObject.put("push_sdkclientbindinfo", this.f32665h);
+            jSONObject.put("push_clientsbindinfo", this.f32666i);
+            jSONObject.put("push_selfbindinfo", this.f32667j);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

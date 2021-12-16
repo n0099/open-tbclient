@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class r implements ValueAnimator.AnimatorUpdateListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ ViewGroup.LayoutParams a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f36037b;
+    public final /* synthetic */ SwipeDismissTouchListener f36526b;
 
     public r(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
                 return;
             }
         }
-        this.f36037b = swipeDismissTouchListener;
+        this.f36526b = swipeDismissTouchListener;
         this.a = layoutParams;
     }
 
@@ -41,7 +41,7 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
             this.a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-            view = this.f36037b.f35953e;
+            view = this.f36526b.f36442e;
             view.setLayoutParams(this.a);
         }
     }

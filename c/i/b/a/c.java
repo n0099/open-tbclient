@@ -1,5 +1,5 @@
 package c.i.b.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface c {
     boolean a(q qVar, int i2, long j2);
 

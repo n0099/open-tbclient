@@ -28,24 +28,24 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BdUniqueId f2831e;
+    public static final BdUniqueId f2795e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdAsyncTaskParallel f2832f;
+    public static final BdAsyncTaskParallel f2796f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static b f2833g;
+    public static b f2797g;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PluginSettings f2834b;
+    public PluginSettings f2798b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2835c;
+    public boolean f2799c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f2836d;
+    public e f2800d;
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
@@ -54,10 +54,10 @@ public class b {
         public PluginSettings a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d f2837b;
+        public d f2801b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f2838c;
+        public final /* synthetic */ b f2802c;
 
         public a(b bVar, PluginSettings pluginSettings, d dVar) {
             Interceptable interceptable = $ic;
@@ -74,9 +74,9 @@ public class b {
                     return;
                 }
             }
-            this.f2838c = bVar;
+            this.f2802c = bVar;
             this.a = pluginSettings;
-            this.f2837b = dVar;
+            this.f2801b = dVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -84,7 +84,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.cancel();
-                d dVar = this.f2837b;
+                d dVar = this.f2801b;
                 if (dVar != null) {
                     dVar.a();
                 }
@@ -148,7 +148,7 @@ public class b {
                     WriteSettingsReqIdl.Builder builder3 = new WriteSettingsReqIdl.Builder();
                     try {
                         builder3.data = builder.build(false);
-                        return Boolean.valueOf(this.f2838c.f(this.f2838c.c(), builder3.build(false).toByteArray()));
+                        return Boolean.valueOf(this.f2802c.f(this.f2802c.c(), builder3.build(false).toByteArray()));
                     } catch (Throwable th) {
                         c.a.d.i.h.a.b().g("plugin_settings_write_error");
                         c.a.d.i.h.a.b().m("plugin_setting", "settings_write_error", null, th.getMessage());
@@ -166,11 +166,11 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 super.onPostExecute((a) bool);
-                if (this.f2837b != null) {
+                if (this.f2801b != null) {
                     if (bool != null && bool.booleanValue()) {
-                        this.f2837b.b();
+                        this.f2801b.b();
                     } else {
-                        this.f2837b.a();
+                        this.f2801b.a();
                     }
                 }
             }
@@ -190,8 +190,8 @@ public class b {
                 return;
             }
         }
-        f2831e = BdUniqueId.gen();
-        f2832f = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, f2831e);
+        f2795e = BdUniqueId.gen();
+        f2796f = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, f2795e);
     }
 
     public b() {
@@ -207,21 +207,21 @@ public class b {
                 return;
             }
         }
-        this.f2834b = new PluginSettings();
+        this.f2798b = new PluginSettings();
     }
 
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f2833g == null) {
+            if (f2797g == null) {
                 synchronized (b.class) {
-                    if (f2833g == null) {
-                        f2833g = new b();
+                    if (f2797g == null) {
+                        f2797g = new b();
                     }
                 }
             }
-            return f2833g;
+            return f2797g;
         }
         return (b) invokeV.objValue;
     }
@@ -241,7 +241,7 @@ public class b {
     public PluginSettings d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2834b : (PluginSettings) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2798b : (PluginSettings) invokeV.objValue;
     }
 
     public void e(PluginSettings pluginSettings, d dVar) {
@@ -250,11 +250,11 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, pluginSettings, dVar) == null) || pluginSettings == null) {
             return;
         }
-        this.f2834b = pluginSettings;
-        if (this.f2835c && (eVar = this.f2836d) != null) {
+        this.f2798b = pluginSettings;
+        if (this.f2799c && (eVar = this.f2800d) != null) {
             eVar.a(pluginSettings);
-            this.f2836d = null;
-            this.f2835c = false;
+            this.f2800d = null;
+            this.f2799c = false;
         }
         a aVar = this.a;
         if (aVar != null) {
@@ -266,7 +266,7 @@ public class b {
         }
         a aVar2 = new a(this, pluginSettings, dVar);
         this.a = aVar2;
-        aVar2.setParallel(f2832f);
+        aVar2.setParallel(f2796f);
         this.a.execute(new String[0]);
     }
 

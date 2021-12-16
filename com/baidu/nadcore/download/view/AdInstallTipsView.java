@@ -12,11 +12,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.c0.e;
-import c.a.b0.c0.f;
-import c.a.b0.c0.g;
-import c.a.b0.d0.q;
-import c.a.b0.g.j.d;
+import c.a.c0.c0.e;
+import c.a.c0.c0.f;
+import c.a.c0.c0.g;
+import c.a.c0.d0.q;
+import c.a.c0.g.j.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,37 +24,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AdInstallTipsView extends LinearLayout implements d, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f37548e;
+    public ImageView f38037e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f37549f;
+    public TextView f38038f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f37550g;
+    public FrameLayout f38039g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f37551h;
+    public TextView f38040h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CountDownTextView f37552i;
+    public CountDownTextView f38041i;
 
     /* renamed from: j  reason: collision with root package name */
-    public FrameLayout f37553j;
+    public FrameLayout f38042j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TextView f37554k;
+    public TextView f38043k;
     public CountDownTextView l;
-    public c.a.b0.g.j.b<AdInstallTipsView> m;
+    public c.a.c0.g.j.b<AdInstallTipsView> m;
     public c n;
 
-    /* loaded from: classes8.dex */
-    public class a implements c.a.b0.o.b {
+    /* loaded from: classes10.dex */
+    public class a implements c.a.c0.o.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdInstallTipsView a;
@@ -77,24 +77,24 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
             this.a = adInstallTipsView;
         }
 
-        @Override // c.a.b0.o.b
+        @Override // c.a.c0.o.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // c.a.b0.o.b
+        @Override // c.a.c0.o.b
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                this.a.f37548e.setImageBitmap(bitmap);
+                this.a.f38037e.setImageBitmap(bitmap);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements c.a.b0.o.b {
+    /* loaded from: classes10.dex */
+    public class b implements c.a.c0.o.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdInstallTipsView a;
@@ -117,23 +117,23 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
             this.a = adInstallTipsView;
         }
 
-        @Override // c.a.b0.o.b
+        @Override // c.a.c0.o.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // c.a.b0.o.b
+        @Override // c.a.c0.o.b
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                this.a.f37548e.setImageBitmap(bitmap);
+                this.a.f38037e.setImageBitmap(bitmap);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void a(ClogBuilder.Area area, boolean z, long j2, long j3);
 
@@ -168,7 +168,7 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
             if (this.l.getVisibility() == 0) {
                 return this.l;
             }
-            return this.f37552i;
+            return this.f38041i;
         }
         return (CountDownTextView) invokeV.objValue;
     }
@@ -177,47 +177,47 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             d(LayoutInflater.from(getContext()).inflate(f.nad_install_tips_view, this));
-            setBackground(getResources().getDrawable(c.a.b0.c0.d.nad_install_tips_bg));
+            setBackground(getResources().getDrawable(c.a.c0.c0.d.nad_install_tips_bg));
             setOrientation(0);
             setGravity(16);
-            this.m = new c.a.b0.g.j.b<>(this);
+            this.m = new c.a.c0.g.j.b<>(this);
         }
     }
 
     public final void d(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            this.f37548e = (ImageView) view.findViewById(e.ad_install_tips_apk_icon);
-            this.f37549f = (TextView) view.findViewById(e.ad_install_tips_apk_name);
-            this.f37551h = (TextView) view.findViewById(e.ad_install_tips_delay_install_text);
-            this.f37552i = (CountDownTextView) view.findViewById(e.ad_install_tips_delay_install_count_down);
-            this.f37554k = (TextView) view.findViewById(e.ad_install_tips_install_now_text);
+            this.f38037e = (ImageView) view.findViewById(e.ad_install_tips_apk_icon);
+            this.f38038f = (TextView) view.findViewById(e.ad_install_tips_apk_name);
+            this.f38040h = (TextView) view.findViewById(e.ad_install_tips_delay_install_text);
+            this.f38041i = (CountDownTextView) view.findViewById(e.ad_install_tips_delay_install_count_down);
+            this.f38043k = (TextView) view.findViewById(e.ad_install_tips_install_now_text);
             this.l = (CountDownTextView) view.findViewById(e.ad_install_tips_install_now_count_down);
-            this.f37550g = (FrameLayout) findViewById(e.ad_install_tips_delay_install_layout);
-            this.f37553j = (FrameLayout) findViewById(e.ad_install_tips_install_now_layout);
-            this.f37552i.setLabelText(getResources().getString(g.nad_apk_delay_install));
+            this.f38039g = (FrameLayout) findViewById(e.ad_install_tips_delay_install_layout);
+            this.f38042j = (FrameLayout) findViewById(e.ad_install_tips_install_now_layout);
+            this.f38041i.setLabelText(getResources().getString(g.nad_apk_delay_install));
             this.l.setLabelText(getResources().getString(g.nad_button_install));
-            this.f37552i.setTimerTextFormat(null, "s");
+            this.f38041i.setTimerTextFormat(null, "s");
             this.l.setTimerTextFormat(null, "s");
-            this.f37552i.setTextColor(Color.parseColor("#FF4141"));
+            this.f38041i.setTextColor(Color.parseColor("#FF4141"));
             this.l.setTextColor(Color.parseColor("#FFFFFF"));
-            this.f37552i.setTextSize(12);
+            this.f38041i.setTextSize(12);
             this.l.setTextSize(12);
-            this.f37548e.setOnClickListener(this);
-            this.f37549f.setOnClickListener(this);
-            this.f37551h.setOnClickListener(this);
-            this.f37552i.setOnClickListener(this);
-            this.f37554k.setOnClickListener(this);
+            this.f38037e.setOnClickListener(this);
+            this.f38038f.setOnClickListener(this);
+            this.f38040h.setOnClickListener(this);
+            this.f38041i.setOnClickListener(this);
+            this.f38043k.setOnClickListener(this);
             this.l.setOnClickListener(this);
-            this.f37550g.setOnClickListener(this);
-            this.f37553j.setOnClickListener(this);
+            this.f38039g.setOnClickListener(this);
+            this.f38042j.setOnClickListener(this);
             setOnClickListener(this);
-            q.a(getContext(), this.f37550g, 10.0f);
+            q.a(getContext(), this.f38039g, 10.0f);
         }
     }
 
     public void dismissTips() {
-        c.a.b0.g.j.b<AdInstallTipsView> bVar;
+        c.a.c0.g.j.b<AdInstallTipsView> bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.m) == null) {
             return;
@@ -225,7 +225,7 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
         bVar.i();
     }
 
-    @Override // c.a.b0.g.j.d
+    @Override // c.a.c0.g.j.d
     public void onCancel(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
@@ -264,7 +264,7 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
         }
     }
 
-    @Override // c.a.b0.g.j.d
+    @Override // c.a.c0.g.j.d
     public void onFinish(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
@@ -277,7 +277,7 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
         }
     }
 
-    @Override // c.a.b0.g.j.d
+    @Override // c.a.c0.g.j.d
     public void onProgress(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
@@ -285,7 +285,7 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
         }
     }
 
-    @Override // c.a.b0.g.j.d
+    @Override // c.a.c0.g.j.d
     public void onStart(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
@@ -303,17 +303,17 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
     public void update(String str, String str2, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, str2, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            c.a.b0.o.a.a().b(str, new a(this));
-            this.f37549f.setText(str2);
+            c.a.c0.o.a.a().b(str, new a(this));
+            this.f38038f.setText(str2);
             if (z) {
-                this.f37551h.setVisibility(8);
-                this.f37552i.setVisibility(0);
-                this.f37554k.setVisibility(0);
+                this.f38040h.setVisibility(8);
+                this.f38041i.setVisibility(0);
+                this.f38043k.setVisibility(0);
                 this.l.setVisibility(8);
             } else {
-                this.f37551h.setVisibility(0);
-                this.f37552i.setVisibility(8);
-                this.f37554k.setVisibility(8);
+                this.f38040h.setVisibility(0);
+                this.f38041i.setVisibility(8);
+                this.f38043k.setVisibility(8);
                 this.l.setVisibility(0);
             }
             this.m.h(j2);
@@ -323,19 +323,19 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
     public void updateStartTips(String str, String str2, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            c.a.b0.o.a.a().b(str, new b(this));
-            this.f37549f.setText(str2);
+            c.a.c0.o.a.a().b(str, new b(this));
+            this.f38038f.setText(str2);
             if (z) {
-                this.f37551h.setVisibility(8);
-                this.f37552i.setVisibility(0);
-                this.f37554k.setVisibility(0);
+                this.f38040h.setVisibility(8);
+                this.f38041i.setVisibility(0);
+                this.f38043k.setVisibility(0);
                 this.l.setVisibility(8);
                 this.m.h(j2);
                 return;
             }
-            this.f37551h.setVisibility(0);
-            this.f37552i.setVisibility(8);
-            this.f37554k.setVisibility(0);
+            this.f38040h.setVisibility(0);
+            this.f38041i.setVisibility(8);
+            this.f38043k.setVisibility(0);
             this.l.setVisibility(8);
         }
     }

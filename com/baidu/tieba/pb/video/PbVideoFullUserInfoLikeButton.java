@@ -2,15 +2,15 @@ package com.baidu.tieba.pb.video;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import c.a.r0.q2.f;
-import c.a.r0.q2.h;
+import c.a.s0.s2.f;
+import c.a.s0.s2.h;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

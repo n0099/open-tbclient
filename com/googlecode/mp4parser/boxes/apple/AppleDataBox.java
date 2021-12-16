@@ -20,13 +20,14 @@ import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.annotations.DoNotParseDetail;
 import com.tencent.connect.common.Constants;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UVEventType;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Locale;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AppleDataBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
@@ -76,11 +77,11 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("16", "Maltese");
         language.put("17", "Turkish");
         language.put("18", "Croatian");
-        language.put(Constants.VIA_ACT_TYPE_NINETEEN, "Traditional_Chinese");
-        language.put("20", "Urdu");
+        language.put("19", "Traditional_Chinese");
+        language.put(UVEventType.PAY_WALLET_BANNER_SHOW, "Urdu");
         language.put("21", "Hindi");
-        language.put(Constants.VIA_REPORT_TYPE_DATALINE, "Thai");
-        language.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "Korean");
+        language.put("22", "Thai");
+        language.put("23", "Korean");
         language.put("24", "Lithuanian");
         language.put("25", "Polish");
         language.put("26", "Hungarian");

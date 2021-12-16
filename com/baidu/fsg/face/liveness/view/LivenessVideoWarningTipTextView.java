@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LivenessVideoWarningTipTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
 
@@ -117,10 +117,10 @@ public class LivenessVideoWarningTipTextView extends TextView {
                 public final /* synthetic */ a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f34952b;
+                public final /* synthetic */ int f35420b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoWarningTipTextView f34953c;
+                public final /* synthetic */ LivenessVideoWarningTipTextView f35421c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -137,9 +137,9 @@ public class LivenessVideoWarningTipTextView extends TextView {
                             return;
                         }
                     }
-                    this.f34953c = this;
+                    this.f35421c = this;
                     this.a = aVar;
-                    this.f34952b = dimensionPixelOffset;
+                    this.f35420b = dimensionPixelOffset;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -150,8 +150,8 @@ public class LivenessVideoWarningTipTextView extends TextView {
                         if (aVar2 != null) {
                             aVar2.b();
                         }
-                        this.f34953c.clearAnimation();
-                        this.f34953c.setTranslationY(this.f34952b);
+                        this.f35421c.clearAnimation();
+                        this.f35421c.setTranslationY(this.f35420b);
                     }
                 }
 

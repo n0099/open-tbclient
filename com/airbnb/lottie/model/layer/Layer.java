@@ -12,7 +12,7 @@ import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
 import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Layer {
     public final LottieComposition composition;
     public final boolean hidden;
@@ -41,7 +41,7 @@ public class Layer {
     public final float timeStretch;
     public final AnimatableTransform transform;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public enum LayerType {
         PRE_COMP,
         SOLID,
@@ -52,7 +52,7 @@ public class Layer {
         UNKNOWN
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public enum MatteType {
         NONE,
         ADD,

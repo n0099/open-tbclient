@@ -14,7 +14,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class NetUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

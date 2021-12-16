@@ -15,7 +15,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f2198b;
+    public static volatile a f2165b;
     public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<String> a;
 
@@ -40,14 +40,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f2198b == null) {
+            if (f2165b == null) {
                 synchronized (a.class) {
-                    if (f2198b == null) {
-                        f2198b = new a();
+                    if (f2165b == null) {
+                        f2165b = new a();
                     }
                 }
             }
-            return f2198b;
+            return f2165b;
         }
         return (a) invokeV.objValue;
     }

@@ -3,7 +3,7 @@ package com.airbnb.lottie.value;
 import android.graphics.PointF;
 import androidx.annotation.NonNull;
 import com.airbnb.lottie.utils.MiscUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LottieRelativePointValueCallback extends LottieValueCallback<PointF> {
     public final PointF point;
 

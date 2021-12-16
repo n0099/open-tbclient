@@ -12,12 +12,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f56738b = 1;
+    public static final long f57319b = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<m> a;
 
@@ -45,20 +45,20 @@ public class l {
         for (int i4 = 0; i4 < length; i4++) {
             if (activityInfoArr[i4] != null) {
                 m mVar = new m();
-                mVar.f56749h = activityInfoArr[i4].configChanges;
-                mVar.f56747f = activityInfoArr[i4].flags;
+                mVar.f57330h = activityInfoArr[i4].configChanges;
+                mVar.f57328f = activityInfoArr[i4].flags;
                 mVar.m = activityInfoArr[i4].labelRes;
-                mVar.f56743b = activityInfoArr[i4].launchMode;
+                mVar.f57324b = activityInfoArr[i4].launchMode;
                 if (activityInfoArr[i4].nonLocalizedLabel != null) {
                     mVar.n = activityInfoArr[i4].nonLocalizedLabel.toString();
                 }
-                mVar.f56752k = activityInfoArr[i4].name;
+                mVar.f57333k = activityInfoArr[i4].name;
                 mVar.l = activityInfoArr[i4].packageName;
-                mVar.f56744c = activityInfoArr[i4].permission;
-                mVar.f56748g = activityInfoArr[i4].screenOrientation;
-                mVar.f56750i = activityInfoArr[i4].softInputMode;
-                mVar.f56746e = activityInfoArr[i4].targetActivity;
-                mVar.f56745d = activityInfoArr[i4].taskAffinity;
+                mVar.f57325c = activityInfoArr[i4].permission;
+                mVar.f57329g = activityInfoArr[i4].screenOrientation;
+                mVar.f57331i = activityInfoArr[i4].softInputMode;
+                mVar.f57327e = activityInfoArr[i4].targetActivity;
+                mVar.f57326d = activityInfoArr[i4].taskAffinity;
                 mVar.a = activityInfoArr[i4].theme;
                 this.a.add(mVar);
             }

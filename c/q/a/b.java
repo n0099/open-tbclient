@@ -40,19 +40,19 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f31021b;
+    public static final b f31391b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f31022c;
+    public static final Object f31392c;
     public transient /* synthetic */ FieldHolder $fh;
     public d a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static String a;
@@ -148,8 +148,8 @@ public final class b {
     }
 
     /* renamed from: c.q.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1631b {
+    /* loaded from: classes9.dex */
+    public static class C1670b {
         public static /* synthetic */ Interceptable $ic;
         public static final char[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -290,7 +290,7 @@ public final class b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -304,7 +304,7 @@ public final class b {
         public static String b(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? C1631b.b(d(str.getBytes("UTF-8"), str2.getBytes("UTF-8"))) : (String) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? C1670b.b(d(str.getBytes("UTF-8"), str2.getBytes("UTF-8"))) : (String) invokeLL.objValue;
         }
 
         public static String c(byte[] bArr) {
@@ -342,7 +342,7 @@ public final class b {
                 if (str == null) {
                     return null;
                 }
-                return f(g(C1631b.d(str), str2.getBytes("UTF-8")));
+                return f(g(C1670b.d(str), str2.getBytes("UTF-8")));
             }
             return (String) invokeLL.objValue;
         }
@@ -367,35 +367,35 @@ public final class b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f31023b;
+        public String f31393b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f31024c;
+        public String f31394c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f31025d;
+        public String f31395d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f31026e;
+        public String f31396e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONObject f31027f;
+        public JSONObject f31397f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f31028g;
+        public long f31398g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f31029h;
+        public int f31399h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f31030i;
+        public String f31400i;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -410,8 +410,8 @@ public final class b {
                     return;
                 }
             }
-            this.f31025d = "0";
-            this.f31028g = 0L;
+            this.f31395d = "0";
+            this.f31398g = 0L;
         }
 
         public /* synthetic */ d(byte b2) {
@@ -419,7 +419,7 @@ public final class b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -532,8 +532,8 @@ public final class b {
                 return;
             }
         }
-        f31021b = new b();
-        f31022c = FilenameFilter.class;
+        f31391b = new b();
+        f31392c = FilenameFilter.class;
     }
 
     public b() {
@@ -575,13 +575,13 @@ public final class b {
             String e6 = e(jSONObject, BaseStatisContent.MAC);
             if (k(e3 + e5 + e6).equals(e(jSONObject, "key"))) {
                 d dVar = new d((byte) 0);
-                dVar.f31027f = jSONObject;
+                dVar.f31397f = jSONObject;
                 dVar.a = e3;
-                dVar.f31023b = e5;
-                dVar.f31024c = e6;
-                dVar.f31025d = e4;
-                dVar.f31026e = e(jSONObject, BaseStatisContent.ARID);
-                dVar.f31028g = i(jSONObject, "crtTime");
+                dVar.f31393b = e5;
+                dVar.f31394c = e6;
+                dVar.f31395d = e4;
+                dVar.f31396e = e(jSONObject, BaseStatisContent.ARID);
+                dVar.f31398g = i(jSONObject, "crtTime");
                 return dVar;
             }
             return null;
@@ -605,25 +605,25 @@ public final class b {
     public static String c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f31021b.m(context).a : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f31391b.m(context).a : (String) invokeL.objValue;
     }
 
     public static String d(d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, dVar)) == null) {
-            if (dVar.f31027f == null) {
-                dVar.f31027f = new JSONObject();
+            if (dVar.f31397f == null) {
+                dVar.f31397f = new JSONObject();
             }
-            h(dVar.f31027f, "hdid", dVar.a);
-            h(dVar.f31027f, "type", dVar.f31025d);
-            h(dVar.f31027f, "imei", dVar.f31023b);
-            h(dVar.f31027f, BaseStatisContent.MAC, dVar.f31024c);
-            h(dVar.f31027f, BaseStatisContent.ARID, dVar.f31026e);
-            JSONObject jSONObject = dVar.f31027f;
-            h(jSONObject, "key", k(dVar.a + dVar.f31023b + dVar.f31024c));
-            g(dVar.f31027f, "crtTime", dVar.f31028g);
-            return dVar.f31027f.toString();
+            h(dVar.f31397f, "hdid", dVar.a);
+            h(dVar.f31397f, "type", dVar.f31395d);
+            h(dVar.f31397f, "imei", dVar.f31393b);
+            h(dVar.f31397f, BaseStatisContent.MAC, dVar.f31394c);
+            h(dVar.f31397f, BaseStatisContent.ARID, dVar.f31396e);
+            JSONObject jSONObject = dVar.f31397f;
+            h(jSONObject, "key", k(dVar.a + dVar.f31393b + dVar.f31394c));
+            g(dVar.f31397f, "crtTime", dVar.f31398g);
+            return dVar.f31397f.toString();
         }
         return (String) invokeL.objValue;
     }
@@ -799,29 +799,29 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             d dVar = new d((byte) 0);
             String str = "";
-            dVar.f31023b = "";
+            dVar.f31393b = "";
             String a2 = a.a();
-            dVar.f31026e = a.b(context);
-            dVar.f31028g = System.currentTimeMillis();
+            dVar.f31396e = a.b(context);
+            dVar.f31398g = System.currentTimeMillis();
             try {
-                int i2 = !TextUtils.isEmpty(dVar.f31026e) ? 1 : 0;
+                int i2 = !TextUtils.isEmpty(dVar.f31396e) ? 1 : 0;
                 boolean d2 = a.d(a2);
                 if (i2 == 0 && !d2) {
-                    dVar.f31025d = "0";
+                    dVar.f31395d = "0";
                     dVar.a = b();
                     return dVar;
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append(i2 | (d2 ? 2 : 0));
-                dVar.f31025d = sb.toString();
-                String str2 = dVar.f31026e == null ? "" : dVar.f31026e;
+                dVar.f31395d = sb.toString();
+                String str2 = dVar.f31396e == null ? "" : dVar.f31396e;
                 if (a2 != null) {
                     str = a2;
                 }
                 dVar.a = c.a(str2 + "_" + str);
                 return dVar;
             } catch (Exception unused) {
-                dVar.f31025d = "0";
+                dVar.f31395d = "0";
                 dVar.a = b();
                 return dVar;
             }
@@ -904,7 +904,7 @@ public final class b {
             if (dVar != null) {
                 return dVar;
             }
-            synchronized (f31022c) {
+            synchronized (f31392c) {
                 if (this.a != null) {
                     return this.a;
                 }
@@ -934,13 +934,13 @@ public final class b {
                                                 break;
                                                 break;
                                             }
-                                            p.f31029h = 6;
+                                            p.f31399h = 6;
                                             f(context, p);
                                             o = p;
                                             this.a = o;
                                             break;
                                         }
-                                        o.f31029h = 4;
+                                        o.f31399h = 4;
                                     } else {
                                         Thread.sleep(2L);
                                     }
@@ -966,7 +966,7 @@ public final class b {
                                     e.printStackTrace();
                                     if (this.a == null) {
                                     }
-                                    this.a.f31030i = q(context);
+                                    this.a.f31400i = q(context);
                                     return this.a;
                                 }
                             } catch (Exception e5) {
@@ -994,13 +994,13 @@ public final class b {
                                         e.printStackTrace();
                                         if (this.a == null) {
                                         }
-                                        this.a.f31030i = q(context);
+                                        this.a.f31400i = q(context);
                                         return this.a;
                                     }
                                 }
                                 if (this.a == null) {
                                 }
-                                this.a.f31030i = q(context);
+                                this.a.f31400i = q(context);
                                 return this.a;
                             }
                         } catch (Throwable th) {
@@ -1054,7 +1054,7 @@ public final class b {
                 if (this.a == null) {
                     this.a = n(context);
                 }
-                this.a.f31030i = q(context);
+                this.a.f31400i = q(context);
                 return this.a;
             }
         }

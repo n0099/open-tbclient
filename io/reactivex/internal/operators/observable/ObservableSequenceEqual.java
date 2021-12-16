@@ -15,7 +15,7 @@ import io.reactivex.functions.BiPredicate;
 import io.reactivex.internal.disposables.ArrayCompositeDisposable;
 import io.reactivex.internal.queue.SpscLinkedArrayQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObservableSequenceEqual<T> extends Observable<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public final class ObservableSequenceEqual<T> extends Observable<Boolean> {
     public final ObservableSource<? extends T> first;
     public final ObservableSource<? extends T> second;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class EqualCoordinator<T> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6178010334400373240L;
@@ -184,7 +184,7 @@ public final class ObservableSequenceEqual<T> extends Observable<Boolean> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class EqualObserver<T> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

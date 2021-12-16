@@ -3,7 +3,7 @@ package com.baidu.tieba.flutter.plugin.tiebautility.android;
 import android.content.res.Resources;
 import c.a.d.a.h;
 import c.a.d.f.m.a;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class UtilityData implements TiebaUtilityDataAuto.HostUtilityData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class UtilityData implements TiebaUtilityDataAuto.HostUtilityData {
         int nightResouceId;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, str, i2)) == null) {
-            if (k.isEmpty(str)) {
+            if (l.isEmpty(str)) {
                 return i2;
             }
             if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str) && (nightResouceId = SkinManager.getNightResouceId(TbadkCoreApplication.getInst().getResources(), i2)) > 0) {

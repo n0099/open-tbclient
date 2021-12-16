@@ -2,7 +2,7 @@ package com.dxmpay.apollon.beans;
 
 import android.content.Context;
 import com.dxmpay.apollon.NoProguard;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface IBeanResponse extends NoProguard {
     boolean checkResponseValidity();
 

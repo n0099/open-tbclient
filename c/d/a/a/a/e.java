@@ -17,16 +17,16 @@ import com.duxiaoman.dxmpay.statistics.internal.LogSender;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f28014b;
+    public static Handler f28389b;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class e {
                 int i2 = message.what;
                 if (10001 == i2) {
                     f fVar = (f) message.obj;
-                    c.d.a.a.a.b.a().c(StatApi.getAppContext(), fVar.f28019f);
+                    c.d.a.a.a.b.a().c(StatApi.getAppContext(), fVar.f28394f);
                     d.a().c(fVar);
                 } else if (10002 != i2) {
                     if (10003 == i2) {
@@ -73,7 +73,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static e a;
@@ -109,7 +109,7 @@ public class e {
     public void b(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-            f28014b.obtainMessage(10002, i2, -1, str).sendToTarget();
+            f28389b.obtainMessage(10002, i2, -1, str).sendToTarget();
         }
     }
 
@@ -135,7 +135,7 @@ public class e {
         if (!e() && StrategyProcess.getInstance().needDownloadStrategy()) {
             LogSender.getInstance().a();
         }
-        f28014b.obtainMessage(10001, f.a(str, j2, str2, g.a(), c.d.a.a.a.a.a(), collection, map, str3)).sendToTarget();
+        f28389b.obtainMessage(10001, f.a(str, j2, str2, g.a(), c.d.a.a.a.a.a(), collection, map, str3)).sendToTarget();
     }
 
     public boolean e() {
@@ -146,7 +146,7 @@ public class e {
                 return false;
             }
             this.a = true;
-            f28014b.sendEmptyMessage(10003);
+            f28389b.sendEmptyMessage(10003);
             LogSender.getInstance().a();
             return true;
         }
@@ -167,6 +167,6 @@ public class e {
             }
         }
         this.a = false;
-        f28014b = new a(this, c.a().b().getLooper());
+        f28389b = new a(this, c.a().b().getLooper());
     }
 }

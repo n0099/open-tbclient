@@ -3,8 +3,8 @@ package com.baidu.tieba.card;
 import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.TextView;
-import c.a.r0.g0.f0.g;
-import c.a.r0.o1.b.c;
+import c.a.s0.g0.f0.g;
+import c.a.s0.p1.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CardExtendForumItemHolder extends ItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f43216b;
+    public int f43707b;
     public EntelechyUserLikeButton mAddLoveBtnTextView;
     public BarImageView mForumAvatarImageView;
     public TextView mForumNameTextView;
@@ -51,7 +51,7 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
         this.mForumAvatarImageView = null;
         this.mForumNameTextView = null;
         this.mAddLoveBtnTextView = null;
-        this.f43216b = 3;
+        this.f43707b = 3;
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -71,17 +71,17 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
             if (cVar != null && (cVar instanceof g)) {
                 g gVar = (g) cVar;
                 this.a = gVar;
-                this.mForumAvatarImageView.setTag(gVar.f17256b);
-                this.mForumAvatarImageView.setTag(R.id.tag_forum_name, this.a.f17257c);
-                this.mForumAvatarImageView.startLoad(this.a.f17256b, 15, false);
+                this.mForumAvatarImageView.setTag(gVar.f17738b);
+                this.mForumAvatarImageView.setTag(R.id.tag_forum_name, this.a.f17739c);
+                this.mForumAvatarImageView.startLoad(this.a.f17738b, 15, false);
                 TextView textView = this.mForumNameTextView;
-                textView.setText(StringHelper.getFixedText(this.a.f17257c, 4, true) + getView().getContext().getResources().getString(R.string.forum));
-                this.mForumNameTextView.setTag(R.id.tag_forum_name, this.a.f17257c);
-                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_id, Long.valueOf(this.a.f17258d));
-                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_name, this.a.f17257c);
-                getView().setTag(R.id.tag_forum_id, Long.valueOf(this.a.f17258d));
-                getView().setTag(R.id.tag_forum_name, this.a.f17257c);
-                a(this.mAddLoveBtnTextView, this.a.f17259e);
+                textView.setText(StringHelper.getFixedText(this.a.f17739c, 4, true) + getView().getContext().getResources().getString(R.string.forum));
+                this.mForumNameTextView.setTag(R.id.tag_forum_name, this.a.f17739c);
+                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_id, Long.valueOf(this.a.f17740d));
+                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_name, this.a.f17739c);
+                getView().setTag(R.id.tag_forum_id, Long.valueOf(this.a.f17740d));
+                getView().setTag(R.id.tag_forum_name, this.a.f17739c);
+                a(this.mAddLoveBtnTextView, this.a.f17741e);
                 this.mForumAvatarImageView.setOnClickListener(this.onClickListener);
                 this.mAddLoveBtnTextView.setOnClickListener(this.onClickListener);
                 this.mForumNameTextView.setOnClickListener(this.onClickListener);
@@ -112,12 +112,12 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (this.f43216b != i2) {
+            if (this.f43707b != i2) {
                 SkinManager.setBackgroundColor(getView(), R.color.CAM_X0201);
                 SkinManager.setViewTextColor(this.mForumNameTextView, R.color.CAM_X0105);
-                a(this.mAddLoveBtnTextView, this.a.f17259e);
+                a(this.mAddLoveBtnTextView, this.a.f17741e);
             }
-            this.f43216b = i2;
+            this.f43707b = i2;
         }
     }
 }

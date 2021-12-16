@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import c.a.r0.r1.w.b;
+import c.a.s0.s1.w.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import protobuf.CommitGroupMsg.CommitGroupMsgResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ResponseCommitGroupMessage extends ResponseCommitMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

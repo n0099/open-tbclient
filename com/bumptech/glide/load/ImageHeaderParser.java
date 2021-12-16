@@ -13,12 +13,12 @@ import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface ImageHeaderParser {
     public static final int UNKNOWN_ORIENTATION = -1;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class ImageType {
         public static final /* synthetic */ ImageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -7,8 +7,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import c.a.q0.d1.t;
-import c.a.r0.z0.a.d.e;
+import c.a.r0.d1.v;
+import c.a.s0.z0.a.d.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -16,6 +16,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.sp.PreferenceUtils;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
@@ -37,7 +38,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostImagePicker {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION = "com.tieba.action.ImagePickerPlugin";
@@ -51,7 +52,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
     public PostAsyncTask.PostCallback callback;
     public CustomMessageListener mAlbumResultListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class BroadcastReciver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,14 +212,14 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                     return;
                 }
                 if (ImagePickerPlugin.isEditHeadImage) {
-                    EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, 12002, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 0, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
+                    EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, (int) TaskResponseData.ERROR_NO_TASK_OFFLINE_03, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 0, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
                     editHeadActivityConfig.setWaterMaskType(3);
                     editHeadActivityConfig.setFromWhere(EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER);
                     editHeadActivityConfig.setNeedPaste(true);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, editHeadActivityConfig));
                     return;
                 }
-                EditHeadActivityConfig editHeadActivityConfig2 = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, 12002, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 4, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
+                EditHeadActivityConfig editHeadActivityConfig2 = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, (int) TaskResponseData.ERROR_NO_TASK_OFFLINE_03, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 4, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
                 editHeadActivityConfig2.setWaterMaskType(3);
                 editHeadActivityConfig2.setFromWhere(EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER);
                 editHeadActivityConfig2.setNeedPaste(false);
@@ -232,7 +233,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
         if (!(interceptable == null || interceptable.invokeL(65545, this, str) == null) || currentActivity == null || str == null) {
             return;
         }
-        t tVar = new t(currentActivity, str, new t.a(this) { // from class: com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerPlugin.1
+        v vVar = new v(currentActivity, str, new v.a(this) { // from class: com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerPlugin.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ImagePickerPlugin this$0;
@@ -255,7 +256,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                 this.this$0 = this;
             }
 
-            @Override // c.a.q0.d1.t.a
+            @Override // c.a.r0.d1.v.a
             public void onError(int i2, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
@@ -263,7 +264,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                 }
             }
 
-            @Override // c.a.q0.d1.t.a
+            @Override // c.a.r0.d1.v.a
             public void onSuccess(String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
@@ -271,9 +272,9 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                 }
             }
         });
-        tVar.o(false);
-        tVar.q(true);
-        tVar.execute(new String[0]);
+        vVar.o(false);
+        vVar.q(true);
+        vVar.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -346,7 +347,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
             isEditHeadImage = true;
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) currentActivity, new WriteImagesInfo().toJsonString(), true);
             albumActivityConfig.getIntent().putExtra("from", AlbumActivityConfig.FROM_FLUTTER);
-            albumActivityConfig.setRequestCode(12002);
+            albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
             albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
             albumActivityConfig.setResourceType(2);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
@@ -381,7 +382,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                 barId = hostParam.getBarId();
             }
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) currentActivity, new WriteImagesInfo().toJsonString(), true);
-            albumActivityConfig.setRequestCode(12002);
+            albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
             albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
             albumActivityConfig.setCanEditImage(false);
             albumActivityConfig.getIntent().putExtra("from", AlbumActivityConfig.FROM_FLUTTER);

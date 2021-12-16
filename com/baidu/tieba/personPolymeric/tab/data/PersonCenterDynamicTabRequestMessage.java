@@ -1,6 +1,6 @@
 package com.baidu.tieba.personPolymeric.tab.data;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetShoubaiThreadList.DataReq;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PersonCenterDynamicTabRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class PersonCenterDynamicTabRequestMessage extends NetMessage {
             builder.cursor = Long.valueOf(this.cursor);
             builder.page_size = Integer.valueOf(this.pageSize);
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             GetShoubaiThreadListReqIdl.Builder builder2 = new GetShoubaiThreadListReqIdl.Builder();
             builder2.data = builder.build(false);

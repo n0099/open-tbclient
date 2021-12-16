@@ -12,6 +12,6 @@ import kotlin.annotation.MustBeDocumented;
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.TYPE})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public @interface ExtensionFunctionType {
 }

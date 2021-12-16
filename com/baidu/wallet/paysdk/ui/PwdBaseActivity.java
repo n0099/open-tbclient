@@ -25,7 +25,7 @@ import com.dxmpay.wallet.base.widget.SixNumberPwdView;
 import com.dxmpay.wallet.core.utils.NFCUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumberPwdView.OnPwdChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

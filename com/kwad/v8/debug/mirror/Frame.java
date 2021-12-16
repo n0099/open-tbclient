@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Frame extends Mirror {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARGUMENT_COUNT = "argumentCount";

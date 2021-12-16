@@ -10,7 +10,7 @@ import com.facebook.common.references.OOMSoftReference;
 import java.util.LinkedList;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class OOMSoftReferenceBucket<V> extends Bucket<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

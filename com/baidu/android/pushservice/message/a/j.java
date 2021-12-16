@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -92,8 +92,8 @@ public final class j {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("msgContent");
                     if (!jSONObject2.isNull("adContent")) {
                         JSONObject jSONObject3 = jSONObject2.getJSONObject("adContent");
-                        iVar.f32849e = jSONObject3.getString("notifyTitle");
-                        iVar.f32850f = jSONObject3.getString("content");
+                        iVar.f33219e = jSONObject3.getString("notifyTitle");
+                        iVar.f33220f = jSONObject3.getString("content");
                         if (!jSONObject3.isNull("param")) {
                             JSONObject jSONObject4 = jSONObject3.getJSONObject("param");
                             if (!jSONObject4.isNull("url")) {
@@ -104,31 +104,31 @@ public final class j {
                             } else if (!jSONObject4.isNull("acn")) {
                                 string2 = jSONObject4.getString("acn");
                             }
-                            iVar.f32847c = string2;
+                            iVar.f33217c = string2;
                         }
                     }
                     if (!jSONObject2.isNull("psContent")) {
                         JSONObject jSONObject5 = jSONObject2.getJSONObject("psContent");
-                        iVar.f32851g = jSONObject5.getString("notifyTitle");
-                        iVar.f32852h = jSONObject5.getString("content");
+                        iVar.f33221g = jSONObject5.getString("notifyTitle");
+                        iVar.f33222h = jSONObject5.getString("content");
                         if (!jSONObject5.isNull("param")) {
                             JSONObject jSONObject6 = jSONObject5.getJSONObject("param");
                             if (!jSONObject6.isNull("url")) {
-                                iVar.f32846b = jSONObject6.getString("url");
+                                iVar.f33216b = jSONObject6.getString("url");
                             }
                             if (!jSONObject6.isNull("intentUri")) {
                                 string = jSONObject6.getString("intentUri");
                             } else if (!jSONObject6.isNull("acn")) {
                                 string = jSONObject6.getString("acn");
                             }
-                            iVar.f32848d = string;
+                            iVar.f33218d = string;
                         }
                     }
                     if (!jSONObject2.isNull("extras")) {
                         iVar.a(context, jSONObject2.getJSONArray("extras"));
                     }
-                    if (TextUtils.isEmpty(iVar.f32854j)) {
-                        iVar.f32854j = com.baidu.android.pushservice.j.f.a(str.getBytes(), false);
+                    if (TextUtils.isEmpty(iVar.f33224j)) {
+                        iVar.f33224j = com.baidu.android.pushservice.j.f.a(str.getBytes(), false);
                     }
                 }
             } catch (Exception e2) {
@@ -170,7 +170,7 @@ public final class j {
                     crossPushMessage.a = jSONObject.getString("dest_pkg");
                 }
                 if (!jSONObject.isNull("dest_icon")) {
-                    crossPushMessage.f32811b = jSONObject.getString("dest_icon");
+                    crossPushMessage.f33181b = jSONObject.getString("dest_icon");
                 }
             } catch (Exception e2) {
                 new b.c(context).a(Log.getStackTraceString(e2)).a();

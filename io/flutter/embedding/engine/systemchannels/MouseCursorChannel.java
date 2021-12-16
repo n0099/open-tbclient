@@ -14,7 +14,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.StandardMethodCodec;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MouseCursorChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MouseCursorChannel";
@@ -26,7 +26,7 @@ public class MouseCursorChannel {
     @NonNull
     public final MethodChannel.MethodCallHandler parsingMethodCallHandler;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface MouseCursorMethodHandler {
         void activateSystemCursor(@NonNull String str);
     }

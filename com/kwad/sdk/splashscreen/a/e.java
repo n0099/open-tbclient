@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.compliance.widget.ComplianceTextView;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class e extends Presenter {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
             this.a.setVisibility(0);
-            this.a.setAdTemplate(((com.kwad.sdk.splashscreen.g) p()).f59577d);
+            this.a.setAdTemplate(((com.kwad.sdk.splashscreen.g) p()).f60158d);
         }
     }
 

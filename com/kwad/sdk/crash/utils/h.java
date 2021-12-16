@@ -20,13 +20,13 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public static final char a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f58207b;
+    public static final String f58788b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public class h {
         StringBuilderWriter stringBuilderWriter = new StringBuilderWriter(4);
         PrintWriter printWriter = new PrintWriter(stringBuilderWriter);
         printWriter.println();
-        f58207b = stringBuilderWriter.toString();
+        f58788b = stringBuilderWriter.toString();
         printWriter.close();
     }
 

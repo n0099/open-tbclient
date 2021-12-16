@@ -40,29 +40,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public static volatile Message a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static AtomicBoolean f57089d;
+    public static AtomicBoolean f57670d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HandlerC2007a f57090b;
+    public HandlerC2068a f57671b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Messenger f57091c;
+    public Messenger f57672c;
 
     /* renamed from: com.kwad.sdk.collector.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class HandlerC2007a extends Handler {
+    /* loaded from: classes3.dex */
+    public static class HandlerC2068a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WeakReference<Service> a;
 
-        public HandlerC2007a() {
+        public HandlerC2068a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,10 +115,10 @@ public class a extends c {
                     public final /* synthetic */ Bundle a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Messenger f57092b;
+                    public final /* synthetic */ Messenger f57673b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ HandlerC2007a f57093c;
+                    public final /* synthetic */ HandlerC2068a f57674c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -135,9 +135,9 @@ public class a extends c {
                                 return;
                             }
                         }
-                        this.f57093c = this;
+                        this.f57674c = this;
                         this.a = r7;
-                        this.f57092b = messenger;
+                        this.f57673b = messenger;
                     }
 
                     @Override // com.kwad.sdk.utils.h.b
@@ -162,7 +162,7 @@ public class a extends c {
                                 Message obtain = Message.obtain();
                                 obtain.what = 101;
                                 obtain.setData(this.a);
-                                this.f57092b.send(obtain);
+                                this.f57673b.send(obtain);
                             } catch (RemoteException unused) {
                             }
                             if (list == null || list.isEmpty()) {
@@ -191,7 +191,7 @@ public class a extends c {
                 return;
             }
         }
-        f57089d = new AtomicBoolean(false);
+        f57670d = new AtomicBoolean(false);
     }
 
     public a() {
@@ -207,14 +207,14 @@ public class a extends c {
                 return;
             }
         }
-        this.f57090b = new HandlerC2007a();
-        this.f57091c = new Messenger(this.f57090b);
+        this.f57671b = new HandlerC2068a();
+        this.f57672c = new Messenger(this.f57671b);
     }
 
     public static AtomicBoolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f57089d : (AtomicBoolean) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f57670d : (AtomicBoolean) invokeV.objValue;
     }
 
     public static void a(@NonNull Context context, ServiceConnection serviceConnection) {
@@ -276,7 +276,7 @@ public class a extends c {
     public IBinder onBind(@NonNull Service service, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, service, intent)) == null) ? this.f57091c.getBinder() : (IBinder) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, service, intent)) == null) ? this.f57672c.getBinder() : (IBinder) invokeLL.objValue;
     }
 
     @Override // com.kwad.sdk.h.c, com.kwad.sdk.api.proxy.IServiceProxy
@@ -293,7 +293,7 @@ public class a extends c {
             }
             com.kwad.sdk.core.d.a.a("RemoteService", "onCreate processName:" + al.a(service));
             if (SystemUtil.b(service)) {
-                f57089d.set(true);
+                f57670d.set(true);
             } else {
                 d.a(service, new d.a(this) { // from class: com.kwad.sdk.collector.b.a.1
                     public static /* synthetic */ Interceptable $ic;
@@ -323,9 +323,9 @@ public class a extends c {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             com.kwad.sdk.core.d.a.a("RemoteService", "onLoaded");
-                            a.f57089d.set(true);
+                            a.f57670d.set(true);
                             if (a.a != null) {
-                                this.a.f57090b.handleMessage(a.a);
+                                this.a.f57671b.handleMessage(a.a);
                                 a.a = null;
                             }
                         }
@@ -336,12 +336,12 @@ public class a extends c {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                             com.kwad.sdk.core.d.a.e("RemoteService", "onLoadError: " + str);
-                            a.f57089d.set(false);
+                            a.f57670d.set(false);
                         }
                     }
                 });
             }
-            this.f57090b.a(service);
+            this.f57671b.a(service);
         }
     }
 
@@ -351,7 +351,7 @@ public class a extends c {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, service) == null) {
             super.onDestroy(service);
             com.kwad.sdk.core.d.a.a("RemoteService", MissionEvent.MESSAGE_DESTROY);
-            this.f57090b.a(null);
+            this.f57671b.a(null);
             if (a(service)) {
                 com.kwad.sdk.core.d.a.a("RemoteService", "goto kill myself");
                 Process.killProcess(Process.myPid());

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @NotProguard
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NetRequestResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte NET_REQUEST_RESULT_FROM_TYPE_REQUEST = 0;

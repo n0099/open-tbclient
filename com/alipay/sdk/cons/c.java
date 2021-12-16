@@ -4,40 +4,40 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "status";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f31312b = "msg";
+    public static final String f31682b = "msg";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f31313c = "form";
+    public static final String f31683c = "form";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f31314d = "onload";
+    public static final String f31684d = "onload";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f31315e = "name";
+    public static final String f31685e = "name";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f31316f = "host";
+    public static final String f31686f = "host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f31317g = "params";
+    public static final String f31687g = "params";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f31318h = "enctype";
+    public static final String f31688h = "enctype";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f31319i = "request_param";
+    public static final String f31689i = "request_param";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f31320j = "validate";
+    public static final String f31690j = "validate";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f31321k = "formSubmit";
+    public static final String f31691k = "formSubmit";
     public static final String l = "namespace";
     public static final String m = "apiVersion";
     public static final String n = "apiName";

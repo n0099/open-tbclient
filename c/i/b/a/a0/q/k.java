@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,13 +15,13 @@ public final class k {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final m.a f29187b;
+    public final m.a f29557b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f29188c;
+    public final int f29558c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final byte[] f29189d;
+    public final byte[] f29559d;
 
     public k(boolean z, @Nullable String str, int i2, byte[] bArr, int i3, int i4, @Nullable byte[] bArr2) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public final class k {
         }
         c.i.b.a.i0.a.a((bArr2 == null) ^ (i2 == 0));
         this.a = str;
-        this.f29188c = i2;
-        this.f29189d = bArr2;
-        this.f29187b = new m.a(a(str), bArr, i3, i4);
+        this.f29558c = i2;
+        this.f29559d = bArr2;
+        this.f29557b = new m.a(a(str), bArr, i3, i4);
     }
 
     public static int a(@Nullable String str) {

@@ -11,7 +11,7 @@ import com.ss.android.socialbase.appdownloader.g;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AbstractC2115a f61650b;
+    public static AbstractC2176a f62231b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.ss.android.socialbase.downloader.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static abstract class AbstractC2115a {
+    /* loaded from: classes3.dex */
+    public static abstract class AbstractC2176a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,9 +102,9 @@ public class a {
         if (a <= 4) {
             b(str);
         }
-        AbstractC2115a abstractC2115a = f61650b;
-        if (abstractC2115a != null) {
-            abstractC2115a.c(b(str), str2);
+        AbstractC2176a abstractC2176a = f62231b;
+        if (abstractC2176a != null) {
+            abstractC2176a.c(b(str), str2);
         }
     }
 
@@ -116,9 +116,9 @@ public class a {
         if (a <= 5) {
             b(str);
         }
-        AbstractC2115a abstractC2115a = f61650b;
-        if (abstractC2115a != null) {
-            abstractC2115a.e(b(str), str2);
+        AbstractC2176a abstractC2176a = f62231b;
+        if (abstractC2176a != null) {
+            abstractC2176a.e(b(str), str2);
         }
     }
 
@@ -130,9 +130,9 @@ public class a {
         if (a <= 6) {
             b(str);
         }
-        AbstractC2115a abstractC2115a = f61650b;
-        if (abstractC2115a != null) {
-            abstractC2115a.d(b(str), str2);
+        AbstractC2176a abstractC2176a = f62231b;
+        if (abstractC2176a != null) {
+            abstractC2176a.d(b(str), str2);
         }
     }
 
@@ -148,9 +148,9 @@ public class a {
             return;
         }
         int i2 = a;
-        AbstractC2115a abstractC2115a = f61650b;
-        if (abstractC2115a != null) {
-            abstractC2115a.a(b(str), str2);
+        AbstractC2176a abstractC2176a = f62231b;
+        if (abstractC2176a != null) {
+            abstractC2176a.a(b(str), str2);
         }
     }
 
@@ -162,9 +162,9 @@ public class a {
         if (a <= 3) {
             b(str);
         }
-        AbstractC2115a abstractC2115a = f61650b;
-        if (abstractC2115a != null) {
-            abstractC2115a.b(b(str), str2);
+        AbstractC2176a abstractC2176a = f62231b;
+        if (abstractC2176a != null) {
+            abstractC2176a.b(b(str), str2);
         }
     }
 
@@ -191,9 +191,9 @@ public class a {
             if (a <= 6) {
                 b(str);
             }
-            AbstractC2115a abstractC2115a = f61650b;
-            if (abstractC2115a != null) {
-                abstractC2115a.a(b(str), str2, th);
+            AbstractC2176a abstractC2176a = f62231b;
+            if (abstractC2176a != null) {
+                abstractC2176a.a(b(str), str2, th);
             }
         }
     }

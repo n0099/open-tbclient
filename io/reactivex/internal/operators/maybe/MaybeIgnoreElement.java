@@ -10,19 +10,19 @@ import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeSource;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class MaybeIgnoreElement<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class IgnoreMaybeObserver<T> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f63990d;
+        public Disposable f64571d;
 
         public IgnoreMaybeObserver(MaybeObserver<? super T> maybeObserver) {
             Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public final class MaybeIgnoreElement<T> extends AbstractMaybeWithUpstream<T, T>
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f63990d.dispose();
-                this.f63990d = DisposableHelper.DISPOSED;
+                this.f64571d.dispose();
+                this.f64571d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -55,14 +55,14 @@ public final class MaybeIgnoreElement<T> extends AbstractMaybeWithUpstream<T, T>
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63990d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64571d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f63990d = DisposableHelper.DISPOSED;
+                this.f64571d = DisposableHelper.DISPOSED;
                 this.actual.onComplete();
             }
         }
@@ -71,7 +71,7 @@ public final class MaybeIgnoreElement<T> extends AbstractMaybeWithUpstream<T, T>
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f63990d = DisposableHelper.DISPOSED;
+                this.f64571d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -79,8 +79,8 @@ public final class MaybeIgnoreElement<T> extends AbstractMaybeWithUpstream<T, T>
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f63990d, disposable)) {
-                this.f63990d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f64571d, disposable)) {
+                this.f64571d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -89,7 +89,7 @@ public final class MaybeIgnoreElement<T> extends AbstractMaybeWithUpstream<T, T>
         public void onSuccess(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.f63990d = DisposableHelper.DISPOSED;
+                this.f64571d = DisposableHelper.DISPOSED;
                 this.actual.onComplete();
             }
         }

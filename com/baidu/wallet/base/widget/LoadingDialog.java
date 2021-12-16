@@ -14,23 +14,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.WalletGlobalUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class LoadingDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f52107c = "LoadingDialog";
+    public static final String f52687c = "LoadingDialog";
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52108b;
+    public String f52688b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f52109d;
+    public Context f52689d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f52110e;
+    public ImageView f52690e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialog(Context context) {
@@ -51,8 +51,8 @@ public class LoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f52109d = null;
-        this.f52109d = context;
+        this.f52689d = null;
+        this.f52689d = context;
     }
 
     @Override // android.app.Dialog
@@ -61,16 +61,16 @@ public class LoadingDialog extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             requestWindowFeature(1);
-            setContentView(ResUtils.layout(this.f52109d, "wallet_base_layout_loading"));
-            this.a = (TextView) findViewById(ResUtils.id(this.f52109d, "dialog_msg"));
-            if (!TextUtils.isEmpty(this.f52108b)) {
-                this.a.setText(this.f52108b);
+            setContentView(ResUtils.layout(this.f52689d, "wallet_base_layout_loading"));
+            this.a = (TextView) findViewById(ResUtils.id(this.f52689d, "dialog_msg"));
+            if (!TextUtils.isEmpty(this.f52688b)) {
+                this.a.setText(this.f52688b);
             }
             if (!TextUtils.isEmpty(WalletGlobalUtils.showStr)) {
                 this.a.setText(WalletGlobalUtils.showStr);
             }
-            ImageView imageView = (ImageView) findViewById(ResUtils.id(this.f52109d, "img_anim"));
-            this.f52110e = imageView;
+            ImageView imageView = (ImageView) findViewById(ResUtils.id(this.f52689d, "img_anim"));
+            this.f52690e = imageView;
             AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getDrawable();
             animationDrawable.stop();
             animationDrawable.start();
@@ -116,9 +116,9 @@ public class LoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f52109d = null;
-        this.f52108b = str;
-        this.f52109d = context;
+        this.f52689d = null;
+        this.f52688b = str;
+        this.f52689d = context;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -140,6 +140,6 @@ public class LoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f52109d = null;
+        this.f52689d = null;
     }
 }

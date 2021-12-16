@@ -15,17 +15,17 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class UMHGuideItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f52758b;
+    public MaskTextView f53338b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f52759c;
+    public MaskTextView f53339c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UMHGuideItem(Context context) {
@@ -62,8 +62,8 @@ public class UMHGuideItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_umh_guide_item"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "item_logo"));
-            this.f52758b = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_title"));
-            this.f52759c = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_desc"));
+            this.f53338b = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_title"));
+            this.f53339c = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_desc"));
         }
     }
 
@@ -73,8 +73,8 @@ public class UMHGuideItem extends BaseItemView {
             return;
         }
         setNetImageViewUrl(this.a, getData().logo);
-        this.f52758b.setMaskText(getData().name);
-        this.f52759c.setMaskText(getData().desc);
+        this.f53338b.setMaskText(getData().name);
+        this.f53339c.setMaskText(getData().desc);
         handlePoint();
     }
 

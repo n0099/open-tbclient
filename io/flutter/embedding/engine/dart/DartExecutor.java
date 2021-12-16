@@ -20,7 +20,7 @@ import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.StringCodec;
 import io.flutter.view.FlutterCallbackInformation;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DartExecutor implements BinaryMessenger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DartExecutor";
@@ -40,7 +40,7 @@ public class DartExecutor implements BinaryMessenger {
     @Nullable
     public IsolateServiceIdListener isolateServiceIdListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class DartCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class DartExecutor implements BinaryMessenger {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class DefaultBinaryMessenger implements BinaryMessenger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +131,7 @@ public class DartExecutor implements BinaryMessenger {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface IsolateServiceIdListener {
         void onIsolateServiceIdAvailable(@NonNull String str);
     }
@@ -318,7 +318,7 @@ public class DartExecutor implements BinaryMessenger {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class DartEntrypoint {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

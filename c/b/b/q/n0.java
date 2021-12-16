@@ -14,7 +14,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import kotlin.UShort;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class n0 implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -181,13 +181,13 @@ public class n0 implements c {
             long j3 = 0;
             while (dataInputStream.available() > 0 && readByte != 93) {
                 JsonValue c2 = c(dataInputStream, readByte);
-                c2.f31635k = jsonValue;
+                c2.f32005k = jsonValue;
                 if (jsonValue2 != null) {
                     c2.m = jsonValue2;
                     jsonValue2.l = c2;
                     jsonValue.n++;
                 } else {
-                    jsonValue.f31634j = c2;
+                    jsonValue.f32004j = c2;
                     jsonValue.n = 1;
                 }
                 if (j2 > 0) {
@@ -215,12 +215,12 @@ public class n0 implements c {
             long j2 = 0;
             while (j2 < n) {
                 JsonValue c2 = c(dataInputStream, readByte);
-                c2.f31635k = jsonValue;
+                c2.f32005k = jsonValue;
                 if (jsonValue2 != null) {
                     jsonValue2.l = c2;
                     jsonValue.n++;
                 } else {
-                    jsonValue.f31634j = c2;
+                    jsonValue.f32004j = c2;
                     jsonValue.n = 1;
                 }
                 j2++;
@@ -262,13 +262,13 @@ public class n0 implements c {
                 String k2 = k(dataInputStream, true, readByte);
                 JsonValue c2 = c(dataInputStream, b2 == 0 ? dataInputStream.readByte() : b2);
                 c2.Q(k2);
-                c2.f31635k = jsonValue;
+                c2.f32005k = jsonValue;
                 if (jsonValue2 != null) {
                     c2.m = jsonValue2;
                     jsonValue2.l = c2;
                     jsonValue.n++;
                 } else {
-                    jsonValue.f31634j = c2;
+                    jsonValue.f32004j = c2;
                     jsonValue.n = 1;
                 }
                 if (j2 > 0) {

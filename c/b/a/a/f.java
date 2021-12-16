@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27284e;
+    public int f27659e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27285f;
+    public boolean f27660f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f27286g;
+    public c f27661g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public f() {
@@ -47,7 +47,7 @@ public abstract class f {
     public final void d(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f27286g = cVar;
+            this.f27661g = cVar;
             c(cVar);
         }
     }
@@ -55,13 +55,13 @@ public abstract class f {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27285f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27660f : invokeV.booleanValue;
     }
 
     public c f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27286g : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27661g : (c) invokeV.objValue;
     }
 
     public void g(c cVar) {
@@ -73,7 +73,7 @@ public abstract class f {
     public final void h(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f27286g = null;
+            this.f27661g = null;
             g(cVar);
         }
     }
@@ -99,7 +99,7 @@ public abstract class f {
                 return;
             }
         }
-        this.f27284e = i2;
-        this.f27285f = true;
+        this.f27659e = i2;
+        this.f27660f = true;
     }
 }

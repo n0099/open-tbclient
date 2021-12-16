@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.LocalAliasTagsManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class k implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,8 +36,8 @@ public final class k implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             j jVar = this.a;
-            LocalAliasTagsManager.LocalMessageCallback localMessageCallback = jVar.f62493b;
-            context = jVar.f62494c.mContext;
+            LocalAliasTagsManager.LocalMessageCallback localMessageCallback = jVar.f63074b;
+            context = jVar.f63075c.mContext;
             localMessageCallback.onTransmissionMessage(context, this.a.a);
         }
     }

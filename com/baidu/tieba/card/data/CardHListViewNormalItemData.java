@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.GuessLikeThreadInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CardHListViewNormalItemData implements n, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE;

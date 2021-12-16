@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBError;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class v5 implements b4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Bitmap.CompressFormat a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d1 f30980b;
+    public final /* synthetic */ d1 f31350b;
 
     public v5(d1 d1Var, Bitmap.CompressFormat compressFormat) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class v5 implements b4 {
                 return;
             }
         }
-        this.f30980b = d1Var;
+        this.f31350b = d1Var;
         this.a = compressFormat;
     }
 
@@ -49,17 +49,17 @@ public class v5 implements b4 {
     public void a(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-            d1 d1Var = this.f30980b;
-            if (!d1Var.f30773j) {
-                e1 e1Var = d1Var.f30768e;
+            d1 d1Var = this.f31350b;
+            if (!d1Var.f31143j) {
+                e1 e1Var = d1Var.f31138e;
                 if (e1Var != null) {
-                    d1Var.f30766c = bitmap;
+                    d1Var.f31136c = bitmap;
                     e1Var.onLoaded();
-                    d1.i(this.f30980b, true);
+                    d1.i(this.f31350b, true);
                 }
             } else if (d1Var.l.exists()) {
             } else {
-                File file = this.f30980b.l;
+                File file = this.f31350b.l;
                 r5 r5Var = new r5(this);
                 Bitmap.CompressFormat compressFormat = this.a;
                 if (file.isDirectory()) {
@@ -91,10 +91,10 @@ public class v5 implements b4 {
         d1 d1Var;
         e1 e1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k0Var) == null) || (e1Var = (d1Var = this.f30980b).f30768e) == null || d1Var.f30773j) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k0Var) == null) || (e1Var = (d1Var = this.f31350b).f31138e) == null || d1Var.f31143j) {
             return;
         }
         e1Var.onFail(PBError.NO_RESUOURCE);
-        d1.i(this.f30980b, true);
+        d1.i(this.f31350b, true);
     }
 }

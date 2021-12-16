@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.FlutterJNI;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class FlutterCallbackInformation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

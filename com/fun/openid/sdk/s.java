@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class s extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f55775b;
+    public int f56356b;
 
     /* renamed from: c  reason: collision with root package name */
-    public q f55776c;
+    public q f56357c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(q qVar, int i2, String str) {
@@ -36,8 +36,8 @@ public class s extends ContentObserver {
                 return;
             }
         }
-        this.f55776c = qVar;
-        this.f55775b = i2;
+        this.f56357c = qVar;
+        this.f56356b = i2;
         this.a = str;
     }
 
@@ -45,9 +45,9 @@ public class s extends ContentObserver {
     public void onChange(boolean z) {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (qVar = this.f55776c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (qVar = this.f56357c) == null) {
             return;
         }
-        qVar.a(this.f55775b, this.a);
+        qVar.a(this.f56356b, this.a);
     }
 }

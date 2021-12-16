@@ -11,7 +11,7 @@ import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.service.bk;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class aa extends bk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,12 +55,12 @@ public final class aa extends bk.a {
             }
             bkVar.a("MSAID", "msaid", str);
             ie ieVar = new ie();
-            ieVar.b(this.f876a.f63281d);
-            ieVar.c(hp.f63022g.f514a);
+            ieVar.b(this.f876a.f63862d);
+            ieVar.c(hp.f63603g.f514a);
             ieVar.a(at.a());
             ieVar.a(new HashMap());
             a.a(ieVar.m518a());
-            byte[] a3 = ip.a(y.a(this.a.getPackageName(), this.f876a.f63281d, ieVar, hf.f62975i));
+            byte[] a3 = ip.a(y.a(this.a.getPackageName(), this.f876a.f63862d, ieVar, hf.f63556i));
             XMPushService xMPushService = this.a;
             xMPushService.a(xMPushService.getPackageName(), a3, true);
         }

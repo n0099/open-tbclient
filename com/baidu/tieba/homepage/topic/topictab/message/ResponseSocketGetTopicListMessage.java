@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.topic.topictab.message;
 
 import c.a.d.m.e.n;
-import c.a.r0.n1.k.b.c.a;
-import c.a.r0.n1.k.b.c.c;
+import c.a.s0.o1.k.b.c.a;
+import c.a.s0.o1.k.b.c.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +19,7 @@ import java.util.List;
 import tbclient.NewTopicList.DataRes;
 import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.NewTopicListResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,13 +72,13 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                 aVar.Q(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f20713e = R.dimen.tbds1;
-                cVar.f20714f = R.color.CAM_X0203;
+                cVar.f21237e = R.dimen.tbds1;
+                cVar.f21238f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
                 i3++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f20713e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f21237e = 0;
     }
 }

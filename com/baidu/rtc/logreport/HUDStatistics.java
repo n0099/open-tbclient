@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.webrtc.StatsReport;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HUDStatistics {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_STATES_STREAMING_ALL = 31;

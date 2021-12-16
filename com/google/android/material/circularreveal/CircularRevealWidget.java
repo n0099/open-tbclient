@@ -17,17 +17,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.circularreveal.CircularRevealHelper;
 import com.google.android.material.math.MathUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
     /* renamed from: com.google.android.material.circularreveal.CircularRevealWidget$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CircularRevealEvaluator implements TypeEvaluator<RevealInfo> {
         public static /* synthetic */ Interceptable $ic;
         public static final TypeEvaluator<RevealInfo> CIRCULAR_REVEAL;
@@ -80,7 +80,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CircularRevealProperty extends Property<CircularRevealWidget, RevealInfo> {
         public static /* synthetic */ Interceptable $ic;
         public static final Property<CircularRevealWidget, RevealInfo> CIRCULAR_REVEAL;
@@ -142,7 +142,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CircularRevealScrimColorProperty extends Property<CircularRevealWidget, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public static final Property<CircularRevealWidget, Integer> CIRCULAR_REVEAL_SCRIM_COLOR;
@@ -204,7 +204,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class RevealInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final float INVALID_RADIUS = Float.MAX_VALUE;

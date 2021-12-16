@@ -22,7 +22,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.Enumeration;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AndroidNetworkLibrary {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

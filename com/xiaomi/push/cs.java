@@ -13,7 +13,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.gesture.GestureAR;
-import com.baidu.tbadk.core.util.deeplink.DeepLinkManager1;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkManager1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +44,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class cs {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
@@ -59,13 +59,13 @@ public class cs {
     public static boolean f204a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, co> f62769b;
+    public static Map<String, co> f63350b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f62770c;
+    public static String f63351c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f62771d;
+    public static String f63352d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -92,12 +92,12 @@ public class cs {
     /* renamed from: c  reason: collision with other field name */
     public long f212c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         cs a(Context context, cr crVar, b bVar, String str);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         String a(String str);
     }
@@ -115,7 +115,7 @@ public class cs {
                 return;
             }
         }
-        f62769b = new HashMap();
+        f63350b = new HashMap();
         f204a = false;
     }
 
@@ -164,8 +164,8 @@ public class cs {
         this.f207a = bVar;
         this.f206a = crVar == null ? new ct(this) : crVar;
         this.f208a = str;
-        f62770c = str2 == null ? context.getPackageName() : str2;
-        f62771d = str3 == null ? f() : str3;
+        f63351c = str2 == null ? context.getPackageName() : str2;
+        f63352d = str3 == null ? f() : str3;
     }
 
     public static synchronized cs a() {
@@ -251,12 +251,12 @@ public class cs {
                     }
                 }
             }
-            boolean isEmpty = f62769b.isEmpty();
-            synchronized (f62769b) {
-                for (Object obj : f62769b.values().toArray()) {
+            boolean isEmpty = f63350b.isEmpty();
+            synchronized (f63350b) {
+                for (Object obj : f63350b.values().toArray()) {
                     co coVar = (co) obj;
                     if (!coVar.b()) {
-                        f62769b.remove(coVar.f199b);
+                        f63350b.remove(coVar.f199b);
                         isEmpty = true;
                     }
                 }
@@ -306,11 +306,11 @@ public class cs {
                                 }
                                 jSONObject = jSONObject5;
                                 arrayList2.set(i3, coVar2);
-                                coVar2.f62765g = string5;
-                                coVar2.f62761c = string;
-                                coVar2.f62763e = string3;
-                                coVar2.f62764f = string4;
-                                coVar2.f62762d = string2;
+                                coVar2.f63346g = string5;
+                                coVar2.f63342c = string;
+                                coVar2.f63344e = string3;
+                                coVar2.f63345f = string4;
+                                coVar2.f63343d = string2;
                                 if (jSONObject4.has("stat-percent")) {
                                     coVar2.a(jSONObject4.getDouble("stat-percent"));
                                 }
@@ -343,9 +343,9 @@ public class cs {
                                             coVar3.a(new cx(string7, optJSONArray2.length() - i5));
                                         }
                                     }
-                                    synchronized (f62769b) {
+                                    synchronized (f63350b) {
                                         if (this.f206a.a(next)) {
-                                            f62769b.put(next, coVar3);
+                                            f63350b.put(next, coVar3);
                                         }
                                     }
                                 }
@@ -401,13 +401,13 @@ public class cs {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            co coVar = f62769b.get(str);
-            synchronized (f62769b) {
+            co coVar = f63350b.get(str);
+            synchronized (f63350b) {
                 if (coVar == null) {
                     co coVar2 = new co(str);
                     coVar2.a(604800000L);
                     coVar2.m273a(str2);
-                    f62769b.put(str, coVar2);
+                    f63350b.put(str, coVar2);
                 } else {
                     coVar.m273a(str2);
                 }
@@ -479,8 +479,8 @@ public class cs {
             String format = String.format(Locale.US, "https://%1$s/gslb/?ver=4.0", b());
             if (c2 == null) {
                 arrayList2.add(format);
-                synchronized (f62769b) {
-                    co coVar = f62769b.get("resolver.msg.xiaomi.net");
+                synchronized (f63350b) {
+                    co coVar = f63350b.get("resolver.msg.xiaomi.net");
                     if (coVar != null) {
                         Iterator<String> it = coVar.a(true).iterator();
                         while (it.hasNext()) {
@@ -528,7 +528,7 @@ public class cs {
                 }
                 jSONObject.put("data", jSONArray);
                 JSONArray jSONArray2 = new JSONArray();
-                for (co coVar : f62769b.values()) {
+                for (co coVar : f63350b.values()) {
                     jSONArray2.put(coVar.m272a());
                 }
                 jSONObject.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, jSONArray2);
@@ -657,7 +657,7 @@ public class cs {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     co a3 = new co("").a(optJSONArray2.getJSONObject(i3));
-                    f62769b.put(a3.f199b, a3);
+                    f63350b.put(a3.f199b, a3);
                 }
             }
         }

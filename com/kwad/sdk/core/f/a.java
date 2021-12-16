@@ -30,24 +30,24 @@ import com.kwad.sdk.utils.as;
 import com.kwad.sdk.utils.av;
 import com.kwad.sdk.utils.i;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static InterfaceC2017a f57441b;
+    public static InterfaceC2078a f58022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f57442c;
+    public static boolean f58023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f57443d;
+    public static boolean f58024d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC2017a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC2078a {
         @WorkerThread
         void a(String str);
     }
@@ -126,7 +126,7 @@ public class a {
         if ((interceptable == null || interceptable.invokeL(65543, null, context) == null) && TextUtils.isEmpty(a) && context != null) {
             c(context);
             if (com.kwad.sdk.g.a.a()) {
-                com.kwad.sdk.g.a.a(context, new a.InterfaceC2043a(context) { // from class: com.kwad.sdk.core.f.a.1
+                com.kwad.sdk.g.a.a(context, new a.InterfaceC2104a(context) { // from class: com.kwad.sdk.core.f.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Context a;
@@ -179,11 +179,11 @@ public class a {
 
     public static void c(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, context) == null) || !TextUtils.isEmpty(a) || context == null || f57442c) {
+        if (!(interceptable == null || interceptable.invokeL(65546, null, context) == null) || !TextUtils.isEmpty(a) || context == null || f58023c) {
             return;
         }
-        f57442c = true;
-        if (context == null || f57443d) {
+        f58023c = true;
+        if (context == null || f58024d) {
             return;
         }
         i.a(new Runnable(context.getApplicationContext()) { // from class: com.kwad.sdk.core.f.a.3
@@ -227,7 +227,7 @@ public class a {
                             c2 = 65535;
                             break;
                         case -1712043046:
-                            if (upperCase.equals(g.f56645j)) {
+                            if (upperCase.equals(g.f57226j)) {
                                 c2 = '\n';
                                 break;
                             }
@@ -386,12 +386,12 @@ public class a {
                     }
                     com.kwad.sdk.core.d.a.c("OAIDHelper", "manufacturer:" + upperCase + "--OAID:" + a.a);
                     if (TextUtils.isEmpty(a.a)) {
-                        boolean unused3 = a.f57443d = true;
+                        boolean unused3 = a.f58024d = true;
                     } else {
                         as.i(this.a, a.a);
                     }
                     a.h();
-                    boolean unused4 = a.f57442c = false;
+                    boolean unused4 = a.f58023c = false;
                 }
             }
         });
@@ -418,11 +418,11 @@ public class a {
     }
 
     public static void h() {
-        InterfaceC2017a interfaceC2017a;
+        InterfaceC2078a interfaceC2078a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65551, null) == null) || (interfaceC2017a = f57441b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65551, null) == null) || (interfaceC2078a = f58022b) == null) {
             return;
         }
-        interfaceC2017a.a(a);
+        interfaceC2078a.a(a);
     }
 }

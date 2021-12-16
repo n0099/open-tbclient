@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.utility.FileUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class b implements o<Character> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,18 +41,18 @@ public abstract class b implements o<Character> {
     }
 
     /* renamed from: c.i.d.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C1618b extends a {
+    /* loaded from: classes9.dex */
+    public static final class C1657b extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final char f30536e;
+        public final char f30906e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final char f30537f;
+        public final char f30907f;
 
-        public C1618b(char c2, char c3) {
+        public C1657b(char c2, char c3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,34 +68,34 @@ public abstract class b implements o<Character> {
                 }
             }
             n.d(c3 >= c2);
-            this.f30536e = c2;
-            this.f30537f = c3;
+            this.f30906e = c2;
+            this.f30907f = c3;
         }
 
         @Override // c.i.d.a.b
         public boolean f(char c2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)})) == null) ? this.f30536e <= c2 && c2 <= this.f30537f : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)})) == null) ? this.f30906e <= c2 && c2 <= this.f30907f : invokeCommon.booleanValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "CharMatcher.inRange('" + b.g(this.f30536e) + "', '" + b.g(this.f30537f) + "')";
+                return "CharMatcher.inRange('" + b.g(this.f30906e) + "', '" + b.g(this.f30907f) + "')";
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class c extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final char f30538e;
+        public final char f30908e;
 
         public c(char c2) {
             Interceptable interceptable = $ic;
@@ -112,21 +112,21 @@ public abstract class b implements o<Character> {
                     return;
                 }
             }
-            this.f30538e = c2;
+            this.f30908e = c2;
         }
 
         @Override // c.i.d.a.b
         public boolean f(char c2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)})) == null) ? c2 == this.f30538e : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)})) == null) ? c2 == this.f30908e : invokeCommon.booleanValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "CharMatcher.is('" + b.g(this.f30538e) + "')";
+                return "CharMatcher.is('" + b.g(this.f30908e) + "')";
             }
             return (String) invokeV.objValue;
         }
@@ -149,7 +149,7 @@ public abstract class b implements o<Character> {
     public static b c(char c2, char c3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c2), Character.valueOf(c3)})) == null) ? new C1618b(c2, c3) : (b) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c2), Character.valueOf(c3)})) == null) ? new C1657b(c2, c3) : (b) invokeCommon.objValue;
     }
 
     public static b e(char c2) {

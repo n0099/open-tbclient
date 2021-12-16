@@ -28,18 +28,18 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f2769b;
+    public static boolean f2733b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f2770c;
+    public static boolean f2734c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f2771d;
+    public static c f2735d;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile c.a.d.j.a a;
 
     /* loaded from: classes.dex */
-    public static class a implements c.a.c0.d.a.a {
+    public static class a implements c.a.d0.d.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,14 +57,14 @@ public class c {
             }
         }
 
-        @Override // c.a.c0.d.a.a
+        @Override // c.a.d0.d.a.a
         public void onProgress(long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             }
         }
 
-        @Override // c.a.c0.d.a.a
+        @Override // c.a.d0.d.a.a
         public void onResult(int i2, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && BdBaseApplication.getInst().isDebugMode()) {
@@ -86,7 +86,7 @@ public class c {
                 return;
             }
         }
-        f2771d = new c();
+        f2735d = new c();
     }
 
     public c() {
@@ -105,25 +105,25 @@ public class c {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f2770c && c.a.d.j.a.m()) {
-            f2770c = true;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f2734c && c.a.d.j.a.m()) {
+            f2734c = true;
             NPSPackageManager.getInstance().downloadAllBundles();
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f2769b) {
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f2733b) {
             return;
         }
-        f2769b = true;
+        f2733b = true;
         NPSPackageManager.getInstance().fetchBundleInfo();
     }
 
     public static c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f2771d : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f2735d : (c) invokeV.objValue;
     }
 
     public static void i() {

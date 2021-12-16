@@ -24,7 +24,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.x;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -109,22 +109,22 @@ public class d {
                 public final /* synthetic */ AdTemplate a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f57374b;
+                public final /* synthetic */ int f57955b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ Context f57375c;
+                public final /* synthetic */ Context f57956c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ boolean f57376d;
+                public final /* synthetic */ boolean f57957d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ int f57377e;
+                public final /* synthetic */ int f57958e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ String f57378f;
+                public final /* synthetic */ String f57959f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ String f57379g;
+                public final /* synthetic */ String f57960g;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -142,12 +142,12 @@ public class d {
                         }
                     }
                     this.a = adTemplate;
-                    this.f57374b = i2;
-                    this.f57375c = context;
-                    this.f57376d = z;
-                    this.f57377e = d2;
-                    this.f57378f = str;
-                    this.f57379g = str2;
+                    this.f57955b = i2;
+                    this.f57956c = context;
+                    this.f57957d = z;
+                    this.f57958e = d2;
+                    this.f57959f = str;
+                    this.f57960g = str2;
                 }
 
                 @Override // java.lang.Runnable
@@ -156,15 +156,15 @@ public class d {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         d.b(false);
                         if (!x.a().b()) {
-                            com.kwad.sdk.core.report.a.c(this.a, this.f57374b);
+                            com.kwad.sdk.core.report.a.c(this.a, this.f57955b);
                             return;
                         }
                         int d3 = x.a().d();
-                        Context context2 = this.f57375c;
-                        if (context2 == null || !this.f57376d || d3 == 0 || d3 != this.f57377e) {
+                        Context context2 = this.f57956c;
+                        if (context2 == null || !this.f57957d || d3 == 0 || d3 != this.f57958e) {
                             return;
                         }
-                        d.b(context2, this.f57378f, this.f57379g, this.a);
+                        d.b(context2, this.f57959f, this.f57960g, this.a);
                     }
                 }
             }, null, abs * 1000);
@@ -196,10 +196,10 @@ public class d {
                 public final /* synthetic */ AdTemplate a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f57380b;
+                public final /* synthetic */ Context f57961b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f57381c;
+                public final /* synthetic */ String f57962c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -217,8 +217,8 @@ public class d {
                         }
                     }
                     this.a = adTemplate;
-                    this.f57380b = context;
-                    this.f57381c = str;
+                    this.f57961b = context;
+                    this.f57962c = str;
                 }
 
                 @Override // com.kwad.sdk.core.download.kwai.g.b
@@ -255,7 +255,7 @@ public class d {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                     AnonymousClass2 anonymousClass2 = this.a;
-                                    d.a(anonymousClass2.f57380b, anonymousClass2.f57381c);
+                                    d.a(anonymousClass2.f57961b, anonymousClass2.f57962c);
                                 }
                             }
                         }, null, 100L);

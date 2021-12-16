@@ -12,7 +12,7 @@ import com.google.zxing.Result;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import java.util.HashMap;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ExpandedProductResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

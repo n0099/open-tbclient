@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.e;
-import c.a.q0.a.g;
+import c.a.r0.a.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -44,14 +44,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class OpenFlutter {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String ACTIVITY_CONCERN_FORUM = "ConcernForum";
-    public static final String ACTIVITY_FANS = "PersonFansList";
-    public static final String ACTIVITY_FORUM_DETAIL = "ForumDetail";
-    public static final String ACTIVITY_PERSON_CENTER = "PersonalCenter";
-    public static final String ACTIVITY_SIGN_TOGETHER = "SignAllForum";
+    public static final String ACTIVITY_CONCERN_FORUM = "ConcernForumPage";
+    public static final String ACTIVITY_FANS = "AttentionPage";
+    public static final String ACTIVITY_FORUM_DETAIL = "ForumDetailPage";
+    public static final String ACTIVITY_PERSON_CENTER = "PersonalCenterPage";
+    public static final String ACTIVITY_SIGN_TOGETHER = "SignTogetherPage";
     public static final String ACTIVITY_VIDEO_TOPIC_DETAILS_PAGE = "VideoTopicDetailsPage";
     public static final String ACTIVITY_VIDEO_WORK_LIST = "VideoWorkListPage";
     public static final int DEFAULT_REQUEST_CODE = 10001;
@@ -66,7 +66,7 @@ public class OpenFlutter {
     public static final String EXTRA_URL = "url";
     public static final byte FALSE = 2;
     public static final String FRAGMENT_ENTER_FORUM = "BarEntryPage";
-    public static final String FRAGMENT_MYTAB = "MyTab";
+    public static final String FRAGMENT_MYTAB = "MyTabPage";
     public static final String FRAGMENT_NEWCATEGORY = "NewCategoryPage";
     public static final byte TRUE = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -332,7 +332,7 @@ public class OpenFlutter {
                         this.val$params = hashMap;
                     }
 
-                    @Override // c.a.q0.a.g.b
+                    @Override // c.a.r0.a.g.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) || hashMap2 == null) {

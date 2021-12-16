@@ -1,7 +1,7 @@
 package com.kwad.sdk.api.core.fragment;
 
 import android.app.Activity;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IDelegateFragment {
     Activity getActivity2();
 

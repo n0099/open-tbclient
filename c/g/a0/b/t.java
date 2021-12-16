@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class t implements o.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ com.fun.module.gdt.w a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ NativeUnifiedADData f28720b;
+    public final /* synthetic */ NativeUnifiedADData f29090b;
 
     public t(u uVar, com.fun.module.gdt.w wVar, NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public class t implements o.e {
             }
         }
         this.a = wVar;
-        this.f28720b = nativeUnifiedADData;
+        this.f29090b = nativeUnifiedADData;
     }
 
     @Override // c.g.a0.b.o.e
     public void onADStatusChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.b(this.f28720b);
+            this.a.b(this.f29090b);
         }
     }
 }

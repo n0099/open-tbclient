@@ -26,7 +26,7 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.util.List;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeviceInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

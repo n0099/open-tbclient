@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class e implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,17 +42,17 @@ public final class e implements ServiceConnection {
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             try {
                 this.a.a = b.a(iBinder);
-                countDownLatch3 = this.a.f63337f;
+                countDownLatch3 = this.a.f63918f;
                 if (countDownLatch3 == null) {
                     return;
                 }
             } catch (Throwable unused) {
-                countDownLatch = this.a.f63337f;
+                countDownLatch = this.a.f63918f;
                 if (countDownLatch == null) {
                     return;
                 }
             }
-            countDownLatch2 = this.a.f63337f;
+            countDownLatch2 = this.a.f63918f;
             countDownLatch2.countDown();
         }
     }

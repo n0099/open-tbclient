@@ -3,14 +3,14 @@ package com.baidu.tieba.write.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import c.a.d.a.f;
+import c.a.s0.n4.d;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TransparentNavigationBar extends NavigationBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class TransparentNavigationBar extends NavigationBar {
     public void onChangeSkinType(f<?> fVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, fVar, i2) == null) {
-            SkinManager.setBackgroundColor(this, R.color.common_color_10094);
+            SkinManager.setBackgroundColor(this, d.common_color_10094);
             initPadding();
         }
     }

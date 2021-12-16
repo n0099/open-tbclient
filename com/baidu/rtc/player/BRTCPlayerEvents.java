@@ -3,7 +3,7 @@ package com.baidu.rtc.player;
 import com.baidu.rtc.player.BRTCPlayer;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface BRTCPlayerEvents {
     public static final int BRTC_PLAYER_ERROR_CONNECTION = 10003;
     public static final int BRTC_PLAYER_ERROR_ICE_CHANNEL = 10001;

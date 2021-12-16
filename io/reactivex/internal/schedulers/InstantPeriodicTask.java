@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class InstantPeriodicTask implements Callable<Void>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public static final FutureTask<Void> CANCELLED;

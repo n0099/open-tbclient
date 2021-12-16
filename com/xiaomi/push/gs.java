@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.gv;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class gs implements av.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class gs implements av.b.a {
         }
         this.f459a = false;
         this.f456a = xMPushService;
-        this.f458a = av.c.f63251b;
+        this.f458a = av.c.f63832b;
         this.f457a = bVar;
     }
 
@@ -84,7 +84,7 @@ public class gs implements av.b.a {
                 m417a.d(this.f457a.f919b);
                 m417a.f353b = 1;
                 try {
-                    m417a.a((byte) Integer.parseInt(this.f457a.f63245g));
+                    m417a.a((byte) Integer.parseInt(this.f457a.f63826g));
                 } catch (NumberFormatException unused) {
                 }
                 gx.m415a().a(m417a);
@@ -125,7 +125,7 @@ public class gs implements av.b.a {
     public void a(av.c cVar, av.c cVar2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, i2) == null) {
-            if (!this.f459a && cVar == av.c.f63251b) {
+            if (!this.f459a && cVar == av.c.f63832b) {
                 this.f458a = cVar2;
                 this.a = i2;
                 this.f459a = true;

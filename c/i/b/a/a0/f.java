@@ -1,7 +1,7 @@
 package c.i.b.a.a0;
 
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface f {
     boolean a(byte[] bArr, int i2, int i3, boolean z) throws IOException, InterruptedException;
 

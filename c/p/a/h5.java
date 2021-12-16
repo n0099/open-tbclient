@@ -23,13 +23,13 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class h5 {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f30803b;
+    public static boolean f31173b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public class h5 {
             }
         }
         a = new HashMap();
-        f30803b = false;
+        f31173b = false;
     }
 
     public static String a(Map map) {
@@ -67,45 +67,46 @@ public class h5 {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Can't wrap try/catch for region: R(44:3|(1:5)(20:189|190|191|192|193|194|(2:240|241)|196|197|(1:199)(1:239)|200|201|202|203|204|(1:208)|210|(4:212|213|214|215)|218|219)|6|(1:8)|9|(3:10|11|(1:13)(4:172|(2:174|(1:176)(1:186))(1:187)|177|(3:181|182|183)(1:179)))|14|(3:167|168|169)|(2:16|17)|18|(1:20)|(2:21|22)|23|(1:25)|26|(3:158|159|160)|28|(2:29|30)|(26:34|(1:36)(2:140|(2:142|143))|37|(1:39)|40|41|42|43|(19:44|45|(2:47|(2:48|(4:50|51|52|(1:126)(3:56|57|58))))(1:133)|61|(5:(1:65)|66|(2:68|69)(1:71)|70|62)|72|73|74|(3:119|120|121)|76|(7:78|79|80|81|82|83|84)|89|90|(4:92|93|94|95)|98|(4:100|101|102|103)|106|(4:108|109|110|111)|115)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115)|156|37|(0)|40|41|42|43|(19:44|45|(0)(0)|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115) */
-    /* JADX WARN: Code restructure failed: missing block: B:145:0x02ad, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(44:3|(1:5)(20:189|190|191|192|193|194|(2:240|241)|196|197|(1:199)(1:239)|200|201|202|204|205|(1:209)|211|(4:213|214|215|216)|219|220)|6|(1:8)|9|(3:10|11|(1:13)(4:172|(2:174|(1:176)(1:186))(1:187)|177|(3:181|182|183)(1:179)))|14|(3:167|168|169)|(2:16|17)|18|(1:20)|(2:21|22)|23|(1:25)|26|(3:158|159|160)|28|(2:29|30)|(26:34|(1:36)(2:140|(2:142|143))|37|(1:39)|40|41|42|43|(19:44|45|(2:47|(2:48|(4:50|51|52|(1:126)(3:56|57|58))))(1:133)|61|(5:(1:65)|66|(2:68|69)(1:71)|70|62)|72|73|74|(3:119|120|121)|76|(7:78|79|80|81|82|83|84)|89|90|(4:92|93|94|95)|98|(4:100|101|102|103)|106|(4:108|109|110|111)|115)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115)|156|37|(0)|40|41|42|43|(19:44|45|(0)(0)|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115) */
+    /* JADX WARN: Can't wrap try/catch for region: R(45:3|(1:5)(20:189|190|191|192|193|194|(2:240|241)|196|197|(1:199)(1:239)|200|201|202|204|205|(1:209)|211|(4:213|214|215|216)|219|220)|6|(1:8)|9|(3:10|11|(1:13)(4:172|(2:174|(1:176)(1:186))(1:187)|177|(3:181|182|183)(1:179)))|14|(3:167|168|169)|16|17|18|(1:20)|(2:21|22)|23|(1:25)|26|(3:158|159|160)|28|(2:29|30)|(26:34|(1:36)(2:140|(2:142|143))|37|(1:39)|40|41|42|43|(19:44|45|(2:47|(2:48|(4:50|51|52|(1:126)(3:56|57|58))))(1:133)|61|(5:(1:65)|66|(2:68|69)(1:71)|70|62)|72|73|74|(3:119|120|121)|76|(7:78|79|80|81|82|83|84)|89|90|(4:92|93|94|95)|98|(4:100|101|102|103)|106|(4:108|109|110|111)|115)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115)|156|37|(0)|40|41|42|43|(19:44|45|(0)(0)|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115) */
+    /* JADX WARN: Code restructure failed: missing block: B:145:0x02ae, code lost:
         r1 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:146:0x02ae, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:146:0x02af, code lost:
         r4 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x00a9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x00aa, code lost:
         if (r5.length() <= 0) goto L196;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:185:0x0372, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:185:0x0375, code lost:
         r9 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:186:0x0373, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:186:0x0376, code lost:
         r9.printStackTrace();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x0112, code lost:
-        if (r0 == null) goto L230;
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x0113, code lost:
+        if (r0 == null) goto L231;
      */
-    /* JADX WARN: Removed duplicated region for block: B:101:0x0217  */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x021a A[Catch: Exception -> 0x0250, TRY_ENTER, TryCatch #15 {Exception -> 0x0250, blocks: (B:95:0x01fd, B:97:0x020b, B:99:0x0211, B:102:0x021a, B:104:0x0220, B:105:0x0228, B:110:0x0234, B:112:0x023a, B:114:0x0242), top: B:234:0x01fd }] */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x0257  */
-    /* JADX WARN: Removed duplicated region for block: B:128:0x0277 A[Catch: SocketException -> 0x02a9, Exception -> 0x02ab, TryCatch #4 {SocketException -> 0x02a9, blocks: (B:126:0x0271, B:128:0x0277, B:129:0x0281, B:131:0x0287), top: B:213:0x0271 }] */
-    /* JADX WARN: Removed duplicated region for block: B:151:0x02c3  */
-    /* JADX WARN: Removed duplicated region for block: B:164:0x030e  */
-    /* JADX WARN: Removed duplicated region for block: B:171:0x033a  */
-    /* JADX WARN: Removed duplicated region for block: B:176:0x0351  */
-    /* JADX WARN: Removed duplicated region for block: B:181:0x0368  */
-    /* JADX WARN: Removed duplicated region for block: B:225:0x01d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:240:0x0194 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:250:0x02fb A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:257:0x02b2 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00fd  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0136  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0143  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0144 A[Catch: Exception -> 0x018d, TryCatch #16 {Exception -> 0x018d, blocks: (B:57:0x013d, B:60:0x0144, B:62:0x0150, B:64:0x0158, B:67:0x016a, B:71:0x0175, B:66:0x0165), top: B:236:0x013d }] */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x01af  */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x01c7  */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x020b A[Catch: Exception -> 0x0250, TryCatch #15 {Exception -> 0x0250, blocks: (B:95:0x01fd, B:97:0x020b, B:99:0x0211, B:102:0x021a, B:104:0x0220, B:105:0x0228, B:110:0x0234, B:112:0x023a, B:114:0x0242), top: B:234:0x01fd }] */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x0218  */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x021b A[Catch: Exception -> 0x0251, TRY_ENTER, TryCatch #21 {Exception -> 0x0251, blocks: (B:95:0x01fe, B:97:0x020c, B:99:0x0212, B:102:0x021b, B:104:0x0221, B:105:0x0229, B:110:0x0235, B:112:0x023b, B:114:0x0243), top: B:246:0x01fe }] */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x0258  */
+    /* JADX WARN: Removed duplicated region for block: B:128:0x0278 A[Catch: SocketException -> 0x02aa, Exception -> 0x02ac, TryCatch #2 {Exception -> 0x02ac, blocks: (B:124:0x026d, B:126:0x0272, B:128:0x0278, B:129:0x0282, B:131:0x0288, B:132:0x028e, B:134:0x0294, B:147:0x02b0, B:148:0x02b3, B:149:0x02c1, B:152:0x02c6, B:153:0x02cb, B:155:0x02d9, B:156:0x02e8, B:157:0x02ee), top: B:209:0x026d }] */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x02c4  */
+    /* JADX WARN: Removed duplicated region for block: B:164:0x0310  */
+    /* JADX WARN: Removed duplicated region for block: B:171:0x033c  */
+    /* JADX WARN: Removed duplicated region for block: B:176:0x0353  */
+    /* JADX WARN: Removed duplicated region for block: B:181:0x036b  */
+    /* JADX WARN: Removed duplicated region for block: B:229:0x01d7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:233:0x0195 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:248:0x02fc A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:257:0x02b3 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00fe  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0137  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0144  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0145 A[Catch: Exception -> 0x018e, TryCatch #17 {Exception -> 0x018e, blocks: (B:57:0x013e, B:60:0x0145, B:62:0x0151, B:64:0x0159, B:67:0x016b, B:71:0x0176, B:66:0x0166), top: B:238:0x013e }] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x01b0  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x01c8  */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x020c A[Catch: Exception -> 0x0251, TryCatch #21 {Exception -> 0x0251, blocks: (B:95:0x01fe, B:97:0x020c, B:99:0x0212, B:102:0x021b, B:104:0x0221, B:105:0x0229, B:110:0x0235, B:112:0x023b, B:114:0x0243), top: B:246:0x01fe }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -135,7 +136,7 @@ public class h5 {
         String str8;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f30803b) {
+            if (f31173b) {
                 hashMap = a;
             } else {
                 a.put("app", r0.w(context));
@@ -166,20 +167,20 @@ public class h5 {
                 a.put("dpi", String.valueOf(context.getResources().getDisplayMetrics().densityDpi));
                 try {
                     str2 = Build.SERIAL;
-                    try {
-                        if (TextUtils.equals(str2, "unknown") && Build.VERSION.SDK_INT >= 26) {
-                            str2 = Build.getSerial();
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        if (!TextUtils.isEmpty(str2)) {
-                        }
-                        str3 = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
+                } catch (Exception e2) {
+                    e = e2;
+                    str2 = "";
+                }
+                try {
+                    if (TextUtils.equals(str2, "unknown") && Build.VERSION.SDK_INT >= 26) {
+                        str2 = Build.getSerial();
                     }
                 } catch (Exception e3) {
                     e = e3;
-                    str2 = "";
+                    e.printStackTrace();
+                    if (!TextUtils.isEmpty(str2)) {
+                    }
+                    str3 = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
                 }
                 if (!TextUtils.isEmpty(str2)) {
                     HashMap hashMap4 = a;
@@ -206,7 +207,7 @@ public class h5 {
                     if (Build.VERSION.SDK_INT < 23) {
                         deviceId = telephonyManager.getDeviceId();
                         str8 = "";
-                    } else if (context.checkSelfPermission(com.kuaishou.weapon.un.s.f56838c) == 0) {
+                    } else if (context.checkSelfPermission(com.kuaishou.weapon.un.s.f57419c) == 0) {
                         deviceId = telephonyManager.getDeviceId(1);
                         str8 = telephonyManager.getDeviceId(2);
                     } else {
@@ -333,7 +334,7 @@ public class h5 {
                                         str7 = stringBuffer.toString().toUpperCase();
                                         if (!TextUtils.isEmpty(str7)) {
                                         }
-                                        d2 = u1.f30956c.a;
+                                        d2 = u1.f31326c.a;
                                         if (d2 > 0.0d) {
                                         }
                                         c2 = g2.a(context).c();
@@ -373,7 +374,7 @@ public class h5 {
                         }
                         hashMap5.put("wm", str7);
                     }
-                    d2 = u1.f30956c.a;
+                    d2 = u1.f31326c.a;
                     if (d2 > 0.0d) {
                         String valueOf = String.valueOf(d2);
                         try {
@@ -381,7 +382,7 @@ public class h5 {
                         } catch (Exception unused12) {
                         }
                         hashMap5.put("lau", valueOf);
-                        String valueOf2 = String.valueOf(u1.f30956c.f30957b);
+                        String valueOf2 = String.valueOf(u1.f31326c.f31327b);
                         try {
                             valueOf2 = r0.g(valueOf2);
                         } catch (Exception unused13) {
@@ -421,7 +422,7 @@ public class h5 {
                 str7 = stringBuffer22.toString().toUpperCase();
                 if (!TextUtils.isEmpty(str7)) {
                 }
-                d2 = u1.f30956c.a;
+                d2 = u1.f31326c.a;
                 if (d2 > 0.0d) {
                 }
                 c2 = g2.a(context).c();
@@ -452,7 +453,7 @@ public class h5 {
                 str7 = stringBuffer222.toString().toUpperCase();
                 if (!TextUtils.isEmpty(str7)) {
                 }
-                d2 = u1.f30956c.a;
+                d2 = u1.f31326c.a;
                 if (d2 > 0.0d) {
                 }
                 c2 = g2.a(context).c();
@@ -473,7 +474,7 @@ public class h5 {
             str7 = stringBuffer2222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = u1.f30956c.a;
+            d2 = u1.f31326c.a;
             if (d2 > 0.0d) {
             }
             c2 = g2.a(context).c();
@@ -497,7 +498,7 @@ public class h5 {
             }
             hashMap6.put(BaseStatisContent.IMSI, str3);
         }
-        f30803b = true;
+        f31173b = true;
         hashMap = a;
         HashMap hashMap52 = new HashMap();
         if (hashMap != null) {
@@ -538,7 +539,7 @@ public class h5 {
                 str7 = stringBuffer22222.toString().toUpperCase();
                 if (!TextUtils.isEmpty(str7)) {
                 }
-                d2 = u1.f30956c.a;
+                d2 = u1.f31326c.a;
                 if (d2 > 0.0d) {
                 }
                 c2 = g2.a(context).c();
@@ -559,7 +560,7 @@ public class h5 {
             str7 = stringBuffer222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = u1.f30956c.a;
+            d2 = u1.f31326c.a;
             if (d2 > 0.0d) {
             }
             c2 = g2.a(context).c();
@@ -590,7 +591,7 @@ public class h5 {
             str7 = stringBuffer2222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = u1.f30956c.a;
+            d2 = u1.f31326c.a;
             if (d2 > 0.0d) {
             }
             c2 = g2.a(context).c();
@@ -611,7 +612,7 @@ public class h5 {
         str7 = stringBuffer22222222.toString().toUpperCase();
         if (!TextUtils.isEmpty(str7)) {
         }
-        d2 = u1.f30956c.a;
+        d2 = u1.f31326c.a;
         if (d2 > 0.0d) {
         }
         c2 = g2.a(context).c();
@@ -625,7 +626,7 @@ public class h5 {
         }
         return hashMap52;
         hashMap6.put(BaseStatisContent.IMSI, str3);
-        f30803b = true;
+        f31173b = true;
         hashMap = a;
         HashMap hashMap522 = new HashMap();
         if (hashMap != null) {
@@ -666,7 +667,7 @@ public class h5 {
             str7 = stringBuffer222222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = u1.f30956c.a;
+            d2 = u1.f31326c.a;
             if (d2 > 0.0d) {
             }
             c2 = g2.a(context).c();
@@ -687,7 +688,7 @@ public class h5 {
         str7 = stringBuffer2222222222.toString().toUpperCase();
         if (!TextUtils.isEmpty(str7)) {
         }
-        d2 = u1.f30956c.a;
+        d2 = u1.f31326c.a;
         if (d2 > 0.0d) {
         }
         c2 = g2.a(context).c();

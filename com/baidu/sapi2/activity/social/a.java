@@ -25,24 +25,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.sapi2.activity.social.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class C1764a extends HttpHandlerWrap {
+    /* loaded from: classes10.dex */
+    public class C1823a extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ThirdLoginCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f38720b;
+        public final /* synthetic */ a f39209b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1764a(a aVar, Looper looper, ThirdLoginCallback thirdLoginCallback) {
+        public C1823a(a aVar, Looper looper, ThirdLoginCallback thirdLoginCallback) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -59,7 +59,7 @@ public class a {
                     return;
                 }
             }
-            this.f38720b = aVar;
+            this.f39209b = aVar;
             this.a = thirdLoginCallback;
         }
 
@@ -79,7 +79,7 @@ public class a {
         public void onSuccess(int i2, String str, HashMap<String, String> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, hashMap) == null) {
-                this.f38720b.b(str, this.a);
+                this.f39209b.b(str, this.a);
             }
         }
     }
@@ -167,7 +167,7 @@ public class a {
             }
             hashMap.put("json", "1");
             String addExtras = ParamsUtil.addExtras(str, hashMap);
-            new HttpClientWrap().get(addExtras, ReqPriority.IMMEDIATE, ParamsUtil.buildNaCookie(addExtras, SapiAccountManager.getInstance().getConfignation()), new C1764a(this, Looper.getMainLooper(), thirdLoginCallback));
+            new HttpClientWrap().get(addExtras, ReqPriority.IMMEDIATE, ParamsUtil.buildNaCookie(addExtras, SapiAccountManager.getInstance().getConfignation()), new C1823a(this, Looper.getMainLooper(), thirdLoginCallback));
         }
     }
 }

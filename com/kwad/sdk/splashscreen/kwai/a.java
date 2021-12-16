@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,10 +19,10 @@ public class a {
             if (b2 == null) {
                 b2 = new b(currentTimeMillis, 1);
             } else if (b2.a(currentTimeMillis)) {
-                b2.f59590b++;
+                b2.f60171b++;
             } else {
                 b2.a = currentTimeMillis;
-                b2.f59590b = 1;
+                b2.f60171b = 1;
             }
             a(context, b2);
         }

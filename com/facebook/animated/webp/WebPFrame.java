@@ -12,7 +12,7 @@ import com.facebook.common.internal.DoNotStrip;
 import com.facebook.imagepipeline.animated.base.AnimatedImageFrame;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class WebPFrame implements AnimatedImageFrame {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

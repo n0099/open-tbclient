@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import j.a.a.e.l.c;
-import j.a.a.e.l.f;
+import j.a.a.e.n.c;
+import j.a.a.e.n.f;
 import java.util.List;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayFlowType;
-/* loaded from: classes4.dex */
-public interface IYYPayWayView extends j.a.a.e.o.a {
+/* loaded from: classes5.dex */
+public interface IYYPayWayView extends j.a.a.e.q.a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class PayViewState {
         public static final /* synthetic */ PayViewState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -76,7 +76,7 @@ public interface IYYPayWayView extends j.a.a.e.o.a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(f fVar, c cVar, AppCustomExpand appCustomExpand);
 
@@ -85,26 +85,26 @@ public interface IYYPayWayView extends j.a.a.e.o.a {
         void onRefreshViewFail(int i2, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<PayWayInfo> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c f64813b;
+        public c f65385b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AppCustomExpand f64814c;
+        public AppCustomExpand f65386c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f64815d;
+        public boolean f65387d;
 
         /* renamed from: e  reason: collision with root package name */
-        public AbsViewEventHandler f64816e;
+        public AbsViewEventHandler f65388e;
 
         /* renamed from: f  reason: collision with root package name */
-        public PayFlowType f64817f;
+        public PayFlowType f65389f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public interface IYYPayWayView extends j.a.a.e.o.a {
                     return;
                 }
             }
-            this.f64815d = false;
+            this.f65387d = false;
         }
     }
 

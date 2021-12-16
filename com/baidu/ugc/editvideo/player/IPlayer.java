@@ -3,25 +3,25 @@ package com.baidu.ugc.editvideo.player;
 import android.view.Surface;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public interface IPlayer {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface OnPlayerCompletionListener {
         void onCompletion(IPlayer iPlayer);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface OnPlayerErrorListener {
         boolean onError(IPlayer iPlayer, int i2, int i3, Exception exc);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface OnPlayerInfoListener {
         boolean onInfo(IPlayer iPlayer, int i2, int i3);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface OnPlayerPlayStateListener {
         public static final int STATE_PAUSE = 2;
         public static final int STATE_PLAY = 1;
@@ -29,12 +29,12 @@ public interface IPlayer {
         void onStateChange(IPlayer iPlayer, int i2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface OnPlayerPreparedListener {
         void onPrepared(IPlayer iPlayer);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface OnPlayerVideoSizeChangedListener {
         void onVideoSizeChanged(int i2, int i3);
     }

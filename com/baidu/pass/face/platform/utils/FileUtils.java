@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern RESERVED_CHARS_PATTERN;

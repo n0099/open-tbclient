@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public @interface BindLayout {
     String value();
 }

@@ -2,9 +2,9 @@ package com.baidu.swan.apps.view;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import c.a.p0.a.f;
-import c.a.p0.a.k;
-import c.a.p0.a.z2.q0;
+import c.a.q0.a.f;
+import c.a.q0.a.k;
+import c.a.q0.a.z2.q0;
 import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SwanAppErrorDialog extends BaseActivityDialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

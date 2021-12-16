@@ -4,17 +4,17 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static ExecutorService a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f60398b = 2;
+    public static int f60979b = 2;
 
     public static ExecutorService a() {
         synchronized (b.class) {
             if (a == null) {
-                a = Executors.newScheduledThreadPool(f60398b);
+                a = Executors.newScheduledThreadPool(f60979b);
             }
         }
         return a;
@@ -25,7 +25,7 @@ public class b {
     }
 
     public static void a(int i2) {
-        f60398b = i2;
+        f60979b = i2;
     }
 
     public static void a(Runnable runnable) {

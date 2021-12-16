@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class v3 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ y3 f30976e;
+    public final /* synthetic */ y3 f31346e;
 
     public v3(y3 y3Var) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class v3 implements Runnable {
                 return;
             }
         }
-        this.f30976e = y3Var;
+        this.f31346e = y3Var;
     }
 
     @Override // java.lang.Runnable
@@ -37,9 +37,9 @@ public class v3 implements Runnable {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HashMap b2 = h5.b(this.f30976e.a);
+            HashMap b2 = h5.b(this.f31346e.a);
             try {
-                str = this.f30976e.d() + h5.a(b2);
+                str = this.f31346e.d() + h5.a(b2);
             } catch (UnsupportedEncodingException unused) {
                 str = "";
             }

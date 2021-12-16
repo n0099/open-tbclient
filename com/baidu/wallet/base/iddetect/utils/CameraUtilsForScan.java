@@ -20,7 +20,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class CameraUtilsForScan {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float BANK_HEIGHT_WIDTH_RADIO = 0.6306f;

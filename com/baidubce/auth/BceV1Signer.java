@@ -30,7 +30,7 @@ import java.util.TreeMap;
 import okhttp3.internal.http.HttpMethod;
 import org.apache.commons.lang3.StringUtils;
 @SuppressLint({"NewApi", "DefaultLocale"})
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class BceV1Signer implements Signer {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<String> defaultHeadersToSign;

@@ -17,7 +17,7 @@ import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Stats implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTES = 40;

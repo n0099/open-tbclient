@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.player.widget.BdPlayerProgressView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StringUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PASSWORD_PREFIX = "((?=.*\\d)(?=.*[a-zA-Z]).{6,20})";
@@ -170,7 +171,7 @@ public class StringUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i2)) == null) {
             if (i2 <= 0) {
-                return "00:00";
+                return BdPlayerProgressView.DEFAULT_TIME_TEXT;
             }
             int i3 = i2 / 60;
             if (i3 < 60) {

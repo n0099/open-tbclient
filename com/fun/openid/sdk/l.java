@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
 import com.samsung.android.deviceidservice.IDeviceIdService;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedBlockingQueue<IBinder> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ServiceConnection f55763b;
+    public ServiceConnection f56344b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class l implements f {
             }
         }
         this.a = new LinkedBlockingQueue<>(1);
-        this.f55763b = new a(this);
+        this.f56344b = new a(this);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x0018  */
@@ -105,7 +105,7 @@ public class l implements f {
             }
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            if (context.bindService(intent, this.f55763b, 1)) {
+            if (context.bindService(intent, this.f56344b, 1)) {
                 try {
                     IBinder take = this.a.take();
                     Parcel obtain = Parcel.obtain();

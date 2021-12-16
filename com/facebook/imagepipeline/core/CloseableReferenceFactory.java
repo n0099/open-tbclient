@@ -12,7 +12,7 @@ import com.facebook.common.references.ResourceReleaser;
 import com.facebook.common.references.SharedReference;
 import com.facebook.imagepipeline.debug.CloseableReferenceLeakTracker;
 import java.io.Closeable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class CloseableReferenceFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

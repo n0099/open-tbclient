@@ -1,83 +1,30 @@
 package c.a.l;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.content.pm.Signature;
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.view.View;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.l.j.d.d a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public List<b> f3694b;
+    /* renamed from: e  reason: collision with root package name */
+    public RelativeLayout.LayoutParams f3806e;
 
-    /* loaded from: classes.dex */
-    public class a implements Comparator<b> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: f  reason: collision with root package name */
+    public int f3807f;
 
-        public a(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    /* renamed from: g  reason: collision with root package name */
+    public View f3808g;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(b bVar, b bVar2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
-                int i2 = bVar2.f3691b - bVar.f3691b;
-                if (i2 == 0) {
-                    if (bVar.f3693d && bVar2.f3693d) {
-                        return 0;
-                    }
-                    if (bVar.f3693d) {
-                        return -1;
-                    }
-                    if (bVar2.f3693d) {
-                        return 1;
-                    }
-                }
-                return i2;
-            }
-            return invokeLL.intValue;
-        }
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public l0 f3809h;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -89,180 +36,65 @@ public class c {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        c();
-    }
-
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        StringBuilder sb;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr != null) {
-                String str = "";
-                for (byte b2 : bArr) {
-                    String hexString = Integer.toHexString(b2 & 255);
-                    if (hexString.length() == 1) {
-                        sb = new StringBuilder();
-                        sb.append(str);
-                        str = "0";
-                    } else {
-                        sb = new StringBuilder();
-                    }
-                    sb.append(str);
-                    sb.append(hexString);
-                    str = sb.toString();
-                }
-                return str.toLowerCase();
-            }
-            throw new IllegalArgumentException("Argument b ( byte array ) is null! ");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static byte[] f(byte[] bArr, c.a.l.j.d.d dVar) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, dVar)) == null) {
-            c.a.l.j.d.a a2 = c.a.l.j.d.a.a();
-            a2.b(2, dVar);
-            return a2.c(bArr);
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public List<b> b(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, context, intent, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            PackageManager packageManager = context.getPackageManager();
-            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
-            if (queryBroadcastReceivers != null) {
-                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                    ActivityInfo activityInfo = resolveInfo.activityInfo;
-                    if (activityInfo != null && activityInfo.applicationInfo != null) {
-                        try {
-                            Bundle bundle = packageManager.getReceiverInfo(new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name), 128).metaData;
-                            if (bundle != null) {
-                                String string = bundle.getString("galaxy_data");
-                                if (!TextUtils.isEmpty(string)) {
-                                    byte[] b2 = c.a.l.k.a.b(string.getBytes("utf-8"));
-                                    JSONObject jSONObject = new JSONObject(new String(b2));
-                                    b bVar = new b();
-                                    bVar.f3691b = jSONObject.getInt("priority");
-                                    bVar.a = resolveInfo.activityInfo.applicationInfo;
-                                    if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                        bVar.f3693d = true;
-                                    }
-                                    if (z) {
-                                        String string2 = bundle.getString("galaxy_sf");
-                                        if (!TextUtils.isEmpty(string2)) {
-                                            PackageInfo packageInfo = packageManager.getPackageInfo(resolveInfo.activityInfo.applicationInfo.packageName, 64);
-                                            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
-                                            int length = jSONArray.length();
-                                            String[] strArr = new String[length];
-                                            for (int i2 = 0; i2 < length; i2++) {
-                                                strArr[i2] = jSONArray.getString(i2);
-                                            }
-                                            if (e(strArr, g(packageInfo.signatures))) {
-                                                byte[] f2 = f(c.a.l.k.a.b(string2.getBytes()), this.a);
-                                                if (f2 != null && Arrays.equals(f2, c.a.l.k.c.a(b2))) {
-                                                    bVar.f3692c = true;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    arrayList.add(bVar);
-                                }
-                            }
-                        } catch (Exception unused) {
-                        }
-                    }
-                }
-            }
-            Collections.sort(arrayList, new a(this));
-            return arrayList;
-        }
-        return (List) invokeLLZ.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new c.a.l.j.d.e(d.a(), d.b());
         }
     }
 
-    public boolean d(Context context) {
-        InterceptResult invokeL;
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            List<b> b2 = b(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
-            if (b2 == null || b2.size() == 0) {
-                for (int i2 = 0; i2 < 3; i2++) {
-                }
-                return false;
-            }
-            boolean z = b2.get(0).f3692c;
-            if (!z) {
-                for (int i3 = 0; i3 < 3; i3++) {
-                }
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3808g : (View) invokeV.objValue;
     }
 
-    public final boolean e(String[] strArr, String[] strArr2) {
-        InterceptResult invokeLL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, strArr, strArr2)) == null) {
-            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
-                return false;
-            }
-            HashSet hashSet = new HashSet();
-            for (String str : strArr) {
-                hashSet.add(str);
-            }
-            HashSet hashSet2 = new HashSet();
-            for (String str2 : strArr2) {
-                hashSet2.add(str2);
-            }
-            return hashSet.equals(hashSet2);
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3807f : invokeV.intValue;
     }
 
-    public final String[] g(Signature[] signatureArr) {
-        InterceptResult invokeL;
+    public RelativeLayout.LayoutParams c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, signatureArr)) == null) {
-            int length = signatureArr.length;
-            String[] strArr = new String[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                strArr[i2] = a(c.a.l.k.c.a(signatureArr[i2].toByteArray()));
-            }
-            return strArr;
-        }
-        return (String[]) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3806e : (RelativeLayout.LayoutParams) invokeV.objValue;
     }
 
-    public List<b> h(Context context) {
-        InterceptResult invokeL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            List<b> list = this.f3694b;
-            if (list != null) {
-                return list;
-            }
-            d(context);
-            List<b> b2 = b(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-            this.f3694b = b2;
-            return b2;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        return (List) invokeL.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void f(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
+            this.f3808g = view;
+        }
+    }
+
+    public void g(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.f3807f = i2;
+        }
+    }
+
+    public void h(RelativeLayout.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, layoutParams) == null) {
+            this.f3806e = layoutParams;
+        }
+    }
+
+    public void i(l0 l0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, l0Var) == null) {
+            this.f3809h = l0Var;
+        }
     }
 }

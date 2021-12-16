@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,31 +26,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.yoga.YogaNodeJNIBase;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TiePlusDownloadDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f42386e;
+    public View f42877e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f42387f;
+    public View f42878f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f42388g;
+    public TbImageView f42879g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f42389h;
+    public TextView f42880h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f42390i;
+    public TextView f42881i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f42391j;
+    public TextView f42882j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TextView f42392k;
+    public TextView f42883k;
     public TextView l;
     public TextView m;
     public ImageView n;
@@ -63,13 +63,13 @@ public class TiePlusDownloadDialog extends Dialog {
     public String u;
     public c v;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TiePlusDownloadDialog f42393e;
+        public final /* synthetic */ TiePlusDownloadDialog f42884e;
 
         public a(TiePlusDownloadDialog tiePlusDownloadDialog) {
             Interceptable interceptable = $ic;
@@ -86,28 +86,28 @@ public class TiePlusDownloadDialog extends Dialog {
                     return;
                 }
             }
-            this.f42393e = tiePlusDownloadDialog;
+            this.f42884e = tiePlusDownloadDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42393e.p.onClick(view);
-                if (this.f42393e.v != null) {
-                    this.f42393e.v.a();
+                this.f42884e.p.onClick(view);
+                if (this.f42884e.v != null) {
+                    this.f42884e.v.a();
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TiePlusDownloadDialog f42394e;
+        public final /* synthetic */ TiePlusDownloadDialog f42885e;
 
         public b(TiePlusDownloadDialog tiePlusDownloadDialog) {
             Interceptable interceptable = $ic;
@@ -124,19 +124,19 @@ public class TiePlusDownloadDialog extends Dialog {
                     return;
                 }
             }
-            this.f42394e = tiePlusDownloadDialog;
+            this.f42885e = tiePlusDownloadDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42394e.dismiss();
+                this.f42885e.dismiss();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface c {
         void a();
     }
@@ -168,7 +168,7 @@ public class TiePlusDownloadDialog extends Dialog {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int k2 = l.k(getContext());
+            int k2 = m.k(getContext());
             if (k2 < 975.0d) {
                 return 759;
             }
@@ -180,35 +180,35 @@ public class TiePlusDownloadDialog extends Dialog {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f42387f = findViewById(R.id.divider);
-            this.f42388g = (TbImageView) findViewById(R.id.app_icon);
-            this.f42389h = (TextView) findViewById(R.id.app_title);
-            this.f42390i = (TextView) findViewById(R.id.app_version);
-            this.f42391j = (TextView) findViewById(R.id.app_company);
-            this.f42392k = (TextView) findViewById(R.id.app_permisson);
+            this.f42878f = findViewById(R.id.divider);
+            this.f42879g = (TbImageView) findViewById(R.id.app_icon);
+            this.f42880h = (TextView) findViewById(R.id.app_title);
+            this.f42881i = (TextView) findViewById(R.id.app_version);
+            this.f42882j = (TextView) findViewById(R.id.app_company);
+            this.f42883k = (TextView) findViewById(R.id.app_permisson);
             this.l = (TextView) findViewById(R.id.app_privacy);
             this.m = (TextView) findViewById(R.id.download_cancel);
             this.o = (ProgressButton) findViewById(R.id.download_btn);
             this.n = (ImageView) findViewById(R.id.window_close);
-            this.f42388g.setPlaceHolder(2);
-            this.f42388g.setConrers(15);
+            this.f42879g.setPlaceHolder(2);
+            this.f42879g.setConrers(15);
             onSkinChanged();
             this.l.setTag(Byte.valueOf((byte) YogaNodeJNIBase.HAS_NEW_LAYOUT));
-            this.f42392k.setTag((byte) 17);
+            this.f42883k.setTag((byte) 17);
             this.m.setTag((byte) 18);
             if (!StringUtils.isNull(this.r)) {
-                this.f42389h.setText(this.r);
+                this.f42880h.setText(this.r);
             }
             if (!StringUtils.isNull(this.u)) {
-                this.f42388g.startLoad(this.u, 10, false);
+                this.f42879g.startLoad(this.u, 10, false);
             }
             if (!StringUtils.isNull(this.s)) {
-                this.f42390i.setText(String.format(getContext().getString(R.string.app_version_long), this.s));
+                this.f42881i.setText(String.format(getContext().getString(R.string.app_version_long), this.s));
             }
             if (!StringUtils.isNull(this.t)) {
-                this.f42391j.setText(String.format(getContext().getString(R.string.developer_name), this.t));
+                this.f42882j.setText(String.format(getContext().getString(R.string.developer_name), this.t));
             }
-            this.f42392k.setOnClickListener(this.p);
+            this.f42883k.setOnClickListener(this.p);
             this.l.setOnClickListener(this.p);
             this.m.setOnClickListener(this.p);
             this.o.setOnClickListener(new a(this));
@@ -230,9 +230,9 @@ public class TiePlusDownloadDialog extends Dialog {
                 return;
             }
             TiePlusHelper tiePlusHelper = this.p;
-            tiePlusHelper.a0(tiePlusHelper.p(), this.p.m(), getContext(), this.o);
+            tiePlusHelper.e0(tiePlusHelper.p(), this.p.m(), getContext(), this.o);
             TiePlusHelper tiePlusHelper2 = this.p;
-            tiePlusHelper2.Z(tiePlusHelper2.p(), getContext(), this.m);
+            tiePlusHelper2.d0(tiePlusHelper2.p(), getContext(), this.m);
         }
     }
 
@@ -243,7 +243,7 @@ public class TiePlusDownloadDialog extends Dialog {
             super.onCreate(bundle);
             getWindow().setBackgroundDrawableResource(R.color.transparent);
             View inflate = getLayoutInflater().inflate(R.layout.tie_plus_download_dialog, (ViewGroup) null);
-            this.f42386e = inflate;
+            this.f42877e = inflate;
             setContentView(inflate);
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.width = c();
@@ -257,7 +257,7 @@ public class TiePlusDownloadDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            this.p.z(this.o);
+            this.p.B(this.o);
             if (this.q) {
                 MessageManager.getInstance().unRegisterListener(this.p);
             }
@@ -267,18 +267,18 @@ public class TiePlusDownloadDialog extends Dialog {
     public void onSkinChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f42386e);
+            c.a.r0.s.v.c d2 = c.a.r0.s.v.c.d(this.f42877e);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0201);
-            c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(this.f42389h);
+            c.a.r0.s.v.c d3 = c.a.r0.s.v.c.d(this.f42880h);
             d3.A(R.string.F_X02);
             d3.v(R.color.CAM_X0105);
-            c.a.q0.s.u.c.d(this.f42390i).v(R.color.CAM_X0108);
-            c.a.q0.s.u.c.d(this.f42391j).v(R.color.CAM_X0108);
-            c.a.q0.s.u.c.d(this.f42392k).v(R.color.CAM_X0304);
-            c.a.q0.s.u.c.d(this.l).v(R.color.CAM_X0304);
-            c.a.q0.s.u.c.d(this.m).v(R.color.CAM_X0107);
-            c.a.q0.s.u.c.d(this.f42387f).f(R.color.CAM_X0107);
+            c.a.r0.s.v.c.d(this.f42881i).v(R.color.CAM_X0108);
+            c.a.r0.s.v.c.d(this.f42882j).v(R.color.CAM_X0108);
+            c.a.r0.s.v.c.d(this.f42883k).v(R.color.CAM_X0304);
+            c.a.r0.s.v.c.d(this.l).v(R.color.CAM_X0304);
+            c.a.r0.s.v.c.d(this.m).v(R.color.CAM_X0107);
+            c.a.r0.s.v.c.d(this.f42878f).f(R.color.CAM_X0107);
             WebPManager.setPureDrawable(this.n, R.drawable.icon_pure_dialog_close22, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
             this.o.onSkinChanged();
         }

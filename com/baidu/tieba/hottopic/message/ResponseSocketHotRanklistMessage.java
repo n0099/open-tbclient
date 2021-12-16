@@ -1,6 +1,6 @@
 package com.baidu.tieba.hottopic.message;
 
-import c.a.r0.p1.l.j;
+import c.a.s0.q1.l.j;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.TopicList.TopicListResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

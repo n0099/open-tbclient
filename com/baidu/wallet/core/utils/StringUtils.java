@@ -13,7 +13,7 @@ import com.google.zxing.client.result.ResultParser;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class StringUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 @RequiresApi(27)
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

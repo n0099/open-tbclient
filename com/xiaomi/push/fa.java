@@ -14,7 +14,7 @@ import com.xiaomi.push.du;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class fa {
     public static /* synthetic */ Interceptable $ic;
     public static long a;
@@ -23,7 +23,7 @@ public class fa {
     public static final byte[] f364a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f62880b;
+    public static String f63461b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -54,7 +54,7 @@ public class fa {
                 return;
             }
         }
-        f62880b = gn.a(5) + "-";
+        f63461b = gn.a(5) + "-";
         a = 0L;
         f364a = new byte[0];
     }
@@ -167,7 +167,7 @@ public class fa {
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             synchronized (fa.class) {
                 StringBuilder sb2 = new StringBuilder();
-                sb2.append(f62880b);
+                sb2.append(f63461b);
                 long j2 = a;
                 a = 1 + j2;
                 sb2.append(Long.toString(j2));

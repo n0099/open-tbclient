@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class m implements r.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ h[] f34320b;
+    public final /* synthetic */ h[] f34788b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ n f34321c;
+    public final /* synthetic */ n f34789c;
 
     public m(n nVar, String str, h[] hVarArr) {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class m implements r.a {
                 return;
             }
         }
-        this.f34321c = nVar;
+        this.f34789c = nVar;
         this.a = str;
-        this.f34320b = hVarArr;
+        this.f34788b = hVarArr;
     }
 
     @Override // com.baidu.fsg.base.statistics.r.a
@@ -55,7 +55,7 @@ public class m implements r.a {
             if (b.o.equals(this.a)) {
                 g.b().a(this.a);
             } else {
-                i.a(RimStatisticsUtil.getAppContext()).a(this.f34320b);
+                i.a(RimStatisticsUtil.getAppContext()).a(this.f34788b);
             }
         }
     }

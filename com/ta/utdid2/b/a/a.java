@@ -22,7 +22,7 @@ import java.nio.charset.IllegalCharsetNameException;
 import java.nio.charset.UnsupportedCharsetException;
 import kotlin.text.Typography;
 import org.xmlpull.v1.XmlSerializer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements XmlSerializer {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "xmlpull.org/v1/doc/features.html#indent-output";
@@ -47,7 +47,7 @@ public class a implements XmlSerializer {
     public final char[] f15a;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f62104e;
+    public boolean f62685e;
     public int mPos;
 
     static {
@@ -183,7 +183,7 @@ public class a implements XmlSerializer {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (this.f62104e) {
+            if (this.f62685e) {
                 append(" />\n");
             } else {
                 append("</");
@@ -194,7 +194,7 @@ public class a implements XmlSerializer {
                 append(str2);
                 append(">\n");
             }
-            this.f62104e = false;
+            this.f62685e = false;
             return this;
         }
         return (XmlSerializer) invokeLL.objValue;
@@ -370,7 +370,7 @@ public class a implements XmlSerializer {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, str, str2)) == null) {
-            if (this.f62104e) {
+            if (this.f62685e) {
                 append(">\n");
             }
             append(Typography.less);
@@ -379,7 +379,7 @@ public class a implements XmlSerializer {
                 append(':');
             }
             append(str2);
-            this.f62104e = true;
+            this.f62685e = true;
             return this;
         }
         return (XmlSerializer) invokeLL.objValue;
@@ -390,9 +390,9 @@ public class a implements XmlSerializer {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048600, this, cArr, i2, i3)) == null) {
-            if (this.f62104e) {
+            if (this.f62685e) {
                 append(">");
-                this.f62104e = false;
+                this.f62685e = false;
             }
             a(cArr, i2, i3);
             return this;
@@ -405,9 +405,9 @@ public class a implements XmlSerializer {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            if (this.f62104e) {
+            if (this.f62685e) {
                 append(">");
-                this.f62104e = false;
+                this.f62685e = false;
             }
             a(str);
             return this;

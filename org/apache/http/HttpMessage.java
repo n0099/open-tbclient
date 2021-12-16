@@ -2,7 +2,7 @@ package org.apache.http;
 
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface HttpMessage {
     void addHeader(String str, String str2);
 

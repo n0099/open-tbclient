@@ -11,13 +11,13 @@ import com.squareup.wire.ExtendableMessage;
 import com.squareup.wire.Message;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public transient ExtensionMap<T> extensionMap;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class ExtendableBuilder<T extends ExtendableMessage<?>> extends Message.Builder<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

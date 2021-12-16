@@ -11,7 +11,7 @@ import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.X509TrustManager;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class CertificateChainCleaner {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

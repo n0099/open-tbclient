@@ -1,6 +1,6 @@
 package com.baidu.tieba.videoplay.model;
 
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class JumpYYLiveHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class JumpYYLiveHttpResponseMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            return (yyExtData == null || k.isEmpty(yyExtData.mSid) || k.isEmpty(this.mYyExtData.mSsid)) ? false : true;
+            return (yyExtData == null || l.isEmpty(yyExtData.mSid) || l.isEmpty(this.mYyExtData.mSsid)) ? false : true;
         }
         return invokeV.booleanValue;
     }

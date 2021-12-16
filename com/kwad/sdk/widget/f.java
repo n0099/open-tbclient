@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f implements GestureDetector.OnGestureListener, View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GestureDetector f59788b;
+    public GestureDetector f60369b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MotionEvent f59789c;
+    public MotionEvent f60370c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f59790d;
+    public d f60371d;
 
     public f(Context context, @NonNull View view, d dVar) {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class f implements GestureDetector.OnGestureListener, View.OnTouchListene
         }
         this.a = view;
         view.setOnTouchListener(this);
-        this.f59788b = new GestureDetector(context, this);
-        this.f59790d = dVar;
+        this.f60369b = new GestureDetector(context, this);
+        this.f60371d = dVar;
     }
 
     public f(@NonNull View view, d dVar) {
@@ -64,8 +64,8 @@ public class f implements GestureDetector.OnGestureListener, View.OnTouchListene
         }
         this.a = view;
         view.setOnTouchListener(this);
-        this.f59788b = new GestureDetector(view.getContext(), this);
-        this.f59790d = dVar;
+        this.f60369b = new GestureDetector(view.getContext(), this);
+        this.f60371d = dVar;
     }
 
     public static boolean a(MotionEvent motionEvent, MotionEvent motionEvent2) {
@@ -86,9 +86,9 @@ public class f implements GestureDetector.OnGestureListener, View.OnTouchListene
             boolean z = false;
             if (action != 0) {
                 if (action == 1) {
-                    MotionEvent motionEvent3 = this.f59789c;
+                    MotionEvent motionEvent3 = this.f60370c;
                     if (motionEvent3 != null && a(motionEvent3, motionEvent)) {
-                        d dVar = this.f59790d;
+                        d dVar = this.f60371d;
                         if (dVar != null) {
                             dVar.b(view);
                         }
@@ -99,7 +99,7 @@ public class f implements GestureDetector.OnGestureListener, View.OnTouchListene
                 return z;
             }
             motionEvent2 = MotionEvent.obtain(motionEvent);
-            this.f59789c = motionEvent2;
+            this.f60370c = motionEvent2;
             return z;
         }
         return invokeLL.booleanValue;
@@ -156,7 +156,7 @@ public class f implements GestureDetector.OnGestureListener, View.OnTouchListene
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
             com.kwad.sdk.core.d.a.a("ViewGestureHelper", "onSingleTapUp");
-            d dVar = this.f59790d;
+            d dVar = this.f60371d;
             if (dVar != null) {
                 dVar.a_(this.a);
                 return true;
@@ -171,7 +171,7 @@ public class f implements GestureDetector.OnGestureListener, View.OnTouchListene
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view, motionEvent)) == null) {
-            boolean onTouchEvent = this.f59788b.onTouchEvent(motionEvent);
+            boolean onTouchEvent = this.f60369b.onTouchEvent(motionEvent);
             com.kwad.sdk.core.d.a.a("ViewGestureHelper", "onTouch, " + motionEvent.getAction() + "， handled： " + onTouchEvent);
             if (onTouchEvent) {
                 return true;

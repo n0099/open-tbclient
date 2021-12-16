@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.math.RoundingMode;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.i.d.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class C1623a {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class C1662a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d2), roundingMode})) == null) {
             if (b.c(d2)) {
-                switch (C1623a.a[roundingMode.ordinal()]) {
+                switch (C1662a.a[roundingMode.ordinal()]) {
                     case 1:
                         e.d(a(d2));
                         return d2;

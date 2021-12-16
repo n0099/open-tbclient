@@ -14,7 +14,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3962399486978279857L;
@@ -22,7 +22,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
     public final i.n.a action;
     public final h cancel;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Remover extends AtomicBoolean implements k {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 247232374289553518L;
@@ -65,7 +65,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Remover2 extends AtomicBoolean implements k {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 247232374289553518L;
@@ -108,16 +108,16 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class a implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Future<?> f64394e;
+        public final Future<?> f64965e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ScheduledAction f64395f;
+        public final /* synthetic */ ScheduledAction f64966f;
 
         public a(ScheduledAction scheduledAction, Future<?> future) {
             Interceptable interceptable = $ic;
@@ -134,25 +134,25 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                     return;
                 }
             }
-            this.f64395f = scheduledAction;
-            this.f64394e = future;
+            this.f64966f = scheduledAction;
+            this.f64965e = future;
         }
 
         @Override // i.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64394e.isCancelled() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64965e.isCancelled() : invokeV.booleanValue;
         }
 
         @Override // i.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.f64395f.get() != Thread.currentThread()) {
-                    this.f64394e.cancel(true);
+                if (this.f64966f.get() != Thread.currentThread()) {
+                    this.f64965e.cancel(true);
                 } else {
-                    this.f64394e.cancel(false);
+                    this.f64965e.cancel(false);
                 }
             }
         }

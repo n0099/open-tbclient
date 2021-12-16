@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import com.win.opensdk.downloader.WDownLoadService;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d4 implements DownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,12 +40,12 @@ public class d4 implements DownloadListener {
     public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
         Info info;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) || (info = this.a.f30802c) == null || info.getOpent() != 1 || j2 <= 10) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) || (info = this.a.f31172c) == null || info.getOpent() != 1 || j2 <= 10) {
             return;
         }
         h4 h4Var = this.a;
         Context context = h4Var.a;
-        Info info2 = h4Var.f30802c;
+        Info info2 = h4Var.f31172c;
         if (!r0.H(context)) {
             Toast.makeText(context, context.getString(m1.win_wdownload_no_netwrok) + info2.getDl_name(), 0).show();
             y2 a = c3.a(context);
@@ -59,7 +59,7 @@ public class d4 implements DownloadListener {
                 g3 g3Var = new g3(info2);
                 String open = info2.getOpen();
                 try {
-                    a2.f31007b = c3.d("wii", g3Var);
+                    a2.f31377b = c3.d("wii", g3Var);
                     a2.l("msg", c3.b(open));
                 } catch (JSONException unused) {
                 }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PassSdkModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "sapi_pass_sdk_model";

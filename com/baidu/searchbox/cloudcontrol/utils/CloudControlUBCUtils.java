@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CloudControlUBCUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CONTROL = "control";

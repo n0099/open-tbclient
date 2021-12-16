@@ -9,7 +9,7 @@ import com.ss.android.socialbase.downloader.depend.z;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface m {
     int a(String str, String str2);
 

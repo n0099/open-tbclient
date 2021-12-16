@@ -18,13 +18,13 @@ import io.reactivex.observers.SerializedObserver;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super T, ? extends ObservableSource<U>> debounceSelector;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class DebounceObserver<T, U> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
         public volatile long index;
         public Disposable s;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static final class DebounceInnerObserver<T, U> extends DisposableObserver<U> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

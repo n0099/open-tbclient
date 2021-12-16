@@ -14,13 +14,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public static Executor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ScheduledExecutorService f54602b;
+    public static ScheduledExecutorService f55182b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public final class e {
             }
         }
         a = Executors.newCachedThreadPool();
-        f54602b = Executors.newSingleThreadScheduledExecutor();
+        f55182b = Executors.newSingleThreadScheduledExecutor();
     }
 
     public static ExecutorService a(int i2) {

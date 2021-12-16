@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbsEventTrigger implements IEventTrigger {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<IMessenger> mNotifyList;
+    public final ArrayList<IMessenger> mMessengers;
 
     public AbsEventTrigger() {
         Interceptable interceptable = $ic;
@@ -28,22 +28,23 @@ public abstract class AbsEventTrigger implements IEventTrigger {
                 return;
             }
         }
-        this.mNotifyList = new ArrayList<>();
+        this.mMessengers = new ArrayList<>();
+    }
+
+    @PublicMethod
+    public void bindMessenger(@NonNull IMessenger iMessenger) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, iMessenger) == null) || this.mMessengers.contains(iMessenger)) {
+            return;
+        }
+        this.mMessengers.add(iMessenger);
     }
 
     @PublicMethod
     public void clear() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mNotifyList.clear();
-        }
-    }
-
-    @PublicMethod
-    public void register(@NonNull IMessenger iMessenger) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iMessenger) == null) {
-            this.mNotifyList.add(iMessenger);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mMessengers.clear();
         }
     }
 
@@ -52,9 +53,9 @@ public abstract class AbsEventTrigger implements IEventTrigger {
     public void triggerEvent(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoEvent) == null) {
-            int size = this.mNotifyList.size();
+            int size = this.mMessengers.size();
             for (int i2 = 0; i2 < size; i2++) {
-                IMessenger iMessenger = this.mNotifyList.get(i2);
+                IMessenger iMessenger = this.mMessengers.get(i2);
                 if (i2 == 0) {
                     iMessenger.notifyEvent(videoEvent);
                 } else {
@@ -65,10 +66,10 @@ public abstract class AbsEventTrigger implements IEventTrigger {
     }
 
     @PublicMethod
-    public void unregister(@NonNull IMessenger iMessenger) {
+    public void unbindMessenger(@NonNull IMessenger iMessenger) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, iMessenger) == null) {
-            this.mNotifyList.remove(iMessenger);
+            this.mMessengers.remove(iMessenger);
         }
     }
 }

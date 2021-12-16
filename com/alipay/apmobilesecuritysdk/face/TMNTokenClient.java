@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TMNTokenClient {
     public static /* synthetic */ Interceptable $ic;
     public static TMNTokenClient a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f31202b;
+    public Context f31572b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface InitResultListener {
         void onResult(String str, int i2);
     }
@@ -57,11 +57,11 @@ public class TMNTokenClient {
                 return;
             }
         }
-        this.f31202b = null;
+        this.f31572b = null;
         if (context == null) {
             throw new IllegalArgumentException("TMNTokenClient initialization error: context is null.");
         }
-        this.f31202b = context;
+        this.f31572b = context;
     }
 
     public static TMNTokenClient getInstance(Context context) {
@@ -90,7 +90,7 @@ public class TMNTokenClient {
                 initResultListener.onResult("", 3);
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(b.f31307g, UtdidWrapper.getUtdid(this.f31202b));
+            hashMap.put(b.f31677g, UtdidWrapper.getUtdid(this.f31572b));
             hashMap.put("tid", "");
             hashMap.put("userId", "");
             hashMap.put("appName", str);
@@ -104,13 +104,13 @@ public class TMNTokenClient {
                 public final /* synthetic */ Map a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ InitResultListener f31203b;
+                public final /* synthetic */ InitResultListener f31573b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f31204c;
+                public final /* synthetic */ String f31574c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ TMNTokenClient f31205d;
+                public final /* synthetic */ TMNTokenClient f31575d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -127,18 +127,18 @@ public class TMNTokenClient {
                             return;
                         }
                     }
-                    this.f31205d = this;
+                    this.f31575d = this;
                     this.a = hashMap;
-                    this.f31203b = initResultListener;
-                    this.f31204c = str;
+                    this.f31573b = initResultListener;
+                    this.f31574c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int a2 = new com.alipay.apmobilesecuritysdk.a.a(this.f31205d.f31202b).a(this.a);
-                        InitResultListener initResultListener2 = this.f31203b;
+                        int a2 = new com.alipay.apmobilesecuritysdk.a.a(this.f31575d.f31572b).a(this.a);
+                        InitResultListener initResultListener2 = this.f31573b;
                         if (initResultListener2 == null) {
                             return;
                         }
@@ -146,7 +146,7 @@ public class TMNTokenClient {
                             initResultListener2.onResult("", a2);
                             return;
                         }
-                        this.f31203b.onResult(com.alipay.apmobilesecuritysdk.a.a.a(this.f31205d.f31202b, this.f31204c), 0);
+                        this.f31573b.onResult(com.alipay.apmobilesecuritysdk.a.a.a(this.f31575d.f31572b, this.f31574c), 0);
                     }
                 }
             });

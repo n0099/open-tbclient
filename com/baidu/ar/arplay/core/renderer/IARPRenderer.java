@@ -11,7 +11,7 @@ import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.pixel.PixelRotation;
 import java.lang.ref.SoftReference;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IARPRenderer {
     String addOutputSurface(Surface surface, int i2, int i3);
 

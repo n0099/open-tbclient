@@ -18,7 +18,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 @Service
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ANRBOSRegister implements IANRRegister {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

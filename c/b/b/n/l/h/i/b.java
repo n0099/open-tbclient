@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class b<D extends a, T extends c.b.b.n.l.h.f.a<D>> extends c.b.b.n.l.h.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public T f27679e;
+    public T f28054e;
 
     /* renamed from: f  reason: collision with root package name */
-    public D f27680f;
+    public D f28055f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public abstract class b<D extends a, T extends c.b.b.n.l.h.f.a<D>> extends c.b.b
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
             if (g(aVar)) {
-                this.f27679e = aVar;
+                this.f28054e = aVar;
                 return true;
             }
             return false;
@@ -54,7 +54,7 @@ public abstract class b<D extends a, T extends c.b.b.n.l.h.f.a<D>> extends c.b.b
     public void update() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f27679e.a(this.f27680f);
+            this.f28054e.a(this.f28055f);
         }
     }
 }

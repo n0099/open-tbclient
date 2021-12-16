@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.core.beans.BeanConstants;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.db.HijackTB;
@@ -15,7 +14,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ReportProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ReportProtocolMgr";
@@ -52,7 +51,7 @@ public class ReportProtocolMgr {
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 if (reportInfo.getStats0() != null) {
                     jSONObject.put("fc", reportInfo.getFc());
-                    jSONObject.put(k.f34316h, reportInfo.getLc());
+                    jSONObject.put(k.f34784h, reportInfo.getLc());
                     JSONArray jSONArray = new JSONArray();
                     StatsInfo stats0 = reportInfo.getStats0();
                     JSONObject jSONObject2 = new JSONObject();
@@ -63,7 +62,7 @@ public class ReportProtocolMgr {
                         long[] next = it.next();
                         JSONObject jSONObject3 = new JSONObject();
                         jSONObject3.put("avg", next[0]);
-                        jSONObject3.put(BeanConstants.DXM_OCR_KEY_CNT, next[1]);
+                        jSONObject3.put("cnt", next[1]);
                         jSONArray2.put(jSONObject3);
                     }
                     jSONObject2.put("its", jSONArray2);
@@ -81,7 +80,7 @@ public class ReportProtocolMgr {
                             long[] next2 = it2.next();
                             JSONObject jSONObject5 = new JSONObject();
                             jSONObject5.put("avg", next2[0]);
-                            jSONObject5.put(BeanConstants.DXM_OCR_KEY_CNT, next2[1]);
+                            jSONObject5.put("cnt", next2[1]);
                             jSONArray4.put(jSONObject5);
                         }
                         jSONObject4.put("its", jSONArray4);
@@ -100,7 +99,7 @@ public class ReportProtocolMgr {
                             long[] next3 = it3.next();
                             JSONObject jSONObject7 = new JSONObject();
                             jSONObject7.put("avg", next3[0]);
-                            jSONObject7.put(BeanConstants.DXM_OCR_KEY_CNT, next3[1]);
+                            jSONObject7.put("cnt", next3[1]);
                             jSONArray6.put(jSONObject7);
                         }
                         jSONObject6.put("its", jSONArray6);

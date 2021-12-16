@@ -14,7 +14,7 @@ import io.reactivex.internal.fuseable.SimplePlainQueue;
 import io.reactivex.internal.util.Pow2;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements SimplePlainQueue<E> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Integer MAX_LOOK_AHEAD_STEP;

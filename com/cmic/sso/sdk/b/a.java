@@ -16,14 +16,14 @@ import com.cmic.sso.sdk.d.q;
 import com.cmic.sso.sdk.d.s;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54908b;
+    public String f55488b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class a {
             }
             if (list2 != null && list2.size() > 0) {
                 String str = list2.get(0);
-                this.f54908b = str;
+                this.f55488b = str;
                 if (!TextUtils.isEmpty(str)) {
                     String b3 = aVar.b("operatortype", "0");
                     if ("2".equals(b3)) {
@@ -67,7 +67,7 @@ public class a {
                     }
                 }
             }
-            c a = a(this.f54908b, cVar.f(), "GET", new com.cmic.sso.sdk.b.b.c(cVar.k().a()));
+            c a = a(this.f55488b, cVar.f(), "GET", new com.cmic.sso.sdk.b.b.c(cVar.k().a()));
             a.a(cVar.h());
             return a;
         }

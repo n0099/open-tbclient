@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.dynamic;
 
-import c.a.q0.l0.b.g;
-import c.a.r0.d1.x1.a;
+import c.a.r0.l0.b.g;
+import c.a.s0.d1.x1.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FrsDynamicModel<T> extends NetAutoModel<FrsDynamicRequestData, a, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

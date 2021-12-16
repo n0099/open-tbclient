@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ZoomImageView extends BdImageViewTouch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,14 +22,14 @@ public class ZoomImageView extends BdImageViewTouch {
     public a v;
     public b w;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(Drawable drawable);
 
         void b(Bitmap bitmap);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         boolean a(ZoomImageView zoomImageView, double d2, double d3);
 

@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.b.b.n.a f27766i;
+    public final c.b.b.n.a f28141i;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class f extends e {
                 return;
             }
         }
-        this.f27766i = new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
+        this.f28141i = new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,7 +38,7 @@ public class f extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
             f fVar = new f(this);
-            fVar.f27766i.e(aVar);
+            fVar.f28141i.e(aVar);
             fVar.b(l());
             fVar.c(g());
             fVar.f(i());
@@ -66,6 +66,6 @@ public class f extends e {
                 return;
             }
         }
-        this.f27766i = new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
+        this.f28141i = new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }

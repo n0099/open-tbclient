@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.utils.n;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends KsFragment implements com.kwad.sdk.h.kwai.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.kwad.sdk.h.kwai.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f58612b;
+    public boolean f59193b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class d extends KsFragment implements com.kwad.sdk.h.kwai.b {
             }
         }
         this.a = new com.kwad.sdk.h.kwai.a();
-        this.f58612b = true;
+        this.f59193b = true;
     }
 
     public boolean a_() {
@@ -45,7 +45,7 @@ public class d extends KsFragment implements com.kwad.sdk.h.kwai.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            if (!this.f58612b || getHost() == null) {
+            if (!this.f59193b || getHost() == null) {
                 return;
             }
             n.a(this);

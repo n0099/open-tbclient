@@ -11,38 +11,38 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f59988b;
+    public final long f60569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f59989c;
+    public final boolean f60570c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f59990d;
+    public final boolean f60571d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f59991e;
+    public final int f60572e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f59992f;
+    public final boolean f60573f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f59993g;
+    public final boolean f60574g;
 
     /* renamed from: com.kwai.filedownloader.e.e$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final e a;
@@ -160,12 +160,12 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f59990d = true;
+                    this.f60571d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f59988b = j3;
+                    this.f60569b = j3;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
@@ -192,12 +192,12 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f59990d = true;
+                    this.f60571d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f59988b = j3;
+                    this.f60569b = j3;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
@@ -223,12 +223,12 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f59990d = true;
+                    this.f60571d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f59988b = j3;
+                    this.f60569b = j3;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
@@ -262,12 +262,12 @@ public class e {
                         str8 = null;
                         if (str6 == null) {
                         }
-                        this.f59990d = true;
+                        this.f60571d = true;
                         if (str2 != null) {
                         }
                         if (str3 != null) {
                         }
-                        this.f59988b = j3;
+                        this.f60569b = j3;
                         if (str4 != null) {
                         }
                         if (str7 == null) {
@@ -291,12 +291,12 @@ public class e {
                         str8 = null;
                         if (str6 == null) {
                         }
-                        this.f59990d = true;
+                        this.f60571d = true;
                         if (str2 != null) {
                         }
                         if (str3 != null) {
                         }
-                        this.f59988b = j3;
+                        this.f60569b = j3;
                         if (str4 != null) {
                         }
                         if (str7 == null) {
@@ -319,12 +319,12 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f59990d = true;
+                    this.f60571d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f59988b = j3;
+                    this.f60569b = j3;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
@@ -360,15 +360,15 @@ public class e {
         if (str6 == null) {
             obj = "download.max-network-thread-count";
             i2 = 0;
-            this.f59989c = false;
+            this.f60570c = false;
         } else if (!str6.equals("true") && !str6.equals("false")) {
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", "http.lenient", "true", "false"));
         } else {
             obj = "download.max-network-thread-count";
             i2 = 0;
-            this.f59989c = str6.equals("true");
+            this.f60570c = str6.equals("true");
         }
-        this.f59990d = true;
+        this.f60571d = true;
         if (str2 != null) {
             this.a = Math.max(i2, Integer.valueOf(str2).intValue());
         } else {
@@ -385,17 +385,17 @@ public class e {
             obj3 = "http.lenient";
             j3 = 2000;
         }
-        this.f59988b = j3;
+        this.f60569b = j3;
         if (str4 != null) {
-            this.f59991e = a(Integer.valueOf(str4).intValue());
+            this.f60572e = a(Integer.valueOf(str4).intValue());
             i3 = 3;
         } else {
             i3 = 3;
-            this.f59991e = 3;
+            this.f60572e = 3;
         }
         if (str7 == null) {
             r6 = 0;
-            this.f59992f = false;
+            this.f60573f = false;
         } else if (!str7.equals("true") && !str7.equals("false")) {
             Object[] objArr = new Object[i3];
             objArr[0] = "file.non-pre-allocation";
@@ -404,10 +404,10 @@ public class e {
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr));
         } else {
             r6 = 0;
-            this.f59992f = str7.equals("true");
+            this.f60573f = str7.equals("true");
         }
         if (str8 == null) {
-            this.f59993g = r6;
+            this.f60574g = r6;
         } else if (!str8.equals("true") && !str8.equals("false")) {
             Object[] objArr2 = new Object[3];
             objArr2[r6] = "broadcast.completed";
@@ -415,21 +415,21 @@ public class e {
             objArr2[2] = "false";
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr2));
         } else {
-            this.f59993g = str8.equals("true");
+            this.f60574g = str8.equals("true");
         }
         if (d.a) {
             Object[] objArr3 = new Object[11];
             objArr3[r6] = Long.valueOf(System.currentTimeMillis() - j2);
             objArr3[1] = obj3;
-            objArr3[2] = Boolean.valueOf(this.f59989c);
+            objArr3[2] = Boolean.valueOf(this.f60570c);
             objArr3[3] = "process.non-separate";
-            objArr3[4] = Boolean.valueOf(this.f59990d);
+            objArr3[4] = Boolean.valueOf(this.f60571d);
             objArr3[5] = "download.min-progress-step";
             objArr3[6] = Integer.valueOf(this.a);
             objArr3[7] = obj2;
-            objArr3[8] = Long.valueOf(this.f59988b);
+            objArr3[8] = Long.valueOf(this.f60569b);
             objArr3[9] = obj;
-            objArr3[10] = Integer.valueOf(this.f59991e);
+            objArr3[10] = Integer.valueOf(this.f60572e);
             d.b(e.class, "init properties %d\n load properties: %s=%B; %s=%B; %s=%d; %s=%d; %s=%d", objArr3);
         }
     }

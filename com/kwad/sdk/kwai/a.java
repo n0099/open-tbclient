@@ -13,7 +13,7 @@ import com.kwad.sdk.core.config.b;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.av;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements IWeaponInitParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

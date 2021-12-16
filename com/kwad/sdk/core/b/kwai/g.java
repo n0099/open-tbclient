@@ -12,7 +12,7 @@ import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g implements com.kwad.sdk.core.d<AdInfo.AdBaseInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

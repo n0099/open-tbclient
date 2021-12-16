@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import c.a.q0.s.q.p;
+import c.a.r0.s.r.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.BazhuSign;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BazhuGradeData extends p implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class BazhuGradeData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLevel : (String) invokeV.objValue;
     }
 
-    @Override // c.a.q0.s.q.p
+    @Override // c.a.r0.s.r.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {

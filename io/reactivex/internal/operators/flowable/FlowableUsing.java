@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class FlowableUsing<T, D> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class FlowableUsing<T, D> extends Flowable<T> {
     public final Callable<? extends D> resourceSupplier;
     public final Function<? super D, ? extends Publisher<? extends T>> sourceSupplier;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class UsingSubscriber<T, D> extends AtomicBoolean implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5904473792286235046L;

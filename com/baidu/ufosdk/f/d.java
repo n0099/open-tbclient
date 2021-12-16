@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f51546b;
+    public SharedPreferences f52095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences.Editor f51547c;
+    public SharedPreferences.Editor f52096c;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -37,21 +37,21 @@ public final class d {
         }
         this.a = context;
         SharedPreferences sharedPreferences = context.getSharedPreferences("UfoSharePreference", 0);
-        this.f51546b = sharedPreferences;
-        this.f51547c = sharedPreferences.edit();
+        this.f52095b = sharedPreferences;
+        this.f52096c = sharedPreferences.edit();
     }
 
     private int a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? this.f51546b.getInt(str, 0) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? this.f52095b.getInt(str, 0) : invokeL.intValue;
     }
 
     private void a(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, this, str, i2) == null) {
-            this.f51547c.putInt(str, i2);
-            this.f51547c.commit();
+            this.f52096c.putInt(str, i2);
+            this.f52096c.commit();
         }
     }
 

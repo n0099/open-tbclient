@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KsLifecycle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class KsLifecycle {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class KsLifeEvent {
         public static final /* synthetic */ KsLifeEvent[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -118,7 +118,7 @@ public class KsLifecycle {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class KsLifeState {
         public static final /* synthetic */ KsLifeState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

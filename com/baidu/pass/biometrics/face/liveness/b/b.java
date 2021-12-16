@@ -4,21 +4,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f38206h = 0;
+    public static final int f38695h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f38207i = 1;
+    public static final int f38696i = 1;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f38208j = 2;
+    public static final int f38697j = 2;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f38209k = 3;
+    public static final int f38698k = 3;
     public static final int l = 4;
     public static final int m = 5;
     public static final int n = 6;
@@ -37,22 +37,22 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38210b;
+    public boolean f38699b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38211c;
+    public boolean f38700c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f38212d;
+    public long f38701d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f38213e;
+    public long f38702e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f38214f;
+    public boolean f38703f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f38215g;
+    public boolean f38704g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -68,10 +68,10 @@ public class b {
             }
         }
         this.a = 0;
-        this.f38210b = false;
-        this.f38211c = false;
-        this.f38213e = 20000L;
-        this.f38214f = false;
-        this.f38215g = false;
+        this.f38699b = false;
+        this.f38700c = false;
+        this.f38702e = 20000L;
+        this.f38703f = false;
+        this.f38704g = false;
     }
 }

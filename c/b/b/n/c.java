@@ -3,7 +3,7 @@ package c.b.b.n;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface c {
     void B(int i2, int i3, int i4, int i5, int i6);
 

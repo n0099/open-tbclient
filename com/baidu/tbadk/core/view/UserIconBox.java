@@ -20,36 +20,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class UserIconBox extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d.f.k.b<TbImageView> f41366e;
+    public c.a.d.f.k.b<TbImageView> f41857e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f41367f;
+    public Context f41858f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f41368g;
+    public boolean f41859g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41369h;
+    public int f41860h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41370i;
+    public int f41861i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f41371j;
+    public boolean f41862j;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserIconBox f41372e;
+        public final /* synthetic */ UserIconBox f41863e;
 
         public a(UserIconBox userIconBox) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class UserIconBox extends LinearLayout {
                     return;
                 }
             }
-            this.f41372e = userIconBox;
+            this.f41863e = userIconBox;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -79,13 +79,13 @@ public class UserIconBox extends LinearLayout {
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof TbImageView) && this.f41372e.f41366e != null) {
-                this.f41372e.f41366e.e((TbImageView) view2);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof TbImageView) && this.f41863e.f41857e != null) {
+                this.f41863e.f41857e.e((TbImageView) view2);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class b implements c.a.d.f.k.c<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface c<T extends View> {
         c.a.d.f.k.b<TbImageView> getUserIconPool();
     }
@@ -192,8 +192,8 @@ public class UserIconBox extends LinearLayout {
                 return;
             }
         }
-        this.f41366e = null;
-        this.f41368g = true;
+        this.f41857e = null;
+        this.f41859g = true;
         e(context);
     }
 
@@ -217,7 +217,7 @@ public class UserIconBox extends LinearLayout {
             int i3 = i2 - childCount;
             if (i3 > 0) {
                 for (int i4 = 0; i4 < i3; i4++) {
-                    addView(c(this.f41367f));
+                    addView(c(this.f41858f));
                 }
             } else {
                 removeViews(i2, Math.abs(i3));
@@ -231,7 +231,7 @@ public class UserIconBox extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            c.a.d.f.k.b<TbImageView> bVar = this.f41366e;
+            c.a.d.f.k.b<TbImageView> bVar = this.f41857e;
             TbImageView b2 = bVar != null ? bVar.b() : null;
             return (b2 == null || b2.getParent() != null) ? new TbImageView(context) : b2;
         }
@@ -252,12 +252,12 @@ public class UserIconBox extends LinearLayout {
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f41367f = context;
+            this.f41858f = context;
             setOrientation(0);
             setGravity(16);
-            Context context2 = this.f41367f;
+            Context context2 = this.f41858f;
             if (context2 instanceof c) {
-                this.f41366e = ((c) context2).getUserIconPool();
+                this.f41857e = ((c) context2).getUserIconPool();
             }
             setOnHierarchyChangeListener(new a(this));
         }
@@ -276,10 +276,10 @@ public class UserIconBox extends LinearLayout {
                 setVisibility(8);
                 return;
             }
-            this.f41369h = i3;
-            this.f41370i = i5;
-            this.f41371j = z;
-            this.f41369h = i3;
+            this.f41860h = i3;
+            this.f41861i = i5;
+            this.f41862j = z;
+            this.f41860h = i3;
             if (!b(min)) {
                 setVisibility(8);
             } else if (min > 0) {
@@ -304,7 +304,7 @@ public class UserIconBox extends LinearLayout {
                                 tbImageView.setContentDescription(list.get(i7).getIconName());
                             }
                             tbImageView.setClickable(false);
-                            tbImageView.setAutoChangeStyle(this.f41368g);
+                            tbImageView.setAutoChangeStyle(this.f41859g);
                             tbImageView.setImageDrawable(null);
                             tbImageView.startLoad(list.get(i7).getIcon(), 21, i3, i4, false);
                             tbImageView.setUseNightOrDarkMask(false);
@@ -345,10 +345,10 @@ public class UserIconBox extends LinearLayout {
             for (int i8 = 0; i8 < childCount; i8++) {
                 View childAt = getChildAt(i8);
                 if (!z2) {
-                    if (i8 == 0 && this.f41371j) {
-                        i6 = this.f41369h;
+                    if (i8 == 0 && this.f41862j) {
+                        i6 = this.f41860h;
                     } else {
-                        i6 = this.f41369h + this.f41370i;
+                        i6 = this.f41860h + this.f41861i;
                     }
                     i7 += i6;
                     if (i7 > measuredWidth) {
@@ -365,7 +365,7 @@ public class UserIconBox extends LinearLayout {
     public void setAutoChangedStyle(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f41368g = z;
+            this.f41859g = z;
         }
     }
 
@@ -388,8 +388,8 @@ public class UserIconBox extends LinearLayout {
                 return;
             }
         }
-        this.f41366e = null;
-        this.f41368g = true;
+        this.f41857e = null;
+        this.f41859g = true;
         e(context);
     }
 

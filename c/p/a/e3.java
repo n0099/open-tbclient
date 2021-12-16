@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public u2 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i3 f30777b;
+    public i3 f31147b;
 
     public e3(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class e3 {
         }
         u2 u2Var = new u2(context, str);
         this.a = u2Var;
-        u2Var.f30962f = new a3(this);
+        u2Var.f31332f = new a3(this);
     }
 
     public void a() {
@@ -45,8 +45,8 @@ public class e3 {
                     this.a.a();
                     this.a = null;
                 }
-                if (this.f30777b != null) {
-                    this.f30777b = null;
+                if (this.f31147b != null) {
+                    this.f31147b = null;
                 }
             } catch (Exception unused) {
             }
@@ -61,7 +61,7 @@ public class e3 {
             if (u2Var == null || !u2Var.e()) {
                 return null;
             }
-            return u2Var.f30959c;
+            return u2Var.f31329c;
         }
         return (Info) invokeV.objValue;
     }

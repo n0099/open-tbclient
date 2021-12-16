@@ -35,7 +35,7 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OrderConfirmPresenter";

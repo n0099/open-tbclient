@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.bubble.group;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetBubbleByCategory.DataReq;
 import tbclient.GetBubbleByCategory.GetBubbleByCategoryReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BubbleGroupRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class BubbleGroupRequestMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             GetBubbleByCategoryReqIdl.Builder builder2 = new GetBubbleByCategoryReqIdl.Builder();
             builder2.data = builder.build(false);

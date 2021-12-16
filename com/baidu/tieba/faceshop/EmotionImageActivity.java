@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import c.a.q0.d1.r;
+import c.a.r0.d1.t;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ProxyAdkBaseActivity;
@@ -21,31 +21,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f43674e;
+    public NavigationBar f44165e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GifView f43675f;
+    public GifView f44166f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f43676g;
+    public TbImageView f44167g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f43677h;
+    public TextView f44168h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f43678i;
+    public TextView f44169i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f43679j;
+    public String f44170j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f43680k;
+    public String f44171k;
     public String l;
     public String m;
     public String n;
@@ -56,13 +56,13 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
     public int s;
     public int t;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageActivity f43681e;
+        public final /* synthetic */ EmotionImageActivity f44172e;
 
         public a(EmotionImageActivity emotionImageActivity) {
             Interceptable interceptable = $ic;
@@ -79,25 +79,25 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
                     return;
                 }
             }
-            this.f43681e = emotionImageActivity;
+            this.f44172e = emotionImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f43681e.finish();
+                this.f44172e.finish();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageActivity f43682e;
+        public final /* synthetic */ EmotionImageActivity f44173e;
 
         public b(EmotionImageActivity emotionImageActivity) {
             Interceptable interceptable = $ic;
@@ -114,15 +114,15 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
                     return;
                 }
             }
-            this.f43682e = emotionImageActivity;
+            this.f44173e = emotionImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int i2 = this.f43682e.t;
-                this.f43682e.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.f43682e.getPageContext().getPageActivity(), this.f43682e.f43679j, false, i2 != 1 ? i2 != 2 ? i2 != 3 ? "emotion_image" : "faceshop_from_gchat_detail" : "faceshop_from_pchat_detail" : "faceshop_from_forum_detail")));
+                int i2 = this.f44173e.t;
+                this.f44173e.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.f44173e.getPageContext().getPageActivity(), this.f44173e.f44170j, false, i2 != 1 ? i2 != 2 ? i2 != 3 ? "emotion_image" : "faceshop_from_gchat_detail" : "faceshop_from_pchat_detail" : "faceshop_from_forum_detail")));
             }
         }
     }
@@ -150,8 +150,8 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
             this.r = i2 < 0 ? 160 : 240;
             this.s = i2 >= 0 ? 240 : 160;
             if (bundle != null) {
-                this.f43679j = bundle.getString("pid");
-                this.f43680k = bundle.getString("panme");
+                this.f44170j = bundle.getString("pid");
+                this.f44171k = bundle.getString("panme");
                 this.l = bundle.getString("iconUrl");
                 this.m = bundle.getString("gifUrl");
                 this.n = bundle.getString("staticUrl");
@@ -160,8 +160,8 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
                 this.q = bundle.getInt("height");
             } else {
                 Intent intent = getIntent();
-                this.f43679j = intent.getStringExtra("pid");
-                this.f43680k = intent.getStringExtra("panme");
+                this.f44170j = intent.getStringExtra("pid");
+                this.f44171k = intent.getStringExtra("panme");
                 this.l = intent.getStringExtra("iconUrl");
                 this.m = intent.getStringExtra("gifUrl");
                 this.n = intent.getStringExtra("staticUrl");
@@ -178,20 +178,20 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-            this.f43674e = navigationBar;
+            this.f44165e = navigationBar;
             navigationBar.setTitleText(getString(R.string.emotion_image_title));
-            this.f43674e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.f43675f = (GifView) findViewById(R.id.gifview);
+            this.f44165e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.f44166f = (GifView) findViewById(R.id.gifview);
             if (this.p != 0 && this.q != 0) {
                 layoutParams = new FrameLayout.LayoutParams(this.p, this.q, 17);
             } else {
                 layoutParams = new FrameLayout.LayoutParams(this.r, this.s, 17);
             }
-            this.f43675f.setLayoutParams(layoutParams);
-            boolean f2 = r.f();
+            this.f44166f.setLayoutParams(layoutParams);
+            boolean f2 = t.f();
             GifInfo gifInfo = new GifInfo();
             gifInfo.mSharpText = this.o;
-            gifInfo.mGid = this.f43679j;
+            gifInfo.mGid = this.f44170j;
             gifInfo.mGifHeight = this.q;
             gifInfo.mGifWidth = this.p;
             if (f2) {
@@ -199,21 +199,21 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
             } else {
                 gifInfo.mStaticUrl = this.n;
             }
-            this.f43675f.startLoad(gifInfo);
-            this.f43676g = (TbImageView) findViewById(R.id.emotion_icon);
+            this.f44166f.startLoad(gifInfo);
+            this.f44167g = (TbImageView) findViewById(R.id.emotion_icon);
             if (!TextUtils.isEmpty(this.l)) {
-                this.f43676g.startLoad(this.l, 10, false);
+                this.f44167g.startLoad(this.l, 10, false);
             } else {
-                Bitmap f3 = c.a.r0.y0.b.f(this.f43679j, "panel.png");
+                Bitmap f3 = c.a.s0.y0.b.f(this.f44170j, "panel.png");
                 if (f3 != null) {
-                    new c.a.d.m.d.a(f3, false).h(this.f43676g);
+                    new c.a.d.m.d.a(f3, false).h(this.f44167g);
                 }
             }
             TextView textView = (TextView) findViewById(R.id.emotion_pname);
-            this.f43677h = textView;
-            textView.setText(this.f43680k);
+            this.f44168h = textView;
+            textView.setText(this.f44171k);
             TextView textView2 = (TextView) findViewById(R.id.emotion_detail);
-            this.f43678i = textView2;
+            this.f44169i = textView2;
             textView2.setOnClickListener(new b(this));
         }
     }
@@ -225,7 +225,7 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
             super.onChangeSkinType(i2);
             getLayoutMode().k(i2 == 1);
             getLayoutMode().j(findViewById(R.id.emotion_image_root));
-            this.f43674e.onChangeSkinType(getPageContext(), i2);
+            this.f44165e.onChangeSkinType(getPageContext(), i2);
         }
     }
 
@@ -253,8 +253,8 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            bundle.putString("pid", this.f43679j);
-            bundle.putString("panme", this.f43680k);
+            bundle.putString("pid", this.f44170j);
+            bundle.putString("panme", this.f44171k);
             bundle.putString("iconUrl", this.l);
             bundle.putString("gifUrl", this.m);
             bundle.putString("staticUrl", this.n);

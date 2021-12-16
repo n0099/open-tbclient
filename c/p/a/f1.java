@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.L;
 import com.win.opensdk.PBError;
 import com.win.opensdk.activitys.H5Activity;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public x4 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g1 f30782b;
+    public g1 f31152b;
 
     public f1(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class f1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             x4 x4Var = this.a;
-            x4Var.f30992i = false;
-            x4Var.f30990g = false;
-            x4Var.f30991h = false;
+            x4Var.f31362i = false;
+            x4Var.f31360g = false;
+            x4Var.f31361h = false;
             a5 a5Var = x4Var.m;
             if (a5Var != null) {
                 a5Var.b();
@@ -59,7 +59,7 @@ public class f1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             x4 x4Var = this.a;
             if (!x4Var.c()) {
-                if (!(x4Var.f30991h && !x4Var.f30992i && x4Var.e() && !x4Var.f30993j.isShown() && x4Var.f30993j.isEffective())) {
+                if (!(x4Var.f31361h && !x4Var.f31362i && x4Var.e() && !x4Var.f31363j.isShown() && x4Var.f31363j.isEffective())) {
                     return false;
                 }
             }
@@ -72,14 +72,14 @@ public class f1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             x4 x4Var = this.a;
-            if (x4Var.e() && x4Var.f30993j.isEffective() && !x4Var.f30993j.isShown()) {
-                x4Var.a(x4Var.f30993j);
+            if (x4Var.e() && x4Var.f31363j.isEffective() && !x4Var.f31363j.isShown()) {
+                x4Var.a(x4Var.f31363j);
                 return;
             }
             if (x4Var.m == null) {
-                x4Var.m = new a5(x4Var.f30989f, x4Var.f30988e, L.f62600d);
+                x4Var.m = new a5(x4Var.f31359f, x4Var.f31358e, L.f63181d);
             }
-            x4Var.m.f30738g = new p4(x4Var);
+            x4Var.m.f31108g = new p4(x4Var);
             x4Var.m.g();
         }
     }
@@ -87,7 +87,7 @@ public class f1 {
     public void d(g1 g1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, g1Var) == null) {
-            this.f30782b = g1Var;
+            this.f31152b = g1Var;
         }
     }
 
@@ -95,19 +95,19 @@ public class f1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             x4 x4Var = this.a;
-            if (!r0.H(x4Var.f30989f)) {
+            if (!r0.H(x4Var.f31359f)) {
                 g1 g1Var = x4Var.l;
                 if (g1Var != null) {
                     g1Var.d(PBError.NO_NETWORK.getMsg());
                 }
             } else if (x4Var.g() && x4Var.c() && x4Var.e()) {
-                x4Var.f30990g = false;
-                v.b().d(v.c(x4Var.f30993j.getTraceid(), x4Var.f30993j.getId(), x4Var.f30993j.getPid()), x4Var.f30994k);
-                x4Var.f30993j.setShown(true);
-                r0.l(x4Var.f30989f, x4Var.f30993j);
-                m0.a().c(v.c(x4Var.f30993j.getTraceid(), x4Var.f30993j.getId(), x4Var.f30988e), x4Var.f30993j);
-                H5Activity.a(x4Var.f30989f, x4Var.f30993j, x4Var.f30988e);
-                q0.b(x4Var.f30993j.getId() + x4Var.f30988e, x4Var);
+                x4Var.f31360g = false;
+                v.b().d(v.c(x4Var.f31363j.getTraceid(), x4Var.f31363j.getId(), x4Var.f31363j.getPid()), x4Var.f31364k);
+                x4Var.f31363j.setShown(true);
+                r0.l(x4Var.f31359f, x4Var.f31363j);
+                m0.a().c(v.c(x4Var.f31363j.getTraceid(), x4Var.f31363j.getId(), x4Var.f31358e), x4Var.f31363j);
+                H5Activity.a(x4Var.f31359f, x4Var.f31363j, x4Var.f31358e);
+                q0.b(x4Var.f31363j.getId() + x4Var.f31358e, x4Var);
             }
         }
     }

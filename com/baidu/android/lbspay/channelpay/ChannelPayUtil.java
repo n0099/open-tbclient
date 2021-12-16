@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ChannelPayUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class ChannelPayUtil {
                                 if (i2 != 175 && i2 != 178) {
                                     switch (i2) {
                                         case 163:
-                                        case 164:
+                                        case IChannelPay.ID_IPAY_PAY_GAME /* 164 */:
                                         case 165:
                                         case 166:
                                             try {
@@ -90,7 +90,7 @@ public class ChannelPayUtil {
                                     if (i2 != 178) {
                                         switch (i2) {
                                             case 163:
-                                            case 164:
+                                            case IChannelPay.ID_IPAY_PAY_GAME /* 164 */:
                                             case 165:
                                             case 166:
                                                 return "ipay";
@@ -133,7 +133,7 @@ public class ChannelPayUtil {
                                         switch (i2) {
                                             case 163:
                                                 return PayMode.IPAYRECHARGECARD;
-                                            case 164:
+                                            case IChannelPay.ID_IPAY_PAY_GAME /* 164 */:
                                                 return PayMode.IPayGame;
                                             case 165:
                                                 return PayMode.IPAYSMS;

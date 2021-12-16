@@ -34,27 +34,27 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class NativeAbilityInvoker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, com.baidu.wallet.lightapp.ability.a> a;
 
     /* renamed from: com.baidu.wallet.lightapp.ability.NativeAbilityInvoker$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class NativeAbilityInvokerCallback implements ILightappInvokerCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ILightappInvokerCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<String> f52760b;
+        public ArrayList<String> f53340b;
 
         public NativeAbilityInvokerCallback(ILightappInvokerCallback iLightappInvokerCallback, ArrayList<String> arrayList) {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class NativeAbilityInvoker {
                 }
             }
             this.a = iLightappInvokerCallback;
-            this.f52760b = arrayList;
+            this.f53340b = arrayList;
         }
 
         public void addStatics(String str) {
@@ -80,10 +80,10 @@ public class NativeAbilityInvoker {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            if (this.f52760b == null) {
-                this.f52760b = new ArrayList<>();
+            if (this.f53340b == null) {
+                this.f53340b = new ArrayList<>();
             }
-            this.f52760b.add(str);
+            this.f53340b.add(str);
         }
 
         @Override // com.baidu.wallet.api.ILightappInvokerCallback
@@ -94,7 +94,7 @@ public class NativeAbilityInvoker {
                 return;
             }
             if (i2 == 0) {
-                DXMSdkSAUtils.onEventWithValues("NA#invokeBdWalletNativeSuccess", this.f52760b);
+                DXMSdkSAUtils.onEventWithValues("NA#invokeBdWalletNativeSuccess", this.f53340b);
                 this.a.onResult(i2, str);
             } else if (i2 != 1) {
                 iLightappInvokerCallback.onResult(i2, str);
@@ -103,23 +103,23 @@ public class NativeAbilityInvoker {
                 if (TextUtils.isEmpty(str)) {
                     str = "";
                 }
-                if (this.f52760b.size() >= 2) {
-                    this.f52760b.add(1, str);
+                if (this.f53340b.size() >= 2) {
+                    this.f53340b.add(1, str);
                 } else {
-                    this.f52760b.add(str);
+                    this.f53340b.add(str);
                 }
                 try {
                     str2 = ((NativeAbilityCommonModel) JsonUtils.fromJson(str, NativeAbilityCommonModel.class)).cnt.errCode;
                 } catch (Exception unused) {
                 }
-                this.f52760b.add(str2);
-                DXMSdkSAUtils.onEventWithValues("NA#invokeBdWalletNativeFail", this.f52760b);
+                this.f53340b.add(str2);
+                DXMSdkSAUtils.onEventWithValues("NA#invokeBdWalletNativeFail", this.f53340b);
                 this.a.onResult(i2, str);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static NativeAbilityInvoker a;

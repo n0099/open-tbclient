@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements com.kwad.sdk.pngencrypt.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,15 +53,15 @@ public class a implements com.kwad.sdk.pngencrypt.g {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dVar, kVar)) == null) {
-            PngChunk a = a(dVar.f58721c, kVar);
+            PngChunk a = a(dVar.f59302c, kVar);
             if (a == null) {
-                a = c(dVar.f58721c, kVar);
+                a = c(dVar.f59302c, kVar);
             }
             if (a == null) {
-                a = b(dVar.f58721c, kVar);
+                a = b(dVar.f59302c, kVar);
             }
             a.b(dVar);
-            if (this.a && dVar.f58722d != null) {
+            if (this.a && dVar.f59303d != null) {
                 a.a(dVar);
             }
             return a;

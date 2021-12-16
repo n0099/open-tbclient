@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BdPersonListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] ExpandListView;
@@ -46,7 +46,7 @@ public class BdPersonListView extends BdTypeListView {
     public boolean g0;
     public a mRefreshListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void a(float f2);
 
@@ -55,14 +55,14 @@ public class BdPersonListView extends BdTypeListView {
         void onRefresh();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f48174b;
+        public int f48681b;
 
         public b(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public class BdPersonListView extends BdTypeListView {
                 }
             }
             this.a = i3;
-            this.f48174b = i5;
+            this.f48681b = i5;
         }
 
         public int a(float f2) {
@@ -186,7 +186,7 @@ public class BdPersonListView extends BdTypeListView {
                                 if (this.Q.getParent() == this && this.U != null && this.Q.isShown() && this.Q.getTop() >= 0 && Math.abs(f4) >= this.c0 && Math.abs(f3) < this.c0) {
                                     int a2 = this.U.a(this.T - this.S);
                                     b bVar = this.U;
-                                    if (a2 > bVar.a && a2 <= bVar.f48174b) {
+                                    if (a2 > bVar.a && a2 <= bVar.f48681b) {
                                         this.W = true;
                                         this.Q.setLayoutParams(new AbsListView.LayoutParams(this.Q.getWidth(), a2));
                                         if (this.R != null) {
@@ -202,7 +202,7 @@ public class BdPersonListView extends BdTypeListView {
                                         b bVar2 = this.U;
                                         if (a2 <= bVar2.a) {
                                             this.W = false;
-                                        } else if (a2 > bVar2.f48174b) {
+                                        } else if (a2 > bVar2.f48681b) {
                                             this.W = true;
                                         } else {
                                             this.W = false;
@@ -284,7 +284,7 @@ public class BdPersonListView extends BdTypeListView {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.U == null) {
             return;
         }
-        if (this.Q.getHeight() >= this.U.f48174b - (this.d0 / 2)) {
+        if (this.Q.getHeight() >= this.U.f48681b - (this.d0 / 2)) {
             doRefresh();
         } else {
             this.mRefreshListener.b();

@@ -1,8 +1,8 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.r0;
-import c.a.r0.x2.o;
+import c.a.r0.d1.u0;
+import c.a.s0.z2.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class UtilityVideo implements TiebaUtilityVideoAuto.HostUtilityVideo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class UtilityVideo implements TiebaUtilityVideoAuto.HostUtilityVideo {
         if (interceptable == null || interceptable.invokeL(1048579, this, videoBoolValue) == null) {
             boolean booleanValue = videoBoolValue.getResult().booleanValue();
             TbSingleton.getInstance().setVideoCardMute(booleanValue);
-            r0.f(new WeakReference(TbadkCoreApplication.getInst()), !booleanValue);
+            u0.f(new WeakReference(TbadkCoreApplication.getInst()), !booleanValue);
         }
     }
 

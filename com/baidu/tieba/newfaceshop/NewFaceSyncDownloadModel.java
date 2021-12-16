@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class NewFaceSyncDownloadModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f47218e;
+    public final HttpMessageListener f47725e;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,9 +54,9 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
             Object extra;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003351 && (httpResponsedMessage instanceof GetCloudFaceGroupMessage)) {
-                c.a.r0.l2.e.a aVar = null;
-                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof c.a.r0.l2.e.a)) {
-                    aVar = (c.a.r0.l2.e.a) extra;
+                c.a.s0.n2.e.a aVar = null;
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof c.a.s0.n2.e.a)) {
+                    aVar = (c.a.s0.n2.e.a) extra;
                 }
                 if (aVar != null) {
                     aVar.a((GetCloudFaceGroupMessage) httpResponsedMessage);
@@ -78,12 +78,12 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f47218e = new a(this, CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
+        this.f47725e = new a(this, CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f47218e.setTag(getUniqueId());
-        this.f47218e.setSelfListener(true);
-        registerListener(this.f47218e);
+        this.f47725e.setTag(getUniqueId());
+        this.f47725e.setSelfListener(true);
+        registerListener(this.f47725e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -116,7 +116,7 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         }
     }
 
-    public void w(c.a.r0.l2.e.a aVar) {
+    public void w(c.a.s0.n2.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);

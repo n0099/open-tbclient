@@ -15,7 +15,7 @@ import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import sun.misc.Unsafe;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class LittleEndianByteArray$UnsafeByteArray {
     public static final /* synthetic */ LittleEndianByteArray$UnsafeByteArray[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +25,7 @@ public abstract class LittleEndianByteArray$UnsafeByteArray {
     public static final Unsafe theUnsafe;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements PrivilegedExceptionAction<Unsafe> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.glide.framesequence.FrameSequence;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FrameSequenceDrawable extends Drawable implements Animatable, Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_DELAY_MS = 100;
@@ -68,14 +68,14 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     public int mState;
     public RectF mTempRectF;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         Bitmap a(int i2, int i3);
 
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(FrameSequenceDrawable frameSequenceDrawable);
     }

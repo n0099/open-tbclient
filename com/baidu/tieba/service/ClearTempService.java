@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ClearTempService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELETE_FILE_COUNT = 300;
@@ -26,7 +26,7 @@ public class ClearTempService extends BdBaseService {
     public volatile boolean interrupted;
     public Thread thread;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,13 +61,13 @@ public class ClearTempService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ClearTempService f48883e;
+        public final /* synthetic */ ClearTempService f49397e;
 
         public b(ClearTempService clearTempService) {
             Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class ClearTempService extends BdBaseService {
                     return;
                 }
             }
-            this.f48883e = clearTempService;
+            this.f49397e = clearTempService;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -97,14 +97,14 @@ public class ClearTempService extends BdBaseService {
                     File file2 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share");
                     File file3 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/voice");
                     File file4 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
-                    this.f48883e.deleteCache(file, false);
-                    this.f48883e.deleteDir(file2);
-                    this.f48883e.deleteDir(file3);
-                    this.f48883e.deleteDir(file4);
+                    this.f49397e.deleteCache(file, false);
+                    this.f49397e.deleteDir(file2);
+                    this.f49397e.deleteDir(file3);
+                    this.f49397e.deleteDir(file4);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
-                this.f48883e.handler.sendMessage(this.f48883e.handler.obtainMessage());
+                this.f49397e.handler.sendMessage(this.f49397e.handler.obtainMessage());
             }
         }
     }

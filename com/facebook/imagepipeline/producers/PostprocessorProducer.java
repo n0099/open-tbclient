@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class PostprocessorProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NAME = "PostprocessorProducer";
@@ -34,13 +34,13 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
     public final Producer<CloseableReference<CloseableImage>> mInputProducer;
 
     /* renamed from: com.facebook.imagepipeline.producers.PostprocessorProducer$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class PostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -375,7 +375,7 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class RepeatedPostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> implements RepeatedPostprocessorRunner {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -535,7 +535,7 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class SingleUsePostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

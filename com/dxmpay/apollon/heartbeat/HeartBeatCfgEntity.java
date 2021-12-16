@@ -20,7 +20,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class HeartBeatCfgEntity implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HEART_BEAT_CFG_UNUSE = "0";
@@ -128,7 +128,7 @@ public class HeartBeatCfgEntity implements NoProguard, Serializable {
             if (!TextUtils.isEmpty(json)) {
                 FileCopyUtils.copyToFile(json, new File(context.getCacheDir() + File.separator + "dxmheartbeatcfg.cfg"));
             }
-            c.b(context, com.baidu.apollon.heartbeat.c.f33005b, Calendar.getInstance().getTimeInMillis() / 1000);
+            c.b(context, com.baidu.apollon.heartbeat.c.f33375b, Calendar.getInstance().getTimeInMillis() / 1000);
         }
     }
 

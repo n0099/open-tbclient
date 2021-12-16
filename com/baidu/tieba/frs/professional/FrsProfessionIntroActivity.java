@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROFESSION_THREAD_ID = "5977226324";
@@ -50,13 +50,13 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     public View mTopCorner;
     public View.OnClickListener onClickListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsProfessionIntroActivity f44646e;
+        public final /* synthetic */ FrsProfessionIntroActivity f45137e;
 
         public a(FrsProfessionIntroActivity frsProfessionIntroActivity) {
             Interceptable interceptable = $ic;
@@ -73,35 +73,35 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
                     return;
                 }
             }
-            this.f44646e = frsProfessionIntroActivity;
+            this.f45137e = frsProfessionIntroActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view != this.f44646e.mBack) {
-                    if (view != this.f44646e.mGoPublishButton) {
-                        if (view == this.f44646e.mGotItButton) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f44646e.getActivity()).createNormalCfg(FrsProfessionIntroActivity.PROFESSION_THREAD_ID, null, "frs")));
+                if (view != this.f45137e.mBack) {
+                    if (view != this.f45137e.mGoPublishButton) {
+                        if (view == this.f45137e.mGotItButton) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f45137e.getActivity()).createNormalCfg(FrsProfessionIntroActivity.PROFESSION_THREAD_ID, null, "frs")));
                             Intent intent = new Intent();
                             intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
-                            this.f44646e.setResult(-1, intent);
-                            this.f44646e.finish();
+                            this.f45137e.setResult(-1, intent);
+                            this.f45137e.finish();
                             return;
                         }
                         return;
                     }
                     Intent intent2 = new Intent();
                     intent2.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, 1);
-                    this.f44646e.setResult(-1, intent2);
-                    this.f44646e.finish();
+                    this.f45137e.setResult(-1, intent2);
+                    this.f45137e.finish();
                     return;
                 }
                 Intent intent3 = new Intent();
                 intent3.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
-                this.f44646e.setResult(-1, intent3);
-                this.f44646e.finish();
+                this.f45137e.setResult(-1, intent3);
+                this.f45137e.finish();
             }
         }
     }
@@ -130,7 +130,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
                 z = false;
             }
             if (z) {
-                int f2 = l.f(TbadkCoreApplication.getInst(), R.dimen.tbds690);
+                int f2 = m.f(TbadkCoreApplication.getInst(), R.dimen.tbds690);
                 ViewGroup.LayoutParams layoutParams = this.mHeaderContainer.getLayoutParams();
                 if (layoutParams instanceof LinearLayout.LayoutParams) {
                     ((LinearLayout.LayoutParams) layoutParams).height = f2;

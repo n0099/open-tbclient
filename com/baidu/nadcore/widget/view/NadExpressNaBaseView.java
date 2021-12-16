@@ -8,11 +8,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.b.e;
-import c.a.b0.h0.c0.a;
-import c.a.b0.h0.e0.b;
-import c.a.b0.h0.e0.c;
-import c.a.b0.p.o;
+import c.a.c0.b.e;
+import c.a.c0.h0.c0.a;
+import c.a.c0.h0.e0.b;
+import c.a.c0.h0.e0.c;
+import c.a.c0.p.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.feed.AdFeedBaseView;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
-    public void setViewStatChangeListener(c.a.b0.h0.c0.b bVar) {
+    public void setViewStatChangeListener(c.a.c0.h0.c0.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
             super.setViewStatChangeListener(bVar);
@@ -153,7 +153,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
             updateTitleColor(adBaseModel);
             TextView textView = this.mTitle;
             if (textView != null) {
-                textView.setText(adBaseModel.f37574d.f1785e);
+                textView.setText(adBaseModel.f38063d.f1803e);
             }
         }
     }
@@ -171,7 +171,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
                 if (aVar != null) {
                     this.mNadExpressOperateBar.h(aVar);
                 }
-                c.a.b0.h0.c0.b bVar = this.mFeedListener;
+                c.a.c0.h0.c0.b bVar = this.mFeedListener;
                 if (bVar != null) {
                     this.mNadExpressOperateBar.f(bVar);
                 }
@@ -188,7 +188,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, adBaseModel) == null) || adBaseModel == null || this.mTitle == null) {
             return;
         }
-        int i2 = adBaseModel.f37572b ? c.a.b0.b.b.NAD_FC4 : c.a.b0.b.b.NAD_FC1;
+        int i2 = adBaseModel.f38061b ? c.a.c0.b.b.NAD_FC4 : c.a.c0.b.b.NAD_FC1;
         TextView textView = this.mTitle;
         textView.setTextColor(textView.getContext().getResources().getColor(i2));
     }

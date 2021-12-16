@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.WalletDialog;
 import com.baidu.wallet.base.widget.dialog.binding.ImageDialogBinding;
 import com.baidu.wallet.base.widget.dialog.model.ImageDialogModel;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class ImageDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageDialogModel a;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

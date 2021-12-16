@@ -32,7 +32,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlutterBoost {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sInit;
@@ -48,14 +48,14 @@ public class FlutterBoost {
     public FlutterViewContainerManager mManager;
     public Platform mPlatform;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface BoostLifecycleListener {
         void beforeCreateEngine();
 
         void onEngineCreated();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ConfigBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static int ANY_ACTIVITY_CREATED = 1;

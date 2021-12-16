@@ -17,7 +17,7 @@ import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.Charsets;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Hex implements BinaryEncoder, BinaryDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Charset DEFAULT_CHARSET;

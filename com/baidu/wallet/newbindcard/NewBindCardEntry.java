@@ -30,7 +30,7 @@ import com.dxmpay.wallet.core.BaseActivity;
 import com.dxmpay.wallet.core.lollipop.json.JSONObject;
 import com.dxmpay.wallet.core.utils.BaiduWalletUtils;
 import com.dxmpay.wallet.paysdk.datamodel.SdkInitResponse;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class NewBindCardEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BING_CARD_SUCCESS_MSG = "ok";
@@ -42,7 +42,7 @@ public class NewBindCardEntry {
     public String mExtraParam;
     public boolean mH5BindCardSuccess;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final NewBindCardEntry INSTANCE;

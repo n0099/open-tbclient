@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.d1.d1;
+import c.a.s0.d1.d1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,37 +21,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class AutoScrollTextView extends TextView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f44764e;
+    public float f45255e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f44765f;
+    public float f45256f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f44766g;
+    public float f45257g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f44767h;
+    public float f45258h;
     public boolean hasDraw;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f44768i;
+    public float f45259i;
     public boolean isStarting;
 
     /* renamed from: j  reason: collision with root package name */
-    public Paint f44769j;
+    public Paint f45260j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f44770k;
+    public String f45261k;
     public View.OnClickListener l;
     public float m;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -59,7 +59,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         public boolean isStarting;
         public float step;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes12.dex */
         public static class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +174,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -198,15 +198,15 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
                 return;
             }
         }
-        this.f44764e = 0.0f;
-        this.f44765f = 0.0f;
-        this.f44766g = 0.0f;
-        this.f44767h = 0.0f;
-        this.f44768i = 0.0f;
+        this.f45255e = 0.0f;
+        this.f45256f = 0.0f;
+        this.f45257g = 0.0f;
+        this.f45258h = 0.0f;
+        this.f45259i = 0.0f;
         this.isStarting = false;
         this.hasDraw = false;
-        this.f44769j = null;
-        this.f44770k = "";
+        this.f45260j = null;
+        this.f45261k = "";
         a();
     }
 
@@ -221,20 +221,20 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, windowManager) == null) {
             TextPaint paint = getPaint();
-            this.f44769j = paint;
+            this.f45260j = paint;
             paint.setColor(-1);
             String charSequence = getText().toString();
-            this.f44770k = charSequence;
-            this.f44764e = this.f44769j.measureText(charSequence);
+            this.f45261k = charSequence;
+            this.f45255e = this.f45260j.measureText(charSequence);
             float width = getWidth();
-            this.f44765f = width;
+            this.f45256f = width;
             if (width == 0.0f && windowManager != null) {
-                this.f44765f = windowManager.getDefaultDisplay().getWidth();
+                this.f45256f = windowManager.getDefaultDisplay().getWidth();
             }
-            float f2 = this.f44764e;
-            this.f44766g = f2;
-            this.f44767h = f2;
-            this.f44768i = f2 * 2.0f;
+            float f2 = this.f45255e;
+            this.f45257g = f2;
+            this.f45258h = f2;
+            this.f45259i = f2 * 2.0f;
             getTextSize();
         }
     }
@@ -257,16 +257,16 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
                 float f2 = this.m;
                 if (f2 > 0.5f) {
                     setWidth((int) ((f2 - 0.5f) * 3000.0f));
-                    canvas.drawText(this.f44770k, this.f44767h - this.f44766g, getTextSize() + 2.7f, this.f44769j);
+                    canvas.drawText(this.f45261k, this.f45258h - this.f45257g, getTextSize() + 2.7f, this.f45260j);
                     return;
                 }
                 return;
             }
-            canvas.drawText(this.f44770k, this.f44767h - this.f44766g, getTextSize() + 2.7f, this.f44769j);
-            float dimensionPixelOffset = this.f44766g + TbadkApplication.getInst().getResources().getDimensionPixelOffset(d1.tbds3);
-            this.f44766g = dimensionPixelOffset;
-            if (dimensionPixelOffset > this.f44768i) {
-                this.f44766g = this.f44764e;
+            canvas.drawText(this.f45261k, this.f45258h - this.f45257g, getTextSize() + 2.7f, this.f45260j);
+            float dimensionPixelOffset = this.f45257g + TbadkApplication.getInst().getResources().getDimensionPixelOffset(d1.tbds3);
+            this.f45257g = dimensionPixelOffset;
+            if (dimensionPixelOffset > this.f45259i) {
+                this.f45257g = this.f45255e;
             }
             invalidate();
         }
@@ -282,7 +282,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
             }
             SavedState savedState = (SavedState) parcelable;
             super.onRestoreInstanceState(savedState.getSuperState());
-            this.f44766g = savedState.step;
+            this.f45257g = savedState.step;
             this.isStarting = savedState.isStarting;
         }
     }
@@ -293,7 +293,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             SavedState savedState = new SavedState(super.onSaveInstanceState());
-            savedState.step = this.f44766g;
+            savedState.step = this.f45257g;
             savedState.isStarting = this.isStarting;
             return savedState;
         }
@@ -350,15 +350,15 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
                 return;
             }
         }
-        this.f44764e = 0.0f;
-        this.f44765f = 0.0f;
-        this.f44766g = 0.0f;
-        this.f44767h = 0.0f;
-        this.f44768i = 0.0f;
+        this.f45255e = 0.0f;
+        this.f45256f = 0.0f;
+        this.f45257g = 0.0f;
+        this.f45258h = 0.0f;
+        this.f45259i = 0.0f;
         this.isStarting = false;
         this.hasDraw = false;
-        this.f44769j = null;
-        this.f44770k = "";
+        this.f45260j = null;
+        this.f45261k = "";
         a();
     }
 }

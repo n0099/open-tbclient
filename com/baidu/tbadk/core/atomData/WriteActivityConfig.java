@@ -6,10 +6,10 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.r0.t3.s0.g;
-import c.a.r0.t3.s0.h;
-import c.a.r0.t3.s0.i;
+import c.a.d.f.p.m;
+import c.a.s0.v3.s0.g;
+import c.a.s0.v3.s0.h;
+import c.a.s0.v3.s0.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDITION_DATA = "addition_data";
@@ -121,7 +121,7 @@ public class WriteActivityConfig extends IntentConfig {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            i.f24037g = new Intent(getIntent());
+            i.f25124g = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -602,12 +602,12 @@ public class WriteActivityConfig extends IntentConfig {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean p = g.j().p();
-            h.a("发帖阻拦状态 = " + p);
-            if (p && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-                l.M(currentActivity, "正在发布，请稍后");
+            boolean q = g.k().q();
+            h.a("发帖阻拦状态 = " + q);
+            if (q && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
+                m.M(currentActivity, "正在发布，请稍后");
             }
-            return p;
+            return q;
         }
         return invokeZ.booleanValue;
     }

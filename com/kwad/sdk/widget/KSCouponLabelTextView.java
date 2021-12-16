@@ -21,42 +21,42 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KSCouponLabelTextView extends TextView implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f59698b;
+    public float f60279b;
     @ColorInt
 
     /* renamed from: c  reason: collision with root package name */
-    public int f59699c;
+    public int f60280c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f59700d;
+    public float f60281d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f59701e;
+    public final Paint f60282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Rect f59702f;
+    public final Rect f60283f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final RectF f59703g;
+    public final RectF f60284g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final RectF f59704h;
+    public final RectF f60285h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final RectF f59705i;
+    public final RectF f60286i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Path f59706j;
+    public final Path f60287j;
 
     /* renamed from: k  reason: collision with root package name */
-    public Path f59707k;
+    public Path f60288k;
     public Path l;
     public final RectF m;
     public boolean n;
@@ -79,12 +79,12 @@ public class KSCouponLabelTextView extends TextView implements b {
                 return;
             }
         }
-        this.f59701e = new Paint();
-        this.f59702f = new Rect();
-        this.f59703g = new RectF();
-        this.f59704h = new RectF();
-        this.f59705i = new RectF();
-        this.f59706j = new Path();
+        this.f60282e = new Paint();
+        this.f60283f = new Rect();
+        this.f60284g = new RectF();
+        this.f60285h = new RectF();
+        this.f60286i = new RectF();
+        this.f60287j = new Path();
         this.m = new RectF();
         this.n = true;
         a(context, null, 0);
@@ -109,12 +109,12 @@ public class KSCouponLabelTextView extends TextView implements b {
                 return;
             }
         }
-        this.f59701e = new Paint();
-        this.f59702f = new Rect();
-        this.f59703g = new RectF();
-        this.f59704h = new RectF();
-        this.f59705i = new RectF();
-        this.f59706j = new Path();
+        this.f60282e = new Paint();
+        this.f60283f = new Rect();
+        this.f60284g = new RectF();
+        this.f60285h = new RectF();
+        this.f60286i = new RectF();
+        this.f60287j = new Path();
         this.m = new RectF();
         this.n = true;
         a(context, attributeSet, 0);
@@ -139,12 +139,12 @@ public class KSCouponLabelTextView extends TextView implements b {
                 return;
             }
         }
-        this.f59701e = new Paint();
-        this.f59702f = new Rect();
-        this.f59703g = new RectF();
-        this.f59704h = new RectF();
-        this.f59705i = new RectF();
-        this.f59706j = new Path();
+        this.f60282e = new Paint();
+        this.f60283f = new Rect();
+        this.f60284g = new RectF();
+        this.f60285h = new RectF();
+        this.f60286i = new RectF();
+        this.f60287j = new Path();
         this.m = new RectF();
         this.n = true;
         a(context, attributeSet, i2);
@@ -153,10 +153,10 @@ public class KSCouponLabelTextView extends TextView implements b {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f59701e.setColor(this.f59699c);
-            this.f59701e.setStrokeWidth(this.f59698b);
-            this.f59701e.setStyle(Paint.Style.STROKE);
-            this.f59701e.setAntiAlias(true);
+            this.f60282e.setColor(this.f60280c);
+            this.f60282e.setStrokeWidth(this.f60279b);
+            this.f60282e.setStyle(Paint.Style.STROKE);
+            this.f60282e.setAntiAlias(true);
         }
     }
 
@@ -167,9 +167,9 @@ public class KSCouponLabelTextView extends TextView implements b {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KSCouponLabelTextView, i2, 0);
             int color = context.getResources().getColor(R.color.ksad_reward_main_color);
             this.a = obtainStyledAttributes.getDimension(R.styleable.ksad_KSCouponLabelTextView_ksad_labelRadius, 8.0f);
-            this.f59698b = obtainStyledAttributes.getDimension(R.styleable.ksad_KSCouponLabelTextView_ksad_strokeSize, 2.0f);
-            this.f59699c = obtainStyledAttributes.getColor(R.styleable.ksad_KSCouponLabelTextView_ksad_strokeColor, color);
-            this.f59700d = obtainStyledAttributes.getDimension(R.styleable.ksad_KSCouponLabelTextView_ksad_sideRadius, 16.0f);
+            this.f60279b = obtainStyledAttributes.getDimension(R.styleable.ksad_KSCouponLabelTextView_ksad_strokeSize, 2.0f);
+            this.f60280c = obtainStyledAttributes.getColor(R.styleable.ksad_KSCouponLabelTextView_ksad_strokeColor, color);
+            this.f60281d = obtainStyledAttributes.getDimension(R.styleable.ksad_KSCouponLabelTextView_ksad_sideRadius, 16.0f);
             obtainStyledAttributes.recycle();
             a();
         }
@@ -184,7 +184,7 @@ public class KSCouponLabelTextView extends TextView implements b {
             path.addRoundRect(rectF, f2, f2, Path.Direction.CW);
             path2.addArc(rectF2, 90.0f, -180.0f);
             path3.addArc(rectF3, 90.0f, 180.0f);
-            path.op(this.f59707k, Path.Op.DIFFERENCE);
+            path.op(this.f60288k, Path.Op.DIFFERENCE);
             path.op(this.l, Path.Op.DIFFERENCE);
         }
     }
@@ -238,12 +238,12 @@ public class KSCouponLabelTextView extends TextView implements b {
         if (interceptable == null || interceptable.invokeLL(65543, this, rectF, rectF2) == null) {
             rectF2.set(rectF);
             float f2 = rectF2.left;
-            float f3 = this.f59700d;
+            float f3 = this.f60281d;
             float f4 = f2 - f3;
             rectF2.left = f4;
             rectF2.right = f4 + (f3 * 2.0f);
             float height = rectF.height();
-            float f5 = this.f59700d;
+            float f5 = this.f60281d;
             float f6 = rectF2.top + ((height - (f5 * 2.0f)) / 2.0f);
             rectF2.top = f6;
             rectF2.bottom = f6 + (f5 * 2.0f);
@@ -255,12 +255,12 @@ public class KSCouponLabelTextView extends TextView implements b {
         if (interceptable == null || interceptable.invokeLL(65544, this, rectF, rectF2) == null) {
             rectF2.set(rectF);
             float f2 = rectF2.right;
-            float f3 = this.f59700d;
+            float f3 = this.f60281d;
             float f4 = f2 + f3;
             rectF2.right = f4;
             rectF2.left = f4 - (f3 * 2.0f);
             float height = rectF.height();
-            float f5 = this.f59700d;
+            float f5 = this.f60281d;
             float f6 = rectF2.top + ((height - (f5 * 2.0f)) / 2.0f);
             rectF2.top = f6;
             rectF2.bottom = f6 + (f5 * 2.0f);
@@ -272,7 +272,7 @@ public class KSCouponLabelTextView extends TextView implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             int color = getResources().getColor(com.kwad.sdk.core.config.b.aM() ? R.color.ksad_reward_main_color : R.color.ksad_reward_main_color_orange);
-            this.f59699c = color;
+            this.f60280c = color;
             setTextColor(color);
             a();
             invalidate();
@@ -284,21 +284,21 @@ public class KSCouponLabelTextView extends TextView implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f59702f.setEmpty();
-            getDrawingRect(this.f59702f);
-            float f2 = this.f59698b / 2.0f;
-            this.f59703g.set(this.f59702f);
-            RectF rectF = this.f59703g;
+            this.f60283f.setEmpty();
+            getDrawingRect(this.f60283f);
+            float f2 = this.f60279b / 2.0f;
+            this.f60284g.set(this.f60283f);
+            RectF rectF = this.f60284g;
             rectF.left += f2;
             rectF.top += f2;
             rectF.right -= f2;
             rectF.bottom -= f2;
-            a(rectF, this.f59704h);
-            b(this.f59703g, this.f59705i);
+            a(rectF, this.f60285h);
+            b(this.f60284g, this.f60286i);
             if (Build.VERSION.SDK_INT >= 19) {
-                Path path = this.f59707k;
+                Path path = this.f60288k;
                 if (path == null) {
-                    this.f59707k = new Path();
+                    this.f60288k = new Path();
                 } else {
                     path.reset();
                 }
@@ -308,11 +308,11 @@ public class KSCouponLabelTextView extends TextView implements b {
                 } else {
                     path2.reset();
                 }
-                a(this.f59706j, this.f59707k, this.l, this.f59703g, this.f59704h, this.f59705i);
+                a(this.f60287j, this.f60288k, this.l, this.f60284g, this.f60285h, this.f60286i);
             } else {
-                a(this.f59706j, this.f59703g, this.f59704h, this.f59705i);
+                a(this.f60287j, this.f60284g, this.f60285h, this.f60286i);
             }
-            canvas.drawPath(this.f59706j, this.f59701e);
+            canvas.drawPath(this.f60287j, this.f60282e);
         }
     }
 

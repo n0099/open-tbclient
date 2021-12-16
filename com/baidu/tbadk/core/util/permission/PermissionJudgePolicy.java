@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
 import c.a.d.a.j;
-import c.a.q0.s.s.a;
+import c.a.r0.s.t.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.ApiUtil;
@@ -33,7 +33,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PermissionJudgePolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EMPTY_REQUEST_CODE = -1;
@@ -52,7 +52,7 @@ public class PermissionJudgePolicy {
     public ArrayList<String> requestPermissionList;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class EXTRA_DIALOG_REFUSE_POLICY {
         public static final /* synthetic */ EXTRA_DIALOG_REFUSE_POLICY[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -111,22 +111,22 @@ public class PermissionJudgePolicy {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface IExtraDialogCloseCallback {
         void onClose();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface ISystemPermissionDialogShowCallBack {
         void onShow();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface OnPermissionsGrantedListener {
         void onPermissionsGranted();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface PermissionDialogClickListener {
         void onDialogCaneled(String str);
 
@@ -146,7 +146,7 @@ public class PermissionJudgePolicy {
                 return;
             }
         }
-        NEED_EXTRA_DIALOG_PERMISSIONS = new ArrayList<>(Arrays.asList(PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE, s.f56843h));
+        NEED_EXTRA_DIALOG_PERMISSIONS = new ArrayList<>(Arrays.asList(PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE, s.f57424h));
     }
 
     public PermissionJudgePolicy() {
@@ -314,14 +314,14 @@ public class PermissionJudgePolicy {
             if ("android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) {
                 return R.string.request_permission_default_text;
             }
-            if (!s.f56842g.equals(str) && !s.f56843h.equals(str)) {
+            if (!s.f57423g.equals(str) && !s.f57424h.equals(str)) {
                 if (PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(str)) {
                     return R.string.request_permission_camera;
                 }
                 if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(str)) {
                     return R.string.request_permission_microphone;
                 }
-                if (s.f56838c.equals(str)) {
+                if (s.f57419c.equals(str)) {
                     return R.string.request_permission_contacts;
                 }
                 if ("android.permission.SEND_SMS".equals(str)) {
@@ -441,7 +441,7 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // c.a.q0.s.s.a.e
+                @Override // c.a.r0.s.t.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
@@ -481,7 +481,7 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // c.a.q0.s.s.a.e
+                @Override // c.a.r0.s.t.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {

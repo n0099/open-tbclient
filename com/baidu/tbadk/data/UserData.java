@@ -2,7 +2,7 @@ package com.baidu.tbadk.data;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.m.e.n;
-import c.a.q0.s.q.j2;
+import c.a.r0.s.r.j2;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -39,7 +39,7 @@ import tbclient.UserPics;
 import tbclient.UserVipInfo;
 import tbclient.VipCloseAd;
 import tbclient.VipShowInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class UserData extends MetaData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int USER_PICS_MAX_COUNT = 9;
@@ -104,7 +104,7 @@ public class UserData extends MetaData {
     public UserVipInfoData vipInfo;
     public int visitorNum;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class Permission extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TRUE = 1;
@@ -547,7 +547,7 @@ public class UserData extends MetaData {
             this.mPhotoAlbum = new ArrayList();
         }
         this.mPhotoAlbum.clear();
-        c.a.q0.u.n nVar = new c.a.q0.u.n();
+        c.a.r0.u.n nVar = new c.a.r0.u.n();
         nVar.g(getPortraitH());
         nVar.i(getPortrait());
         nVar.h(true);
@@ -556,7 +556,7 @@ public class UserData extends MetaData {
         if (list != null && list.size() > 0) {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
-                    c.a.q0.u.n nVar2 = new c.a.q0.u.n();
+                    c.a.r0.u.n nVar2 = new c.a.r0.u.n();
                     nVar2.g(userPics.big);
                     nVar2.i(userPics.small);
                     nVar2.h(false);
@@ -821,7 +821,7 @@ public class UserData extends MetaData {
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, c.a.q0.s.g0.t.a
+    @Override // com.baidu.tbadk.data.MetaData, c.a.r0.s.i0.t.a
     public void setLikeStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
@@ -1000,7 +1000,7 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                c.a.q0.u.n nVar = new c.a.q0.u.n();
+                c.a.r0.u.n nVar = new c.a.r0.u.n();
                 nVar.g(getPortraitH());
                 nVar.i(getPortrait());
                 nVar.h(true);
@@ -1011,7 +1011,7 @@ public class UserData extends MetaData {
                     for (int i2 = 0; i2 < length; i2++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                         if (jSONObject2 != null) {
-                            c.a.q0.u.n nVar2 = new c.a.q0.u.n();
+                            c.a.r0.u.n nVar2 = new c.a.r0.u.n();
                             nVar2.g(jSONObject2.optString("big"));
                             nVar2.i(jSONObject2.optString("small"));
                             nVar2.h(false);

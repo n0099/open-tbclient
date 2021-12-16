@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.IScannerDispatchListener;
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ScanCoderWrapper implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IScanCodeListener a;
 
     /* renamed from: com.baidu.wallet.qrcodescanner.ScanCoderWrapper$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static ScanCoderWrapper a;

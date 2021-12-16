@@ -26,7 +26,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -116,10 +116,10 @@ public class a {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Handler f62242b;
+                    public final /* synthetic */ Handler f62823b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ Context f62243c;
+                    public final /* synthetic */ Context f62824c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -137,8 +137,8 @@ public class a {
                             }
                         }
                         this.a = str;
-                        this.f62242b = r7;
-                        this.f62243c = context;
+                        this.f62823b = r7;
+                        this.f62824c = context;
                     }
 
                     @Override // java.lang.Runnable
@@ -159,9 +159,9 @@ public class a {
                                         File d2 = f.d();
                                         if (d2 == null) {
                                             SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() getCacheDir = null,return error");
-                                            Message obtainMessage = this.f62242b.obtainMessage();
+                                            Message obtainMessage = this.f62823b.obtainMessage();
                                             obtainMessage.arg1 = 102;
-                                            this.f62242b.sendMessage(obtainMessage);
+                                            this.f62823b.sendMessage(obtainMessage);
                                             return;
                                         }
                                         String absolutePath = d2.getAbsolutePath();
@@ -188,7 +188,7 @@ public class a {
                                         str4 = str7;
                                     } else if (TextUtils.isEmpty(str2)) {
                                         String str8 = str3 + str6;
-                                        boolean a4 = l.a(this.f62243c, str7, str8);
+                                        boolean a4 = l.a(this.f62824c, str7, str8);
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() sd permission not denied. copy to app sepcific:" + str8 + ",isSuccess=" + a4);
                                         if (a4) {
                                             str4 = str8;
@@ -198,9 +198,9 @@ public class a {
                                     arrayList.add(str4);
                                     if (arrayList.size() >= 2 && (arrayList.get(0) != null || arrayList.get(1) != null)) {
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() return success ! destFilePath=[" + ((String) arrayList.get(0)) + "," + ((String) arrayList.get(1)) + PreferencesUtil.RIGHT_MOUNT);
-                                        Message obtainMessage2 = this.f62242b.obtainMessage(101);
+                                        Message obtainMessage2 = this.f62823b.obtainMessage(101);
                                         obtainMessage2.obj = arrayList;
-                                        this.f62242b.sendMessage(obtainMessage2);
+                                        this.f62823b.sendMessage(obtainMessage2);
                                         return;
                                     }
                                 }
@@ -208,9 +208,9 @@ public class a {
                                 SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage runnable exception e:", e2);
                             }
                             SLog.d("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() return failed!");
-                            Message obtainMessage3 = this.f62242b.obtainMessage(102);
+                            Message obtainMessage3 = this.f62823b.obtainMessage(102);
                             obtainMessage3.arg1 = 3;
-                            this.f62242b.sendMessage(obtainMessage3);
+                            this.f62823b.sendMessage(obtainMessage3);
                         }
                     }
                 }).start();

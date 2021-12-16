@@ -11,41 +11,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27628b;
+    public boolean f28003b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27629c;
+    public boolean f28004c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Vector3 f27630d;
+    public final Vector3 f28005d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Quaternion f27631e;
+    public final Quaternion f28006e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Vector3 f27632f;
+    public final Vector3 f28007f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Matrix4 f27633g;
+    public final Matrix4 f28008g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Matrix4 f27634h;
+    public final Matrix4 f28009h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.b.b.q.a<f> f27635i;
+    public c.b.b.q.a<f> f28010i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c f27636j;
+    public c f28011j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final c.b.b.q.a<c> f27637k;
+    public final c.b.b.q.a<c> f28012k;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -60,21 +60,21 @@ public class c {
                 return;
             }
         }
-        this.f27628b = true;
-        this.f27630d = new Vector3();
-        this.f27631e = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
-        this.f27632f = new Vector3(1.0f, 1.0f, 1.0f);
-        this.f27633g = new Matrix4();
-        this.f27634h = new Matrix4();
-        this.f27635i = new c.b.b.q.a<>(2);
-        this.f27637k = new c.b.b.q.a<>(2);
+        this.f28003b = true;
+        this.f28005d = new Vector3();
+        this.f28006e = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
+        this.f28007f = new Vector3(1.0f, 1.0f, 1.0f);
+        this.f28008g = new Matrix4();
+        this.f28009h = new Matrix4();
+        this.f28010i = new c.b.b.q.a<>(2);
+        this.f28012k = new c.b.b.q.a<>(2);
     }
 
     public static c f(c.b.b.q.a<c> aVar, String str, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{aVar, str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int i2 = aVar.f27768f;
+            int i2 = aVar.f28143f;
             if (z2) {
                 for (int i3 = 0; i3 < i2; i3++) {
                     c cVar = aVar.get(i3);
@@ -92,7 +92,7 @@ public class c {
             }
             if (z) {
                 for (int i5 = 0; i5 < i2; i5++) {
-                    c f2 = f(aVar.get(i5).f27637k, str, true, z2);
+                    c f2 = f(aVar.get(i5).f28012k, str, true, z2);
                     if (f2 != null) {
                         return f2;
                     }
@@ -115,18 +115,18 @@ public class c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            a.b<f> it = this.f27635i.iterator();
+            a.b<f> it = this.f28010i.iterator();
             while (it.hasNext()) {
                 f next = it.next();
                 c.b.b.q.b<c, Matrix4> bVar = next.a;
-                if (bVar != null && (matrix4Arr = next.f27640b) != null && (i2 = bVar.f27781g) == matrix4Arr.length) {
+                if (bVar != null && (matrix4Arr = next.f28015b) != null && (i2 = bVar.f28156g) == matrix4Arr.length) {
                     for (int i3 = 0; i3 < i2; i3++) {
-                        next.f27640b[i3].set(next.a.f27779e[i3].f27634h).mul(next.a.f27780f[i3]);
+                        next.f28015b[i3].set(next.a.f28154e[i3].f28009h).mul(next.a.f28155f[i3]);
                     }
                 }
             }
             if (z) {
-                a.b<c> it2 = this.f27637k.iterator();
+                a.b<c> it2 = this.f28012k.iterator();
                 while (it2.hasNext()) {
                     it2.next().b(true);
                 }
@@ -138,10 +138,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.f27629c) {
-                this.f27633g.set(this.f27630d, this.f27631e, this.f27632f);
+            if (!this.f28004c) {
+                this.f28008g.set(this.f28005d, this.f28006e, this.f28007f);
             }
-            return this.f27633g;
+            return this.f28008g;
         }
         return (Matrix4) invokeV.objValue;
     }
@@ -152,7 +152,7 @@ public class c {
             c();
             e();
             if (z) {
-                a.b<c> it = this.f27637k.iterator();
+                a.b<c> it = this.f28012k.iterator();
                 while (it.hasNext()) {
                     it.next().d(true);
                 }
@@ -165,12 +165,12 @@ public class c {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f27628b && (cVar = this.f27636j) != null) {
-                this.f27634h.set(cVar.f27634h).mul(this.f27633g);
+            if (this.f28003b && (cVar = this.f28011j) != null) {
+                this.f28009h.set(cVar.f28009h).mul(this.f28008g);
             } else {
-                this.f27634h.set(this.f27633g);
+                this.f28009h.set(this.f28008g);
             }
-            return this.f27634h;
+            return this.f28009h;
         }
         return (Matrix4) invokeV.objValue;
     }
@@ -178,7 +178,7 @@ public class c {
     public c g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27636j : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28011j : (c) invokeV.objValue;
     }
 
     public <T extends c> int h(int i2, T t) {
@@ -193,18 +193,18 @@ public class c {
             c g2 = t.g();
             if (g2 == null || g2.i(t)) {
                 if (i2 >= 0) {
-                    c.b.b.q.a<c> aVar = this.f27637k;
-                    if (i2 < aVar.f27768f) {
+                    c.b.b.q.a<c> aVar = this.f28012k;
+                    if (i2 < aVar.f28143f) {
                         aVar.insert(i2, t);
-                        t.f27636j = this;
+                        t.f28011j = this;
                         return i2;
                     }
                 }
-                c.b.b.q.a<c> aVar2 = this.f27637k;
-                int i3 = aVar2.f27768f;
+                c.b.b.q.a<c> aVar2 = this.f28012k;
+                int i3 = aVar2.f28143f;
                 aVar2.a(t);
                 i2 = i3;
-                t.f27636j = this;
+                t.f28011j = this;
                 return i2;
             }
             throw new GdxRuntimeException("Could not remove child from its current parent");
@@ -216,8 +216,8 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
-            if (this.f27637k.i(t, true)) {
-                t.f27636j = null;
+            if (this.f28012k.i(t, true)) {
+                t.f28011j = null;
                 return true;
             }
             return false;

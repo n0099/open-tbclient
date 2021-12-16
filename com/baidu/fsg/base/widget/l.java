@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,25 +44,25 @@ public class l implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int[] iArr = new int[2];
-            view = this.a.f34467f;
+            view = this.a.f34935f;
             view.getLocationOnScreen(iArr);
             SafeKeyBoardUtil safeKeyBoardUtil = this.a;
             int i7 = iArr[1];
-            view2 = safeKeyBoardUtil.f34467f;
+            view2 = safeKeyBoardUtil.f34935f;
             int height = i7 + view2.getHeight();
-            i2 = this.a.f34468g;
-            i3 = this.a.f34471j;
+            i2 = this.a.f34936g;
+            i3 = this.a.f34939j;
             int i8 = height - (i2 - i3);
-            safeKeyBoardEditText = this.a.f34464c;
-            safeKeyBoardUtil.f34470i = i8 + safeKeyBoardEditText.getGap();
-            i4 = this.a.f34470i;
+            safeKeyBoardEditText = this.a.f34932c;
+            safeKeyBoardUtil.f34938i = i8 + safeKeyBoardEditText.getGap();
+            i4 = this.a.f34938i;
             if (i4 > 0) {
-                safeScrollView2 = this.a.f34466e;
-                i6 = this.a.f34470i;
+                safeScrollView2 = this.a.f34934e;
+                i6 = this.a.f34938i;
                 safeScrollView2.smoothScrollBy(0, i6);
             }
-            safeScrollView = this.a.f34466e;
-            i5 = this.a.f34471j;
+            safeScrollView = this.a.f34934e;
+            i5 = this.a.f34939j;
             safeScrollView.notifyShowKeyBoard(i5);
         }
     }

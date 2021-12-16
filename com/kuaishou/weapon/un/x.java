@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String A = "at";
@@ -32,19 +32,19 @@ public class x {
     public static x H = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f56900g = "k";
+    public static final String f57481g = "k";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f56901h = "p";
+    public static final String f57482h = "p";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f56902i = "v";
+    public static final String f57483i = "v";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f56903j = "l";
+    public static final String f57484j = "l";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f56904k = "i";
+    public static final String f57485k = "i";
     public static final String l = "a";
     public static final String m = "s";
     public static final String n = "n";
@@ -64,21 +64,21 @@ public class x {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56905b;
+    public String f57486b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56906c;
+    public String f57487c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f56907d;
+    public a f57488d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SQLiteDatabase f56908e;
+    public SQLiteDatabase f57489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f56909f;
+    public Context f57490f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,12 +111,12 @@ public class x {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
                 try {
-                    sQLiteDatabase.execSQL(this.a.f56905b);
+                    sQLiteDatabase.execSQL(this.a.f57486b);
                 } catch (Throwable th) {
                     l1.a(th);
                 }
                 try {
-                    sQLiteDatabase.execSQL(this.a.f56906c);
+                    sQLiteDatabase.execSQL(this.a.f57487c);
                 } catch (Throwable th2) {
                     l1.a(th2);
                 }
@@ -129,7 +129,7 @@ public class x {
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
                 if (i2 < 2 && i3 >= 2) {
                     try {
-                        sQLiteDatabase.execSQL(this.a.f56906c);
+                        sQLiteDatabase.execSQL(this.a.f57487c);
                     }
                 }
                 if (i2 >= 3 || i3 < 3) {
@@ -159,13 +159,13 @@ public class x {
             }
         }
         this.a = 1;
-        this.f56905b = "create table wp(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,el INTEGER,c INTEGER,r INTEGER,aps INTEGER,dp TEXT,pcn TEXT,b TEXT,m TEXT,ail BLOB,pst INTEGER,d INTEGER,at INTEGER,dm TEXT,rm INTEGER,l TEXT,pc INTEGER DEFAULT -1,a TEXT,cbl INTEGER)";
-        this.f56906c = "create table wc(_id INTEGER primary key autoincrement,k INTEGER,v TEXT,ctc INTEGER)";
-        this.f56909f = context.getApplicationContext();
-        this.f56907d = new a(this, context.getApplicationContext());
+        this.f57486b = "create table wp(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,el INTEGER,c INTEGER,r INTEGER,aps INTEGER,dp TEXT,pcn TEXT,b TEXT,m TEXT,ail BLOB,pst INTEGER,d INTEGER,at INTEGER,dm TEXT,rm INTEGER,l TEXT,pc INTEGER DEFAULT -1,a TEXT,cbl INTEGER)";
+        this.f57487c = "create table wc(_id INTEGER primary key autoincrement,k INTEGER,v TEXT,ctc INTEGER)";
+        this.f57490f = context.getApplicationContext();
+        this.f57488d = new a(this, context.getApplicationContext());
         try {
             if (context.getFilesDir().getParentFile().exists()) {
-                this.f56908e = this.f56907d.getWritableDatabase();
+                this.f57489e = this.f57488d.getWritableDatabase();
             }
         } catch (Throwable th) {
             l1.a(th);
@@ -203,14 +203,14 @@ public class x {
                 return 0L;
             }
             ContentValues contentValues = new ContentValues();
-            contentValues.put("n", Integer.valueOf(pVar.f56786b));
+            contentValues.put("n", Integer.valueOf(pVar.f57367b));
             contentValues.put("aps", Integer.valueOf(pVar.p));
-            contentValues.put("p", pVar.f56787c);
-            contentValues.put("a", pVar.f56789e);
-            contentValues.put("l", pVar.f56792h);
-            contentValues.put("v", pVar.f56788d);
+            contentValues.put("p", pVar.f57368c);
+            contentValues.put("a", pVar.f57370e);
+            contentValues.put("l", pVar.f57373h);
+            contentValues.put("v", pVar.f57369d);
             contentValues.put(w, pVar.n);
-            contentValues.put("a", pVar.f56789e);
+            contentValues.put("a", pVar.f57370e);
             contentValues.put(x, pVar.o);
             contentValues.put(y, Long.valueOf(pVar.t));
             contentValues.put(C, Integer.valueOf(pVar.x));
@@ -221,15 +221,15 @@ public class x {
             if (activityInfoArr != null) {
                 contentValues.put(u, new l(activityInfoArr).a());
             }
-            if (!TextUtils.isEmpty(pVar.f56794j)) {
-                contentValues.put(B, pVar.f56794j);
+            if (!TextUtils.isEmpty(pVar.f57375j)) {
+                contentValues.put(B, pVar.f57375j);
             }
             try {
                 if (f(pVar.a)) {
-                    j2 = this.f56908e.update(r1.m, contentValues, "k=" + pVar.a, null);
+                    j2 = this.f57489e.update(r1.m, contentValues, "k=" + pVar.a, null);
                 } else {
                     contentValues.put("k", Integer.valueOf(pVar.a));
-                    j2 = this.f56908e.insert(r1.m, null, contentValues);
+                    j2 = this.f57489e.insert(r1.m, null, contentValues);
                 }
             } catch (Throwable unused) {
             }
@@ -243,7 +243,7 @@ public class x {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ArrayList<p> arrayList = new ArrayList();
             for (p pVar : b()) {
-                if (!l1.a(pVar.f56789e)) {
+                if (!l1.a(pVar.f57370e)) {
                     arrayList.add(pVar);
                 }
             }
@@ -251,15 +251,15 @@ public class x {
                 o c2 = o.c();
                 for (p pVar2 : arrayList) {
                     if (c2 != null) {
-                        c2.f(pVar2.f56789e);
+                        c2.f(pVar2.f57370e);
                     }
-                    SQLiteDatabase sQLiteDatabase = this.f56908e;
+                    SQLiteDatabase sQLiteDatabase = this.f57489e;
                     sQLiteDatabase.delete(r1.m, "k=" + pVar2.a, null);
                     if (o.o != null && !o.o.contains(Integer.valueOf(pVar2.a))) {
-                        l1.b(this.f56909f.getFilesDir().getCanonicalPath() + r1.f56836k + pVar2.a);
+                        l1.b(this.f57490f.getFilesDir().getCanonicalPath() + r1.f57417k + pVar2.a);
                     }
-                    if (c2.b() != null && c2.b().get(pVar2.f56787c) != null) {
-                        l1.b(this.f56909f.getFileStreamPath(pVar2.f56787c).getAbsolutePath());
+                    if (c2.b() != null && c2.b().get(pVar2.f57368c) != null) {
+                        l1.b(this.f57490f.getFileStreamPath(pVar2.f57368c).getAbsolutePath());
                     }
                 }
             } catch (Throwable th) {
@@ -274,7 +274,7 @@ public class x {
             return;
         }
         try {
-            SQLiteDatabase sQLiteDatabase = this.f56908e;
+            SQLiteDatabase sQLiteDatabase = this.f57489e;
             sQLiteDatabase.delete(r1.m, "k=" + i2, null);
         } catch (Throwable th) {
             l1.a(th);
@@ -287,7 +287,7 @@ public class x {
             ContentValues contentValues = new ContentValues();
             contentValues.put("s", Integer.valueOf(i3));
             try {
-                SQLiteDatabase sQLiteDatabase = this.f56908e;
+                SQLiteDatabase sQLiteDatabase = this.f57489e;
                 sQLiteDatabase.update(r1.m, contentValues, "k=" + i2 + " and n=1", null);
             } catch (Throwable th) {
                 l1.a(th);
@@ -305,7 +305,7 @@ public class x {
             if (activityInfoArr != null) {
                 contentValues.put(u, new l(activityInfoArr).a());
             }
-            this.f56908e.update(r1.m, contentValues, "p=?", new String[]{packageInfo.packageName});
+            this.f57489e.update(r1.m, contentValues, "p=?", new String[]{packageInfo.packageName});
         }
     }
 
@@ -315,7 +315,7 @@ public class x {
             return;
         }
         try {
-            this.f56908e.delete(r1.m, "p=?", new String[]{str});
+            this.f57489e.delete(r1.m, "p=?", new String[]{str});
         } catch (Throwable th) {
             l1.a(th);
         }
@@ -327,7 +327,7 @@ public class x {
             ContentValues contentValues = new ContentValues();
             contentValues.put("s", Integer.valueOf(i2));
             try {
-                this.f56908e.update(r1.m, contentValues, "p=? and n=1", new String[]{str});
+                this.f57489e.update(r1.m, contentValues, "p=? and n=1", new String[]{str});
             } catch (Throwable th) {
                 l1.a(th);
             }
@@ -342,7 +342,7 @@ public class x {
             contentValues.put("b", str2);
             contentValues.put("m", str3);
             try {
-                this.f56908e.update(r1.m, contentValues, "p=?", new String[]{str});
+                this.f57489e.update(r1.m, contentValues, "p=?", new String[]{str});
             } catch (Throwable th) {
                 l1.a(th);
             }
@@ -356,7 +356,7 @@ public class x {
             try {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put(o, Integer.valueOf(i3));
-                SQLiteDatabase sQLiteDatabase = this.f56908e;
+                SQLiteDatabase sQLiteDatabase = this.f57489e;
                 return sQLiteDatabase.update(r1.m, contentValues, "k=" + i2, null);
             } catch (Throwable unused) {
                 return 0;
@@ -366,7 +366,7 @@ public class x {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x01a6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x01a8, code lost:
         if (r1.isClosed() == false) goto L12;
      */
     /*
@@ -381,18 +381,18 @@ public class x {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
             p pVar = null;
             try {
-                cursor = this.f56908e.query(r1.m, null, "k=" + i2, null, null, null, null);
+                cursor = this.f57489e.query(r1.m, null, "k=" + i2, null, null, null, null);
                 if (cursor != null) {
                     try {
                         if (cursor.moveToFirst()) {
                             p pVar2 = new p();
                             try {
                                 pVar2.a = i2;
-                                pVar2.f56786b = cursor.getInt(cursor.getColumnIndex("n"));
-                                pVar2.f56787c = cursor.getString(cursor.getColumnIndex("p"));
-                                pVar2.f56789e = cursor.getString(cursor.getColumnIndex("a"));
-                                pVar2.f56792h = cursor.getString(cursor.getColumnIndex("l"));
-                                pVar2.f56788d = cursor.getString(cursor.getColumnIndex("v"));
+                                pVar2.f57367b = cursor.getInt(cursor.getColumnIndex("n"));
+                                pVar2.f57368c = cursor.getString(cursor.getColumnIndex("p"));
+                                pVar2.f57370e = cursor.getString(cursor.getColumnIndex("a"));
+                                pVar2.f57373h = cursor.getString(cursor.getColumnIndex("l"));
+                                pVar2.f57369d = cursor.getString(cursor.getColumnIndex("v"));
                                 pVar2.n = cursor.getString(cursor.getColumnIndex(w));
                                 pVar2.p = cursor.getInt(cursor.getColumnIndex("aps"));
                                 pVar2.o = cursor.getString(cursor.getColumnIndex(x));
@@ -400,7 +400,7 @@ public class x {
                                 pVar2.t = cursor.getLong(cursor.getColumnIndex(y));
                                 pVar2.u = cursor.getInt(cursor.getColumnIndex("d"));
                                 pVar2.x = cursor.getInt(cursor.getColumnIndex(C));
-                                pVar2.f56794j = cursor.getString(cursor.getColumnIndex(B));
+                                pVar2.f57375j = cursor.getString(cursor.getColumnIndex(B));
                                 pVar2.y = cursor.getInt(cursor.getColumnIndex("pc"));
                                 boolean z2 = true;
                                 if (cursor.getInt(cursor.getColumnIndex(E)) != 1) {
@@ -413,18 +413,18 @@ public class x {
                                     for (int i3 = 0; i3 < size; i3++) {
                                         ActivityInfo activityInfo = new ActivityInfo();
                                         activityInfo.theme = a2.get(i3).a;
-                                        activityInfo.name = a2.get(i3).f56752k;
-                                        activityInfo.configChanges = a2.get(i3).f56749h;
-                                        activityInfo.flags = a2.get(i3).f56747f;
+                                        activityInfo.name = a2.get(i3).f57333k;
+                                        activityInfo.configChanges = a2.get(i3).f57330h;
+                                        activityInfo.flags = a2.get(i3).f57328f;
                                         activityInfo.labelRes = a2.get(i3).m;
-                                        activityInfo.launchMode = a2.get(i3).f56743b;
+                                        activityInfo.launchMode = a2.get(i3).f57324b;
                                         activityInfo.nonLocalizedLabel = a2.get(i3).n;
                                         activityInfo.packageName = a2.get(i3).l;
-                                        activityInfo.permission = a2.get(i3).f56744c;
-                                        activityInfo.screenOrientation = a2.get(i3).f56748g;
-                                        activityInfo.softInputMode = a2.get(i3).f56750i;
-                                        activityInfo.targetActivity = a2.get(i3).f56746e;
-                                        activityInfo.taskAffinity = a2.get(i3).f56745d;
+                                        activityInfo.permission = a2.get(i3).f57325c;
+                                        activityInfo.screenOrientation = a2.get(i3).f57329g;
+                                        activityInfo.softInputMode = a2.get(i3).f57331i;
+                                        activityInfo.targetActivity = a2.get(i3).f57327e;
+                                        activityInfo.taskAffinity = a2.get(i3).f57326d;
                                         pVar2.l[i3] = activityInfo;
                                     }
                                 }
@@ -458,7 +458,7 @@ public class x {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x01ab, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x01ad, code lost:
         if (r12.isClosed() == false) goto L15;
      */
     /*
@@ -478,18 +478,18 @@ public class x {
             }
             try {
                 boolean z2 = true;
-                cursor = this.f56908e.query(r1.m, null, "p=?", new String[]{str}, null, null, null);
+                cursor = this.f57489e.query(r1.m, null, "p=?", new String[]{str}, null, null, null);
                 if (cursor != null) {
                     try {
                         if (cursor.moveToFirst()) {
                             p pVar2 = new p();
                             try {
                                 pVar2.a = cursor.getInt(cursor.getColumnIndex("k"));
-                                pVar2.f56786b = cursor.getInt(cursor.getColumnIndex("n"));
-                                pVar2.f56787c = cursor.getString(cursor.getColumnIndex("p"));
-                                pVar2.f56789e = cursor.getString(cursor.getColumnIndex("a"));
-                                pVar2.f56792h = cursor.getString(cursor.getColumnIndex("l"));
-                                pVar2.f56788d = cursor.getString(cursor.getColumnIndex("v"));
+                                pVar2.f57367b = cursor.getInt(cursor.getColumnIndex("n"));
+                                pVar2.f57368c = cursor.getString(cursor.getColumnIndex("p"));
+                                pVar2.f57370e = cursor.getString(cursor.getColumnIndex("a"));
+                                pVar2.f57373h = cursor.getString(cursor.getColumnIndex("l"));
+                                pVar2.f57369d = cursor.getString(cursor.getColumnIndex("v"));
                                 pVar2.n = cursor.getString(cursor.getColumnIndex(w));
                                 pVar2.p = cursor.getInt(cursor.getColumnIndex("aps"));
                                 pVar2.o = cursor.getString(cursor.getColumnIndex(x));
@@ -497,7 +497,7 @@ public class x {
                                 pVar2.t = cursor.getLong(cursor.getColumnIndex(y));
                                 pVar2.u = cursor.getInt(cursor.getColumnIndex("d"));
                                 pVar2.x = cursor.getInt(cursor.getColumnIndex(C));
-                                pVar2.f56794j = cursor.getString(cursor.getColumnIndex(B));
+                                pVar2.f57375j = cursor.getString(cursor.getColumnIndex(B));
                                 pVar2.y = cursor.getInt(cursor.getColumnIndex("pc"));
                                 if (cursor.getInt(cursor.getColumnIndex(E)) != 1) {
                                     z2 = false;
@@ -509,18 +509,18 @@ public class x {
                                     for (int i2 = 0; i2 < size; i2++) {
                                         ActivityInfo activityInfo = new ActivityInfo();
                                         activityInfo.theme = a2.get(i2).a;
-                                        activityInfo.name = a2.get(i2).f56752k;
-                                        activityInfo.configChanges = a2.get(i2).f56749h;
-                                        activityInfo.flags = a2.get(i2).f56747f;
+                                        activityInfo.name = a2.get(i2).f57333k;
+                                        activityInfo.configChanges = a2.get(i2).f57330h;
+                                        activityInfo.flags = a2.get(i2).f57328f;
                                         activityInfo.labelRes = a2.get(i2).m;
-                                        activityInfo.launchMode = a2.get(i2).f56743b;
+                                        activityInfo.launchMode = a2.get(i2).f57324b;
                                         activityInfo.nonLocalizedLabel = a2.get(i2).n;
                                         activityInfo.packageName = a2.get(i2).l;
-                                        activityInfo.permission = a2.get(i2).f56744c;
-                                        activityInfo.screenOrientation = a2.get(i2).f56748g;
-                                        activityInfo.softInputMode = a2.get(i2).f56750i;
-                                        activityInfo.targetActivity = a2.get(i2).f56746e;
-                                        activityInfo.taskAffinity = a2.get(i2).f56745d;
+                                        activityInfo.permission = a2.get(i2).f57325c;
+                                        activityInfo.screenOrientation = a2.get(i2).f57329g;
+                                        activityInfo.softInputMode = a2.get(i2).f57331i;
+                                        activityInfo.targetActivity = a2.get(i2).f57327e;
+                                        activityInfo.taskAffinity = a2.get(i2).f57326d;
                                         pVar2.l[i2] = activityInfo;
                                     }
                                 }
@@ -554,7 +554,7 @@ public class x {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x00ad, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x00af, code lost:
         if (r1.isClosed() == false) goto L21;
      */
     /*
@@ -567,15 +567,15 @@ public class x {
             ArrayList arrayList = new ArrayList();
             Cursor cursor = null;
             try {
-                cursor = this.f56908e.query(r1.m, null, null, null, null, null, null);
+                cursor = this.f57489e.query(r1.m, null, null, null, null, null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         p pVar = new p();
                         pVar.a = cursor.getInt(cursor.getColumnIndex("k"));
-                        pVar.f56787c = cursor.getString(cursor.getColumnIndex("p"));
-                        pVar.f56789e = cursor.getString(cursor.getColumnIndex("a"));
-                        pVar.f56792h = cursor.getString(cursor.getColumnIndex("l"));
-                        pVar.f56788d = cursor.getString(cursor.getColumnIndex("v"));
+                        pVar.f57368c = cursor.getString(cursor.getColumnIndex("p"));
+                        pVar.f57370e = cursor.getString(cursor.getColumnIndex("a"));
+                        pVar.f57373h = cursor.getString(cursor.getColumnIndex("l"));
+                        pVar.f57369d = cursor.getString(cursor.getColumnIndex("v"));
                         pVar.t = cursor.getLong(cursor.getColumnIndex(y));
                         pVar.u = cursor.getInt(cursor.getColumnIndex("d"));
                         pVar.x = cursor.getInt(cursor.getColumnIndex(C));
@@ -605,7 +605,7 @@ public class x {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0040, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0041, code lost:
         if (r2.isClosed() == false) goto L17;
      */
     /*
@@ -618,7 +618,7 @@ public class x {
             int i3 = 0;
             Cursor cursor = null;
             try {
-                SQLiteDatabase sQLiteDatabase = this.f56908e;
+                SQLiteDatabase sQLiteDatabase = this.f57489e;
                 cursor = sQLiteDatabase.query(r1.m, new String[]{"n"}, "k=" + i2, null, null, null, null);
                 if (cursor != null && cursor.moveToFirst()) {
                     i3 = cursor.getInt(cursor.getColumnIndex("n"));
@@ -640,7 +640,7 @@ public class x {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0043, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0044, code lost:
         if (r1.isClosed() == false) goto L15;
      */
     /*
@@ -653,7 +653,7 @@ public class x {
             HashMap hashMap = new HashMap();
             Cursor cursor = null;
             try {
-                cursor = this.f56908e.query(r1.m, null, "n=1", null, null, null, null);
+                cursor = this.f57489e.query(r1.m, null, "n=1", null, null, null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex("k"))), cursor.getString(cursor.getColumnIndex("p")));
@@ -681,7 +681,7 @@ public class x {
             try {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("n", Integer.valueOf(i3));
-                SQLiteDatabase sQLiteDatabase = this.f56908e;
+                SQLiteDatabase sQLiteDatabase = this.f57489e;
                 sQLiteDatabase.update(r1.m, contentValues, "k=" + i2, null);
             } catch (Throwable th) {
                 l1.a(th);
@@ -704,7 +704,7 @@ public class x {
             r3 = null;
             String[] strArr2 = null;
             try {
-                cursor = this.f56908e.query(r1.m, new String[]{"r", "b", "m"}, "p=?", new String[]{str}, null, null, null);
+                cursor = this.f57489e.query(r1.m, new String[]{"r", "b", "m"}, "p=?", new String[]{str}, null, null, null);
                 if (cursor != null) {
                     try {
                         if (cursor.moveToFirst()) {
@@ -750,7 +750,7 @@ public class x {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0057, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0059, code lost:
         if (r2.isClosed() == false) goto L15;
      */
     /*
@@ -763,7 +763,7 @@ public class x {
             HashMap hashMap = new HashMap();
             Cursor cursor = null;
             try {
-                cursor = this.f56908e.query(r1.m, null, "n=1", null, null, null, null);
+                cursor = this.f57489e.query(r1.m, null, "n=1", null, null, null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         int i2 = cursor.getInt(cursor.getColumnIndex("k"));
@@ -794,7 +794,7 @@ public class x {
             ContentValues contentValues = new ContentValues();
             contentValues.put(C, Integer.valueOf(i3));
             try {
-                SQLiteDatabase sQLiteDatabase = this.f56908e;
+                SQLiteDatabase sQLiteDatabase = this.f57489e;
                 sQLiteDatabase.update(r1.m, contentValues, "k=" + i2, null);
             } catch (Throwable th) {
                 l1.a(th);
@@ -803,7 +803,7 @@ public class x {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0043, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0045, code lost:
         if (r2.isClosed() == false) goto L18;
      */
     /*
@@ -816,7 +816,7 @@ public class x {
             boolean z2 = false;
             Cursor cursor = null;
             try {
-                SQLiteDatabase sQLiteDatabase = this.f56908e;
+                SQLiteDatabase sQLiteDatabase = this.f57489e;
                 String[] strArr = {o};
                 cursor = sQLiteDatabase.query(r1.m, strArr, "k=" + i2, null, null, null, null);
                 if (cursor != null && cursor.moveToFirst()) {
@@ -841,7 +841,7 @@ public class x {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x006c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x006e, code lost:
         if (r1.isClosed() == false) goto L15;
      */
     /*
@@ -854,15 +854,15 @@ public class x {
             ArrayList arrayList = new ArrayList();
             Cursor cursor = null;
             try {
-                cursor = this.f56908e.query(r1.m, null, "n=1", null, null, null, null);
+                cursor = this.f57489e.query(r1.m, null, "n=1", null, null, null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         p pVar = new p();
                         pVar.a = cursor.getInt(cursor.getColumnIndex("k"));
-                        pVar.f56787c = cursor.getString(cursor.getColumnIndex("p"));
-                        pVar.f56789e = cursor.getString(cursor.getColumnIndex("a"));
-                        pVar.f56792h = cursor.getString(cursor.getColumnIndex("l"));
-                        pVar.f56788d = cursor.getString(cursor.getColumnIndex("v"));
+                        pVar.f57368c = cursor.getString(cursor.getColumnIndex("p"));
+                        pVar.f57370e = cursor.getString(cursor.getColumnIndex("a"));
+                        pVar.f57373h = cursor.getString(cursor.getColumnIndex("l"));
+                        pVar.f57369d = cursor.getString(cursor.getColumnIndex("v"));
                         arrayList.add(pVar);
                     }
                 }
@@ -888,7 +888,7 @@ public class x {
             try {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("pc", Integer.valueOf(i3));
-                SQLiteDatabase sQLiteDatabase = this.f56908e;
+                SQLiteDatabase sQLiteDatabase = this.f57489e;
                 sQLiteDatabase.update(r1.m, contentValues, "k=" + i2, null);
             } catch (Throwable th) {
                 l1.a(th);
@@ -897,7 +897,7 @@ public class x {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0043, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0044, code lost:
         if (r2.isClosed() == false) goto L18;
      */
     /*
@@ -910,7 +910,7 @@ public class x {
             boolean z2 = false;
             Cursor cursor = null;
             try {
-                SQLiteDatabase sQLiteDatabase = this.f56908e;
+                SQLiteDatabase sQLiteDatabase = this.f57489e;
                 cursor = sQLiteDatabase.query(r1.m, new String[]{"s"}, "k=" + i2, null, null, null, null);
                 if (cursor != null && cursor.moveToFirst()) {
                     if (cursor.getInt(cursor.getColumnIndex("s")) == 1) {
@@ -936,11 +936,11 @@ public class x {
     public SQLiteDatabase f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f56908e : (SQLiteDatabase) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f57489e : (SQLiteDatabase) invokeV.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x0039, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x003a, code lost:
         if (r9.isClosed() == false) goto L14;
      */
     /*
@@ -953,7 +953,7 @@ public class x {
             boolean z2 = false;
             Cursor cursor = null;
             try {
-                cursor = this.f56908e.query(r1.m, new String[]{"p"}, "k=" + i2, null, null, null, null);
+                cursor = this.f57489e.query(r1.m, new String[]{"p"}, "k=" + i2, null, null, null, null);
                 if (cursor != null) {
                     if (cursor.getCount() > 0) {
                         z2 = true;
@@ -981,7 +981,7 @@ public class x {
             ContentValues contentValues = new ContentValues();
             contentValues.put("n", (Integer) 0);
             try {
-                this.f56908e.update(r1.m, contentValues, "n=-1", null);
+                this.f57489e.update(r1.m, contentValues, "n=-1", null);
             } catch (Throwable th) {
                 l1.a(th);
             }
@@ -994,7 +994,7 @@ public class x {
             ContentValues contentValues = new ContentValues();
             contentValues.put(o, (Integer) 0);
             try {
-                this.f56908e.update(r1.m, contentValues, "u=1", null);
+                this.f57489e.update(r1.m, contentValues, "u=1", null);
             } catch (Throwable th) {
                 l1.a(th);
             }

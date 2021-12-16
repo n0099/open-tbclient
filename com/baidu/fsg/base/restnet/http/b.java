@@ -2,7 +2,7 @@ package com.baidu.fsg.base.restnet.http;
 
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface b<K, V> extends Map<K, List<V>> {
     void add(K k2, V v);
 

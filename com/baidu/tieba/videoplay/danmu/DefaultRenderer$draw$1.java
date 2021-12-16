@@ -5,9 +5,9 @@ import android.graphics.Paint;
 import android.text.SpannableStringBuilder;
 import android.text.StaticLayout;
 import android.text.TextPaint;
-import c.a.q0.s.u.a;
-import c.a.r0.m0.e.b;
-import c.a.r0.x0.b;
+import c.a.r0.s.v.a;
+import c.a.s0.m0.e.b;
+import c.a.s0.x0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -30,7 +30,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CoroutineScope;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tieba.videoplay.danmu.DefaultRenderer$draw$1", f = "DefaultRenderer.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class DefaultRenderer$draw$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ Canvas $canvas;
@@ -79,12 +79,12 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
             return;
         }
         Intrinsics.checkNotNullExpressionValue(stringBuilder, "stringBuilder");
-        textPaint = defaultRenderer.f50015d;
+        textPaint = defaultRenderer.f50533d;
         StaticLayout h2 = defaultRenderer.h(stringBuilder, textPaint, canvas.getWidth() - 6);
-        textPaint2 = defaultRenderer.f50014c;
+        textPaint2 = defaultRenderer.f50532c;
         StaticLayout h3 = defaultRenderer.h(stringBuilder, textPaint2, canvas.getWidth() - 6);
-        textPaint3 = defaultRenderer.f50014c;
-        textPaint4 = defaultRenderer.f50014c;
+        textPaint3 = defaultRenderer.f50532c;
+        textPaint4 = defaultRenderer.f50532c;
         canvas.save();
         canvas.translate(0.0f, (((textPaint3.getFontMetrics().descent + 17.43f) - textPaint4.getFontMetrics().bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3)) + bVar.e());
         h2.draw(canvas);
@@ -92,14 +92,14 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
         canvas.restore();
         if (bVar.g() == 8) {
             float[] y = a.y(R.string.J_X04);
-            paint = defaultRenderer.f50016e;
+            paint = defaultRenderer.f50534e;
             float strokeWidth = paint.getStrokeWidth() * 0.2f;
             i2 = defaultRenderer.a;
-            paint2 = defaultRenderer.f50016e;
+            paint2 = defaultRenderer.f50534e;
             i3 = defaultRenderer.a;
             float f2 = y[0];
             float f3 = y[1];
-            paint3 = defaultRenderer.f50016e;
+            paint3 = defaultRenderer.f50534e;
             canvas.drawRoundRect(strokeWidth, i2, canvas.getWidth() - (paint2.getStrokeWidth() * 0.2f), canvas.getHeight() - i3, f2, f3, paint3);
         }
     }
@@ -132,11 +132,11 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
                 final Canvas canvas = this.$canvas;
                 final DefaultRenderer defaultRenderer = this.this$0;
                 final b bVar = this.$danmakuItemData;
-                c.a.r0.x0.b.d(inst, d2, new b.g() { // from class: c.a.r0.j4.m.a
+                c.a.s0.x0.b.d(inst, d2, new b.g() { // from class: c.a.s0.l4.m.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // c.a.r0.x0.b.g
+                    @Override // c.a.s0.x0.b.g
                     public final void a(SpannableStringBuilder spannableStringBuilder) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {

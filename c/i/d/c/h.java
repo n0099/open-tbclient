@@ -14,20 +14,20 @@ import com.google.common.collect.Ordering;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NavigableSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class h<E> extends d<E> implements h1<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Comparator<? super E> comparator;
     public transient h1<E> descendingMultiset;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends p<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ h f30567h;
+        public final /* synthetic */ h f30937h;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -44,28 +44,28 @@ public abstract class h<E> extends d<E> implements h1<E> {
                     return;
                 }
             }
-            this.f30567h = hVar;
+            this.f30937h = hVar;
         }
 
         @Override // c.i.d.c.p
         public Iterator<s0.a<E>> e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30567h.descendingEntryIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30937h.descendingEntryIterator() : (Iterator) invokeV.objValue;
         }
 
         @Override // c.i.d.c.p
         public h1<E> f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30567h : (h1) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30937h : (h1) invokeV.objValue;
         }
 
         @Override // c.i.d.c.y, java.util.Collection, java.lang.Iterable, c.i.d.c.s0
         public Iterator<E> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30567h.descendingIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30937h.descendingIterator() : (Iterator) invokeV.objValue;
         }
     }
 

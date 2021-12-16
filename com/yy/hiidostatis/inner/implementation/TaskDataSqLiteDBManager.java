@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATABASE_VERSION = 2;

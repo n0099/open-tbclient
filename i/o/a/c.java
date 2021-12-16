@@ -5,36 +5,36 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import rx.internal.operators.OnSubscribeAmb$Selection;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class c<T> extends i.j<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final i.j<? super T> f63648i;
+    public final i.j<? super T> f64229i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final OnSubscribeAmb$Selection<T> f63649j;
+    public final OnSubscribeAmb$Selection<T> f64230j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f63650k;
+    public boolean f64231k;
 
     public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f63650k) {
+            if (this.f64231k) {
                 return true;
             }
-            if (this.f63649j.get() == this) {
-                this.f63650k = true;
+            if (this.f64230j.get() == this) {
+                this.f64231k = true;
                 return true;
-            } else if (this.f63649j.compareAndSet(null, this)) {
-                this.f63649j.unsubscribeOthers(this);
-                this.f63650k = true;
+            } else if (this.f64230j.compareAndSet(null, this)) {
+                this.f64230j.unsubscribeOthers(this);
+                this.f64231k = true;
                 return true;
             } else {
-                this.f63649j.unsubscribeLosers();
+                this.f64230j.unsubscribeLosers();
                 return false;
             }
         }
@@ -45,7 +45,7 @@ public final class c<T> extends i.j<T> {
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g()) {
-            this.f63648i.onCompleted();
+            this.f64229i.onCompleted();
         }
     }
 
@@ -53,7 +53,7 @@ public final class c<T> extends i.j<T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && g()) {
-            this.f63648i.onError(th);
+            this.f64229i.onError(th);
         }
     }
 
@@ -61,7 +61,7 @@ public final class c<T> extends i.j<T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && g()) {
-            this.f63648i.onNext(t);
+            this.f64229i.onNext(t);
         }
     }
 }

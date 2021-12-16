@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMON_EXIF_THUMBNAIL_MAX_DIMENSION = 512;

@@ -12,18 +12,18 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class t2 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final BlockingQueue f30936b;
+    public static final BlockingQueue f31306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ThreadFactory f30937c;
+    public static final ThreadFactory f31307c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static t2 f30938d;
+    public static t2 f31308d;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
 
@@ -40,8 +40,8 @@ public class t2 {
                 return;
             }
         }
-        f30936b = new LinkedBlockingQueue(210);
-        f30937c = new q2();
+        f31306b = new LinkedBlockingQueue(210);
+        f31307c = new q2();
     }
 
     public t2() {
@@ -57,7 +57,7 @@ public class t2 {
                 return;
             }
         }
-        this.a = new ThreadPoolExecutor(5, 60, 1L, TimeUnit.SECONDS, f30936b, f30937c);
+        this.a = new ThreadPoolExecutor(5, 60, 1L, TimeUnit.SECONDS, f31306b, f31307c);
     }
 
     public static synchronized t2 a() {
@@ -66,10 +66,10 @@ public class t2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (t2.class) {
-                if (f30938d == null) {
-                    f30938d = new t2();
+                if (f31308d == null) {
+                    f31308d = new t2();
                 }
-                t2Var = f30938d;
+                t2Var = f31308d;
             }
             return t2Var;
         }

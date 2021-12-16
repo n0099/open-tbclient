@@ -1,5 +1,5 @@
 package com.ss.android.downloadlib.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface g {
     void a(boolean z);
 }

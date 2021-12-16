@@ -1,7 +1,7 @@
 package com.baidu.tieba.mainentrance;
 
-import c.a.r0.b2.b;
-import c.a.r0.b2.c;
+import c.a.s0.c2.b;
+import c.a.s0.c2.c;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +17,7 @@ import tbclient.Error;
 import tbclient.HotForum.ForumInfo;
 import tbclient.HotForum.HotForumResIdl;
 import tbclient.HotForum.HotTopicList;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class HotForumHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d0 implements TTAdDislike.DislikeInteractionCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ FunAdInteractionListener f28618b;
+    public final /* synthetic */ FunAdInteractionListener f28988b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f28619c;
+    public final /* synthetic */ String f28989c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ b0 f28620d;
+    public final /* synthetic */ b0 f28990d;
 
     public d0(b0 b0Var, View view, FunAdInteractionListener funAdInteractionListener, String str) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class d0 implements TTAdDislike.DislikeInteractionCallback {
                 return;
             }
         }
-        this.f28620d = b0Var;
+        this.f28990d = b0Var;
         this.a = view;
-        this.f28618b = funAdInteractionListener;
-        this.f28619c = str;
+        this.f28988b = funAdInteractionListener;
+        this.f28989c = str;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
@@ -63,10 +63,10 @@ public class d0 implements TTAdDislike.DislikeInteractionCallback {
             if (view != null && view.getParent() != null) {
                 ((ViewGroup) this.a.getParent()).removeView(this.a);
             }
-            this.f28620d.onAdClose();
-            FunAdInteractionListener funAdInteractionListener = this.f28618b;
+            this.f28990d.onAdClose();
+            FunAdInteractionListener funAdInteractionListener = this.f28988b;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(this.f28619c);
+                funAdInteractionListener.onAdClose(this.f28989c);
             }
         }
     }

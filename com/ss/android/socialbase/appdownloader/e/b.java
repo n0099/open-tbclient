@@ -9,29 +9,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends com.ss.android.socialbase.downloader.depend.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61517b;
+    public int f62098b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61518c;
+    public String f62099c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61519d;
+    public String f62100d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61520e;
+    public String f62101e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61521f;
+    public String f62102f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.notification.a f61522g;
+    public com.ss.android.socialbase.downloader.notification.a f62103g;
 
     public b(Context context, int i2, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
@@ -53,11 +53,11 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
         } else {
             this.a = com.ss.android.socialbase.downloader.downloader.c.N();
         }
-        this.f61517b = i2;
-        this.f61518c = str;
-        this.f61519d = str2;
-        this.f61520e = str3;
-        this.f61521f = str4;
+        this.f62098b = i2;
+        this.f62099c = str;
+        this.f62100d = str2;
+        this.f62101e = str3;
+        this.f62102f = str4;
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.d
@@ -66,10 +66,10 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f61522g == null && (context = this.a) != null) {
-                return new a(context, this.f61517b, this.f61518c, this.f61519d, this.f61520e, this.f61521f);
+            if (this.f62103g == null && (context = this.a) != null) {
+                return new a(context, this.f62098b, this.f62099c, this.f62100d, this.f62101e, this.f62102f);
             }
-            return this.f61522g;
+            return this.f62103g;
         }
         return (com.ss.android.socialbase.downloader.notification.a) invokeV.objValue;
     }
@@ -149,6 +149,6 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
             }
         }
         this.a = com.ss.android.socialbase.downloader.downloader.c.N();
-        this.f61522g = aVar;
+        this.f62103g = aVar;
     }
 }

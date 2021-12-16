@@ -5,10 +5,10 @@ import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import c.a.d.m.e.a;
 import c.a.d.m.e.t;
-import c.a.q0.g0.g;
+import c.a.r0.g0.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     public int n;
     public int o;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class TabLoadingViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingViewAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), t.f3002e);
+        super(tbPageContext.getPageActivity(), t.f2966e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +90,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     public final int g0(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? l.f(TbadkCoreApplication.getInst(), i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? m.f(TbadkCoreApplication.getInst(), i2) : invokeI.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -100,13 +100,13 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            RelativeLayout relativeLayout = new RelativeLayout(this.f2907e);
+            RelativeLayout relativeLayout = new RelativeLayout(this.f2871e);
             ViewGroup.LayoutParams u = u(viewGroup);
             u.width = -1;
             u.height = -1;
             relativeLayout.setLayoutParams(u);
             relativeLayout.setGravity(1);
-            g gVar = new g(this.f2907e, 0);
+            g gVar = new g(this.f2871e, 0);
             gVar.attachView(relativeLayout);
             gVar.q(this.n);
             gVar.o(this.o);

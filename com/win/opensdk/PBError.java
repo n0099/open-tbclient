@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PBError {
     public static /* synthetic */ Interceptable $ic;
     public static final PBError LOAD_TIME_OUT;
@@ -29,7 +29,7 @@ public class PBError {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62604b;
+    public String f63185b;
 
     static {
         InterceptResult invokeClinit;
@@ -74,7 +74,7 @@ public class PBError {
             }
         }
         this.a = i2;
-        this.f62604b = str;
+        this.f63185b = str;
     }
 
     public int getCode() {
@@ -86,7 +86,7 @@ public class PBError {
     public String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62604b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63185b : (String) invokeV.objValue;
     }
 
     public void setCode(int i2) {
@@ -99,7 +99,7 @@ public class PBError {
     public void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f62604b = str;
+            this.f63185b = str;
         }
     }
 
@@ -107,7 +107,7 @@ public class PBError {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "PBError{code=" + this.a + ", msg='" + this.f62604b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PBError{code=" + this.a + ", msg='" + this.f63185b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

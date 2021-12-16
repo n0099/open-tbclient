@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class UploadDataProvider implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

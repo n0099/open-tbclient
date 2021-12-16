@@ -4,14 +4,14 @@ import com.meizu.cloud.pushsdk.c.b.a.b;
 import com.meizu.cloud.pushsdk.c.e.c;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends c {
     public static final String n = "a";
     public static ScheduledExecutorService o;
 
     public a(c.a aVar) {
         super(aVar);
-        b.a(this.f60481k);
+        b.a(this.f61062k);
         c();
     }
 
@@ -26,9 +26,9 @@ public class a extends c {
     }
 
     public void c() {
-        if (o == null && this.f60479i) {
+        if (o == null && this.f61060i) {
             com.meizu.cloud.pushsdk.c.f.c.b(n, "Session checking has been resumed.", new Object[0]);
-            final com.meizu.cloud.pushsdk.c.e.a aVar = this.f60474d;
+            final com.meizu.cloud.pushsdk.c.e.a aVar = this.f61055d;
             ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
             o = newSingleThreadScheduledExecutor;
             Runnable runnable = new Runnable() { // from class: com.meizu.cloud.pushsdk.c.e.a.a.1
@@ -37,7 +37,7 @@ public class a extends c {
                     aVar.b();
                 }
             };
-            long j2 = this.f60480j;
+            long j2 = this.f61061j;
             newSingleThreadScheduledExecutor.scheduleAtFixedRate(runnable, j2, j2, this.l);
         }
     }

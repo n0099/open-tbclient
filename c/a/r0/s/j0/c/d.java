@@ -1,0 +1,11 @@
+package c.a.r0.s.j0.c;
+/* loaded from: classes6.dex */
+public interface d {
+    void b();
+
+    boolean c();
+
+    boolean d(String str);
+
+    boolean e();
+}

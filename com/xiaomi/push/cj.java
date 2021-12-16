@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface cj {
     void a(Context context, String str, String str2);
 

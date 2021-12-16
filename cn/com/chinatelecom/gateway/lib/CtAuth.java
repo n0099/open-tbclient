@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class CtAuth {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "CtAuth";
@@ -120,13 +120,13 @@ public final class CtAuth {
                 public final /* synthetic */ PreCodeListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f31048b;
+                public final /* synthetic */ String f31418b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f31049c;
+                public final /* synthetic */ String f31419c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ Context f31050d;
+                public final /* synthetic */ Context f31420d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -144,9 +144,9 @@ public final class CtAuth {
                         }
                     }
                     this.a = preCodeListener;
-                    this.f31048b = str;
-                    this.f31049c = str2;
-                    this.f31050d = context;
+                    this.f31418b = str;
+                    this.f31419c = str2;
+                    this.f31420d = context;
                 }
 
                 @Override // java.lang.Runnable
@@ -156,8 +156,8 @@ public final class CtAuth {
                         return;
                     }
                     try {
-                        JSONObject jSONObject = new JSONObject(this.f31048b);
-                        jSONObject.put("reqId", this.f31049c);
+                        JSONObject jSONObject = new JSONObject(this.f31418b);
+                        jSONObject.put("reqId", this.f31419c);
                         this.a.onResult(jSONObject.toString());
                         String str3 = CtAuth.a;
                         StringBuilder sb = new StringBuilder();
@@ -165,12 +165,12 @@ public final class CtAuth {
                         sb.append(jSONObject.toString());
                         CtAuth.info(str3, sb.toString());
                     } catch (Exception unused) {
-                        this.a.onResult(this.f31048b);
+                        this.a.onResult(this.f31418b);
                         String str4 = CtAuth.a;
-                        CtAuth.info(str4, "Exception callback result : " + this.f31048b);
+                        CtAuth.info(str4, "Exception callback result : " + this.f31418b);
                     }
                     CtAuth.mTraceLogger = null;
-                    e.a(this.f31050d, this.f31049c);
+                    e.a(this.f31420d, this.f31419c);
                 }
             });
         }

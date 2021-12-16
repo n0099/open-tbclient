@@ -19,17 +19,17 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static ExecutorService a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile SparseArray<c> f61867b;
+    public volatile SparseArray<c> f62448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61868c;
+    public int f62449c;
 
     static {
         InterceptResult invokeClinit;
@@ -60,8 +60,8 @@ public class d {
                 return;
             }
         }
-        this.f61868c = 0;
-        this.f61867b = new SparseArray<>();
+        this.f62449c = 0;
+        this.f62448b = new SparseArray<>();
     }
 
     public static void a(Runnable runnable) {
@@ -76,16 +76,16 @@ public class d {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             try {
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.f61867b.size(); i2++) {
-                    int keyAt = this.f61867b.keyAt(i2);
-                    if (!this.f61867b.get(keyAt).d()) {
+                for (int i2 = 0; i2 < this.f62448b.size(); i2++) {
+                    int keyAt = this.f62448b.keyAt(i2);
+                    if (!this.f62448b.get(keyAt).d()) {
                         arrayList.add(Integer.valueOf(keyAt));
                     }
                 }
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
                     Integer num = (Integer) arrayList.get(i3);
                     if (num != null) {
-                        this.f61867b.remove(num.intValue());
+                        this.f62448b.remove(num.intValue());
                     }
                 }
             } catch (Throwable th) {
@@ -99,11 +99,11 @@ public class d {
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             synchronized (d.class) {
                 b();
-                c cVar = this.f61867b.get(i2);
+                c cVar = this.f62448b.get(i2);
                 if (cVar != null) {
                     cVar.a();
                     c(cVar);
-                    this.f61867b.remove(i2);
+                    this.f62448b.remove(i2);
                 }
             }
         }
@@ -114,13 +114,13 @@ public class d {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             cVar.f();
             synchronized (d.class) {
-                if (this.f61868c >= 500) {
+                if (this.f62449c >= 500) {
                     b();
-                    this.f61868c = 0;
+                    this.f62449c = 0;
                 } else {
-                    this.f61868c++;
+                    this.f62449c++;
                 }
-                this.f61867b.put(cVar.e(), cVar);
+                this.f62448b.put(cVar.e(), cVar);
             }
             DownloadTask c2 = cVar.c();
             try {
@@ -198,12 +198,12 @@ public class d {
         synchronized (d.class) {
             try {
                 if (com.ss.android.socialbase.downloader.i.a.a(524288)) {
-                    int indexOfValue = this.f61867b.indexOfValue(cVar);
+                    int indexOfValue = this.f62448b.indexOfValue(cVar);
                     if (indexOfValue >= 0) {
-                        this.f61867b.removeAt(indexOfValue);
+                        this.f62448b.removeAt(indexOfValue);
                     }
                 } else {
-                    this.f61867b.remove(cVar.e());
+                    this.f62448b.remove(cVar.e());
                 }
             }
         }
@@ -215,11 +215,11 @@ public class d {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             synchronized (d.class) {
                 b();
-                c cVar = this.f61867b.get(i2);
+                c cVar = this.f62448b.get(i2);
                 if (cVar != null) {
                     cVar.b();
                     c(cVar);
-                    this.f61867b.remove(i2);
+                    this.f62448b.remove(i2);
                     return cVar;
                 }
                 return null;
@@ -234,8 +234,8 @@ public class d {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             synchronized (d.class) {
                 boolean z = false;
-                if (this.f61867b != null && this.f61867b.size() > 0) {
-                    c cVar = this.f61867b.get(i2);
+                if (this.f62448b != null && this.f62448b.size() > 0) {
+                    c cVar = this.f62448b.get(i2);
                     if (cVar != null && cVar.d()) {
                         z = true;
                     }
@@ -255,8 +255,8 @@ public class d {
             synchronized (d.class) {
                 b();
                 arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.f61867b.size(); i2++) {
-                    c cVar = this.f61867b.get(this.f61867b.keyAt(i2));
+                for (int i2 = 0; i2 < this.f62448b.size(); i2++) {
+                    c cVar = this.f62448b.get(this.f62448b.keyAt(i2));
                     if (cVar != null) {
                         arrayList.add(Integer.valueOf(cVar.e()));
                     }
@@ -270,7 +270,7 @@ public class d {
     public void a(int i2, long j2) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (cVar = this.f61867b.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (cVar = this.f62448b.get(i2)) == null) {
             return;
         }
         cVar.c(j2);

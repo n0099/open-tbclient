@@ -22,22 +22,22 @@ import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
 import com.qq.e.comm.util.AdError;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class l extends ReporterPidLoader<NativeExpressADView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements NativeExpressAD.NativeExpressADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f28708b;
+        public boolean f29078b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ l f28709c;
+        public final /* synthetic */ l f29079c;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class l extends ReporterPidLoader<NativeExpressADView> {
                     return;
                 }
             }
-            this.f28709c = lVar;
+            this.f29079c = lVar;
         }
 
         @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
@@ -62,8 +62,8 @@ public class l extends ReporterPidLoader<NativeExpressADView> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, nativeExpressADView) == null) {
                 LogPrinter.d();
-                this.f28709c.onAdClicked(this.f28708b);
-                this.f28708b = true;
+                this.f29079c.onAdClicked(this.f29078b);
+                this.f29078b = true;
             }
         }
 
@@ -80,7 +80,7 @@ public class l extends ReporterPidLoader<NativeExpressADView> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressADView) == null) {
                 LogPrinter.e("GDTNativeExpressAd onADClosed", new Object[0]);
-                this.f28709c.onAdClose();
+                this.f29079c.onAdClose();
             }
         }
 
@@ -89,7 +89,7 @@ public class l extends ReporterPidLoader<NativeExpressADView> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, nativeExpressADView) == null) {
                 LogPrinter.d();
-                this.f28709c.onAdShow(nativeExpressADView, this.a);
+                this.f29079c.onAdShow(nativeExpressADView, this.a);
                 this.a = true;
             }
         }
@@ -108,7 +108,7 @@ public class l extends ReporterPidLoader<NativeExpressADView> {
             if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
                 LogPrinter.d();
                 if (list == null || list.isEmpty()) {
-                    this.f28709c.onError(0, "NoFill");
+                    this.f29079c.onError(0, "NoFill");
                 } else {
                     list.get(0).render();
                 }
@@ -128,7 +128,7 @@ public class l extends ReporterPidLoader<NativeExpressADView> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, adError) == null) {
                 LogPrinter.e("GDTNativeExpressAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-                this.f28709c.onError(adError.getErrorCode(), adError.getErrorMsg());
+                this.f29079c.onError(adError.getErrorCode(), adError.getErrorMsg());
             }
         }
 
@@ -137,7 +137,7 @@ public class l extends ReporterPidLoader<NativeExpressADView> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nativeExpressADView) == null) {
                 LogPrinter.e();
-                this.f28709c.onError(0, "RenderFail");
+                this.f29079c.onError(0, "RenderFail");
             }
         }
 
@@ -146,7 +146,7 @@ public class l extends ReporterPidLoader<NativeExpressADView> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, nativeExpressADView) == null) {
                 LogPrinter.d();
-                this.f28709c.onAdLoaded((l) nativeExpressADView);
+                this.f29079c.onAdLoaded((l) nativeExpressADView);
             }
         }
     }

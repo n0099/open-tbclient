@@ -19,41 +19,41 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class g implements TextureData, c.b.b.n.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.b.b.m.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27719b;
+    public int f28094b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27720c;
+    public int f28095c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27721d;
+    public int f28096d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27722e;
+    public int f28097e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27723f;
+    public int f28098f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27724g;
+    public int f28099g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27725h;
+    public int f28100h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27726i;
+    public int f28101i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f27727j;
+    public int f28102j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f27728k;
+    public int f28103k;
     public ByteBuffer l;
     public boolean m;
 
@@ -72,9 +72,9 @@ public class g implements TextureData, c.b.b.n.b {
                 return;
             }
         }
-        this.f27722e = -1;
-        this.f27723f = -1;
-        this.f27724g = -1;
+        this.f28097e = -1;
+        this.f28098f = -1;
+        this.f28099g = -1;
         this.a = aVar;
         this.m = z;
     }
@@ -109,25 +109,25 @@ public class g implements TextureData, c.b.b.n.b {
             if (this.l != null) {
                 IntBuffer d2 = BufferUtils.d(16);
                 int i7 = 1;
-                if (this.f27719b != 0 && this.f27720c != 0) {
+                if (this.f28094b != 0 && this.f28095c != 0) {
                     z = false;
-                } else if (this.f27719b + this.f27720c != 0) {
+                } else if (this.f28094b + this.f28095c != 0) {
                     throw new GdxRuntimeException("either both or none of glType, glFormat must be zero");
                 } else {
                     z = true;
                 }
-                if (this.f27723f > 0) {
+                if (this.f28098f > 0) {
                     i3 = 2;
                     i4 = 3553;
                 } else {
                     i3 = 1;
                     i4 = 4660;
                 }
-                if (this.f27724g > 0) {
+                if (this.f28099g > 0) {
                     i3 = 3;
                     i4 = 4660;
                 }
-                int i8 = this.f27726i;
+                int i8 = this.f28101i;
                 if (i8 == 6) {
                     if (i3 != 2) {
                         throw new GdxRuntimeException("cube map needs 2D faces");
@@ -136,7 +136,7 @@ public class g implements TextureData, c.b.b.n.b {
                 } else if (i8 != 1) {
                     throw new GdxRuntimeException("numberOfFaces must be either 1 or 6");
                 }
-                if (this.f27725h > 0) {
+                if (this.f28100h > 0) {
                     if (i4 != 4660 && i4 != 3553) {
                         throw new GdxRuntimeException("No API for 3D and cube arrays yet");
                     }
@@ -145,8 +145,8 @@ public class g implements TextureData, c.b.b.n.b {
                 }
                 if (i4 != 4660) {
                     int i9 = 34069;
-                    if (this.f27726i != 6 || i2 == 34067) {
-                        if (this.f27726i != 6 || i2 != 34067) {
+                    if (this.f28101i != 6 || i2 == 34067) {
+                        if (this.f28101i != 6 || i2 != 34067) {
                             if (i2 != i4 && (34069 > i2 || i2 > 34074 || i2 != 3553)) {
                                 throw new GdxRuntimeException("Invalid target requested : 0x" + Integer.toHexString(i2) + ", expecting : 0x" + Integer.toHexString(i4));
                             }
@@ -158,26 +158,26 @@ public class g implements TextureData, c.b.b.n.b {
                     } else {
                         i5 = i2 - 34069;
                     }
-                    c.b.b.f.f27323e.C(3317, d2);
+                    c.b.b.f.f27698e.C(3317, d2);
                     int i10 = d2.get(0);
                     int i11 = 4;
                     if (i10 != 4) {
-                        c.b.b.f.f27323e.g(3317, 4);
+                        c.b.b.f.f27698e.g(3317, 4);
                     }
-                    int i12 = this.f27721d;
-                    int i13 = this.f27720c;
-                    int i14 = this.f27728k;
+                    int i12 = this.f28096d;
+                    int i13 = this.f28095c;
+                    int i14 = this.f28103k;
                     int i15 = 0;
-                    while (i15 < this.f27727j) {
-                        int max = Math.max(i7, this.f27722e >> i15);
-                        int max2 = Math.max(i7, this.f27723f >> i15);
-                        Math.max(i7, this.f27724g >> i15);
+                    while (i15 < this.f28102j) {
+                        int max = Math.max(i7, this.f28097e >> i15);
+                        int max2 = Math.max(i7, this.f28098f >> i15);
+                        Math.max(i7, this.f28099g >> i15);
                         this.l.position(i14);
                         int i16 = this.l.getInt();
                         int i17 = (i16 + 3) & (-4);
                         i14 += i11;
                         int i18 = 0;
-                        while (i18 < this.f27726i) {
+                        while (i18 < this.f28101i) {
                             this.l.position(i14);
                             i14 += i17;
                             if (i5 == -1 || i5 == i18) {
@@ -186,32 +186,32 @@ public class g implements TextureData, c.b.b.n.b {
                                 i6 = i5;
                                 if (i3 != 1) {
                                     if (i3 == 2) {
-                                        int i19 = this.f27725h;
+                                        int i19 = this.f28100h;
                                         if (i19 > 0) {
                                             max2 = i19;
                                         }
                                         if (z) {
-                                            if (i12 == ETC1.f31615b) {
+                                            if (i12 == ETC1.f31985b) {
                                                 z2 = z;
-                                                if (!c.b.b.f.f27320b.a("GL_OES_compressed_ETC1_RGB8_texture")) {
+                                                if (!c.b.b.f.f27695b.a("GL_OES_compressed_ETC1_RGB8_texture")) {
                                                     Pixmap a = ETC1.a(new ETC1.a(max, max2, slice, 0), Pixmap.Format.RGB888);
-                                                    c.b.b.f.f27323e.q(i9 + i18, i15, a.j(), a.n(), a.l(), 0, a.i(), a.k(), a.m());
+                                                    c.b.b.f.f27698e.q(i9 + i18, i15, a.j(), a.n(), a.l(), 0, a.i(), a.k(), a.m());
                                                     a.dispose();
                                                 } else {
-                                                    c.b.b.f.f27323e.h(i9 + i18, i15, i12, max, max2, 0, i16, slice);
+                                                    c.b.b.f.f27698e.h(i9 + i18, i15, i12, max, max2, 0, i16, slice);
                                                 }
                                             } else {
                                                 z2 = z;
-                                                c.b.b.f.f27323e.h(i9 + i18, i15, i12, max, max2, 0, i16, slice);
+                                                c.b.b.f.f27698e.h(i9 + i18, i15, i12, max, max2, 0, i16, slice);
                                             }
                                         } else {
                                             z2 = z;
-                                            c.b.b.f.f27323e.q(i9 + i18, i15, i12, max, max2, 0, i13, this.f27719b, slice);
+                                            c.b.b.f.f27698e.q(i9 + i18, i15, i12, max, max2, 0, i13, this.f28094b, slice);
                                         }
                                     } else {
                                         z2 = z;
                                         if (i3 == 3) {
-                                            int i20 = this.f27725h;
+                                            int i20 = this.f28100h;
                                         }
                                     }
                                     i18++;
@@ -233,10 +233,10 @@ public class g implements TextureData, c.b.b.n.b {
                         i11 = 4;
                     }
                     if (i10 != 4) {
-                        c.b.b.f.f27323e.g(3317, i10);
+                        c.b.b.f.f27698e.g(3317, i10);
                     }
                     if (g()) {
-                        c.b.b.f.f27323e.F(i9);
+                        c.b.b.f.f27698e.F(i9);
                     }
                     i();
                     return;
@@ -286,7 +286,7 @@ public class g implements TextureData, c.b.b.n.b {
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27723f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28098f : invokeV.intValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -300,7 +300,7 @@ public class g implements TextureData, c.b.b.n.b {
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27722e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f28097e : invokeV.intValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -393,29 +393,29 @@ public class g implements TextureData, c.b.b.n.b {
                                                                         }
                                                                         byteBuffer.order(byteOrder);
                                                                     }
-                                                                    this.f27719b = this.l.getInt();
+                                                                    this.f28094b = this.l.getInt();
                                                                     this.l.getInt();
-                                                                    this.f27720c = this.l.getInt();
-                                                                    this.f27721d = this.l.getInt();
+                                                                    this.f28095c = this.l.getInt();
+                                                                    this.f28096d = this.l.getInt();
                                                                     this.l.getInt();
-                                                                    this.f27722e = this.l.getInt();
-                                                                    this.f27723f = this.l.getInt();
-                                                                    this.f27724g = this.l.getInt();
-                                                                    this.f27725h = this.l.getInt();
-                                                                    this.f27726i = this.l.getInt();
+                                                                    this.f28097e = this.l.getInt();
+                                                                    this.f28098f = this.l.getInt();
+                                                                    this.f28099g = this.l.getInt();
+                                                                    this.f28100h = this.l.getInt();
+                                                                    this.f28101i = this.l.getInt();
                                                                     int i3 = this.l.getInt();
-                                                                    this.f27727j = i3;
+                                                                    this.f28102j = i3;
                                                                     if (i3 == 0) {
-                                                                        this.f27727j = 1;
+                                                                        this.f28102j = 1;
                                                                         this.m = true;
                                                                     }
-                                                                    this.f27728k = this.l.position() + this.l.getInt();
+                                                                    this.f28103k = this.l.position() + this.l.getInt();
                                                                     if (this.l.isDirect()) {
                                                                         return;
                                                                     }
-                                                                    int i4 = this.f27728k;
-                                                                    for (int i5 = 0; i5 < this.f27727j; i5++) {
-                                                                        i4 += (((this.l.getInt(i4) + 3) & (-4)) * this.f27726i) + 4;
+                                                                    int i4 = this.f28103k;
+                                                                    for (int i5 = 0; i5 < this.f28102j; i5++) {
+                                                                        i4 += (((this.l.getInt(i4) + 3) & (-4)) * this.f28101i) + 4;
                                                                     }
                                                                     this.l.limit(i4);
                                                                     this.l.position(0);

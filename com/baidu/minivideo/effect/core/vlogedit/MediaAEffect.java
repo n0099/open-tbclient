@@ -3,7 +3,7 @@ package com.baidu.minivideo.effect.core.vlogedit;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import c.a.a0.b.a.k.c;
+import c.a.b0.b.a.k.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MediaAEffect implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AE_ANIM_ONCE = "once";
@@ -36,7 +36,7 @@ public class MediaAEffect implements Parcelable, Cloneable {
     public String sceneTransitionName;
     public String shaderConfigKey;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Parcelable.Creator<MediaAEffect> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class MediaAEffect implements Parcelable, Cloneable {
                 return;
             }
         }
-        this.repeatMode = AE_ANIM_REPEAT;
+        this.repeatMode = "repeat";
         this.effectType = "start";
         this.randomMode = 0;
     }
@@ -166,7 +166,7 @@ public class MediaAEffect implements Parcelable, Cloneable {
             try {
                 MediaAEffect mediaAEffect = (MediaAEffect) super.clone();
                 if (TextUtils.isEmpty(mediaAEffect.shaderConfigKey)) {
-                    mediaAEffect.shaderConfigKey = c.f1281b;
+                    mediaAEffect.shaderConfigKey = c.f1306b;
                 }
                 if (mediaAEffect.mediaOneAEffects != null) {
                     ArrayList arrayList = new ArrayList();
@@ -199,7 +199,7 @@ public class MediaAEffect implements Parcelable, Cloneable {
                 return;
             }
         }
-        this.repeatMode = AE_ANIM_REPEAT;
+        this.repeatMode = "repeat";
         this.effectType = "start";
         this.randomMode = 0;
         this.duration = parcel.readLong();

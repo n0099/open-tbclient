@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f63517b;
+    public static final int[] f64098b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public final class l {
             }
         }
         a = new byte[1024];
-        f63517b = new int[1024];
+        f64098b = new int[1024];
     }
 
     public static void a(byte[] bArr, int i2, int i3) {
@@ -49,7 +49,7 @@ public final class l {
             int i4 = 0;
             while (i4 < i3) {
                 int min = Math.min(i4 + 1024, i3) - i4;
-                System.arraycopy(f63517b, 0, iArr, i2 + i4, min);
+                System.arraycopy(f64098b, 0, iArr, i2 + i4, min);
                 i4 += min;
             }
         }

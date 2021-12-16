@@ -8,13 +8,14 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.j;
-import c.a.d.f.p.l;
+import c.a.d.a.j;
+import c.a.d.f.p.k;
+import c.a.d.f.p.m;
 import c.a.d.m.e.n;
-import c.a.q0.g0.h;
-import c.a.q0.s.g0.f;
-import c.a.r0.g0.v;
-import c.a.r0.p1.o.c;
+import c.a.r0.g0.h;
+import c.a.r0.s.i0.f;
+import c.a.s0.g0.v;
+import c.a.s0.q1.o.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -31,33 +32,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class HotTopicView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SMOOTH_SCROLL_DURATION = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<HotTopicActivity> f45687e;
+    public TbPageContext<HotTopicActivity> f46186e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeListView f45688f;
+    public BdTypeListView f46187f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.q0.s.g0.g f45689g;
+    public c.a.r0.s.i0.g f46188g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.p1.j.d f45690h;
+    public c.a.s0.q1.j.d f46189h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.q0.g0.g f45691i;
+    public c.a.r0.g0.g f46190i;
 
     /* renamed from: j  reason: collision with root package name */
-    public h f45692j;
+    public h f46191j;
 
     /* renamed from: k  reason: collision with root package name */
-    public c.a.r0.p1.k.d f45693k;
-    public c.a.r0.p1.l.e l;
+    public c.a.s0.q1.k.d f46192k;
+    public c.a.s0.q1.l.e l;
     public c.f m;
     public int n;
     public PbListView o;
@@ -67,18 +68,18 @@ public class HotTopicView extends FrameLayout {
     public CustomMessageListener s;
     public CustomMessageListener t;
     public View u;
-    public c.a.r0.p1.o.c v;
+    public c.a.s0.q1.o.c v;
     public int w;
     public int x;
     public g y;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicView f45694e;
+        public final /* synthetic */ HotTopicView f46193e;
 
         public a(HotTopicView hotTopicView) {
             Interceptable interceptable = $ic;
@@ -95,33 +96,33 @@ public class HotTopicView extends FrameLayout {
                     return;
                 }
             }
-            this.f45694e = hotTopicView;
+            this.f46193e = hotTopicView;
         }
 
-        @Override // c.a.q0.s.g0.f.g
+        @Override // c.a.r0.s.i0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (j.z()) {
-                    this.f45694e.f45693k.i();
+                if (k.z()) {
+                    this.f46193e.f46192k.i();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004012));
-                    ((HotTopicActivity) this.f45694e.f45687e.getOrignalPage()).loadHotTopicData();
+                    ((HotTopicActivity) this.f46193e.f46186e.getOrignalPage()).loadHotTopicData();
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                this.f45694e.f45693k.h(true);
-                this.f45694e.f45688f.completePullRefreshPostDelayed(0L);
+                this.f46193e.f46192k.h(true);
+                this.f46193e.f46187f.completePullRefreshPostDelayed(0L);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b implements AbsListView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicView f45695e;
+        public final /* synthetic */ HotTopicView f46194e;
 
         public b(HotTopicView hotTopicView) {
             Interceptable interceptable = $ic;
@@ -138,18 +139,18 @@ public class HotTopicView extends FrameLayout {
                     return;
                 }
             }
-            this.f45695e = hotTopicView;
+            this.f46194e = hotTopicView;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i2, i3, i4) == null) {
-                this.f45695e.f45693k.e(i2, i3);
-                if (this.f45695e.m != null) {
-                    this.f45695e.m.onScroll(absListView, i2, i3, i4);
+                this.f46194e.f46192k.e(i2, i3);
+                if (this.f46194e.m != null) {
+                    this.f46194e.m.onScroll(absListView, i2, i3, i4);
                 }
-                this.f45695e.q(absListView, i2);
+                this.f46194e.q(absListView, i2);
             }
         }
 
@@ -158,17 +159,17 @@ public class HotTopicView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) {
                 if (i2 == 0) {
-                    this.f45695e.f45693k.g();
+                    this.f46194e.f46192k.g();
                     v.b().c();
                 }
-                if (this.f45695e.m != null) {
-                    this.f45695e.m.onScrollStateChanged(absListView, i2);
+                if (this.f46194e.m != null) {
+                    this.f46194e.m.onScrollStateChanged(absListView, i2);
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,7 +200,7 @@ public class HotTopicView extends FrameLayout {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.l == null || this.a.l.k() == null || this.a.l.k().f21183e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.l == null || this.a.l.k() == null || this.a.l.k().f21668e == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -208,14 +209,14 @@ public class HotTopicView extends FrameLayout {
                 if (l != null) {
                     l.followNum++;
                     l.setIsLiked(true);
-                    this.a.l.k().f21184f = true;
-                    this.a.f45690h.d(this.a.l);
+                    this.a.l.k().f21669f = true;
+                    this.a.f46189h.d(this.a.l);
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -246,7 +247,7 @@ public class HotTopicView extends FrameLayout {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.l == null || this.a.l.k() == null || this.a.l.k().f21183e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.l == null || this.a.l.k() == null || this.a.l.k().f21668e == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -255,20 +256,20 @@ public class HotTopicView extends FrameLayout {
                 if (l != null) {
                     l.followNum--;
                     l.setIsLiked(false);
-                    this.a.l.k().f21184f = true;
-                    this.a.f45690h.d(this.a.l);
+                    this.a.l.k().f21669f = true;
+                    this.a.f46189h.d(this.a.l);
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class e implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicView f45696e;
+        public final /* synthetic */ HotTopicView f46195e;
 
         public e(HotTopicView hotTopicView) {
             Interceptable interceptable = $ic;
@@ -285,7 +286,7 @@ public class HotTopicView extends FrameLayout {
                     return;
                 }
             }
-            this.f45696e = hotTopicView;
+            this.f46195e = hotTopicView;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -293,23 +294,23 @@ public class HotTopicView extends FrameLayout {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                if (view != this.f45696e.f45688f || this.f45696e.f45693k == null) {
+                if (view != this.f46195e.f46187f || this.f46195e.f46192k == null) {
                     return false;
                 }
-                this.f45696e.f45693k.f(motionEvent);
+                this.f46195e.f46192k.f(motionEvent);
                 return false;
             }
             return invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicView f45697e;
+        public final /* synthetic */ HotTopicView f46196e;
 
         public f(HotTopicView hotTopicView) {
             Interceptable interceptable = $ic;
@@ -326,30 +327,30 @@ public class HotTopicView extends FrameLayout {
                     return;
                 }
             }
-            this.f45697e = hotTopicView;
+            this.f46196e = hotTopicView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && j.A()) {
-                this.f45697e.hideNetRefreshView();
-                this.f45697e.showLoadingView(true);
-                ((HotTopicActivity) this.f45697e.f45687e.getOrignalPage()).loadHotTopicData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && k.A()) {
+                this.f46196e.hideNetRefreshView();
+                this.f46196e.showLoadingView(true);
+                ((HotTopicActivity) this.f46196e.f46186e.getOrignalPage()).loadHotTopicData();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f45698e;
+        public int f46197e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HotTopicView f45699f;
+        public final /* synthetic */ HotTopicView f46198f;
 
         public g(HotTopicView hotTopicView, int i2) {
             Interceptable interceptable = $ic;
@@ -366,16 +367,16 @@ public class HotTopicView extends FrameLayout {
                     return;
                 }
             }
-            this.f45699f = hotTopicView;
-            this.f45698e = i2;
+            this.f46198f = hotTopicView;
+            this.f46197e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45699f.f45688f.smoothScrollBy(Math.abs(this.f45698e), 1);
-                this.f45699f.k();
+                this.f46198f.f46187f.smoothScrollBy(Math.abs(this.f46197e), 1);
+                this.f46198f.k();
             }
         }
     }
@@ -411,11 +412,11 @@ public class HotTopicView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            c.a.r0.p1.o.c cVar = this.v;
+            c.a.s0.q1.o.c cVar = this.v;
             if (cVar == null || cVar.s() == null) {
                 return 0;
             }
-            return this.v.t() + (((getHeight() - this.v.t()) - l.f(getContext(), c.a.r0.p1.c.tbds304)) / 2);
+            return this.v.t() + (((getHeight() - this.v.t()) - m.f(getContext(), c.a.s0.q1.c.tbds304)) / 2);
         }
         return invokeV.intValue;
     }
@@ -424,7 +425,7 @@ public class HotTopicView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            c.a.r0.p1.o.c cVar = this.v;
+            c.a.s0.q1.o.c cVar = this.v;
             if (cVar == null || cVar.s() == null) {
                 return 0;
             }
@@ -445,25 +446,25 @@ public class HotTopicView extends FrameLayout {
 
     public void completePullRefresh(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f45688f == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f46187f == null) {
             return;
         }
-        this.f45693k.h(true);
+        this.f46192k.h(true);
         if (z) {
-            this.f45688f.completePullRefresh();
+            this.f46187f.completePullRefresh();
         } else {
-            this.f45688f.completePullRefreshPostDelayed(0L);
+            this.f46187f.completePullRefreshPostDelayed(0L);
         }
     }
 
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.q0.s.g0.g gVar = this.f45689g;
+            c.a.r0.s.i0.g gVar = this.f46188g;
             if (gVar != null) {
                 gVar.a(null);
             }
-            c.a.r0.p1.k.d dVar = this.f45693k;
+            c.a.s0.q1.k.d dVar = this.f46192k;
             if (dVar != null) {
                 dVar.c();
             }
@@ -474,13 +475,13 @@ public class HotTopicView extends FrameLayout {
     public BdTypeListView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45688f : (BdTypeListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46187f : (BdTypeListView) invokeV.objValue;
     }
 
     public void hideLoadMoreView() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bdTypeListView = this.f45688f) == null || this.o == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bdTypeListView = this.f46187f) == null || this.o == null) {
             return;
         }
         bdTypeListView.setNextPage(null);
@@ -488,36 +489,36 @@ public class HotTopicView extends FrameLayout {
     }
 
     public void hideLoadingView() {
-        c.a.r0.p1.o.c cVar;
+        c.a.s0.q1.o.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.q0.g0.g gVar = this.f45691i;
+            c.a.r0.g0.g gVar = this.f46190i;
             if (gVar != null) {
                 gVar.dettachView(this);
-                this.f45691i = null;
+                this.f46190i = null;
             }
             if (n() || (cVar = this.v) == null || cVar.s() == null) {
                 return;
             }
-            this.f45688f.smoothScrollBy((int) (-this.v.s().getY()), 1);
+            this.f46187f.smoothScrollBy((int) (-this.v.s().getY()), 1);
         }
     }
 
     public void hideNetRefreshView() {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (hVar = this.f45692j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (hVar = this.f46191j) == null) {
             return;
         }
         hVar.dettachView(this);
-        this.f45692j = null;
+        this.f46191j = null;
     }
 
     public boolean isLoadingViewShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            c.a.q0.g0.g gVar = this.f45691i;
+            c.a.r0.g0.g gVar = this.f46190i;
             if (gVar != null) {
                 return gVar.isViewAttached();
             }
@@ -530,7 +531,7 @@ public class HotTopicView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            h hVar = this.f45692j;
+            h hVar = this.f46191j;
             if (hVar != null) {
                 return hVar.isViewAttached();
             }
@@ -544,9 +545,9 @@ public class HotTopicView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             View view = new View(getContext());
             this.u = view;
-            view.setId(c.a.r0.p1.e.view_header);
+            view.setId(c.a.s0.q1.e.view_header);
             this.u.setLayoutParams(new AbsListView.LayoutParams(-1, 0));
-            this.f45688f.addHeaderView(this.u, 0);
+            this.f46187f.addHeaderView(this.u, 0);
         }
     }
 
@@ -554,10 +555,10 @@ public class HotTopicView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (isRefreshViewShowing()) {
-                this.f45692j.j(getTopMargin());
+                this.f46191j.k(getTopMargin());
             }
             if (isLoadingViewShowing()) {
-                this.f45691i.q(getLoadingViewTopMargin());
+                this.f46190i.q(getLoadingViewTopMargin());
             }
         }
     }
@@ -566,11 +567,11 @@ public class HotTopicView extends FrameLayout {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
-            c.a.r0.p1.l.e eVar = this.l;
-            if (eVar == null || eVar.k() == null || this.l.k().f21183e == null) {
+            c.a.s0.q1.l.e eVar = this.l;
+            if (eVar == null || eVar.k() == null || this.l.k().f21668e == null) {
                 return null;
             }
-            for (n nVar : this.l.k().f21183e) {
+            for (n nVar : this.l.k().f21668e) {
                 if (nVar != null && (nVar instanceof RelateForumItemData)) {
                     RelateForumItemData relateForumItemData = (RelateForumItemData) nVar;
                     if (relateForumItemData.forumId == j2) {
@@ -585,52 +586,52 @@ public class HotTopicView extends FrameLayout {
 
     public void listViewStartPullRefresh() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f45688f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f46187f == null) {
             return;
         }
-        this.f45693k.h(false);
-        this.f45688f.startPullRefresh();
+        this.f46192k.h(false);
+        this.f46187f.startPullRefresh();
     }
 
     public final void m(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
-            c.a.d.a.f<?> a2 = c.a.d.a.j.a(context);
+            c.a.d.a.f<?> a2 = j.a(context);
             if (a2 instanceof TbPageContext) {
-                this.f45687e = (TbPageContext) a2;
+                this.f46186e = (TbPageContext) a2;
             }
-            if (this.f45687e == null) {
+            if (this.f46186e == null) {
                 return;
             }
             BdTypeListView bdTypeListView = new BdTypeListView(context);
-            this.f45688f = bdTypeListView;
+            this.f46187f = bdTypeListView;
             bdTypeListView.setVerticalScrollBarEnabled(false);
-            this.f45688f.setDividerHeight(0);
-            this.f45688f.setSelector(17170445);
-            c.a.q0.s.g0.g gVar = new c.a.q0.s.g0.g(this.f45687e);
-            this.f45689g = gVar;
+            this.f46187f.setDividerHeight(0);
+            this.f46187f.setSelector(17170445);
+            c.a.r0.s.i0.g gVar = new c.a.r0.s.i0.g(this.f46186e);
+            this.f46188g = gVar;
             gVar.a(this.q);
-            this.f45688f.setPullRefresh(this.f45689g);
+            this.f46187f.setPullRefresh(this.f46188g);
             View view = new View(context);
-            view.setLayoutParams(new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(c.a.r0.p1.c.ds88)));
-            this.f45688f.addFooterView(view);
-            this.f45688f.setOnScrollListener(this.r);
-            this.f45688f.setOnSrollToBottomListener(this.f45687e.getOrignalPage());
-            this.f45688f.setOnTouchListener(new e(this));
-            this.f45690h = new c.a.r0.p1.j.d(this.f45687e.getOrignalPage(), this.f45688f);
-            addView(this.f45688f);
-            ((FrameLayout.LayoutParams) this.f45688f.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(c.a.r0.p1.c.line_magin_bottom);
-            this.f45693k = new c.a.r0.p1.k.d(this.f45687e, this.f45688f);
-            this.f45687e.registerListener(this.s);
-            this.f45687e.registerListener(this.t);
+            view.setLayoutParams(new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(c.a.s0.q1.c.ds88)));
+            this.f46187f.addFooterView(view);
+            this.f46187f.setOnScrollListener(this.r);
+            this.f46187f.setOnSrollToBottomListener(this.f46186e.getOrignalPage());
+            this.f46187f.setOnTouchListener(new e(this));
+            this.f46189h = new c.a.s0.q1.j.d(this.f46186e.getOrignalPage(), this.f46187f);
+            addView(this.f46187f);
+            ((FrameLayout.LayoutParams) this.f46187f.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(c.a.s0.q1.c.line_magin_bottom);
+            this.f46192k = new c.a.s0.q1.k.d(this.f46186e, this.f46187f);
+            this.f46186e.registerListener(this.s);
+            this.f46186e.registerListener(this.t);
             j();
             PbListView pbListView = new PbListView(context);
             this.o = pbListView;
             pbListView.a();
-            this.o.p(c.a.r0.p1.b.CAM_X0205);
-            this.o.x();
-            this.o.E(SkinManager.getColor(c.a.r0.p1.b.CAM_X0109));
-            this.o.A(c.a.r0.p1.b.CAM_X0110);
+            this.o.p(c.a.s0.q1.b.CAM_X0205);
+            this.o.y();
+            this.o.F(SkinManager.getColor(c.a.s0.q1.b.CAM_X0109));
+            this.o.B(c.a.s0.q1.b.CAM_X0110);
         }
     }
 
@@ -645,35 +646,35 @@ public class HotTopicView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || n()) {
             return;
         }
-        this.v.P(this.f45688f, Math.min(this.n, this.v.v()));
+        this.v.P(this.f46187f, Math.min(this.n, this.v.v()));
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            c.a.q0.s.g0.g gVar = this.f45689g;
+            c.a.r0.s.i0.g gVar = this.f46188g;
             if (gVar != null) {
                 gVar.C(i2);
             }
-            c.a.q0.g0.g gVar2 = this.f45691i;
+            c.a.r0.g0.g gVar2 = this.f46190i;
             if (gVar2 != null) {
                 gVar2.onChangeSkinType();
             }
-            h hVar = this.f45692j;
+            h hVar = this.f46191j;
             if (hVar != null) {
                 hVar.onChangeSkinType();
             }
             PbListView pbListView = this.o;
             if (pbListView != null) {
-                pbListView.E(SkinManager.getColor(c.a.r0.p1.b.CAM_X0109));
+                pbListView.F(SkinManager.getColor(c.a.s0.q1.b.CAM_X0109));
                 this.o.d(i2);
             }
-            c.a.r0.p1.j.d dVar = this.f45690h;
+            c.a.s0.q1.j.d dVar = this.f46189h;
             if (dVar != null) {
                 dVar.b();
             }
-            SkinManager.setBackgroundColor(this.f45688f, c.a.r0.p1.b.CAM_X0204);
-            SkinManager.setBackgroundColor(this, c.a.r0.p1.b.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f46187f, c.a.s0.q1.b.CAM_X0204);
+            SkinManager.setBackgroundColor(this, c.a.s0.q1.b.CAM_X0201);
         }
     }
 
@@ -689,15 +690,15 @@ public class HotTopicView extends FrameLayout {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            c.a.r0.p1.o.c cVar = this.v;
-            cVar.P(this.f45688f, Math.min(this.n, cVar.v()));
+            c.a.s0.q1.o.c cVar = this.v;
+            cVar.P(this.f46187f, Math.min(this.n, cVar.v()));
         }
     }
 
     public void pause() {
-        c.a.r0.p1.k.d dVar;
+        c.a.s0.q1.k.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (dVar = this.f45693k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (dVar = this.f46192k) == null) {
             return;
         }
         dVar.d(true);
@@ -721,28 +722,28 @@ public class HotTopicView extends FrameLayout {
         this.w = i2;
     }
 
-    public void refreshView(c.a.r0.p1.l.e eVar) {
+    public void refreshView(c.a.s0.q1.l.e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, eVar) == null) || this.f45690h == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, eVar) == null) || this.f46189h == null) {
             return;
         }
         if (eVar == null) {
-            eVar = new c.a.r0.p1.l.e();
+            eVar = new c.a.s0.q1.l.e();
         }
         this.l = eVar;
-        this.f45690h.c(eVar.n());
-        this.f45690h.d(eVar);
-        this.f45688f.setVisibility(0);
+        this.f46189h.c(eVar.n());
+        this.f46189h.d(eVar);
+        this.f46187f.setVisibility(0);
         if (ListUtils.isEmpty(eVar.i())) {
             return;
         }
-        SkinManager.setBackgroundColor(this.f45688f, c.a.r0.p1.b.CAM_X0204);
+        SkinManager.setBackgroundColor(this.f46187f, c.a.s0.q1.b.CAM_X0204);
     }
 
     public void resume() {
-        c.a.r0.p1.k.d dVar;
+        c.a.s0.q1.k.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (dVar = this.f45693k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (dVar = this.f46192k) == null) {
             return;
         }
         dVar.d(false);
@@ -751,7 +752,7 @@ public class HotTopicView extends FrameLayout {
     public void scrollListView(int i2) {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048599, this, i2) == null) || (bdTypeListView = this.f45688f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048599, this, i2) == null) || (bdTypeListView = this.f46187f) == null) {
             return;
         }
         bdTypeListView.smoothScrollBy(i2, 1);
@@ -759,17 +760,17 @@ public class HotTopicView extends FrameLayout {
     }
 
     public void scrollToTop(float f2) {
-        c.a.r0.p1.l.e eVar;
+        c.a.s0.q1.l.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048600, this, f2) == null) || this.f45688f == null || (eVar = this.l) == null || eVar.k() == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048600, this, f2) == null) || this.f46187f == null || (eVar = this.l) == null || eVar.k() == null) {
             return;
         }
-        this.f45688f.setSelection(0);
+        this.f46187f.setSelection(0);
         this.y = new g(this, (int) f2);
         c.a.d.f.m.e.a().post(this.y);
     }
 
-    public void setMainView(c.a.r0.p1.o.c cVar) {
+    public void setMainView(c.a.s0.q1.o.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, cVar) == null) {
             this.v = cVar;
@@ -787,13 +788,13 @@ public class HotTopicView extends FrameLayout {
         BdTypeListView bdTypeListView;
         PbListView pbListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (bdTypeListView = this.f45688f) == null || (pbListView = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (bdTypeListView = this.f46187f) == null || (pbListView = this.o) == null) {
             return;
         }
         bdTypeListView.setNextPage(pbListView);
-        this.o.G(c.a.r0.p1.c.tbfontsize33);
-        this.o.s(l.f(getContext(), c.a.r0.p1.c.tbds182));
-        this.o.Q();
+        this.o.H(c.a.s0.q1.c.tbfontsize33);
+        this.o.t(m.f(getContext(), c.a.s0.q1.c.tbds182));
+        this.o.R();
     }
 
     public void showLoadingView(boolean z) {
@@ -801,15 +802,15 @@ public class HotTopicView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeZ(1048604, this, z) == null) || isLoadingViewShowing()) {
             return;
         }
-        if (this.f45691i == null) {
-            c.a.q0.g0.g gVar = new c.a.q0.g0.g(getContext());
-            this.f45691i = gVar;
+        if (this.f46190i == null) {
+            c.a.r0.g0.g gVar = new c.a.r0.g0.g(getContext());
+            this.f46190i = gVar;
             gVar.q(getLoadingViewTopMargin());
-            this.f45691i.h();
-            this.f45691i.onChangeSkinType();
+            this.f46190i.h();
+            this.f46190i.onChangeSkinType();
         }
-        this.f45691i.attachView(this, z);
-        this.f45688f.setVisibility(8);
+        this.f46190i.attachView(this, z);
+        this.f46187f.setVisibility(8);
     }
 
     public void showNetRefreshView(String str, boolean z) {
@@ -817,28 +818,28 @@ public class HotTopicView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeLZ(1048605, this, str, z) == null) || isRefreshViewShowing()) {
             return;
         }
-        if (this.f45692j == null) {
-            this.f45692j = new h(getContext(), new f(this));
+        if (this.f46191j == null) {
+            this.f46191j = new h(getContext(), new f(this));
         }
-        this.f45692j.j(getTopMargin());
-        this.f45692j.attachView(this, z);
-        this.f45692j.o();
-        this.f45688f.setVisibility(8);
+        this.f46191j.k(getTopMargin());
+        this.f46191j.attachView(this, z);
+        this.f46191j.p();
+        this.f46187f.setVisibility(8);
     }
 
     public void showNoMoreView() {
         PbListView pbListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || this.f45688f == null || (pbListView = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || this.f46187f == null || (pbListView = this.o) == null) {
             return;
         }
         int i2 = this.p;
         if (i2 > 0) {
-            pbListView.L(i2);
+            pbListView.M(i2);
         }
-        this.f45688f.setNextPage(this.o);
+        this.f46187f.setNextPage(this.o);
         this.o.f();
-        this.o.C(getContext().getResources().getString(c.a.r0.p1.h.list_no_more));
+        this.o.D(getContext().getResources().getString(c.a.s0.q1.h.list_no_more));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

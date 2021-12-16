@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BlankCharEditTextPasteFilter implements IEditTextPasteFilter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "BlankCharEditTextPasteFilter";

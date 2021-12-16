@@ -13,7 +13,7 @@ import com.kwad.sdk.core.request.model.e;
 import com.kwad.sdk.core.request.model.h;
 import com.kwad.sdk.d;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.core.network.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

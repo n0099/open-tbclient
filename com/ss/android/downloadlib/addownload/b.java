@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static volatile b a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f61191b;
+    public Handler f61772b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class b {
                 return;
             }
         }
-        this.f61191b = null;
+        this.f61772b = null;
     }
 
     public static b a() {
@@ -70,18 +70,18 @@ public class b {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (this.f61191b == null) {
-                this.f61191b = new Handler(Looper.getMainLooper());
+            if (this.f61772b == null) {
+                this.f61772b = new Handler(Looper.getMainLooper());
             }
             String url = downloadInfo.getUrl();
             Downloader.getInstance(context).clearDownloadData(downloadInfo.getId());
-            this.f61191b.post(new Runnable(this, url) { // from class: com.ss.android.downloadlib.addownload.b.1
+            this.f61772b.post(new Runnable(this, url) { // from class: com.ss.android.downloadlib.addownload.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f61192b;
+                public final /* synthetic */ b f61773b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -98,7 +98,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f61192b = this;
+                    this.f61773b = this;
                     this.a = url;
                 }
 

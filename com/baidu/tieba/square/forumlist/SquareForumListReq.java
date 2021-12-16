@@ -1,6 +1,6 @@
 package com.baidu.tieba.square.forumlist;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetForumsFromForumClass.DataReq;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SquareForumListReq extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class SquareForumListReq extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             GetForumsFromForumClassReqIdl.Builder builder2 = new GetForumsFromForumClassReqIdl.Builder();
             builder.limit = Integer.valueOf(this.pageLimit);

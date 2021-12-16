@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class DefaultDiskStorage implements DiskStorage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_FILE_EXTENSION = ".cnt";
@@ -53,14 +53,14 @@ public class DefaultDiskStorage implements DiskStorage {
     public final File mVersionDirectory;
 
     /* renamed from: com.facebook.cache.disk.DefaultDiskStorage$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @VisibleForTesting
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class EntryImpl implements DiskStorage.Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class FileInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,13 +220,13 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public @interface FileType {
         public static final String CONTENT = ".cnt";
         public static final String TEMP = ".tmp";
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class IncompleteFileException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,7 +257,7 @@ public class DefaultDiskStorage implements DiskStorage {
     }
 
     @VisibleForTesting
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class InserterImpl implements DiskStorage.Inserter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -355,7 +355,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class PurgingVisitor implements FileTreeVisitor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -784,7 +784,7 @@ public class DefaultDiskStorage implements DiskStorage {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, obj)) == null) ? query(str, true) : invokeLL.booleanValue;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class EntriesCollector implements FileTreeVisitor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -15,30 +15,30 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class EventAnalysis {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, a> a;
 
     /* renamed from: com.baidu.mobstat.EventAnalysis$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f36880b;
+        public String f37369b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f36881c;
+        public long f37370c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -185,15 +185,15 @@ public class EventAnalysis {
             if (aVar == null) {
                 bc c2 = bc.c();
                 c2.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");
-            } else if ((str != null && !str.equals(aVar.a)) || (str2 != null && !str2.equals(aVar.f36880b))) {
+            } else if ((str != null && !str.equals(aVar.a)) || (str2 != null && !str2.equals(aVar.f37369b))) {
                 bc.c().b("[WARNING] eventId/label pair not match");
             } else {
                 this.a.remove(a2);
-                long j4 = j3 - aVar.f36881c;
+                long j4 = j3 - aVar.f37370c;
                 if (j4 < 0) {
                     bc.c().b("[WARNING] onEventEnd must be invoked after onEventStart");
                 }
-                onEventDuration(context, j2, str, str2, aVar.f36881c, j4, extraInfo, map, z);
+                onEventDuration(context, j2, str, str2, aVar.f37370c, j4, extraInfo, map, z);
             }
         }
     }
@@ -202,9 +202,9 @@ public class EventAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, str, str2, Long.valueOf(j2)}) == null) {
             a aVar = new a(null);
-            aVar.f36881c = j2;
+            aVar.f37370c = j2;
             aVar.a = str;
-            aVar.f36880b = str2;
+            aVar.f37369b = str2;
             String a2 = a(str, str2);
             if (this.a.containsKey(a2)) {
                 bc c2 = bc.c();

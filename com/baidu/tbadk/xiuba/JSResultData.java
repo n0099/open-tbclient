@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class JSResultData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTH_KEY = "Bk87E*iWaZ4ORmQrCxVGOq+]-i!S*v";
@@ -29,7 +29,7 @@ public class JSResultData extends OrmObject implements Serializable {
     public Result result;
     public int status;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class Result extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 678301888552831958L;

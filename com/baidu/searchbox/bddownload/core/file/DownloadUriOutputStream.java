@@ -23,7 +23,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DownloadUriOutputStream implements DownloadOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
     @NonNull
     public final ParcelFileDescriptor pdf;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Factory implements DownloadOutputStream.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

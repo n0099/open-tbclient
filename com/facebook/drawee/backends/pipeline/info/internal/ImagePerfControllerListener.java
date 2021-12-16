@@ -13,7 +13,7 @@ import com.facebook.drawee.backends.pipeline.info.ImagePerfState;
 import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.imagepipeline.image.ImageInfo;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ImagePerfControllerListener extends BaseControllerListener<ImageInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

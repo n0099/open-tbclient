@@ -12,31 +12,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MapRenderer implements GLSurfaceView.Renderer {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36380d;
+    public static final String f36869d;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36381b;
+    public int f36870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36382c;
+    public int f36871c;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f36383e;
+    public long f36872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f36384f;
+    public a f36873f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final j f36385g;
+    public final j f36874g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void f();
     }
@@ -54,7 +54,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
                 return;
             }
         }
-        f36380d = MapRenderer.class.getSimpleName();
+        f36869d = MapRenderer.class.getSimpleName();
     }
 
     public MapRenderer(j jVar, a aVar) {
@@ -72,8 +72,8 @@ public class MapRenderer implements GLSurfaceView.Renderer {
                 return;
             }
         }
-        this.f36384f = aVar;
-        this.f36385g = jVar;
+        this.f36873f = aVar;
+        this.f36874g = jVar;
     }
 
     private void a(GL10 gl10) {
@@ -87,7 +87,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.f36383e != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.f36872e != 0 : invokeV.booleanValue;
     }
 
     public static native void nativeInit(long j2);
@@ -99,7 +99,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f36383e = j2;
+            this.f36872e = j2;
         }
     }
 
@@ -111,27 +111,27 @@ public class MapRenderer implements GLSurfaceView.Renderer {
                 a(gl10);
                 return;
             }
-            if (this.f36382c <= 1) {
-                nativeResize(this.f36383e, this.a, this.f36381b);
-                this.f36382c++;
+            if (this.f36871c <= 1) {
+                nativeResize(this.f36872e, this.a, this.f36870b);
+                this.f36871c++;
             }
-            this.f36384f.f();
-            int nativeRender = nativeRender(this.f36383e);
-            if (this.f36385g.a() == null) {
+            this.f36873f.f();
+            int nativeRender = nativeRender(this.f36872e);
+            if (this.f36874g.a() == null) {
                 return;
             }
-            if (this.f36385g.a().f36438h != null) {
-                for (l lVar : this.f36385g.a().f36438h) {
-                    if (this.f36385g.a() == null) {
+            if (this.f36874g.a().f36927h != null) {
+                for (l lVar : this.f36874g.a().f36927h) {
+                    if (this.f36874g.a() == null) {
                         return;
                     }
-                    ab J = this.f36385g.a().J();
+                    ab J = this.f36874g.a().J();
                     if (lVar != null) {
                         lVar.a(gl10, J);
                     }
                 }
             }
-            j jVar = this.f36385g;
+            j jVar = this.f36874g;
             if (nativeRender == 1) {
                 jVar.requestRender();
             } else if (jVar.a().b()) {
@@ -148,7 +148,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, gl10, i2, i3) == null) {
-            long j2 = this.f36383e;
+            long j2 = this.f36872e;
             if (j2 != 0) {
                 nativeResize(j2, i2, i3);
             }
@@ -159,9 +159,9 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, gl10, eGLConfig) == null) {
-            nativeInit(this.f36383e);
+            nativeInit(this.f36872e);
             if (a()) {
-                this.f36384f.f();
+                this.f36873f.f();
             }
         }
     }

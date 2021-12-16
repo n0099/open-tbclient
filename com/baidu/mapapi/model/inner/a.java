@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f36047b;
+    public Point f36536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f36048c;
+    public Point f36537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<ArrayList<Point>> f36049d;
+    public ArrayList<ArrayList<Point>> f36538d;
 
     public a() {
         Interceptable interceptable = $ic;

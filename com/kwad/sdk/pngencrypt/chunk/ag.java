@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ag extends ae {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class ag extends ae {
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
             int i2 = 0;
             while (true) {
-                byte[] bArr = dVar.f58722d;
+                byte[] bArr = dVar.f59303d;
                 if (i2 >= bArr.length) {
                     i2 = -1;
                     break;
@@ -47,15 +47,15 @@ public class ag extends ae {
                     i2++;
                 }
             }
-            if (i2 < 0 || i2 > dVar.f58722d.length - 2) {
+            if (i2 < 0 || i2 > dVar.f59303d.length - 2) {
                 com.kwad.sdk.core.d.a.a(new PngjException("bad zTXt chunk: no separator found"));
             }
-            ((ae) this).f58712h = b.a(dVar.f58722d, 0, i2);
-            if (dVar.f58722d[i2 + 1] != 0) {
+            ((ae) this).f59293h = b.a(dVar.f59303d, 0, i2);
+            if (dVar.f59303d[i2 + 1] != 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("bad zTXt chunk: unknown compression method"));
             }
-            byte[] bArr2 = dVar.f58722d;
-            this.f58713i = b.a(b.a(bArr2, i2 + 2, (bArr2.length - i2) - 2, false));
+            byte[] bArr2 = dVar.f59303d;
+            this.f59294i = b.a(b.a(bArr2, i2 + 2, (bArr2.length - i2) - 2, false));
         }
     }
 }

@@ -8,10 +8,10 @@ import c.a.d.f.a.d;
 import c.a.d.f.a.f.c;
 import c.a.d.f.l.b;
 import c.a.d.f.l.e;
-import c.a.d.f.p.j;
-import c.a.d.f.p.l;
+import c.a.d.f.p.k;
+import c.a.d.f.p.m;
 import c.a.d.m.d.a;
-import c.a.q0.d1.r;
+import c.a.r0.d1.t;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -36,7 +36,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BigImageLoaderProc implements e<a> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NCDN_PER = "width=";
@@ -105,7 +105,7 @@ public class BigImageLoaderProc implements e<a> {
                 bVar.a = diskCancelWorker;
             }
             if (d.f().a(newDiskPicOperate)) {
-                int i2 = j.H() ? 500 : 2000;
+                int i2 = k.H() ? 500 : 2000;
                 synchronized (bArr) {
                     try {
                         bArr.wait(i2);
@@ -131,7 +131,7 @@ public class BigImageLoaderProc implements e<a> {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && r.b(str)) {
+            if (str != null && t.b(str)) {
                 String[] split2 = str.split("/");
                 if (split2.length > 3) {
                     try {
@@ -171,7 +171,7 @@ public class BigImageLoaderProc implements e<a> {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str != null && r.b(str)) {
+            if (str != null && t.b(str)) {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
                 int lastIndexOf3 = str.lastIndexOf(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX);
@@ -333,9 +333,9 @@ public class BigImageLoaderProc implements e<a> {
             Bitmap Bytes2Bitmap = bArr != null ? BitmapHelper.Bytes2Bitmap(bArr) : null;
             if (Bytes2Bitmap == null) {
                 if (booleanValue && str.startsWith("/")) {
-                    Bytes2Bitmap = c.a.d.f.p.d.d().c(str);
+                    Bytes2Bitmap = c.a.d.f.p.e.d().c(str);
                     if (Bytes2Bitmap != null && bArr == null) {
-                        bArr = c.a.d.f.p.d.d().a(Bytes2Bitmap, 100);
+                        bArr = c.a.d.f.p.e.d().a(Bytes2Bitmap, 100);
                     }
                 } else {
                     bArr = getFromLocalData(str, bVar);
@@ -345,7 +345,7 @@ public class BigImageLoaderProc implements e<a> {
                 }
             }
             if (Bytes2Bitmap != null) {
-                return new a(Bytes2Bitmap, l.A(bArr), str2, bArr);
+                return new a(Bytes2Bitmap, m.A(bArr), str2, bArr);
             }
             return null;
         }
@@ -397,7 +397,7 @@ public class BigImageLoaderProc implements e<a> {
                         needCache = webClient.needCache();
                         if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                             BdLog.e("BIGIMAGE imagesize too big");
-                            c.a.q0.s.a0.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                            c.a.r0.s.c0.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                         }
                         if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                             try {
@@ -424,7 +424,7 @@ public class BigImageLoaderProc implements e<a> {
                         if (needCache && !webClient.isCrackPic) {
                             updateLocal(str, downloadImageBytes, false, bVar);
                         }
-                        a aVar = new a(bitmap, l.A(downloadImageBytes), str, downloadImageBytes);
+                        a aVar = new a(bitmap, m.A(downloadImageBytes), str, downloadImageBytes);
                         aVar.y(needCache);
                         return aVar;
                     }
@@ -438,7 +438,7 @@ public class BigImageLoaderProc implements e<a> {
                 needCache = webClient.needCache();
                 if (webClient.IsRequestSuccess()) {
                     BdLog.e("BIGIMAGE imagesize too big");
-                    c.a.q0.s.a0.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                    c.a.r0.s.c0.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                 }
                 if (webClient.responseCode == 302) {
                     InputStream openRawResource2 = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete_big2, new TypedValue());
@@ -460,7 +460,7 @@ public class BigImageLoaderProc implements e<a> {
                 if (needCache) {
                     updateLocal(str, downloadImageBytes, false, bVar);
                 }
-                a aVar2 = new a(bitmap, l.A(downloadImageBytes), str, downloadImageBytes);
+                a aVar2 = new a(bitmap, m.A(downloadImageBytes), str, downloadImageBytes);
                 aVar2.y(needCache);
                 return aVar2;
             }

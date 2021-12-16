@@ -5,22 +5,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f58736h;
+    public double f59317h;
 
     /* renamed from: i  reason: collision with root package name */
-    public double f58737i;
+    public double f59318i;
 
     /* renamed from: j  reason: collision with root package name */
-    public double f58738j;
+    public double f59319j;
 
     /* renamed from: k  reason: collision with root package name */
-    public double f58739k;
+    public double f59320k;
     public double l;
     public double m;
     public double n;
@@ -54,14 +54,14 @@ public class i extends aa {
             if (dVar.a != 32) {
                 throw new PngjException("bad chunk " + dVar);
             }
-            this.f58736h = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 0));
-            this.f58737i = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 4));
-            this.f58738j = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 8));
-            this.f58739k = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 12));
-            this.l = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 16));
-            this.m = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 20));
-            this.n = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 24));
-            this.o = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 28));
+            this.f59317h = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f59303d, 0));
+            this.f59318i = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f59303d, 4));
+            this.f59319j = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f59303d, 8));
+            this.f59320k = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f59303d, 12));
+            this.l = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f59303d, 16));
+            this.m = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f59303d, 20));
+            this.n = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f59303d, 24));
+            this.o = com.kwad.sdk.pngencrypt.n.a(com.kwad.sdk.pngencrypt.n.c(dVar.f59303d, 28));
         }
     }
 }

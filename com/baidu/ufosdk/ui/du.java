@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class du extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ FeedbackListActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f51689b;
+    public Context f52238b;
 
     public du(FeedbackListActivity feedbackListActivity, Context context) {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public final class du extends BaseAdapter {
             }
         }
         this.a = feedbackListActivity;
-        this.f51689b = context;
+        this.f52238b = context;
     }
 
     @Override // android.widget.Adapter
@@ -53,7 +53,7 @@ public final class du extends BaseAdapter {
         List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            list = this.a.f51617e;
+            list = this.a.f52166e;
             return list.size();
         }
         return invokeV.intValue;
@@ -105,17 +105,17 @@ public final class du extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 dtVar = new dt(this.a);
-                RelativeLayout relativeLayout2 = new RelativeLayout(this.f51689b);
+                RelativeLayout relativeLayout2 = new RelativeLayout(this.f52238b);
                 relativeLayout2.setBackgroundDrawable(null);
                 relativeLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 80.0f)));
-                TextView textView3 = new TextView(this.f51689b);
+                TextView textView3 = new TextView(this.f52238b);
                 textView3.setId(2132344840);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 6.0f), com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 6.0f));
                 layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 8.0f), com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 15.0f), 0, 0);
                 layoutParams.addRule(10);
                 layoutParams.addRule(9);
                 relativeLayout2.addView(textView3, layoutParams);
-                TextView textView4 = new TextView(this.f51689b);
+                TextView textView4 = new TextView(this.f52238b);
                 textView4.setId(2132344842);
                 textView4.setTextColor(-13421773);
                 textView4.setLineSpacing(4.0f, 1.0f);
@@ -128,7 +128,7 @@ public final class du extends BaseAdapter {
                 layoutParams2.addRule(10);
                 layoutParams2.addRule(9);
                 relativeLayout2.addView(textView4, layoutParams2);
-                TextView textView5 = new TextView(this.f51689b);
+                TextView textView5 = new TextView(this.f52238b);
                 textView5.setTextSize(11.0f);
                 textView5.setTextColor(-6710887);
                 RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
@@ -136,7 +136,7 @@ public final class du extends BaseAdapter {
                 layoutParams3.addRule(10);
                 layoutParams3.addRule(11);
                 relativeLayout2.addView(textView5, layoutParams3);
-                TextView textView6 = new TextView(this.f51689b);
+                TextView textView6 = new TextView(this.f52238b);
                 textView6.setId(2132344843);
                 textView6.setTextSize(12.0f);
                 textView6.setLines(1);
@@ -157,9 +157,9 @@ public final class du extends BaseAdapter {
                 stateListDrawable.addState(new int[0], colorDrawable);
                 relativeLayout2.setBackgroundDrawable(stateListDrawable);
                 dtVar.a = textView4;
-                dtVar.f51685b = textView3;
-                dtVar.f51686c = textView5;
-                dtVar.f51687d = textView6;
+                dtVar.f52234b = textView3;
+                dtVar.f52235c = textView5;
+                dtVar.f52236d = textView6;
                 relativeLayout2.setTag(dtVar);
                 relativeLayout = relativeLayout2;
             } else {
@@ -167,47 +167,47 @@ public final class du extends BaseAdapter {
                 relativeLayout = view;
             }
             TextView textView7 = dtVar.a;
-            list = this.a.f51617e;
+            list = this.a.f52166e;
             textView7.setText((String) ((Map) list.get(i2)).get("content"));
-            TextView textView8 = dtVar.f51686c;
-            list2 = this.a.f51617e;
+            TextView textView8 = dtVar.f52235c;
+            list2 = this.a.f52166e;
             textView8.setText(FeedbackListActivity.a((String) ((Map) list2.get(i2)).get("time")));
-            list3 = this.a.f51617e;
+            list3 = this.a.f52166e;
             if (((String) ((Map) list3.get(i2)).get("replied")).equals("1")) {
-                textView = dtVar.f51687d;
+                textView = dtVar.f52236d;
                 sb = new StringBuilder("[已回复] ");
             } else {
-                list4 = this.a.f51617e;
+                list4 = this.a.f52166e;
                 if (((String) ((Map) list4.get(i2)).get("replied")).equals("0")) {
-                    textView = dtVar.f51687d;
+                    textView = dtVar.f52236d;
                     sb = new StringBuilder("[待回复] ");
                 } else {
-                    list5 = this.a.f51617e;
+                    list5 = this.a.f52166e;
                     if (!((String) ((Map) list5.get(i2)).get("replied")).equals("2")) {
-                        list6 = this.a.f51617e;
+                        list6 = this.a.f52166e;
                         if (((String) ((Map) list6.get(i2)).get("replied")).equals("3")) {
-                            textView = dtVar.f51687d;
+                            textView = dtVar.f52236d;
                             sb = new StringBuilder("[已评价] ");
                         }
-                        list7 = this.a.f51617e;
+                        list7 = this.a.f52166e;
                         if (((String) ((Map) list7.get(i2)).get("newmsg")).equals("0")) {
-                            textView2 = dtVar.f51685b;
+                            textView2 = dtVar.f52234b;
                             bitmapDrawable = new BitmapDrawable(FeedbackListActivity.o(this.a));
                         } else {
-                            textView2 = dtVar.f51685b;
+                            textView2 = dtVar.f52234b;
                             bitmapDrawable = null;
                         }
                         textView2.setBackgroundDrawable(bitmapDrawable);
                         return relativeLayout;
                     }
-                    textView = dtVar.f51687d;
+                    textView = dtVar.f52236d;
                     sb = new StringBuilder("[邀请评价] ");
                 }
             }
-            list8 = this.a.f51617e;
+            list8 = this.a.f52166e;
             sb.append((String) ((Map) list8.get(i2)).get("lastmsg"));
             textView.setText(sb.toString());
-            list7 = this.a.f51617e;
+            list7 = this.a.f52166e;
             if (((String) ((Map) list7.get(i2)).get("newmsg")).equals("0")) {
             }
             textView2.setBackgroundDrawable(bitmapDrawable);

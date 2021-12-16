@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LayerContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ILayer> mLayers;
+    public ArrayList<AbsLayer> mLayers;
     public FrameLayout.LayoutParams mLayoutParams;
     public BDVideoPlayer mPlayer;
 
@@ -59,7 +59,7 @@ public class LayerContainer extends FrameLayout {
     public void addLayer(@NonNull AbsLayer absLayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, absLayer) == null) {
-            addLayer(absLayer, this.mLayoutParams);
+            addLayer(absLayer, getContainerParams());
         }
     }
 
@@ -69,6 +69,7 @@ public class LayerContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, absLayer) == null) {
             detachLayer(absLayer);
             absLayer.setLayerContainer(this);
+            absLayer.attachMessenger(getBindPlayer().getMessenger());
             this.mLayers.add(0, absLayer);
             if (absLayer.getContentView() != null) {
                 addView(absLayer.getContentView(), 0, this.mLayoutParams);
@@ -76,18 +77,32 @@ public class LayerContainer extends FrameLayout {
         }
     }
 
+    public void attachLayerMessenger(@NonNull AbsLayer absLayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, absLayer) == null) {
+            absLayer.attachMessenger(getBindPlayer().getMessenger());
+        }
+    }
+
     public void bindPlayer(@NonNull BDVideoPlayer bDVideoPlayer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bDVideoPlayer) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bDVideoPlayer) == null) {
             this.mPlayer = bDVideoPlayer;
         }
     }
 
-    @PublicMethod
+    @Deprecated
     public void detachLayer(@NonNull ILayer iLayer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iLayer) == null) {
-            detachLayer(iLayer, false);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, iLayer) == null) && (iLayer instanceof AbsLayer)) {
+            detachLayer((AbsLayer) iLayer, false);
+        }
+    }
+
+    public void detachLayerMessenger(@NonNull AbsLayer absLayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, absLayer) == null) {
+            absLayer.detachMessenger();
         }
     }
 
@@ -96,36 +111,43 @@ public class LayerContainer extends FrameLayout {
     public BDVideoPlayer getBindPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mPlayer : (BDVideoPlayer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mPlayer : (BDVideoPlayer) invokeV.objValue;
+    }
+
+    public FrameLayout.LayoutParams getContainerParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new FrameLayout.LayoutParams(-1, -1) : (FrameLayout.LayoutParams) invokeV.objValue;
     }
 
     @PublicMethod
-    public ArrayList<ILayer> getLayerList() {
+    public ArrayList<AbsLayer> getLayerList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mLayers : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mLayers : (ArrayList) invokeV.objValue;
     }
 
     @PublicMethod
     public void insertLayer(@NonNull AbsLayer absLayer, @IntRange(from = 0, to = 20) int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, absLayer, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048589, this, absLayer, i2) == null) {
             detachLayer(absLayer);
             if (i2 < this.mLayers.size()) {
                 absLayer.setLayerContainer(this);
+                absLayer.attachMessenger(getBindPlayer().getMessenger());
                 this.mLayers.add(i2, absLayer);
-                addView(absLayer.getContentView(), i2, this.mLayoutParams);
+                addView(absLayer.getContentView(), i2, getContainerParams());
             }
         }
     }
 
     public void onContainerDetach() {
-        ArrayList<ILayer> arrayList;
+        ArrayList<AbsLayer> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (arrayList = this.mLayers) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (arrayList = this.mLayers) == null) {
             return;
         }
-        Iterator<ILayer> it = arrayList.iterator();
+        Iterator<AbsLayer> it = arrayList.iterator();
         while (it.hasNext()) {
             it.next().onContainerDetach();
         }
@@ -134,7 +156,7 @@ public class LayerContainer extends FrameLayout {
     @PublicMethod
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             int size = this.mLayers.size();
             for (int i2 = 0; i2 < size; i2++) {
                 this.mLayers.get(i2).onLayerRelease();
@@ -145,36 +167,24 @@ public class LayerContainer extends FrameLayout {
     }
 
     @PublicMethod
-    public void addLayer(@NonNull AbsLayer absLayer, FrameLayout.LayoutParams layoutParams) {
+    public boolean addLayer(@NonNull AbsLayer absLayer, FrameLayout.LayoutParams layoutParams) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absLayer, layoutParams) == null) || this.mLayers.contains(absLayer)) {
-            return;
-        }
-        absLayer.setLayerContainer(this);
-        absLayer.initLayer();
-        this.mLayers.add(absLayer);
-        if (absLayer.getContentView() == null || absLayer.getContentView() == this) {
-            return;
-        }
-        addView(absLayer.getContentView(), layoutParams);
-    }
-
-    @PublicMethod
-    public void detachLayer(@NonNull ILayer iLayer, boolean z) {
-        BDVideoPlayer bDVideoPlayer;
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048581, this, iLayer, z) == null) {
-            this.mLayers.remove(iLayer);
-            iLayer.onLayerDetach();
-            if (iLayer.getContentView() != null && (viewGroup = (ViewGroup) iLayer.getContentView().getParent()) != null) {
-                viewGroup.removeView(iLayer.getContentView());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absLayer, layoutParams)) == null) {
+            if (this.mLayers.contains(absLayer)) {
+                return false;
             }
-            if (!z || (bDVideoPlayer = this.mPlayer) == null) {
-                return;
+            absLayer.setLayerContainer(this);
+            absLayer.initLayer();
+            absLayer.attachMessenger(getBindPlayer().getMessenger());
+            this.mLayers.add(absLayer);
+            if (absLayer.getContentView() == null || absLayer.getContentView() == this) {
+                return false;
             }
-            bDVideoPlayer.getVideoSession().unregisterLayer(iLayer);
+            addView(absLayer.getContentView(), layoutParams);
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -197,6 +207,14 @@ public class LayerContainer extends FrameLayout {
             }
         }
         init();
+    }
+
+    @Deprecated
+    public void detachLayer(@NonNull ILayer iLayer, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, iLayer, z) == null) && (iLayer instanceof AbsLayer)) {
+            detachLayer((AbsLayer) iLayer, z);
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -222,15 +240,43 @@ public class LayerContainer extends FrameLayout {
     }
 
     @PublicMethod
+    public void detachLayer(@NonNull AbsLayer absLayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, absLayer) == null) {
+            detachLayer(absLayer, false);
+        }
+    }
+
+    @PublicMethod
+    public void detachLayer(@NonNull AbsLayer absLayer, boolean z) {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, absLayer, z) == null) {
+            if (absLayer instanceof BaseKernelLayer) {
+                this.mPlayer.onKernelLayerPreDetach();
+            }
+            this.mLayers.remove(absLayer);
+            absLayer.onLayerDetach();
+            if (absLayer.getContentView() != null && (viewGroup = (ViewGroup) absLayer.getContentView().getParent()) != null) {
+                viewGroup.removeView(absLayer.getContentView());
+            }
+            if (z) {
+                absLayer.detachMessenger();
+            }
+        }
+    }
+
+    @PublicMethod
     public void insertLayer(@NonNull AbsLayer absLayer, @Nullable FrameLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, absLayer, layoutParams) == null) || this.mLayers.contains(absLayer)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048590, this, absLayer, layoutParams) == null) || this.mLayers.contains(absLayer)) {
             return;
         }
         absLayer.setLayerContainer(this);
+        absLayer.attachMessenger(getBindPlayer().getMessenger());
         this.mLayers.add(absLayer);
         if (layoutParams == null) {
-            layoutParams = this.mLayoutParams;
+            layoutParams = getContainerParams();
         }
         if (absLayer.getContentView() != this) {
             addView(absLayer.getContentView(), layoutParams);

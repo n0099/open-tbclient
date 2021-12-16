@@ -25,14 +25,14 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NavigableSet;
 import java.util.SortedSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxverideShim<E> implements NavigableSet<E>, f1<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final transient Comparator<? super E> comparator;
     public transient ImmutableSortedSet<E> descendingSet;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SerializedForm<E> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -73,13 +73,13 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a<E> extends ImmutableSet.a<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Comparator<? super E> f56230f;
+        public final Comparator<? super E> f56811f;
 
         public a(Comparator<? super E> comparator) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
                 }
             }
             n.p(comparator);
-            this.f56230f = comparator;
+            this.f56811f = comparator;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -159,9 +159,9 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                ImmutableSortedSet<E> construct = ImmutableSortedSet.construct(this.f56230f, this.f56187b, this.a);
-                this.f56187b = construct.size();
-                this.f56188c = true;
+                ImmutableSortedSet<E> construct = ImmutableSortedSet.construct(this.f56811f, this.f56768b, this.a);
+                this.f56768b = construct.size();
+                this.f56769c = true;
                 return construct;
             }
             return (ImmutableSortedSet) invokeV.objValue;

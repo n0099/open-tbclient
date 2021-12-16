@@ -12,22 +12,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class z implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f58091c;
+    public static Handler f58672c;
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.sdk.core.webview.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f58092b;
+    public com.kwad.sdk.core.download.a.b f58673b;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f58093d;
+    public b f58674d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class z implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         @MainThread
         void a(int i2);
@@ -70,10 +70,10 @@ public class z implements com.kwad.sdk.core.webview.kwai.a {
             }
         }
         this.a = aVar;
-        this.f58092b = bVar;
-        this.f58093d = bVar2;
-        if (f58091c == null) {
-            f58091c = new Handler(Looper.getMainLooper());
+        this.f58673b = bVar;
+        this.f58674d = bVar2;
+        if (f58672c == null) {
+            f58672c = new Handler(Looper.getMainLooper());
         }
     }
 
@@ -95,13 +95,13 @@ public class z implements com.kwad.sdk.core.webview.kwai.a {
                 }
                 a aVar = new a();
                 aVar.parseJson(new JSONObject(str));
-                f58091c.post(new Runnable(this, aVar.a) { // from class: com.kwad.sdk.core.webview.jshandler.z.1
+                f58672c.post(new Runnable(this, aVar.a) { // from class: com.kwad.sdk.core.webview.jshandler.z.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ int a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ z f58094b;
+                    public final /* synthetic */ z f58675b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -118,17 +118,17 @@ public class z implements com.kwad.sdk.core.webview.kwai.a {
                                 return;
                             }
                         }
-                        this.f58094b = this;
+                        this.f58675b = this;
                         this.a = r7;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f58094b.f58093d == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f58675b.f58674d == null) {
                             return;
                         }
-                        this.f58094b.f58093d.a(this.a);
+                        this.f58675b.f58674d.a(this.a);
                     }
                 });
             } catch (Exception e2) {

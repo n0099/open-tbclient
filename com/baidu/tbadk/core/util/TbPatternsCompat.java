@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class TbPatternsCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern AT_PERSON_END_WITH_BLANK;

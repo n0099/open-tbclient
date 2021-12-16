@@ -8,7 +8,7 @@ import com.kwad.sdk.c.kwai.d;
 import com.kwad.sdk.core.report.ReportAction;
 import com.kwad.sdk.core.report.f;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,8 +18,8 @@ public class b {
         if ((interceptable == null || interceptable.invokeLI(65536, null, dVar, i2) == null) && a()) {
             ReportAction reportAction = new ReportAction(230L);
             reportAction.bz = dVar.a;
-            reportAction.bA = dVar.f57075e;
-            reportAction.bB = dVar.f57077g;
+            reportAction.bA = dVar.f57656e;
+            reportAction.bB = dVar.f57658g;
             reportAction.bC = i2;
             reportAction.bD = System.currentTimeMillis();
             f.a(reportAction);
@@ -31,8 +31,8 @@ public class b {
         if ((interceptable == null || interceptable.invokeLIL(65537, null, dVar, i2, str) == null) && a()) {
             ReportAction reportAction = new ReportAction(230L);
             reportAction.bz = dVar.a;
-            reportAction.bA = dVar.f57075e;
-            reportAction.bB = dVar.f57077g;
+            reportAction.bA = dVar.f57656e;
+            reportAction.bB = dVar.f57658g;
             reportAction.bC = 0;
             reportAction.bE = i2;
             reportAction.bD = System.currentTimeMillis();

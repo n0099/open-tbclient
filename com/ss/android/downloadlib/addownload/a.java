@@ -15,20 +15,20 @@ import com.ss.android.downloadlib.g.m;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements m.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f61166b;
+    public static a f61747b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public m f61167c;
+    public m f61748c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f61168d;
+    public long f61749d;
 
     static {
         InterceptResult invokeClinit;
@@ -58,21 +58,21 @@ public class a implements m.a {
                 return;
             }
         }
-        this.f61167c = new m(Looper.getMainLooper(), this);
+        this.f61748c = new m(Looper.getMainLooper(), this);
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f61166b == null) {
+            if (f61747b == null) {
                 synchronized (a.class) {
-                    if (f61166b == null) {
-                        f61166b = new a();
+                    if (f61747b == null) {
+                        f61747b = new a();
                     }
                 }
             }
-            return f61166b;
+            return f61747b;
         }
         return (a) invokeV.objValue;
     }
@@ -84,12 +84,12 @@ public class a implements m.a {
             com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
             if (a2.a("back_miui_silent_install", 1) == 0 && ((com.ss.android.socialbase.appdownloader.f.d.l() || com.ss.android.socialbase.appdownloader.f.d.m()) && com.ss.android.socialbase.downloader.i.j.a(j.getContext(), "com.miui.securitycore", "com.miui.enterprise.service.EntInstallService"))) {
                 if (com.ss.android.socialbase.downloader.i.f.a(downloadInfo.getTempCacheData().get("extra_silent_install_succeed"), false)) {
-                    Message obtainMessage = this.f61167c.obtainMessage(200, aVar);
+                    Message obtainMessage = this.f61748c.obtainMessage(200, aVar);
                     obtainMessage.arg1 = 2;
-                    this.f61167c.sendMessageDelayed(obtainMessage, a2.a("check_silent_install_interval", 60000));
+                    this.f61748c.sendMessageDelayed(obtainMessage, a2.a("check_silent_install_interval", 60000));
                     return;
                 }
-                com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(aVar.f61193b);
+                com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(aVar.f61774b);
                 JSONObject jSONObject = new JSONObject();
                 int i2 = -1;
                 try {
@@ -102,16 +102,16 @@ public class a implements m.a {
                 com.ss.android.downloadlib.d.a.a().a("embeded_ad", "ah_result", jSONObject, d2);
             }
             if (com.ss.android.downloadlib.g.e.c()) {
-                long currentTimeMillis = System.currentTimeMillis() - this.f61168d;
+                long currentTimeMillis = System.currentTimeMillis() - this.f61749d;
                 long d3 = com.ss.android.downloadlib.g.e.d();
                 if (currentTimeMillis < com.ss.android.downloadlib.g.e.e()) {
                     long e2 = com.ss.android.downloadlib.g.e.e() - currentTimeMillis;
                     d3 += e2;
-                    this.f61168d = System.currentTimeMillis() + e2;
+                    this.f61749d = System.currentTimeMillis() + e2;
                 } else {
-                    this.f61168d = System.currentTimeMillis();
+                    this.f61749d = System.currentTimeMillis();
                 }
-                m mVar = this.f61167c;
+                m mVar = this.f61748c;
                 mVar.sendMessageDelayed(mVar.obtainMessage(200, aVar), d3);
             }
         }
@@ -123,12 +123,12 @@ public class a implements m.a {
             return;
         }
         if (2 == i2) {
-            com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(aVar.f61193b);
+            com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(aVar.f61774b);
             JSONObject jSONObject = new JSONObject();
             int i3 = -1;
             try {
                 jSONObject.put("ttdownloader_type", "miui_silent_install");
-                if (com.ss.android.downloadlib.g.l.d(j.getContext(), aVar.f61195d)) {
+                if (com.ss.android.downloadlib.g.l.d(j.getContext(), aVar.f61776d)) {
                     jSONObject.put("ttdownloader_message", "miui_silent_install_succeed");
                     i3 = 4;
                 } else {
@@ -140,14 +140,14 @@ public class a implements m.a {
             j.f().a(null, new BaseException(i3, jSONObject.toString()), i3);
             com.ss.android.downloadlib.d.a.a().a("embeded_ad", "ah_result", jSONObject, d2);
         }
-        if (com.ss.android.downloadlib.g.l.d(j.getContext(), aVar.f61195d)) {
-            com.ss.android.downloadlib.d.a.a().a("delayinstall_installed", aVar.f61193b);
-        } else if (!com.ss.android.downloadlib.g.l.a(aVar.f61198g)) {
-            com.ss.android.downloadlib.d.a.a().a("delayinstall_file_lost", aVar.f61193b);
-        } else if (com.ss.android.downloadlib.addownload.a.a.a().a(aVar.f61195d)) {
-            com.ss.android.downloadlib.d.a.a().a("delayinstall_conflict_with_back_dialog", aVar.f61193b);
+        if (com.ss.android.downloadlib.g.l.d(j.getContext(), aVar.f61776d)) {
+            com.ss.android.downloadlib.d.a.a().a("delayinstall_installed", aVar.f61774b);
+        } else if (!com.ss.android.downloadlib.g.l.a(aVar.f61779g)) {
+            com.ss.android.downloadlib.d.a.a().a("delayinstall_file_lost", aVar.f61774b);
+        } else if (com.ss.android.downloadlib.addownload.a.a.a().a(aVar.f61776d)) {
+            com.ss.android.downloadlib.d.a.a().a("delayinstall_conflict_with_back_dialog", aVar.f61774b);
         } else {
-            com.ss.android.downloadlib.d.a.a().a("delayinstall_install_start", aVar.f61193b);
+            com.ss.android.downloadlib.d.a.a().a("delayinstall_install_start", aVar.f61774b);
             com.ss.android.socialbase.appdownloader.d.a(j.getContext(), (int) aVar.a);
         }
     }

@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public SensorManager rH;
     public Sensor vS;
-    public InterfaceC1706a vT;
+    public InterfaceC1745a vT;
     public boolean vU;
     public LinkedList<Double> vV;
     public LinkedList<Float> vW;
@@ -31,8 +31,8 @@ public class a implements SensorEventListener {
     public boolean wc;
 
     /* renamed from: com.baidu.ar.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC1706a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC1745a {
         void b(float f2, float f3, float f4, float f5);
 
         void destroy();
@@ -72,10 +72,10 @@ public class a implements SensorEventListener {
         }
     }
 
-    public void a(InterfaceC1706a interfaceC1706a) {
+    public void a(InterfaceC1745a interfaceC1745a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1706a) == null) {
-            this.vT = interfaceC1706a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1745a) == null) {
+            this.vT = interfaceC1745a;
         }
     }
 
@@ -100,7 +100,7 @@ public class a implements SensorEventListener {
     }
 
     public void b(float f2, float f3, float f4) {
-        InterfaceC1706a interfaceC1706a;
+        InterfaceC1745a interfaceC1745a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
             double sqrt = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
@@ -136,11 +136,11 @@ public class a implements SensorEventListener {
                         this.wb = false;
                     } else if (d3 < 10.0d) {
                         this.wb = true;
-                        interfaceC1706a = this.vT;
-                        if (interfaceC1706a == null) {
+                        interfaceC1745a = this.vT;
+                        if (interfaceC1745a == null) {
                             return;
                         }
-                        interfaceC1706a.b(f8, f9, f10, (float) this.wa);
+                        interfaceC1745a.b(f8, f9, f10, (float) this.wa);
                         this.wa = 0.0d;
                     }
                 } else if (this.wb) {
@@ -150,11 +150,11 @@ public class a implements SensorEventListener {
                     this.wb = false;
                 } else if (d3 < 5.0d) {
                     this.wb = true;
-                    interfaceC1706a = this.vT;
-                    if (interfaceC1706a == null) {
+                    interfaceC1745a = this.vT;
+                    if (interfaceC1745a == null) {
                         return;
                     }
-                    interfaceC1706a.b(f8, f9, f10, (float) this.wa);
+                    interfaceC1745a.b(f8, f9, f10, (float) this.wa);
                     this.wa = 0.0d;
                 }
             }
@@ -206,9 +206,9 @@ public class a implements SensorEventListener {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            InterfaceC1706a interfaceC1706a = this.vT;
-            if (interfaceC1706a != null) {
-                interfaceC1706a.destroy();
+            InterfaceC1745a interfaceC1745a = this.vT;
+            if (interfaceC1745a != null) {
+                interfaceC1745a.destroy();
                 this.vT = null;
             }
             SensorManager sensorManager = this.rH;

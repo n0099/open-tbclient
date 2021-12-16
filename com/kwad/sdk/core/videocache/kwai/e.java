@@ -10,20 +10,20 @@ import java.io.File;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Callable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final File f57933b;
+        public final File f58514b;
 
         public a(e eVar, File file) {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
                 }
             }
             this.a = eVar;
-            this.f57933b = file;
+            this.f58514b = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -51,7 +51,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.a.b(this.f57933b);
+                this.a.b(this.f58514b);
                 return null;
             }
             return (Void) invokeV.objValue;

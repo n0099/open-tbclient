@@ -10,7 +10,7 @@ import com.yy.hiidostatis.message.MessageMonitor;
 import com.yy.hiidostatis.provider.GlobalProvider;
 import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CacheManagerProvider implements Provider<TaskDataSqLiteCacheManager> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

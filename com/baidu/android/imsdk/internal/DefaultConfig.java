@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DefaultConfig implements IIMConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TOKEN_SEPARATOR = ".";

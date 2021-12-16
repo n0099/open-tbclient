@@ -12,7 +12,7 @@ import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class c extends BaseAdRipper {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x009b A[Catch: JSONException -> 0x0100, TryCatch #0 {JSONException -> 0x0100, blocks: (B:11:0x001e, B:13:0x002b, B:15:0x0033, B:17:0x0047, B:19:0x0056, B:25:0x0068, B:27:0x0070, B:33:0x009b, B:35:0x00a3, B:36:0x00ab, B:28:0x0082, B:30:0x008a), top: B:45:0x001e }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x009d A[Catch: JSONException -> 0x0102, TryCatch #0 {JSONException -> 0x0102, blocks: (B:11:0x001e, B:13:0x002b, B:15:0x0033, B:17:0x0048, B:19:0x0058, B:25:0x006a, B:27:0x0072, B:33:0x009d, B:35:0x00a5, B:36:0x00ad, B:28:0x0084, B:30:0x008c), top: B:45:0x001e }] */
     @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
     /*
         Code decompiled incorrectly, please refer to instructions dump.

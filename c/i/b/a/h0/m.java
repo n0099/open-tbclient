@@ -7,25 +7,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.upstream.HttpDataSource;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class m extends HttpDataSource.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f30185b;
+    public final String f30555b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final p<? super e> f30186c;
+    public final p<? super e> f30556c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f30187d;
+    public final int f30557d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f30188e;
+    public final int f30558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f30189f;
+    public final boolean f30559f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public m(String str, p<? super e> pVar) {
@@ -54,7 +54,7 @@ public final class m extends HttpDataSource.a {
     public l c(HttpDataSource.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? new l(this.f30185b, null, this.f30186c, this.f30187d, this.f30188e, this.f30189f, bVar) : (l) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? new l(this.f30555b, null, this.f30556c, this.f30557d, this.f30558e, this.f30559f, bVar) : (l) invokeL.objValue;
     }
 
     public m(String str, p<? super e> pVar, int i2, int i3, boolean z) {
@@ -72,10 +72,10 @@ public final class m extends HttpDataSource.a {
                 return;
             }
         }
-        this.f30185b = str;
-        this.f30186c = pVar;
-        this.f30187d = i2;
-        this.f30188e = i3;
-        this.f30189f = z;
+        this.f30555b = str;
+        this.f30556c = pVar;
+        this.f30557d = i2;
+        this.f30558e = i3;
+        this.f30559f = z;
     }
 }

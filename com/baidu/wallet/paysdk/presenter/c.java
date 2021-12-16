@@ -10,7 +10,7 @@ import com.baidu.wallet.base.datamodel.Authorize;
 import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
 import com.baidu.wallet.paysdk.ui.AuthorizeSignActivity;
 import com.baidu.wallet.paysdk.ui.widget.AuthorizeInfoView;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class c extends a {
                 return;
             }
         }
-        this.f53576b = 3;
+        this.f54156b = 3;
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.a, com.baidu.wallet.paysdk.presenter.e
@@ -42,9 +42,9 @@ public class c extends a {
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.a(z);
             if (z) {
-                this.f53576b = 3;
+                this.f54156b = 3;
             } else {
-                this.f53576b = 4;
+                this.f54156b = 4;
             }
         }
     }

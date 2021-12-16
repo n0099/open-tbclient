@@ -18,30 +18,30 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OkHttpClient f32444b;
+    public final OkHttpClient f32814b;
 
     /* renamed from: com.baidu.android.pushservice.e.a$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.android.pushservice.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C1662a implements Interceptor {
+    /* loaded from: classes9.dex */
+    public class C1701a implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1662a(a aVar) {
+        public C1701a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public class a {
             this.a = aVar;
         }
 
-        public /* synthetic */ C1662a(a aVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C1701a(a aVar, AnonymousClass1 anonymousClass1) {
             this(aVar);
         }
 
@@ -95,7 +95,7 @@ public class a {
                 return;
             }
         }
-        this.f32444b = new OkHttpClient.Builder().addInterceptor(new C1662a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
+        this.f32814b = new OkHttpClient.Builder().addInterceptor(new C1701a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
     }
 
     public static a a() {
@@ -169,7 +169,7 @@ public class a {
                     }
                     headers = new Request.Builder().url(str).headers(a(hashMap));
                 }
-                Response execute = this.f32444b.newCall(headers.build()).execute();
+                Response execute = this.f32814b.newCall(headers.build()).execute();
                 bVar.a(execute.code());
                 bVar.a(execute.body().byteStream());
             } catch (IOException | Exception unused) {
@@ -194,7 +194,7 @@ public class a {
                     }
                     headers = new Request.Builder().url(str).headers(a(str3, str4));
                 }
-                Response execute = this.f32444b.newCall(headers.build()).execute();
+                Response execute = this.f32814b.newCall(headers.build()).execute();
                 bVar.a(execute.code());
                 bVar.a(execute.body().byteStream());
             } catch (IOException | Exception unused) {

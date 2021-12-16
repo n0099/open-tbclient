@@ -10,9 +10,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import c.a.d.f.m.h;
-import c.a.d.f.p.m;
-import c.a.d.f.p.q;
-import c.a.q0.s.e0.b;
+import c.a.d.f.p.n;
+import c.a.d.f.p.r;
+import c.a.r0.s.g0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,7 +32,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PullViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CLOSE_PULLVIEW_DELAYED_TIME = 0;
@@ -55,12 +55,12 @@ public class PullViewHelper {
     public int pullview_backgroundColor_day;
     public int pullview_backgroundColor_night;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface CallBack {
         void result(boolean z);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class PullViewDrawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -203,24 +203,24 @@ public class PullViewHelper {
                 th = th;
             }
             try {
-                String b2 = q.b(fileInputStream);
+                String b2 = r.b(fileInputStream);
                 if (!TextUtils.isEmpty(b2)) {
                     if (b2.equalsIgnoreCase(str)) {
-                        m.e(fileInputStream);
+                        n.e(fileInputStream);
                         return true;
                     }
                 }
-                m.e(fileInputStream);
+                n.e(fileInputStream);
             } catch (Exception e3) {
                 e = e3;
                 fileInputStream2 = fileInputStream;
                 e.printStackTrace();
-                m.e(fileInputStream2);
+                n.e(fileInputStream2);
                 return false;
             } catch (Throwable th2) {
                 th = th2;
                 fileInputStream2 = fileInputStream;
-                m.e(fileInputStream2);
+                n.e(fileInputStream2);
                 throw th;
             }
             return false;
@@ -261,19 +261,19 @@ public class PullViewHelper {
                                 }
                             }
                         } else {
-                            m.e(zipInputStream2);
+                            n.e(zipInputStream2);
                             return;
                         }
                     } catch (Exception e2) {
                         e = e2;
                         zipInputStream = zipInputStream2;
                         e.printStackTrace();
-                        m.e(zipInputStream);
+                        n.e(zipInputStream);
                         return;
                     } catch (Throwable th) {
                         th = th;
                         zipInputStream = zipInputStream2;
-                        m.e(zipInputStream);
+                        n.e(zipInputStream);
                         throw th;
                     }
                 }
@@ -447,7 +447,7 @@ public class PullViewHelper {
                 if (read != -1) {
                     fileOutputStream.write(bArr, 0, read);
                 } else {
-                    m.f(fileOutputStream);
+                    n.f(fileOutputStream);
                     return;
                 }
             }
@@ -455,11 +455,11 @@ public class PullViewHelper {
             e = e3;
             fileOutputStream2 = fileOutputStream;
             e.printStackTrace();
-            m.f(fileOutputStream2);
+            n.f(fileOutputStream2);
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream2 = fileOutputStream;
-            m.f(fileOutputStream2);
+            n.f(fileOutputStream2);
             throw th;
         }
     }

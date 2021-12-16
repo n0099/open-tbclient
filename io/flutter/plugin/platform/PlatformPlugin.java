@@ -27,7 +27,7 @@ import io.flutter.Log;
 import io.flutter.embedding.engine.systemchannels.PlatformChannel;
 import java.io.FileNotFoundException;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PlatformPlugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SYSTEM_UI = 1280;
@@ -42,7 +42,7 @@ public class PlatformPlugin {
     public final PlatformPluginDelegate platformPluginDelegate;
 
     /* renamed from: io.flutter.plugin.platform.PlatformPlugin$3  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$Brightness;
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$HapticFeedbackType;
@@ -108,7 +108,7 @@ public class PlatformPlugin {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface PlatformPluginDelegate {
         boolean popSystemNavigator();
     }

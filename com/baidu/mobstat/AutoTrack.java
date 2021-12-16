@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AutoTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int JOB_TYPE_BGSEND = 2;
     public static final int JOB_TYPE_SESSIONTIME = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class MyActivityLifeCallback implements ActivityLifeObserver.IActivityLifeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

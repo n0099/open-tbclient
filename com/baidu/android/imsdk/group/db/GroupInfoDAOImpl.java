@@ -30,14 +30,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GroupInfoDAOImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GroupInfoDAOImpl";
     public static GroupInfoParse sGroupInfoParse;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class GroupInfoParse implements IResultParse<GroupInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

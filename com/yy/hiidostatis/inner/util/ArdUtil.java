@@ -54,7 +54,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ArdUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NET_2G = 1;
@@ -493,7 +493,7 @@ public class ArdUtil {
                 return str;
             }
             try {
-                if (checkPermissions(context, s.f56839d) && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
+                if (checkPermissions(context, s.f57420d) && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
                     WifiInfo connectionInfo = wifiManager.getConnectionInfo();
                     mMacAddress = connectionInfo == null ? null : connectionInfo.getMacAddress();
                 }
@@ -570,7 +570,7 @@ public class ArdUtil {
             StringBuilder sb = new StringBuilder();
             try {
                 try {
-                    fileInputStream = new FileInputStream(z.f56920b);
+                    fileInputStream = new FileInputStream(z.f57501b);
                     try {
                         byte[] bArr = new byte[24];
                         while (fileInputStream.read(bArr) != -1) {
@@ -1128,7 +1128,7 @@ public class ArdUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, context)) == null) {
             try {
-                if (!checkPermissions(context, s.f56839d) || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
+                if (!checkPermissions(context, s.f57420d) || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
                     return null;
                 }
                 return wifiManager.getConnectionInfo();
@@ -1148,7 +1148,7 @@ public class ArdUtil {
             return (String) invokeL.objValue;
         }
         try {
-            if (!checkPermissions(context, s.f56839d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+            if (!checkPermissions(context, s.f57420d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                 return null;
             }
             return connectionInfo.getSSID();

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.load.engine.Resource;
 import java.io.IOException;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface ResourceDecoder<T, Z> {
     @Nullable
     Resource<Z> decode(@NonNull T t, int i2, int i3, @NonNull Options options) throws IOException;

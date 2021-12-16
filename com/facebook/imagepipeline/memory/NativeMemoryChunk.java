@@ -17,7 +17,7 @@ import java.io.Closeable;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class NativeMemoryChunk implements MemoryChunk, Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NativeMemoryChunk";

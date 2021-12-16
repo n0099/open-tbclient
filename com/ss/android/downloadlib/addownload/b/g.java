@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61230b;
+    public int f61811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61231c;
+    public String f61812c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public g(int i2) {
@@ -42,13 +42,13 @@ public class g {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61230b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61811b : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61231c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61812c : (String) invokeV.objValue;
     }
 
     public int getType() {
@@ -115,7 +115,7 @@ public class g {
             }
         }
         this.a = i2;
-        this.f61230b = i3;
-        this.f61231c = str;
+        this.f61811b = i3;
+        this.f61812c = str;
     }
 }

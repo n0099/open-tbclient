@@ -22,29 +22,29 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.utils.z;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KSFrameLayout extends FrameLayout implements j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f59708b;
+    public h f60289b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f59709c;
+    public j f60290c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f59710d;
+    public i f60291d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f59711e;
+    public float f60292e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final z.a f59712f;
+    public final z.a f60293f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f59713g;
+    public boolean f60294g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KSFrameLayout(@NonNull Context context) {
@@ -65,9 +65,9 @@ public class KSFrameLayout extends FrameLayout implements j {
             }
         }
         this.a = new AtomicBoolean(true);
-        this.f59711e = 0.0f;
-        this.f59712f = new z.a();
-        this.f59713g = true;
+        this.f60292e = 0.0f;
+        this.f60293f = new z.a();
+        this.f60294g = true;
         a(context, null);
     }
 
@@ -91,9 +91,9 @@ public class KSFrameLayout extends FrameLayout implements j {
             }
         }
         this.a = new AtomicBoolean(true);
-        this.f59711e = 0.0f;
-        this.f59712f = new z.a();
-        this.f59713g = true;
+        this.f60292e = 0.0f;
+        this.f60293f = new z.a();
+        this.f60294g = true;
         a(context, attributeSet);
     }
 
@@ -117,9 +117,9 @@ public class KSFrameLayout extends FrameLayout implements j {
             }
         }
         this.a = new AtomicBoolean(true);
-        this.f59711e = 0.0f;
-        this.f59712f = new z.a();
-        this.f59713g = true;
+        this.f60292e = 0.0f;
+        this.f60293f = new z.a();
+        this.f60294g = true;
         a(context, attributeSet);
     }
 
@@ -131,14 +131,14 @@ public class KSFrameLayout extends FrameLayout implements j {
                 int[] iArr = {i2};
                 Arrays.sort(iArr);
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-                this.f59711e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, i2), 0.0f);
+                this.f60292e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, i2), 0.0f);
                 obtainStyledAttributes.recycle();
             }
             h hVar = new h(this, this);
-            this.f59708b = hVar;
+            this.f60289b = hVar;
             hVar.a(n());
             i iVar = new i();
-            this.f59710d = iVar;
+            this.f60291d = iVar;
             iVar.a(context, attributeSet);
         }
     }
@@ -170,14 +170,14 @@ public class KSFrameLayout extends FrameLayout implements j {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f59708b.b();
+            this.f60289b.b();
         }
     }
 
     public void a(float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            this.f59710d.a(b(f2, f3, f4, f5));
+            this.f60291d.a(b(f2, f3, f4, f5));
             postInvalidate();
         }
     }
@@ -186,7 +186,7 @@ public class KSFrameLayout extends FrameLayout implements j {
     public void a(View view) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (jVar = this.f59709c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (jVar = this.f60290c) == null) {
             return;
         }
         jVar.a(view);
@@ -196,7 +196,7 @@ public class KSFrameLayout extends FrameLayout implements j {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f59708b.c();
+            this.f60289b.c();
         }
     }
 
@@ -204,9 +204,9 @@ public class KSFrameLayout extends FrameLayout implements j {
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            this.f59710d.c(canvas);
+            this.f60291d.c(canvas);
             super.dispatchDraw(canvas);
-            this.f59710d.d(canvas);
+            this.f60291d.d(canvas);
         }
     }
 
@@ -217,10 +217,10 @@ public class KSFrameLayout extends FrameLayout implements j {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f59712f.a(getWidth(), getHeight());
-                this.f59712f.a(motionEvent.getX(), motionEvent.getY());
+                this.f60293f.a(getWidth(), getHeight());
+                this.f60293f.a(motionEvent.getX(), motionEvent.getY());
             } else if (action == 1) {
-                this.f59712f.b(motionEvent.getX(), motionEvent.getY());
+                this.f60293f.b(motionEvent.getX(), motionEvent.getY());
             }
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -231,9 +231,9 @@ public class KSFrameLayout extends FrameLayout implements j {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
-            this.f59710d.a(canvas);
+            this.f60291d.a(canvas);
             super.draw(canvas);
-            this.f59710d.b(canvas);
+            this.f60291d.b(canvas);
         }
     }
 
@@ -241,13 +241,13 @@ public class KSFrameLayout extends FrameLayout implements j {
     public z.a getTouchCoords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59712f : (z.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f60293f : (z.a) invokeV.objValue;
     }
 
     public float getVisiblePercent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59708b.a() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60289b.a() : invokeV.floatValue;
     }
 
     public boolean n() {
@@ -292,11 +292,11 @@ public class KSFrameLayout extends FrameLayout implements j {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) {
-            if (this.f59711e != 0.0f) {
-                if (this.f59713g) {
-                    i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f59711e), 1073741824);
+            if (this.f60292e != 0.0f) {
+                if (this.f60294g) {
+                    i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f60292e), 1073741824);
                 } else {
-                    i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i3) / this.f59711e), 1073741824);
+                    i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i3) / this.f60292e), 1073741824);
                 }
             }
             super.onMeasure(i2, i3);
@@ -307,10 +307,10 @@ public class KSFrameLayout extends FrameLayout implements j {
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048590, this, i2, i3, i4, i5) == null) {
-            this.f59708b.a(i2, i3, i4, i5);
+            this.f60289b.a(i2, i3, i4, i5);
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f59708b.b(i2, i3, i4, i5);
-            this.f59710d.a(i2, i3);
+            this.f60289b.b(i2, i3, i4, i5);
+            this.f60291d.a(i2, i3);
         }
     }
 
@@ -326,7 +326,7 @@ public class KSFrameLayout extends FrameLayout implements j {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.f59710d.a(f2);
+            this.f60291d.a(f2);
             postInvalidate();
         }
     }
@@ -334,28 +334,28 @@ public class KSFrameLayout extends FrameLayout implements j {
     public void setRatio(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048593, this, f2) == null) {
-            this.f59711e = f2;
+            this.f60292e = f2;
         }
     }
 
     public void setViewVisibleListener(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, jVar) == null) {
-            this.f59709c = jVar;
+            this.f60290c = jVar;
         }
     }
 
     public void setVisiblePercent(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048595, this, f2) == null) {
-            this.f59708b.a(f2);
+            this.f60289b.a(f2);
         }
     }
 
     public void setWidthBasedRatio(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f59713g = z;
+            this.f60294g = z;
         }
     }
 }

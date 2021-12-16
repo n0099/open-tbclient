@@ -26,7 +26,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ZeusPerformanceTiming {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_FILE = "startup_timing_log";
@@ -131,7 +131,7 @@ public class ZeusPerformanceTiming {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class Stage {
         public static final /* synthetic */ Stage[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -16,7 +16,7 @@ import java.util.Arrays;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RulesTargetNative extends NativeObject implements d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4726982809581153390L;

@@ -29,26 +29,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public static volatile f a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f61383b;
+    public final Handler f61964b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<com.ss.android.downloadlib.addownload.f> f61384c;
+    public final List<com.ss.android.downloadlib.addownload.f> f61965c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, com.ss.android.downloadlib.addownload.f> f61385d;
+    public final Map<String, com.ss.android.downloadlib.addownload.f> f61966d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CopyOnWriteArrayList<Object> f61386e;
+    public final CopyOnWriteArrayList<Object> f61967e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f61387f;
+    public long f61968f;
 
     static {
         InterceptResult invokeClinit;
@@ -78,22 +78,22 @@ public class f {
                 return;
             }
         }
-        this.f61384c = new CopyOnWriteArrayList();
-        this.f61385d = new ConcurrentHashMap();
-        this.f61386e = new CopyOnWriteArrayList<>();
-        this.f61383b = new Handler(Looper.getMainLooper());
+        this.f61965c = new CopyOnWriteArrayList();
+        this.f61966d = new ConcurrentHashMap();
+        this.f61967e = new CopyOnWriteArrayList<>();
+        this.f61964b = new Handler(Looper.getMainLooper());
     }
 
     private synchronized void b(Context context, int i2, DownloadStatusChangeListener downloadStatusChangeListener, DownloadModel downloadModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, i2, downloadStatusChangeListener, downloadModel) == null) {
             synchronized (this) {
-                if (this.f61384c.size() <= 0) {
+                if (this.f61965c.size() <= 0) {
                     c(context, i2, downloadStatusChangeListener, downloadModel);
                 } else {
-                    com.ss.android.downloadlib.addownload.f remove = this.f61384c.remove(0);
+                    com.ss.android.downloadlib.addownload.f remove = this.f61965c.remove(0);
                     remove.b(context).b(i2, downloadStatusChangeListener).b(downloadModel).a();
-                    this.f61385d.put(downloadModel.getDownloadUrl(), remove);
+                    this.f61966d.put(downloadModel.getDownloadUrl(), remove);
                 }
             }
         }
@@ -106,7 +106,7 @@ public class f {
         }
         com.ss.android.downloadlib.addownload.e eVar = new com.ss.android.downloadlib.addownload.e();
         eVar.b(context).b(i2, downloadStatusChangeListener).b(downloadModel).a();
-        this.f61385d.put(downloadModel.getDownloadUrl(), eVar);
+        this.f61966d.put(downloadModel.getDownloadUrl(), eVar);
     }
 
     private void d() {
@@ -114,7 +114,7 @@ public class f {
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList arrayList = new ArrayList();
-            for (com.ss.android.downloadlib.addownload.f fVar : this.f61384c) {
+            for (com.ss.android.downloadlib.addownload.f fVar : this.f61965c) {
                 if (!fVar.b() && currentTimeMillis - fVar.d() > 300000) {
                     fVar.h();
                     arrayList.add(fVar);
@@ -123,7 +123,7 @@ public class f {
             if (arrayList.isEmpty()) {
                 return;
             }
-            this.f61384c.removeAll(arrayList);
+            this.f61965c.removeAll(arrayList);
         }
     }
 
@@ -147,11 +147,11 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f61387f < 300000) {
+            if (currentTimeMillis - this.f61968f < 300000) {
                 return;
             }
-            this.f61387f = currentTimeMillis;
-            if (this.f61384c.isEmpty()) {
+            this.f61968f = currentTimeMillis;
+            if (this.f61965c.isEmpty()) {
                 return;
             }
             d();
@@ -163,10 +163,10 @@ public class f {
         if (!(interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2, downloadStatusChangeListener, downloadModel) == null) || downloadModel == null || TextUtils.isEmpty(downloadModel.getDownloadUrl())) {
             return;
         }
-        com.ss.android.downloadlib.addownload.f fVar = this.f61385d.get(downloadModel.getDownloadUrl());
+        com.ss.android.downloadlib.addownload.f fVar = this.f61966d.get(downloadModel.getDownloadUrl());
         if (fVar != null) {
             fVar.b(context).b(i2, downloadStatusChangeListener).b(downloadModel).a();
-        } else if (!this.f61384c.isEmpty()) {
+        } else if (!this.f61965c.isEmpty()) {
             b(context, i2, downloadStatusChangeListener, downloadModel);
         } else {
             c(context, i2, downloadStatusChangeListener, downloadModel);
@@ -176,16 +176,16 @@ public class f {
     public void b(DownloadInfo downloadInfo, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, downloadInfo, str) == null) {
-            this.f61383b.post(new Runnable(this, downloadInfo, str) { // from class: com.ss.android.downloadlib.f.4
+            this.f61964b.post(new Runnable(this, downloadInfo, str) { // from class: com.ss.android.downloadlib.f.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadInfo a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f61396b;
+                public final /* synthetic */ String f61977b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ f f61397c;
+                public final /* synthetic */ f f61978c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -202,24 +202,24 @@ public class f {
                             return;
                         }
                     }
-                    this.f61397c = this;
+                    this.f61978c = this;
                     this.a = downloadInfo;
-                    this.f61396b = str;
+                    this.f61977b = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Iterator it = this.f61397c.f61386e.iterator();
+                        Iterator it = this.f61978c.f61967e.iterator();
                         while (it.hasNext()) {
                             Object next = it.next();
                             if (next instanceof com.ss.android.download.api.download.a.a) {
-                                ((com.ss.android.download.api.download.a.a) next).b(this.a, this.f61396b);
+                                ((com.ss.android.download.api.download.a.a) next).b(this.a, this.f61977b);
                             } else if (next instanceof SoftReference) {
                                 SoftReference softReference = (SoftReference) next;
                                 if (softReference.get() instanceof com.ss.android.download.api.download.a.a) {
-                                    ((com.ss.android.download.api.download.a.a) softReference.get()).b(this.a, this.f61396b);
+                                    ((com.ss.android.download.api.download.a.a) softReference.get()).b(this.a, this.f61977b);
                                 }
                             }
                         }
@@ -232,16 +232,16 @@ public class f {
     public Handler b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f61383b : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f61964b : (Handler) invokeV.objValue;
     }
 
     public com.ss.android.downloadlib.addownload.e a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Map<String, com.ss.android.downloadlib.addownload.f> map = this.f61385d;
+            Map<String, com.ss.android.downloadlib.addownload.f> map = this.f61966d;
             if (map != null && map.size() != 0 && !TextUtils.isEmpty(str)) {
-                com.ss.android.downloadlib.addownload.f fVar = this.f61385d.get(str);
+                com.ss.android.downloadlib.addownload.f fVar = this.f61966d.get(str);
                 if (fVar instanceof com.ss.android.downloadlib.addownload.e) {
                     return (com.ss.android.downloadlib.addownload.e) fVar;
                 }
@@ -254,12 +254,12 @@ public class f {
     public void a(String str, int i2) {
         com.ss.android.downloadlib.addownload.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, str, i2) == null) || TextUtils.isEmpty(str) || (fVar = this.f61385d.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, str, i2) == null) || TextUtils.isEmpty(str) || (fVar = this.f61966d.get(str)) == null) {
             return;
         }
         if (fVar.a(i2)) {
-            this.f61384c.add(fVar);
-            this.f61385d.remove(str);
+            this.f61965c.add(fVar);
+            this.f61966d.remove(str);
         }
         c();
     }
@@ -267,7 +267,7 @@ public class f {
     public void a(String str, boolean z) {
         com.ss.android.downloadlib.addownload.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048586, this, str, z) == null) || TextUtils.isEmpty(str) || (fVar = this.f61385d.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048586, this, str, z) == null) || TextUtils.isEmpty(str) || (fVar = this.f61966d.get(str)) == null) {
             return;
         }
         fVar.a(z);
@@ -283,7 +283,7 @@ public class f {
     public void a(String str, long j2, int i2, DownloadEventConfig downloadEventConfig, DownloadController downloadController, u uVar, IDownloadButtonClickListener iDownloadButtonClickListener) {
         com.ss.android.downloadlib.addownload.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), downloadEventConfig, downloadController, uVar, iDownloadButtonClickListener}) == null) || TextUtils.isEmpty(str) || (fVar = this.f61385d.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), downloadEventConfig, downloadController, uVar, iDownloadButtonClickListener}) == null) || TextUtils.isEmpty(str) || (fVar = this.f61966d.get(str)) == null) {
             return;
         }
         fVar.a(j2).b(downloadEventConfig).b(downloadController).a(uVar).a(iDownloadButtonClickListener).b(i2);
@@ -295,28 +295,28 @@ public class f {
             return;
         }
         if (com.ss.android.socialbase.downloader.g.a.c().b("fix_listener_oom", false)) {
-            this.f61386e.add(new SoftReference(aVar));
+            this.f61967e.add(new SoftReference(aVar));
         } else {
-            this.f61386e.add(aVar);
+            this.f61967e.add(aVar);
         }
     }
 
     public void a(DownloadModel downloadModel, @Nullable DownloadController downloadController, @Nullable DownloadEventConfig downloadEventConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, downloadModel, downloadController, downloadEventConfig) == null) {
-            this.f61383b.post(new Runnable(this, downloadModel, downloadController, downloadEventConfig) { // from class: com.ss.android.downloadlib.f.1
+            this.f61964b.post(new Runnable(this, downloadModel, downloadController, downloadEventConfig) { // from class: com.ss.android.downloadlib.f.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadModel a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ DownloadController f61388b;
+                public final /* synthetic */ DownloadController f61969b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadEventConfig f61389c;
+                public final /* synthetic */ DownloadEventConfig f61970c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ f f61390d;
+                public final /* synthetic */ f f61971d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -333,25 +333,25 @@ public class f {
                             return;
                         }
                     }
-                    this.f61390d = this;
+                    this.f61971d = this;
                     this.a = downloadModel;
-                    this.f61388b = downloadController;
-                    this.f61389c = downloadEventConfig;
+                    this.f61969b = downloadController;
+                    this.f61970c = downloadEventConfig;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Iterator it = this.f61390d.f61386e.iterator();
+                        Iterator it = this.f61971d.f61967e.iterator();
                         while (it.hasNext()) {
                             Object next = it.next();
                             if (next instanceof com.ss.android.download.api.download.a.a) {
-                                ((com.ss.android.download.api.download.a.a) next).a(this.a, this.f61388b, this.f61389c);
+                                ((com.ss.android.download.api.download.a.a) next).a(this.a, this.f61969b, this.f61970c);
                             } else if (next instanceof SoftReference) {
                                 SoftReference softReference = (SoftReference) next;
                                 if (softReference.get() instanceof com.ss.android.download.api.download.a.a) {
-                                    ((com.ss.android.download.api.download.a.a) softReference.get()).a(this.a, this.f61388b, this.f61389c);
+                                    ((com.ss.android.download.api.download.a.a) softReference.get()).a(this.a, this.f61969b, this.f61970c);
                                 }
                             }
                         }
@@ -364,19 +364,19 @@ public class f {
     public void a(DownloadInfo downloadInfo, BaseException baseException, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, downloadInfo, baseException, str) == null) {
-            this.f61383b.post(new Runnable(this, downloadInfo, baseException, str) { // from class: com.ss.android.downloadlib.f.2
+            this.f61964b.post(new Runnable(this, downloadInfo, baseException, str) { // from class: com.ss.android.downloadlib.f.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadInfo a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaseException f61391b;
+                public final /* synthetic */ BaseException f61972b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f61392c;
+                public final /* synthetic */ String f61973c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ f f61393d;
+                public final /* synthetic */ f f61974d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -393,25 +393,25 @@ public class f {
                             return;
                         }
                     }
-                    this.f61393d = this;
+                    this.f61974d = this;
                     this.a = downloadInfo;
-                    this.f61391b = baseException;
-                    this.f61392c = str;
+                    this.f61972b = baseException;
+                    this.f61973c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Iterator it = this.f61393d.f61386e.iterator();
+                        Iterator it = this.f61974d.f61967e.iterator();
                         while (it.hasNext()) {
                             Object next = it.next();
                             if (next instanceof com.ss.android.download.api.download.a.a) {
-                                ((com.ss.android.download.api.download.a.a) next).a(this.a, this.f61391b, this.f61392c);
+                                ((com.ss.android.download.api.download.a.a) next).a(this.a, this.f61972b, this.f61973c);
                             } else if (next instanceof SoftReference) {
                                 SoftReference softReference = (SoftReference) next;
                                 if (softReference.get() instanceof com.ss.android.download.api.download.a.a) {
-                                    ((com.ss.android.download.api.download.a.a) softReference.get()).a(this.a, this.f61391b, this.f61392c);
+                                    ((com.ss.android.download.api.download.a.a) softReference.get()).a(this.a, this.f61972b, this.f61973c);
                                 }
                             }
                         }
@@ -424,16 +424,16 @@ public class f {
     public void a(DownloadInfo downloadInfo, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, downloadInfo, str) == null) {
-            this.f61383b.post(new Runnable(this, downloadInfo, str) { // from class: com.ss.android.downloadlib.f.3
+            this.f61964b.post(new Runnable(this, downloadInfo, str) { // from class: com.ss.android.downloadlib.f.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadInfo a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f61394b;
+                public final /* synthetic */ String f61975b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ f f61395c;
+                public final /* synthetic */ f f61976c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -450,24 +450,24 @@ public class f {
                             return;
                         }
                     }
-                    this.f61395c = this;
+                    this.f61976c = this;
                     this.a = downloadInfo;
-                    this.f61394b = str;
+                    this.f61975b = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Iterator it = this.f61395c.f61386e.iterator();
+                        Iterator it = this.f61976c.f61967e.iterator();
                         while (it.hasNext()) {
                             Object next = it.next();
                             if (next instanceof com.ss.android.download.api.download.a.a) {
-                                ((com.ss.android.download.api.download.a.a) next).a(this.a, this.f61394b);
+                                ((com.ss.android.download.api.download.a.a) next).a(this.a, this.f61975b);
                             } else if (next instanceof SoftReference) {
                                 SoftReference softReference = (SoftReference) next;
                                 if (softReference.get() instanceof com.ss.android.download.api.download.a.a) {
-                                    ((com.ss.android.download.api.download.a.a) softReference.get()).a(this.a, this.f61394b);
+                                    ((com.ss.android.download.api.download.a.a) softReference.get()).a(this.a, this.f61975b);
                                 }
                             }
                         }
@@ -480,13 +480,13 @@ public class f {
     public void a(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) {
-            this.f61383b.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.downloadlib.f.5
+            this.f61964b.post(new Runnable(this, downloadInfo) { // from class: com.ss.android.downloadlib.f.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadInfo a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f f61398b;
+                public final /* synthetic */ f f61979b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -503,7 +503,7 @@ public class f {
                             return;
                         }
                     }
-                    this.f61398b = this;
+                    this.f61979b = this;
                     this.a = downloadInfo;
                 }
 
@@ -511,7 +511,7 @@ public class f {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Iterator it = this.f61398b.f61386e.iterator();
+                        Iterator it = this.f61979b.f61967e.iterator();
                         while (it.hasNext()) {
                             Object next = it.next();
                             if (next instanceof com.ss.android.download.api.download.a.a) {

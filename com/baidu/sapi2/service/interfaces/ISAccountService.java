@@ -1,7 +1,7 @@
 package com.baidu.sapi2.service.interfaces;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ISAccountService {
     boolean webLogin(Context context, String str);
 

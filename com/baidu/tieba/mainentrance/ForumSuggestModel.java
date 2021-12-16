@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ForumSuggestModel extends BdBaseModel implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6239604692561216871L;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<Forum> forum_list;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class Forum extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 9180642468980325020L;

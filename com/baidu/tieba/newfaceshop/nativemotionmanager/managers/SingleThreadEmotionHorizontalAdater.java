@@ -14,18 +14,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<EmotionPackageData> f47289e;
+    public List<EmotionPackageData> f47796e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f47290f;
+    public TbPageContext f47797f;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,22 +77,22 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
                 return;
             }
         }
-        this.f47289e = list;
-        this.f47290f = tbPageContext;
+        this.f47796e = list;
+        this.f47797f = tbPageContext;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47289e.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47796e.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f47289e.get(i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f47796e.get(i2) : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -109,7 +109,7 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = new SingleThreadEmotionHorizontalView(this.f47290f);
+                view = new SingleThreadEmotionHorizontalView(this.f47797f);
                 view.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
                 emotionGridViewHolder = new EmotionGridViewHolder(view);
                 view.setTag(emotionGridViewHolder);
@@ -119,7 +119,7 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
             if (emotionGridViewHolder == null) {
                 emotionGridViewHolder = (EmotionGridViewHolder) view.getTag();
             }
-            emotionGridViewHolder.setData(this.f47289e.get(i2));
+            emotionGridViewHolder.setData(this.f47796e.get(i2));
             return view;
         }
         return (View) invokeILL.objValue;

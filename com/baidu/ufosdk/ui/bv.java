@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class bv implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PopupWindow f51646b;
+    public final /* synthetic */ PopupWindow f52195b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f51647c;
+    public final /* synthetic */ FeedbackInputActivity f52196c;
 
     public bv(FeedbackInputActivity feedbackInputActivity, View view, PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
@@ -36,17 +36,17 @@ public final class bv implements View.OnClickListener {
                 return;
             }
         }
-        this.f51647c = feedbackInputActivity;
+        this.f52196c = feedbackInputActivity;
         this.a = view;
-        this.f51646b = popupWindow;
+        this.f52195b = popupWindow;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            ((ClipboardManager) this.f51647c.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(((TextView) this.a).getText().toString());
-            this.f51646b.dismiss();
+            ((ClipboardManager) this.f52196c.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(((TextView) this.a).getText().toString());
+            this.f52195b.dismiss();
         }
     }
 }

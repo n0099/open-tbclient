@@ -14,17 +14,17 @@ import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.downloadad.api.download.AdDownloadModel;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f61234b;
+    public static volatile c f61815b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<Long, Runnable> f61235c;
+    public ConcurrentHashMap<Long, Runnable> f61816c;
 
     static {
         InterceptResult invokeClinit;
@@ -54,22 +54,22 @@ public class c {
                 return;
             }
         }
-        this.f61235c = null;
-        this.f61235c = new ConcurrentHashMap<>();
+        this.f61816c = null;
+        this.f61816c = new ConcurrentHashMap<>();
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f61234b == null) {
+            if (f61815b == null) {
                 synchronized (c.class) {
-                    if (f61234b == null) {
-                        f61234b = new c();
+                    if (f61815b == null) {
+                        f61815b = new c();
                     }
                 }
             }
-            return f61234b;
+            return f61815b;
         }
         return (c) invokeV.objValue;
     }
@@ -103,7 +103,7 @@ public class c {
                 a(id, true, 1);
             } else if (i2 != 7) {
             } else {
-                Runnable remove = this.f61235c.remove(Long.valueOf(id));
+                Runnable remove = this.f61816c.remove(Long.valueOf(id));
                 if (z) {
                     com.ss.android.downloadlib.d.a.a().a(id, 1);
                     a(id, true, 1);
@@ -136,13 +136,13 @@ public class c {
                 public final /* synthetic */ e a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f61236b;
+                public final /* synthetic */ int f61817b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadModel f61237c;
+                public final /* synthetic */ DownloadModel f61818c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ c f61238d;
+                public final /* synthetic */ c f61819d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -159,17 +159,17 @@ public class c {
                             return;
                         }
                     }
-                    this.f61238d = this;
+                    this.f61819d = this;
                     this.a = eVar;
-                    this.f61236b = i2;
-                    this.f61237c = downloadModel;
+                    this.f61817b = i2;
+                    this.f61818c = downloadModel;
                 }
 
                 @Override // com.ss.android.downloadlib.b.d
                 public void a(boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                        this.f61238d.a(this.a, z, this.f61236b, this.f61237c);
+                        this.f61819d.a(this.a, z, this.f61817b, this.f61818c);
                     }
                 }
             }, b());

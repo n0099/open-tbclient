@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface VideoCapturer {
     void changeCaptureFormat(int i2, int i3, int i4);
 

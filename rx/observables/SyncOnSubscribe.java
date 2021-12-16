@@ -15,12 +15,12 @@ import i.k;
 import i.m.a;
 import i.r.c;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class SubscriptionProducer<S, T> extends AtomicLong implements f, k, e<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3736864024352728072L;

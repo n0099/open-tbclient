@@ -13,7 +13,7 @@ import com.google.android.material.slider.BasicLabelFormatter;
 import java.lang.reflect.Array;
 import java.math.BigInteger;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class RyuDouble {
     public static /* synthetic */ Interceptable $ic;
     public static final int[][] POW5_INV_SPLIT;

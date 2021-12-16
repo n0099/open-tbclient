@@ -7,11 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface Graphics {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class GraphicsType {
         public static final /* synthetic */ GraphicsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -80,20 +80,20 @@ public interface Graphics {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f31535b;
+        public final int f31905b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f31536c;
+        public final int f31906c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f31537d;
+        public final int f31907d;
 
         public a(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -111,16 +111,16 @@ public interface Graphics {
                 }
             }
             this.a = i2;
-            this.f31535b = i3;
-            this.f31536c = i4;
-            this.f31537d = i5;
+            this.f31905b = i3;
+            this.f31906c = i4;
+            this.f31907d = i5;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a + "x" + this.f31535b + ", bpp: " + this.f31537d + ", hz: " + this.f31536c;
+                return this.a + "x" + this.f31905b + ", bpp: " + this.f31907d + ", hz: " + this.f31906c;
             }
             return (String) invokeV.objValue;
         }

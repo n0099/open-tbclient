@@ -21,27 +21,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class j implements c.b.b.q.h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Class[] f27750i;
+    public static final Class[] f28125i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public w<Class, w<String, Object>> f27751e;
+    public w<Class, w<String, Object>> f28126e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.b.b.n.k.h f27752f;
+    public c.b.b.n.k.h f28127f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f27753g;
+    public float f28128g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final w<String, Class> f27754h;
+    public final w<String, Class> f28129h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends c.b.b.q.o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,13 +86,13 @@ public class j implements c.b.b.q.h {
                             cls = cls.getSuperclass();
                             if (cls == Object.class) {
                                 SerializationException serializationException = new SerializationException("Unable to find parent resource with name: " + str);
-                                serializationException.addTrace(jsonValue.f31634j.R());
+                                serializationException.addTrace(jsonValue.f32004j.R());
                                 throw serializationException;
                             }
                         }
                     } while (cls == Object.class);
                     SerializationException serializationException2 = new SerializationException("Unable to find parent resource with name: " + str);
-                    serializationException2.addTrace(jsonValue.f31634j.R());
+                    serializationException2.addTrace(jsonValue.f32004j.R());
                     throw serializationException2;
                 }
                 super.i(obj, jsonValue);
@@ -113,14 +113,14 @@ public class j implements c.b.b.q.h {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b extends o.b<j> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ j f27755b;
+        public final /* synthetic */ j f28130b;
 
         public b(j jVar, j jVar2) {
             Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public class j implements c.b.b.q.h {
                     return;
                 }
             }
-            this.f27755b = jVar;
+            this.f28130b = jVar;
             this.a = jVar2;
         }
 
@@ -148,7 +148,7 @@ public class j implements c.b.b.q.h {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oVar, jsonValue, cls)) == null) {
-                for (JsonValue jsonValue2 = jsonValue.f31634j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
+                for (JsonValue jsonValue2 = jsonValue.f32004j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
                     try {
                         Class e2 = oVar.e(jsonValue2.H());
                         if (e2 == null) {
@@ -168,16 +168,16 @@ public class j implements c.b.b.q.h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, oVar, cls, jsonValue) == null) {
                 Class cls2 = cls == f.class ? c.b.b.p.a.b.b.class : cls;
-                for (JsonValue jsonValue2 = jsonValue.f31634j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
+                for (JsonValue jsonValue2 = jsonValue.f32004j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
                     Object j2 = oVar.j(cls, jsonValue2);
                     if (j2 != null) {
                         try {
-                            this.f27755b.f(jsonValue2.f31633i, j2, cls2);
+                            this.f28130b.f(jsonValue2.f32003i, j2, cls2);
                             if (cls2 != c.b.b.p.a.b.b.class && c.b.b.q.p0.b.f(c.b.b.p.a.b.b.class, cls2)) {
-                                this.f27755b.f(jsonValue2.f31633i, j2, c.b.b.p.a.b.b.class);
+                                this.f28130b.f(jsonValue2.f32003i, j2, c.b.b.p.a.b.b.class);
                             }
                         } catch (Exception e2) {
-                            throw new SerializationException("Error reading " + c.b.b.q.p0.b.e(cls) + ": " + jsonValue2.f31633i, e2);
+                            throw new SerializationException("Error reading " + c.b.b.q.p0.b.e(cls) + ": " + jsonValue2.f32003i, e2);
                         }
                     }
                 }
@@ -185,14 +185,14 @@ public class j implements c.b.b.q.h {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c extends o.b<c.b.b.n.k.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.b.b.m.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ j f27756b;
+        public final /* synthetic */ j f28131b;
 
         public c(j jVar, c.b.b.m.a aVar, j jVar2) {
             Interceptable interceptable = $ic;
@@ -210,7 +210,7 @@ public class j implements c.b.b.q.h {
                 }
             }
             this.a = aVar;
-            this.f27756b = jVar2;
+            this.f28131b = jVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -227,16 +227,16 @@ public class j implements c.b.b.q.h {
                 Boolean bool2 = (Boolean) oVar.n("markupEnabled", Boolean.class, Boolean.FALSE, jsonValue);
                 c.b.b.m.a a = this.a.i().a(str);
                 if (!a.c()) {
-                    a = c.b.b.f.f27322d.a(str);
+                    a = c.b.b.f.f27697d.a(str);
                 }
                 if (a.c()) {
                     String h2 = a.h();
                     try {
-                        c.b.b.q.a<c.b.b.n.k.i> m = this.f27756b.m(h2);
+                        c.b.b.q.a<c.b.b.n.k.i> m = this.f28131b.m(h2);
                         if (m != null) {
-                            aVar = new c.b.b.n.k.a(new a.C1554a(a, bool.booleanValue()), m, true);
+                            aVar = new c.b.b.n.k.a(new a.C1594a(a, bool.booleanValue()), m, true);
                         } else {
-                            c.b.b.n.k.i iVar = (c.b.b.n.k.i) this.f27756b.r(h2, c.b.b.n.k.i.class);
+                            c.b.b.n.k.i iVar = (c.b.b.n.k.i) this.f28131b.r(h2, c.b.b.n.k.i.class);
                             if (iVar != null) {
                                 aVar = new c.b.b.n.k.a(a, iVar, bool.booleanValue());
                             } else {
@@ -264,7 +264,7 @@ public class j implements c.b.b.q.h {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class d extends o.b<c.b.b.n.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -308,7 +308,7 @@ public class j implements c.b.b.q.h {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class e extends o.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -342,7 +342,7 @@ public class j implements c.b.b.q.h {
                 if (aVar != null) {
                     c.b.b.p.a.b.b q = this.a.q(str, aVar);
                     if (q instanceof c.b.b.p.a.b.a) {
-                        ((c.b.b.p.a.b.a) q).n(jsonValue.f31633i + " (" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + aVar + SmallTailInfo.EMOTION_SUFFIX);
+                        ((c.b.b.p.a.b.a) q).n(jsonValue.f32003i + " (" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + aVar + SmallTailInfo.EMOTION_SUFFIX);
                     }
                     return q;
                 }
@@ -352,7 +352,7 @@ public class j implements c.b.b.q.h {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -385,7 +385,7 @@ public class j implements c.b.b.q.h {
                 return;
             }
         }
-        f27750i = new Class[]{c.b.b.n.k.a.class, c.b.b.n.a.class, f.class, c.b.b.p.a.b.c.class, c.b.b.p.a.b.d.class, c.b.b.p.a.b.e.class, c.b.b.p.a.b.f.class, c.b.b.p.a.a.a.class, c.b.b.p.a.a.b.class, c.b.b.p.a.a.c.class, c.b.b.p.a.a.d.class, c.b.b.p.a.a.e.class, c.b.b.p.a.a.f.class, g.class, h.class, i.class, k.class, l.class, m.class, n.class, o.class, p.class, q.class, r.class};
+        f28125i = new Class[]{c.b.b.n.k.a.class, c.b.b.n.a.class, f.class, c.b.b.p.a.b.c.class, c.b.b.p.a.b.d.class, c.b.b.p.a.b.e.class, c.b.b.p.a.b.f.class, c.b.b.p.a.a.a.class, c.b.b.p.a.a.b.class, c.b.b.p.a.a.c.class, c.b.b.p.a.a.d.class, c.b.b.p.a.a.e.class, c.b.b.p.a.a.f.class, g.class, h.class, i.class, k.class, l.class, m.class, n.class, o.class, p.class, q.class, r.class};
     }
 
     public j() {
@@ -402,11 +402,11 @@ public class j implements c.b.b.q.h {
                 return;
             }
         }
-        this.f27751e = new w<>();
-        this.f27753g = 1.0f;
-        this.f27754h = new w<>(f27750i.length);
-        for (Class cls : f27750i) {
-            this.f27754h.i(cls.getSimpleName(), cls);
+        this.f28126e = new w<>();
+        this.f28128g = 1.0f;
+        this.f28129h = new w<>(f28125i.length);
+        for (Class cls : f28125i) {
+            this.f28129h.i(cls.getSimpleName(), cls);
         }
     }
 
@@ -421,11 +421,11 @@ public class j implements c.b.b.q.h {
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.b.b.n.k.h hVar = this.f27752f;
+            c.b.b.n.k.h hVar = this.f28127f;
             if (hVar != null) {
                 hVar.dispose();
             }
-            w.e<w<String, Object>> n = this.f27751e.n();
+            w.e<w<String, Object>> n = this.f28126e.n();
             n.d();
             while (n.hasNext()) {
                 w.e<Object> n2 = n.next().n();
@@ -447,10 +447,10 @@ public class j implements c.b.b.q.h {
                 throw new IllegalArgumentException("name cannot be null.");
             }
             if (obj != null) {
-                w<String, Object> c2 = this.f27751e.c(cls);
+                w<String, Object> c2 = this.f28126e.c(cls);
                 if (c2 == null) {
                     c2 = new w<>((cls == c.b.b.n.k.i.class || cls == c.b.b.p.a.b.b.class || cls == c.b.b.n.k.g.class) ? 256 : 64);
-                    this.f27751e.i(cls, c2);
+                    this.f28126e.i(cls, c2);
                 }
                 c2.i(str, obj);
                 return;
@@ -463,12 +463,12 @@ public class j implements c.b.b.q.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) {
             c.b.b.q.a<h.a> g2 = hVar.g();
-            int i2 = g2.f27768f;
+            int i2 = g2.f28143f;
             for (int i3 = 0; i3 < i2; i3++) {
                 h.a aVar = g2.get(i3);
-                String str = aVar.f27547i;
-                if (aVar.f27546h != -1) {
-                    str = str + "_" + aVar.f27546h;
+                String str = aVar.f27922i;
+                if (aVar.f27921h != -1) {
+                    str = str + "_" + aVar.f27921h;
                 }
                 f(str, aVar, c.b.b.n.k.i.class);
             }
@@ -493,7 +493,7 @@ public class j implements c.b.b.q.h {
                     if (cls == c.b.b.n.k.g.class) {
                         return (T) n(str);
                     }
-                    w<String, Object> c2 = this.f27751e.c(cls);
+                    w<String, Object> c2 = this.f28126e.c(cls);
                     if (c2 != null) {
                         T t = (T) c2.c(str);
                         if (t != null) {
@@ -534,7 +534,7 @@ public class j implements c.b.b.q.h {
                 if (bVar == null) {
                     c.b.b.p.a.b.b eVar = new c.b.b.p.a.b.e(l);
                     try {
-                        if (this.f27753g != 1.0f) {
+                        if (this.f28128g != 1.0f) {
                             s(eVar);
                         }
                     } catch (GdxRuntimeException unused) {
@@ -577,10 +577,10 @@ public class j implements c.b.b.q.h {
             aVar2.o(c.b.b.n.k.a.class, new c(this, aVar, this));
             aVar2.o(c.b.b.n.a.class, new d(this));
             aVar2.o(f.class, new e(this));
-            w.a<String, Class> it = this.f27754h.iterator();
+            w.a<String, Class> it = this.f28129h.iterator();
             while (it.hasNext()) {
                 w.b next = it.next();
-                aVar2.a((String) next.a, (Class) next.f27939b);
+                aVar2.a((String) next.a, (Class) next.f28314b);
             }
             return aVar2;
         }
@@ -608,8 +608,8 @@ public class j implements c.b.b.q.h {
                 if (cVar == null) {
                     cVar = new c.b.b.n.k.c(l);
                 }
-                if (this.f27753g != 1.0f) {
-                    cVar.m(this.f27753g, this.f27753g);
+                if (this.f28128g != 1.0f) {
+                    cVar.m(this.f28128g, this.f28128g);
                 }
                 f(str, cVar, c.b.b.n.k.c.class);
                 return cVar;
@@ -678,8 +678,8 @@ public class j implements c.b.b.q.h {
                 if (gVar == null) {
                     gVar = new c.b.b.n.k.g(l);
                 }
-                if (this.f27753g != 1.0f) {
-                    gVar.z(gVar.n() * this.f27753g, gVar.k() * this.f27753g);
+                if (this.f28128g != 1.0f) {
+                    gVar.z(gVar.n() * this.f28128g, gVar.k() * this.f28128g);
                 }
                 f(str, gVar, c.b.b.n.k.g.class);
                 return gVar;
@@ -740,7 +740,7 @@ public class j implements c.b.b.q.h {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, cls)) == null) {
             if (str != null) {
                 if (cls != null) {
-                    w<String, Object> c2 = this.f27751e.c(cls);
+                    w<String, Object> c2 = this.f28126e.c(cls);
                     if (c2 == null) {
                         return null;
                     }
@@ -756,12 +756,12 @@ public class j implements c.b.b.q.h {
     public void s(c.b.b.p.a.b.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bVar) == null) {
-            bVar.b(bVar.l() * this.f27753g);
-            bVar.c(bVar.g() * this.f27753g);
-            bVar.d(bVar.e() * this.f27753g);
-            bVar.f(bVar.i() * this.f27753g);
-            bVar.j(bVar.a() * this.f27753g);
-            bVar.h(bVar.k() * this.f27753g);
+            bVar.b(bVar.l() * this.f28128g);
+            bVar.c(bVar.g() * this.f28128g);
+            bVar.d(bVar.e() * this.f28128g);
+            bVar.f(bVar.i() * this.f28128g);
+            bVar.j(bVar.a() * this.f28128g);
+            bVar.h(bVar.k() * this.f28128g);
         }
     }
 
@@ -781,13 +781,13 @@ public class j implements c.b.b.q.h {
                 return;
             }
         }
-        this.f27751e = new w<>();
-        this.f27753g = 1.0f;
-        this.f27754h = new w<>(f27750i.length);
-        for (Class cls : f27750i) {
-            this.f27754h.i(cls.getSimpleName(), cls);
+        this.f28126e = new w<>();
+        this.f28128g = 1.0f;
+        this.f28129h = new w<>(f28125i.length);
+        for (Class cls : f28125i) {
+            this.f28129h.i(cls.getSimpleName(), cls);
         }
-        this.f27752f = hVar;
+        this.f28127f = hVar;
         g(hVar);
     }
 }

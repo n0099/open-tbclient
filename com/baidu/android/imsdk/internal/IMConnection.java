@@ -7,7 +7,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s.a;
+import c.a.t.a;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.LoginManager;
@@ -35,7 +35,7 @@ import java.util.Random;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class IMConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_LOGIN_FAIL = 20;
@@ -72,7 +72,7 @@ public final class IMConnection {
     public boolean mStoped;
     public Object mSync;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class ConnectTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,7 +188,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class ConnectTimeOutTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -243,7 +243,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class MyHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -288,7 +288,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class ReadThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -357,7 +357,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class SendThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -562,7 +562,7 @@ public final class IMConnection {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || a.f26073e) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || a.f26457e) {
                     return;
                 }
                 this.this$0.internalConnect(false);
@@ -660,7 +660,7 @@ public final class IMConnection {
 
     private void connectImpl(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65567, this, z) == null) || a.f26073e) {
+        if (!(interceptable == null || interceptable.invokeZ(65567, this, z) == null) || a.f26457e) {
             return;
         }
         if (!this.mConnected.get() && !this.mConnectting.get()) {
@@ -786,7 +786,7 @@ public final class IMConnection {
 
     private void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || a.f26073e) {
+        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || a.f26457e) {
             return;
         }
         LogUtils.i(TAG, "destroy");
@@ -877,7 +877,7 @@ public final class IMConnection {
 
     public void disconnectedByPeer() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || a.f26073e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || a.f26457e) {
             return;
         }
         LogUtils.i(TAG, "disconnectedByPeer, mStoped == " + this.mStoped);

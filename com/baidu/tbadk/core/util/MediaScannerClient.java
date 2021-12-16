@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MediaScannerClient implements MediaScannerConnection.MediaScannerConnectionClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
     public String mPath;
     public String[] mPaths;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface onScanCompletedListener {
         void onScanCompeted();
     }

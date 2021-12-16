@@ -6,7 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.annotation.NonNull;
-import c.a.r0.q3.a;
+import c.a.s0.s3.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -23,7 +23,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.platform.PlatformView;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class CommonPlatformView implements PlatformView, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CommonPlatformView";
@@ -123,7 +123,7 @@ public class CommonPlatformView implements PlatformView, MethodChannel.MethodCal
                 this.mSquareDelegate = aVar;
                 aVar.g();
                 this.mSquareDelegate.o();
-                this.mainView = this.mSquareDelegate.f22586d.d();
+                this.mainView = this.mSquareDelegate.f23592d.d();
             }
         }
     }

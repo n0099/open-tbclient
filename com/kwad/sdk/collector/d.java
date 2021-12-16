@@ -15,13 +15,13 @@ import com.kwad.sdk.utils.AbiUtil;
 import com.kwai.sodler.lib.ext.PluginError;
 import com.kwai.sodler.lib.ext.b;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicBoolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -73,11 +73,11 @@ public class d {
         }
         com.kwai.sodler.kwai.b.a(context);
         com.kwai.sodler.lib.a.b bVar = new com.kwai.sodler.lib.a.b();
-        bVar.f60084c = ad;
-        bVar.f60086e = true;
+        bVar.f60665c = ad;
+        bVar.f60667e = true;
         bVar.a = str;
-        bVar.f60083b = ah;
-        bVar.f60088g = false;
+        bVar.f60664b = ah;
+        bVar.f60669g = false;
         com.kwai.sodler.kwai.b.a(str, bVar, new b.a(aVar) { // from class: com.kwad.sdk.collector.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

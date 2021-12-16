@@ -1,7 +1,7 @@
 package com.airbnb.lottie;
 
 import android.graphics.Typeface;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FontAssetDelegate {
     public Typeface fetchFont(String str) {
         return null;

@@ -1,7 +1,11 @@
 package com.baidu.sapi2.utils;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Message;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,8 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.common.Constants;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ThirdPartyUtil implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_QQ = "qzone";
@@ -51,10 +56,16 @@ public class ThirdPartyUtil implements NoProguard {
         }
     }
 
+    public static boolean checkAliPayInstalled(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new Intent("android.intent.action.VIEW", Uri.parse("alipays://platformapi/startApp")).resolveActivity(context.getPackageManager()) != null : invokeL.booleanValue;
+    }
+
     public static Message getVerificationMsg(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -72,5 +83,23 @@ public class ThirdPartyUtil implements NoProguard {
             return message;
         }
         return (Message) invokeL.objValue;
+    }
+
+    public static boolean isQQClientAvailable(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? SapiUtils.isAppInstalled(context, "com.tencent.mobileqq") || SapiUtils.isAppInstalled(context, Constants.PACKAGE_QQ_SPEED) : invokeL.booleanValue;
+    }
+
+    public static boolean isSinaInstalled(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? SapiUtils.isAppInstalled(context, "com.sina.weibo") : invokeL.booleanValue;
+    }
+
+    public static boolean isWeixinAvilible(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? SapiUtils.isAppInstalled(context, "com.tencent.mm") : invokeL.booleanValue;
     }
 }

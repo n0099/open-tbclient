@@ -25,22 +25,22 @@ import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.ad.sdk.internal.api.utils.NumberUtils;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class t extends q<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final HashMap<TTNativeExpressAd, ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener>> f28666i;
+    public final HashMap<TTNativeExpressAd, ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener>> f29036i;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements TTAdNative.NativeExpressAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FunAdSlot a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ t f28667b;
+        public final /* synthetic */ t f29037b;
 
         public a(t tVar, FunAdSlot funAdSlot) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class t extends q<TTNativeExpressAd> {
                     return;
                 }
             }
-            this.f28667b = tVar;
+            this.f29037b = tVar;
             this.a = funAdSlot;
         }
 
@@ -66,7 +66,7 @@ public class t extends q<TTNativeExpressAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 LogPrinter.e("onError code: " + i2 + ", message: " + str, new Object[0]);
-                this.f28667b.onError(i2, str);
+                this.f29037b.onError(i2, str);
             }
         }
 
@@ -79,7 +79,7 @@ public class t extends q<TTNativeExpressAd> {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 LogPrinter.d();
                 if (list != null && !list.isEmpty()) {
-                    t tVar = this.f28667b;
+                    t tVar = this.f29037b;
                     String sid = this.a.getSid();
                     tVar.getClass();
                     b bVar = new b(tVar, list.size());
@@ -97,20 +97,20 @@ public class t extends q<TTNativeExpressAd> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f28668b;
+        public final int f29038b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f28669c;
+        public boolean f29039c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ t f28670d;
+        public final /* synthetic */ t f29040d;
 
         public b(t tVar, int i2) {
             Interceptable interceptable = $ic;
@@ -127,9 +127,9 @@ public class t extends q<TTNativeExpressAd> {
                     return;
                 }
             }
-            this.f28670d = tVar;
-            this.f28669c = false;
-            this.f28668b = i2;
+            this.f29040d = tVar;
+            this.f29039c = false;
+            this.f29038b = i2;
         }
     }
 
@@ -151,7 +151,7 @@ public class t extends q<TTNativeExpressAd> {
                 return;
             }
         }
-        this.f28666i = new HashMap<>();
+        this.f29036i = new HashMap<>();
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
@@ -159,7 +159,7 @@ public class t extends q<TTNativeExpressAd> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
             TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) obj;
-            this.f28666i.remove(tTNativeExpressAd);
+            this.f29036i.remove(tTNativeExpressAd);
             if (tTNativeExpressAd != null) {
                 tTNativeExpressAd.destroy();
             }

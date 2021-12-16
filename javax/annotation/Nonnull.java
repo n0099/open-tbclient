@@ -15,10 +15,10 @@ import javax.annotation.meta.When;
 @TypeQualifier
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public @interface Nonnull {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Checker implements TypeQualifierValidator<Nonnull> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

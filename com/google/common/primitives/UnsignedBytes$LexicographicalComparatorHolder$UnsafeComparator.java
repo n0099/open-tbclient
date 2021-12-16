@@ -19,7 +19,7 @@ import java.security.PrivilegedExceptionAction;
 import java.util.Comparator;
 import sun.misc.Unsafe;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator implements Comparator<byte[]> {
     public static final /* synthetic */ UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +29,7 @@ public final class UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparato
     public static final Unsafe theUnsafe;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements PrivilegedExceptionAction<Unsafe> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

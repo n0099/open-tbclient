@@ -11,7 +11,7 @@ import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.download.api.download.DownloadStatusChangeListener;
 import com.ss.android.download.api.model.DownloadShortInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements DownloadStatusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

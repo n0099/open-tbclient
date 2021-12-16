@@ -1,5 +1,6 @@
 package com.baidu.searchbox.player.callback;
 
+import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.annotation.PublicMethod;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,10 +76,24 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
     }
 
     @PublicMethod
+    public boolean onGestureDoubleClick(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            IUniversalPlayerCallback iUniversalPlayerCallback = this.mUniversalCallback;
+            if (iUniversalPlayerCallback != null) {
+                return iUniversalPlayerCallback.onGestureDoubleClick(motionEvent);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @PublicMethod
     public void onPanelVisibilityChanged(boolean z) {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
             return;
         }
         iUniversalPlayerCallback.onPanelVisibilityChanged(z);
@@ -88,7 +103,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
     public void onPauseBtnClick() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
             return;
         }
         iUniversalPlayerCallback.onPauseBtnClick();
@@ -98,7 +113,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
     public void onReplayBtnClick() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
             return;
         }
         iUniversalPlayerCallback.onReplayBtnClick();
@@ -108,7 +123,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
     public void onStartBtnClick() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
             return;
         }
         iUniversalPlayerCallback.onStartBtnClick();
@@ -118,7 +133,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
     public void onVideoSwitchToFull() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
             return;
         }
         iUniversalPlayerCallback.onVideoSwitchToFull();
@@ -128,7 +143,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
     public void onVideoSwitchToHalf() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
             return;
         }
         iUniversalPlayerCallback.onVideoSwitchToHalf();
@@ -138,7 +153,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
     @PublicMethod
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.release();
             this.mUniversalCallback = null;
         }
@@ -146,7 +161,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
 
     public void setUniversalPlayerCallback(IUniversalPlayerCallback iUniversalPlayerCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, iUniversalPlayerCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, iUniversalPlayerCallback) == null) {
             this.mUniversalCallback = iUniversalPlayerCallback;
         }
     }

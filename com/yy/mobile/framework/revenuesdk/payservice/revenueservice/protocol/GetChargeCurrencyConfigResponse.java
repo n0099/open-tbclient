@@ -2,13 +2,13 @@ package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import com.alipay.sdk.sys.a;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.mode.CommandMessage;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyInfo;
@@ -25,7 +25,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -128,6 +128,8 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                     giftBagItemInfo.pid = optJSONObject.optString("pid");
                     giftBagItemInfo.count = optJSONObject.optInt("count");
                     giftBagItemInfo.imgUrl = optJSONObject.optString("imgUrl");
+                    giftBagItemInfo.typeName = optJSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_TYPE_NAME);
+                    giftBagItemInfo.countDisplay = optJSONObject.optString("countDisplay");
                     arrayList.add(giftBagItemInfo);
                 }
             }
@@ -172,6 +174,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     GiftBagsInfo giftBagsInfo = new GiftBagsInfo();
+                    giftBagsInfo.giftbagTitle = optJSONObject.optString("giftbagTitle", "");
                     giftBagsInfo.offersTips = optJSONObject.optString("offersTips", "");
                     giftBagsInfo.giveupTitle = optJSONObject.optString("giveupTitle", "");
                     giftBagsInfo.giveupSubtitle = optJSONObject.optString("giveupSubtitle", "");
@@ -263,7 +266,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                     productInfo.payType = optJSONObject.optString("payType");
                     productInfo.usedChannelType = optJSONObject.optInt("usedChannelType");
                     productInfo.giftbags.addAll(optGiftBagsInfoList(optJSONObject.optJSONArray("giftbags")));
-                    productInfo.giftBagTagInfos.addAll(optGiftBagTagInfoList(optJSONObject.optJSONArray(CommandMessage.TYPE_TAGS)));
+                    productInfo.giftBagTagInfos.addAll(optGiftBagTagInfoList(optJSONObject.optJSONArray("tags")));
                     arrayList.add(productInfo);
                 }
             }

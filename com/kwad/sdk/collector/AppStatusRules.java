@@ -27,7 +27,7 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_GRANULARITY = 60000;
@@ -39,13 +39,13 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
     public AppStatusInfo data;
 
     /* renamed from: com.kwad.sdk.collector.AppStatusRules$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AppStatusInfo implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2403646317801179050L;
@@ -165,7 +165,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Strategy implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static Strategy LOCAL_DEFAULT = null;
@@ -409,7 +409,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UploadConfig extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_FILE_MAX_SIZE = 102400;

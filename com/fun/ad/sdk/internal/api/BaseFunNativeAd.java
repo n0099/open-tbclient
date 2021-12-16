@@ -13,7 +13,7 @@ import com.fun.ad.sdk.FunNativeInfo;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.u0;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

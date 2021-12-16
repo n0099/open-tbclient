@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class w1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f30981b;
+    public byte[] f31351b;
 
     public w1(int i2, byte[] bArr, Map map) {
         Interceptable interceptable = $ic;
@@ -30,6 +30,6 @@ public class w1 {
             }
         }
         this.a = i2;
-        this.f30981b = bArr;
+        this.f31351b = bArr;
     }
 }

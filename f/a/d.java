@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TimeUnit a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f63443b;
+    public long f64024b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f63444c;
+    public long f64025c;
 
     public d(TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class d {
                 return;
             }
         }
-        this.f63443b = SystemClock.elapsedRealtime();
+        this.f64024b = SystemClock.elapsedRealtime();
         this.a = timeUnit;
-        this.f63444c = 0L;
+        this.f64025c = 0L;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x004b A[Catch: Exception -> 0x0067, TryCatch #0 {Exception -> 0x0067, blocks: (B:9:0x001d, B:11:0x0023, B:24:0x004b, B:25:0x0050, B:12:0x0025, B:14:0x002d, B:15:0x0030, B:17:0x0038, B:18:0x003a, B:19:0x003c, B:21:0x0042, B:27:0x0062), top: B:36:0x0013 }] */
@@ -54,7 +54,7 @@ public class d {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
             return (String) invokeV.objValue;
         }
-        long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f63443b) + this.f63444c;
+        long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f64024b) + this.f64025c;
         try {
             if (elapsedRealtime >= 0 && elapsedRealtime <= 86400000) {
                 if (this.a != TimeUnit.MILLISECONDS) {
@@ -85,26 +85,26 @@ public class d {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63444c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64025c : invokeV.longValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63443b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64024b : invokeV.longValue;
     }
 
     public void d(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f63444c = j2;
+            this.f64025c = j2;
         }
     }
 
     public void e(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f63443b = j2;
+            this.f64024b = j2;
         }
     }
 }

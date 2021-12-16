@@ -17,7 +17,7 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class NHCreditLongGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ITEM_LIMIT = 12;
@@ -26,10 +26,10 @@ public class NHCreditLongGroup extends BaseItemLayout {
     public NHTitleView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f52698b;
+    public LinearLayout f53278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f52699c;
+    public List<BaseItemView> f53279c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditLongGroup(Context context) {
@@ -49,14 +49,14 @@ public class NHCreditLongGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f52699c = new ArrayList();
+        this.f53279c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52699c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53279c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -65,7 +65,7 @@ public class NHCreditLongGroup extends BaseItemLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_long_layout"), this);
             this.a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_group_title"));
-            this.f52698b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_group_list"));
+            this.f53278b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_group_list"));
         }
     }
 
@@ -96,8 +96,8 @@ public class NHCreditLongGroup extends BaseItemLayout {
             while (i2 < length) {
                 NHCreditLongItem nHCreditLongItem = new NHCreditLongItem(getContext());
                 nHCreditLongItem.setData(dataItemArr[i2], getWalletInterface());
-                this.f52698b.addView(nHCreditLongItem);
-                this.f52699c.add(nHCreditLongItem);
+                this.f53278b.addView(nHCreditLongItem);
+                this.f53279c.add(nHCreditLongItem);
                 ((LinearLayout.LayoutParams) nHCreditLongItem.getLayoutParams()).setMargins(0, DisplayUtils.dip2px(getContext(), i2 == 0 ? 0.0f : 15.0f), 0, 0);
                 i2++;
             }
@@ -123,6 +123,6 @@ public class NHCreditLongGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f52699c = new ArrayList();
+        this.f53279c = new ArrayList();
     }
 }

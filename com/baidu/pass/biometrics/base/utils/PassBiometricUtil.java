@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PassBiometricUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_TYPE_ARM64_V8A = "arm64-v8a";
@@ -29,34 +29,34 @@ public class PassBiometricUtil {
     public static final String a = "PassBiometricUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f38137b = 480;
+    public static final int f38626b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f38138c = 480;
+    public static final int f38627c = 480;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f38139d = 192;
+    public static final int f38628d = 192;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f38140e = 480;
+    public static final int f38629e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f38141f = 620;
+    public static final int f38630f = 620;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f38142g = 250;
+    public static final int f38631g = 250;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f38143h = 250;
+    public static final int f38632h = 250;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f38144i = 728;
+    public static final int f38633i = 728;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f38145j = 194;
+    public static final int f38634j = 194;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f38146k = 750;
+    public static final int f38635k = 750;
     public static final int l = 1335;
     public transient /* synthetic */ FieldHolder $fh;
 

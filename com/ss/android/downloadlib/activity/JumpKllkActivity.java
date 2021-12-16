@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.e.c;
 import com.ss.android.downloadlib.g.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class JumpKllkActivity extends TTDelegateActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

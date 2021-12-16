@@ -2,7 +2,7 @@ package com.baidu.tieba.aiapps.apps.permission;
 
 import android.app.Activity;
 import android.os.Bundle;
-import c.a.r0.z.b.g.a;
+import c.a.s0.z.b.g.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tieba.R;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PERMISSION_REQUEST_CODE = 999;

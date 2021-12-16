@@ -15,16 +15,16 @@ import com.baidu.wallet.personal.a.a;
 import com.baidu.wallet.personal.datamodel.CouponList;
 import com.baidu.wallet.personal.ui.view.d;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class c extends a<CouponList.Coupon> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f54050c;
+    public Context f54630c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54051d;
+    public int f54631d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(ListView listView, Context context) {
@@ -44,8 +44,8 @@ public class c extends a<CouponList.Coupon> {
                 return;
             }
         }
-        this.f54051d = 0;
-        this.f54050c = context;
+        this.f54631d = 0;
+        this.f54630c = context;
     }
 
     private boolean d(int i2) {
@@ -80,7 +80,7 @@ public class c extends a<CouponList.Coupon> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
             List<T> list = this.a;
-            return list != 0 && i2 < list.size() && (coupon = (CouponList.Coupon) this.a.get(i2)) != null && coupon.coupon_receive_timestamp > this.f54051d;
+            return list != 0 && i2 < list.size() && (coupon = (CouponList.Coupon) this.a.get(i2)) != null && coupon.coupon_receive_timestamp > this.f54631d;
         }
         return invokeI.booleanValue;
     }
@@ -89,7 +89,7 @@ public class c extends a<CouponList.Coupon> {
     public int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? ResUtils.layout(this.f54050c, "wallet_personal_coupon_group_item") : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? ResUtils.layout(this.f54630c, "wallet_personal_coupon_group_item") : invokeI.intValue;
     }
 
     @Override // com.baidu.wallet.personal.a.a
@@ -133,7 +133,7 @@ public class c extends a<CouponList.Coupon> {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f54051d = i2;
+            this.f54631d = i2;
         }
     }
 

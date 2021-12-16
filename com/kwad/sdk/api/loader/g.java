@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static File a;
@@ -131,7 +131,7 @@ public class g {
             public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f57003b;
+            public final /* synthetic */ String f57584b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -149,7 +149,7 @@ public class g {
                     }
                 }
                 this.a = context;
-                this.f57003b = str;
+                this.f57584b = str;
             }
 
             @Override // java.lang.Runnable
@@ -157,12 +157,12 @@ public class g {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        File[] listFiles = g.c(this.a, this.f57003b).getParentFile().listFiles();
+                        File[] listFiles = g.c(this.a, this.f57584b).getParentFile().listFiles();
                         if (listFiles == null || listFiles.length <= 0) {
                             return;
                         }
                         for (File file : listFiles) {
-                            if (f.a(this.f57003b, file.getName().substring(file.getName().indexOf("-") + 1))) {
+                            if (f.a(this.f57584b, file.getName().substring(file.getName().indexOf("-") + 1))) {
                                 g.a(file);
                             }
                         }

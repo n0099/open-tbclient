@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.ala.data.TabData;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public int mTextSize;
     public OnTabClickListener onTabClickListener;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class InnerScrollTabPageListener implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,12 +134,12 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnTabClickListener {
         void onClick(int i2);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ScrollTabPageListener {
         void onPageScrolled(int i2, float f2, int i3);
 
@@ -148,7 +148,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         boolean onPrePageSelect(int i2, TabData tabData);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -197,8 +197,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = l.f(TbadkCoreApplication.getInst(), R.dimen.ds5);
-        this.mIndicatorWidth = l.f(TbadkCoreApplication.getInst(), R.dimen.ds64);
+        this.mIndicatorHeight = m.f(TbadkCoreApplication.getInst(), R.dimen.ds5);
+        this.mIndicatorWidth = m.f(TbadkCoreApplication.getInst(), R.dimen.ds64);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
@@ -514,7 +514,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             if (z) {
                 int[] iArr = new int[2];
                 ((View) ListUtils.getItem(this.mTabItemView, i2)).getLocationOnScreen(iArr);
-                int k2 = l.k(getContext()) - iArr[0];
+                int k2 = m.k(getContext()) - iArr[0];
                 int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.ds160);
                 if (iArr[0] < 0) {
                     post(new Runnable(this, dimensionPixelSize) { // from class: com.baidu.ala.view.ScrollHorizontalTabView.3
@@ -624,8 +624,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = l.f(TbadkCoreApplication.getInst(), R.dimen.ds5);
-        this.mIndicatorWidth = l.f(TbadkCoreApplication.getInst(), R.dimen.ds64);
+        this.mIndicatorHeight = m.f(TbadkCoreApplication.getInst(), R.dimen.ds5);
+        this.mIndicatorWidth = m.f(TbadkCoreApplication.getInst(), R.dimen.ds64);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
@@ -707,8 +707,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = l.f(TbadkCoreApplication.getInst(), R.dimen.ds5);
-        this.mIndicatorWidth = l.f(TbadkCoreApplication.getInst(), R.dimen.ds64);
+        this.mIndicatorHeight = m.f(TbadkCoreApplication.getInst(), R.dimen.ds5);
+        this.mIndicatorWidth = m.f(TbadkCoreApplication.getInst(), R.dimen.ds64);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);

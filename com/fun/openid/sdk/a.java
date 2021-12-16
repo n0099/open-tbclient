@@ -8,24 +8,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.fun.openid.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static abstract class AbstractBinderC1974a extends Binder implements a {
+    /* loaded from: classes3.dex */
+    public static abstract class AbstractBinderC2035a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int a = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.fun.openid.sdk.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C1975a implements a {
+        /* loaded from: classes3.dex */
+        public static class C2036a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C1975a(IBinder iBinder) {
+            public C2036a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

@@ -16,7 +16,7 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObservableZipIterable<T, U, V> extends Observable<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public final class ObservableZipIterable<T, U, V> extends Observable<V> {
     public final Observable<? extends T> source;
     public final BiFunction<? super T, ? super U, ? extends V> zipper;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ZipIterableObserver<T, U, V> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

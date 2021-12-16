@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
     @Deprecated
@@ -14,7 +14,7 @@ public final class BuildConfig {
     public static final String FLAVOR = "";
     public static final String LIBRARY_PACKAGE_NAME = "com.baidu.sapi2.ecommerce";
     public static final int VERSION_CODE = 1;
-    public static final String VERSION_NAME = "9.4.7.5";
+    public static final String VERSION_NAME = "9.4.7.8.2";
     public transient /* synthetic */ FieldHolder $fh;
 
     public BuildConfig() {

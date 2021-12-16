@@ -21,19 +21,19 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 8;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f61523b;
+    public static volatile c f62104b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<Integer, Bitmap> f61524c;
+    public a<Integer, Bitmap> f62105c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a<K, T> extends LinkedHashMap<K, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,9 +97,9 @@ public class c {
                 return;
             }
         }
-        this.f61524c = null;
+        this.f62105c = null;
         int i4 = a;
-        this.f61524c = new a<>(i4, i4 / 2);
+        this.f62105c = new a<>(i4, i4 / 2);
     }
 
     public static ByteArrayOutputStream b(InputStream inputStream) throws IOException {
@@ -125,14 +125,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f61523b == null) {
+            if (f62104b == null) {
                 synchronized (c.class) {
-                    if (f61523b == null) {
-                        f61523b = new c();
+                    if (f62104b == null) {
+                        f62104b = new c();
                     }
                 }
             }
-            return f61523b;
+            return f62104b;
         }
         return (c) invokeV.objValue;
     }
@@ -140,7 +140,7 @@ public class c {
     public Bitmap a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f61524c.get(Integer.valueOf(i2)) : (Bitmap) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f62105c.get(Integer.valueOf(i2)) : (Bitmap) invokeI.objValue;
     }
 
     public void a(int i2, String str) {
@@ -152,10 +152,10 @@ public class c {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f61525b;
+                public final /* synthetic */ int f62106b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ c f61526c;
+                public final /* synthetic */ c f62107c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -172,9 +172,9 @@ public class c {
                             return;
                         }
                     }
-                    this.f61526c = this;
+                    this.f62107c = this;
                     this.a = str;
-                    this.f61525b = i2;
+                    this.f62106b = i2;
                 }
 
                 /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x00b8 */
@@ -226,7 +226,7 @@ public class c {
                                             int a3 = com.ss.android.socialbase.appdownloader.c.a(com.ss.android.socialbase.downloader.downloader.c.N(), 44.0f);
                                             options.inSampleSize = c.a(a3, a3, options);
                                             options.inJustDecodeBounds = false;
-                                            this.f61526c.f61524c.put(Integer.valueOf(this.f61525b), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
+                                            this.f62107c.f62105c.put(Integer.valueOf(this.f62106b), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
                                             f.a(inputStream, byteArrayOutputStream, byteArrayInputStream, byteArrayInputStream2);
                                         } catch (Exception e3) {
                                             e2 = e3;

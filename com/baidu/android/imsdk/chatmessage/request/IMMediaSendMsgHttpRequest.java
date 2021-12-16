@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import c.a.r.a.a;
+import c.a.s.a.a;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaSendMsgHttpRequest";

@@ -11,7 +11,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.ResourceReleaser;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class BitmapCounter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

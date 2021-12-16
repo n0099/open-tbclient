@@ -6,25 +6,25 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.compatible.menukey.MenuKeyUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f50299e;
+    public a f50828e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f50300f;
+    public Rect f50829f;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void a(boolean z);
     }
@@ -48,7 +48,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
                 return;
             }
         }
-        this.f50300f = new Rect();
+        this.f50829f = new Rect();
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -57,14 +57,14 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
             int size = View.MeasureSpec.getSize(i3);
             Activity activity = (Activity) getContext();
-            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f50300f);
-            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f50300f.top) - size;
-            if (this.f50299e != null) {
+            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f50829f);
+            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f50829f.top) - size;
+            if (this.f50828e != null) {
                 boolean z = true;
-                if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= l.d(activity, 48.0f) + 128) {
+                if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= m.d(activity, 48.0f) + 128) {
                     z = false;
                 }
-                this.f50299e.a(z);
+                this.f50828e.a(z);
             }
             super.onMeasure(i2, i3);
         }
@@ -73,7 +73,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     public void setOnSoftKeyBoardShownListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f50299e = aVar;
+            this.f50828e = aVar;
         }
     }
 }

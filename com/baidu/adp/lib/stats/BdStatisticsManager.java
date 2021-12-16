@@ -20,7 +20,7 @@ import c.a.d.f.n.f;
 import c.a.d.f.n.i;
 import c.a.d.f.n.m.a;
 import c.a.d.f.n.o.g;
-import c.a.d.f.p.q;
+import c.a.d.f.p.r;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
@@ -39,7 +39,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BdStatisticsManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMG_OVER_TIME = 2000;
@@ -67,7 +67,7 @@ public class BdStatisticsManager {
     public long mUploadInterval;
     public String mWriteFileDir;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class BdStatisticsManager {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +150,7 @@ public class BdStatisticsManager {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -311,7 +311,7 @@ public class BdStatisticsManager {
                         String str = runningAppProcesses.get(i2).processName;
                         if (!TextUtils.isEmpty(str)) {
                             try {
-                                String d2 = q.d(str.getBytes("UTF-8"));
+                                String d2 = r.d(str.getBytes("UTF-8"));
                                 return (TextUtils.isEmpty(d2) || d2.length() <= 8) ? d2 : d2.substring(d2.length() - 8);
                             } catch (UnsupportedEncodingException e2) {
                                 BdLog.e(e2.getMessage());
@@ -591,7 +591,7 @@ public class BdStatisticsManager {
             c.a.d.f.n.n.b.m().n(dVar, str4, str5);
             g.i().l(dVar);
             if (dVar != null) {
-                this.mAppVersion = dVar.f2527c;
+                this.mAppVersion = dVar.f2491c;
             }
             if (TextUtils.isEmpty(this.mProcessNameMd5)) {
                 String processNameMd5 = getProcessNameMd5();

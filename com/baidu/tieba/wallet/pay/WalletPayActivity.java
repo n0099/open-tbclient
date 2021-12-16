@@ -15,11 +15,11 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.c.g.a;
 import c.a.d.f.m.e;
-import c.a.d.f.p.k;
 import c.a.d.f.p.l;
-import c.a.q0.s.e0.b;
-import c.a.q0.s.s.a;
-import c.a.q0.w.c;
+import c.a.d.f.p.m;
+import c.a.r0.s.g0.b;
+import c.a.r0.s.t.a;
+import c.a.r0.w.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -70,7 +70,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.GetOrder.DataRes;
 import tbclient.GetOrder.NotifyPopup;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PAY_STATUS_FAIL = 1;
@@ -920,7 +920,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
             return;
         }
         if (this.mDialogRootView == null) {
-            this.checkViewWidth = l.f(getActivity(), R.dimen.ds40);
+            this.checkViewWidth = m.f(getActivity(), R.dimen.ds40);
             View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.pay_error_dialog_view, (ViewGroup) null);
             this.mDialogRootView = inflate;
             this.mTitleView = (TextView) inflate.findViewById(R.id.error_pay_dialog_title);
@@ -965,7 +965,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         String str3 = notifyPopup.app_version + "/" + ((notifyPopup.app_size.intValue() / 1024) / 1024) + "M";
         this.mUpdateTipView.setText(notifyPopup.hint);
         this.mDescView.setText(notifyPopup.changelogs);
-        if (!k.isEmpty(notifyPopup.appendix_text) && !k.isEmpty(notifyPopup.appendix_link)) {
+        if (!l.isEmpty(notifyPopup.appendix_text) && !l.isEmpty(notifyPopup.appendix_link)) {
             this.mOtherApkView.setVisibility(0);
             this.mOtherApkView.setText(notifyPopup.appendix_text);
             if (notifyPopup.appendix_optional.intValue() == 0) {
@@ -987,7 +987,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         } else {
             str2 = notifyPopup.y_btn_text;
         }
-        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(getActivity());
+        c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(getActivity());
         aVar.setContentViewSize(1);
         aVar.setCanceledOnTouchOutside(false);
         aVar.setContentView(this.mDialogRootView);
@@ -1052,8 +1052,8 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
                 this.this$0 = this;
             }
 
-            @Override // c.a.q0.s.s.a.e
-            public void onClick(c.a.q0.s.s.a aVar2) {
+            @Override // c.a.r0.s.t.a.e
+            public void onClick(c.a.r0.s.t.a aVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
                     aVar2.dismiss();
@@ -1086,14 +1086,14 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
                 this.val$data = notifyPopup;
             }
 
-            @Override // c.a.q0.s.s.a.e
-            public void onClick(c.a.q0.s.s.a aVar2) {
+            @Override // c.a.r0.s.t.a.e
+            public void onClick(c.a.r0.s.t.a aVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
-                    if (!k.isEmpty(this.val$data.y_btn_link)) {
+                    if (!l.isEmpty(this.val$data.y_btn_link)) {
                         c.q().B("app_update" + new Date().getTime(), this.val$data.y_btn_link, "tieba" + new Date().getTime(), null);
                     }
-                    if (!k.isEmpty(this.val$data.appendix_text) && this.this$0.mOtherApkSelected && !k.isEmpty(this.val$data.appendix_link)) {
+                    if (!l.isEmpty(this.val$data.appendix_text) && this.this$0.mOtherApkSelected && !l.isEmpty(this.val$data.appendix_link)) {
                         c.q().B("app_update_extra" + new Date().getTime(), this.val$data.appendix_link, "tiebaextra" + new Date().getTime(), null);
                     }
                     aVar2.dismiss();
@@ -1105,11 +1105,11 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         aVar.show();
     }
 
-    public c.a.q0.s.s.a showPaySuccessDialog() {
+    public c.a.r0.s.t.a showPaySuccessDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(getPageContext().getPageActivity());
+            c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(getPageContext().getPageActivity());
             aVar.setCanceledOnTouchOutside(false);
             aVar.setOnKeyListener(new DialogInterface.OnKeyListener(this) { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.6
                 public static /* synthetic */ Interceptable $ic;
@@ -1184,7 +1184,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
             aVar.show();
             return aVar;
         }
-        return (c.a.q0.s.s.a) invokeV.objValue;
+        return (c.a.r0.s.t.a) invokeV.objValue;
     }
 
     public void showResult(Boolean bool) {
@@ -1224,7 +1224,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         if (!(interceptable == null || interceptable.invokeL(1048588, this, notifyPopup) == null) || notifyPopup == null) {
             return;
         }
-        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(getActivity());
+        c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(getActivity());
         aVar.setMessage(notifyPopup.hint);
         aVar.setCanceledOnTouchOutside(false);
         if (StringUtils.isNull(notifyPopup.n_btn_text)) {
@@ -1260,8 +1260,8 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
                 this.this$0 = this;
             }
 
-            @Override // c.a.q0.s.s.a.e
-            public void onClick(c.a.q0.s.s.a aVar2) {
+            @Override // c.a.r0.s.t.a.e
+            public void onClick(c.a.r0.s.t.a aVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
                     aVar2.dismiss();
@@ -1294,11 +1294,11 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
                 this.val$data = notifyPopup;
             }
 
-            @Override // c.a.q0.s.s.a.e
-            public void onClick(c.a.q0.s.s.a aVar2) {
+            @Override // c.a.r0.s.t.a.e
+            public void onClick(c.a.r0.s.t.a aVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
-                    if (!k.isEmpty(this.val$data.y_btn_link)) {
+                    if (!l.isEmpty(this.val$data.y_btn_link)) {
                         c.q().B("app_update", this.val$data.y_btn_link, "tieba", null);
                     }
                     aVar2.dismiss();

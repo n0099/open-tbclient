@@ -19,36 +19,36 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Application a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f61594b;
+    public c f62175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<InterfaceC2112a> f61595c;
+    public final List<InterfaceC2173a> f62176c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f61596d;
+    public int f62177d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Activity> f61597e;
+    public WeakReference<Activity> f62178e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile int f61598f;
+    public volatile int f62179f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f61599g;
+    public volatile boolean f62180g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Application.ActivityLifecycleCallbacks f61600h;
+    public final Application.ActivityLifecycleCallbacks f62181h;
 
     /* renamed from: com.ss.android.socialbase.downloader.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC2112a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC2173a {
         @MainThread
         void b();
 
@@ -56,7 +56,7 @@ public class a {
         void c();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
@@ -79,7 +79,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
     }
 
@@ -88,8 +88,8 @@ public class a {
         Object[] array;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            synchronized (this.f61595c) {
-                array = this.f61595c.size() > 0 ? this.f61595c.toArray() : null;
+            synchronized (this.f62176c) {
+                array = this.f62176c.size() > 0 ? this.f62176c.toArray() : null;
             }
             return array;
         }
@@ -100,11 +100,11 @@ public class a {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.f61598f = 1;
+            this.f62179f = 1;
             Object[] d2 = d();
             if (d2 != null) {
                 for (Object obj : d2) {
-                    ((InterfaceC2112a) obj).b();
+                    ((InterfaceC2173a) obj).b();
                 }
             }
         }
@@ -114,11 +114,11 @@ public class a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            this.f61598f = 0;
+            this.f62179f = 0;
             Object[] d2 = d();
             if (d2 != null) {
                 for (Object obj : d2) {
-                    ((InterfaceC2112a) obj).c();
+                    ((InterfaceC2173a) obj).c();
                 }
             }
         }
@@ -165,10 +165,10 @@ public class a {
                 return;
             }
         }
-        this.f61595c = new ArrayList();
-        this.f61598f = -1;
-        this.f61599g = false;
-        this.f61600h = new Application.ActivityLifecycleCallbacks(this) { // from class: com.ss.android.socialbase.downloader.a.a.1
+        this.f62176c = new ArrayList();
+        this.f62179f = -1;
+        this.f62180g = false;
+        this.f62181h = new Application.ActivityLifecycleCallbacks(this) { // from class: com.ss.android.socialbase.downloader.a.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -209,11 +209,11 @@ public class a {
             public void onActivityPaused(Activity activity) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-                    this.a.f61599g = true;
-                    if (this.a.f61596d != 0 || activity == null) {
+                    this.a.f62180g = true;
+                    if (this.a.f62177d != 0 || activity == null) {
                         return;
                     }
-                    this.a.f61596d = activity.hashCode();
+                    this.a.f62177d = activity.hashCode();
                 }
             }
 
@@ -221,9 +221,9 @@ public class a {
             public void onActivityResumed(Activity activity) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048579, this, activity) == null) {
-                    int i4 = this.a.f61596d;
-                    this.a.f61599g = false;
-                    this.a.f61596d = activity != null ? activity.hashCode() : i4;
+                    int i4 = this.a.f62177d;
+                    this.a.f62180g = false;
+                    this.a.f62177d = activity != null ? activity.hashCode() : i4;
                     if (i4 == 0) {
                         this.a.e();
                     }
@@ -241,10 +241,10 @@ public class a {
             public void onActivityStarted(Activity activity) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
-                    this.a.f61597e = new WeakReference(activity);
-                    int i4 = this.a.f61596d;
-                    this.a.f61596d = activity != null ? activity.hashCode() : i4;
-                    this.a.f61599g = false;
+                    this.a.f62178e = new WeakReference(activity);
+                    int i4 = this.a.f62177d;
+                    this.a.f62177d = activity != null ? activity.hashCode() : i4;
+                    this.a.f62180g = false;
                     if (i4 == 0) {
                         this.a.e();
                     }
@@ -255,11 +255,11 @@ public class a {
             public void onActivityStopped(Activity activity) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
-                    if (activity != null && activity.hashCode() == this.a.f61596d) {
-                        this.a.f61596d = 0;
+                    if (activity != null && activity.hashCode() == this.a.f62177d) {
+                        this.a.f62177d = 0;
                         this.a.f();
                     }
-                    this.a.f61599g = false;
+                    this.a.f62180g = false;
                 }
             }
         };
@@ -270,11 +270,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.f61598f;
+            int i2 = this.f62179f;
             int i3 = i2;
             if (i2 == -1) {
                 ?? g2 = g();
-                this.f61598f = g2;
+                this.f62179f = g2;
                 i3 = g2;
             }
             return i3 == 1;
@@ -285,7 +285,7 @@ public class a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? b() && !this.f61599g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? b() && !this.f62180g : invokeV.booleanValue;
     }
 
     public static a a() {
@@ -294,11 +294,11 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b.a : (a) invokeV.objValue;
     }
 
-    public void b(InterfaceC2112a interfaceC2112a) {
+    public void b(InterfaceC2173a interfaceC2173a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC2112a) == null) {
-            synchronized (this.f61595c) {
-                this.f61595c.remove(interfaceC2112a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC2173a) == null) {
+            synchronized (this.f62176c) {
+                this.f62176c.remove(interfaceC2173a);
             }
         }
     }
@@ -310,7 +310,7 @@ public class a {
                 if (this.a == null) {
                     Application application = (Application) context;
                     this.a = application;
-                    application.registerActivityLifecycleCallbacks(this.f61600h);
+                    application.registerActivityLifecycleCallbacks(this.f62181h);
                 }
             }
         }
@@ -319,18 +319,18 @@ public class a {
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f61594b = cVar;
+            this.f62175b = cVar;
         }
     }
 
-    public void a(InterfaceC2112a interfaceC2112a) {
+    public void a(InterfaceC2173a interfaceC2173a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC2112a) == null) || interfaceC2112a == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC2173a) == null) || interfaceC2173a == null) {
             return;
         }
-        synchronized (this.f61595c) {
-            if (!this.f61595c.contains(interfaceC2112a)) {
-                this.f61595c.add(interfaceC2112a);
+        synchronized (this.f62176c) {
+            if (!this.f62176c.contains(interfaceC2173a)) {
+                this.f62176c.add(interfaceC2173a);
             }
         }
     }

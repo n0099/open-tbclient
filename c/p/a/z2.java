@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class z2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Context f31018e;
+    public final /* synthetic */ Context f31388e;
 
     public z2(Context context) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public final class z2 implements Runnable {
                 return;
             }
         }
-        this.f31018e = context;
+        this.f31388e = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d3.a = new WebView(this.f31018e).getSettings().getUserAgentString();
+            d3.a = new WebView(this.f31388e).getSettings().getUserAgentString();
         }
     }
 }

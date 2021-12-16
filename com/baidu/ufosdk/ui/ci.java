@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ci implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ cg f51650b;
+    public final /* synthetic */ cg f52199b;
 
     public ci(cg cgVar, int i2) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class ci implements View.OnClickListener {
                 return;
             }
         }
-        this.f51650b = cgVar;
+        this.f52199b = cgVar;
         this.a = i2;
     }
 
@@ -39,7 +39,7 @@ public final class ci implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             com.baidu.ufosdk.f.c.a("点击已解决！！！");
-            ((Map) this.f51650b.a.f51610h.get(this.a)).put("ask", 2);
+            ((Map) this.f52199b.a.f52159h.get(this.a)).put("ask", 2);
             new Thread(new cj(this)).start();
         }
     }

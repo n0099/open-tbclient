@@ -7,7 +7,6 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.utils.ParamsUtil;
@@ -25,7 +24,7 @@ import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WXLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String q;
@@ -41,7 +40,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     public String o;
     public int p;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +82,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a();
 
@@ -131,16 +130,16 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            ((BaseSSOLoginActivity) this).f38705g = v;
-            ((BaseSSOLoginActivity) this).f38703e = w;
-            ((BaseSSOLoginActivity) this).f38704f = x;
+            ((BaseSSOLoginActivity) this).f39194g = v;
+            ((BaseSSOLoginActivity) this).f39192e = w;
+            ((BaseSSOLoginActivity) this).f39193f = x;
             w = null;
             x = false;
             this.o = getIntent().getStringExtra("code");
             this.n = getIntent().getStringExtra("state");
             int intExtra = getIntent().getIntExtra("error_code", -1);
             this.p = intExtra;
-            if (((BaseSSOLoginActivity) this).f38704f) {
+            if (((BaseSSOLoginActivity) this).f39193f) {
                 Intent intent = new Intent();
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_AUTHORIZATION_CODE, this.o);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_TYPE_CODE, String.valueOf(SocialType.QQ_SSO.getType()));
@@ -175,8 +174,8 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
             }
             if (!getIntent().getBooleanExtra(r, false)) {
                 v = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
-                w = ((BaseSSOLoginActivity) this).f38703e;
-                x = ((BaseSSOLoginActivity) this).f38704f;
+                w = ((BaseSSOLoginActivity) this).f39192e;
+                x = ((BaseSSOLoginActivity) this).f39193f;
                 a(new a(this));
                 return;
             }
@@ -236,17 +235,21 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
 
     private void a(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, this, bVar) == null) && a("com.tencent.mm.opensdk.openapi.WXAPIFactory").booleanValue()) {
-            SapiConfiguration sapiConfiguration = this.configuration;
-            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(sapiConfiguration.context, sapiConfiguration.wxAppID);
-            if (!createWXAPI.isWXAppInstalled()) {
-                bVar.a();
-                return;
+        if (interceptable == null || interceptable.invokeL(65538, this, bVar) == null) {
+            try {
+                IWXAPI createWXAPI = WXAPIFactory.createWXAPI(this.configuration.context, this.configuration.wxAppID);
+                if (!createWXAPI.isWXAppInstalled()) {
+                    bVar.a();
+                    return;
+                }
+                bVar.onFinish();
+                SendAuth.Req req = new SendAuth.Req();
+                req.scope = "snsapi_userinfo";
+                createWXAPI.sendReq(req);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                finish();
             }
-            bVar.onFinish();
-            SendAuth.Req req = new SendAuth.Req();
-            req.scope = "snsapi_userinfo";
-            createWXAPI.sendReq(req);
         }
     }
 }

@@ -23,17 +23,17 @@ import java.net.URLEncoder;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.zip.CRC32;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63359b;
+    public String f63940b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ReentrantLock f63360c;
+    public ReentrantLock f63941c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class a {
                 return;
             }
         }
-        this.f63359b = "";
-        this.f63360c = new ReentrantLock();
+        this.f63940b = "";
+        this.f63941c = new ReentrantLock();
     }
 
     public /* synthetic */ a(byte b2) {
@@ -86,7 +86,7 @@ public class a {
                         return gSer;
                     }
                 }
-                if (com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f56838c})) {
+                if (com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f57419c})) {
                     String serial = Build.getSerial();
                     if (!TextUtils.isEmpty(serial) && !serial.equals("unknown")) {
                         return serial;
@@ -199,17 +199,17 @@ public class a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, responseDfpCallback, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
-                this.f63360c.lock();
+                this.f63941c.lock();
             } finally {
                 try {
-                    this.f63360c.unlock();
-                    if (TextUtils.isEmpty(this.f63359b)) {
+                    this.f63941c.unlock();
+                    if (TextUtils.isEmpty(this.f63940b)) {
                     }
-                    return this.f63359b;
+                    return this.f63940b;
                 } finally {
                 }
             }
-            if (TextUtils.isEmpty(this.f63359b)) {
+            if (TextUtils.isEmpty(this.f63940b)) {
                 JSONObject jSONObject = new JSONObject();
                 String str = Build.MODEL;
                 jSONObject.put("k27", com.yxcorp.kuaishou.addfp.android.b.e.b(TextUtils.isEmpty(str) ? "KWE_N" : str.replace("=", "").replace("&", "")));
@@ -256,14 +256,14 @@ public class a {
                 sb.append(System.currentTimeMillis() - currentTimeMillis);
                 byte[] magicWrapper = Orange.getInstance().getMagicWrapper(context, jSONObject.toString().getBytes(), 0);
                 new StringBuilder("get mini lenth ").append(magicWrapper.length);
-                this.f63359b = URLEncoder.encode(Base64.encodeToString(magicWrapper, 0), "utf-8");
-                this.f63360c.unlock();
-                if (TextUtils.isEmpty(this.f63359b)) {
-                    this.f63359b = "KWE_N";
+                this.f63940b = URLEncoder.encode(Base64.encodeToString(magicWrapper, 0), "utf-8");
+                this.f63941c.unlock();
+                if (TextUtils.isEmpty(this.f63940b)) {
+                    this.f63940b = "KWE_N";
                 }
-                return this.f63359b;
+                return this.f63940b;
             }
-            return this.f63359b;
+            return this.f63940b;
         }
         return (String) invokeCommon.objValue;
     }

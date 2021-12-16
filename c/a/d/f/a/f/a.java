@@ -47,7 +47,7 @@ public class a extends DiskFileOperate {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr != null && NSGif.f31658f) {
+            if (bArr != null && NSGif.f32028f) {
                 NSGif f2 = NSGif.f(bArr, 0, bArr.length);
                 this.a = f2;
                 if (f2 != null) {

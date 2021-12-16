@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class c extends b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,12 +38,12 @@ public final class c extends b.a {
         String unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iBinder) == null) {
-            unused = b.f36275c;
-            iComOpenClient = b.f36277e;
+            unused = b.f36764c;
+            iComOpenClient = b.f36766e;
             if (iComOpenClient != null) {
-                IComOpenClient unused2 = b.f36277e = null;
+                IComOpenClient unused2 = b.f36766e = null;
             }
-            IComOpenClient unused3 = b.f36277e = IComOpenClient.a.a(iBinder);
+            IComOpenClient unused3 = b.f36766e = IComOpenClient.a.a(iBinder);
             b.a(this.a);
             boolean unused4 = b.t = true;
         }

@@ -20,7 +20,7 @@ import okhttp3.internal.http.HttpMethod;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Request {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class Request {
     public final Map<Class<?>, Object> tags;
     public final HttpUrl url;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

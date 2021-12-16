@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.widget.SeekBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.r0.t3.c;
+import c.a.s0.v3.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R$styleable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LinearVideoLoadingSeekBar extends SeekBar {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double LOADING_DURATION = 0.5d;
@@ -29,21 +29,21 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48412e;
+    public int f48925e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48413f;
+    public int f48926f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48414g;
+    public boolean f48927g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f48415h;
+    public final int f48928h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f48416i;
+    public Handler f48929i;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,8 +73,8 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
                 this.a.invalidate();
-                if (this.a.f48414g) {
-                    sendEmptyMessageDelayed(1, 16L);
+                if (this.a.f48927g) {
+                    sendEmptyMessageDelayed(1, 43L);
                 }
             }
         }
@@ -111,15 +111,15 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
             paint.setAntiAlias(true);
-            int i2 = this.f48412e + (width / 30);
-            this.f48412e = i2;
+            int i2 = this.f48925e + (width / 30);
+            this.f48925e = i2;
             if (i2 >= width) {
-                this.f48412e = 0;
+                this.f48925e = 0;
             }
-            paint.setColor(c.a(this.f48415h, width == 0 ? 1.0f : Math.max(255 - ((this.f48412e * 255) / width), 30) / 255.0f));
-            paint.setStrokeWidth(this.f48413f);
+            paint.setColor(c.a(this.f48928h, width == 0 ? 1.0f : Math.max(255 - ((this.f48925e * 255) / width), 30) / 255.0f));
+            paint.setStrokeWidth(this.f48926f);
             float f2 = width / 2.0f;
-            int i3 = this.f48412e;
+            int i3 = this.f48925e;
             float f3 = ((height - paddingBottom) + paddingTop) / 2.0f;
             canvas.drawLine(f2 - (i3 / 2.0f), f3, f2 + (i3 / 2.0f), f3, paint);
         }
@@ -130,7 +130,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDetachedFromWindow();
-            this.f48416i.removeCallbacksAndMessages(null);
+            this.f48929i.removeCallbacksAndMessages(null);
         }
     }
 
@@ -139,7 +139,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             synchronized (this) {
-                if (this.f48414g) {
+                if (this.f48927g) {
                     b(canvas);
                 } else {
                     super.onDraw(canvas);
@@ -151,10 +151,10 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
     public void setLoading(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f48414g = z;
+            this.f48927g = z;
             if (z) {
-                this.f48412e = 0;
-                this.f48416i.sendEmptyMessageDelayed(1, 33L);
+                this.f48925e = 0;
+                this.f48929i.sendEmptyMessageDelayed(1, 43L);
             }
         }
     }
@@ -199,13 +199,13 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
                 return;
             }
         }
-        this.f48412e = 0;
-        this.f48413f = 1;
-        this.f48414g = false;
-        this.f48416i = new a(this);
+        this.f48925e = 0;
+        this.f48926f = 1;
+        this.f48927g = false;
+        this.f48929i = new a(this);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.LinearVideoLoadingSeekBar);
-        this.f48415h = obtainStyledAttributes.getColor(R$styleable.LinearVideoLoadingSeekBar_progressColor, -16777216);
-        this.f48413f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.LinearVideoLoadingSeekBar_loadingViewHeight, this.f48413f);
+        this.f48928h = obtainStyledAttributes.getColor(R$styleable.LinearVideoLoadingSeekBar_progressColor, -16777216);
+        this.f48926f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.LinearVideoLoadingSeekBar_loadingViewHeight, this.f48926f);
         obtainStyledAttributes.recycle();
     }
 }

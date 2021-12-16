@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class DetectStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DetectStrategy";
@@ -24,7 +24,7 @@ public class DetectStrategy {
     public float mTotalCropScore;
 
     /* renamed from: com.baidu.pass.face.platform.strategy.DetectStrategy$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$face$platform$FaceStatusNewEnum;
         public static /* synthetic */ Interceptable $ic;

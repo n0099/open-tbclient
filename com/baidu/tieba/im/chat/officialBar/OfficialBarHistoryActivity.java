@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.os.Bundle;
 import android.os.Handler;
 import c.a.d.c.g.c;
-import c.a.r0.r1.f.j.d;
+import c.a.s0.s1.f.j.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryActivity> implements BdListView.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,22 +30,22 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     public d mView;
     public int mforumId;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialBarHistoryActivity a;
 
         /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class RunnableC1838a implements Runnable {
+        /* loaded from: classes12.dex */
+        public class RunnableC1897a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f45884e;
+            public final /* synthetic */ a f46383e;
 
-            public RunnableC1838a(a aVar) {
+            public RunnableC1897a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,16 +60,16 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                         return;
                     }
                 }
-                this.f45884e = aVar;
+                this.f46383e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45884e.a.mView.e()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46383e.a.mView.e()) {
                     return;
                 }
-                this.f45884e.a.getNextPage();
+                this.f46383e.a.getNextPage();
             }
         }
 
@@ -130,14 +130,14 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                     if (responseHistoryMessage.getMsg().size() == 0) {
                         this.a.mView.h(this.a.mDataList);
                     } else {
-                        new Handler().post(new RunnableC1838a(this));
+                        new Handler().post(new RunnableC1897a(this));
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +211,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 i2 = 0;
             } else {
                 List<ResponseHistoryMessage.a> list2 = this.mDataList;
-                i2 = list2.get(list2.size() - 1).f45923d;
+                i2 = list2.get(list2.size() - 1).f46422d;
             }
             this.isRefreshing = true;
             MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), i2));

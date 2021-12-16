@@ -7,31 +7,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d<T> implements i.e<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.e<? super T> f63919e;
+    public final i.e<? super T> f64500e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f63920f;
+    public boolean f64501f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f63921g;
+    public volatile boolean f64502g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f63922h;
+    public a f64503h;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Object[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f63923b;
+        public int f64504b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class d<T> implements i.e<T> {
         public void a(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                int i2 = this.f63923b;
+                int i2 = this.f64504b;
                 Object[] objArr = this.a;
                 if (objArr == null) {
                     objArr = new Object[16];
@@ -62,7 +62,7 @@ public class d<T> implements i.e<T> {
                     objArr = objArr2;
                 }
                 objArr[i2] = obj;
-                this.f63923b = i2 + 1;
+                this.f64504b = i2 + 1;
             }
         }
     }
@@ -82,31 +82,31 @@ public class d<T> implements i.e<T> {
                 return;
             }
         }
-        this.f63919e = eVar;
+        this.f64500e = eVar;
     }
 
     @Override // i.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f63921g) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f64502g) {
             return;
         }
         synchronized (this) {
-            if (this.f63921g) {
+            if (this.f64502g) {
                 return;
             }
-            this.f63921g = true;
-            if (this.f63920f) {
-                a aVar = this.f63922h;
+            this.f64502g = true;
+            if (this.f64501f) {
+                a aVar = this.f64503h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f63922h = aVar;
+                    this.f64503h = aVar;
                 }
                 aVar.a(NotificationLite.b());
                 return;
             }
-            this.f63920f = true;
-            this.f63919e.onCompleted();
+            this.f64501f = true;
+            this.f64500e.onCompleted();
         }
     }
 
@@ -115,25 +115,25 @@ public class d<T> implements i.e<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
             i.m.a.e(th);
-            if (this.f63921g) {
+            if (this.f64502g) {
                 return;
             }
             synchronized (this) {
-                if (this.f63921g) {
+                if (this.f64502g) {
                     return;
                 }
-                this.f63921g = true;
-                if (this.f63920f) {
-                    a aVar = this.f63922h;
+                this.f64502g = true;
+                if (this.f64501f) {
+                    a aVar = this.f64503h;
                     if (aVar == null) {
                         aVar = new a();
-                        this.f63922h = aVar;
+                        this.f64503h = aVar;
                     }
                     aVar.a(NotificationLite.c(th));
                     return;
                 }
-                this.f63920f = true;
-                this.f63919e.onError(th);
+                this.f64501f = true;
+                this.f64500e.onError(th);
             }
         }
     }
@@ -148,54 +148,54 @@ public class d<T> implements i.e<T> {
     public void onNext(T t) {
         Object[] objArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f63921g) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f64502g) {
             return;
         }
         synchronized (this) {
-            if (this.f63921g) {
+            if (this.f64502g) {
                 return;
             }
-            if (this.f63920f) {
-                a aVar = this.f63922h;
+            if (this.f64501f) {
+                a aVar = this.f64503h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f63922h = aVar;
+                    this.f64503h = aVar;
                 }
                 aVar.a(NotificationLite.h(t));
                 return;
             }
-            this.f63920f = true;
+            this.f64501f = true;
             try {
-                this.f63919e.onNext(t);
+                this.f64500e.onNext(t);
                 while (true) {
                     synchronized (this) {
-                        a aVar2 = this.f63922h;
+                        a aVar2 = this.f64503h;
                         if (aVar2 == null) {
-                            this.f63920f = false;
+                            this.f64501f = false;
                             return;
                         }
-                        this.f63922h = null;
+                        this.f64503h = null;
                         for (Object obj : aVar2.a) {
                             if (obj == null) {
                                 break;
                             }
                             try {
-                                if (NotificationLite.a(this.f63919e, obj)) {
-                                    this.f63921g = true;
+                                if (NotificationLite.a(this.f64500e, obj)) {
+                                    this.f64502g = true;
                                     return;
                                 }
                             } catch (Throwable th) {
-                                this.f63921g = true;
+                                this.f64502g = true;
                                 i.m.a.e(th);
-                                this.f63919e.onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                                this.f64500e.onError(OnErrorThrowable.addValueAsLastCause(th, t));
                                 return;
                             }
                         }
                     }
                 }
             } catch (Throwable th2) {
-                this.f63921g = true;
-                i.m.a.g(th2, this.f63919e, t);
+                this.f64502g = true;
+                i.m.a.g(th2, this.f64500e, t);
             }
         }
     }

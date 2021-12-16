@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class CountingOutputStream extends FilterOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

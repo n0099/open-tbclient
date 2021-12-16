@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class f63352b;
+    public static Class f63933b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public final class a {
         }
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f63352b = cls;
+            f63933b = cls;
             a = cls.newInstance();
         } catch (Throwable th) {
             th.printStackTrace();
@@ -52,7 +52,7 @@ public final class a {
                 return null;
             }
             try {
-                Object invoke = f63352b.getMethod(str, Context.class).invoke(a, context);
+                Object invoke = f63933b.getMethod(str, Context.class).invoke(a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }
@@ -68,6 +68,6 @@ public final class a {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f63352b == null || a == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f63933b == null || a == null) ? false : true : invokeV.booleanValue;
     }
 }

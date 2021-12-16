@@ -3,7 +3,7 @@ package com.baidu.ar.ihttp;
 import java.nio.charset.Charset;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IHttpRequest {
     IHttpRequest addFile(String str, String str2);
 

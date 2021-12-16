@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class l<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f60972b;
+    public T f61553b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f60973c;
+    public final boolean f61554c;
 
     public l(int i2, T t, boolean z) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class l<T> {
             }
         }
         this.a = i2;
-        this.f60972b = t;
-        this.f60973c = z;
+        this.f61553b = t;
+        this.f61554c = z;
     }
 
     public final int a() {
@@ -47,14 +47,14 @@ public final class l<T> {
     public final T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60972b : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61553b : (T) invokeV.objValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{code:" + this.a + ", response:" + this.f60972b + ", resultFormCache:" + this.f60973c + "}";
+            return "{code:" + this.a + ", response:" + this.f61553b + ", resultFormCache:" + this.f61554c + "}";
         }
         return (String) invokeV.objValue;
     }

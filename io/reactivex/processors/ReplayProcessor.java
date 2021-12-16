@@ -25,7 +25,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ReplayProcessor<T> extends FlowableProcessor<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final ReplaySubscription[] EMPTY;
@@ -36,7 +36,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
     public boolean done;
     public final AtomicReference<ReplaySubscription<T>[]> subscribers;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Node<T> extends AtomicReference<Node<T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6404226426336033100L;
@@ -62,7 +62,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ReplayBuffer<T> {
         void complete();
 
@@ -85,7 +85,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         void trimHead();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ReplaySubscription<T> extends AtomicInteger implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 466549804534799122L;
@@ -137,7 +137,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class SizeAndTimeBoundReplayBuffer<T> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -452,7 +452,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class SizeBoundReplayBuffer<T> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -684,7 +684,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class TimedNode<T> extends AtomicReference<TimedNode<T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6404226426336033100L;
@@ -712,7 +712,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class UnboundedReplayBuffer<T> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

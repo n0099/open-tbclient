@@ -67,7 +67,7 @@ import com.kwad.sdk.reward.j;
 import com.kwad.tachikoma.config.TKConfigResultData;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class cf {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Class<? extends com.kwad.sdk.core.response.kwai.a>, com.kwad.sdk.core.d> a;
@@ -168,7 +168,7 @@ public class cf {
         a.put(p.a.class, new aj());
         a.put(LiveInfo.CoverThumbnailUrl.class, new au());
         a.put(AdStyleInfo.PlayEndInfo.class, new dc());
-        a.put(a.C2025a.class, new bi());
+        a.put(a.C2086a.class, new bi());
         a.put(PhotoInfo.ProductInfo.ProductDetail.class, new di());
         a.put(InsertScreenConfigItem.InsertScreenConfig.class, new bz());
         a.put(com.kwad.sdk.core.webview.a.kwai.e.class, new du());
@@ -230,7 +230,7 @@ public class cf {
         a.put(g.a.class, new ab());
         a.put(com.kwad.sdk.c.kwai.c.class, new cr());
         a.put(AdMatrixInfo.ShakeInfo.class, new dq());
-        a.put(b.C2032b.class, new cj());
+        a.put(b.C2093b.class, new cj());
         a.put(AdMatrixInfo.class, new o());
         a.put(InstallActivateReminderConfigItem.InstallActivateReminderConfig.class, new cb());
         a.put(LiveInfo.User.HeadUrl.class, new bq());

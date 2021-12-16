@@ -13,14 +13,14 @@ import com.google.common.util.concurrent.Service;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractIdleService implements Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Service delegate;
     public final r<String> threadNameSupplier;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class DelegateService extends AbstractService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public abstract class AbstractIdleService implements Service {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class ThreadNameSupplier implements r<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

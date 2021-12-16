@@ -17,7 +17,7 @@ import java.io.Serializable;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -27,7 +27,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
     public transient int hashCode;
     public final transient ByteString unknownFields;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a<T extends Message<T, B>, B extends a<T, B>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

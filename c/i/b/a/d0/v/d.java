@@ -1,5 +1,5 @@
 package c.i.b.a.d0.v;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface d {
     long a(int i2, long j2);
 

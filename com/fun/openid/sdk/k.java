@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.c;
 import com.fun.openid.sdk.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,9 +64,9 @@ public class k implements f {
         if (Build.VERSION.SDK_INT >= 28) {
             if (packageInfo != null && packageInfo.getLongVersionCode() >= 1) {
                 z = true;
-                b.f55755b = z;
+                b.f56336b = z;
                 b.a = true;
-                if (!b.f55755b) {
+                if (!b.f56336b) {
                     FunOpenIDSdk.isLogEnabled();
                     aVar.a(false, null);
                     return;
@@ -79,10 +79,10 @@ public class k implements f {
                                 Intent intent = new Intent();
                                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                                if (applicationContext2.bindService(intent, cVar2.f55759e, 1)) {
-                                    synchronized (cVar2.f55758d) {
+                                if (applicationContext2.bindService(intent, cVar2.f56340e, 1)) {
+                                    synchronized (cVar2.f56339d) {
                                         try {
-                                            cVar2.f55758d.wait(3000L);
+                                            cVar2.f56339d.wait(3000L);
                                         } catch (InterruptedException e3) {
                                             e3.printStackTrace();
                                         }
@@ -108,17 +108,17 @@ public class k implements f {
                 }
             }
             z = false;
-            b.f55755b = z;
+            b.f56336b = z;
             b.a = true;
-            if (!b.f55755b) {
+            if (!b.f56336b) {
             }
         } else {
             if (packageInfo != null) {
             }
             z = false;
-            b.f55755b = z;
+            b.f56336b = z;
             b.a = true;
-            if (!b.f55755b) {
+            if (!b.f56336b) {
             }
         }
     }

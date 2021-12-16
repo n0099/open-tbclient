@@ -20,7 +20,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final ImmutableRangeMap<Comparable<?>, Object> EMPTY;
@@ -29,7 +29,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
     public final transient ImmutableList<Range<K>> ranges;
     public final transient ImmutableList<V> values;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SerializedForm<K extends Comparable<?>, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -82,7 +82,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a<K extends Comparable<?>, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -18,7 +18,7 @@ import org.webrtc.EglBase;
 import org.webrtc.EglRenderer;
 import org.webrtc.RendererCommon;
 import org.webrtc.SurfaceViewRenderer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Callback, VideoSink, RendererCommon.RendererEvents {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SurfaceViewRenderer";

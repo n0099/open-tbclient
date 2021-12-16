@@ -9,28 +9,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class f extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final e f30133e;
+    public final e f30503e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g f30134f;
+    public final g f30504f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final byte[] f30135g;
+    public final byte[] f30505g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30136h;
+    public boolean f30506h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f30137i;
+    public boolean f30507i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f30138j;
+    public long f30508j;
 
     public f(e eVar, g gVar) {
         Interceptable interceptable = $ic;
@@ -47,36 +47,36 @@ public final class f extends InputStream {
                 return;
             }
         }
-        this.f30136h = false;
-        this.f30137i = false;
-        this.f30133e = eVar;
-        this.f30134f = gVar;
-        this.f30135g = new byte[1];
+        this.f30506h = false;
+        this.f30507i = false;
+        this.f30503e = eVar;
+        this.f30504f = gVar;
+        this.f30505g = new byte[1];
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30138j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30508j : invokeV.longValue;
     }
 
     public final void c() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f30136h) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f30506h) {
             return;
         }
-        this.f30133e.a(this.f30134f);
-        this.f30136h = true;
+        this.f30503e.a(this.f30504f);
+        this.f30506h = true;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f30137i) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f30507i) {
             return;
         }
-        this.f30133e.close();
-        this.f30137i = true;
+        this.f30503e.close();
+        this.f30507i = true;
     }
 
     public void e() throws IOException {
@@ -91,10 +91,10 @@ public final class f extends InputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (read(this.f30135g) == -1) {
+            if (read(this.f30505g) == -1) {
                 return -1;
             }
-            return this.f30135g[0] & 255;
+            return this.f30505g[0] & 255;
         }
         return invokeV.intValue;
     }
@@ -111,13 +111,13 @@ public final class f extends InputStream {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) {
-            c.i.b.a.i0.a.f(!this.f30137i);
+            c.i.b.a.i0.a.f(!this.f30507i);
             c();
-            int read = this.f30133e.read(bArr, i2, i3);
+            int read = this.f30503e.read(bArr, i2, i3);
             if (read == -1) {
                 return -1;
             }
-            this.f30138j += read;
+            this.f30508j += read;
             return read;
         }
         return invokeLII.intValue;

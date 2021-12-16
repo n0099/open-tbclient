@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class Projection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public final class Projection {
             }
             GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
             ab abVar = mapStatus.a;
-            return new PointF((float) (ll2mc.getLongitudeE6() - abVar.f36391d), (float) (ll2mc.getLatitudeE6() - abVar.f36392e));
+            return new PointF((float) (ll2mc.getLongitudeE6() - abVar.f36880d), (float) (ll2mc.getLatitudeE6() - abVar.f36881e));
         }
         return (PointF) invokeLL.objValue;
     }
@@ -83,8 +83,8 @@ public final class Projection {
                 return null;
             }
             GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
-            ab.a aVar = mapStatus.a.f36398k;
-            return new PointF((float) ((((ll2mc.getLongitudeE6() - aVar.a) * 2.0d) / Math.abs(aVar.f36399b - aVar.a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.f36401d) * 2.0d) / Math.abs(aVar.f36400c - aVar.f36401d)) - 1.0d));
+            ab.a aVar = mapStatus.a.f36887k;
+            return new PointF((float) ((((ll2mc.getLongitudeE6() - aVar.a) * 2.0d) / Math.abs(aVar.f36888b - aVar.a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.f36890d) * 2.0d) / Math.abs(aVar.f36889c - aVar.f36890d)) - 1.0d));
         }
         return (PointF) invokeLL.objValue;
     }

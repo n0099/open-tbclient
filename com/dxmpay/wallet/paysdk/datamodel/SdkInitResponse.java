@@ -20,17 +20,19 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.BdWalletUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class SdkInitResponse implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f55579e = true;
+    public static volatile boolean f56160e = true;
+    public static final String sNfcCfgKey = "nfcKyc";
     public transient /* synthetic */ FieldHolder $fh;
     public String balanceHomeUrl;
     public String balanceSchemeUrl;
     public String bankCardListUrl;
     public String bankCardSchemeUrl;
+    public String bankcard_detect;
     public String certWhiteList;
     public String cookiesSyncDomainList;
     public String domainConfig;
@@ -45,6 +47,7 @@ public class SdkInitResponse implements IBeanResponse {
     public String loadingDurationInterval;
     public JSONObject loginUrl;
     public String needShowLoadingInterval;
+    public String nfcKyc;
     public String passAuthUrl;
     public String payConfigUrl;
     public String payHost;
@@ -65,7 +68,7 @@ public class SdkInitResponse implements IBeanResponse {
     public String transactionSchemeUrl;
     public String useH5BindCard;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final SdkInitResponse a;
@@ -187,7 +190,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             if (TextUtils.isEmpty(this.balanceHomeUrl)) {
-                this.balanceHomeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f53442d, "");
+                this.balanceHomeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f54022d, "");
             }
             return this.balanceHomeUrl;
         }
@@ -211,7 +214,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
             if (TextUtils.isEmpty(this.cookiesSyncDomainList)) {
-                this.cookiesSyncDomainList = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f53443e, "");
+                this.cookiesSyncDomainList = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f54023e, "");
             }
             return this.cookiesSyncDomainList;
         }
@@ -247,7 +250,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
             if (TextUtils.isEmpty(this.loadingDurationInterval) && context != null) {
-                this.loadingDurationInterval = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f53445g, "");
+                this.loadingDurationInterval = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f54025g, "");
             }
             return this.loadingDurationInterval;
         }
@@ -280,7 +283,7 @@ public class SdkInitResponse implements IBeanResponse {
             if (!TextUtils.isEmpty(a.a.passAuthUrl)) {
                 return a.a.passAuthUrl;
             }
-            String str2 = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f53440b, "");
+            String str2 = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f54020b, "");
             return !TextUtils.isEmpty(str2) ? str2 : str;
         }
         return (String) invokeL.objValue;
@@ -291,7 +294,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
             if (TextUtils.isEmpty(this.paymentCodeUrl)) {
-                this.paymentCodeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f53441c, "");
+                this.paymentCodeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f54021c, "");
             }
             return this.paymentCodeUrl;
         }
@@ -375,7 +378,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, context)) == null) {
             if (TextUtils.isEmpty(this.transactionRecordsUrl)) {
-                this.transactionRecordsUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f53446h, "");
+                this.transactionRecordsUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f54026h, "");
             }
             return this.transactionRecordsUrl;
         }
@@ -397,8 +400,8 @@ public class SdkInitResponse implements IBeanResponse {
     @Override // com.dxmpay.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, context) == null) && f55579e) {
-            f55579e = false;
+        if ((interceptable == null || interceptable.invokeL(1048595, this, context) == null) && f56160e) {
+            f56160e = false;
             if (!TextUtils.isEmpty(this.fp)) {
                 String decrypt = SecurePay.getInstance().decrypt(this.fp);
                 if (!TextUtils.isEmpty(decrypt) && !decrypt.equals(BdWalletUtils.getDeviceFP(context))) {
@@ -410,14 +413,14 @@ public class SdkInitResponse implements IBeanResponse {
             }
             if (!TextUtils.isEmpty(this.passAuthUrl)) {
                 a.a.passAuthUrl = this.passAuthUrl;
-                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f53440b, this.passAuthUrl);
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f54020b, this.passAuthUrl);
             }
             a.a.paymentCodeUrl = this.paymentCodeUrl;
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f53441c, this.paymentCodeUrl);
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f54021c, this.paymentCodeUrl);
             a.a.transactionRecordsUrl = this.transactionRecordsUrl;
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f53446h, this.transactionRecordsUrl);
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f54026h, this.transactionRecordsUrl);
             a.a.balanceHomeUrl = this.balanceHomeUrl;
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f53442d, this.balanceHomeUrl);
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f54022d, this.balanceHomeUrl);
             a.a.securityCenterUrl = this.securityCenterUrl;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "key_pay_security_center_url", this.securityCenterUrl);
             a.a.payConfigUrl = this.payConfigUrl;
@@ -468,18 +471,19 @@ public class SdkInitResponse implements IBeanResponse {
             a.a.findPayPwdUrl = this.findPayPwdUrl;
             a.a.bankCardListUrl = this.bankCardListUrl;
             a.a.download_file = this.download_file;
+            a.a.bankcard_detect = this.bankcard_detect;
             a.a.quickBindCardUrl = this.quickBindCardUrl;
             a.a.useH5BindCard = this.useH5BindCard;
             a.a.h5bindCardUrl = this.h5bindCardUrl;
             if (!TextUtils.isEmpty(this.cookiesSyncDomainList)) {
-                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f53443e, this.cookiesSyncDomainList);
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f54023e, this.cookiesSyncDomainList);
             }
             a.a.needShowLoadingInterval = this.needShowLoadingInterval;
             a.a.loadingDurationInterval = this.loadingDurationInterval;
-            if (TextUtils.isEmpty(this.loadingDurationInterval)) {
-                return;
+            if (!TextUtils.isEmpty(this.loadingDurationInterval)) {
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f54025g, this.loadingDurationInterval);
             }
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.paysdk.datamodel.SdkInitResponse.f53445g, this.loadingDurationInterval);
+            TextUtils.isEmpty(this.nfcKyc);
         }
     }
 
@@ -487,7 +491,7 @@ public class SdkInitResponse implements IBeanResponse {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return "sdk-init:\n\tfp:" + this.fp + "\n\tkefuPhoneNum:" + this.kefuPhoneNum + "\n\tcertWhiteList:" + this.certWhiteList + "\n\tloginUrl:" + this.loginUrl + "\n\tpassAuthUrl:" + this.passAuthUrl + "\n\tdomainSwitch:" + this.domainSwitch + "\n\tdomainConfig:" + this.domainConfig + "\n\tpaymentCodeUrl:" + this.paymentCodeUrl + "\n\tbalanceHomeUrl:" + this.balanceHomeUrl + "\n\ttransactionRecordsUrl:" + this.transactionRecordsUrl + "\n\tcookiesSyncDomainList:" + this.cookiesSyncDomainList + "\n\tneedShowLoadingInterval:" + this.needShowLoadingInterval + "\n\tloadingDurationInterval:" + this.loadingDurationInterval + "\n\tsecurityCenterUrl:" + this.securityCenterUrl + "\n\tpayConfigUrl:" + this.payConfigUrl + "\n\tsetPayPwdUrl:" + this.setPayPwdUrl + "\n\tfindPayPwdUrl:" + this.findPayPwdUrl + "\n\tbankCardListUrl:" + this.bankCardListUrl + "\n\tquickBindCardUrl:" + this.quickBindCardUrl + "\n\tuseH5BindCard:" + this.useH5BindCard + "\n\th5bindCardUrl:" + this.h5bindCardUrl;
+            return "sdk-init:\n\tfp:" + this.fp + "\n\tkefuPhoneNum:" + this.kefuPhoneNum + "\n\tcertWhiteList:" + this.certWhiteList + "\n\tloginUrl:" + this.loginUrl + "\n\tpassAuthUrl:" + this.passAuthUrl + "\n\tdomainSwitch:" + this.domainSwitch + "\n\tdomainConfig:" + this.domainConfig + "\n\tpaymentCodeUrl:" + this.paymentCodeUrl + "\n\tbalanceHomeUrl:" + this.balanceHomeUrl + "\n\ttransactionRecordsUrl:" + this.transactionRecordsUrl + "\n\tcookiesSyncDomainList:" + this.cookiesSyncDomainList + "\n\tneedShowLoadingInterval:" + this.needShowLoadingInterval + "\n\tloadingDurationInterval:" + this.loadingDurationInterval + "\n\tsecurityCenterUrl:" + this.securityCenterUrl + "\n\tpayConfigUrl:" + this.payConfigUrl + "\n\tsetPayPwdUrl:" + this.setPayPwdUrl + "\n\tfindPayPwdUrl:" + this.findPayPwdUrl + "\n\tbankCardListUrl:" + this.bankCardListUrl + "\n\tquickBindCardUrl:" + this.quickBindCardUrl + "\n\tuseH5BindCard:" + this.useH5BindCard + "\n\th5bindCardUrl:" + this.h5bindCardUrl + "\n\tnfcKyc:" + this.nfcKyc;
         }
         return (String) invokeV.objValue;
     }

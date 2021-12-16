@@ -20,7 +20,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.math.RoundingMode;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BloomFilter<T> implements o<T>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
     public final int numHashFunctions;
     public final Strategy strategy;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SerialForm<T> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -67,7 +67,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Strategy extends Serializable {
         <T> boolean mightContain(T t, Funnel<? super T> funnel, int i2, BloomFilterStrategies.a aVar);
 
@@ -76,7 +76,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         <T> boolean put(T t, Funnel<? super T> funnel, int i2, BloomFilterStrategies.a aVar);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

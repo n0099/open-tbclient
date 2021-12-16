@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.config.b;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends b<ReportAction, e> {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f57672b;
+    public static f f58253b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class f extends b<ReportAction, e> {
                 return;
             }
         }
-        f57672b = new f();
+        f58253b = new f();
     }
 
     public f() {
@@ -57,10 +57,10 @@ public class f extends b<ReportAction, e> {
         if (!(interceptable == null || interceptable.invokeL(65538, null, reportAction) == null) || reportAction == null) {
             return;
         }
-        if (com.kwad.sdk.b.f57044c.booleanValue()) {
-            com.kwad.sdk.core.d.a.a("BatchReporter", "report actionType:" + reportAction.f57643i);
+        if (com.kwad.sdk.b.f57625c.booleanValue()) {
+            com.kwad.sdk.core.d.a.a("BatchReporter", "report actionType:" + reportAction.f58224i);
         }
-        if (b(reportAction.f57643i)) {
+        if (b(reportAction.f58224i)) {
             b(reportAction);
         } else {
             c(reportAction);
@@ -72,7 +72,7 @@ public class f extends b<ReportAction, e> {
         if (!(interceptable == null || interceptable.invokeL(65539, null, reportAction) == null) || reportAction == null) {
             return;
         }
-        f57672b.b(new g<ReportAction>(reportAction) { // from class: com.kwad.sdk.core.report.f.2
+        f58253b.b(new g<ReportAction>(reportAction) { // from class: com.kwad.sdk.core.report.f.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ReportAction a;
@@ -115,7 +115,7 @@ public class f extends b<ReportAction, e> {
     public static f c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f57672b : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f58253b : (f) invokeV.objValue;
     }
 
     public static void c(ReportAction reportAction) {
@@ -123,7 +123,7 @@ public class f extends b<ReportAction, e> {
         if (!(interceptable == null || interceptable.invokeL(65542, null, reportAction) == null) || reportAction == null) {
             return;
         }
-        f57672b.a(new g<ReportAction>(reportAction) { // from class: com.kwad.sdk.core.report.f.1
+        f58253b.a(new g<ReportAction>(reportAction) { // from class: com.kwad.sdk.core.report.f.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ReportAction a;

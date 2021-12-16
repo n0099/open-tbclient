@@ -7,7 +7,7 @@ import com.airbnb.lottie.model.animatable.AnimatableTextProperties;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.tbadk.TbConfig;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AnimatableTextPropertiesParser {
     public static JsonReader.Options PROPERTIES_NAMES = JsonReader.Options.of("a");
     public static JsonReader.Options ANIMATABLE_PROPERTIES_NAMES = JsonReader.Options.of("fc", "sc", TbConfig.SW_APID, "t");

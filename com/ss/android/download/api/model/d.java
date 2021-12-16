@@ -6,23 +6,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61117b;
+    public String f61698b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61118b;
+        public String f61699b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class d {
             }
         }
         this.a = aVar.a;
-        this.f61117b = aVar.f61118b;
+        this.f61698b = aVar.f61699b;
     }
 
     public String a() {

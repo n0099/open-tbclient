@@ -14,14 +14,14 @@ import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54060b;
+    public String f54640b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QueryHceTransRecordsBean(Context context) {
@@ -42,7 +42,7 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
             }
         }
         this.a = "";
-        this.f54060b = "";
+        this.f54640b = "";
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -62,8 +62,8 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
             if (!TextUtils.isEmpty(this.a)) {
                 arrayList.add(new RestNameValuePair("pn", this.a));
             }
-            if (!TextUtils.isEmpty(this.f54060b)) {
-                arrayList.add(new RestNameValuePair("type", this.f54060b));
+            if (!TextUtils.isEmpty(this.f54640b)) {
+                arrayList.add(new RestNameValuePair("type", this.f54640b));
             }
             return arrayList;
         }
@@ -110,7 +110,7 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
     public void setType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f54060b = str;
+            this.f54640b = str;
         }
     }
 }

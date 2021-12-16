@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.b.e;
-import c.a.b0.b.g;
-import c.a.b0.p.l;
-import c.a.b0.p.o;
-import c.a.b0.s.p;
-import c.a.b0.s.t;
+import c.a.c0.b.e;
+import c.a.c0.b.g;
+import c.a.c0.p.l;
+import c.a.c0.p.o;
+import c.a.c0.s.p;
+import c.a.c0.s.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.feed.AdFeedBaseView;
@@ -21,25 +21,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PortraitVideoView extends AdFeedBaseView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public p f38043h;
+    public p f38532h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f38044i;
+    public ImageView f38533i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ViewGroup f38045j;
+    public ViewGroup f38534j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final t f38046k;
+    public final t f38535k;
     public NadVideoAdOverContainer mAdUiLayout;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             this.a = portraitVideoView;
         }
 
-        @Override // c.a.b0.s.i
+        @Override // c.a.c0.s.i
         public void onEnd(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
@@ -74,7 +74,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             }
         }
 
-        @Override // c.a.b0.s.i
+        @Override // c.a.c0.s.i
         public void onError(int i2, int i3, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) && this.a.mVideoMediaListener != null && (this.a.getTag() instanceof AdBaseModel)) {
@@ -82,7 +82,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             }
         }
 
-        @Override // c.a.b0.s.i
+        @Override // c.a.c0.s.i
         public void onPause() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.mVideoMediaListener != null && (this.a.getTag() instanceof AdBaseModel)) {
@@ -90,7 +90,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             }
         }
 
-        @Override // c.a.b0.s.i
+        @Override // c.a.c0.s.i
         public void onPrepared() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.mVideoMediaListener != null && (this.a.getTag() instanceof AdBaseModel)) {
@@ -98,7 +98,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             }
         }
 
-        @Override // c.a.b0.s.i
+        @Override // c.a.c0.s.i
         public void onResume() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a.mVideoMediaListener != null && (this.a.getTag() instanceof AdBaseModel)) {
@@ -106,7 +106,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             }
         }
 
-        @Override // c.a.b0.s.i
+        @Override // c.a.c0.s.i
         public void onStart() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a.mVideoMediaListener != null && (this.a.getTag() instanceof AdBaseModel)) {
@@ -115,13 +115,13 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PortraitVideoView f38047e;
+        public final /* synthetic */ PortraitVideoView f38536e;
 
         public b(PortraitVideoView portraitVideoView) {
             Interceptable interceptable = $ic;
@@ -138,30 +138,30 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
                     return;
                 }
             }
-            this.f38047e = portraitVideoView;
+            this.f38536e = portraitVideoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f38047e.hideTailFrameAndReplay();
+                this.f38536e.hideTailFrameAndReplay();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.b0.h0.c0.b f38048e;
+        public final /* synthetic */ c.a.c0.h0.c0.b f38537e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PortraitVideoView f38049f;
+        public final /* synthetic */ PortraitVideoView f38538f;
 
-        public c(PortraitVideoView portraitVideoView, c.a.b0.h0.c0.b bVar) {
+        public c(PortraitVideoView portraitVideoView, c.a.c0.h0.c0.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -176,15 +176,15 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
                     return;
                 }
             }
-            this.f38049f = portraitVideoView;
-            this.f38048e = bVar;
+            this.f38538f = portraitVideoView;
+            this.f38537e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f38049f.getTag() instanceof AdBaseModel)) {
-                this.f38048e.b((AdBaseModel) this.f38049f.getTag());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f38538f.getTag() instanceof AdBaseModel)) {
+                this.f38537e.b((AdBaseModel) this.f38538f.getTag());
             }
         }
     }
@@ -216,13 +216,13 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
             super.dispatchVisibilityChanged(view, i2);
             if (i2 == 0) {
-                if (this.f38043h != null) {
+                if (this.f38532h != null) {
                     startVideo();
                     return;
                 }
                 return;
             }
-            p pVar = this.f38043h;
+            p pVar = this.f38532h;
             if (pVar == null || !pVar.isPlaying()) {
                 return;
             }
@@ -234,7 +234,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.mAdUiLayout.showNewTailFrame(false);
-            this.f38045j.setVisibility(0);
+            this.f38534j.setVisibility(0);
         }
     }
 
@@ -264,9 +264,9 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             this.mAdUiLayout = nadVideoAdOverContainer;
             nadVideoAdOverContainer.setOnClickListener(this);
             ImageView imageView = (ImageView) findViewById(e.video_pause_icon);
-            this.f38044i = imageView;
+            this.f38533i = imageView;
             imageView.setOnClickListener(this);
-            this.f38045j = (ViewGroup) findViewById(e.nad_mini_video_player_container);
+            this.f38534j = (ViewGroup) findViewById(e.nad_mini_video_player_container);
         }
     }
 
@@ -275,13 +275,13 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
             if (view.getId() == e.nad_ui_layout || view.getId() == e.video_pause_icon) {
-                if (this.f38043h.isPlaying()) {
-                    this.f38043h.pause();
-                    this.f38044i.setVisibility(0);
+                if (this.f38532h.isPlaying()) {
+                    this.f38532h.pause();
+                    this.f38533i.setVisibility(0);
                     return;
                 }
-                this.f38043h.resume();
-                this.f38044i.setVisibility(4);
+                this.f38532h.resume();
+                this.f38533i.setVisibility(4);
             }
         }
     }
@@ -289,17 +289,17 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
     public void pauseVideo() {
         p pVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (pVar = this.f38043h) != null && pVar.isPlaying()) {
-            this.f38043h.pause();
-            this.f38044i.setVisibility(0);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (pVar = this.f38532h) != null && pVar.isPlaying()) {
+            this.f38532h.pause();
+            this.f38533i.setVisibility(0);
         }
     }
 
     public void reStartVideo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f38045j.setVisibility(0);
-            p pVar = this.f38043h;
+            this.f38534j.setVisibility(0);
+            p pVar = this.f38532h;
             if (pVar != null) {
                 pVar.start();
             }
@@ -307,7 +307,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
-    public void setViewStatChangeListener(c.a.b0.h0.c0.b bVar) {
+    public void setViewStatChangeListener(c.a.c0.h0.c0.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
             super.setViewStatChangeListener(bVar);
@@ -319,7 +319,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.mAdUiLayout.showNewTailFrame(true);
-            this.f38045j.setVisibility(4);
+            this.f38534j.setVisibility(4);
         }
     }
 
@@ -329,14 +329,14 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             if (this.mAdUiLayout.isShowingTailFrame()) {
                 hideAdTailFrame();
             }
-            p pVar = this.f38043h;
+            p pVar = this.f38532h;
             if (pVar != null) {
                 if (pVar.isPause()) {
-                    this.f38043h.resume();
+                    this.f38532h.resume();
                 } else {
-                    this.f38043h.start();
+                    this.f38532h.start();
                 }
-                this.f38044i.setVisibility(4);
+                this.f38533i.setVisibility(4);
             }
         }
     }
@@ -365,16 +365,16 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         if (interceptable == null || interceptable.invokeL(1048589, this, adBaseModel) == null) {
             hideTailFrameAndReplay();
             this.mAdUiLayout.setOnNewTailFrameReplayClickListener(new b(this));
-            if (this.f38043h == null) {
-                p a2 = p.a.a(c.a.b0.e.a.b(), 0);
-                this.f38043h = a2;
-                a2.a(this.f38046k);
+            if (this.f38532h == null) {
+                p a2 = p.a.a(c.a.c0.e.a.b(), 0);
+                this.f38532h = a2;
+                a2.a(this.f38535k);
             }
-            l lVar = adBaseModel.f37578h;
+            l lVar = adBaseModel.f38067h;
             if (lVar != null) {
-                this.f38043h.c(lVar);
+                this.f38532h.c(lVar);
             }
-            this.f38043h.attachToContainer(this.f38045j);
+            this.f38532h.attachToContainer(this.f38534j);
         }
     }
 
@@ -441,6 +441,6 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         }
         initInflate(LayoutInflater.from(context), oVar);
         initLayout(context);
-        this.f38046k = new a(this);
+        this.f38535k = new a(this);
     }
 }

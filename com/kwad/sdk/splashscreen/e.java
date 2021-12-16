@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.splashscreen.a.i;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f59573b;
+    public boolean f60154b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f59574c;
+    public int f60155c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class e {
                 return;
             }
         }
-        this.f59574c = 2;
+        this.f60155c = 2;
     }
 
     public static e a(AdTemplate adTemplate, AdInfo adInfo, com.kwad.sdk.core.download.a.b bVar) {
@@ -81,7 +81,7 @@ public class e {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f59574c = i2;
+            this.f60155c = i2;
         }
     }
 
@@ -95,13 +95,13 @@ public class e {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f59573b = z;
+            this.f60154b = z;
         }
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59574c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f60155c : invokeV.intValue;
     }
 }

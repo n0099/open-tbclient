@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KsRefluxContentView extends FrameLayout implements GestureDetector.OnGestureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureDetector a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f58824b;
+    public a f59405b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         boolean a();
 
@@ -131,7 +131,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            a aVar = this.f58824b;
+            a aVar = this.f59405b;
             if (aVar == null || aVar.a()) {
                 com.kwad.sdk.core.d.a.a("KsRefluxContentView", "dispatchTouchEvent consumed");
                 return super.dispatchTouchEvent(motionEvent);
@@ -160,7 +160,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             com.kwad.sdk.core.d.a.a("KsRefluxContentView", "onFling");
-            a aVar = this.f58824b;
+            a aVar = this.f59405b;
             if (aVar != null) {
                 return aVar.b();
             }
@@ -183,7 +183,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             com.kwad.sdk.core.d.a.a("KsRefluxContentView", "onScroll");
-            a aVar = this.f58824b;
+            a aVar = this.f59405b;
             if (aVar != null) {
                 return aVar.b();
             }
@@ -206,7 +206,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
             com.kwad.sdk.core.d.a.a("KsRefluxContentView", "onSingleTapUp");
-            a aVar = this.f58824b;
+            a aVar = this.f59405b;
             if (aVar != null) {
                 return aVar.b();
             }
@@ -218,7 +218,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     public void setContentViewListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f58824b = aVar;
+            this.f59405b = aVar;
         }
     }
 }

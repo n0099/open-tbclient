@@ -15,20 +15,20 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ModelLoaderRegistry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ModelLoaderCache cache;
     public final MultiModelLoaderFactory multiModelLoaderFactory;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class ModelLoaderCache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Map<Class<?>, Entry<?>> cachedModelLoaders;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes2.dex */
         public static class Entry<Model> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

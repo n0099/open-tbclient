@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class c implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<c.i.b.a.e0.b> f29992e;
+    public final List<c.i.b.a.e0.b> f30362e;
 
     public c(List<c.i.b.a.e0.b> list) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class c implements e {
                 return;
             }
         }
-        this.f29992e = list;
+        this.f30362e = list;
     }
 
     @Override // c.i.b.a.e0.e
@@ -68,6 +68,6 @@ public final class c implements e {
     public List<c.i.b.a.e0.b> d(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.f29992e : (List) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.f30362e : (List) invokeJ.objValue;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
 import java.util.Hashtable;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LogSource {
     public static /* synthetic */ Interceptable $ic;
     public static boolean jdk14IsAvailable;

@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class HeifExifUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HeifExifUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class HeifExifUtilAndroidN {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

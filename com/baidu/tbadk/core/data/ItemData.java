@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -23,7 +22,7 @@ import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
 import tbclient.TiebaPlusInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ItemData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSOCIATED_ITEM_DATA_FORMAT = "#(item,%d,%s)";
@@ -103,7 +102,7 @@ public class ItemData extends OrmObject implements Serializable {
                     builder.pkg_source = Integer.valueOf(optJSONObject.optInt("pkg_source"));
                     this.apkDetail = builder.build(true);
                 }
-                JSONArray optJSONArray = jSONObject.optJSONArray(CommandMessage.TYPE_TAGS);
+                JSONArray optJSONArray = jSONObject.optJSONArray("tags");
                 ArrayList arrayList = new ArrayList();
                 if (optJSONArray != null) {
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {

@@ -1,7 +1,7 @@
 package com.baidu.tieba.newinterest.data;
 
-import c.a.q0.b.d;
-import c.a.q0.d1.z;
+import c.a.r0.b.d;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GetVerticalForumList.DataReq;
 import tbclient.GetVerticalForumList.GetVerticalForumListReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class InterestedForumReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class InterestedForumReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             if (!d.C()) {
                 builder.begin_id = 1;

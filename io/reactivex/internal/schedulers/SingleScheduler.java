@@ -22,7 +22,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class SingleScheduler extends Scheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SINGLE_PRIORITY = "rx2.single-priority";
@@ -33,7 +33,7 @@ public final class SingleScheduler extends Scheduler {
     public final AtomicReference<ScheduledExecutorService> executor;
     public final ThreadFactory threadFactory;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ScheduledWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

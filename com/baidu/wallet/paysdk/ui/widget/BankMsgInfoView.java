@@ -17,20 +17,20 @@ import com.dxmpay.apollon.base.widget.NetImageView;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.widget.BorderTipTextView;
 @SuppressLint({"NewApi"})
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class BankMsgInfoView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f53905b;
+    public TextView f54485b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BorderTipTextView f53906c;
+    public BorderTipTextView f54486c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f53907d;
+    public ViewGroup f54487d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BankMsgInfoView(Context context) {
@@ -57,17 +57,17 @@ public class BankMsgInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_cashdesk_bind_card_bankinfo_view"), this);
-            this.f53907d = (ViewGroup) findViewById(ResUtils.id(getContext(), "layout_entity"));
+            this.f54487d = (ViewGroup) findViewById(ResUtils.id(getContext(), "layout_entity"));
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_logo"));
-            this.f53905b = (TextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_txt"));
-            this.f53906c = (BorderTipTextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_coupon_txt"));
+            this.f54485b = (TextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_txt"));
+            this.f54486c = (BorderTipTextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_coupon_txt"));
         }
     }
 
     public void hideCouponView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f53906c.setVisibility(8);
+            this.f54486c.setVisibility(8);
         }
     }
 
@@ -79,7 +79,7 @@ public class BankMsgInfoView extends LinearLayout {
                 this.a.setImageUrl(str);
                 this.a.setVisibility(0);
             }
-            this.f53905b.setText(charSequence);
+            this.f54485b.setText(charSequence);
         }
     }
 
@@ -87,11 +87,11 @@ public class BankMsgInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
             if (!TextUtils.isEmpty(charSequence)) {
-                this.f53906c.setVisibility(0);
-                this.f53906c.setText(charSequence, true);
+                this.f54486c.setVisibility(0);
+                this.f54486c.setText(charSequence, true);
                 return;
             }
-            this.f53906c.setVisibility(8);
+            this.f54486c.setVisibility(8);
         }
     }
 
@@ -101,10 +101,10 @@ public class BankMsgInfoView extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             if (i2 == 0) {
                 super.setVisibility(0);
-                this.f53907d.setVisibility(0);
+                this.f54487d.setVisibility(0);
                 return;
             }
-            this.f53907d.setVisibility(4);
+            this.f54487d.setVisibility(4);
         }
     }
 

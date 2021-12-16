@@ -12,13 +12,13 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public static final ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f57006b;
+    public static final Handler f57587b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class i {
             }
         }
         a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        f57006b = new Handler(Looper.getMainLooper());
+        f57587b = new Handler(Looper.getMainLooper());
     }
 
     public static Future<?> a(Runnable runnable) {

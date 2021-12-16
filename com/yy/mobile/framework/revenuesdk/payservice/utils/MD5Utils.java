@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MD5Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MD5Utils";

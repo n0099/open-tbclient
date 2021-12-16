@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class StatusCode {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int B_SAO_C_AUTH_SERVICE_TYPE = 1153;
@@ -43,6 +43,7 @@ public abstract class StatusCode {
     public static final int ERROR_TURIST_LOGIN_NEED_AUTH = 5093;
     public static final int ERROR_TURIST_LOGIN_NEED_BIND = 5094;
     public static final int ERROR_UNKOWN = -11;
+    public static final int ERROR_USER_BACK = -2;
     public static final int ERROR_USER_EXIT = -203;
     public static final int ERROR_WITHDRAW_OFFLINE = 6000;
     public static final int FINGERPRINT_AUTH_ERROR = 65312;

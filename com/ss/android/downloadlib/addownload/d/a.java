@@ -15,7 +15,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.text.DecimalFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements d {
     public static /* synthetic */ Interceptable $ic;
     public static com.ss.android.downloadlib.addownload.a.c a;
@@ -61,10 +61,10 @@ public class a implements d {
                 public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ c f61287b;
+                public final /* synthetic */ c f61868b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f61288c;
+                public final /* synthetic */ a f61869c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -81,9 +81,9 @@ public class a implements d {
                             return;
                         }
                     }
-                    this.f61288c = this;
+                    this.f61869c = this;
                     this.a = bVar;
-                    this.f61287b = cVar;
+                    this.f61868b = cVar;
                 }
 
                 @Override // com.ss.android.downloadlib.addownload.a.c
@@ -115,7 +115,7 @@ public class a implements d {
                             e2.printStackTrace();
                         }
                         com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, this.a);
-                        this.f61287b.a(this.a);
+                        this.f61868b.a(this.a);
                     }
                 }
             };

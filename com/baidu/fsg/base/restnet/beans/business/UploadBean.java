@@ -37,7 +37,7 @@ import java.util.List;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class UploadBean extends NetworkBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMET_BEAN = 1;
@@ -51,7 +51,7 @@ public abstract class UploadBean extends NetworkBean {
     public String mTskKey;
     public Class<?> rspClass;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class UploadFileModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

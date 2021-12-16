@@ -14,7 +14,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class MediaUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, String> ADDITIONAL_ALLOWED_MIME_TYPES;

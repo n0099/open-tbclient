@@ -1,5 +1,5 @@
 package com.bun.miitmdid.interfaces;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface IIdProvider extends IdSupplier {
     void doStart();
 

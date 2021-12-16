@@ -32,7 +32,7 @@ import java.io.Reader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GsonTool implements ICommandStatistics<ActionData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -57,7 +57,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     public int mVersionFilterCount;
 
     /* renamed from: com.baidu.searchbox.net.update.v2.GsonTool$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;

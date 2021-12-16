@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class EmotionCenterActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_LOAD_URL = "key_load_url";
@@ -50,7 +50,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
     public List<String> mTitles;
     public BdBaseViewPager mViewPager;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -198,17 +198,17 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             this.mNavigationBar = navigationBar;
             TextView addTextButtonByDefTextColor = navigationBar.addTextButtonByDefTextColor(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.cancel));
             this.mBackBtn = addTextButtonByDefTextColor;
-            addTextButtonByDefTextColor.setTextSize(0, l.f(this, R.dimen.ds34));
+            addTextButtonByDefTextColor.setTextSize(0, m.f(this, R.dimen.ds34));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             ImageView imageView = new ImageView(getPageContext().getPageActivity());
             this.mSettingImg = imageView;
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, imageView, (View.OnClickListener) null);
-            this.mSettingImg.setPadding(0, l.f(this, R.dimen.ds20), l.f(this, R.dimen.ds31), l.f(this, R.dimen.ds20));
+            this.mSettingImg.setPadding(0, m.f(this, R.dimen.ds20), m.f(this, R.dimen.ds31), m.f(this, R.dimen.ds20));
             this.mSettingImg.setLayoutParams(layoutParams);
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.emotion_navigation_bar, (View.OnClickListener) null);
             CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.emotion_center_nav);
             this.mTabStrip = commonPagerSlidingTabStrip;
-            commonPagerSlidingTabStrip.build(l.f(this, R.dimen.ds32), l.f(this, R.dimen.ds24), l.f(this, R.dimen.ds24), l.f(this, R.dimen.ds24), l.f(this, R.dimen.ds24), l.f(this, R.dimen.ds4), l.f(this, R.dimen.ds64), R.color.CAM_X0107, R.color.CAM_X0105);
+            commonPagerSlidingTabStrip.build(m.f(this, R.dimen.ds32), m.f(this, R.dimen.ds24), m.f(this, R.dimen.ds24), m.f(this, R.dimen.ds24), m.f(this, R.dimen.ds24), m.f(this, R.dimen.ds4), m.f(this, R.dimen.ds64), R.color.CAM_X0107, R.color.CAM_X0105);
             this.mBackBtn.setOnClickListener(this);
             this.mSettingImg.setOnClickListener(this);
             this.mEmotionRootView = (LinearLayout) findViewById(R.id.emotion_root_view);

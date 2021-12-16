@@ -17,20 +17,20 @@ import com.dxmpay.wallet.core.NoProguard;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Stack;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class j implements Application.ActivityLifecycleCallbacks, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Stack<String> a;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.j$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static j a;

@@ -1,5 +1,5 @@
 package com.facebook.fresco.animation.frame;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface FrameScheduler {
     public static final int FRAME_NUMBER_DONE = -1;
     public static final int NO_NEXT_TARGET_RENDER_TIME = -1;

@@ -3,7 +3,7 @@ package com.baidu.tieba.newfaceshop;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.FrameLayout;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FACE_SHOP_URL = "http://tieba.baidu.com/n/interact/emoticoncenter";
@@ -52,7 +52,7 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
             setContentView(R.layout.common_emotion_manager_activity);
             this.mRootView = (FrameLayout) findViewById(R.id.container);
             if (isUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.mRootView.getLayoutParams()).topMargin = l.r(getPageContext().getPageActivity());
+                ((FrameLayout.LayoutParams) this.mRootView.getLayoutParams()).topMargin = m.r(getPageContext().getPageActivity());
             }
             String stringExtra = getIntent().getStringExtra("url");
             this.mUrl = stringExtra;

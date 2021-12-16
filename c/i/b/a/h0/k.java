@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class k implements e.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final p<? super e> f30173b;
+    public final p<? super e> f30543b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e.a f30174c;
+    public final e.a f30544c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public k(Context context, String str) {
@@ -47,7 +47,7 @@ public final class k implements e.a {
     public j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new j(this.a, this.f30173b, this.f30174c.a()) : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new j(this.a, this.f30543b, this.f30544c.a()) : (j) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -87,7 +87,7 @@ public final class k implements e.a {
             }
         }
         this.a = context.getApplicationContext();
-        this.f30173b = pVar;
-        this.f30174c = aVar;
+        this.f30543b = pVar;
+        this.f30544c = aVar;
     }
 }

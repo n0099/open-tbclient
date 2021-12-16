@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SystemInfoUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MODEL_NULL = "0";

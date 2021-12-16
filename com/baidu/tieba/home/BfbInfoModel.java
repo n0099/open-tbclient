@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.UserBfbInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f45048e;
+    public b f45539e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.d.c.g.a f45049f;
+    public c.a.d.c.g.a f45540f;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,8 +62,8 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
             if (z || (responsedMessage instanceof BfbInfoSocketResponseMessage)) {
                 UserBfbInfo userBfbInfo = null;
                 if (responsedMessage.getError() != 0) {
-                    if (this.a.f45048e != null) {
-                        this.a.f45048e.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                    if (this.a.f45539e != null) {
+                        this.a.f45539e.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
                         return;
                     }
                     return;
@@ -73,14 +73,14 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                 } else if (responsedMessage instanceof BfbInfoSocketResponseMessage) {
                     userBfbInfo = ((BfbInfoSocketResponseMessage) responsedMessage).getBfbInfo();
                 }
-                if (this.a.f45048e != null) {
-                    this.a.f45048e.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
+                if (this.a.f45539e != null) {
+                    this.a.f45539e.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void a(int i2, String str, UserBfbInfo userBfbInfo);
     }
@@ -103,7 +103,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                 return;
             }
         }
-        this.f45049f = new a(this, CmdConfigHttp.CMD_GET_BFB_INFO, 309366);
+        this.f45540f = new a(this, CmdConfigHttp.CMD_GET_BFB_INFO, 309366);
         z();
         y();
     }
@@ -111,7 +111,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f45048e = bVar;
+            this.f45539e = bVar;
         }
     }
 
@@ -139,7 +139,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f45049f);
+            MessageManager.getInstance().unRegisterListener(this.f45540f);
             MessageManager.getInstance().unRegisterTask(309366);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_BFB_INFO);
         }
@@ -148,15 +148,15 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            registerListener(this.f45049f);
+            registerListener(this.f45540f);
         }
     }
 
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.r0.t3.f0.a.h(309366, BfbInfoSocketResponseMessage.class, false, false);
-            c.a.r0.t3.f0.a.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
+            c.a.s0.v3.f0.a.h(309366, BfbInfoSocketResponseMessage.class, false, false);
+            c.a.s0.v3.f0.a.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

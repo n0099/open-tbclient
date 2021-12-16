@@ -1,5 +1,6 @@
 package com.baidu.cyberplayer.sdk;
 
+import com.baidu.searchbox.playerserver.PlayerPolicyManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public static final l a;
@@ -47,6 +48,13 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (l) invokeV.objValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && o.m()) {
+            PlayerPolicyManager.getInstance().update();
+        }
     }
 
     public void a(String str) {

@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class TagPayloadReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final m a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class UnsupportedFormatException extends ParserException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

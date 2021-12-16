@@ -29,31 +29,31 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f61169b;
+    public static a f61750b;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public CopyOnWriteArrayList<com.ss.android.downloadlib.addownload.b.a> f61170c;
+    public CopyOnWriteArrayList<com.ss.android.downloadlib.addownload.b.a> f61751c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f61171d;
+    public boolean f61752d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61172e;
+    public String f61753e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f61173f;
+    public b f61754f;
 
     /* renamed from: com.ss.android.downloadlib.addownload.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC2099a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC2160a {
         void a();
     }
 
@@ -85,20 +85,20 @@ public class a {
                 return;
             }
         }
-        this.f61171d = false;
+        this.f61752d = false;
         b bVar = new b();
-        this.f61173f = bVar;
-        this.f61170c = bVar.a("sp_ad_install_back_dialog", "key_uninstalled_list");
+        this.f61754f = bVar;
+        this.f61751c = bVar.a("sp_ad_install_back_dialog", "key_uninstalled_list");
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f61169b == null) {
-                f61169b = new a();
+            if (f61750b == null) {
+                f61750b = new a();
             }
-            return f61169b;
+            return f61750b;
         }
         return (a) invokeV.objValue;
     }
@@ -107,20 +107,20 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.f61172e = "";
-            } else if (TextUtils.equals(this.f61172e, str)) {
-                this.f61172e = "";
+                this.f61753e = "";
+            } else if (TextUtils.equals(this.f61753e, str)) {
+                this.f61753e = "";
             }
         }
     }
 
-    private boolean a(Activity activity, DownloadInfo downloadInfo, boolean z, InterfaceC2099a interfaceC2099a) {
+    private boolean a(Activity activity, DownloadInfo downloadInfo, boolean z, InterfaceC2160a interfaceC2160a) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{activity, downloadInfo, Boolean.valueOf(z), interfaceC2099a})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{activity, downloadInfo, Boolean.valueOf(z), interfaceC2160a})) == null) {
             if (downloadInfo == null) {
                 try {
-                    if (this.f61170c.isEmpty()) {
+                    if (this.f61751c.isEmpty()) {
                         return false;
                     }
                 } catch (Exception e2) {
@@ -129,23 +129,23 @@ public class a {
             }
             if (activity != null && !activity.isFinishing()) {
                 boolean z2 = true;
-                if (downloadInfo != null && this.f61170c.isEmpty()) {
-                    a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC2099a);
+                if (downloadInfo != null && this.f61751c.isEmpty()) {
+                    a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC2160a);
                     return true;
                 }
                 long lastModified = downloadInfo != null ? new File(downloadInfo.getTargetFilePath()).lastModified() : 0L;
-                ListIterator<com.ss.android.downloadlib.addownload.b.a> listIterator = this.f61170c.listIterator(this.f61170c.size());
+                ListIterator<com.ss.android.downloadlib.addownload.b.a> listIterator = this.f61751c.listIterator(this.f61751c.size());
                 while (true) {
                     if (!listIterator.hasPrevious()) {
                         z2 = false;
                         break;
                     }
                     com.ss.android.downloadlib.addownload.b.a previous = listIterator.previous();
-                    if (previous != null && !l.d(j.getContext(), previous.f61195d) && l.a(previous.f61198g)) {
-                        if (new File(previous.f61198g).lastModified() >= lastModified) {
-                            a(activity, previous, z, interfaceC2099a);
+                    if (previous != null && !l.d(j.getContext(), previous.f61776d) && l.a(previous.f61779g)) {
+                        if (new File(previous.f61779g).lastModified() >= lastModified) {
+                            a(activity, previous, z, interfaceC2160a);
                         } else {
-                            a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC2099a);
+                            a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC2160a);
                         }
                     }
                 }
@@ -159,26 +159,26 @@ public class a {
     }
 
     @MainThread
-    public boolean a(Activity activity, boolean z, InterfaceC2099a interfaceC2099a) {
+    public boolean a(Activity activity, boolean z, InterfaceC2160a interfaceC2160a) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{activity, Boolean.valueOf(z), interfaceC2099a})) == null) {
-            if (j.i().optInt("disable_install_app_dialog") == 1 || this.f61171d) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{activity, Boolean.valueOf(z), interfaceC2160a})) == null) {
+            if (j.i().optInt("disable_install_app_dialog") == 1 || this.f61752d) {
                 return false;
             }
-            return a(activity, a(activity), z, interfaceC2099a);
+            return a(activity, a(activity), z, interfaceC2160a);
         }
         return invokeCommon.booleanValue;
     }
 
-    public void a(Context context, com.ss.android.downloadlib.addownload.b.a aVar, boolean z, InterfaceC2099a interfaceC2099a) {
+    public void a(Context context, com.ss.android.downloadlib.addownload.b.a aVar, boolean z, InterfaceC2160a interfaceC2160a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, aVar, Boolean.valueOf(z), interfaceC2099a}) == null) {
-            this.f61170c.clear();
-            a(context, aVar, interfaceC2099a, z);
-            this.f61171d = true;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, aVar, Boolean.valueOf(z), interfaceC2160a}) == null) {
+            this.f61751c.clear();
+            a(context, aVar, interfaceC2160a, z);
+            this.f61752d = true;
             g.a(context).c();
-            this.f61173f.b("sp_ad_install_back_dialog", "key_uninstalled_list");
+            this.f61754f.b("sp_ad_install_back_dialog", "key_uninstalled_list");
             k.a(a, "tryShowInstallDialog isShow:true", null);
         }
     }
@@ -222,23 +222,23 @@ public class a {
     public void a(long j2, long j3, long j4, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str, str2, str3, str4}) == null) {
-            for (int i2 = 0; i2 < this.f61170c.size(); i2++) {
-                com.ss.android.downloadlib.addownload.b.a aVar = this.f61170c.get(i2);
-                if (aVar != null && aVar.f61193b == j3) {
-                    this.f61170c.set(i2, new com.ss.android.downloadlib.addownload.b.a(j2, j3, j4, str, str2, str3, str4));
-                    this.f61173f.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.f61170c);
+            for (int i2 = 0; i2 < this.f61751c.size(); i2++) {
+                com.ss.android.downloadlib.addownload.b.a aVar = this.f61751c.get(i2);
+                if (aVar != null && aVar.f61774b == j3) {
+                    this.f61751c.set(i2, new com.ss.android.downloadlib.addownload.b.a(j2, j3, j4, str, str2, str3, str4));
+                    this.f61754f.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.f61751c);
                     return;
                 }
             }
-            this.f61170c.add(new com.ss.android.downloadlib.addownload.b.a(j2, j3, j4, str, str2, str3, str4));
-            this.f61173f.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.f61170c);
+            this.f61751c.add(new com.ss.android.downloadlib.addownload.b.a(j2, j3, j4, str, str2, str3, str4));
+            this.f61754f.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.f61751c);
         }
     }
 
-    private void a(Context context, com.ss.android.downloadlib.addownload.b.a aVar, InterfaceC2099a interfaceC2099a, boolean z) {
+    private void a(Context context, com.ss.android.downloadlib.addownload.b.a aVar, InterfaceC2160a interfaceC2160a, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{context, aVar, interfaceC2099a, Boolean.valueOf(z)}) == null) {
-            com.ss.android.downloadad.api.a.b d2 = f.a().d(aVar.f61193b);
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{context, aVar, interfaceC2160a, Boolean.valueOf(z)}) == null) {
+            com.ss.android.downloadad.api.a.b d2 = f.a().d(aVar.f61774b);
             if (d2 == null) {
                 com.ss.android.downloadlib.e.c.a().a("showBackInstallDialog nativeModel null");
                 return;
@@ -246,30 +246,30 @@ public class a {
             com.ss.android.download.api.config.k c2 = j.c();
             b.a a2 = new b.a(context).a(z ? "应用安装确认" : "退出确认");
             Object[] objArr = new Object[1];
-            objArr[0] = TextUtils.isEmpty(aVar.f61196e) ? "刚刚下载的应用" : aVar.f61196e;
-            c2.b(a2.b(String.format("%1$s下载完成，是否立即安装？", objArr)).c("立即安装").d(z ? "暂不安装" : String.format("退出%1$s", context.getResources().getString(context.getApplicationContext().getApplicationInfo().labelRes))).a(false).a(l.a(context, aVar.f61198g)).a(new b.InterfaceC2094b(this, d2, context, aVar, interfaceC2099a) { // from class: com.ss.android.downloadlib.addownload.a.a.1
+            objArr[0] = TextUtils.isEmpty(aVar.f61777e) ? "刚刚下载的应用" : aVar.f61777e;
+            c2.b(a2.b(String.format("%1$s下载完成，是否立即安装？", objArr)).c("立即安装").d(z ? "暂不安装" : String.format("退出%1$s", context.getResources().getString(context.getApplicationContext().getApplicationInfo().labelRes))).a(false).a(l.a(context, aVar.f61779g)).a(new b.InterfaceC2155b(this, d2, context, aVar, interfaceC2160a) { // from class: com.ss.android.downloadlib.addownload.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f61174b;
+                public final /* synthetic */ Context f61755b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.downloadlib.addownload.b.a f61175c;
+                public final /* synthetic */ com.ss.android.downloadlib.addownload.b.a f61756c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ InterfaceC2099a f61176d;
+                public final /* synthetic */ InterfaceC2160a f61757d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f61177e;
+                public final /* synthetic */ a f61758e;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr2 = {this, d2, context, aVar, interfaceC2099a};
+                        Object[] objArr2 = {this, d2, context, aVar, interfaceC2160a};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -279,54 +279,54 @@ public class a {
                             return;
                         }
                     }
-                    this.f61177e = this;
+                    this.f61758e = this;
                     this.a = d2;
-                    this.f61174b = context;
-                    this.f61175c = aVar;
-                    this.f61176d = interfaceC2099a;
+                    this.f61755b = context;
+                    this.f61756c = aVar;
+                    this.f61757d = interfaceC2160a;
                 }
 
-                @Override // com.ss.android.download.api.model.b.InterfaceC2094b
+                @Override // com.ss.android.download.api.model.b.InterfaceC2155b
                 public void a(DialogInterface dialogInterface) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
                         com.ss.android.downloadlib.d.a.a().b("backdialog_install", this.a);
-                        com.ss.android.socialbase.appdownloader.d.a(this.f61174b, (int) this.f61175c.a);
+                        com.ss.android.socialbase.appdownloader.d.a(this.f61755b, (int) this.f61756c.a);
                         dialogInterface.dismiss();
                     }
                 }
 
-                @Override // com.ss.android.download.api.model.b.InterfaceC2094b
+                @Override // com.ss.android.download.api.model.b.InterfaceC2155b
                 public void b(DialogInterface dialogInterface) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
                         com.ss.android.downloadlib.d.a.a().b("backdialog_exit", this.a);
-                        InterfaceC2099a interfaceC2099a2 = this.f61176d;
-                        if (interfaceC2099a2 != null) {
-                            interfaceC2099a2.a();
+                        InterfaceC2160a interfaceC2160a2 = this.f61757d;
+                        if (interfaceC2160a2 != null) {
+                            interfaceC2160a2.a();
                         }
-                        this.f61177e.b("");
+                        this.f61758e.b("");
                         dialogInterface.dismiss();
                     }
                 }
 
-                @Override // com.ss.android.download.api.model.b.InterfaceC2094b
+                @Override // com.ss.android.download.api.model.b.InterfaceC2155b
                 public void c(DialogInterface dialogInterface) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
-                        this.f61177e.b("");
+                        this.f61758e.b("");
                     }
                 }
             }).a(1).a());
             com.ss.android.downloadlib.d.a.a().b("backdialog_show", d2);
-            this.f61172e = aVar.f61195d;
+            this.f61753e = aVar.f61776d;
         }
     }
 
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? TextUtils.equals(this.f61172e, str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? TextUtils.equals(this.f61753e, str) : invokeL.booleanValue;
     }
 
     public void a(com.ss.android.downloadad.api.a.b bVar) {

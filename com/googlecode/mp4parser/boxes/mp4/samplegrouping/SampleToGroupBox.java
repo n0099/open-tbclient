@@ -21,7 +21,7 @@ import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SampleToGroupBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "sbgp";
@@ -36,7 +36,7 @@ public class SampleToGroupBox extends AbstractFullBox {
     public String groupingType;
     public String groupingTypeParameter;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

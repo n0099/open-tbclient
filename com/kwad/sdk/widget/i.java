@@ -20,45 +20,45 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f59799b;
+    public float f60380b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Path f59800c;
+    public Path f60381c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f59801d;
+    public Paint f60382d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f59802e;
+    public RectF f60383e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f59803f;
+    public boolean f60384f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public a f59804g;
+    public a f60385g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f59805b;
+        public boolean f60386b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f59806c;
+        public boolean f60387c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f59807d;
+        public boolean f60388d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -74,9 +74,9 @@ public class i {
                 }
             }
             this.a = true;
-            this.f59805b = true;
-            this.f59806c = true;
-            this.f59807d = true;
+            this.f60386b = true;
+            this.f60387c = true;
+            this.f60388d = true;
         }
 
         public void a(boolean z) {
@@ -95,40 +95,40 @@ public class i {
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                this.f59805b = z;
+                this.f60386b = z;
             }
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59805b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60386b : invokeV.booleanValue;
         }
 
         public void c(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                this.f59806c = z;
+                this.f60387c = z;
             }
         }
 
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59806c : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f60387c : invokeV.booleanValue;
         }
 
         public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-                this.f59807d = z;
+                this.f60388d = z;
             }
         }
 
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59807d : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f60388d : invokeV.booleanValue;
         }
     }
 
@@ -146,7 +146,7 @@ public class i {
             }
         }
         this.a = new float[8];
-        this.f59804g = new a();
+        this.f60385g = new a();
     }
 
     public i(a aVar) {
@@ -165,21 +165,21 @@ public class i {
             }
         }
         this.a = new float[8];
-        this.f59804g = aVar == null ? new a() : aVar;
+        this.f60385g = aVar == null ? new a() : aVar;
     }
 
     private float[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            this.a[0] = this.f59804g.a() ? this.f59799b : 0.0f;
-            this.a[1] = this.f59804g.a() ? this.f59799b : 0.0f;
-            this.a[2] = this.f59804g.b() ? this.f59799b : 0.0f;
-            this.a[3] = this.f59804g.b() ? this.f59799b : 0.0f;
-            this.a[4] = this.f59804g.c() ? this.f59799b : 0.0f;
-            this.a[5] = this.f59804g.c() ? this.f59799b : 0.0f;
-            this.a[6] = this.f59804g.d() ? this.f59799b : 0.0f;
-            this.a[7] = this.f59804g.d() ? this.f59799b : 0.0f;
+            this.a[0] = this.f60385g.a() ? this.f60380b : 0.0f;
+            this.a[1] = this.f60385g.a() ? this.f60380b : 0.0f;
+            this.a[2] = this.f60385g.b() ? this.f60380b : 0.0f;
+            this.a[3] = this.f60385g.b() ? this.f60380b : 0.0f;
+            this.a[4] = this.f60385g.c() ? this.f60380b : 0.0f;
+            this.a[5] = this.f60385g.c() ? this.f60380b : 0.0f;
+            this.a[6] = this.f60385g.d() ? this.f60380b : 0.0f;
+            this.a[7] = this.f60385g.d() ? this.f60380b : 0.0f;
             return this.a;
         }
         return (float[]) invokeV.objValue;
@@ -190,11 +190,11 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             try {
-                this.f59800c.reset();
+                this.f60381c.reset();
             } catch (Exception unused) {
             }
-            this.f59800c.addRoundRect(this.f59802e, this.f59799b == 0.0f ? this.a : a(), Path.Direction.CW);
-            return this.f59800c;
+            this.f60381c.addRoundRect(this.f60383e, this.f60380b == 0.0f ? this.a : a(), Path.Direction.CW);
+            return this.f60381c;
         }
         return (Path) invokeV.objValue;
     }
@@ -202,14 +202,14 @@ public class i {
     public void a(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
-            this.f59799b = f2;
+            this.f60380b = f2;
         }
     }
 
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            this.f59802e.set(0.0f, 0.0f, i2, i3);
+            this.f60383e.set(0.0f, 0.0f, i2, i3);
         }
     }
 
@@ -222,22 +222,22 @@ public class i {
                 int[] iArr = {i2, i3};
                 Arrays.sort(iArr);
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-                this.f59799b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i2), 0);
-                this.f59803f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i3), true);
+                this.f60380b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i2), 0);
+                this.f60384f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i3), true);
                 obtainStyledAttributes.recycle();
             }
-            this.f59800c = new Path();
-            this.f59801d = new Paint(1);
-            this.f59802e = new RectF();
-            this.f59801d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+            this.f60381c = new Path();
+            this.f60382d = new Paint(1);
+            this.f60383e = new RectF();
+            this.f60382d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         }
     }
 
     public void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) && this.f59803f) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) && this.f60384f) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.saveLayer(this.f59802e, null, 31);
+                canvas.saveLayer(this.f60383e, null, 31);
                 return;
             }
             canvas.save();
@@ -254,9 +254,9 @@ public class i {
 
     public void b(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) && this.f59803f) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) && this.f60384f) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.drawPath(b(), this.f59801d);
+                canvas.drawPath(b(), this.f60382d);
             }
             canvas.restore();
         }
@@ -266,7 +266,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.saveLayer(this.f59802e, null, 31);
+                canvas.saveLayer(this.f60383e, null, 31);
                 return;
             }
             canvas.save();
@@ -278,7 +278,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.drawPath(b(), this.f59801d);
+                canvas.drawPath(b(), this.f60382d);
             }
             canvas.restore();
         }

@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public static f a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<d> f61291b;
+    public List<d> f61872b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -32,11 +32,11 @@ public class f {
             }
         }
         ArrayList arrayList = new ArrayList();
-        this.f61291b = arrayList;
+        this.f61872b = arrayList;
         arrayList.add(new e());
-        this.f61291b.add(new g());
-        this.f61291b.add(new b());
-        this.f61291b.add(new a());
+        this.f61872b.add(new g());
+        this.f61872b.add(new b());
+        this.f61872b.add(new a());
     }
 
     public static f a() {
@@ -58,12 +58,12 @@ public class f {
     public void a(com.ss.android.downloadad.api.a.b bVar, int i2, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, bVar, i2, cVar) == null) {
-            List<d> list = this.f61291b;
+            List<d> list = this.f61872b;
             if (list != null && list.size() != 0 && bVar != null) {
                 DownloadInfo a2 = com.ss.android.downloadlib.g.a((Context) null).a(bVar.a());
                 if (a2 != null && "application/vnd.android.package-archive".equals(a2.getMimeType())) {
                     boolean z = com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("pause_optimise_switch", 0) == 1;
-                    for (d dVar : this.f61291b) {
+                    for (d dVar : this.f61872b) {
                         if (z || (dVar instanceof g)) {
                             if (dVar.a(bVar, i2, cVar)) {
                                 return;

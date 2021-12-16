@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.InstallActivity;
 import com.google.zxing.Dimension;
 import com.kuaishou.weapon.un.w0;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SymbolInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final SymbolInfo[] PROD_SYMBOLS;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class AI01AndOtherAIs extends AI01decoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_SIZE = 4;

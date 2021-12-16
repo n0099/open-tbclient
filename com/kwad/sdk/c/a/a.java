@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.c.a.b;
 import com.kwad.sdk.c.kwai.d;
 import com.kwad.sdk.utils.i;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class a implements b.a {
                 public final /* synthetic */ d a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f57050b;
+                public final /* synthetic */ a f57631b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -61,7 +61,7 @@ public class a implements b.a {
                             return;
                         }
                     }
-                    this.f57050b = this;
+                    this.f57631b = this;
                     this.a = dVar;
                 }
 
@@ -69,7 +69,7 @@ public class a implements b.a {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f57050b.a.b(this.a);
+                        this.f57631b.a.b(this.a);
                     }
                 }
             });

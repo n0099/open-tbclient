@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.videomiddlepagelight;
 
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.d.f.m.e;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.videomiddlepagelight.VideoMiddlePageLightActivity;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u001d\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u0018\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00052\u0006\u0010\u0006\u001a\u00020\u0007H\u0016¨\u0006\b"}, d2 = {"com/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$scrollListener$1", "Landroidx/recyclerview/widget/RecyclerView$OnScrollListener;", "onScrollStateChanged", "", "rv", "Landroidx/recyclerview/widget/RecyclerView;", "newState", "", "frsExtra_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class VideoMiddlePageLightActivity$scrollListener$1 extends RecyclerView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                         if (intValue < bdTypeRecyclerView3.getFirstCompletelyVisiblePosition()) {
                             e a = e.a();
                             final VideoMiddlePageLightActivity videoMiddlePageLightActivity = this.a;
-                            a.post(new Runnable() { // from class: c.a.r0.d1.b3.j
+                            a.post(new Runnable() { // from class: c.a.s0.d1.b3.j
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -152,7 +152,7 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                             if (intValue2 > bdTypeRecyclerView4.getLastCompletelyVisiblePosition()) {
                                 e a2 = e.a();
                                 final VideoMiddlePageLightActivity videoMiddlePageLightActivity2 = this.a;
-                                a2.post(new Runnable() { // from class: c.a.r0.d1.b3.e
+                                a2.post(new Runnable() { // from class: c.a.s0.d1.b3.e
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -180,7 +180,7 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                 if (Intrinsics.areEqual(this.a.getViewModel().getHasMore().getValue(), Boolean.FALSE) && Intrinsics.areEqual(this.a.getViewModel().isLoading().getValue(), Boolean.FALSE)) {
                     this.a.showToast(R.string.no_more_video_content);
                     return;
-                } else if (j.z()) {
+                } else if (k.z()) {
                     this.a.showToast(R.string.hard_loading);
                     this.a.getViewModel().loadData();
                     return;

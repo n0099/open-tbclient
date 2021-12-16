@@ -10,34 +10,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.api.loader.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2003a {
+    /* loaded from: classes3.dex */
+    public static class C2064a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56988b;
+        public String f57569b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f56989c;
+        public String f57570c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f56990d;
+        public long f57571d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f56991e;
+        public String f57572e;
 
         /* renamed from: f  reason: collision with root package name */
-        public transient File f56992f;
+        public transient File f57573f;
 
-        public C2003a() {
+        public C2064a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,10 +57,10 @@ public class a {
                 return;
             }
             this.a = jSONObject.optInt("dynamicType");
-            this.f56988b = jSONObject.optString("dynamicUrl");
-            this.f56989c = jSONObject.optString(PackageTable.MD5);
-            this.f56990d = jSONObject.optLong("interval");
-            this.f56991e = jSONObject.optString(CommandMessage.SDK_VERSION);
+            this.f57569b = jSONObject.optString("dynamicUrl");
+            this.f57570c = jSONObject.optString(PackageTable.MD5);
+            this.f57571d = jSONObject.optLong("interval");
+            this.f57572e = jSONObject.optString(CommandMessage.SDK_VERSION);
         }
 
         public boolean a() {
@@ -76,17 +76,17 @@ public class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56993b;
+        public String f57574b;
 
         /* renamed from: c  reason: collision with root package name */
-        public C2003a f56994c;
+        public C2064a f57575c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -108,16 +108,16 @@ public class a {
                 return;
             }
             this.a = jSONObject.optLong("result");
-            this.f56993b = jSONObject.optString("errorMsg");
-            C2003a c2003a = new C2003a();
-            this.f56994c = c2003a;
-            c2003a.a(jSONObject.optJSONObject("data"));
+            this.f57574b = jSONObject.optString("errorMsg");
+            C2064a c2064a = new C2064a();
+            this.f57575c = c2064a;
+            c2064a.a(jSONObject.optJSONObject("data"));
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a == 1 && this.f56994c != null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a == 1 && this.f57575c != null : invokeV.booleanValue;
         }
     }
 }

@@ -8,23 +8,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f39151b;
+    public c f39640b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f39152c;
+    public ServiceConnection f39641c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.baidu.sofire.k.c f39153d;
+    public com.baidu.sofire.k.c f39642d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39154e;
+    public String f39643e;
 
     public a(Context context, com.baidu.sofire.k.c cVar) {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public final class a {
         }
         this.a = null;
         this.a = context;
-        this.f39153d = cVar;
+        this.f39642d = cVar;
     }
 
     public final String a() {
@@ -54,13 +54,13 @@ public final class a {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            if (TextUtils.isEmpty(this.f39154e)) {
-                if (this.f39151b != null) {
-                    this.f39154e = this.f39151b.a();
+            if (TextUtils.isEmpty(this.f39643e)) {
+                if (this.f39640b != null) {
+                    this.f39643e = this.f39640b.a();
                 }
-                return this.f39154e;
+                return this.f39643e;
             }
-            return this.f39154e;
+            return this.f39643e;
         }
         return (String) invokeV.objValue;
     }

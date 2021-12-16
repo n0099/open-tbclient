@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class AssetUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

@@ -19,12 +19,12 @@ import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunSplashAd;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d extends q<TTSplashAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements TTAdNative.SplashAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,23 +79,23 @@ public class d extends q<TTSplashAd> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements TTSplashAd.AdInteractionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final TTSplashAd a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f28614b;
+        public final String f28984b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f28615c;
+        public boolean f28985c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f28616d;
+        public boolean f28986d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f28617e;
+        public final /* synthetic */ d f28987e;
 
         public b(d dVar, TTSplashAd tTSplashAd, String str) {
             Interceptable interceptable = $ic;
@@ -112,9 +112,9 @@ public class d extends q<TTSplashAd> {
                     return;
                 }
             }
-            this.f28617e = dVar;
+            this.f28987e = dVar;
             this.a = tTSplashAd;
-            this.f28614b = str;
+            this.f28984b = str;
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
@@ -122,8 +122,8 @@ public class d extends q<TTSplashAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
                 LogPrinter.d();
-                this.f28617e.onAdClicked(this.f28616d);
-                this.f28616d = true;
+                this.f28987e.onAdClicked(this.f28986d);
+                this.f28986d = true;
             }
         }
 
@@ -132,8 +132,8 @@ public class d extends q<TTSplashAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
                 LogPrinter.d();
-                this.f28617e.onAdShow(this.a, this.f28615c);
-                this.f28615c = true;
+                this.f28987e.onAdShow(this.a, this.f28985c);
+                this.f28985c = true;
             }
         }
 
@@ -142,7 +142,7 @@ public class d extends q<TTSplashAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.f28617e.onAdClose();
+                this.f28987e.onAdClose();
             }
         }
 
@@ -151,7 +151,7 @@ public class d extends q<TTSplashAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
-                this.f28617e.onAdClose();
+                this.f28987e.onAdClose();
             }
         }
     }
@@ -215,7 +215,7 @@ public class d extends q<TTSplashAd> {
             super.loadInternal(context, funAdSlot);
             AdSlot a2 = a();
             onLoadStart(funAdSlot);
-            this.f28662h.loadSplashAd(a2, new a(this), 5000);
+            this.f29032h.loadSplashAd(a2, new a(this), 5000);
         }
     }
 

@@ -12,13 +12,13 @@ import com.bun.miitmdid.interfaces.IIdConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class b implements IIdConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

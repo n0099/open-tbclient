@@ -9,7 +9,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.util.JsonReader;
 import androidx.core.view.InputDeviceCompat;
-import c.a.m.c.f;
+import c.a.n.c.f;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.android.util.devices.RomUtils;
@@ -36,7 +36,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FALSE = "0";
@@ -60,7 +60,7 @@ public class CommonUtils {
     public static final ConcurrentHashMap<String, String> sSDKVersionMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class VSSConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String VMHWM = "VmHWM";

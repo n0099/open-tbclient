@@ -7,10 +7,10 @@ import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.d.f.p.l;
-import c.a.q0.b.d;
-import c.a.q0.d1.o0;
-import c.a.r0.g0.f0.c;
+import c.a.d.f.p.m;
+import c.a.r0.b.d;
+import c.a.r0.d1.q0;
+import c.a.s0.g0.f0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PbGoodsData;
@@ -31,31 +31,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MultiLinkCardView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f41173e;
+    public TextView f41664e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f41174f;
+    public TextView f41665f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f41175g;
+    public TextView f41666g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f41176h;
+    public RelativeLayout f41667h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f41177i;
+    public RelativeLayout f41668i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RelativeLayout f41178j;
+    public RelativeLayout f41669j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TbImageView f41179k;
+    public TbImageView f41670k;
     public TbImageView l;
     public TbImageView m;
     public TextView n;
@@ -78,8 +78,8 @@ public class MultiLinkCardView extends RelativeLayout {
                 return;
             }
         }
-        l.f(TbadkCoreApplication.getInst(), R.dimen.tbds136);
-        l.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        m.f(TbadkCoreApplication.getInst(), R.dimen.tbds136);
+        m.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -107,18 +107,18 @@ public class MultiLinkCardView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, list2) == null) {
             new ArrayList();
-            o0 o0Var = new o0();
-            List<c> a = o0Var.a(list, list2);
-            boolean b2 = o0Var.b();
+            q0 q0Var = new q0();
+            List<c> a = q0Var.a(list, list2);
+            boolean b2 = q0Var.b();
             if (ListUtils.isEmpty(a)) {
                 return;
             }
-            if (d.u0()) {
-                TBSelector.makeDrawableSelector().gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).radius(l.f(getContext(), R.dimen.tbds10)).into(this.n);
+            if (d.v0()) {
+                TBSelector.makeDrawableSelector().gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).radius(m.f(getContext(), R.dimen.tbds10)).into(this.n);
             }
-            this.f41176h.setVisibility(8);
-            this.f41177i.setVisibility(8);
-            this.f41178j.setVisibility(8);
+            this.f41667h.setVisibility(8);
+            this.f41668i.setVisibility(8);
+            this.f41669j.setVisibility(8);
             this.n.setVisibility(8);
             int size = a.size() > 3 ? 3 : a.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -202,20 +202,20 @@ public class MultiLinkCardView extends RelativeLayout {
             }
         }
         LayoutInflater.from(context).inflate(R.layout.multi_link_card_layout, this);
-        this.f41176h = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
-        this.f41177i = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
-        this.f41178j = (RelativeLayout) findViewById(R.id.rl_multi_link_third);
-        this.f41173e = (TextView) findViewById(R.id.goods_from_tag_first);
-        this.f41174f = (TextView) findViewById(R.id.goods_from_tag_second);
-        this.f41175g = (TextView) findViewById(R.id.goods_from_tag_third);
+        this.f41667h = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
+        this.f41668i = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
+        this.f41669j = (RelativeLayout) findViewById(R.id.rl_multi_link_third);
+        this.f41664e = (TextView) findViewById(R.id.goods_from_tag_first);
+        this.f41665f = (TextView) findViewById(R.id.goods_from_tag_second);
+        this.f41666g = (TextView) findViewById(R.id.goods_from_tag_third);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.iv_multi_link_first_icon);
-        this.f41179k = tbImageView;
+        this.f41670k = tbImageView;
         tbImageView.setDrawCorner(true);
-        this.f41179k.setGifIconSupport(false);
-        this.f41179k.setLongIconSupport(false);
-        this.f41179k.setConrers(15);
-        this.f41179k.setPlaceHolder(1);
-        this.f41179k.setRadius(l.f(getContext(), R.dimen.tbds10));
+        this.f41670k.setGifIconSupport(false);
+        this.f41670k.setLongIconSupport(false);
+        this.f41670k.setConrers(15);
+        this.f41670k.setPlaceHolder(1);
+        this.f41670k.setRadius(m.f(getContext(), R.dimen.tbds10));
         TbImageView tbImageView2 = (TbImageView) findViewById(R.id.iv_multi_link_second_icon);
         this.l = tbImageView2;
         tbImageView2.setDrawCorner(true);
@@ -223,7 +223,7 @@ public class MultiLinkCardView extends RelativeLayout {
         this.l.setLongIconSupport(false);
         this.l.setConrers(15);
         this.l.setPlaceHolder(1);
-        this.l.setRadius(l.f(getContext(), R.dimen.tbds10));
+        this.l.setRadius(m.f(getContext(), R.dimen.tbds10));
         TbImageView tbImageView3 = (TbImageView) findViewById(R.id.iv_multi_link_third_icon);
         this.m = tbImageView3;
         tbImageView3.setDrawCorner(true);
@@ -231,25 +231,25 @@ public class MultiLinkCardView extends RelativeLayout {
         this.m.setLongIconSupport(false);
         this.m.setPlaceHolder(1);
         this.m.setConrers(15);
-        this.m.setRadius(l.f(getContext(), R.dimen.tbds10));
+        this.m.setRadius(m.f(getContext(), R.dimen.tbds10));
         TextView textView = (TextView) findViewById(R.id.tv_multi_link_more_link_count);
         this.n = textView;
-        c.a.q0.s.u.c.d(textView).y(R.array.S_O_X001);
+        c.a.r0.s.v.c.d(textView).y(R.array.S_O_X001);
         this.o = (TextView) findViewById(R.id.tv_multi_link_count);
         this.p = (ImageView) findViewById(R.id.iv_multi_link_right_arrow);
         this.s = new ArrayList();
         this.r = new ArrayList();
         ArrayList arrayList = new ArrayList();
         this.q = arrayList;
-        arrayList.add(this.f41176h);
-        this.q.add(this.f41177i);
-        this.q.add(this.f41178j);
-        this.r.add(this.f41179k);
+        arrayList.add(this.f41667h);
+        this.q.add(this.f41668i);
+        this.q.add(this.f41669j);
+        this.r.add(this.f41670k);
         this.r.add(this.l);
         this.r.add(this.m);
-        this.s.add(this.f41173e);
-        this.s.add(this.f41174f);
-        this.s.add(this.f41175g);
+        this.s.add(this.f41664e);
+        this.s.add(this.f41665f);
+        this.s.add(this.f41666g);
         onChangeSkinType();
     }
 }

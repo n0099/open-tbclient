@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, String> a;
@@ -195,15 +195,15 @@ public class i {
                 if (i2 == 2) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f62685c;
+                    afVar = af.f63266c;
                 } else if (i2 == 3) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f62686d;
+                    afVar = af.f63267d;
                 } else if (i2 == 4) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f62687e;
+                    afVar = af.f63268e;
                 }
                 sb.append(afVar.name());
                 sb.append(Constants.WAVE_SEPARATOR);
@@ -236,7 +236,7 @@ public class i {
             boolean z = false;
             SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
             String a2 = a(e.a);
-            String a3 = a(e.f62703b);
+            String a3 = a(e.f63284b);
             if (!TextUtils.isEmpty(sharedPreferences.getString(a2, "")) && TextUtils.isEmpty(sharedPreferences.getString(a3, ""))) {
                 z = true;
             }

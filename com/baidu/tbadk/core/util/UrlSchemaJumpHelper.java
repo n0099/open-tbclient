@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.s.e0.b;
+import c.a.r0.s.g0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class UrlSchemaJumpHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_APP_JUMP_BLACK_LIST = "ad_scheme_blacklist";

@@ -15,13 +15,13 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ImmediateFuture<V> implements ListenableFuture<V> {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger log;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ImmediateCancelledFuture<V> extends AbstractFuture.TrustedFuture<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public abstract class ImmediateFuture<V> implements ListenableFuture<V> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ImmediateFailedFuture<V> extends AbstractFuture.TrustedFuture<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public abstract class ImmediateFuture<V> implements ListenableFuture<V> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ImmediateSuccessfulFuture<V> extends ImmediateFuture<V> {
         public static /* synthetic */ Interceptable $ic;
         public static final ImmediateSuccessfulFuture<Object> NULL;

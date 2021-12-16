@@ -14,7 +14,7 @@ import com.xiaomi.push.hk;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class aq {
     public static /* synthetic */ Interceptable $ic;
     public static volatile aq a;
@@ -26,7 +26,7 @@ public class aq {
     /* renamed from: a  reason: collision with other field name */
     public HashSet<a> f904a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

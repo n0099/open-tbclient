@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.beans.BeanManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class WalletHomeBeanFactory implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BEAN_ID_HOMETAB = 49158;
@@ -20,13 +20,13 @@ public final class WalletHomeBeanFactory implements IBeanFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.home.beans.WalletHomeBeanFactory$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static WalletHomeBeanFactory a;

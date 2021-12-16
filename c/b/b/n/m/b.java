@@ -10,29 +10,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b implements TextureData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final c.b.b.m.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27691b;
+    public int f28066b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27692c;
+    public int f28067c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Pixmap.Format f27693d;
+    public Pixmap.Format f28068d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Pixmap f27694e;
+    public Pixmap f28069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27695f;
+    public boolean f28070f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27696g;
+    public boolean f28071g;
 
     public b(c.b.b.m.a aVar, Pixmap pixmap, Pixmap.Format format, boolean z) {
         Interceptable interceptable = $ic;
@@ -49,18 +49,18 @@ public class b implements TextureData {
                 return;
             }
         }
-        this.f27691b = 0;
-        this.f27692c = 0;
-        this.f27696g = false;
+        this.f28066b = 0;
+        this.f28067c = 0;
+        this.f28071g = false;
         this.a = aVar;
-        this.f27694e = pixmap;
-        this.f27693d = format;
-        this.f27695f = z;
+        this.f28069e = pixmap;
+        this.f28068d = format;
+        this.f28070f = z;
         if (pixmap != null) {
-            this.f27691b = pixmap.n();
-            this.f27692c = this.f27694e.l();
+            this.f28066b = pixmap.n();
+            this.f28067c = this.f28069e.l();
             if (format == null) {
-                this.f27693d = this.f27694e.h();
+                this.f28068d = this.f28069e.h();
             }
         }
     }
@@ -69,7 +69,7 @@ public class b implements TextureData {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27696g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28071g : invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -95,10 +95,10 @@ public class b implements TextureData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f27696g) {
-                this.f27696g = false;
-                Pixmap pixmap = this.f27694e;
-                this.f27694e = null;
+            if (this.f28071g) {
+                this.f28071g = false;
+                Pixmap pixmap = this.f28069e;
+                this.f28069e = null;
                 return pixmap;
             }
             throw new GdxRuntimeException("Call prepare() before calling getPixmap()");
@@ -110,21 +110,21 @@ public class b implements TextureData {
     public Pixmap.Format e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27693d : (Pixmap.Format) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28068d : (Pixmap.Format) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27695f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28070f : invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27692c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28067c : invokeV.intValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -138,7 +138,7 @@ public class b implements TextureData {
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27691b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28066b : invokeV.intValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -155,20 +155,20 @@ public class b implements TextureData {
     public void prepare() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (!this.f27696g) {
-                if (this.f27694e == null) {
+            if (!this.f28071g) {
+                if (this.f28069e == null) {
                     if (this.a.d().equals("cim")) {
-                        this.f27694e = c.b.b.n.f.a(this.a);
+                        this.f28069e = c.b.b.n.f.a(this.a);
                     } else {
-                        this.f27694e = new Pixmap(this.a);
+                        this.f28069e = new Pixmap(this.a);
                     }
-                    this.f27691b = this.f27694e.n();
-                    this.f27692c = this.f27694e.l();
-                    if (this.f27693d == null) {
-                        this.f27693d = this.f27694e.h();
+                    this.f28066b = this.f28069e.n();
+                    this.f28067c = this.f28069e.l();
+                    if (this.f28068d == null) {
+                        this.f28068d = this.f28069e.h();
                     }
                 }
-                this.f27696g = true;
+                this.f28071g = true;
                 return;
             }
             throw new GdxRuntimeException("Already prepared");

@@ -10,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.i0;
-import c.a.q0.d1.l0;
-import c.a.q0.d1.q;
+import c.a.r0.d1.k0;
+import c.a.r0.d1.n0;
+import c.a.r0.d1.s;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -33,32 +33,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PersonCenterFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f48176e;
+    public long f48683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f48177f;
+    public boolean f48684f;
     @Deprecated
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48178g;
+    public boolean f48685g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f48179h;
+    public boolean f48686h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.t2.d.b f48180i;
+    public c.a.s0.v2.d.b f48687i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f48181j;
+    public long f48688j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f48182k;
+    public String f48689k;
     public String l;
     public boolean m;
     public CustomMessageListener n;
@@ -66,7 +66,7 @@ public class PersonCenterFragment extends BaseFragment {
     public CustomMessageListener p;
     public MessageQueue.IdleHandler q;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class PersonCenterFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class PersonCenterFragment extends BaseFragment {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !this.a.f48177f) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !this.a.f48684f) {
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -143,12 +143,12 @@ public class PersonCenterFragment extends BaseFragment {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                this.a.f48182k = str;
+                this.a.f48689k = str;
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -179,7 +179,7 @@ public class PersonCenterFragment extends BaseFragment {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !this.a.f48177f) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !this.a.f48684f) {
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -189,8 +189,8 @@ public class PersonCenterFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes11.dex */
-    public class d extends i0<Boolean> {
+    /* loaded from: classes12.dex */
+    public class d extends k0<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterFragment a;
@@ -215,7 +215,7 @@ public class PersonCenterFragment extends BaseFragment {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // c.a.q0.d1.i0
+        @Override // c.a.r0.d1.k0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -223,7 +223,7 @@ public class PersonCenterFragment extends BaseFragment {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_FEEDBACK_TIP);
                 netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
                 String postNetData = netWork.postNetData();
-                c.a.r0.t2.e.b bVar = new c.a.r0.t2.e.b();
+                c.a.s0.v2.e.b bVar = new c.a.s0.v2.e.b();
                 bVar.c(postNetData);
                 if (bVar.b() == 0 && bVar.a() > 0) {
                     return Boolean.TRUE;
@@ -234,8 +234,8 @@ public class PersonCenterFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes11.dex */
-    public class e implements q<Boolean> {
+    /* loaded from: classes12.dex */
+    public class e implements s<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterFragment a;
@@ -259,7 +259,7 @@ public class PersonCenterFragment extends BaseFragment {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.q
+        @Override // c.a.r0.d1.s
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -269,7 +269,7 @@ public class PersonCenterFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class f implements MessageQueue.IdleHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -318,10 +318,10 @@ public class PersonCenterFragment extends BaseFragment {
                 return;
             }
         }
-        this.f48177f = true;
-        this.f48178g = false;
-        this.f48179h = false;
-        this.f48181j = 0L;
+        this.f48684f = true;
+        this.f48685g = false;
+        this.f48686h = false;
+        this.f48688j = 0L;
         this.m = false;
         this.n = new a(this, 2016560);
         this.o = new b(this, 2921033);
@@ -329,12 +329,12 @@ public class PersonCenterFragment extends BaseFragment {
         this.q = new f(this);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.r0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f48179h) {
+            if (this.f48686h) {
                 return null;
             }
             return "a011";
@@ -358,12 +358,12 @@ public class PersonCenterFragment extends BaseFragment {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long l = c.a.q0.s.e0.b.j().l("key_feedback_tip", 0L);
+            long l = c.a.r0.s.g0.b.j().l("key_feedback_tip", 0L);
             if (!TbadkCoreApplication.isLogin() || System.currentTimeMillis() - l <= StringHelper.MS_TO_HOUR * 4) {
                 return;
             }
-            l0.b(new d(this), new e(this));
-            c.a.q0.s.e0.b.j().w("key_feedback_tip", System.currentTimeMillis());
+            n0.b(new d(this), new e(this));
+            c.a.r0.s.g0.b.j().w("key_feedback_tip", System.currentTimeMillis());
         }
     }
 
@@ -372,13 +372,13 @@ public class PersonCenterFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             Intent intent = getActivity().getIntent();
             if (intent != null) {
-                this.f48176e = intent.getLongExtra("user_id", c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L));
-                this.f48177f = intent.getBooleanExtra(PersonPolymericActivityConfig.IS_USER_SELF, true);
-                this.f48178g = intent.getBooleanExtra(PersonPolymericActivityConfig.IS_BIGV, false);
+                this.f48683e = intent.getLongExtra("user_id", c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L));
+                this.f48684f = intent.getBooleanExtra(PersonPolymericActivityConfig.IS_USER_SELF, true);
+                this.f48685g = intent.getBooleanExtra(PersonPolymericActivityConfig.IS_BIGV, false);
             } else if (bundle != null) {
-                this.f48176e = bundle.getLong("user_id", c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L));
-                this.f48177f = bundle.getBoolean(PersonPolymericActivityConfig.IS_USER_SELF, true);
-                this.f48178g = bundle.getBoolean(PersonPolymericActivityConfig.IS_BIGV, false);
+                this.f48683e = bundle.getLong("user_id", c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L));
+                this.f48684f = bundle.getBoolean(PersonPolymericActivityConfig.IS_USER_SELF, true);
+                this.f48685g = bundle.getBoolean(PersonPolymericActivityConfig.IS_BIGV, false);
             }
         }
     }
@@ -388,7 +388,7 @@ public class PersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            c.a.r0.t2.a.d().h(System.currentTimeMillis() - c.a.r0.t2.a.d().a());
+            c.a.s0.v2.a.d().h(System.currentTimeMillis() - c.a.s0.v2.a.d().a());
         }
     }
 
@@ -399,9 +399,9 @@ public class PersonCenterFragment extends BaseFragment {
             super.onAttach(context);
             this.mIsLogin = TbadkCoreApplication.isLogin();
             if (getArguments() != null) {
-                this.f48179h = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
+                this.f48686h = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
             }
-            getPageStayDurationItem().f12477k = "1";
+            getPageStayDurationItem().f12804k = "1";
             i(true);
             MessageManager.getInstance().registerListener(this.n);
             MessageManager.getInstance().registerListener(this.o);
@@ -414,7 +414,7 @@ public class PersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.r0.t2.d.b bVar = this.f48180i;
+            c.a.s0.v2.d.b bVar = this.f48687i;
             if (bVar != null) {
                 bVar.f(i2);
             }
@@ -425,7 +425,7 @@ public class PersonCenterFragment extends BaseFragment {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            c.a.r0.t2.a.d().g(System.currentTimeMillis());
+            c.a.s0.v2.a.d().g(System.currentTimeMillis());
             super.onCreate(bundle);
         }
     }
@@ -437,12 +437,12 @@ public class PersonCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
             k(bundle);
             View inflate = layoutInflater.inflate(R.layout.fragment_my_tab_layout, (ViewGroup) null);
-            c.a.r0.t2.d.b bVar = new c.a.r0.t2.d.b(inflate, getPageContext(), getUniqueId());
-            this.f48180i = bVar;
+            c.a.s0.v2.d.b bVar = new c.a.s0.v2.d.b(inflate, getPageContext(), getUniqueId());
+            this.f48687i = bVar;
             bVar.e();
             this.m = false;
             if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-                this.f48180i.j();
+                this.f48687i.j();
                 this.m = true;
             }
             return inflate;
@@ -455,7 +455,7 @@ public class PersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            c.a.r0.t2.d.b bVar = this.f48180i;
+            c.a.s0.v2.d.b bVar = this.f48687i;
             if (bVar != null) {
                 bVar.g();
             }
@@ -478,9 +478,9 @@ public class PersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            if (this.f48181j > 0) {
-                TiebaStatic.log(new StatisticItem("c12263").param(TiebaStatic.Params.OBJ_DURATION, String.valueOf((System.currentTimeMillis() - this.f48181j) / 1000)).param("obj_type", 2));
-                this.f48181j = 0L;
+            if (this.f48688j > 0) {
+                TiebaStatic.log(new StatisticItem("c12263").param(TiebaStatic.Params.OBJ_DURATION, String.valueOf((System.currentTimeMillis() - this.f48688j) / 1000)).param("obj_type", 2));
+                this.f48688j = 0L;
             }
         }
     }
@@ -490,34 +490,34 @@ public class PersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPrimary();
-            this.f48180i.k(isPrimary());
+            this.f48687i.k(isPrimary());
             if (isPrimary()) {
                 if (!this.m) {
                     this.m = true;
-                    this.f48180i.j();
+                    this.f48687i.j();
                 }
-                if (!StringUtils.isNull(this.f48182k)) {
-                    this.f48180i.i(this.f48182k);
-                    this.f48182k = null;
+                if (!StringUtils.isNull(this.f48689k)) {
+                    this.f48687i.i(this.f48689k);
+                    this.f48689k = null;
                 }
                 if (!StringUtils.isNull(this.l)) {
-                    this.f48180i.h(this.l);
+                    this.f48687i.h(this.l);
                     this.l = null;
                 } else {
-                    this.f48180i.j();
+                    this.f48687i.j();
                 }
-                this.f48180i.l();
-                c.a.q0.s.e0.b.j().t("key_feedback_tip_tab_show", false);
+                this.f48687i.l();
+                c.a.r0.s.g0.b.j().t("key_feedback_tip_tab_show", false);
                 if (TbSingleton.getInstance().isShowShoubaiDynamicGuide()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921423));
                 }
             } else {
-                this.f48180i.d();
+                this.f48687i.d();
             }
             if (isAdded()) {
-                c.a.r0.i3.a.v().F();
+                c.a.s0.k3.a.v().F();
             }
-            c.a.r0.i3.a.v().I(isPrimary());
+            c.a.s0.k3.a.v().I(isPrimary());
         }
     }
 
@@ -526,10 +526,10 @@ public class PersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onResume();
-            if (!this.f48177f && this.f48178g) {
-                this.f48181j = System.currentTimeMillis();
+            if (!this.f48684f && this.f48685g) {
+                this.f48688j = System.currentTimeMillis();
             } else {
-                this.f48181j = -1L;
+                this.f48688j = -1L;
             }
         }
     }
@@ -540,9 +540,9 @@ public class PersonCenterFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             if (bundle != null) {
-                bundle.putLong("user_id", this.f48176e);
-                bundle.putBoolean(PersonPolymericActivityConfig.IS_USER_SELF, this.f48177f);
-                bundle.putBoolean(PersonPolymericActivityConfig.IS_BIGV, this.f48178g);
+                bundle.putLong("user_id", this.f48683e);
+                bundle.putBoolean(PersonPolymericActivityConfig.IS_USER_SELF, this.f48684f);
+                bundle.putBoolean(PersonPolymericActivityConfig.IS_BIGV, this.f48685g);
             }
         }
     }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ih implements iq<ih, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final iy a;
@@ -23,22 +23,22 @@ public class ih implements iq<ih, Object>, Serializable, Cloneable {
     public static final jg f717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f63141b;
+    public static final iy f63722b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f63142c;
+    public static final iy f63723c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f63143d;
+    public static final iy f63724d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f63144e;
+    public static final iy f63725e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f63145f;
+    public static final iy f63726f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f63146g;
+    public static final iy f63727g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -80,12 +80,12 @@ public class ih implements iq<ih, Object>, Serializable, Cloneable {
         }
         f717a = new jg("XmPushActionSendFeedbackResult");
         a = new iy("", (byte) 11, (short) 1);
-        f63141b = new iy("", StandardMessageCodec.LIST, (short) 2);
-        f63142c = new iy("", (byte) 11, (short) 3);
-        f63143d = new iy("", (byte) 11, (short) 4);
-        f63144e = new iy("", (byte) 10, (short) 6);
-        f63145f = new iy("", (byte) 11, (short) 7);
-        f63146g = new iy("", (byte) 11, (short) 8);
+        f63722b = new iy("", StandardMessageCodec.LIST, (short) 2);
+        f63723c = new iy("", (byte) 11, (short) 3);
+        f63724d = new iy("", (byte) 11, (short) 4);
+        f63725e = new iy("", (byte) 10, (short) 6);
+        f63726f = new iy("", (byte) 11, (short) 7);
+        f63727g = new iy("", (byte) 11, (short) 8);
     }
 
     public ih() {
@@ -333,30 +333,30 @@ public class ih implements iq<ih, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f719a != null && b()) {
-                jbVar.a(f63141b);
+                jbVar.a(f63722b);
                 this.f719a.b(jbVar);
                 jbVar.b();
             }
             if (this.f722b != null) {
-                jbVar.a(f63142c);
+                jbVar.a(f63723c);
                 jbVar.a(this.f722b);
                 jbVar.b();
             }
             if (this.f723c != null) {
-                jbVar.a(f63143d);
+                jbVar.a(f63724d);
                 jbVar.a(this.f723c);
                 jbVar.b();
             }
-            jbVar.a(f63144e);
+            jbVar.a(f63725e);
             jbVar.a(this.f718a);
             jbVar.b();
             if (this.f724d != null && f()) {
-                jbVar.a(f63145f);
+                jbVar.a(f63726f);
                 jbVar.a(this.f724d);
                 jbVar.b();
             }
             if (this.f725e != null && g()) {
-                jbVar.a(f63146g);
+                jbVar.a(f63727g);
                 jbVar.a(this.f725e);
                 jbVar.b();
             }

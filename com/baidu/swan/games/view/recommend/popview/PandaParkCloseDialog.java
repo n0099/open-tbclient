@@ -7,8 +7,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import c.a.p0.h.f;
-import c.a.p0.h.h;
+import c.a.q0.h.f;
+import c.a.q0.h.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,15 +20,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001:\u0001\u0013B\u0011\b\u0016\u0012\u0006\u0010\u0010\u001a\u00020\u000f¢\u0006\u0004\b\u0011\u0010\u0012J\u000f\u0010\u0003\u001a\u00020\u0002H\u0003¢\u0006\u0004\b\u0003\u0010\u0004J\u000f\u0010\u0006\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\b\u001a\u00020\u0005H\u0003¢\u0006\u0004\b\b\u0010\u0007J\u0015\u0010\u000b\u001a\u00020\u00052\u0006\u0010\n\u001a\u00020\t¢\u0006\u0004\b\u000b\u0010\fR\u0018\u0010\r\u001a\u0004\u0018\u00010\t8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\r\u0010\u000e¨\u0006\u0014"}, d2 = {"Lcom/baidu/swan/games/view/recommend/popview/PandaParkCloseDialog;", "Landroid/app/Dialog;", "Landroid/view/View$OnTouchListener;", "alphaChange", "()Landroid/view/View$OnTouchListener;", "", "init", "()V", "initClickListener", "Lcom/baidu/swan/games/view/recommend/popview/PandaParkCloseDialog$IOnClickListener;", "onClickListener", "setOnClickListener", "(Lcom/baidu/swan/games/view/recommend/popview/PandaParkCloseDialog$IOnClickListener;)V", "mOnClickListener", "Lcom/baidu/swan/games/view/recommend/popview/PandaParkCloseDialog$IOnClickListener;", "Landroid/content/Context;", "context", "<init>", "(Landroid/content/Context;)V", "IOnClickListener", "common_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class PandaParkCloseDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f40602e;
+    public a f41091e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a();
 
@@ -37,12 +37,12 @@ public final class PandaParkCloseDialog extends Dialog {
         void c();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class b implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f40603e;
+        public static final b f41092e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,7 +58,7 @@ public final class PandaParkCloseDialog extends Dialog {
                     return;
                 }
             }
-            f40603e = new b();
+            f41092e = new b();
         }
 
         public b() {
@@ -98,13 +98,13 @@ public final class PandaParkCloseDialog extends Dialog {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PandaParkCloseDialog f40604e;
+        public final /* synthetic */ PandaParkCloseDialog f41093e;
 
         public c(PandaParkCloseDialog pandaParkCloseDialog) {
             Interceptable interceptable = $ic;
@@ -121,27 +121,27 @@ public final class PandaParkCloseDialog extends Dialog {
                     return;
                 }
             }
-            this.f40604e = pandaParkCloseDialog;
+            this.f41093e = pandaParkCloseDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f40604e.f40602e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f41093e.f41091e) == null) {
                 return;
             }
             aVar.c();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PandaParkCloseDialog f40605e;
+        public final /* synthetic */ PandaParkCloseDialog f41094e;
 
         public d(PandaParkCloseDialog pandaParkCloseDialog) {
             Interceptable interceptable = $ic;
@@ -158,27 +158,27 @@ public final class PandaParkCloseDialog extends Dialog {
                     return;
                 }
             }
-            this.f40605e = pandaParkCloseDialog;
+            this.f41094e = pandaParkCloseDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f40605e.f40602e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f41094e.f41091e) == null) {
                 return;
             }
             aVar.b();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PandaParkCloseDialog f40606e;
+        public final /* synthetic */ PandaParkCloseDialog f41095e;
 
         public e(PandaParkCloseDialog pandaParkCloseDialog) {
             Interceptable interceptable = $ic;
@@ -195,14 +195,14 @@ public final class PandaParkCloseDialog extends Dialog {
                     return;
                 }
             }
-            this.f40606e = pandaParkCloseDialog;
+            this.f41095e = pandaParkCloseDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f40606e.f40602e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f41095e.f41091e) == null) {
                 return;
             }
             aVar.a();
@@ -236,7 +236,7 @@ public final class PandaParkCloseDialog extends Dialog {
     public final View.OnTouchListener a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f40603e : (View.OnTouchListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f41092e : (View.OnTouchListener) invokeV.objValue;
     }
 
     public final void b() {
@@ -252,12 +252,12 @@ public final class PandaParkCloseDialog extends Dialog {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ((Button) findViewById(c.a.p0.h.e.exit_button)).setOnTouchListener(a());
-            ((Button) findViewById(c.a.p0.h.e.exit_button)).setOnClickListener(new c(this));
-            ((ImageView) findViewById(c.a.p0.h.e.image_close)).setOnTouchListener(a());
-            ((ImageView) findViewById(c.a.p0.h.e.image_close)).setOnClickListener(new d(this));
-            ((Button) findViewById(c.a.p0.h.e.continue_button)).setOnTouchListener(a());
-            ((Button) findViewById(c.a.p0.h.e.continue_button)).setOnClickListener(new e(this));
+            ((Button) findViewById(c.a.q0.h.e.exit_button)).setOnTouchListener(a());
+            ((Button) findViewById(c.a.q0.h.e.exit_button)).setOnClickListener(new c(this));
+            ((ImageView) findViewById(c.a.q0.h.e.image_close)).setOnTouchListener(a());
+            ((ImageView) findViewById(c.a.q0.h.e.image_close)).setOnClickListener(new d(this));
+            ((Button) findViewById(c.a.q0.h.e.continue_button)).setOnTouchListener(a());
+            ((Button) findViewById(c.a.q0.h.e.continue_button)).setOnClickListener(new e(this));
         }
     }
 
@@ -265,7 +265,7 @@ public final class PandaParkCloseDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             Intrinsics.checkNotNullParameter(onClickListener, "onClickListener");
-            this.f40602e = onClickListener;
+            this.f41091e = onClickListener;
         }
     }
 }

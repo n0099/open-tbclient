@@ -13,14 +13,14 @@ import com.bytedance.pangle.plugin.PluginProvider;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final h f54526b;
+    public final h f55106b;
 
     public c(h hVar) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class c implements Runnable {
             }
         }
         this.a = false;
-        this.f54526b = hVar;
+        this.f55106b = hVar;
     }
 
     @Override // java.lang.Runnable
@@ -47,10 +47,10 @@ public final class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                if (this.a && h.a().f54549d) {
+                if (this.a && h.a().f55129d) {
                     return;
                 }
-                if (System.currentTimeMillis() - this.f54526b.a < 300000) {
+                if (System.currentTimeMillis() - this.f55106b.a < 300000) {
                     return;
                 }
                 if (d.a(Zeus.getAppApplication())) {
@@ -61,9 +61,9 @@ public final class c implements Runnable {
                         }
                         if (!com.bytedance.pangle.a.a.booleanValue()) {
                             ZeusLogger.d(ZeusLogger.TAG_DOWNLOAD, "Skip! useInternalNetworkImpl = false!");
-                            PluginProvider pluginProvider = com.bytedance.pangle.i.a().f54604b.getPluginProvider();
+                            PluginProvider pluginProvider = com.bytedance.pangle.i.a().f55184b.getPluginProvider();
                             if (pluginProvider != null && (providePluginConfig = pluginProvider.providePluginConfig()) != null) {
-                                this.f54526b.a = System.currentTimeMillis();
+                                this.f55106b.a = System.currentTimeMillis();
                                 ZeusLogger.i(ZeusLogger.TAG_DOWNLOAD, "handlePlugins, pluginSize = " + providePluginConfig.size());
                                 for (int i3 = 0; i3 < providePluginConfig.size(); i3++) {
                                     PluginDownloadBean pluginDownloadBean = providePluginConfig.get(i3);
@@ -92,12 +92,12 @@ public final class c implements Runnable {
                             JSONObject jSONObject2 = new JSONObject(a3);
                             JSONObject optJSONObject = jSONObject2.getJSONObject("data").optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
                             if (optJSONObject != null) {
-                                this.f54526b.a(optJSONObject.optLong("auto_request_interval", 1800L));
+                                this.f55106b.a(optJSONObject.optLong("auto_request_interval", 1800L));
                             }
                             JSONArray optJSONArray = jSONObject2.getJSONObject("data").optJSONArray("plugin");
                             if (optJSONArray != null) {
-                                this.f54526b.a = System.currentTimeMillis();
-                                h hVar = this.f54526b;
+                                this.f55106b.a = System.currentTimeMillis();
+                                h hVar = this.f55106b;
                                 ZeusLogger.i(ZeusLogger.TAG_DOWNLOAD, "handlePlugins, pluginSize = " + optJSONArray.length());
                                 if (optJSONArray.length() >= 0) {
                                     h.a(hVar.a(optJSONArray));

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.Base64;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f31060b;
+    public static byte[] f31430b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Charset f31061c;
+    public static final Charset f31431c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class f {
                 return;
             }
         }
-        f31060b = new byte[]{68, 64, 94, 49, 69, Base64.INTERNAL_PADDING, 50, 83};
-        f31061c = Charset.forName("UTF-8");
+        f31430b = new byte[]{68, 64, 94, 49, 69, Base64.INTERNAL_PADDING, 50, 83};
+        f31431c = Charset.forName("UTF-8");
     }
 
     public f() {
@@ -61,7 +61,7 @@ public class f {
                 byte[] bArr2 = new byte[length];
                 for (int i2 = 0; i2 < length; i2++) {
                     bArr2[i2] = bArr[i2];
-                    for (byte b2 : f31060b) {
+                    for (byte b2 : f31430b) {
                         bArr2[i2] = (byte) (b2 ^ bArr2[i2]);
                     }
                 }

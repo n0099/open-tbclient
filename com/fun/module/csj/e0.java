@@ -22,23 +22,23 @@ import com.fun.ad.sdk.channel.csj.R;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e0 extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f55741b;
+    public ImageView f56322b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f55742c;
+    public TextView f56323c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f55743d;
+    public ImageView f56324d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f55744e;
+    public Button f56325e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e0(Context context) {
@@ -110,25 +110,25 @@ public class e0 extends LinearLayout {
             this.a.setText(tTNativeAd.getDescription());
             TTImage icon = tTNativeAd.getIcon();
             if (icon != null && icon.isValid()) {
-                GlideHelper.get().load(getContext(), icon.getImageUrl(), this.f55741b);
+                GlideHelper.get().load(getContext(), icon.getImageUrl(), this.f56322b);
             }
-            this.f55742c.setText(TextUtils.isEmpty(tTNativeAd.getSource()) ? tTNativeAd.getTitle() : tTNativeAd.getSource());
-            this.f55743d.setImageBitmap(tTNativeAd.getAdLogo());
+            this.f56323c.setText(TextUtils.isEmpty(tTNativeAd.getSource()) ? tTNativeAd.getTitle() : tTNativeAd.getSource());
+            this.f56324d.setImageBitmap(tTNativeAd.getAdLogo());
             int interactionType = tTNativeAd.getInteractionType();
             if (interactionType == 2 || interactionType == 3) {
-                this.f55744e.setVisibility(0);
-                button = this.f55744e;
+                this.f56325e.setVisibility(0);
+                button = this.f56325e;
                 i2 = R.string.fun_ad_interaction_type_browser;
             } else if (interactionType == 4) {
-                this.f55744e.setVisibility(0);
-                button = this.f55744e;
+                this.f56325e.setVisibility(0);
+                button = this.f56325e;
                 i2 = R.string.fun_ad_interaction_type_download;
             } else if (interactionType != 5) {
-                this.f55744e.setVisibility(8);
+                this.f56325e.setVisibility(8);
                 return;
             } else {
-                this.f55744e.setVisibility(0);
-                button = this.f55744e;
+                this.f56325e.setVisibility(0);
+                button = this.f56325e;
                 i2 = R.string.fun_ad_interaction_type_dial;
             }
             button.setText(i2);
@@ -151,7 +151,7 @@ public class e0 extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f55744e);
+            arrayList.add(this.f56325e);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -160,7 +160,7 @@ public class e0 extends LinearLayout {
     public h getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new h(this.f55744e) : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new h(this.f56325e) : (h) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -169,10 +169,10 @@ public class e0 extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
             this.a = (TextView) findViewById(R.id.ad_description);
-            this.f55743d = (ImageView) findViewById(R.id.ad_logo);
-            this.f55741b = (ImageView) findViewById(R.id.ad_icon);
-            this.f55742c = (TextView) findViewById(R.id.ad_source);
-            this.f55744e = (Button) findViewById(R.id.ad_creative);
+            this.f56324d = (ImageView) findViewById(R.id.ad_logo);
+            this.f56322b = (ImageView) findViewById(R.id.ad_icon);
+            this.f56323c = (TextView) findViewById(R.id.ad_source);
+            this.f56325e = (Button) findViewById(R.id.ad_creative);
         }
     }
 }

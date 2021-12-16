@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class DisplayOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "DisplayOptions";
@@ -39,34 +39,34 @@ public final class DisplayOptions {
     public List<BitmapDescriptor> R;
 
     /* renamed from: b  reason: collision with root package name */
-    public BitmapDescriptor f36226b;
+    public BitmapDescriptor f36715b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f36227c;
+    public boolean f36716c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36228d;
+    public boolean f36717d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36229e;
+    public int f36718e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BitmapDescriptor f36230f;
+    public BitmapDescriptor f36719f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36231g;
+    public boolean f36720g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f36232h;
+    public boolean f36721h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f36233i;
+    public int f36722i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BitmapDescriptor f36234j;
+    public BitmapDescriptor f36723j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f36235k;
+    public boolean f36724k;
     public boolean l;
     public int m;
     public BitmapDescriptor n;
@@ -111,9 +111,9 @@ public final class DisplayOptions {
                 return;
             }
         }
-        this.f36229e = 6;
-        this.f36233i = 7;
-        this.f36235k = true;
+        this.f36718e = 6;
+        this.f36722i = 7;
+        this.f36724k = true;
         this.l = true;
         this.m = 8;
         this.q = 10;
@@ -132,14 +132,14 @@ public final class DisplayOptions {
         this.O = 50;
         this.P = 50;
         this.R = new ArrayList();
-        this.f36226b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
-        this.f36227c = true;
-        this.f36228d = true;
-        this.f36230f = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
-        this.f36231g = true;
-        this.f36232h = true;
-        this.f36234j = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Car.png");
-        this.f36235k = true;
+        this.f36715b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
+        this.f36716c = true;
+        this.f36717d = true;
+        this.f36719f = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
+        this.f36720g = true;
+        this.f36721h = true;
+        this.f36723j = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Car.png");
+        this.f36724k = true;
         this.l = true;
         this.n = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Passenger.png");
         this.o = true;
@@ -169,7 +169,7 @@ public final class DisplayOptions {
     public BitmapDescriptor getCarIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36234j : (BitmapDescriptor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36723j : (BitmapDescriptor) invokeV.objValue;
     }
 
     public View getCarInfoWindowView() {
@@ -193,7 +193,7 @@ public final class DisplayOptions {
     public BitmapDescriptor getEndPositionIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36230f : (BitmapDescriptor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36719f : (BitmapDescriptor) invokeV.objValue;
     }
 
     public View getEndPositionInfoWindowView() {
@@ -211,7 +211,7 @@ public final class DisplayOptions {
     public int getEndPositionMarkerZIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f36233i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f36722i : invokeV.intValue;
     }
 
     public int getPaddingBottom() {
@@ -265,7 +265,7 @@ public final class DisplayOptions {
     public BitmapDescriptor getStartPositionIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f36226b : (BitmapDescriptor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f36715b : (BitmapDescriptor) invokeV.objValue;
     }
 
     public View getStartPositionInfoWindowView() {
@@ -283,7 +283,7 @@ public final class DisplayOptions {
     public int getStartPositionMarkerZIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f36229e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f36718e : invokeV.intValue;
     }
 
     public List<BitmapDescriptor> getTrafficTextureList() {
@@ -310,7 +310,7 @@ public final class DisplayOptions {
     public boolean isShowCarMarker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f36235k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f36724k : invokeV.booleanValue;
     }
 
     public boolean isShowCarMarkerInSpan() {
@@ -328,13 +328,13 @@ public final class DisplayOptions {
     public boolean isShowEndPositionMarker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f36231g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f36720g : invokeV.booleanValue;
     }
 
     public boolean isShowEndPositionMarkerInSpan() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f36232h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f36721h : invokeV.booleanValue;
     }
 
     public boolean isShowPassengerIcon() {
@@ -370,13 +370,13 @@ public final class DisplayOptions {
     public boolean isShowStartPositionMarker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f36227c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f36716c : invokeV.booleanValue;
     }
 
     public boolean isShowStartPositionMarkerInSpan() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f36228d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f36717d : invokeV.booleanValue;
     }
 
     public DisplayOptions set3DCarMarkerEnable(boolean z) {
@@ -408,7 +408,7 @@ public final class DisplayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, bitmapDescriptor)) == null) {
             if (bitmapDescriptor != null) {
-                this.f36234j = bitmapDescriptor;
+                this.f36723j = bitmapDescriptor;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: CarIcon descriptor is null");
@@ -470,7 +470,7 @@ public final class DisplayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, bitmapDescriptor)) == null) {
             if (bitmapDescriptor != null) {
-                this.f36230f = bitmapDescriptor;
+                this.f36719f = bitmapDescriptor;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: EndPositionIcon descriptor is null");
@@ -508,7 +508,7 @@ public final class DisplayOptions {
             if (i2 <= 1) {
                 i2 = 2;
             }
-            this.f36233i = i2;
+            this.f36722i = i2;
             return this;
         }
         return (DisplayOptions) invokeI.objValue;
@@ -644,7 +644,7 @@ public final class DisplayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, bitmapDescriptor)) == null) {
             if (bitmapDescriptor != null) {
-                this.f36226b = bitmapDescriptor;
+                this.f36715b = bitmapDescriptor;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: StartPositionIcon descriptor is null");
@@ -682,7 +682,7 @@ public final class DisplayOptions {
             if (i2 <= 1) {
                 i2 = 2;
             }
-            this.f36229e = i2;
+            this.f36718e = i2;
             return this;
         }
         return (DisplayOptions) invokeI.objValue;
@@ -705,7 +705,7 @@ public final class DisplayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048636, this, z)) == null) {
-            this.f36235k = z;
+            this.f36724k = z;
             return this;
         }
         return (DisplayOptions) invokeZ.objValue;
@@ -745,7 +745,7 @@ public final class DisplayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048640, this, z)) == null) {
-            this.f36231g = z;
+            this.f36720g = z;
             return this;
         }
         return (DisplayOptions) invokeZ.objValue;
@@ -755,7 +755,7 @@ public final class DisplayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048641, this, z)) == null) {
-            this.f36232h = z;
+            this.f36721h = z;
             return this;
         }
         return (DisplayOptions) invokeZ.objValue;
@@ -825,7 +825,7 @@ public final class DisplayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048648, this, z)) == null) {
-            this.f36227c = z;
+            this.f36716c = z;
             return this;
         }
         return (DisplayOptions) invokeZ.objValue;
@@ -835,7 +835,7 @@ public final class DisplayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048649, this, z)) == null) {
-            this.f36228d = z;
+            this.f36717d = z;
             return this;
         }
         return (DisplayOptions) invokeZ.objValue;

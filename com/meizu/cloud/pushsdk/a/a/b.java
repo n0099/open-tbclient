@@ -18,21 +18,21 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static final String a = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f60163b = new Object();
+    public static final Object f60744b = new Object();
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f60164c;
+    public static b f60745c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f60165d;
+    public Context f60746d;
 
     public b(Context context) {
-        this.f60165d = context;
+        this.f60746d = context;
         try {
             System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
         } catch (Exception e2) {
@@ -42,14 +42,14 @@ public class b {
     }
 
     public static b a(Context context) {
-        if (f60164c == null) {
-            synchronized (f60163b) {
-                if (f60164c == null) {
-                    f60164c = new b(context);
+        if (f60745c == null) {
+            synchronized (f60744b) {
+                if (f60745c == null) {
+                    f60745c = new b(context);
                 }
             }
         }
-        return f60164c;
+        return f60745c;
     }
 
     private Map<String, String> a(Map<String, String> map) {

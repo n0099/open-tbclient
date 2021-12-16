@@ -13,7 +13,7 @@ import com.facebook.common.internal.Objects;
 import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ImagePerfData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int UNSET = -1;

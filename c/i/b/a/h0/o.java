@@ -11,31 +11,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.upstream.Loader;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class o<T> implements Loader.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f30190b;
+    public final int f30560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f30191c;
+    public final e f30561c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final a<? extends T> f30192d;
+    public final a<? extends T> f30562d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile T f30193e;
+    public volatile T f30563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f30194f;
+    public volatile boolean f30564f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f30195g;
+    public volatile long f30565g;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a<T> {
         T a(Uri uri, InputStream inputStream) throws IOException;
     }
@@ -65,26 +65,26 @@ public final class o<T> implements Loader.c {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30194f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30564f : invokeV.booleanValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30195g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30565g : invokeV.longValue;
     }
 
     public final T c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30193e : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30563e : (T) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final void cancelLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f30194f = true;
+            this.f30564f = true;
         }
     }
 
@@ -92,12 +92,12 @@ public final class o<T> implements Loader.c {
     public final void load() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            f fVar = new f(this.f30191c, this.a);
+            f fVar = new f(this.f30561c, this.a);
             try {
                 fVar.e();
-                this.f30193e = this.f30192d.a(this.f30191c.getUri(), fVar);
+                this.f30563e = this.f30562d.a(this.f30561c.getUri(), fVar);
             } finally {
-                this.f30195g = fVar.a();
+                this.f30565g = fVar.a();
                 v.i(fVar);
             }
         }
@@ -118,9 +118,9 @@ public final class o<T> implements Loader.c {
                 return;
             }
         }
-        this.f30191c = eVar;
+        this.f30561c = eVar;
         this.a = gVar;
-        this.f30190b = i2;
-        this.f30192d = aVar;
+        this.f30560b = i2;
+        this.f30562d = aVar;
     }
 }

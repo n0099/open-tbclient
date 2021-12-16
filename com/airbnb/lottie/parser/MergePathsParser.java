@@ -4,7 +4,7 @@ import androidx.appcompat.widget.SearchView;
 import com.airbnb.lottie.model.content.MergePaths;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MergePathsParser {
     public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "mm", "hd");
 

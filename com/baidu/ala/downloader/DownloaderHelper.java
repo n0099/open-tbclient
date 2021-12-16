@@ -2,8 +2,8 @@ package com.baidu.ala.downloader;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.d.f.p.q;
+import c.a.d.f.p.n;
+import c.a.d.f.p.r;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaSharedPrefHelper;
@@ -28,7 +28,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DownloaderHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +147,7 @@ public class DownloaderHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
-            String b2 = q.b(FileHelper.GetStreamFromFile(file));
+            String b2 = r.b(FileHelper.GetStreamFromFile(file));
             return !StringUtils.isNull(b2) ? b2.toLowerCase() : b2;
         }
         return (String) invokeL.objValue;
@@ -194,7 +194,7 @@ public class DownloaderHelper {
             return (String) invokeLLL.objValue;
         }
         OutputStream outputStream = null;
-        if (inputStream == null || StringUtils.isNull(str2) || str2.contains(r1.f56836k)) {
+        if (inputStream == null || StringUtils.isNull(str2) || str2.contains(r1.f57417k)) {
             return null;
         }
         try {
@@ -226,10 +226,10 @@ public class DownloaderHelper {
         try {
             try {
                 if (file.exists() && !file.delete()) {
-                    m.f(null);
+                    n.f(null);
                     return null;
                 } else if (!file.createNewFile()) {
-                    m.f(null);
+                    n.f(null);
                     return null;
                 } else {
                     fileOutputStream = new FileOutputStream(file);
@@ -242,7 +242,7 @@ public class DownloaderHelper {
                             } else {
                                 fileOutputStream.flush();
                                 String path = file.getPath();
-                                m.f(fileOutputStream);
+                                n.f(fileOutputStream);
                                 return path;
                             }
                         }
@@ -250,14 +250,14 @@ public class DownloaderHelper {
                         e = e3;
                         BdLog.e(e.getMessage());
                         TiebaStatic.file(e, "FileHelper.saveFile " + str + "/" + str2);
-                        m.f(fileOutputStream);
+                        n.f(fileOutputStream);
                         return null;
                     }
                 }
             } catch (Throwable th) {
                 th = th;
                 outputStream = str3;
-                m.f(outputStream);
+                n.f(outputStream);
                 throw th;
             }
         } catch (IOException e4) {
@@ -265,7 +265,7 @@ public class DownloaderHelper {
             fileOutputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            m.f(outputStream);
+            n.f(outputStream);
             throw th;
         }
     }
@@ -290,25 +290,25 @@ public class DownloaderHelper {
                         } else {
                             zipInputStream2.close();
                             FileHelper.deleteFile(new File(str));
-                            m.e(zipInputStream2);
+                            n.e(zipInputStream2);
                             return true;
                         }
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         zipInputStream = zipInputStream2;
                         e.printStackTrace();
-                        m.e(zipInputStream);
+                        n.e(zipInputStream);
                         return false;
                     } catch (IOException e3) {
                         e = e3;
                         zipInputStream = zipInputStream2;
                         e.printStackTrace();
-                        m.e(zipInputStream);
+                        n.e(zipInputStream);
                         return false;
                     } catch (Throwable th) {
                         th = th;
                         zipInputStream = zipInputStream2;
-                        m.e(zipInputStream);
+                        n.e(zipInputStream);
                         throw th;
                     }
                 }

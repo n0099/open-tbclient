@@ -3,7 +3,7 @@ package com.baidu.tieba.wallet;
 import android.app.Activity;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.q0.f;
+import c.a.r0.q0.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class WalletPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NPS_MODE = "Wallet";
@@ -27,7 +27,7 @@ public class WalletPluginManager {
     public IWalletPlugin mIWalletPlugin;
 
     /* renamed from: com.baidu.tieba.wallet.WalletPluginManager$14  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class AnonymousClass14 implements IInstallCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class WalletPluginManager {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final WalletPluginManager instance;

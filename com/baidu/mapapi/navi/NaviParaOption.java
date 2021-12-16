@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NaviParaOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36050b;
+    public String f36539b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f36051c;
+    public LatLng f36540c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36052d;
+    public String f36541d;
 
     public NaviParaOption() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class NaviParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f36052d = str;
+            this.f36541d = str;
             return this;
         }
         return (NaviParaOption) invokeL.objValue;
@@ -50,7 +50,7 @@ public class NaviParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng)) == null) {
-            this.f36051c = latLng;
+            this.f36540c = latLng;
             return this;
         }
         return (NaviParaOption) invokeL.objValue;
@@ -59,19 +59,19 @@ public class NaviParaOption {
     public String getEndName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36052d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36541d : (String) invokeV.objValue;
     }
 
     public LatLng getEndPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36051c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36540c : (LatLng) invokeV.objValue;
     }
 
     public String getStartName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36050b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36539b : (String) invokeV.objValue;
     }
 
     public LatLng getStartPoint() {
@@ -84,7 +84,7 @@ public class NaviParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.f36050b = str;
+            this.f36539b = str;
             return this;
         }
         return (NaviParaOption) invokeL.objValue;

@@ -15,17 +15,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.f.a.d;
 import java.security.MessageDigest;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f57450b;
+    public final LinkedBlockingQueue<IBinder> f58031b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f57451c;
+    public ServiceConnection f58032c;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -42,8 +42,8 @@ public class f {
                 return;
             }
         }
-        this.f57450b = new LinkedBlockingQueue<>(1);
-        this.f57451c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.kwai.f.1
+        this.f58031b = new LinkedBlockingQueue<>(1);
+        this.f58032c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.kwai.f.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
@@ -72,7 +72,7 @@ public class f {
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     com.kwad.sdk.core.d.a.c("OppoDeviceIDHelper", "onServiceConnected");
                     try {
-                        this.a.f57450b.put(iBinder);
+                        this.a.f58031b.put(iBinder);
                     } catch (InterruptedException e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
@@ -123,18 +123,18 @@ public class f {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                boolean bindService = this.a.bindService(intent, this.f57451c, 1);
+                boolean bindService = this.a.bindService(intent, this.f58032c, 1);
                 com.kwad.sdk.core.d.a.c("OppoDeviceIDHelper", "getOAID isBin=" + bindService);
                 if (bindService) {
                     try {
-                        str = new d.a(this.f57450b.take()).a(this.a.getPackageName(), b(), "OUID");
+                        str = new d.a(this.f58031b.take()).a(this.a.getPackageName(), b(), "OUID");
                         com.kwad.sdk.core.d.a.c("OppoDeviceIDHelper", "getOAID oaid" + str);
                         context = this.a;
-                        serviceConnection = this.f57451c;
+                        serviceConnection = this.f58032c;
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                         context = this.a;
-                        serviceConnection = this.f57451c;
+                        serviceConnection = this.f58032c;
                     }
                     context.unbindService(serviceConnection);
                 }

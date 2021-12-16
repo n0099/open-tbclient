@@ -22,18 +22,18 @@ import com.kwai.sodler.lib.ext.b;
 import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f59833b;
+    public static long f60414b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.tachikoma.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC2066a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC2127a {
         void a();
 
         void a(int i2);
@@ -55,11 +55,11 @@ public class a {
         a = new AtomicBoolean(false);
     }
 
-    public static void a(Context context, @NonNull InterfaceC2066a interfaceC2066a) {
+    public static void a(Context context, @NonNull InterfaceC2127a interfaceC2127a) {
         String x;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, interfaceC2066a) == null) || a.get()) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, interfaceC2127a) == null) || a.get()) {
             return;
         }
         a.set(true);
@@ -78,22 +78,22 @@ public class a {
         }
         com.kwai.sodler.kwai.b.a(context);
         com.kwai.sodler.lib.a.b bVar = new com.kwai.sodler.lib.a.b();
-        bVar.f60084c = x;
-        bVar.f60086e = true;
+        bVar.f60665c = x;
+        bVar.f60667e = true;
         bVar.a = str;
-        bVar.f60083b = "2.0";
-        bVar.f60088g = false;
-        com.kwai.sodler.kwai.b.a(str, bVar, new b.a(interfaceC2066a) { // from class: com.kwad.tachikoma.kwai.a.1
+        bVar.f60664b = "2.0";
+        bVar.f60669g = false;
+        com.kwai.sodler.kwai.b.a(str, bVar, new b.a(interfaceC2127a) { // from class: com.kwad.tachikoma.kwai.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ InterfaceC2066a a;
+            public final /* synthetic */ InterfaceC2127a a;
 
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {interfaceC2066a};
+                    Object[] objArr = {interfaceC2127a};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -103,7 +103,7 @@ public class a {
                         return;
                     }
                 }
-                this.a = interfaceC2066a;
+                this.a = interfaceC2127a;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -134,8 +134,8 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hVar, gVar) == null) {
                     this.a.a();
-                    if (a.f59833b > 0) {
-                        i.b("ad_client_apm_log", new CommercialAction.TKDownloadMsg().setDownloadTime(SystemClock.elapsedRealtime() - a.f59833b).setDownloadState(1));
+                    if (a.f60414b > 0) {
+                        i.b("ad_client_apm_log", new CommercialAction.TKDownloadMsg().setDownloadTime(SystemClock.elapsedRealtime() - a.f60414b).setDownloadState(1));
                     }
                 }
             }
@@ -147,7 +147,7 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048582, this, hVar) == null) {
                     super.b(hVar);
-                    long unused = a.f59833b = SystemClock.elapsedRealtime();
+                    long unused = a.f60414b = SystemClock.elapsedRealtime();
                     i.b("ad_client_apm_log", new CommercialAction.TKDownloadMsg().setDownloadState(0));
                 }
             }

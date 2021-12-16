@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton, c.a.q0.s.g0.t.b
+    @Override // com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton, c.a.r0.s.i0.t.b
     public void onClickEvent(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {

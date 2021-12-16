@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PluginSettingIOService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ENABLE = "key_enable";
@@ -46,7 +46,7 @@ public class PluginSettingIOService extends Service {
     public Messenger mMessenger;
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

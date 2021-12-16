@@ -20,26 +20,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Animator a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f36320b;
+    public long f36809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Interpolator f36321c;
+    public Interpolator f36810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Animation.AnimationListener f36322d;
+    public Animation.AnimationListener f36811d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36323e;
+    public int f36812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<Animation> f36324f;
+    public ArrayList<Animation> f36813f;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -55,11 +55,11 @@ public class d extends c {
             }
         }
         this.a = null;
-        this.f36320b = 0L;
-        this.f36321c = null;
-        this.f36322d = null;
-        this.f36323e = 0;
-        this.f36324f = new ArrayList<>();
+        this.f36809b = 0L;
+        this.f36810c = null;
+        this.f36811d = null;
+        this.f36812e = 0;
+        this.f36813f = new ArrayList<>();
     }
 
     @TargetApi(11)
@@ -112,7 +112,7 @@ public class d extends c {
             if (j2 < 0) {
                 j2 = 0;
             }
-            this.f36320b = j2;
+            this.f36809b = j2;
         }
     }
 
@@ -130,7 +130,7 @@ public class d extends c {
     public void a(Interpolator interpolator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, interpolator) == null) {
-            this.f36321c = interpolator;
+            this.f36810c = interpolator;
         }
     }
 
@@ -138,16 +138,16 @@ public class d extends c {
     public void a(Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, animationListener) == null) {
-            this.f36322d = animationListener;
+            this.f36811d = animationListener;
         }
     }
 
     public void a(Animation animation) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, animation) == null) || this.f36324f.contains(animation)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, animation) == null) || this.f36813f.contains(animation)) {
             return;
         }
-        this.f36324f.add(animation);
+        this.f36813f.add(animation);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -157,7 +157,7 @@ public class d extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, marker, animation) == null) {
             this.a = new AnimatorSet();
-            ArrayList<Animation> arrayList = this.f36324f;
+            ArrayList<Animation> arrayList = this.f36813f;
             ArrayList arrayList2 = new ArrayList();
             arrayList2.clear();
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
@@ -166,16 +166,16 @@ public class d extends c {
                     arrayList2.add(b2);
                 }
             }
-            long j2 = this.f36320b;
+            long j2 = this.f36809b;
             if (j2 != 0) {
                 this.a.setDuration(j2);
             }
-            Interpolator interpolator = this.f36321c;
+            Interpolator interpolator = this.f36810c;
             if (interpolator != null) {
                 this.a.setInterpolator(interpolator);
             }
             if (arrayList2.size() != 0) {
-                int i3 = this.f36323e;
+                int i3 = this.f36812e;
                 if (i3 == 0) {
                     ((AnimatorSet) this.a).playTogether(arrayList2);
                 } else if (i3 == 1) {
@@ -209,7 +209,7 @@ public class d extends c {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f36323e = i2;
+            this.f36812e = i2;
         }
     }
 }

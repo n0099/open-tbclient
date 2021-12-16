@@ -32,41 +32,41 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ev extends Dialog implements DialogInterface.OnDismissListener, TextWatcher, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EditText f51715b;
+    public EditText f52264b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f51716c;
+    public Button f52265c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51717d;
+    public String f52266d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51718e;
+    public int f52267e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f51719f;
+    public boolean f52268f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f51720g;
+    public Context f52269g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51721h;
+    public int f52270h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f51722i;
+    public int f52271i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f51723j;
+    public String f52272j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f51724k;
+    public int f52273k;
     public JSONArray l;
     public ArrayList m;
     public Handler n;
@@ -96,10 +96,10 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
                 return;
             }
         }
-        this.f51721h = -1;
-        this.f51722i = -1;
-        this.f51723j = null;
-        this.f51724k = 0;
+        this.f52270h = -1;
+        this.f52271i = -1;
+        this.f52272j = null;
+        this.f52273k = 0;
         this.l = null;
         this.m = new ArrayList();
         this.p = null;
@@ -107,10 +107,10 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         this.r = null;
         this.s = null;
         this.t = null;
-        this.f51720g = context;
+        this.f52269g = context;
         this.l = jSONArray;
-        this.f51724k = i3;
-        this.f51723j = str;
+        this.f52273k = i3;
+        this.f52272j = str;
         this.n = handler;
         this.o = list;
         setCanceledOnTouchOutside(true);
@@ -119,25 +119,25 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         Window window = getWindow();
         window.setGravity(80);
         window.setWindowAnimations(R.style.dialog_animation);
-        View inflate = View.inflate(this.f51720g, R.layout.ufo_evaluate_dialog, null);
+        View inflate = View.inflate(this.f52269g, R.layout.ufo_evaluate_dialog, null);
         inflate.findViewById(R.id.btn_dialog_close).setOnClickListener(this);
         inflate.findViewById(R.id.header_transparent).setOnClickListener(this);
         window.setContentView(inflate);
-        this.a = com.baidu.ufosdk.f.i.b(this.f51720g, com.baidu.ufosdk.f.s.a("25"));
+        this.a = com.baidu.ufosdk.f.i.b(this.f52269g, com.baidu.ufosdk.f.s.a("25"));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
         this.a.setVisibility(8);
         ((RelativeLayout) inflate.findViewById(R.id.rl_root)).addView(this.a, layoutParams);
         window.setLayout(-1, -2);
         Button button = (Button) inflate.findViewById(R.id.btn_sumbit_evaluate);
-        this.f51716c = button;
+        this.f52265c = button;
         button.setOnClickListener(this);
         EditText editText = (EditText) inflate.findViewById(R.id.et_input);
-        this.f51715b = editText;
+        this.f52264b = editText;
         editText.setOnClickListener(this);
         JSONArray jSONArray2 = this.l;
         if (jSONArray2 != null && jSONArray2.length() > 0) {
-            this.f51721h = 0;
+            this.f52270h = 0;
             inflate.findViewById(R.id.ll_checkboxs).setVisibility(0);
             int length = this.l.length();
             if (length != 1) {
@@ -186,23 +186,23 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
             this.p.setOnCheckedChangeListener(this);
             this.p.setOnClickListener(this);
         }
-        if (TextUtils.isEmpty(this.f51723j)) {
+        if (TextUtils.isEmpty(this.f52272j)) {
             return;
         }
-        this.f51722i = 0;
+        this.f52271i = 0;
         RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(R.id.rl_input);
         relativeLayout.setVisibility(0);
-        this.f51715b.setHint(this.f51723j);
-        this.f51715b.clearFocus();
-        this.f51715b.setFocusable(false);
+        this.f52264b.setHint(this.f52272j);
+        this.f52264b.clearFocus();
+        this.f52264b.setFocusable(false);
         relativeLayout.setBackgroundResource(R.drawable.dialog_checkbox_bg_normal);
-        this.f51715b.setOnClickListener(this);
-        this.f51715b.addTextChangedListener(this);
-        this.f51715b.setOnFocusChangeListener(new ew(this, relativeLayout));
-        if (this.f51724k == 0) {
-            this.f51716c.setBackgroundResource(R.drawable.dialog_btn_selector);
-            this.f51716c.setTextColor(-1);
-            this.f51716c.setClickable(true);
+        this.f52264b.setOnClickListener(this);
+        this.f52264b.addTextChangedListener(this);
+        this.f52264b.setOnFocusChangeListener(new ew(this, relativeLayout));
+        if (this.f52273k == 0) {
+            this.f52265c.setBackgroundResource(R.drawable.dialog_btn_selector);
+            this.f52265c.setTextColor(-1);
+            this.f52265c.setClickable(true);
         }
     }
 
@@ -225,21 +225,21 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put(UrlOcrConfig.IdCardKey.OS, "android");
         hashMap.put("appvn", com.baidu.ufosdk.b.e.b());
-        hashMap.put("uid", com.baidu.ufosdk.b.f51515d);
-        hashMap.put("username", com.baidu.ufosdk.b.f51513b);
-        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f51515d);
+        hashMap.put("uid", com.baidu.ufosdk.b.f52064d);
+        hashMap.put("username", com.baidu.ufosdk.b.f52062b);
+        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f52064d);
         hashMap.put("osvn", Build.VERSION.RELEASE);
-        hashMap.put("extra", com.baidu.ufosdk.b.f51517f);
-        hashMap.put("extend_feedback_channel", Integer.valueOf(com.baidu.ufosdk.b.f51521j));
+        hashMap.put("extra", com.baidu.ufosdk.b.f52066f);
+        hashMap.put("extend_feedback_channel", Integer.valueOf(com.baidu.ufosdk.b.f52070j));
         hashMap.put("osvc", String.valueOf(com.baidu.ufosdk.f.j.a()));
-        hashMap.put("id", evVar.f51717d);
+        hashMap.put("id", evVar.f52266d);
         if (str != null) {
             hashMap.put("discontent_reason", str);
         }
         if (jSONArray != null) {
             hashMap.put("discontent_labels", jSONArray.toString());
         }
-        hashMap.put("baiducuid", com.baidu.ufosdk.b.f51514c);
+        hashMap.put("baiducuid", com.baidu.ufosdk.b.f52063c);
         String a = com.baidu.ufosdk.f.k.a(com.baidu.ufosdk.c.a.a(hashMap));
         int i2 = 1;
         try {
@@ -251,10 +251,10 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
                 if (i2 == 0) {
                     com.baidu.ufosdk.f.c.b("submitEvaluation success!");
                     if (str != null) {
-                        ((Map) evVar.o.get(evVar.f51718e)).put("discontent_reason", str);
+                        ((Map) evVar.o.get(evVar.f52267e)).put("discontent_reason", str);
                     }
                     if (jSONArray != null) {
-                        ((Map) evVar.o.get(evVar.f51718e)).put("discontent_labels", jSONArray);
+                        ((Map) evVar.o.get(evVar.f52267e)).put("discontent_labels", jSONArray);
                     }
                 }
             }
@@ -269,11 +269,11 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.a.setVisibility(0);
             this.a.bringToFront();
-            this.f51716c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
-            this.f51716c.setTextColor(872415231);
-            this.f51716c.setClickable(false);
-            this.f51715b.clearFocus();
-            this.f51715b.setFocusable(false);
+            this.f52265c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
+            this.f52265c.setTextColor(872415231);
+            this.f52265c.setClickable(false);
+            this.f52264b.clearFocus();
+            this.f52264b.setFocusable(false);
             new Thread(new ex(this)).start();
         }
     }
@@ -282,7 +282,7 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.m.clear();
-            this.f51715b.setText("");
+            this.f52264b.setText("");
             a(this.p);
             a(this.q);
             a(this.r);
@@ -295,36 +295,36 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
     public final void afterTextChanged(Editable editable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
-            if (this.f51715b.getText().toString().trim().length() > com.baidu.ufosdk.b.aa) {
-                String substring = this.f51715b.getText().toString().substring(0, com.baidu.ufosdk.b.aa);
-                this.f51715b.setText(substring);
-                this.f51715b.setSelection(substring.length());
-                Toast.makeText(this.f51720g, com.baidu.ufosdk.f.s.a("16"), 0).show();
+            if (this.f52264b.getText().toString().trim().length() > com.baidu.ufosdk.b.aa) {
+                String substring = this.f52264b.getText().toString().substring(0, com.baidu.ufosdk.b.aa);
+                this.f52264b.setText(substring);
+                this.f52264b.setSelection(substring.length());
+                Toast.makeText(this.f52269g, com.baidu.ufosdk.f.s.a("16"), 0).show();
             }
-            if (this.f51715b.getText().toString().trim().length() >= 4) {
-                this.f51722i = 2;
-            } else if (this.f51715b.getText().toString().trim().length() > 0) {
-                this.f51722i = 1;
+            if (this.f52264b.getText().toString().trim().length() >= 4) {
+                this.f52271i = 2;
+            } else if (this.f52264b.getText().toString().trim().length() > 0) {
+                this.f52271i = 1;
             } else {
-                this.f51722i = 0;
+                this.f52271i = 0;
             }
-            if (this.f51724k == 1) {
-                if (this.f51722i == 2) {
-                    this.f51716c.setBackgroundResource(R.drawable.dialog_btn_selector);
-                    this.f51716c.setTextColor(-1);
+            if (this.f52273k == 1) {
+                if (this.f52271i == 2) {
+                    this.f52265c.setBackgroundResource(R.drawable.dialog_btn_selector);
+                    this.f52265c.setTextColor(-1);
                 } else {
-                    this.f51716c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
-                    this.f51716c.setTextColor(872415231);
+                    this.f52265c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
+                    this.f52265c.setTextColor(872415231);
                 }
             }
-            if (this.f51724k == 3) {
-                if (this.f51722i == 2 && this.f51721h == 1) {
-                    this.f51716c.setBackgroundResource(R.drawable.dialog_btn_selector);
-                    this.f51716c.setTextColor(-1);
+            if (this.f52273k == 3) {
+                if (this.f52271i == 2 && this.f52270h == 1) {
+                    this.f52265c.setBackgroundResource(R.drawable.dialog_btn_selector);
+                    this.f52265c.setTextColor(-1);
                     return;
                 }
-                this.f51716c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
-                this.f51716c.setTextColor(872415231);
+                this.f52265c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
+                this.f52265c.setTextColor(872415231);
             }
         }
     }
@@ -346,27 +346,27 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
                 this.m.remove(compoundButton.getText().toString());
             }
             if (this.m.size() > 0) {
-                this.f51721h = 1;
+                this.f52270h = 1;
             } else {
-                this.f51721h = 0;
+                this.f52270h = 0;
             }
-            if (this.f51724k == 2) {
-                if (this.f51721h == 1) {
-                    this.f51716c.setBackgroundResource(R.drawable.dialog_btn_selector);
-                    this.f51716c.setTextColor(-1);
+            if (this.f52273k == 2) {
+                if (this.f52270h == 1) {
+                    this.f52265c.setBackgroundResource(R.drawable.dialog_btn_selector);
+                    this.f52265c.setTextColor(-1);
                 } else {
-                    this.f51716c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
-                    this.f51716c.setTextColor(872415231);
+                    this.f52265c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
+                    this.f52265c.setTextColor(872415231);
                 }
             }
-            if (this.f51724k == 3) {
-                if (this.f51721h == 1 && this.f51722i == 2) {
-                    this.f51716c.setBackgroundResource(R.drawable.dialog_btn_selector);
-                    this.f51716c.setTextColor(-1);
+            if (this.f52273k == 3) {
+                if (this.f52270h == 1 && this.f52271i == 2) {
+                    this.f52265c.setBackgroundResource(R.drawable.dialog_btn_selector);
+                    this.f52265c.setTextColor(-1);
                     return;
                 }
-                this.f51716c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
-                this.f51716c.setTextColor(872415231);
+                this.f52265c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
+                this.f52265c.setTextColor(872415231);
             }
         }
     }
@@ -391,46 +391,46 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
                 dismiss();
             }
             if (view.getId() != R.id.et_input) {
-                this.f51715b.clearFocus();
-                this.f51715b.setFocusable(false);
+                this.f52264b.clearFocus();
+                this.f52264b.setFocusable(false);
             } else {
                 this.n.obtainMessage(18, "focus true").sendToTarget();
-                this.f51715b.setFocusable(true);
-                this.f51715b.setFocusableInTouchMode(true);
-                this.f51715b.requestFocus();
+                this.f52264b.setFocusable(true);
+                this.f52264b.setFocusableInTouchMode(true);
+                this.f52264b.requestFocus();
             }
             if (view.getId() == R.id.btn_sumbit_evaluate) {
-                int i2 = this.f51721h;
+                int i2 = this.f52270h;
                 String str = "无反馈内容，无法提交哦~";
                 if (i2 == -1) {
-                    int i3 = this.f51722i;
+                    int i3 = this.f52271i;
                     if (i3 != 0) {
                         if (i3 != 1) {
                             if (i3 == 2) {
                                 b();
                                 return;
                             }
-                            context2 = this.f51720g;
+                            context2 = this.f52269g;
                             makeText = Toast.makeText(context2, str, 0);
                         }
-                        makeText = Toast.makeText(this.f51720g, "评价内容过少，无法提交哦~", 0);
+                        makeText = Toast.makeText(this.f52269g, "评价内容过少，无法提交哦~", 0);
                     }
-                    makeText = Toast.makeText(this.f51720g, "未输入评论，无法提交哦~", 0);
+                    makeText = Toast.makeText(this.f52269g, "未输入评论，无法提交哦~", 0);
                 } else {
-                    int i4 = this.f51722i;
+                    int i4 = this.f52271i;
                     if (i4 == -1) {
                         if (i2 != 0) {
                             if (i2 == 1) {
                                 b();
                                 return;
                             }
-                            context2 = this.f51720g;
+                            context2 = this.f52269g;
                             makeText = Toast.makeText(context2, str, 0);
                         }
                     } else if (i2 == -1 || i4 == -1) {
                         return;
                     } else {
-                        int i5 = this.f51724k;
+                        int i5 = this.f52273k;
                         if (i5 != 0) {
                             if (i5 != 1) {
                                 if (i5 != 2) {
@@ -447,9 +447,9 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
                                                 return;
                                             }
                                         }
-                                        makeText = Toast.makeText(this.f51720g, "未输入评论，无法提交哦~", 0);
+                                        makeText = Toast.makeText(this.f52269g, "未输入评论，无法提交哦~", 0);
                                     } else {
-                                        context = this.f51720g;
+                                        context = this.f52269g;
                                     }
                                 } else if (i2 != 0) {
                                     if (i4 != 1) {
@@ -460,7 +460,7 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
                                         return;
                                     }
                                 }
-                                makeText = Toast.makeText(this.f51720g, "评价内容过少，无法提交哦~", 0);
+                                makeText = Toast.makeText(this.f52269g, "评价内容过少，无法提交哦~", 0);
                             } else {
                                 if (i4 != 0) {
                                     if (i4 != 1) {
@@ -470,23 +470,23 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
                                         }
                                         return;
                                     }
-                                    makeText = Toast.makeText(this.f51720g, "评价内容过少，无法提交哦~", 0);
+                                    makeText = Toast.makeText(this.f52269g, "评价内容过少，无法提交哦~", 0);
                                 }
-                                makeText = Toast.makeText(this.f51720g, "未输入评论，无法提交哦~", 0);
+                                makeText = Toast.makeText(this.f52269g, "未输入评论，无法提交哦~", 0);
                             }
                         } else if (i4 == 1) {
-                            context2 = this.f51720g;
+                            context2 = this.f52269g;
                             str = "评论内容过少，无法提交哦~";
                             makeText = Toast.makeText(context2, str, 0);
                         } else if (i2 != 0 || i4 != 0) {
                             b();
                             return;
                         } else {
-                            context = this.f51720g;
+                            context = this.f52269g;
                         }
                         makeText = Toast.makeText(context, "尚未选择标签或评论，无法提交哦~", 0);
                     }
-                    context = this.f51720g;
+                    context = this.f52269g;
                     makeText = Toast.makeText(context, "未选择标签，无法提交哦~", 0);
                 }
                 makeText.show();
@@ -497,7 +497,7 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
     @Override // android.content.DialogInterface.OnDismissListener
     public final void onDismiss(DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, dialogInterface) == null) && this.f51719f) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, dialogInterface) == null) && this.f52268f) {
             this.n.obtainMessage(17).sendToTarget();
         }
     }

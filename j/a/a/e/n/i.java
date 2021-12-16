@@ -1,35 +1,34 @@
 package j.a.a.e.n;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tv.athena.revenue.payui.widget.NoScrollGridView;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static void a(int i2, View view, NoScrollGridView noScrollGridView) {
+    /* renamed from: b  reason: collision with root package name */
+    public int f64787b;
+
+    public i(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(65536, null, i2, view, noScrollGridView) == null) || i2 == 0 || noScrollGridView == null || view == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        int i3 = i2 >= 3 ? 82 : 110;
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        if (i2 == 1) {
-            noScrollGridView.setNumColumns(1);
-            layoutParams.width = c.a(i3);
-        } else if (i2 == 2) {
-            noScrollGridView.setNumColumns(2);
-            layoutParams.width = c.a((i3 * 2) + 7);
-        } else if (i2 == 3) {
-            noScrollGridView.setNumColumns(3);
-            layoutParams.width = c.a((i3 * 3) + 14);
-        } else if (i2 > 3) {
-            noScrollGridView.setNumColumns(2);
-            layoutParams.width = c.a((i3 * 2) + 7);
-        }
-        view.setLayoutParams(layoutParams);
+        this.a = str;
+        this.f64787b = i2;
     }
 }

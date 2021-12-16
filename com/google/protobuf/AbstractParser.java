@@ -13,7 +13,7 @@ import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.MessageLite;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractParser<MessageType extends MessageLite> implements Parser<MessageType> {
     public static /* synthetic */ Interceptable $ic;
     public static final ExtensionRegistryLite EMPTY_REGISTRY;

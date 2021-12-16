@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public static CustomMessageTask a;
@@ -66,26 +66,26 @@ public class Static {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
                             TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                            if (data != null && data.a != null && data.a.f46380e != null) {
+                            if (data != null && data.a != null && data.a.f46879e != null) {
                                 String str = "";
                                 boolean z = false;
-                                if (data.f46375h == null) {
-                                    if (data.f46369b < data.a.f46380e.size()) {
-                                        ArrayList<String> arrayList = data.a.f46380e.get(data.f46369b);
+                                if (data.f46874h == null) {
+                                    if (data.f46868b < data.a.f46879e.size()) {
+                                        ArrayList<String> arrayList = data.a.f46879e.get(data.f46868b);
                                         if (arrayList.size() > 0) {
                                             str = arrayList.get(0);
                                         }
                                     }
-                                } else if (data.f46375h.length() > 0) {
-                                    str = data.f46375h;
+                                } else if (data.f46874h.length() > 0) {
+                                    str = data.f46874h;
                                     z = true;
                                 }
                                 if (PermissionUtil.isAgreePrivacyPolicy() && str.length() > 0) {
-                                    data.f46370c = data.f46373f.getTestImageData(data.a.f46378c, str, data.a.f46382g, data.a.f46379d, data.f46374g);
-                                    data.f46371d = System.currentTimeMillis() - currentTimeMillis;
-                                    data.f46372e = str;
+                                    data.f46869c = data.f46872f.getTestImageData(data.a.f46877c, str, data.a.f46881g, data.a.f46878d, data.f46873g);
+                                    data.f46870d = System.currentTimeMillis() - currentTimeMillis;
+                                    data.f46871e = str;
                                     if (z) {
-                                        data.f46375h = str;
+                                        data.f46874h = str;
                                     }
                                     return new CustomResponsedMessage<>(2017000, data);
                                 }

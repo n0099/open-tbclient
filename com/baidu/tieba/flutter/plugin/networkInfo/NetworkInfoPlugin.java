@@ -3,7 +3,8 @@ package com.baidu.tieba.flutter.plugin.networkInfo;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import c.a.d.f.j.a.a;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
+import c.a.s0.z0.a.e.j;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -24,7 +25,7 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNetworkInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,13 +78,13 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
                     boolean z = true;
                     try {
-                        z = j.z();
+                        z = k.z();
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                     }
                     NetworkInfoAuto.NetworkStatus networkStatus = new NetworkInfoAuto.NetworkStatus();
                     networkStatus.setIsNetOk(Boolean.valueOf(z));
-                    networkStatus.setNetType(Long.valueOf(j.I()));
+                    networkStatus.setNetType(Long.valueOf(k.I()));
                     networkStatus.setNetTypeString(NetWorkUtil.getNetType());
                     if (this.this$0.mFlutterNetworkInfo != null) {
                         this.this$0.mFlutterNetworkInfo.setNetInfo(networkStatus, new NetworkInfoAuto.FlutterNetworkInfo.Reply<NetworkInfoAuto.SetNetInfoResult>(this) { // from class: com.baidu.tieba.flutter.plugin.networkInfo.NetworkInfoPlugin.1.1
@@ -183,8 +184,8 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, result) == null) {
             NetworkInfoAuto.NetworkStatus networkStatus = new NetworkInfoAuto.NetworkStatus();
-            networkStatus.setIsNetOk(Boolean.valueOf(j.z()));
-            networkStatus.setNetType(Long.valueOf(j.I()));
+            networkStatus.setIsNetOk(Boolean.valueOf(k.z()));
+            networkStatus.setNetType(Long.valueOf(k.I()));
             networkStatus.setNetTypeString(NetWorkUtil.getNetType());
             result.success(networkStatus);
         }
@@ -195,7 +196,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, result) == null) {
             NetworkInfoAuto.NetWorkAvailable netWorkAvailable = new NetworkInfoAuto.NetWorkAvailable();
-            netWorkAvailable.setIsAvailable(Boolean.valueOf(j.z()));
+            netWorkAvailable.setIsAvailable(Boolean.valueOf(k.z()));
             result.success(netWorkAvailable);
         }
     }
@@ -205,7 +206,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
             NetworkInfoAuto.NetWorkAvailable netWorkAvailable = new NetworkInfoAuto.NetWorkAvailable();
-            netWorkAvailable.setIsAvailable(Boolean.valueOf(j.A()));
+            netWorkAvailable.setIsAvailable(Boolean.valueOf(k.A()));
             result.success(netWorkAvailable);
         }
     }
@@ -216,7 +217,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
             this.mFlutterNetworkInfo = new NetworkInfoAuto.FlutterNetworkInfo(flutterPluginBinding.getBinaryMessenger());
             MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-            c.a.r0.z0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), this);
+            j.i(flutterPluginBinding.getBinaryMessenger(), this);
         }
     }
 
@@ -226,7 +227,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         if (interceptable == null || interceptable.invokeL(1048581, this, flutterPluginBinding) == null) {
             MessageManager.getInstance().unRegisterListener(this.mNetworkChangedListener);
             this.mFlutterNetworkInfo = null;
-            c.a.r0.z0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), null);
+            j.i(flutterPluginBinding.getBinaryMessenger(), null);
         }
     }
 }

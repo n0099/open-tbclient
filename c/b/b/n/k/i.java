@@ -8,29 +8,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Texture a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f27572b;
+    public float f27947b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f27573c;
+    public float f27948c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f27574d;
+    public float f27949d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f27575e;
+    public float f27950e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27576f;
+    public int f27951f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27577g;
+    public int f27952g;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z) {
-                float f2 = this.f27572b;
-                this.f27572b = this.f27574d;
-                this.f27574d = f2;
+                float f2 = this.f27947b;
+                this.f27947b = this.f27949d;
+                this.f27949d = f2;
             }
             if (z2) {
-                float f3 = this.f27573c;
-                this.f27573c = this.f27575e;
-                this.f27575e = f3;
+                float f3 = this.f27948c;
+                this.f27948c = this.f27950e;
+                this.f27950e = f3;
             }
         }
     }
@@ -65,25 +65,25 @@ public class i {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27577g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27952g : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27576f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27951f : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Math.round(this.f27572b * this.a.x()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Math.round(this.f27947b * this.a.x()) : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Math.round(this.f27573c * this.a.u()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Math.round(this.f27948c * this.a.u()) : invokeV.intValue;
     }
 
     public Texture f() {
@@ -98,11 +98,11 @@ public class i {
             int x = this.a.x();
             int u = this.a.u();
             float f6 = x;
-            this.f27576f = Math.round(Math.abs(f4 - f2) * f6);
+            this.f27951f = Math.round(Math.abs(f4 - f2) * f6);
             float f7 = u;
             int round = Math.round(Math.abs(f5 - f3) * f7);
-            this.f27577g = round;
-            if (this.f27576f == 1 && round == 1) {
+            this.f27952g = round;
+            if (this.f27951f == 1 && round == 1) {
                 float f8 = 0.25f / f6;
                 f2 += f8;
                 f4 -= f8;
@@ -110,10 +110,10 @@ public class i {
                 f3 += f9;
                 f5 -= f9;
             }
-            this.f27572b = f2;
-            this.f27573c = f3;
-            this.f27574d = f4;
-            this.f27575e = f5;
+            this.f27947b = f2;
+            this.f27948c = f3;
+            this.f27949d = f4;
+            this.f27950e = f5;
         }
     }
 
@@ -123,8 +123,8 @@ public class i {
             float x = 1.0f / this.a.x();
             float u = 1.0f / this.a.u();
             g(i2 * x, i3 * u, (i2 + i4) * x, (i3 + i5) * u);
-            this.f27576f = Math.abs(i4);
-            this.f27577g = Math.abs(i5);
+            this.f27951f = Math.abs(i4);
+            this.f27952g = Math.abs(i5);
         }
     }
 
@@ -132,7 +132,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iVar) == null) {
             this.a = iVar.a;
-            g(iVar.f27572b, iVar.f27573c, iVar.f27574d, iVar.f27575e);
+            g(iVar.f27947b, iVar.f27948c, iVar.f27949d, iVar.f27950e);
         }
     }
 

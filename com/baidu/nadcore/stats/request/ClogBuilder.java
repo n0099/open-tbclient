@@ -3,11 +3,12 @@ package com.baidu.nadcore.stats.request;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.u.b;
-import c.a.b0.x.c.c;
-import c.a.b0.x.c.d;
+import c.a.c0.u.b;
+import c.a.c0.x.c.c;
+import c.a.c0.x.c.d;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.adp.ApsConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,21 +19,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-import com.tencent.connect.common.Constants;
 import java.net.URLEncoder;
 import kotlin.text.Typography;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ClogBuilder extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final JSONObject f37677c;
+    public final JSONObject f38166c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class Area {
         public static final /* synthetic */ Area[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -131,7 +131,7 @@ public class ClogBuilder extends c {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class LogType {
         public static final /* synthetic */ LogType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -225,7 +225,7 @@ public class ClogBuilder extends c {
             VIDEO_LP_BT = new LogType("VIDEO_LP_BT", 7, "12");
             VIDEO_LP_PV = new LogType("VIDEO_LP_PV", 8, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
             VIDEO_LP_VIDEO_HIDE = new LogType("VIDEO_LP_VIDEO_HIDE", 9, "131");
-            CHAN_MORE = new LogType("CHAN_MORE", 10, Constants.VIA_REPORT_TYPE_DATALINE);
+            CHAN_MORE = new LogType("CHAN_MORE", 10, "22");
             DEEP_LINK = new LogType("DEEP_LINK", 11, "706");
             VISIBLE_SHOW = new LogType("VISIBLE_SHOW", 12, HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE203);
             VIDEO_LP_TAIL_CLICK = new LogType("VIDEO_LP_TAIL_CLICK", 13, TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY);
@@ -318,7 +318,7 @@ public class ClogBuilder extends c {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class Page {
         public static final /* synthetic */ Page[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -421,11 +421,11 @@ public class ClogBuilder extends c {
                 return;
             }
         }
-        this.f37677c = b.b(null);
+        this.f38166c = b.b(null);
         c("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // c.a.b0.x.c.a, c.a.b0.x.c.d
+    @Override // c.a.c0.x.c.a, c.a.c0.x.c.d
     public <T extends d> T a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -436,15 +436,15 @@ public class ClogBuilder extends c {
         return (T) invokeLL.objValue;
     }
 
-    @Override // c.a.b0.x.c.a
+    @Override // c.a.c0.x.c.a
     public <T extends d> T c(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            b.d(this.f37677c, str, obj);
+            b.d(this.f38166c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
@@ -453,7 +453,7 @@ public class ClogBuilder extends c {
     public ClogBuilder f(Area area) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, area)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, area)) == null) {
             c("da_area", area.type);
             return this;
         }
@@ -490,12 +490,12 @@ public class ClogBuilder extends c {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // c.a.b0.x.c.c, c.a.b0.x.c.d
+    @Override // c.a.c0.x.c.c, c.a.c0.x.c.d
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (TextUtils.isEmpty(this.f37677c.optString("da_type"))) {
+            if (TextUtils.isEmpty(this.f38166c.optString("da_type"))) {
                 return false;
             }
             return super.isValid();
@@ -603,7 +603,7 @@ public class ClogBuilder extends c {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // c.a.b0.x.c.c, c.a.b0.x.c.a, c.a.b0.x.c.d
+    @Override // c.a.c0.x.c.c, c.a.c0.x.c.a, c.a.c0.x.c.d
     @NonNull
     public String toString() {
         InterceptResult invokeV;
@@ -615,14 +615,14 @@ public class ClogBuilder extends c {
             }
             try {
                 JSONArray jSONArray = new JSONArray();
-                jSONArray.put(this.f37677c);
+                jSONArray.put(this.f38166c);
                 String encode = URLEncoder.encode(jSONArray.toString(), "utf-8");
                 if (this.a.length() > 0) {
                     this.a.append(Typography.amp);
                 }
                 StringBuilder sb = this.a;
                 sb.append("ad");
-                sb.append(a.f31351h);
+                sb.append(a.f31721h);
                 sb.append(encode);
                 return sb.toString();
             } catch (Exception unused) {

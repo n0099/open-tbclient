@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Rect a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f62202b;
+    public Paint f62783b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -45,7 +45,7 @@ public class b extends View {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f62202b = new Paint();
+            this.f62783b = new Paint();
         }
     }
 
@@ -75,17 +75,17 @@ public class b extends View {
             Rect a = a();
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            this.f62202b.setStyle(Paint.Style.FILL);
-            this.f62202b.setColor(Color.argb(100, 0, 0, 0));
+            this.f62783b.setStyle(Paint.Style.FILL);
+            this.f62783b.setColor(Color.argb(100, 0, 0, 0));
             float f2 = measuredWidth;
-            canvas.drawRect(0.0f, 0.0f, f2, a.top, this.f62202b);
-            canvas.drawRect(0.0f, a.bottom, f2, measuredHeight, this.f62202b);
-            canvas.drawRect(0.0f, a.top, a.left, a.bottom, this.f62202b);
-            canvas.drawRect(a.right, a.top, f2, a.bottom, this.f62202b);
+            canvas.drawRect(0.0f, 0.0f, f2, a.top, this.f62783b);
+            canvas.drawRect(0.0f, a.bottom, f2, measuredHeight, this.f62783b);
+            canvas.drawRect(0.0f, a.top, a.left, a.bottom, this.f62783b);
+            canvas.drawRect(a.right, a.top, f2, a.bottom, this.f62783b);
             canvas.drawColor(Color.argb(100, 0, 0, 0));
-            this.f62202b.setStyle(Paint.Style.STROKE);
-            this.f62202b.setColor(-1);
-            canvas.drawRect(a.left, a.top, a.right - 1, a.bottom, this.f62202b);
+            this.f62783b.setStyle(Paint.Style.STROKE);
+            this.f62783b.setColor(-1);
+            canvas.drawRect(a.left, a.top, a.right - 1, a.bottom, this.f62783b);
         }
     }
 }

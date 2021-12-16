@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a f58897b;
+    public com.kwad.sdk.reward.a f59478b;
 
     public a(Context context, com.kwad.sdk.reward.a aVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class a implements b {
                 return;
             }
         }
-        this.f58897b = aVar;
+        this.f59478b = aVar;
         this.a = context;
     }
 
@@ -38,7 +38,7 @@ public class a implements b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f58897b.a(this.a, 13, 1);
+            this.f59478b.a(this.a, 13, 1);
         }
     }
 
@@ -46,7 +46,7 @@ public class a implements b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f58897b.a(this.a, 117, 1);
+            this.f59478b.a(this.a, 117, 1);
         }
     }
 
@@ -54,7 +54,7 @@ public class a implements b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f58897b.a(this.a, 1, 1);
+            this.f59478b.a(this.a, 1, 1);
         }
     }
 }

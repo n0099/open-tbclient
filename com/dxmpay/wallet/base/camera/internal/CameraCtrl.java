@@ -26,7 +26,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ListIterator;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_RAW = 0;
@@ -49,7 +49,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public int _width;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class MethodIndex {
         public static final /* synthetic */ MethodIndex[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -110,7 +110,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class a implements Comparator<Camera.Size> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,7 +160,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static CameraCtrl a;
@@ -346,7 +346,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                             return false;
                         }
                         String focusMode = k2.getFocusMode();
-                        if (!focusMode.equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO) && !focusMode.equals("macro")) {
+                        if (!focusMode.equals("auto") && !focusMode.equals("macro")) {
                             z = false;
                             this._supportAutoFocus = z;
                             similarRatioSize = getSimilarRatioSize(i3, i4, k2.getSupportedPreviewSizes(), 0);

@@ -14,13 +14,13 @@ import java.security.PublicKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31058b = "RSA/ECB/PKCS1Padding";
+    public static String f31428b = "RSA/ECB/PKCS1Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -87,7 +87,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, rSAPublicKey, bArr)) == null) {
             try {
-                Cipher cipher = Cipher.getInstance(f31058b);
+                Cipher cipher = Cipher.getInstance(f31428b);
                 cipher.init(1, rSAPublicKey);
                 return cipher.doFinal(bArr);
             } catch (Throwable th) {

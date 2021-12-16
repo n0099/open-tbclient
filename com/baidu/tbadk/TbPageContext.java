@@ -8,12 +8,12 @@ import android.view.View;
 import android.view.animation.Animation;
 import c.a.d.a.f;
 import c.a.d.c.g.a;
-import c.a.q0.s.c;
+import c.a.r0.s.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface TbPageContext<T> extends f<T> {
     @Override // c.a.d.a.f
     /* synthetic */ Context getContext();

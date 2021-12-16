@@ -2,7 +2,7 @@ package com.baidu.nadcore.video.videoplayer.ui;
 
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
-import c.a.b0.h0.o;
+import c.a.c0.h0.o;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Landroid/graphics/LinearGradient;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class BdVideoGradientMask$linearGradient$2 extends Lambda implements Function0<LinearGradient> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -15,7 +15,7 @@ import com.baidu.wallet.base.widget.GridLayout;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class NHCreditPicItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

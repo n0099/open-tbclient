@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class gj {
     public static /* synthetic */ Interceptable $ic;
     public static gj a;
@@ -24,7 +24,7 @@ public class gj {
     public Map<String, Object> f443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Object> f62955b;
+    public Map<String, Object> f63536b;
 
     public gj() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class gj {
             }
         }
         this.f443a = new ConcurrentHashMap();
-        this.f62955b = new ConcurrentHashMap();
+        this.f63536b = new ConcurrentHashMap();
         m403a();
     }
 
@@ -138,14 +138,14 @@ public class gj {
                                     newPullParser.next();
                                     String nextText3 = newPullParser.nextText();
                                     String a2 = a(nextText, nextText2);
-                                    if (!this.f62955b.containsKey(a2)) {
+                                    if (!this.f63536b.containsKey(a2)) {
                                         try {
                                             Class<?> cls = Class.forName(nextText3);
                                             if (gh.class.isAssignableFrom(cls)) {
-                                                map2 = this.f62955b;
+                                                map2 = this.f63536b;
                                                 obj2 = cls.newInstance();
                                             } else if (ga.class.isAssignableFrom(cls)) {
-                                                map2 = this.f62955b;
+                                                map2 = this.f63536b;
                                                 obj2 = cls;
                                             }
                                             map2.put(a2, obj2);

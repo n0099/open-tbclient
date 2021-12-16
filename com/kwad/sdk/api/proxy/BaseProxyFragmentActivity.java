@@ -22,7 +22,7 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.api.core.fragment.KsFragmentActivity;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

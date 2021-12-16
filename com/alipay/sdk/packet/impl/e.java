@@ -12,7 +12,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e extends com.alipay.sdk.packet.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,16 +65,16 @@ public class e extends com.alipay.sdk.packet.e {
             HashMap hashMap = new HashMap();
             hashMap.put("utdId", com.alipay.sdk.sys.b.d().c());
             hashMap.put("logHeader", "RAW");
-            hashMap.put("bizCode", com.alipay.sdk.util.c.f31407b);
+            hashMap.put("bizCode", com.alipay.sdk.util.c.f31777b);
             hashMap.put("productId", "alipaysdk_android");
             hashMap.put("Content-Encoding", "Gzip");
             hashMap.put("productVersion", "15.8.02");
-            a.b a2 = com.alipay.sdk.net.a.a(context, new a.C1639a(com.alipay.sdk.cons.a.f31294d, hashMap, a));
+            a.b a2 = com.alipay.sdk.net.a.a(context, new a.C1678a(com.alipay.sdk.cons.a.f31664d, hashMap, a));
             com.alipay.sdk.util.c.d(com.alipay.sdk.cons.a.x, "mdap got " + a2);
             if (a2 != null) {
                 boolean a3 = com.alipay.sdk.packet.e.a(a2);
                 try {
-                    byte[] bArr = a2.f31359c;
+                    byte[] bArr = a2.f31729c;
                     if (a3) {
                         bArr = com.alipay.sdk.encrypt.b.b(bArr);
                     }

@@ -1,5 +1,5 @@
 package com.fun.openid.sdk;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface OnGetOaidListener {
     void onGetOaid(String str);
 }

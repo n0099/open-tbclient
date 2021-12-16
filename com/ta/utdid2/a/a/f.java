@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.ta.utdid2.a.a.f$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class f {
         return (byte[]) invokeL.objValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public int[] f62103d;
+        public int[] f62684d;
         public int x;
         public int y;
 
@@ -53,7 +53,7 @@ public class f {
                     return;
                 }
             }
-            this.f62103d = new int[256];
+            this.f62684d = new int[256];
         }
 
         public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
@@ -68,7 +68,7 @@ public class f {
             if (str != null) {
                 a aVar = new a(null);
                 for (int i2 = 0; i2 < 256; i2++) {
-                    aVar.f62103d[i2] = i2;
+                    aVar.f62684d[i2] = i2;
                 }
                 aVar.x = 0;
                 aVar.y = 0;
@@ -76,10 +76,10 @@ public class f {
                 int i4 = 0;
                 for (int i5 = 0; i5 < 256; i5++) {
                     try {
-                        i4 = ((str.charAt(i3) + aVar.f62103d[i5]) + i4) % 256;
-                        int i6 = aVar.f62103d[i5];
-                        aVar.f62103d[i5] = aVar.f62103d[i4];
-                        aVar.f62103d[i4] = i6;
+                        i4 = ((str.charAt(i3) + aVar.f62684d[i5]) + i4) % 256;
+                        int i6 = aVar.f62684d[i5];
+                        aVar.f62684d[i5] = aVar.f62684d[i4];
+                        aVar.f62684d[i4] = i6;
                         i3 = (i3 + 1) % str.length();
                     } catch (Exception unused) {
                         return null;
@@ -103,7 +103,7 @@ public class f {
             int i3 = aVar.y;
             for (int i4 = 0; i4 < bArr.length; i4++) {
                 i2 = (i2 + 1) % 256;
-                int[] iArr = aVar.f62103d;
+                int[] iArr = aVar.f62684d;
                 i3 = (iArr[i2] + i3) % 256;
                 int i5 = iArr[i2];
                 iArr[i2] = iArr[i3];

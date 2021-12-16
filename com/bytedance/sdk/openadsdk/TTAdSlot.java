@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface TTAdSlot {
     public static final int TYPE_BANNER = 1;
     public static final int TYPE_CACHED_SPLASH = 4;

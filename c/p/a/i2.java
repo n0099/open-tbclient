@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class i2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Info f30805b;
+    public final /* synthetic */ Info f31175b;
 
     public i2(Context context, Info info) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class i2 {
             }
         }
         this.a = context;
-        this.f30805b = info;
+        this.f31175b = info;
     }
 
     public void a(int i2) {
@@ -40,7 +40,7 @@ public final class i2 {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             y2 a = c3.a(this.a);
             try {
-                a.f31007b = c3.d("hte", new g3(this.f30805b));
+                a.f31377b = c3.d("hte", new g3(this.f31175b));
                 a.k("co", i2);
             } catch (JSONException unused) {
             }

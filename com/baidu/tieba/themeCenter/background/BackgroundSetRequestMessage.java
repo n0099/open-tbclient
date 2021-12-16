@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.background;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SetBackground.DataReq;
 import tbclient.SetBackground.SetBackgroundReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BackgroundSetRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class BackgroundSetRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.props_id = Integer.valueOf(this.propId);
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             SetBackgroundReqIdl.Builder builder2 = new SetBackgroundReqIdl.Builder();
             builder2.data = builder.build(false);

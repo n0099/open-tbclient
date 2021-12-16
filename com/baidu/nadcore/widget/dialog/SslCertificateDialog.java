@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import c.a.b0.h0.r;
-import c.a.b0.h0.s;
+import c.a.c0.h0.r;
+import c.a.c0.h0.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.dialog.AutoOrientationBtnDialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SslCertificateDialog extends AutoOrientationBtnDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout l;
     public a m;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a extends AutoOrientationBtnDialog.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f37886g;
+        public View f38375g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Context context) {
@@ -72,7 +72,7 @@ public class SslCertificateDialog extends AutoOrientationBtnDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) {
-                this.f37886g = view;
+                this.f38375g = view;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -128,7 +128,7 @@ public class SslCertificateDialog extends AutoOrientationBtnDialog {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.m) == null) {
             return;
         }
-        this.l.addView(aVar.f37886g);
+        this.l.addView(aVar.f38375g);
     }
 
     public void setSafeBuilder(a aVar) {

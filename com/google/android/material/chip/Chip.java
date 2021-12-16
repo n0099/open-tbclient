@@ -71,7 +71,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUTTON_ACCESSIBILITY_CLASS_NAME = "android.widget.Button";
@@ -111,7 +111,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     @NonNull
     public final ChipTouchHelper touchHelper;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ChipTouchHelper extends ExploreByTouchHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

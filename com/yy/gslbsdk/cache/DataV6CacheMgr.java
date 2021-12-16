@@ -19,7 +19,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class DataV6CacheMgr {
     public static final /* synthetic */ DataV6CacheMgr[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;

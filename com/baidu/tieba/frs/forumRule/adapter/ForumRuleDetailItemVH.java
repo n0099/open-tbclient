@@ -2,12 +2,12 @@ package com.baidu.tieba.frs.forumRule.adapter;
 
 import android.content.Context;
 import android.view.View;
-import c.a.q0.f1.n.a;
-import c.a.q0.s.u.c;
-import c.a.r0.d1.c1;
-import c.a.r0.d1.d1;
-import c.a.r0.d1.f1;
-import c.a.r0.d1.i1;
+import c.a.r0.f1.n.a;
+import c.a.r0.s.v.c;
+import c.a.s0.d1.c1;
+import c.a.s0.d1.d1;
+import c.a.s0.d1.f1;
+import c.a.s0.d1.i1;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f44273b;
+    public View f44764b;
     public TbRichTextView mContent;
     public boolean mCurrentStatus;
     public EMTextView mTitle;
@@ -50,7 +50,7 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
             }
         }
         this.a = context;
-        this.f44273b = view;
+        this.f44764b = view;
         initView(view);
     }
 

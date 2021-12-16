@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FadeThroughProvider implements VisibilityAnimatorProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float PROGRESS_THRESHOLD = 0.35f;

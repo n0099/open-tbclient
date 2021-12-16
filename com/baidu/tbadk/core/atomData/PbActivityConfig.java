@@ -7,8 +7,8 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.s.q.d2;
-import c.a.q0.s.q.n1;
+import c.a.r0.s.r.d2;
+import c.a.r0.s.r.n1;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PbActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_RESULT_DELETE = 1;
@@ -857,11 +857,11 @@ public class PbActivityConfig extends IntentConfig {
                 intent.putExtra("key_rec_source", d2Var.Z0);
                 intent.putExtra("key_rec_ab_tag", d2Var.b1);
                 intent.putExtra("key_rec_extra", d2Var.c1);
-                intent.putExtra("key_is_tieba_plus", d2Var.U2);
-                intent.putExtra("key_tieba_plus_order_id", d2Var.V2);
-                intent.putExtra("key_tieba_plus_token", d2Var.W2);
-                intent.putExtra("key_tieba_extra_param", d2Var.X2);
-                intent.putExtra("key_tieba_plus_cant_delete", d2Var.Y2);
+                intent.putExtra("key_is_tieba_plus", d2Var.V2);
+                intent.putExtra("key_tieba_plus_order_id", d2Var.W2);
+                intent.putExtra("key_tieba_plus_token", d2Var.X2);
+                intent.putExtra("key_tieba_extra_param", d2Var.Y2);
+                intent.putExtra("key_tieba_plus_cant_delete", d2Var.Z2);
             }
             return this;
         }

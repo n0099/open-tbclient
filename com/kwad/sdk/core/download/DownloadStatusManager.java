@@ -25,32 +25,32 @@ import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadStatusManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static com.ksad.download.f f57311f;
+    public static com.ksad.download.f f57892f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BroadcastReceiver f57312g;
+    public static final BroadcastReceiver f57893g;
     public transient /* synthetic */ FieldHolder $fh;
     public final WeakHashMap<c, AdTemplate> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<c, AdTemplate> f57313b;
+    public final Map<c, AdTemplate> f57894b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f57314c;
+    public volatile boolean f57895c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashMap<String, AdTemplate> f57315d;
+    public final HashMap<String, AdTemplate> f57896d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, AdTemplate> f57316e;
+    public final Map<String, AdTemplate> f57897e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Holder {
         public static final /* synthetic */ Holder[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -115,7 +115,7 @@ public class DownloadStatusManager {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!this.mInstance.f57314c) {
+                if (!this.mInstance.f57895c) {
                     synchronized (this.lock) {
                         this.mInstance.b();
                     }
@@ -139,7 +139,7 @@ public class DownloadStatusManager {
                 return;
             }
         }
-        f57312g = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.3
+        f57893g = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -182,11 +182,11 @@ public class DownloadStatusManager {
         }
         WeakHashMap<c, AdTemplate> weakHashMap = new WeakHashMap<>();
         this.a = weakHashMap;
-        this.f57313b = Collections.synchronizedMap(weakHashMap);
-        this.f57314c = false;
+        this.f57894b = Collections.synchronizedMap(weakHashMap);
+        this.f57895c = false;
         HashMap<String, AdTemplate> hashMap = new HashMap<>();
-        this.f57315d = hashMap;
-        this.f57316e = Collections.synchronizedMap(hashMap);
+        this.f57896d = hashMap;
+        this.f57897e = Collections.synchronizedMap(hashMap);
         b();
     }
 
@@ -198,14 +198,14 @@ public class DownloadStatusManager {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && Holder.INSTANCE.mInstance.f57314c) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && Holder.INSTANCE.mInstance.f57895c) {
             try {
                 synchronized (Holder.INSTANCE.lock) {
-                    if (Holder.INSTANCE.mInstance.f57314c) {
-                        context.unregisterReceiver(f57312g);
-                        Holder.INSTANCE.mInstance.f57313b.clear();
-                        Holder.INSTANCE.mInstance.f57316e.clear();
-                        Holder.INSTANCE.mInstance.f57314c = false;
+                    if (Holder.INSTANCE.mInstance.f57895c) {
+                        context.unregisterReceiver(f57893g);
+                        Holder.INSTANCE.mInstance.f57894b.clear();
+                        Holder.INSTANCE.mInstance.f57897e.clear();
+                        Holder.INSTANCE.mInstance.f57895c = false;
                     }
                 }
             } catch (Exception unused) {
@@ -225,16 +225,16 @@ public class DownloadStatusManager {
                 return;
             }
             f fVar = new f();
-            synchronized (this.f57313b) {
-                for (c cVar : this.f57313b.keySet()) {
+            synchronized (this.f57894b) {
+                for (c cVar : this.f57894b.keySet()) {
                     if (cVar != null && !TextUtils.isEmpty(schemeSpecificPart) && TextUtils.equals(schemeSpecificPart, cVar.b())) {
                         cVar.a((String) null, 0, fVar);
                     }
                 }
             }
-            f57311f.a(schemeSpecificPart);
-            synchronized (this.f57316e) {
-                Iterator<Map.Entry<String, AdTemplate>> it = this.f57316e.entrySet().iterator();
+            f57892f.a(schemeSpecificPart);
+            synchronized (this.f57897e) {
+                Iterator<Map.Entry<String, AdTemplate>> it = this.f57897e.entrySet().iterator();
                 while (it.hasNext()) {
                     Map.Entry<String, AdTemplate> next = it.next();
                     if (next != null) {
@@ -251,8 +251,8 @@ public class DownloadStatusManager {
     private void a(String str, com.kwad.sdk.b.a<c> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, str, aVar) == null) {
-            Set<c> keySet = this.f57313b.keySet();
-            synchronized (this.f57313b) {
+            Set<c> keySet = this.f57894b.keySet();
+            synchronized (this.f57894b) {
                 for (c cVar : keySet) {
                     if (cVar != null && TextUtils.equals(cVar.a(), str)) {
                         try {
@@ -270,7 +270,7 @@ public class DownloadStatusManager {
         AdTemplate value;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, this, str, fVar) == null) {
-            for (Map.Entry<String, AdTemplate> entry : this.f57316e.entrySet()) {
+            for (Map.Entry<String, AdTemplate> entry : this.f57897e.entrySet()) {
                 if (entry != null && (value = entry.getValue()) != null) {
                     AdInfo j2 = com.kwad.sdk.core.response.a.d.j(value);
                     com.kwad.sdk.core.a.a().a(str, value);
@@ -291,29 +291,29 @@ public class DownloadStatusManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             Context context = KsAdSDKImpl.get().getContext();
-            if (this.f57314c || context == null) {
+            if (this.f57895c || context == null) {
                 return;
             }
-            f57311f = new com.kwad.sdk.core.download.b.a(context);
+            f57892f = new com.kwad.sdk.core.download.b.a(context);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
             intentFilter.addDataScheme("package");
-            context.registerReceiver(f57312g, intentFilter);
-            this.f57314c = true;
+            context.registerReceiver(f57893g, intentFilter);
+            this.f57895c = true;
         }
     }
 
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f57313b.remove(cVar);
+            this.f57894b.remove(cVar);
         }
     }
 
     public void a(c cVar, AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, adTemplate) == null) {
-            this.f57313b.put(cVar, adTemplate);
+            this.f57894b.put(cVar, adTemplate);
         }
     }
 
@@ -325,7 +325,7 @@ public class DownloadStatusManager {
                 if (TextUtils.isEmpty(v)) {
                     return;
                 }
-                this.f57316e.put(v, adTemplate);
+                this.f57897e.put(v, adTemplate);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -341,10 +341,10 @@ public class DownloadStatusManager {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f f57317b;
+                public final /* synthetic */ f f57898b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadStatusManager f57318c;
+                public final /* synthetic */ DownloadStatusManager f57899c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -361,9 +361,9 @@ public class DownloadStatusManager {
                             return;
                         }
                     }
-                    this.f57318c = this;
+                    this.f57899c = this;
                     this.a = str;
-                    this.f57317b = r8;
+                    this.f57898b = r8;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -371,7 +371,7 @@ public class DownloadStatusManager {
                 public void a(c cVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
-                        cVar.a(this.a, this.f57317b);
+                        cVar.a(this.a, this.f57898b);
                     }
                 }
             });
@@ -387,16 +387,16 @@ public class DownloadStatusManager {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f57321b;
+                public final /* synthetic */ int f57902b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f57322c;
+                public final /* synthetic */ int f57903c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ int f57323d;
+                public final /* synthetic */ int f57904d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadStatusManager f57324e;
+                public final /* synthetic */ DownloadStatusManager f57905e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -413,11 +413,11 @@ public class DownloadStatusManager {
                             return;
                         }
                     }
-                    this.f57324e = this;
+                    this.f57905e = this;
                     this.a = str;
-                    this.f57321b = i2;
-                    this.f57322c = i3;
-                    this.f57323d = i4;
+                    this.f57902b = i2;
+                    this.f57903c = i3;
+                    this.f57904d = i4;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -425,7 +425,7 @@ public class DownloadStatusManager {
                 public void a(c cVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
-                        cVar.a(this.a, this.f57321b, this.f57322c, this.f57323d);
+                        cVar.a(this.a, this.f57902b, this.f57903c, this.f57904d);
                     }
                 }
             });
@@ -441,16 +441,16 @@ public class DownloadStatusManager {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f57328b;
+                public final /* synthetic */ int f57909b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f57329c;
+                public final /* synthetic */ String f57910c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ f f57330d;
+                public final /* synthetic */ f f57911d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadStatusManager f57331e;
+                public final /* synthetic */ DownloadStatusManager f57912e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -467,11 +467,11 @@ public class DownloadStatusManager {
                             return;
                         }
                     }
-                    this.f57331e = this;
+                    this.f57912e = this;
                     this.a = str;
-                    this.f57328b = i2;
-                    this.f57329c = str2;
-                    this.f57330d = r10;
+                    this.f57909b = i2;
+                    this.f57910c = str2;
+                    this.f57911d = r10;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -479,7 +479,7 @@ public class DownloadStatusManager {
                 public void a(c cVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
-                        cVar.a(this.a, this.f57328b, this.f57329c, this.f57330d);
+                        cVar.a(this.a, this.f57909b, this.f57910c, this.f57911d);
                     }
                 }
             });
@@ -496,13 +496,13 @@ public class DownloadStatusManager {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f57325b;
+                public final /* synthetic */ String f57906b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ f f57326c;
+                public final /* synthetic */ f f57907c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DownloadStatusManager f57327d;
+                public final /* synthetic */ DownloadStatusManager f57908d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -519,10 +519,10 @@ public class DownloadStatusManager {
                             return;
                         }
                     }
-                    this.f57327d = this;
+                    this.f57908d = this;
                     this.a = str;
-                    this.f57325b = str2;
-                    this.f57326c = fVar;
+                    this.f57906b = str2;
+                    this.f57907c = fVar;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -530,7 +530,7 @@ public class DownloadStatusManager {
                 public void a(c cVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
-                        cVar.a(this.a, this.f57325b, this.f57326c);
+                        cVar.a(this.a, this.f57906b, this.f57907c);
                     }
                 }
             });
@@ -547,10 +547,10 @@ public class DownloadStatusManager {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f f57332b;
+                public final /* synthetic */ f f57913b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadStatusManager f57333c;
+                public final /* synthetic */ DownloadStatusManager f57914c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -567,9 +567,9 @@ public class DownloadStatusManager {
                             return;
                         }
                     }
-                    this.f57333c = this;
+                    this.f57914c = this;
                     this.a = str;
-                    this.f57332b = r8;
+                    this.f57913b = r8;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -577,7 +577,7 @@ public class DownloadStatusManager {
                 public void a(c cVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
-                        cVar.b(this.a, this.f57332b);
+                        cVar.b(this.a, this.f57913b);
                     }
                 }
             });
@@ -593,10 +593,10 @@ public class DownloadStatusManager {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f f57334b;
+                public final /* synthetic */ f f57915b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadStatusManager f57335c;
+                public final /* synthetic */ DownloadStatusManager f57916c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -613,9 +613,9 @@ public class DownloadStatusManager {
                             return;
                         }
                     }
-                    this.f57335c = this;
+                    this.f57916c = this;
                     this.a = str;
-                    this.f57334b = r8;
+                    this.f57915b = r8;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -623,7 +623,7 @@ public class DownloadStatusManager {
                 public void a(c cVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
-                        cVar.c(this.a, this.f57334b);
+                        cVar.c(this.a, this.f57915b);
                     }
                 }
             });
@@ -639,10 +639,10 @@ public class DownloadStatusManager {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f f57336b;
+                public final /* synthetic */ f f57917b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadStatusManager f57337c;
+                public final /* synthetic */ DownloadStatusManager f57918c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -659,9 +659,9 @@ public class DownloadStatusManager {
                             return;
                         }
                     }
-                    this.f57337c = this;
+                    this.f57918c = this;
                     this.a = str;
-                    this.f57336b = r8;
+                    this.f57917b = r8;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -669,7 +669,7 @@ public class DownloadStatusManager {
                 public void a(c cVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
-                        cVar.d(this.a, this.f57336b);
+                        cVar.d(this.a, this.f57917b);
                     }
                 }
             });
@@ -685,10 +685,10 @@ public class DownloadStatusManager {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f f57319b;
+                public final /* synthetic */ f f57900b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadStatusManager f57320c;
+                public final /* synthetic */ DownloadStatusManager f57901c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -705,9 +705,9 @@ public class DownloadStatusManager {
                             return;
                         }
                     }
-                    this.f57320c = this;
+                    this.f57901c = this;
                     this.a = str;
-                    this.f57319b = r8;
+                    this.f57900b = r8;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -715,7 +715,7 @@ public class DownloadStatusManager {
                 public void a(c cVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
-                        cVar.e(this.a, this.f57319b);
+                        cVar.e(this.a, this.f57900b);
                     }
                 }
             });

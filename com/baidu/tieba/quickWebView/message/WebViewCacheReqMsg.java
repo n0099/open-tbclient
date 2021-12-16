@@ -1,6 +1,6 @@
 package com.baidu.tieba.quickWebView.message;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetWebviewCacheInfo.DataReq;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class WebViewCacheReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class WebViewCacheReqMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.webview_version = this.mWebViewVersion;
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             GetWebviewCacheInfoReqIdl.Builder builder2 = new GetWebviewCacheInfoReqIdl.Builder();
             builder2.data = builder.build(true);

@@ -14,7 +14,7 @@ import com.ss.android.downloadlib.addownload.i;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements d {
     public static /* synthetic */ Interceptable $ic;
     public static com.ss.android.downloadlib.addownload.a.c a;
@@ -60,10 +60,10 @@ public class b implements d {
                         public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ c f61289b;
+                        public final /* synthetic */ c f61870b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ b f61290c;
+                        public final /* synthetic */ b f61871c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -80,9 +80,9 @@ public class b implements d {
                                     return;
                                 }
                             }
-                            this.f61290c = this;
+                            this.f61871c = this;
                             this.a = bVar;
-                            this.f61289b = cVar;
+                            this.f61870b = cVar;
                         }
 
                         @Override // com.ss.android.downloadlib.addownload.a.c
@@ -114,7 +114,7 @@ public class b implements d {
                                     e2.printStackTrace();
                                 }
                                 com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, this.a);
-                                this.f61289b.a(this.a);
+                                this.f61870b.a(this.a);
                             }
                         }
                     };

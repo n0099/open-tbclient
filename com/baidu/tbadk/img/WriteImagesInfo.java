@@ -2,8 +2,8 @@ package com.baidu.tbadk.img;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
-import c.a.q0.d0.i.d;
+import c.a.d.f.p.l;
+import c.a.r0.d0.i.d;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,7 +21,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class WriteImagesInfo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -241,7 +241,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
 
     public void parseJson(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, str) == null) || k.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, str) == null) || l.isEmpty(str)) {
             return;
         }
         try {

@@ -2,7 +2,7 @@ package com.baidu.tbadk.baseEditMark;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.db.DBTableDefine;
@@ -23,7 +23,7 @@ import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.BaijiahaoInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MarkData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2647743141824773827L;
@@ -109,7 +109,7 @@ public class MarkData implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!k.isEmpty(this.mAuthorName)) {
+            if (!l.isEmpty(this.mAuthorName)) {
                 return this.mAuthorName;
             }
             return this.mUserName;
@@ -329,7 +329,7 @@ public class MarkData implements Serializable {
                 if (this.isShareThread) {
                     OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
                     this.originalThreadInfo = originalThreadInfo;
-                    originalThreadInfo.o(optJSONObject);
+                    originalThreadInfo.p(optJSONObject);
                 }
                 this.mIsPhotoLiveThread = "33".equals(String.valueOf(jSONObject.optInt("thread_type")));
                 int optInt = jSONObject.optInt("mark_status");
@@ -357,7 +357,7 @@ public class MarkData implements Serializable {
                     builder.auth_desc = optJSONObject2.optString("auth_desc");
                     this.metaData.setBaijiahaoInfo(builder.build(false));
                 }
-                if (k.isEmpty(this.portrait)) {
+                if (l.isEmpty(this.portrait)) {
                     this.metaData.setPortrait(StringUtil.NULL_STRING);
                 } else {
                     this.metaData.setPortrait(this.portrait);

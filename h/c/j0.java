@@ -6,7 +6,7 @@ import org.webrtc.CalledByNative;
 import org.webrtc.PeerConnection;
 import org.webrtc.RtpTransceiver;
 /* compiled from: PeerConnection.java */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final /* synthetic */ class j0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

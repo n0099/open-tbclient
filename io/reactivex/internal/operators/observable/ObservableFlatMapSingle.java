@@ -23,14 +23,14 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
     public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class FlatMapSingleObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8600231336733376951L;
@@ -40,14 +40,14 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f64011d;
+        public Disposable f64592d;
         public final boolean delayErrors;
         public final AtomicThrowable errors;
         public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
         public final AtomicReference<SpscLinkedArrayQueue<R>> queue;
         public final CompositeDisposable set;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public final class InnerObserver extends AtomicReference<Disposable> implements SingleObserver<R>, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -502562646270949838L;
@@ -150,7 +150,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.cancelled = true;
-                this.f64011d.dispose();
+                this.f64592d.dispose();
                 this.set.dispose();
             }
         }
@@ -225,7 +225,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
                 this.set.delete(innerObserver);
                 if (this.errors.addThrowable(th)) {
                     if (!this.delayErrors) {
-                        this.f64011d.dispose();
+                        this.f64592d.dispose();
                         this.set.dispose();
                     }
                     this.active.decrementAndGet();
@@ -319,7 +319,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
                     singleSource.subscribe(innerObserver);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
-                    this.f64011d.dispose();
+                    this.f64592d.dispose();
                     onError(th);
                 }
             }
@@ -328,8 +328,8 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048587, this, disposable) == null) && DisposableHelper.validate(this.f64011d, disposable)) {
-                this.f64011d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048587, this, disposable) == null) && DisposableHelper.validate(this.f64592d, disposable)) {
+                this.f64592d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
@@ -19,22 +19,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class MessageCardBottomView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f46349e;
+    public TextView f46848e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f46350f;
+    public ViewGroup f46849f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f46351g;
+    public ImageView f46850g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f46352h;
+    public TextView f46851h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MessageCardBottomView(Context context) {
@@ -61,43 +61,43 @@ public class MessageCardBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.message_card_bottom_layout, (ViewGroup) this, true);
-            this.f46349e = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
-            this.f46350f = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
-            this.f46351g = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
-            this.f46352h = (TextView) inflate.findViewById(R.id.message_bottom_reply);
+            this.f46848e = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
+            this.f46849f = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
+            this.f46850g = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
+            this.f46851h = (TextView) inflate.findViewById(R.id.message_bottom_reply);
         }
     }
 
     public View getReplyContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46350f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46849f : (View) invokeV.objValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f46349e, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f46352h, R.drawable.selector_comment_and_prise_item_text_color);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f46351g, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
+            SkinManager.setViewTextColor(this.f46848e, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f46851h, R.drawable.selector_comment_and_prise_item_text_color);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f46850g, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
         }
     }
 
     public void setData(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) {
-            if (!z && k.isEmpty(str)) {
+            if (!z && l.isEmpty(str)) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.f46350f.setVisibility(z ? 0 : 8);
-            if (k.isEmpty(str)) {
-                this.f46349e.setVisibility(8);
+            this.f46849f.setVisibility(z ? 0 : 8);
+            if (l.isEmpty(str)) {
+                this.f46848e.setVisibility(8);
                 return;
             }
-            this.f46349e.setText(UtilHelper.getForumNameWithBar(str, 5, true));
-            this.f46349e.setVisibility(0);
+            this.f46848e.setText(UtilHelper.getForumNameWithBar(str, 5, true));
+            this.f46848e.setVisibility(0);
         }
     }
 

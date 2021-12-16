@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.r0.p1.l.l;
+import c.a.s0.q1.l.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
@@ -21,33 +21,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ImageOverlayView extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45700e;
+    public int f46199e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45701f;
+    public int f46200f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45702g;
+    public int f46201g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45703h;
+    public int f46202h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f45704i;
+    public int f46203i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f45705j;
+    public int f46204j;
 
     /* renamed from: k  reason: collision with root package name */
-    public List<l> f45706k;
+    public List<l> f46205k;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface a {
     }
 
@@ -74,15 +74,15 @@ public class ImageOverlayView extends ViewGroup {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (int i2 = 0; i2 < this.f45700e; i2++) {
+            for (int i2 = 0; i2 < this.f46199e; i2++) {
                 HeadImageView headImageView = new HeadImageView(getContext());
-                headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f45701f, this.f45702g));
+                headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f46200f, this.f46201g));
                 headImageView.setIsRound(true);
                 headImageView.setBorderSurroundContent(true);
                 headImageView.setDrawBorder(true);
-                headImageView.setBorderWidth(this.f45703h);
+                headImageView.setBorderWidth(this.f46202h);
                 headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                headImageView.setBorderColor(SkinManager.getColor(this.f45704i));
+                headImageView.setBorderColor(SkinManager.getColor(this.f46203i));
                 headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
                 addView(headImageView);
             }
@@ -93,11 +93,11 @@ public class ImageOverlayView extends ViewGroup {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            if (this.f45706k == null) {
+            if (this.f46205k == null) {
                 return -1;
             }
-            for (int i2 = 0; i2 < this.f45706k.size(); i2++) {
-                if (this.f45706k.get(i2).a == j2) {
+            for (int i2 = 0; i2 < this.f46205k.size(); i2++) {
+                if (this.f46205k.get(i2).a == j2) {
                     return i2;
                 }
             }
@@ -109,12 +109,12 @@ public class ImageOverlayView extends ViewGroup {
     public void init(int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-            this.f45700e = i2;
-            this.f45701f = i3;
-            this.f45702g = i4;
-            this.f45703h = i5;
-            this.f45704i = i6;
-            this.f45705j = i7;
+            this.f46199e = i2;
+            this.f46200f = i3;
+            this.f46201g = i4;
+            this.f46202h = i5;
+            this.f46203i = i6;
+            this.f46204j = i7;
             a();
         }
     }
@@ -125,7 +125,7 @@ public class ImageOverlayView extends ViewGroup {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
                 if (childAt instanceof HeadImageView) {
-                    ((HeadImageView) childAt).setBorderColor(SkinManager.getColor(this.f45704i));
+                    ((HeadImageView) childAt).setBorderColor(SkinManager.getColor(this.f46203i));
                 }
             }
         }
@@ -138,9 +138,9 @@ public class ImageOverlayView extends ViewGroup {
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            for (int i6 = 0; i6 < this.f45700e && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
-                childAt.layout(paddingLeft, paddingTop, this.f45701f + paddingLeft, this.f45702g + paddingTop);
-                paddingLeft += this.f45701f - this.f45705j;
+            for (int i6 = 0; i6 < this.f46199e && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
+                childAt.layout(paddingLeft, paddingTop, this.f46200f + paddingLeft, this.f46201g + paddingTop);
+                paddingLeft += this.f46200f - this.f46204j;
             }
         }
     }
@@ -150,8 +150,8 @@ public class ImageOverlayView extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
             int paddingLeft = getPaddingLeft() + getPaddingRight();
-            int i4 = this.f45700e;
-            setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f45701f * i4)) - ((i4 - 1) * this.f45705j), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f45702g, i3));
+            int i4 = this.f46199e;
+            setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f46200f * i4)) - ((i4 - 1) * this.f46204j), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f46201g, i3));
         }
     }
 
@@ -161,8 +161,8 @@ public class ImageOverlayView extends ViewGroup {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f45706k = list;
-        for (int i2 = 0; i2 < this.f45700e && (headImageView = (HeadImageView) getChildAt(i2)) != null; i2++) {
+        this.f46205k = list;
+        for (int i2 = 0; i2 < this.f46199e && (headImageView = (HeadImageView) getChildAt(i2)) != null; i2++) {
             if (i2 >= list.size()) {
                 headImageView.setVisibility(8);
             } else {
@@ -172,7 +172,7 @@ public class ImageOverlayView extends ViewGroup {
                     return;
                 }
                 headImageView.setUserId(String.valueOf(lVar.a));
-                headImageView.startLoad(lVar.f21174b, 12, this.f45701f, this.f45702g, false);
+                headImageView.startLoad(lVar.f21659b, 12, this.f46200f, this.f46201g, false);
             }
         }
     }
@@ -186,29 +186,29 @@ public class ImageOverlayView extends ViewGroup {
     public void updateTopHeadForPostUser() {
         AccountData currentAccountInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f45706k == null || (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f46205k == null || (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) == null) {
             return;
         }
         l lVar = new l();
-        lVar.f21174b = currentAccountInfo.getPortrait();
+        lVar.f21659b = currentAccountInfo.getPortrait();
         currentAccountInfo.getAccount();
         long g2 = b.g(currentAccountInfo.getID(), 0L);
         lVar.a = g2;
         int existUserIndex = getExistUserIndex(g2);
         if (existUserIndex >= 0) {
-            if (existUserIndex >= this.f45706k.size() - 1) {
+            if (existUserIndex >= this.f46205k.size() - 1) {
                 return;
             }
-            List<l> list = this.f45706k;
+            List<l> list = this.f46205k;
             Collections.swap(list, existUserIndex, list.size() - 1);
         } else {
-            ListUtils.add(this.f45706k, 0, lVar);
-            if (this.f45706k.size() > this.f45700e) {
-                List<l> list2 = this.f45706k;
+            ListUtils.add(this.f46205k, 0, lVar);
+            if (this.f46205k.size() > this.f46199e) {
+                List<l> list2 = this.f46205k;
                 ListUtils.remove(list2, list2.size() - 1);
             }
         }
-        setData(this.f45706k);
+        setData(this.f46205k);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

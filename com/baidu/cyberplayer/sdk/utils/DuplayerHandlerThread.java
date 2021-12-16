@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class DuplayerHandlerThread extends HandlerThread {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_IDLE = 0;
@@ -19,7 +19,7 @@ public class DuplayerHandlerThread extends HandlerThread {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f34100b;
+    public volatile int f34568b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DuplayerHandlerThread(String str) {
@@ -39,7 +39,7 @@ public class DuplayerHandlerThread extends HandlerThread {
                 return;
             }
         }
-        this.f34100b = 0;
+        this.f34568b = 0;
         this.a = -1L;
     }
 
@@ -62,7 +62,7 @@ public class DuplayerHandlerThread extends HandlerThread {
                 return;
             }
         }
-        this.f34100b = 0;
+        this.f34568b = 0;
         this.a = -1L;
     }
 
@@ -75,7 +75,7 @@ public class DuplayerHandlerThread extends HandlerThread {
     public int getRunState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34100b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34568b : invokeV.intValue;
     }
 
     public void setIdleBeginTime(long j2) {
@@ -88,7 +88,7 @@ public class DuplayerHandlerThread extends HandlerThread {
     public void setRunState(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f34100b = i2;
+            this.f34568b = i2;
         }
     }
 }

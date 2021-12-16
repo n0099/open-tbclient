@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b4 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set f30787b;
+    public Set f31157b;
 
     public f4(b4 b4Var) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class f4 {
                 return;
             }
         }
-        this.f30787b = new HashSet();
+        this.f31157b = new HashSet();
         this.a = b4Var;
     }
 
     public void a(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || this.f30787b.contains(str)) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || this.f31157b.contains(str)) {
             return;
         }
         new q3(this, str, z).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);

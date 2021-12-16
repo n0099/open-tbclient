@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class ReferenceDisposable<T> extends AtomicReference<T> implements Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6537757548749041217L;

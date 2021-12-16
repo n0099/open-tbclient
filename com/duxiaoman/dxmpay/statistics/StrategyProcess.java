@@ -17,37 +17,37 @@ import java.util.Arrays;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class StrategyProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f55002b;
+    public Context f55582b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f55003c;
+    public JSONObject f55583c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final byte[] f55004d;
+    public final byte[] f55584d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f55005e;
+    public volatile int f55585e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile int f55006f;
+    public volatile int f55586f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String[] f55007g;
+    public String[] f55587g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String[] f55008h;
+    public String[] f55588h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f55009i;
+    public String f55589i;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final StrategyProcess a;
@@ -70,7 +70,7 @@ public class StrategyProcess {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,8 +103,8 @@ public class StrategyProcess {
         try {
             JSONObject jSONObject = (JSONObject) new JSONTokener(str).nextValue();
             jSONObject.put("strategy_timestamp", System.currentTimeMillis());
-            c.d.a.a.a.b.a().f(this.f55002b, jSONObject.toString());
-            this.f55003c = jSONObject;
+            c.d.a.a.a.b.a().f(this.f55582b, jSONObject.toString());
+            this.f55583c = jSONObject;
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -113,35 +113,35 @@ public class StrategyProcess {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            JSONObject jSONObject = this.f55003c;
+            JSONObject jSONObject = this.f55583c;
             if (jSONObject != null && jSONObject.has("strategy_timestamp")) {
-                synchronized (this.f55004d) {
-                    JSONObject optJSONObject = this.f55003c.optJSONObject("content");
+                synchronized (this.f55584d) {
+                    JSONObject optJSONObject = this.f55583c.optJSONObject("content");
                     if (optJSONObject == null) {
-                        optJSONObject = this.f55003c;
+                        optJSONObject = this.f55583c;
                     }
                     boolean z = true;
                     if (optJSONObject != null) {
-                        this.f55005e = optJSONObject.optInt("wifi", 3);
-                        this.f55006f = optJSONObject.optInt("3G", 5);
+                        this.f55585e = optJSONObject.optInt("wifi", 3);
+                        this.f55586f = optJSONObject.optInt("3G", 5);
                         if (1 == optJSONObject.optInt(PackageTable.DISABLE, 0)) {
                             z = false;
                         }
                         this.a = z;
                         JSONArray optJSONArray = optJSONObject.optJSONArray("now");
-                        this.f55007g = new String[optJSONArray == null ? 0 : optJSONArray.length()];
+                        this.f55587g = new String[optJSONArray == null ? 0 : optJSONArray.length()];
                         if (optJSONArray != null) {
-                            for (int i2 = 0; i2 < this.f55007g.length; i2++) {
-                                this.f55007g[i2] = optJSONArray.optString(i2);
+                            for (int i2 = 0; i2 < this.f55587g.length; i2++) {
+                                this.f55587g[i2] = optJSONArray.optString(i2);
                             }
                         }
-                        Arrays.sort(this.f55007g);
+                        Arrays.sort(this.f55587g);
                         JSONArray optJSONArray2 = optJSONObject.optJSONArray("never");
-                        this.f55008h = new String[optJSONArray2 == null ? 0 : optJSONArray2.length()];
-                        for (int i3 = 0; i3 < this.f55008h.length; i3++) {
-                            this.f55008h[i3] = optJSONArray2.optString(i3);
+                        this.f55588h = new String[optJSONArray2 == null ? 0 : optJSONArray2.length()];
+                        for (int i3 = 0; i3 < this.f55588h.length; i3++) {
+                            this.f55588h[i3] = optJSONArray2.optString(i3);
                         }
-                        Arrays.sort(this.f55008h);
+                        Arrays.sort(this.f55588h);
                     } else {
                         getDefaultStrategy(1);
                     }
@@ -155,24 +155,24 @@ public class StrategyProcess {
     public int get3GSendingInterval() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55006f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55586f : invokeV.intValue;
     }
 
     public void getDefaultStrategy(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            synchronized (this.f55004d) {
+            synchronized (this.f55584d) {
                 if ((i2 & 1) != 0) {
-                    this.f55007g = new String[0];
-                    this.f55008h = new String[0];
+                    this.f55587g = new String[0];
+                    this.f55588h = new String[0];
                     this.a = true;
-                    this.f55006f = 5;
-                    this.f55005e = 3;
+                    this.f55586f = 5;
+                    this.f55585e = 3;
                 }
             }
             if (3 == (i2 & 3)) {
                 try {
-                    this.f55003c = (JSONObject) new JSONTokener(this.f55009i).nextValue();
+                    this.f55583c = (JSONObject) new JSONTokener(this.f55589i).nextValue();
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -183,7 +183,7 @@ public class StrategyProcess {
     public int getWifiSendingInterval() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55005e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55585e : invokeV.intValue;
     }
 
     public boolean isDataItemEnable() {
@@ -197,11 +197,11 @@ public class StrategyProcess {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            synchronized (this.f55004d) {
+            synchronized (this.f55584d) {
                 z = false;
-                if (!TextUtils.isEmpty(str) && this.f55007g != null && this.f55007g.length > 0) {
+                if (!TextUtils.isEmpty(str) && this.f55587g != null && this.f55587g.length > 0) {
                     try {
-                        if (Arrays.binarySearch(this.f55007g, str) >= 0) {
+                        if (Arrays.binarySearch(this.f55587g, str) >= 0) {
                             z = true;
                         }
                     } catch (Exception e2) {
@@ -215,7 +215,7 @@ public class StrategyProcess {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x001f, code lost:
-        if (java.util.Arrays.binarySearch(r4.f55008h, r5) >= 0) goto L17;
+        if (java.util.Arrays.binarySearch(r4.f55588h, r5) >= 0) goto L17;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -228,8 +228,8 @@ public class StrategyProcess {
             if (TextUtils.isEmpty(str)) {
                 return true;
             }
-            synchronized (this.f55004d) {
-                if (this.f55008h != null && this.f55008h.length > 0) {
+            synchronized (this.f55584d) {
+                if (this.f55588h != null && this.f55588h.length > 0) {
                     try {
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -245,23 +245,23 @@ public class StrategyProcess {
     public void loadCachedStrategy(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            if (this.f55002b == null && context != null) {
-                this.f55002b = context.getApplicationContext();
+            if (this.f55582b == null && context != null) {
+                this.f55582b = context.getApplicationContext();
             }
-            if (this.f55002b == null) {
+            if (this.f55582b == null) {
                 return;
             }
             IStatConfig settings = StatApi.getInstance().getSettings();
             if (settings != null) {
-                this.f55009i = settings.loadDefaultStrategy();
+                this.f55589i = settings.loadDefaultStrategy();
             }
-            String g2 = c.d.a.a.a.b.a().g(this.f55002b);
-            if (TextUtils.isEmpty(g2) && !TextUtils.isEmpty(this.f55009i)) {
-                g2 = this.f55009i;
+            String g2 = c.d.a.a.a.b.a().g(this.f55582b);
+            if (TextUtils.isEmpty(g2) && !TextUtils.isEmpty(this.f55589i)) {
+                g2 = this.f55589i;
             }
             try {
-                this.f55003c = (JSONObject) new JSONTokener(g2).nextValue();
-                if (c.d.a.a.a.a.h(this.f55002b) && needDownloadStrategy()) {
+                this.f55583c = (JSONObject) new JSONTokener(g2).nextValue();
+                if (c.d.a.a.a.a.h(this.f55582b) && needDownloadStrategy()) {
                     a();
                 }
             } catch (Exception e2) {
@@ -276,12 +276,12 @@ public class StrategyProcess {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            JSONObject jSONObject = this.f55003c;
+            JSONObject jSONObject = this.f55583c;
             if (jSONObject == null || !jSONObject.has("strategy_timestamp")) {
                 return true;
             }
             try {
-                j2 = this.f55003c.getLong("strategy_timestamp");
+                j2 = this.f55583c.getLong("strategy_timestamp");
             } catch (Exception e2) {
                 e2.printStackTrace();
                 j2 = 0;
@@ -305,9 +305,9 @@ public class StrategyProcess {
                 return;
             }
         }
-        this.f55004d = new byte[0];
-        this.f55005e = 3;
-        this.f55006f = 5;
+        this.f55584d = new byte[0];
+        this.f55585e = 3;
+        this.f55586f = 5;
         this.a = true;
     }
 }

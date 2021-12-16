@@ -13,13 +13,13 @@ import com.google.common.util.concurrent.FluentFuture;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RunnableFuture;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TrustedListenableFutureTask<V> extends FluentFuture.TrustedFuture<V> implements RunnableFuture<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile InterruptibleTask<?> task;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class TrustedFutureInterruptibleAsyncTask extends InterruptibleTask<ListenableFuture<V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class TrustedListenableFutureTask<V> extends FluentFuture.TrustedFuture<V
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class TrustedFutureInterruptibleTask extends InterruptibleTask<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

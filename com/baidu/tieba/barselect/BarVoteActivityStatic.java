@@ -1,7 +1,7 @@
 package com.baidu.tieba.barselect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.t0;
+import c.a.r0.d1.w0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -28,12 +28,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BarVoteActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a implements CustomMessageTask.CustomRunnable<BarVoteActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class BarVoteActivityStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class b implements CustomMessageTask.CustomRunnable<CameraActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class BarVoteActivityStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class c implements CustomMessageTask.CustomRunnable<IdentityReviewActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public class BarVoteActivityStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class d implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,8 +160,8 @@ public class BarVoteActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof c.a.r0.q2.d)) {
-                    c.a.r0.q2.d dVar = (c.a.r0.q2.d) customMessage.getData();
+                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof c.a.s0.s2.d)) {
+                    c.a.s0.s2.d dVar = (c.a.s0.s2.d) customMessage.getData();
                     CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(dVar.a(), dVar.b(), dVar.d(), dVar.c());
                     commitVoteReqMsg.setTag(dVar.e());
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
@@ -172,7 +172,7 @@ public class BarVoteActivityStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class e implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,7 +199,7 @@ public class BarVoteActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_BAR_VOTE)) {
-                        long g2 = c.a.d.f.m.b.g(t0.c(str, "fid="), 0L);
+                        long g2 = c.a.d.f.m.b.g(w0.c(str, "fid="), 0L);
                         if (g2 != 0) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(g2, 4)));
                             return 0;
@@ -212,7 +212,7 @@ public class BarVoteActivityStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class f implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -239,7 +239,7 @@ public class BarVoteActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEME_TYPE_ID_CARD)) {
-                        long g2 = c.a.d.f.m.b.g(t0.c(str, "fid="), 0L);
+                        long g2 = c.a.d.f.m.b.g(w0.c(str, "fid="), 0L);
                         if (g2 != 0) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921413, new IdentityReviewActivityConfig(tbPageContext.getPageActivity(), g2, 25042)));
                             return 0;
@@ -354,8 +354,8 @@ public class BarVoteActivityStatic {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            c.a.r0.t3.f0.a.h(309642, VoteElectionSocketResMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, c.a.r0.t3.f0.a.a("c/f/bawu/electionInfo", 309642));
+            c.a.s0.v3.f0.a.h(309642, VoteElectionSocketResMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, c.a.s0.v3.f0.a.a("c/f/bawu/electionInfo", 309642));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setResponsedClass(VoteElectionHttpResMessage.class);

@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f61793b;
+    public final e f62374b;
 
     public h(e eVar, e eVar2) {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public class h implements e {
             }
         }
         this.a = eVar;
-        this.f61793b = eVar2;
+        this.f62374b = eVar2;
     }
 
     @Override // com.ss.android.socialbase.downloader.f.e
     public void b(@NonNull a aVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar.f61770b = this.f61793b;
+            aVar.f62351b = this.f62374b;
             this.a.b(aVar);
         }
     }

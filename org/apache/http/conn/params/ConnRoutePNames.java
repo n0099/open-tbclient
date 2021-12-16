@@ -1,6 +1,6 @@
 package org.apache.http.conn.params;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ConnRoutePNames {
     public static final String DEFAULT_PROXY = "http.route.default-proxy";
     public static final String FORCED_ROUTE = "http.route.forced-route";

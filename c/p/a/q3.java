@@ -14,20 +14,20 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class q3 extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.win.opensdk.k0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f30887b;
+    public final /* synthetic */ String f31257b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ boolean f30888c;
+    public final /* synthetic */ boolean f31258c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ f4 f30889d;
+    public final /* synthetic */ f4 f31259d;
 
     public q3(f4 f4Var, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public class q3 extends AsyncTask {
                 return;
             }
         }
-        this.f30889d = f4Var;
-        this.f30887b = str;
-        this.f30888c = z;
+        this.f31259d = f4Var;
+        this.f31257b = str;
+        this.f31258c = z;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IF] complete} */
@@ -70,14 +70,14 @@ public class q3 extends AsyncTask {
             Void[] voidArr = (Void[]) objArr;
             int i2 = 1;
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.f30887b).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.f31257b).openConnection();
             } catch (Throwable th) {
                 th = th;
                 httpURLConnection = null;
             }
             try {
                 try {
-                    if (this.f30888c) {
+                    if (this.f31258c) {
                         httpURLConnection.connect();
                         int contentLength = httpURLConnection.getContentLength();
                         if (contentLength <= 0) {
@@ -200,8 +200,8 @@ public class q3 extends AsyncTask {
     public void onCancelled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f30889d.f30787b.remove(this.f30887b);
-            this.f30889d.a.a(this.a);
+            this.f31259d.f31157b.remove(this.f31257b);
+            this.f31259d.a.a(this.a);
         }
     }
 
@@ -211,11 +211,11 @@ public class q3 extends AsyncTask {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             Bitmap bitmap = (Bitmap) obj;
             if (bitmap == null) {
-                this.f30889d.a.a(new com.win.opensdk.k0("downloaded file could not be decoded as bitmap"));
+                this.f31259d.a.a(new com.win.opensdk.k0("downloaded file could not be decoded as bitmap"));
             } else {
-                this.f30889d.a.a(bitmap);
+                this.f31259d.a.a(bitmap);
             }
-            this.f30889d.f30787b.remove(this.f30887b);
+            this.f31259d.f31157b.remove(this.f31257b);
             System.gc();
         }
     }
@@ -224,7 +224,7 @@ public class q3 extends AsyncTask {
     public void onPreExecute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f30889d.f30787b.add(this.f30887b);
+            this.f31259d.f31157b.add(this.f31257b);
         }
     }
 
@@ -232,7 +232,7 @@ public class q3 extends AsyncTask {
     public void onProgressUpdate(Object[] objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, objArr) == null) {
-            this.f30889d.a.a(((Integer[]) objArr)[0].intValue());
+            this.f31259d.a.a(((Integer[]) objArr)[0].intValue());
         }
     }
 }

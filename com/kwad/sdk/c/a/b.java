@@ -1,10 +1,10 @@
 package com.kwad.sdk.c.a;
 
 import com.kwad.sdk.c.kwai.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface b {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(d dVar);
 

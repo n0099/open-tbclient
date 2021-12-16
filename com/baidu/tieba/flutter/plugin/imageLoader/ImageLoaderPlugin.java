@@ -10,9 +10,9 @@ import androidx.annotation.NonNull;
 import c.a.d.a.h;
 import c.a.d.f.l.c;
 import c.a.d.f.l.d;
-import c.a.d.f.p.j;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import c.a.d.m.d.a;
+import c.a.r0.r0.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_LOCAL = 1;
@@ -44,7 +44,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static final class ImageLoadingError {
         public static final /* synthetic */ ImageLoadingError[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -167,7 +167,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
         int nightResouceId;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, str, i2)) == null) {
-            if (k.isEmpty(str)) {
+            if (l.isEmpty(str)) {
                 return 0;
             }
             if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str) && (nightResouceId = SkinManager.getNightResouceId(TbadkCoreApplication.getInst().getResources(), i2)) > 0) {
@@ -183,7 +183,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) {
             int i2 = 0;
-            if (k.isEmpty(str)) {
+            if (l.isEmpty(str)) {
                 return 0;
             }
             if (!"default".equals(str) && SkinManager.SKIN_TYPE_STR_NIGHT.equals(str)) {
@@ -240,7 +240,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     private boolean shouldMonitorPerformance(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) ? c.a.q0.r0.k.d().g() && i2 % 100 == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) ? k.d().g() && i2 % 100 == 0 : invokeI.booleanValue;
     }
 
     @Override // com.baidu.tieba.flutter.plugin.imageLoader.ImageLoaderAuto.HostImageLoader
@@ -254,7 +254,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     @Override // com.baidu.tieba.flutter.plugin.imageLoader.ImageLoaderAuto.HostImageLoader
     public void loadImage(ImageLoaderAuto.RequestParam requestParam, ImageLoaderAuto.Result<ImageLoaderAuto.ImageResult> result) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, requestParam, result) == null) || k.isEmpty(requestParam.getKey())) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, requestParam, result) == null) || l.isEmpty(requestParam.getKey())) {
             return;
         }
         if (requestParam.getType().longValue() == 1) {
@@ -412,7 +412,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
                             this.val$reqInfo.put("requestId", Integer.valueOf(ImageLoaderPlugin.requestId));
                             hashMap3 = new HashMap();
                             hashMap3.put("isBundleFile", Boolean.FALSE);
-                            hashMap3.put("netType", j.J());
+                            hashMap3.put("netType", c.a.d.f.p.k.J());
                             hashMap3.put("contentType", String.valueOf(i2));
                             hashMap3.put("loadingCost", Long.valueOf(System.currentTimeMillis() - this.val$startLoad));
                         }
@@ -427,7 +427,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
-            c.a.r0.z0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
+            c.a.s0.z0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
         }
     }
 
@@ -435,7 +435,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, flutterPluginBinding) == null) {
-            c.a.r0.z0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
+            c.a.s0.z0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
         }
     }
 }

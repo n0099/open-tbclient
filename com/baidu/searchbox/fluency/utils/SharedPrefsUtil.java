@@ -9,25 +9,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SharedPrefsUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.fluency.utils.SharedPrefsUtil$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class FpsPreferences extends SharedPrefsWrapper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FLUENCY_FPS_PREF_NAME = "com.baidu.searchbox.fluency.fps.pref";
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Holder {
             public static /* synthetic */ Interceptable $ic;
             public static final FpsPreferences INSTANCE;

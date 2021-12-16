@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.util.concurrent.SmoothRateLimiter;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class RateLimiter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Object mutexDoNotUseDirectly;
     public final SleepingStopwatch stopwatch;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class SleepingStopwatch {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.log.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class Tracer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f62339b;
+    public volatile boolean f62920b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f62340c;
+    public g f62921c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Tracer() {
@@ -48,7 +48,7 @@ public abstract class Tracer {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f62339b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f62920b : invokeV.booleanValue;
     }
 
     public abstract void doTrace(int i2, Thread thread, long j2, String str, String str2, Throwable th);
@@ -56,7 +56,7 @@ public abstract class Tracer {
     public g e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f62340c : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f62921c : (g) invokeV.objValue;
     }
 
     public Tracer(int i2, boolean z, g gVar) {
@@ -75,8 +75,8 @@ public abstract class Tracer {
             }
         }
         this.a = c.a;
-        this.f62339b = true;
-        this.f62340c = g.a;
+        this.f62920b = true;
+        this.f62921c = g.a;
         a(i2);
         a(z);
         a(gVar);
@@ -92,14 +92,14 @@ public abstract class Tracer {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f62339b = z;
+            this.f62920b = z;
         }
     }
 
     public void a(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
-            this.f62340c = gVar;
+            this.f62921c = gVar;
         }
     }
 }

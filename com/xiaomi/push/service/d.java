@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.ie;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
@@ -13,12 +13,12 @@ public class d {
     public static b f954a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         boolean a(ie ieVar);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
     }
 

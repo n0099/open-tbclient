@@ -21,7 +21,7 @@ import com.dxmpay.wallet.core.beans.NetworkBean;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.regex.Pattern;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class BindFastRequest extends BeanRequestBase implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BIND_FROM_BIND = 1;

@@ -10,16 +10,16 @@ import com.kwad.sdk.core.network.k;
 import com.kwad.sdk.utils.t;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58115b;
+    public String f58696b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f58116c;
+    public String f58697c;
 
     public a(String str, String str2, String str3) {
         JSONObject jSONObject;
@@ -37,8 +37,8 @@ public class a extends d {
                 return;
             }
         }
-        this.f58115b = str;
-        this.f58116c = str2;
+        this.f58696b = str;
+        this.f58697c = str2;
         try {
             jSONObject = new JSONObject(str3);
         } catch (JSONException e2) {
@@ -60,7 +60,7 @@ public class a extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return com.kwad.sdk.d.a() + this.f58115b;
+            return com.kwad.sdk.d.a() + this.f58696b;
         }
         return (String) invokeV.objValue;
     }

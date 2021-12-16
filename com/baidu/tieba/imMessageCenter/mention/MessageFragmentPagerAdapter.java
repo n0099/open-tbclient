@@ -14,26 +14,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f46318b;
+    public int f46817b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f46319c;
+    public boolean f46818c;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Fragment a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f46320b;
+        public String f46819b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f46318b = -1;
+        this.f46817b = -1;
         this.a = new ArrayList();
     }
 
@@ -142,7 +142,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
             if (list == null || i2 < 0 || i2 >= list.size() || this.a.get(i2) == null) {
                 return null;
             }
-            return this.a.get(i2).f46320b;
+            return this.a.get(i2).f46819b;
         }
         return (CharSequence) invokeI.objValue;
     }
@@ -150,7 +150,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     public void setPrimary(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f46319c = z;
+            this.f46818c = z;
         }
     }
 
@@ -160,13 +160,13 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048585, this, viewGroup, i2, obj) == null) {
             super.setPrimaryItem(viewGroup, i2, obj);
-            if (!this.f46319c || (i3 = this.f46318b) == i2) {
+            if (!this.f46818c || (i3 = this.f46817b) == i2) {
                 return;
             }
             if (i3 != -1) {
                 ((BaseFragment) getItem(i3)).setPrimary(false);
             }
-            this.f46318b = i2;
+            this.f46817b = i2;
             if (obj instanceof BaseFragment) {
                 ((BaseFragment) obj).setPrimary(true);
             }
@@ -191,7 +191,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f46318b = -1;
+        this.f46817b = -1;
         this.a = new ArrayList();
         if (list == null || list.size() <= 0) {
             return;

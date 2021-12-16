@@ -31,40 +31,40 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.av;
 import com.kwad.sdk.utils.be;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f57624b;
+    public c f58205b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f57625c;
+    public AdTemplate f58206c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f57626d;
+    public boolean f58207d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f57627e;
+    public d f58208e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f57628f;
+    public b f58209f;
 
     /* renamed from: g  reason: collision with root package name */
-    public p.a f57629g;
+    public p.a f58210g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f57630h;
+    public long f58211h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f57631i;
+    public boolean f58212i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f57632j;
+    public boolean f58213j;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,10 +92,10 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
         public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
-                if (this.a.f57625c != null && this.a.f57626d) {
-                    com.kwad.sdk.core.response.a.d.j(this.a.f57625c).adConversionInfo.appDownloadUrl = str;
-                    this.a.f57625c.isWebViewDownload = true;
-                    com.kwad.sdk.core.download.a.a.a(new a.C2015a(this.a.getContext2()).a(this.a.f57625c).c(true));
+                if (this.a.f58206c != null && this.a.f58207d) {
+                    com.kwad.sdk.core.response.a.d.j(this.a.f58206c).adConversionInfo.appDownloadUrl = str;
+                    this.a.f58206c.isWebViewDownload = true;
+                    com.kwad.sdk.core.download.a.a.a(new a.C2076a(this.a.getContext2()).a(this.a.f58206c).c(true));
                     return;
                 }
                 try {
@@ -107,19 +107,19 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a();
 
         void b();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a(View view, int i2, int i3, int i4, int i5);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void a();
 
@@ -146,9 +146,9 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
                 return;
             }
         }
-        this.f57626d = true;
-        this.f57631i = true;
-        this.f57632j = true;
+        this.f58207d = true;
+        this.f58212i = true;
+        this.f58213j = true;
         a(context);
     }
 
@@ -171,9 +171,9 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
                 return;
             }
         }
-        this.f57626d = true;
-        this.f57631i = true;
-        this.f57632j = true;
+        this.f58207d = true;
+        this.f58212i = true;
+        this.f58213j = true;
         a(context);
     }
 
@@ -196,9 +196,9 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
                 return;
             }
         }
-        this.f57626d = true;
-        this.f57631i = true;
-        this.f57632j = true;
+        this.f58207d = true;
+        this.f58212i = true;
+        this.f58213j = true;
         a(context);
     }
 
@@ -257,17 +257,17 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
                         KsAdWebView ksAdWebView = this.a;
                         if (!ksAdWebView.a) {
                             ksAdWebView.a = true;
-                            if (ksAdWebView.f57630h > 0) {
-                                if (this.a.f57629g == null) {
-                                    this.a.f57629g = new p.a();
+                            if (ksAdWebView.f58211h > 0) {
+                                if (this.a.f58210g == null) {
+                                    this.a.f58210g = new p.a();
                                 }
-                                this.a.f57629g.t = System.currentTimeMillis() - this.a.f57630h;
-                                this.a.f57630h = -1L;
+                                this.a.f58210g.t = System.currentTimeMillis() - this.a.f58211h;
+                                this.a.f58211h = -1L;
                             }
-                            com.kwad.sdk.core.report.a.b(this.a.f57625c, this.a.f57629g);
+                            com.kwad.sdk.core.report.a.b(this.a.f58206c, this.a.f58210g);
                         }
-                        if (this.a.f57627e != null) {
-                            this.a.f57627e.b();
+                        if (this.a.f58208e != null) {
+                            this.a.f58208e.b();
                         }
                     }
                 }
@@ -277,8 +277,8 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                         super.onPageStarted(webView, str, bitmap);
-                        if (this.a.f57627e != null) {
-                            this.a.f57627e.a();
+                        if (this.a.f58208e != null) {
+                            this.a.f58208e.a();
                         }
                     }
                 }
@@ -289,10 +289,10 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
                     if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
                         super.onReceivedError(webView, i2, str, str2);
                         com.kwad.sdk.core.d.a.a("KsAdWebView", "onReceivedError " + i2);
-                        if (this.a.f57627e != null) {
-                            this.a.f57627e.a(i2, str, str2);
+                        if (this.a.f58208e != null) {
+                            this.a.f58208e.a(i2, str, str2);
                         }
-                        com.kwad.sdk.core.report.a.d(this.a.f57625c, this.a.f57629g);
+                        com.kwad.sdk.core.report.a.d(this.a.f58206c, this.a.f58210g);
                     }
                 }
 
@@ -302,7 +302,7 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048579, this, webView, webResourceRequest)) == null) {
-                        if (this.a.f57632j && com.kwad.sdk.core.config.b.J()) {
+                        if (this.a.f58213j && com.kwad.sdk.core.config.b.J()) {
                             WebResourceResponse a3 = a(webResourceRequest.getUrl().toString());
                             return a3 == null ? super.shouldInterceptRequest(webView, webResourceRequest) : a3;
                         }
@@ -316,7 +316,7 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048580, this, webView, str)) == null) {
-                        if (this.a.f57632j && com.kwad.sdk.core.config.b.J()) {
+                        if (this.a.f58213j && com.kwad.sdk.core.config.b.J()) {
                             WebResourceResponse a3 = a(str);
                             return a3 == null ? super.shouldInterceptRequest(webView, str) : a3;
                         }
@@ -337,23 +337,23 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
                         }
                         if (!str.startsWith("http") && !str.startsWith("https")) {
                             if (!str.startsWith("tel:") && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
-                                if (this.a.f57631i) {
+                                if (this.a.f58212i) {
                                     int a3 = com.kwad.sdk.core.download.a.d.a(this.a.getContext(), str);
                                     if (a3 == 1) {
-                                        if (this.a.f57628f != null) {
-                                            this.a.f57628f.a();
+                                        if (this.a.f58209f != null) {
+                                            this.a.f58209f.a();
                                         }
-                                        com.kwad.sdk.core.report.a.a(this.a.f57625c, 2);
+                                        com.kwad.sdk.core.report.a.a(this.a.f58206c, 2);
                                         return true;
                                     }
-                                    if (this.a.f57628f != null) {
-                                        this.a.f57628f.b();
+                                    if (this.a.f58209f != null) {
+                                        this.a.f58209f.b();
                                     }
                                     if (a3 == -1) {
-                                        com.kwad.sdk.core.report.a.b(this.a.f57625c, 2);
+                                        com.kwad.sdk.core.report.a.b(this.a.f58206c, 2);
                                     }
-                                } else if (this.a.f57628f != null) {
-                                    this.a.f57628f.b();
+                                } else if (this.a.f58209f != null) {
+                                    this.a.f58209f.b();
                                 }
                                 return true;
                             }
@@ -398,8 +398,8 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.kwad.sdk.core.report.a.a(this.f57625c, this.f57629g);
-            this.f57630h = System.currentTimeMillis();
+            com.kwad.sdk.core.report.a.a(this.f58206c, this.f58210g);
+            this.f58211h = System.currentTimeMillis();
         }
     }
 
@@ -407,7 +407,7 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a();
-            com.kwad.sdk.core.report.a.c(this.f57625c, this.f57629g);
+            com.kwad.sdk.core.report.a.c(this.f58206c, this.f58210g);
         }
     }
 
@@ -416,7 +416,7 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            c cVar = this.f57624b;
+            c cVar = this.f58205b;
             if (cVar != null) {
                 cVar.a(this, i2, i3, i4, i5);
             }
@@ -426,56 +426,56 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
     public void setClientParams(p.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f57629g = aVar;
+            this.f58210g = aVar;
         }
     }
 
     public void setDeepLinkEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f57631i = z;
+            this.f58212i = z;
         }
     }
 
     public void setDeepLinkListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f57628f = bVar;
+            this.f58209f = bVar;
         }
     }
 
     public void setHttpErrorListener(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            this.f57627e = dVar;
+            this.f58208e = dVar;
         }
     }
 
     public void setInsideDownloadEnable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f57626d = z;
+            this.f58207d = z;
         }
     }
 
     public void setNeedHybridLoad(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f57632j = z;
+            this.f58213j = z;
         }
     }
 
     public void setOnWebViewScrollChangeListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-            this.f57624b = cVar;
+            this.f58205b = cVar;
         }
     }
 
     public void setTemplateData(@Nullable AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, adTemplate) == null) {
-            this.f57625c = adTemplate;
+            this.f58206c = adTemplate;
         }
     }
 }

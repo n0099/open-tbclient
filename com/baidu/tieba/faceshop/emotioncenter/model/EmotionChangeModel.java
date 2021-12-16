@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop.emotioncenter.model;
 
 import c.a.d.a.f;
-import c.a.r0.y0.x.d.b;
+import c.a.s0.y0.x.d.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -19,15 +19,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class EmotionChangeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f43864e;
+    public final HttpMessageListener f44355e;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,11 +89,11 @@ public class EmotionChangeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f43864e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
+        this.f44355e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
         registerTask();
-        this.f43864e.setTag(getUniqueId());
-        this.f43864e.setSelfListener(true);
-        registerListener(this.f43864e);
+        this.f44355e.setTag(getUniqueId());
+        this.f44355e.setSelfListener(true);
+        registerListener(this.f44355e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

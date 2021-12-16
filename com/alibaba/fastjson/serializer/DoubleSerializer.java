@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.DecimalFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DoubleSerializer implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public static final DoubleSerializer instance;

@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ew implements View.OnFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ RelativeLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ ev f51725b;
+    public final /* synthetic */ ev f52274b;
 
     public ew(ev evVar, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class ew implements View.OnFocusChangeListener {
                 return;
             }
         }
-        this.f51725b = evVar;
+        this.f52274b = evVar;
         this.a = relativeLayout;
     }
 

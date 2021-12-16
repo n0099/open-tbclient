@@ -22,7 +22,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FindEmulator {
     public static /* synthetic */ Interceptable $ic;
     public static int emurs;
@@ -37,7 +37,7 @@ public class FindEmulator {
     public static final String[] known_qemu_drivers;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Property {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class FindEmulator {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class tcp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -283,7 +283,7 @@ public class FindEmulator {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, s.f56838c)) {
+            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, s.f57419c)) {
                 String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
                 for (String str : known_device_ids) {
                     if (str.equalsIgnoreCase(deviceId)) {
@@ -300,7 +300,7 @@ public class FindEmulator {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, s.f56838c)) {
+            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, s.f57419c)) {
                 String subscriberId = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
                 for (String str : known_imsi_ids) {
                     if (str.equalsIgnoreCase(subscriberId)) {

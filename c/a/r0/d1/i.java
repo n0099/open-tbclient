@@ -1,38 +1,55 @@
 package c.a.r0.d1;
 
-import android.graphics.drawable.Drawable;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.AppTransmitData;
+/* loaded from: classes6.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Drawable> a;
 
-    public i() {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(TiebaStatic.Params.WISE_SAMPLE_ID, c());
+            } catch (JSONException e2) {
+                BdLog.e(e2);
             }
+            return jSONObject.toString();
         }
-        this.a = new HashMap<>();
+        return (String) invokeV.objValue;
     }
 
-    public void a() {
+    public static AppTransmitData b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.isEmpty()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            AppTransmitData.Builder builder = new AppTransmitData.Builder();
+            builder.wise_sample_id = c();
+            return builder.build(false);
         }
-        this.a.clear();
+        return (AppTransmitData) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (String) invokeV.objValue;
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a = str;
+        }
     }
 }

@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LinkedCaseInsensitiveMap<V> extends LinkedHashMap<String, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;

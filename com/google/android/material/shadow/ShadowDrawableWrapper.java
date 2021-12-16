@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShadowDrawableWrapper extends DrawableWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double COS_45;

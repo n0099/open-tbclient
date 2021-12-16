@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GetSubscriptionResult extends HttpHelper.ResponseResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<GetSubscriptionResult> CREATOR;
@@ -193,7 +193,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         this.mPaNickName = parcel.readString();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SubscriptionInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Parcelable.Creator<SubscriptionInfo> CREATOR;

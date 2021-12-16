@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
     public static o a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Executor f63454b;
+    public static Executor f64035b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public o() {
@@ -38,7 +38,7 @@ public class o {
                 synchronized (o.class) {
                     if (a == null) {
                         a = new o();
-                        f63454b = Executors.newFixedThreadPool(1);
+                        f64035b = Executors.newFixedThreadPool(1);
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class o {
             return;
         }
         try {
-            f63454b.execute(runnable);
+            f64035b.execute(runnable);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

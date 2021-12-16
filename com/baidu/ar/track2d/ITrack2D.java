@@ -1,7 +1,7 @@
 package com.baidu.ar.track2d;
 
 import android.graphics.Bitmap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface ITrack2D {
     Bitmap getTargetBitmap();
 

@@ -17,14 +17,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ShareLoginStat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ShareLoginStat";
     public static final String UBC_ID_SHARE_LOGIN = "4833";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class GetShareListStat {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_ACCOUNT_APPS = "account_apps";
@@ -137,7 +137,7 @@ public class ShareLoginStat {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class MakeShareLoginStat {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_ERRMSG = "errorMsg";

@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DownloadTask extends IdentifiedTask implements Comparable<DownloadTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
     public final String url;
     public final boolean wifiRequired;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class TaskHideWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -612,7 +612,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.tag : invokeV.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEFAULT_AUTO_CALLBACK_TO_UI_THREAD = true;
@@ -924,7 +924,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class MockTaskForCompare extends IdentifiedTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

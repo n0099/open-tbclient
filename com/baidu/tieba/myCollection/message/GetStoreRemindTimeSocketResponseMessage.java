@@ -13,7 +13,7 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.GetStoreRemindTime.DataRes;
 import tbclient.GetStoreRemindTime.GetStoreRemindTimeResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class GetStoreRemindTimeSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

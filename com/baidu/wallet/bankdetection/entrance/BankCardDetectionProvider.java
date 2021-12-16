@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.router.RouterProvider;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class BankCardDetectionProvider extends RouterProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,6 +30,7 @@ public class BankCardDetectionProvider extends RouterProvider {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             registerAction("bankcarddetction", new BankCardDetectionAction());
             registerAction("clearcallback", new ClearBankcardDetectCallBack());
+            registerAction("initbankcarddetction", new InitBankCardDetectionAction());
         }
     }
 }

@@ -13,11 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
 import java.util.Locale;
 import org.apache.http.HttpVersion;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ImageDownloader {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Scheme {
         public static final /* synthetic */ Scheme[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class BrotliInputStream extends InputStream implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 16384;

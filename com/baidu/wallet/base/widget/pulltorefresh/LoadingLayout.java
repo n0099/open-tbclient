@@ -16,20 +16,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public abstract class LoadingLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public State f52283b;
+    public State f52863b;
 
     /* renamed from: c  reason: collision with root package name */
-    public State f52284c;
+    public State f52864c;
 
     /* renamed from: com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -74,7 +74,7 @@ public abstract class LoadingLayout extends FrameLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static final class AnimationStyle {
         public static final /* synthetic */ AnimationStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -134,7 +134,7 @@ public abstract class LoadingLayout extends FrameLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -229,13 +229,13 @@ public abstract class LoadingLayout extends FrameLayout {
     public State getPreState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52284c : (State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52864c : (State) invokeV.objValue;
     }
 
     public State getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52283b : (State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52863b : (State) invokeV.objValue;
     }
 
     public void init(Context context, AttributeSet attributeSet) {
@@ -345,11 +345,11 @@ public abstract class LoadingLayout extends FrameLayout {
     public void setState(State state) {
         State state2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, state) == null) || (state2 = this.f52283b) == state) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, state) == null) || (state2 = this.f52863b) == state) {
             return;
         }
-        this.f52284c = state2;
-        this.f52283b = state;
+        this.f52864c = state2;
+        this.f52863b = state;
         onStateChanged(state, state2);
     }
 
@@ -411,8 +411,8 @@ public abstract class LoadingLayout extends FrameLayout {
             }
         }
         State state = State.NONE;
-        this.f52283b = state;
-        this.f52284c = state;
+        this.f52863b = state;
+        this.f52864c = state;
         init(context, attributeSet);
     }
 }

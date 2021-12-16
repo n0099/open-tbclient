@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8Object;
 import com.tachikoma.core.bridge.TKJSContext;
 import com.tachikoma.core.exception.TKExceptionDispatcher;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TKOnPageChangeCallbackImpl implements ITKOnPageChangeCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

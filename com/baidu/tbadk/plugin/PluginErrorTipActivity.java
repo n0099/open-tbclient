@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +39,13 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public ShadowLayout shadowLayout;
     public PluginStatus status;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginErrorTipActivity f41899e;
+        public final /* synthetic */ PluginErrorTipActivity f42390e;
 
         public a(PluginErrorTipActivity pluginErrorTipActivity) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                     return;
                 }
             }
-            this.f41899e = pluginErrorTipActivity;
+            this.f42390e = pluginErrorTipActivity;
         }
 
         @Override // java.lang.Runnable
@@ -75,7 +75,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) BdBaseApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses();
                 if (runningAppProcesses != null) {
                     for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.f41899e.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
+                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.f42390e.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
                             hashSet2.add(Integer.valueOf(runningAppProcessInfo.pid));
                         }
                     }

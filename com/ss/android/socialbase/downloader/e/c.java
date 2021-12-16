@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.i.f;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.f.a f61766b;
+    public final com.ss.android.socialbase.downloader.f.a f62347b;
 
     public c(InputStream inputStream, int i2) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class c implements b {
             }
         }
         this.a = inputStream;
-        this.f61766b = new com.ss.android.socialbase.downloader.f.a(i2);
+        this.f62347b = new com.ss.android.socialbase.downloader.f.a(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.e.b
@@ -42,9 +42,9 @@ public class c implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            com.ss.android.socialbase.downloader.f.a aVar = this.f61766b;
-            aVar.f61771c = this.a.read(aVar.a);
-            return this.f61766b;
+            com.ss.android.socialbase.downloader.f.a aVar = this.f62347b;
+            aVar.f62352c = this.a.read(aVar.a);
+            return this.f62347b;
         }
         return (com.ss.android.socialbase.downloader.f.a) invokeV.objValue;
     }

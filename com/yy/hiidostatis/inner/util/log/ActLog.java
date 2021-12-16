@@ -41,7 +41,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ActLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LENGTH_APPKEY = 8;
@@ -68,17 +68,17 @@ public class ActLog {
     public static volatile String mUploadUrl;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ActLogListener {
         void sendFail(String str, String str2, String str3, String str4, Integer num, String str5, String str6, String str7);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ILogConfigListener {
         JSONObject getLogConfig();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LogWriter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BUFFER_MAX_LEN = 50;

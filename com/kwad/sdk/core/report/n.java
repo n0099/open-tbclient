@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.UUID;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f57675b;
+    public static long f58256b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f57676c;
+    public static Context f58257c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class n {
             }
         }
         a = f();
-        f57675b = 0L;
+        f58256b = 0L;
     }
 
     public static String a() {
@@ -54,7 +54,7 @@ public class n {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            f57676c = context;
+            f58257c = context;
         }
     }
 
@@ -113,8 +113,8 @@ public class n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            long b2 = b(f57676c);
-            a(f57676c, 1 + b2);
+            long b2 = b(f58257c);
+            a(f58257c, 1 + b2);
             return b2;
         }
         return invokeV.longValue;
@@ -141,8 +141,8 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (n.class) {
-                c2 = c(f57676c);
-                b(f57676c, 1 + c2);
+                c2 = c(f58257c);
+                b(f58257c, 1 + c2);
             }
             return c2;
         }
@@ -152,7 +152,7 @@ public class n {
     public static long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f57675b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f58256b : invokeV.longValue;
     }
 
     public static String f() {

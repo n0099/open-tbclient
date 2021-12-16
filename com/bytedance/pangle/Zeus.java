@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class Zeus {
     public static /* synthetic */ Interceptable $ic;
     public static Application sApplication;
@@ -76,7 +76,7 @@ public class Zeus {
         if (interceptable == null || interceptable.invokeLL(65539, null, str, zeusPluginListener) == null) {
             com.bytedance.pangle.download.h a = com.bytedance.pangle.download.h.a();
             synchronized (a) {
-                Iterator<PluginDownloadBean> it = a.f54548c.iterator();
+                Iterator<PluginDownloadBean> it = a.f55128c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         pluginDownloadBean = null;
@@ -88,7 +88,7 @@ public class Zeus {
                     }
                 }
                 if (pluginDownloadBean == null) {
-                    Iterator<PluginDownloadBean> it2 = a.f54547b.iterator();
+                    Iterator<PluginDownloadBean> it2 = a.f55127b.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             break;
@@ -250,10 +250,10 @@ public class Zeus {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, null, zeusPluginStateListener) == null) {
             i a = i.a();
-            if (a.f54605c.isEmpty()) {
-                a.f54605c = new CopyOnWriteArrayList();
+            if (a.f55185c.isEmpty()) {
+                a.f55185c = new CopyOnWriteArrayList();
             }
-            a.f54605c.add(zeusPluginStateListener);
+            a.f55185c.add(zeusPluginStateListener);
         }
     }
 
@@ -296,8 +296,8 @@ public class Zeus {
         i a;
         List<ZeusPluginStateListener> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65560, null, zeusPluginStateListener) == null) && (list = (a = i.a()).f54605c) != null && list.contains(zeusPluginStateListener)) {
-            a.f54605c.remove(zeusPluginStateListener);
+        if ((interceptable == null || interceptable.invokeL(65560, null, zeusPluginStateListener) == null) && (list = (a = i.a()).f55185c) != null && list.contains(zeusPluginStateListener)) {
+            a.f55185c.remove(zeusPluginStateListener);
         }
     }
 

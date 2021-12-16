@@ -17,7 +17,7 @@ import java.io.ObjectOutputStream;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class HashMultimap<K, V> extends HashMultimapGwtSerializationDependencies<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_VALUES_PER_KEY = 2;

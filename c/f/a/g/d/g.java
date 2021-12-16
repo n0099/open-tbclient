@@ -17,23 +17,23 @@ import java.net.UnknownHostException;
 import java.util.HashSet;
 import java.util.Iterator;
 import javax.net.ssl.SSLException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f28547c = "g";
+    public static final String f28922c = "g";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final HashSet<Class<?>> f28548d;
+    public static final HashSet<Class<?>> f28923d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final HashSet<Class<?>> f28549e;
+    public static final HashSet<Class<?>> f28924e;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f28550b;
+    public final int f28925b;
 
     static {
         InterceptResult invokeClinit;
@@ -48,13 +48,13 @@ public class g {
                 return;
             }
         }
-        f28548d = new HashSet<>();
-        f28549e = new HashSet<>();
-        f28548d.add(UnknownHostException.class);
-        f28548d.add(SocketException.class);
-        f28548d.add(ProtocolException.class);
-        f28549e.add(SSLException.class);
-        f28549e.add(SocketTimeoutException.class);
+        f28923d = new HashSet<>();
+        f28924e = new HashSet<>();
+        f28923d.add(UnknownHostException.class);
+        f28923d.add(SocketException.class);
+        f28923d.add(ProtocolException.class);
+        f28924e.add(SSLException.class);
+        f28924e.add(SocketTimeoutException.class);
     }
 
     public g(int i2, int i3) {
@@ -73,7 +73,7 @@ public class g {
             }
         }
         this.a = i2;
-        this.f28550b = i3;
+        this.f28925b = i3;
     }
 
     public boolean a(Exception exc, int i2) {
@@ -81,13 +81,13 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, exc, i2)) == null) {
             boolean z = false;
-            if (i2 <= this.a && (b(f28548d, exc) || !b(f28549e, exc))) {
+            if (i2 <= this.a && (b(f28923d, exc) || !b(f28924e, exc))) {
                 z = true;
             }
-            String str = f28547c;
-            LogUtil.d(str, f28547c + " retryRequest is called ,retry flag is " + z);
+            String str = f28922c;
+            LogUtil.d(str, f28922c + " retryRequest is called ,retry flag is " + z);
             if (z) {
-                SystemClock.sleep(this.f28550b);
+                SystemClock.sleep(this.f28925b);
             } else {
                 exc.printStackTrace();
             }

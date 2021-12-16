@@ -11,8 +11,8 @@ import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.h4.i.g.a;
-import c.a.r0.h4.i.g.b;
+import c.a.s0.j4.i.g.a;
+import c.a.s0.j4.i.g.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R$styleable;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ScalableVideoView extends TextureView implements TextureView.SurfaceTextureListener, MediaPlayer.OnVideoSizeChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

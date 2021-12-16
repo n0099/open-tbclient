@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.duxiaoman.okhttp3.Protocol;
 import java.io.IOException;
 import java.net.ProtocolException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Protocol a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f28180b;
+    public final int f28555b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f28181c;
+    public final String f28556c;
 
     public k(Protocol protocol, int i2, String str) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public final class k {
             }
         }
         this.a = protocol;
-        this.f28180b = i2;
-        this.f28181c = str;
+        this.f28555b = i2;
+        this.f28556c = str;
     }
 
     public static k a(b0 b0Var) {
@@ -101,10 +101,10 @@ public final class k {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a == Protocol.HTTP_1_0 ? "HTTP/1.0" : "HTTP/1.1");
             sb.append(' ');
-            sb.append(this.f28180b);
-            if (this.f28181c != null) {
+            sb.append(this.f28555b);
+            if (this.f28556c != null) {
                 sb.append(' ');
-                sb.append(this.f28181c);
+                sb.append(this.f28556c);
             }
             return sb.toString();
         }

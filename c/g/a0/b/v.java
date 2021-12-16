@@ -19,25 +19,25 @@ import com.qq.e.ads.rewardvideo.RewardVideoAD;
 import com.qq.e.ads.rewardvideo.RewardVideoADListener;
 import com.qq.e.comm.util.AdError;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class v extends ReporterPidLoader<RewardVideoAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements RewardVideoADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f28723b;
+        public boolean f29093b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ RewardVideoAD[] f28724c;
+        public final /* synthetic */ RewardVideoAD[] f29094c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ v f28725d;
+        public final /* synthetic */ v f29095d;
 
         public a(v vVar, RewardVideoAD[] rewardVideoADArr) {
             Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class v extends ReporterPidLoader<RewardVideoAD> {
                     return;
                 }
             }
-            this.f28725d = vVar;
-            this.f28724c = rewardVideoADArr;
+            this.f29095d = vVar;
+            this.f29094c = rewardVideoADArr;
         }
 
         @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
@@ -63,8 +63,8 @@ public class v extends ReporterPidLoader<RewardVideoAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f28725d.onAdClicked(this.f28723b);
-                this.f28723b = true;
+                this.f29095d.onAdClicked(this.f29093b);
+                this.f29093b = true;
             }
         }
 
@@ -73,7 +73,7 @@ public class v extends ReporterPidLoader<RewardVideoAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 LogPrinter.d();
-                this.f28725d.onAdClose();
+                this.f29095d.onAdClose();
             }
         }
 
@@ -82,7 +82,7 @@ public class v extends ReporterPidLoader<RewardVideoAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.f28725d.onAdShow(this.f28724c[0], this.a);
+                this.f29095d.onAdShow(this.f29094c[0], this.a);
                 this.a = true;
             }
         }
@@ -92,7 +92,7 @@ public class v extends ReporterPidLoader<RewardVideoAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
-                this.f28725d.onAdLoaded((v) this.f28724c[0]);
+                this.f29095d.onAdLoaded((v) this.f29094c[0]);
             }
         }
 
@@ -109,7 +109,7 @@ public class v extends ReporterPidLoader<RewardVideoAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, adError) == null) {
                 LogPrinter.e("GDTRewardVideoAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-                this.f28725d.onError(adError.getErrorCode(), adError.getErrorMsg());
+                this.f29095d.onError(adError.getErrorCode(), adError.getErrorMsg());
             }
         }
 
@@ -118,7 +118,7 @@ public class v extends ReporterPidLoader<RewardVideoAD> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
                 LogPrinter.d();
-                this.f28725d.onRewardedVideo();
+                this.f29095d.onRewardedVideo();
             }
         }
 

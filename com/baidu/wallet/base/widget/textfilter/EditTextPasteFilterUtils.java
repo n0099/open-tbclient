@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class EditTextPasteFilterUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EDITTEXT_PASTE_INTERCEPTOR_KEY = "textPasteInteceptor";

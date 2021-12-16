@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final f[] f30112b;
+    public final f[] f30482b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30113c;
+    public int f30483c;
 
     public g(f... fVarArr) {
         Interceptable interceptable = $ic;
@@ -35,20 +35,20 @@ public final class g {
                 return;
             }
         }
-        this.f30112b = fVarArr;
+        this.f30482b = fVarArr;
         this.a = fVarArr.length;
     }
 
     public f a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f30112b[i2] : (f) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f30482b[i2] : (f) invokeI.objValue;
     }
 
     public f[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (f[]) this.f30112b.clone() : (f[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (f[]) this.f30482b.clone() : (f[]) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -61,7 +61,7 @@ public final class g {
             if (obj == null || g.class != obj.getClass()) {
                 return false;
             }
-            return Arrays.equals(this.f30112b, ((g) obj).f30112b);
+            return Arrays.equals(this.f30482b, ((g) obj).f30482b);
         }
         return invokeL.booleanValue;
     }
@@ -70,10 +70,10 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f30113c == 0) {
-                this.f30113c = PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.f30112b);
+            if (this.f30483c == 0) {
+                this.f30483c = PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.f30482b);
             }
-            return this.f30113c;
+            return this.f30483c;
         }
         return invokeV.intValue;
     }

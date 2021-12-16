@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
 import android.widget.RelativeLayout;
-import c.a.d.f.p.l;
-import c.a.q0.d1.t;
-import c.a.q0.s.s.f;
-import c.a.q0.s.s.i;
+import c.a.d.f.p.m;
+import c.a.r0.d1.v;
+import c.a.r0.s.t.f;
+import c.a.r0.s.t.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -44,8 +44,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
-public class ForumTestActivity extends BaseActivity implements c.a.r0.u0.e.a.b {
+/* loaded from: classes12.dex */
+public class ForumTestActivity extends BaseActivity implements c.a.s0.u0.e.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public i.d mDialogSaveToDiskListener;
@@ -60,13 +60,13 @@ public class ForumTestActivity extends BaseActivity implements c.a.r0.u0.e.a.b {
     public String mUrl;
     public ForumTestWebView mWebView;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f43476e;
+        public final /* synthetic */ ForumTestActivity f43967e;
 
         public a(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -83,27 +83,27 @@ public class ForumTestActivity extends BaseActivity implements c.a.r0.u0.e.a.b {
                     return;
                 }
             }
-            this.f43476e = forumTestActivity;
+            this.f43967e = forumTestActivity;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f43476e.handleLongClick() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f43967e.handleLongClick() : invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f43477e;
+        public final /* synthetic */ ShareItem f43968e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f43478f;
+        public final /* synthetic */ ForumTestActivity f43969f;
 
         public b(ForumTestActivity forumTestActivity, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -120,21 +120,21 @@ public class ForumTestActivity extends BaseActivity implements c.a.r0.u0.e.a.b {
                     return;
                 }
             }
-            this.f43478f = forumTestActivity;
-            this.f43477e = shareItem;
+            this.f43969f = forumTestActivity;
+            this.f43968e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.d.f.p.a.a(this.f43477e.t);
-                l.M(this.f43478f, view.getResources().getString(R.string.copy_pb_url_success));
+                c.a.d.f.p.b.a(this.f43968e.t);
+                m.M(this.f43969f, view.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class c implements i.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +158,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.r0.u0.e.a.b {
             this.a = forumTestActivity;
         }
 
-        @Override // c.a.q0.s.s.i.c
+        @Override // c.a.r0.s.t.i.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -167,7 +167,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.r0.u0.e.a.b {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class d implements i.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.r0.u0.e.a.b {
             this.a = forumTestActivity;
         }
 
-        @Override // c.a.q0.s.s.i.d
+        @Override // c.a.r0.s.t.i.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -202,8 +202,8 @@ public class ForumTestActivity extends BaseActivity implements c.a.r0.u0.e.a.b {
         }
     }
 
-    /* loaded from: classes10.dex */
-    public class e extends t.a {
+    /* loaded from: classes12.dex */
+    public class e extends v.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumTestActivity a;
@@ -226,19 +226,19 @@ public class ForumTestActivity extends BaseActivity implements c.a.r0.u0.e.a.b {
             this.a = forumTestActivity;
         }
 
-        @Override // c.a.q0.d1.t.a
+        @Override // c.a.r0.d1.v.a
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                l.L(TbadkCoreApplication.getInst(), R.string.tb_webview_download_image_success_tip);
+                m.L(TbadkCoreApplication.getInst(), R.string.tb_webview_download_image_success_tip);
             }
         }
 
-        @Override // c.a.q0.d1.t.a
+        @Override // c.a.r0.d1.v.a
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                l.L(TbadkCoreApplication.getInst(), R.string.save_success);
+                m.L(TbadkCoreApplication.getInst(), R.string.save_success);
             }
         }
     }
@@ -336,9 +336,9 @@ public class ForumTestActivity extends BaseActivity implements c.a.r0.u0.e.a.b {
             if (this.mPermissionJudgement.startRequestPermission(pageActivity)) {
                 return;
             }
-            t tVar = new t(getActivity(), str, new e(this));
-            tVar.h(true);
-            tVar.execute(new String[0]);
+            v vVar = new v(getActivity(), str, new e(this));
+            vVar.h(true);
+            vVar.execute(new String[0]);
         }
     }
 
@@ -363,7 +363,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.r0.u0.e.a.b {
         this.mMoreDialog.showDialog();
     }
 
-    @Override // c.a.r0.u0.e.a.b
+    @Override // c.a.s0.u0.e.a.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

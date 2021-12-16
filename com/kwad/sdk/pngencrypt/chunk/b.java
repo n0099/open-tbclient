@@ -15,25 +15,25 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterInputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f58715b;
+    public static final byte[] f59296b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f58716c;
+    public static final byte[] f59297c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte[] f58717d;
+    public static final byte[] f59298d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Pattern f58718e;
+    public static Pattern f59299e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static byte[] f58719f;
+    public static byte[] f59300f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,11 +50,11 @@ public class b {
             }
         }
         a = a("IHDR");
-        f58715b = a("PLTE");
-        f58716c = a("IDAT");
-        f58717d = a("IEND");
-        f58719f = new byte[4096];
-        f58718e = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
+        f59296b = a("PLTE");
+        f59297c = a("IDAT");
+        f59298d = a("IEND");
+        f59300f = new byte[4096];
+        f59299e = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
     }
 
     public static String a(byte[] bArr) {
@@ -93,11 +93,11 @@ public class b {
     public static void a(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, inputStream, outputStream) == null) {
-            synchronized (f58719f) {
+            synchronized (f59300f) {
                 while (true) {
-                    int read = inputStream.read(f58719f);
+                    int read = inputStream.read(f59300f);
                     if (read > 0) {
-                        outputStream.write(f58719f, 0, read);
+                        outputStream.write(f59300f, 0, read);
                     }
                 }
             }
@@ -136,13 +136,13 @@ public class b {
     public static String b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) ? new String(bArr, com.kwad.sdk.pngencrypt.n.f58805b) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) ? new String(bArr, com.kwad.sdk.pngencrypt.n.f59386b) : (String) invokeL.objValue;
     }
 
     public static String b(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, bArr, i2, i3)) == null) ? new String(bArr, i2, i3, com.kwad.sdk.pngencrypt.n.f58805b) : (String) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, bArr, i2, i3)) == null) ? new String(bArr, i2, i3, com.kwad.sdk.pngencrypt.n.f59386b) : (String) invokeLII.objValue;
     }
 
     public static boolean b(String str) {

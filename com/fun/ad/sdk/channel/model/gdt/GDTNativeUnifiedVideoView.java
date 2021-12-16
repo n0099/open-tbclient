@@ -25,24 +25,24 @@ import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.qq.e.comm.util.AdError;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GDTNativeUnifiedVideoView extends w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaView f55654d;
+    public MediaView f56235d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f55655e;
+    public ImageView f56236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f55656f;
+    public View.OnClickListener f56237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f55657g;
+    public float f56238g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements NativeADMediaListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,9 +72,9 @@ public class GDTNativeUnifiedVideoView extends w {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.e("GDTNativeUnifiedAd video onVideoClicked", new Object[0]);
                 GDTNativeUnifiedVideoView gDTNativeUnifiedVideoView = this.a;
-                View.OnClickListener onClickListener = gDTNativeUnifiedVideoView.f55656f;
+                View.OnClickListener onClickListener = gDTNativeUnifiedVideoView.f56237f;
                 if (onClickListener != null) {
-                    onClickListener.onClick(gDTNativeUnifiedVideoView.f55654d);
+                    onClickListener.onClick(gDTNativeUnifiedVideoView.f56235d);
                 }
             }
         }
@@ -221,7 +221,7 @@ public class GDTNativeUnifiedVideoView extends w {
                 return;
             }
         }
-        this.f55657g = 1.78f;
+        this.f56238g = 1.78f;
     }
 
     @Override // com.fun.module.gdt.w
@@ -230,10 +230,10 @@ public class GDTNativeUnifiedVideoView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f55754c);
-            arrayList.add(((w) this).f55753b);
+            arrayList.add(this.f56335c);
+            arrayList.add(((w) this).f56334b);
             arrayList.add(((w) this).a);
-            arrayList.add(this.f55655e);
+            arrayList.add(this.f56236e);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -244,10 +244,10 @@ public class GDTNativeUnifiedVideoView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData) == null) {
             super.a(nativeUnifiedADData);
-            GlideHelper.get().load(getContext(), nativeUnifiedADData.getIconUrl(), this.f55655e);
+            GlideHelper.get().load(getContext(), nativeUnifiedADData.getIconUrl(), this.f56236e);
             LogPrinter.e("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-            this.f55657g = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
-            nativeUnifiedADData.bindMediaView(this.f55654d, new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(FunAdSdk.getFunAdConfig().isVideoSoundEnable ^ true).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a(this));
+            this.f56238g = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
+            nativeUnifiedADData.bindMediaView(this.f56235d, new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(FunAdSdk.getFunAdConfig().isVideoSoundEnable ^ true).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a(this));
         }
     }
 
@@ -256,8 +256,8 @@ public class GDTNativeUnifiedVideoView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.f55654d = (MediaView) findViewById(R.id.ad_video);
-            this.f55655e = (ImageView) findViewById(R.id.ad_icon);
+            this.f56235d = (MediaView) findViewById(R.id.ad_video);
+            this.f56236e = (ImageView) findViewById(R.id.ad_icon);
         }
     }
 
@@ -266,18 +266,18 @@ public class GDTNativeUnifiedVideoView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f55654d.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f56235d.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f55657g);
-            this.f55654d.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i6 / this.f56238g);
+            this.f56235d.setLayoutParams(layoutParams);
         }
     }
 
     public void setVideoOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f55656f = onClickListener;
+            this.f56237f = onClickListener;
         }
     }
 }

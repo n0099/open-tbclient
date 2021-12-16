@@ -1,10 +1,10 @@
 package com.baidu.tieba.person;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.q0.d1.z;
-import c.a.q0.s.k;
-import c.a.r0.s2.b;
+import c.a.d.f.p.m;
+import c.a.r0.d1.b0;
+import c.a.r0.s.l;
+import c.a.s0.u2.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ProfileRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,15 +73,15 @@ public class ProfileRequestMessage extends NetMessage {
                 builder.has_plist = get_has_plist();
                 builder.is_from_usercenter = is_from_usercenter();
                 builder.page = getPage();
-                int k2 = l.k(TbadkCoreApplication.getInst().getApp());
-                int i2 = l.i(TbadkCoreApplication.getInst().getApp());
-                int e2 = k.c().e();
+                int k2 = m.k(TbadkCoreApplication.getInst().getApp());
+                int i2 = m.i(TbadkCoreApplication.getInst().getApp());
+                int e2 = l.c().e();
                 builder.scr_w = Integer.valueOf(k2);
                 builder.scr_h = Integer.valueOf(i2);
-                builder.scr_dip = Double.valueOf(l.h(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_dip = Double.valueOf(m.h(TbadkCoreApplication.getInst().getApp()));
                 builder.q_type = Integer.valueOf(e2);
                 if (z) {
-                    z.a(builder, true);
+                    b0.a(builder, true);
                 }
                 ProfileReqIdl.Builder builder2 = new ProfileReqIdl.Builder();
                 builder2.data = builder.build(false);

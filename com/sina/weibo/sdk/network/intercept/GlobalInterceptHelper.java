@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.network.IRequestIntercept;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GlobalInterceptHelper {
     public static /* synthetic */ Interceptable $ic;
     public static GlobalInterceptHelper globalInterceptHelper;

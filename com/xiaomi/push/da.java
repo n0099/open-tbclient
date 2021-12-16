@@ -28,7 +28,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class da {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "/MiPushLog";
@@ -48,13 +48,13 @@ public class da {
     public boolean f220a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62773b;
+    public int f63354b;
 
     /* renamed from: b  reason: collision with other field name */
     public String f221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62774c;
+    public String f63355c;
 
     static {
         InterceptResult invokeClinit;
@@ -85,7 +85,7 @@ public class da {
             }
         }
         this.f218a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        this.f62773b = 2097152;
+        this.f63354b = 2097152;
         this.f219a = new ArrayList<>();
     }
 
@@ -107,7 +107,7 @@ public class da {
                     int start = matcher.start();
                     String substring = str.substring(start, this.f221b.length() + start);
                     if (this.f220a) {
-                        if (substring.compareTo(this.f62774c) > 0) {
+                        if (substring.compareTo(this.f63355c) > 0) {
                             read = start;
                             z = true;
                             break;
@@ -126,7 +126,7 @@ public class da {
                     int i4 = read - i3;
                     this.f217a += i4;
                     bufferedWriter.write(cArr, i3, i4);
-                    if (z || this.f217a > this.f62773b) {
+                    if (z || this.f217a > this.f63354b) {
                         return;
                     }
                 }
@@ -234,7 +234,7 @@ public class da {
                 this.f221b = this.f218a.format(date);
                 format = this.f218a.format(date2);
             }
-            this.f62774c = format;
+            this.f63355c = format;
             return this;
         }
         return (da) invokeLL.objValue;
@@ -290,6 +290,6 @@ public class da {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f62773b = i2;
+        this.f63354b = i2;
     }
 }

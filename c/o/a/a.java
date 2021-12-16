@@ -33,25 +33,25 @@ import java.net.NetworkInterface;
 import java.util.Collections;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.o.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class C1630a {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class C1669a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Intent a;
 
-        public /* synthetic */ b(Context context, C1630a c1630a) {
+        public /* synthetic */ b(Context context, C1669a c1669a) {
             this(context);
         }
 

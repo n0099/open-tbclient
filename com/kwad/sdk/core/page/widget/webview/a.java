@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.ApiWebView;
 import com.kwad.sdk.utils.bb;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends ApiWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

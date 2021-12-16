@@ -17,7 +17,7 @@ import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 /* renamed from: com.xiaomi.push.if  reason: invalid class name */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final iy A;
@@ -29,34 +29,34 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
     public static final jg f666a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f63121b;
+    public static final iy f63702b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f63122c;
+    public static final iy f63703c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f63123d;
+    public static final iy f63704d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f63124e;
+    public static final iy f63705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f63125f;
+    public static final iy f63706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f63126g;
+    public static final iy f63707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f63127h;
+    public static final iy f63708h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f63128i;
+    public static final iy f63709i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final iy f63129j;
+    public static final iy f63710j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final iy f63130k;
+    public static final iy f63711k;
     public static final iy l;
     public static final iy m;
     public static final iy n;
@@ -179,16 +179,16 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
         }
         f666a = new jg("XmPushActionRegistration");
         a = new iy("", (byte) 11, (short) 1);
-        f63121b = new iy("", StandardMessageCodec.LIST, (short) 2);
-        f63122c = new iy("", (byte) 11, (short) 3);
-        f63123d = new iy("", (byte) 11, (short) 4);
-        f63124e = new iy("", (byte) 11, (short) 5);
-        f63125f = new iy("", (byte) 11, (short) 6);
-        f63126g = new iy("", (byte) 11, (short) 7);
-        f63127h = new iy("", (byte) 11, (short) 8);
-        f63128i = new iy("", (byte) 11, (short) 9);
-        f63129j = new iy("", (byte) 11, (short) 10);
-        f63130k = new iy("", (byte) 11, (short) 11);
+        f63702b = new iy("", StandardMessageCodec.LIST, (short) 2);
+        f63703c = new iy("", (byte) 11, (short) 3);
+        f63704d = new iy("", (byte) 11, (short) 4);
+        f63705e = new iy("", (byte) 11, (short) 5);
+        f63706f = new iy("", (byte) 11, (short) 6);
+        f63707g = new iy("", (byte) 11, (short) 7);
+        f63708h = new iy("", (byte) 11, (short) 8);
+        f63709i = new iy("", (byte) 11, (short) 9);
+        f63710j = new iy("", (byte) 11, (short) 10);
+        f63711k = new iy("", (byte) 11, (short) 11);
         l = new iy("", (byte) 11, (short) 12);
         m = new iy("", (byte) 8, (short) 13);
         n = new iy("", (byte) 8, (short) 14);
@@ -1000,52 +1000,52 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f670a != null && m529b()) {
-                jbVar.a(f63121b);
+                jbVar.a(f63702b);
                 this.f670a.b(jbVar);
                 jbVar.b();
             }
             if (this.f677b != null) {
-                jbVar.a(f63122c);
+                jbVar.a(f63703c);
                 jbVar.a(this.f677b);
                 jbVar.b();
             }
             if (this.f680c != null) {
-                jbVar.a(f63123d);
+                jbVar.a(f63704d);
                 jbVar.a(this.f680c);
                 jbVar.b();
             }
             if (this.f682d != null && e()) {
-                jbVar.a(f63124e);
+                jbVar.a(f63705e);
                 jbVar.a(this.f682d);
                 jbVar.b();
             }
             if (this.f683e != null && f()) {
-                jbVar.a(f63125f);
+                jbVar.a(f63706f);
                 jbVar.a(this.f683e);
                 jbVar.b();
             }
             if (this.f684f != null) {
-                jbVar.a(f63126g);
+                jbVar.a(f63707g);
                 jbVar.a(this.f684f);
                 jbVar.b();
             }
             if (this.f685g != null && h()) {
-                jbVar.a(f63127h);
+                jbVar.a(f63708h);
                 jbVar.a(this.f685g);
                 jbVar.b();
             }
             if (this.f686h != null && i()) {
-                jbVar.a(f63128i);
+                jbVar.a(f63709i);
                 jbVar.a(this.f686h);
                 jbVar.b();
             }
             if (this.f687i != null && j()) {
-                jbVar.a(f63129j);
+                jbVar.a(f63710j);
                 jbVar.a(this.f687i);
                 jbVar.b();
             }
             if (this.f688j != null && k()) {
-                jbVar.a(f63130k);
+                jbVar.a(f63711k);
                 jbVar.a(this.f688j);
                 jbVar.b();
             }

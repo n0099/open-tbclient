@@ -14,13 +14,13 @@ import java.io.ByteArrayOutputStream;
 import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f61015b;
+    public static Boolean f61596b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class a {
                 return;
             }
         }
-        f61015b = Boolean.valueOf(f.f60988b);
+        f61596b = Boolean.valueOf(f.f61569b);
     }
 
     public a() {
@@ -66,7 +66,7 @@ public class a {
                 aVar.a(byteArrayInputStream, byteArrayOutputStream);
                 return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(byteArrayOutputStream.toByteArray()));
             } catch (Exception e2) {
-                c.b(a, e2.toString(), f61015b);
+                c.b(a, e2.toString(), f61596b);
                 return null;
             }
         }

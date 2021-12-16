@@ -33,7 +33,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DownloadContext {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Executor SERIAL_EXECUTOR;
@@ -46,7 +46,7 @@ public class DownloadContext {
     public final DownloadTask[] tasks;
     public Handler uiHandler;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class AlterContext {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class DownloadContext {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -258,7 +258,7 @@ public class DownloadContext {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class QueueAttachTaskStartEndListener extends DownloadTaskStartEndListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -309,7 +309,7 @@ public class DownloadContext {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class QueueSet {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

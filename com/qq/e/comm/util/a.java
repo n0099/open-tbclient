@@ -14,23 +14,23 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PublicKey a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f60891b;
+    public final boolean f61472b;
 
     /* renamed from: com.qq.e.comm.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static /* synthetic */ class C2092a {
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class C2153a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
@@ -73,10 +73,10 @@ public class a {
         } catch (Throwable unused) {
             z = false;
         }
-        this.f60891b = z;
+        this.f61472b = z;
     }
 
-    public /* synthetic */ a(C2092a c2092a) {
+    public /* synthetic */ a(C2153a c2153a) {
         this();
     }
 
@@ -111,7 +111,7 @@ public class a {
             if (StringUtil.isEmpty(str2)) {
                 return false;
             }
-            if (this.f60891b) {
+            if (this.f61472b) {
                 if (this.a != null) {
                     byte[] decode = Base64.decode(str, 0);
                     try {

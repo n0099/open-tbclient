@@ -13,7 +13,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import okhttp3.Request;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;

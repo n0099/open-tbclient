@@ -3,10 +3,9 @@ package com.baidu.tieba;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.j;
-import c.a.r0.c4.e;
-import c.a.r0.g2.k;
-import c.a.r0.g2.l;
+import c.a.s0.e4.e;
+import c.a.s0.h2.k;
+import c.a.s0.h2.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -31,13 +30,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class VideoPlatformStatic {
     public static /* synthetic */ Interceptable $ic;
     public static CustomMessageListener a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,12 +67,12 @@ public class VideoPlatformStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 e.h().o();
-                c.a.r0.c4.b.d().k();
+                c.a.s0.e4.b.d().k();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class b implements CustomMessageTask.CustomRunnable<k> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +189,7 @@ public class VideoPlatformStatic {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? "3G" : (j.v() || j.z()) ? "4G" : PolyActivity.NONE_PANEL_TYPE : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c.a.d.f.p.k.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : c.a.d.f.p.k.t() ? "2G" : c.a.d.f.p.k.u() ? "3G" : (c.a.d.f.p.k.v() || c.a.d.f.p.k.z()) ? "4G" : PolyActivity.NONE_PANEL_TYPE : (String) invokeV.objValue;
     }
 
     public static void e() {

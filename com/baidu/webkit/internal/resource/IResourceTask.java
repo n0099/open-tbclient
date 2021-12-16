@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface IResourceTask extends INoProGuard {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class OutputType {
         public static final /* synthetic */ OutputType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -72,7 +72,7 @@ public interface IResourceTask extends INoProGuard {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class ResultType {
         public static final /* synthetic */ ResultType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -133,7 +133,7 @@ public interface IResourceTask extends INoProGuard {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public interface TaskPriority extends INoProGuard {
         public static final int HIGH = 1;
         public static final int IDLE = 4;

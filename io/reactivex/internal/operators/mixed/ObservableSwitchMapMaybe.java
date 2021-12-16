@@ -24,7 +24,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 @Experimental
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObservableSwitchMapMaybe<T, R> extends Observable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class ObservableSwitchMapMaybe<T, R> extends Observable<R> {
     public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
     public final Observable<T> source;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class SwitchMapMaybeMainObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final SwitchMapMaybeObserver<Object> INNER_DISPOSED;
@@ -47,7 +47,7 @@ public final class ObservableSwitchMapMaybe<T, R> extends Observable<R> {
         public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
         public Disposable upstream;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static final class SwitchMapMaybeObserver<R> extends AtomicReference<Disposable> implements MaybeObserver<R> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8042919737683345351L;

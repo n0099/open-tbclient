@@ -7,41 +7,41 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f29190b;
+    public long f29560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f29191c;
+    public long f29561c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f29192d;
+    public long f29562d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29193e;
+    public int f29563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29194f;
+    public int f29564f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long[] f29195g;
+    public long[] f29565g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int[] f29196h;
+    public int[] f29566h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int[] f29197i;
+    public int[] f29567i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int[] f29198j;
+    public int[] f29568j;
 
     /* renamed from: k  reason: collision with root package name */
-    public long[] f29199k;
+    public long[] f29569k;
     public boolean[] l;
     public boolean m;
     public boolean[] n;
@@ -86,7 +86,7 @@ public final class l {
     public long c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f29199k[i2] + this.f29198j[i2] : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f29569k[i2] + this.f29568j[i2] : invokeI.longValue;
     }
 
     public void d(int i2) {
@@ -105,19 +105,19 @@ public final class l {
     public void e(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.f29193e = i2;
-            this.f29194f = i3;
-            int[] iArr = this.f29196h;
+            this.f29563e = i2;
+            this.f29564f = i3;
+            int[] iArr = this.f29566h;
             if (iArr == null || iArr.length < i2) {
-                this.f29195g = new long[i2];
-                this.f29196h = new int[i2];
+                this.f29565g = new long[i2];
+                this.f29566h = new int[i2];
             }
-            int[] iArr2 = this.f29197i;
+            int[] iArr2 = this.f29567i;
             if (iArr2 == null || iArr2.length < i3) {
                 int i4 = (i3 * 125) / 100;
-                this.f29197i = new int[i4];
-                this.f29198j = new int[i4];
-                this.f29199k = new long[i4];
+                this.f29567i = new int[i4];
+                this.f29568j = new int[i4];
+                this.f29569k = new long[i4];
                 this.l = new boolean[i4];
                 this.n = new boolean[i4];
             }
@@ -127,7 +127,7 @@ public final class l {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f29193e = 0;
+            this.f29563e = 0;
             this.s = 0L;
             this.m = false;
             this.r = false;

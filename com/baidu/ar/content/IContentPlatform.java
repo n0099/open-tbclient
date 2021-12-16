@@ -3,7 +3,7 @@ package com.baidu.ar.content;
 import com.baidu.ar.callback.ICancellable;
 import com.baidu.ar.ihttp.IProgressCallback;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IContentPlatform {
     ICancellable checkCaseUpdate(String str, a aVar);
 

@@ -24,16 +24,16 @@ import java.util.Collection;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.core.network.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f57691b;
+    public f f58272b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57692c;
+    public int f58273c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(f fVar) {
@@ -96,7 +96,7 @@ public class a extends com.kwad.sdk.core.network.d {
                 return;
             }
         }
-        this.f57691b = fVar;
+        this.f58272b = fVar;
         com.kwad.sdk.internal.api.a a2 = fVar.a();
         if (a2 != null && !a2.b()) {
             a(com.kwad.sdk.core.request.model.b.a(), a2);
@@ -105,7 +105,7 @@ public class a extends com.kwad.sdk.core.network.d {
         t.a(jSONArray, fVar.toJson());
         a("impInfo", jSONArray);
         a("universePhotoInfo", kVar);
-        int i4 = this.f57692c;
+        int i4 = this.f58273c;
         if (i4 > 0) {
             a("calledUnionType", i4);
         }
@@ -122,7 +122,7 @@ public class a extends com.kwad.sdk.core.network.d {
         if (a3 != null) {
             a("campaignType", ((Integer) a3.getValue()).intValue());
         }
-        String a4 = this.f57691b.a("thirdUserId");
+        String a4 = this.f58272b.a("thirdUserId");
         l a5 = l.a();
         if (a4 != null) {
             a5.a(a4);
@@ -156,14 +156,14 @@ public class a extends com.kwad.sdk.core.network.d {
             if (i2 != 0) {
                 lVar.a = i2;
             }
-            int i3 = aVar.f58643b;
+            int i3 = aVar.f59224b;
             if (i3 != 0) {
-                lVar.f57806b = i3;
+                lVar.f58387b = i3;
             }
-            if (TextUtils.isEmpty(aVar.f58644c)) {
+            if (TextUtils.isEmpty(aVar.f59225c)) {
                 return;
             }
-            lVar.f57807c = aVar.f58644c;
+            lVar.f58388c = aVar.f59225c;
         }
     }
 
@@ -171,17 +171,17 @@ public class a extends com.kwad.sdk.core.network.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, jSONObject, aVar) == null) {
             JSONObject jSONObject2 = new JSONObject();
-            if (!TextUtils.isEmpty(aVar.f58645d)) {
-                t.a(jSONObject2, "prevTitle", aVar.f58645d);
+            if (!TextUtils.isEmpty(aVar.f59226d)) {
+                t.a(jSONObject2, "prevTitle", aVar.f59226d);
             }
-            if (!TextUtils.isEmpty(aVar.f58646e)) {
-                t.a(jSONObject2, "postTitle", aVar.f58646e);
+            if (!TextUtils.isEmpty(aVar.f59227e)) {
+                t.a(jSONObject2, "postTitle", aVar.f59227e);
             }
-            if (!TextUtils.isEmpty(aVar.f58647f)) {
-                t.a(jSONObject2, "historyTitle", aVar.f58647f);
+            if (!TextUtils.isEmpty(aVar.f59228f)) {
+                t.a(jSONObject2, "historyTitle", aVar.f59228f);
             }
-            if (!TextUtils.isEmpty(aVar.f58648g)) {
-                t.a(jSONObject2, "channel", aVar.f58648g);
+            if (!TextUtils.isEmpty(aVar.f59229g)) {
+                t.a(jSONObject2, "channel", aVar.f59229g);
             }
             t.a(jSONObject, "content", jSONObject2);
             a(DI.APP_INFO_NAME, jSONObject);
@@ -198,7 +198,7 @@ public class a extends com.kwad.sdk.core.network.d {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f57692c = i2;
+            this.f58273c = i2;
         }
     }
 
@@ -207,7 +207,7 @@ public class a extends com.kwad.sdk.core.network.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f fVar = this.f57691b;
+            f fVar = this.f58272b;
             if (fVar != null) {
                 return fVar.a;
             }

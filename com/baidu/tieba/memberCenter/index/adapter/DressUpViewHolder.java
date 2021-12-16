@@ -1,15 +1,15 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import c.a.r0.e2.c.e;
-import c.a.r0.e2.c.k.i;
+import c.a.s0.f2.c.e;
+import c.a.s0.f2.c.k.i;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class DressUpViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

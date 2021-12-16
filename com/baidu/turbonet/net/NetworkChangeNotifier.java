@@ -2,7 +2,7 @@ package com.baidu.turbonet.net;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a.b;
+import c.a.t0.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,39 +18,39 @@ import com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect;
 import java.util.ArrayList;
 import java.util.Iterator;
 @JNINamespace
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class NetworkChangeNotifier {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static NetworkChangeNotifier f51381h;
+    public static NetworkChangeNotifier f51930h;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ArrayList<Long> f51382b;
+    public final ArrayList<Long> f51931b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b<ConnectionTypeObserver> f51383c;
+    public final b<ConnectionTypeObserver> f51932c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NetworkChangeNotifierAutoDetect f51384d;
+    public NetworkChangeNotifierAutoDetect f51933d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51385e;
+    public int f51934e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f51386f;
+    public double f51935f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51387g;
+    public int f51936g;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface ConnectionTypeObserver {
         void a(int i2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements NetworkChangeNotifierAutoDetect.Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,18 +153,18 @@ public class NetworkChangeNotifier {
                 return;
             }
         }
-        this.f51385e = 0;
-        this.f51386f = Double.POSITIVE_INFINITY;
-        this.f51387g = 0;
+        this.f51934e = 0;
+        this.f51935f = Double.POSITIVE_INFINITY;
+        this.f51936g = 0;
         this.a = context.getApplicationContext();
-        this.f51382b = new ArrayList<>();
-        this.f51383c = new b<>();
+        this.f51931b = new ArrayList<>();
+        this.f51932c = new b<>();
     }
 
     public static NetworkChangeNotifier e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f51381h : (NetworkChangeNotifier) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f51930h : (NetworkChangeNotifier) invokeV.objValue;
     }
 
     public static double f(int i2) {
@@ -234,10 +234,10 @@ public class NetworkChangeNotifier {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            if (f51381h == null) {
-                f51381h = new NetworkChangeNotifier(context);
+            if (f51930h == null) {
+                f51930h = new NetworkChangeNotifier(context);
             }
-            return f51381h;
+            return f51930h;
         }
         return (NetworkChangeNotifier) invokeL.objValue;
     }
@@ -273,24 +273,24 @@ public class NetworkChangeNotifier {
     public void addNativeObserver(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f51382b.add(Long.valueOf(j2));
+            this.f51931b.add(Long.valueOf(j2));
         }
     }
 
     public final void c() {
         NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (networkChangeNotifierAutoDetect = this.f51384d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (networkChangeNotifierAutoDetect = this.f51933d) == null) {
             return;
         }
         networkChangeNotifierAutoDetect.destroy();
-        this.f51384d = null;
+        this.f51933d = null;
     }
 
     public final void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            if ((this.f51385e != 6) != z) {
+            if ((this.f51934e != 6) != z) {
                 p(z ? 0 : 6);
                 q(z ? Double.POSITIVE_INFINITY : 0.0d);
             }
@@ -309,7 +309,7 @@ public class NetworkChangeNotifier {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f51384d;
+            NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f51933d;
             if (networkChangeNotifierAutoDetect == null) {
                 return 0;
             }
@@ -322,7 +322,7 @@ public class NetworkChangeNotifier {
     public int getCurrentConnectionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f51385e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f51934e : invokeV.intValue;
     }
 
     @CalledByNative
@@ -330,7 +330,7 @@ public class NetworkChangeNotifier {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f51384d;
+            NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f51933d;
             if (networkChangeNotifierAutoDetect == null) {
                 return -1;
             }
@@ -343,7 +343,7 @@ public class NetworkChangeNotifier {
     public double getCurrentMaxBandwidthInMbps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f51386f : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f51935f : invokeV.doubleValue;
     }
 
     @CalledByNative
@@ -351,7 +351,7 @@ public class NetworkChangeNotifier {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f51384d;
+            NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f51933d;
             return networkChangeNotifierAutoDetect == null ? new int[0] : networkChangeNotifierAutoDetect.getNetworksAndTypes();
         }
         return (int[]) invokeV.objValue;
@@ -360,11 +360,11 @@ public class NetworkChangeNotifier {
     public final void h(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
-            Iterator<Long> it = this.f51382b.iterator();
+            Iterator<Long> it = this.f51931b.iterator();
             while (it.hasNext()) {
                 nativeNotifyConnectionTypeChanged(it.next().longValue(), i2, i3);
             }
-            Iterator<ConnectionTypeObserver> it2 = this.f51383c.iterator();
+            Iterator<ConnectionTypeObserver> it2 = this.f51932c.iterator();
             while (it2.hasNext()) {
                 it2.next().a(i2);
             }
@@ -374,7 +374,7 @@ public class NetworkChangeNotifier {
     public void i(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Double.valueOf(d2)}) == null) {
-            Iterator<Long> it = this.f51382b.iterator();
+            Iterator<Long> it = this.f51931b.iterator();
             while (it.hasNext()) {
                 nativeNotifyMaxBandwidthChanged(it.next().longValue(), d2);
             }
@@ -384,7 +384,7 @@ public class NetworkChangeNotifier {
     public void j(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
-            Iterator<Long> it = this.f51382b.iterator();
+            Iterator<Long> it = this.f51931b.iterator();
             while (it.hasNext()) {
                 nativeNotifyOfNetworkConnect(it.next().longValue(), i2, i3);
             }
@@ -394,7 +394,7 @@ public class NetworkChangeNotifier {
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            Iterator<Long> it = this.f51382b.iterator();
+            Iterator<Long> it = this.f51931b.iterator();
             while (it.hasNext()) {
                 nativeNotifyOfNetworkDisconnect(it.next().longValue(), i2);
             }
@@ -404,7 +404,7 @@ public class NetworkChangeNotifier {
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            Iterator<Long> it = this.f51382b.iterator();
+            Iterator<Long> it = this.f51931b.iterator();
             while (it.hasNext()) {
                 nativeNotifyOfNetworkSoonToDisconnect(it.next().longValue(), i2);
             }
@@ -414,7 +414,7 @@ public class NetworkChangeNotifier {
     public void m(int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, iArr) == null) {
-            Iterator<Long> it = this.f51382b.iterator();
+            Iterator<Long> it = this.f51931b.iterator();
             while (it.hasNext()) {
                 nativeNotifyPurgeActiveNetworkList(it.next().longValue(), iArr);
             }
@@ -425,12 +425,12 @@ public class NetworkChangeNotifier {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048591, this, z, registrationPolicy) == null) {
             if (z) {
-                if (this.f51384d == null) {
+                if (this.f51933d == null) {
                     NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = new NetworkChangeNotifierAutoDetect(new a(this), this.a, registrationPolicy);
-                    this.f51384d = networkChangeNotifierAutoDetect;
+                    this.f51933d = networkChangeNotifierAutoDetect;
                     NetworkChangeNotifierAutoDetect.d currentNetworkState = networkChangeNotifierAutoDetect.getCurrentNetworkState();
-                    p(this.f51384d.getCurrentConnectionType(currentNetworkState));
-                    q(this.f51384d.getCurrentMaxBandwidthInMbps(currentNetworkState));
+                    p(this.f51933d.getCurrentConnectionType(currentNetworkState));
+                    q(this.f51933d.getCurrentMaxBandwidthInMbps(currentNetworkState));
                     return;
                 }
                 return;
@@ -442,7 +442,7 @@ public class NetworkChangeNotifier {
     public final void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f51385e = i2;
+            this.f51934e = i2;
             g(i2);
         }
     }
@@ -450,11 +450,11 @@ public class NetworkChangeNotifier {
     public final void q(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Double.valueOf(d2)}) == null) {
-            if (d2 == this.f51386f && this.f51385e == this.f51387g) {
+            if (d2 == this.f51935f && this.f51934e == this.f51936g) {
                 return;
             }
-            this.f51386f = d2;
-            this.f51387g = this.f51385e;
+            this.f51935f = d2;
+            this.f51936g = this.f51934e;
             i(d2);
         }
     }
@@ -463,7 +463,7 @@ public class NetworkChangeNotifier {
     public void removeNativeObserver(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            this.f51382b.remove(Long.valueOf(j2));
+            this.f51931b.remove(Long.valueOf(j2));
         }
     }
 }

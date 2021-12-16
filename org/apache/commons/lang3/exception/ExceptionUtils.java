@@ -22,7 +22,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ExceptionUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] CAUSE_METHOD_NAMES;

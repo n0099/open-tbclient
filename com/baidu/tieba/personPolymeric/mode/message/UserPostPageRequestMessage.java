@@ -3,7 +3,7 @@ package com.baidu.tieba.personPolymeric.mode.message;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
@@ -18,7 +18,7 @@ import com.squareup.wire.Message;
 import tbclient.User;
 import tbclient.UserPost.DataReq;
 import tbclient.UserPost.UserPostReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UserPostPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -305,7 +305,7 @@ public class UserPostPageRequestMessage extends NetMessage {
                 builder.begin_thread_id = l;
             }
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
             builder2.data = builder.build(false);

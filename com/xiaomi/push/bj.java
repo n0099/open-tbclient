@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bj {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -201,8 +201,8 @@ public class bj {
                 cArr[i9] = cArr2[i12];
                 int i17 = i16 + 1;
                 cArr[i16] = cArr2[i13];
-                char c2 = com.alipay.sdk.encrypt.a.f31351h;
-                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f31351h;
+                char c2 = com.alipay.sdk.encrypt.a.f31721h;
+                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f31721h;
                 int i18 = i17 + 1;
                 if (i18 < i7) {
                     c2 = f162a[i15];

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PopupEmotionManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANCHOR_Y_OFFSET_DP = 2;
@@ -38,7 +38,7 @@ public class PopupEmotionManager {
     public int mXpos;
     public int mYpos;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class DelayedTask {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TASK_TYPE_DISMISS = 2;
@@ -69,12 +69,12 @@ public class PopupEmotionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface IShowListener {
         void show(int i2, String str, int i3, int i4);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ShowParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

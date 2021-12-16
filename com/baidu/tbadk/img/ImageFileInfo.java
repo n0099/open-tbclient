@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.l.d;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -26,7 +26,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ImageFileInfo extends MediaFileInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_TYPE_EMOTION = 1;
@@ -304,7 +304,7 @@ public class ImageFileInfo extends MediaFileInfo {
     public boolean isAlreadyUploadedToServer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? !k.isEmpty(this.serverImageCode) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? !l.isEmpty(this.serverImageCode) : invokeV.booleanValue;
     }
 
     public boolean isFromCamera() {
@@ -504,7 +504,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next != null) {
                                 sb.append(':');
                                 sb.append(next.actionName);
-                                sb.append(a.f31351h);
+                                sb.append(a.f31721h);
                                 sb.append(next.actionParam);
                             }
                         }
@@ -516,7 +516,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next2 != null) {
                                 sb.append(':');
                                 sb.append(next2.actionName);
-                                sb.append(a.f31351h);
+                                sb.append(a.f31721h);
                                 sb.append(next2.actionParam);
                             }
                         }
@@ -534,7 +534,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         ImageOperation imageOperation = this.pageActionsList.get(i2);
                         sb2.append(':');
                         sb2.append(imageOperation.actionName);
-                        sb2.append(a.f31351h);
+                        sb2.append(a.f31721h);
                         sb2.append(imageOperation.actionParam);
                     }
                 }

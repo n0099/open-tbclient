@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
@@ -32,7 +32,7 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
     public Movie movie;
     public Track referenceTrack;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CacheTuple {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.HorseRace;
 
-import c.a.r0.d1.l0.a;
+import c.a.s0.d1.l0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class GetLiveHorseRaceHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

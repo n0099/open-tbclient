@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class cr implements cp {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f37207b;
+    public static byte[] f37696b;
     public transient /* synthetic */ FieldHolder $fh;
     public ByteBuffer a;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37208c;
+    public boolean f37697c;
 
     /* renamed from: d  reason: collision with root package name */
-    public cq.a f37209d;
+    public cq.a f37698d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f37210e;
+    public boolean f37699e;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class cr implements cp {
                 return;
             }
         }
-        f37207b = new byte[0];
+        f37696b = new byte[0];
     }
 
     public cr() {
@@ -64,7 +64,7 @@ public class cr implements cp {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f37208c = z;
+            this.f37697c = z;
         }
     }
 
@@ -72,7 +72,7 @@ public class cr implements cp {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f37210e = z;
+            this.f37699e = z;
         }
     }
 
@@ -87,21 +87,21 @@ public class cr implements cp {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37208c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37697c : invokeV.booleanValue;
     }
 
     @Override // com.baidu.mobstat.cq
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f37210e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f37699e : invokeV.booleanValue;
     }
 
     @Override // com.baidu.mobstat.cq
     public cq.a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f37209d : (cq.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f37698d : (cq.a) invokeV.objValue;
     }
 
     public String toString() {
@@ -128,15 +128,15 @@ public class cr implements cp {
                 return;
             }
         }
-        this.f37209d = aVar;
-        this.a = ByteBuffer.wrap(f37207b);
+        this.f37698d = aVar;
+        this.a = ByteBuffer.wrap(f37696b);
     }
 
     @Override // com.baidu.mobstat.cp
     public void a(cq.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f37209d = aVar;
+            this.f37698d = aVar;
         }
     }
 
@@ -176,7 +176,7 @@ public class cr implements cp {
                 this.a.rewind();
                 c2.reset();
             }
-            this.f37208c = cqVar.d();
+            this.f37697c = cqVar.d();
         }
     }
 
@@ -195,9 +195,9 @@ public class cr implements cp {
                 return;
             }
         }
-        this.f37208c = cqVar.d();
-        this.f37209d = cqVar.f();
+        this.f37697c = cqVar.d();
+        this.f37698d = cqVar.f();
         this.a = cqVar.c();
-        this.f37210e = cqVar.e();
+        this.f37699e = cqVar.e();
     }
 }

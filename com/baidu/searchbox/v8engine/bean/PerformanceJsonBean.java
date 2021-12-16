@@ -13,7 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @NotProguard
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PerformanceJsonBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_GAP = "gap";
@@ -23,7 +23,7 @@ public class PerformanceJsonBean {
     public transient /* synthetic */ FieldHolder $fh;
     public List<PerformanceJsonObject> mPerformanceJsonObjectList;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PerformanceJsonObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -11,31 +11,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class q implements View.OnClickListener, View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30879e;
+    public int f31249e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30880f;
+    public int f31250f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30881g;
+    public long f31251g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f30882h;
+    public int f31252h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f30883i;
+    public int f31253i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f30884j;
+    public long f31254j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final /* synthetic */ u f30885k;
+    public final /* synthetic */ u f31255k;
 
     public q(u uVar) {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class q implements View.OnClickListener, View.OnTouchListener {
                 return;
             }
         }
-        this.f30885k = uVar;
+        this.f31255k = uVar;
     }
 
     public HashMap a() {
@@ -60,13 +60,13 @@ public class q implements View.OnClickListener, View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.f30879e));
-            hashMap.put("dy", Integer.valueOf(this.f30880f));
-            hashMap.put("dts", Long.valueOf(this.f30881g));
-            hashMap.put("ux", Integer.valueOf(this.f30882h));
-            hashMap.put("uy", Integer.valueOf(this.f30883i));
-            hashMap.put("uts", Long.valueOf(this.f30884j));
-            u uVar = this.f30885k;
+            hashMap.put("dx", Integer.valueOf(this.f31249e));
+            hashMap.put("dy", Integer.valueOf(this.f31250f));
+            hashMap.put("dts", Long.valueOf(this.f31251g));
+            hashMap.put("ux", Integer.valueOf(this.f31252h));
+            hashMap.put("uy", Integer.valueOf(this.f31253i));
+            hashMap.put("uts", Long.valueOf(this.f31254j));
+            u uVar = this.f31255k;
             r0.j(hashMap, uVar.p, uVar.q, uVar.r, uVar.s, uVar.t, uVar.u);
             return hashMap;
         }
@@ -87,38 +87,38 @@ public class q implements View.OnClickListener, View.OnTouchListener {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f30879e = (int) motionEvent.getRawX();
-                this.f30880f = (int) motionEvent.getRawY();
-                this.f30881g = System.currentTimeMillis();
-                this.f30885k.p = (int) motionEvent.getX();
-                this.f30885k.q = (int) motionEvent.getY();
-                u.d(this.f30885k, view);
+                this.f31249e = (int) motionEvent.getRawX();
+                this.f31250f = (int) motionEvent.getRawY();
+                this.f31251g = System.currentTimeMillis();
+                this.f31255k.p = (int) motionEvent.getX();
+                this.f31255k.q = (int) motionEvent.getY();
+                u.d(this.f31255k, view);
                 return false;
             } else if (action != 1) {
                 return false;
             } else {
-                this.f30882h = (int) motionEvent.getRawX();
-                this.f30883i = (int) motionEvent.getRawY();
-                this.f30884j = System.currentTimeMillis();
-                this.f30885k.r = (int) motionEvent.getX();
-                this.f30885k.s = (int) motionEvent.getY();
-                u uVar = this.f30885k;
-                Info info = uVar.f30944c;
-                if (info == null || !a2.d(info, uVar.f30949h)) {
+                this.f31252h = (int) motionEvent.getRawX();
+                this.f31253i = (int) motionEvent.getRawY();
+                this.f31254j = System.currentTimeMillis();
+                this.f31255k.r = (int) motionEvent.getX();
+                this.f31255k.s = (int) motionEvent.getY();
+                u uVar = this.f31255k;
+                Info info = uVar.f31314c;
+                if (info == null || !a2.d(info, uVar.f31319h)) {
                     return false;
                 }
-                this.f30885k.f30949h = System.currentTimeMillis();
-                u uVar2 = this.f30885k;
+                this.f31255k.f31319h = System.currentTimeMillis();
+                u uVar2 = this.f31255k;
                 Context context = uVar2.a;
-                String open = uVar2.f30944c.getOpen();
-                u uVar3 = this.f30885k;
-                a2.a(context, open, uVar3.f30944c, uVar3.f30948g, a().toString());
-                y2 a = c3.a(this.f30885k.a);
-                a.h(new g3(this.f30885k.f30944c), null);
+                String open = uVar2.f31314c.getOpen();
+                u uVar3 = this.f31255k;
+                a2.a(context, open, uVar3.f31314c, uVar3.f31318g, a().toString());
+                y2 a = c3.a(this.f31255k.a);
+                a.h(new g3(this.f31255k.f31314c), null);
                 a.l("desc", a().toString());
                 a.m();
-                r0.p(this.f30885k.f30944c, a().toString());
-                s sVar = this.f30885k.f30947f;
+                r0.p(this.f31255k.f31314c, a().toString());
+                s sVar = this.f31255k.f31317f;
                 if (sVar != null) {
                     sVar.onClicked();
                     return false;

@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.index;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.AddTaskScores.AddTaskScoresReqIdl;
 import tbclient.AddTaskScores.DataReq;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class GetTaskScoresRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class GetTaskScoresRequestMessage extends NetMessage {
             builder.task_id = Integer.valueOf(this.taskId);
             builder.user_id = Long.valueOf(this.userId);
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             AddTaskScoresReqIdl.Builder builder2 = new AddTaskScoresReqIdl.Builder();
             builder2.data = builder.build(false);

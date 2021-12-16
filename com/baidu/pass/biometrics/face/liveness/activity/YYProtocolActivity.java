@@ -26,16 +26,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class YYProtocolActivity extends Activity implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f38195b;
+    public WebView f38684b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,10 +94,10 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.a = (ImageView) findViewById(R.id.iv_back);
             WebView webView = (WebView) findViewById(R.id.webView);
-            this.f38195b = webView;
+            this.f38684b = webView;
             webView.setWebChromeClient(new WebChromeClient());
-            this.f38195b.setWebViewClient(new WebViewClient());
-            this.f38195b.loadUrl(PassBioEnv.YY_PERSONAL_INFO_PROTOCOL);
+            this.f38684b.setWebViewClient(new WebViewClient());
+            this.f38684b.loadUrl(PassBioEnv.YY_PERSONAL_INFO_PROTOCOL);
         }
     }
 
@@ -166,10 +166,10 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            WebView webView = this.f38195b;
+            WebView webView = this.f38684b;
             if (webView != null) {
                 webView.destroy();
-                this.f38195b = null;
+                this.f38684b = null;
             }
         }
     }

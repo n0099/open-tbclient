@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RoundFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Path f50350e;
+    public Path f50879e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f50351f;
+    public RectF f50880f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundFrameLayout(Context context) {
@@ -50,8 +50,8 @@ public class RoundFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setWillNotDraw(false);
-            this.f50350e = new Path();
-            this.f50351f = new RectF();
+            this.f50879e = new Path();
+            this.f50880f = new RectF();
         }
     }
 
@@ -65,7 +65,7 @@ public class RoundFrameLayout extends FrameLayout {
             int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
             super.dispatchDraw(canvas);
             paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
-            canvas.drawPath(this.f50350e, paint);
+            canvas.drawPath(this.f50879e, paint);
             if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
                 canvas.restoreToCount(saveLayer);
             }
@@ -78,8 +78,8 @@ public class RoundFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            this.f50351f.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
-            this.f50350e.addOval(this.f50351f, Path.Direction.CW);
+            this.f50880f.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            this.f50879e.addOval(this.f50880f, Path.Direction.CW);
         }
     }
 

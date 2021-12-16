@@ -1,5 +1,5 @@
 package c.f.b.a.a.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface c {
     void destroyCamera();
 

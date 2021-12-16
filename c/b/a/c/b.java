@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b<T> implements Iterable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.b.b.q.a<T> f27313e;
+    public final c.b.b.q.a<T> f27688e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.C1559a<T> f27314f;
+    public a.C1599a<T> f27689f;
 
     public b(c.b.b.q.a<T> aVar) {
         Interceptable interceptable = $ic;
@@ -34,25 +34,25 @@ public class b<T> implements Iterable<T> {
                 return;
             }
         }
-        this.f27313e = aVar;
+        this.f27688e = aVar;
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f27313e.equals(obj) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f27688e.equals(obj) : invokeL.booleanValue;
     }
 
     public T get(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f27313e.get(i2) : (T) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f27688e.get(i2) : (T) invokeI.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27313e.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27688e.hashCode() : invokeV.intValue;
     }
 
     @Override // java.lang.Iterable
@@ -60,10 +60,10 @@ public class b<T> implements Iterable<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f27314f == null) {
-                this.f27314f = new a.C1559a<>(this.f27313e, false);
+            if (this.f27689f == null) {
+                this.f27689f = new a.C1599a<>(this.f27688e, false);
             }
-            return this.f27314f.iterator();
+            return this.f27689f.iterator();
         }
         return (Iterator) invokeV.objValue;
     }
@@ -71,12 +71,12 @@ public class b<T> implements Iterable<T> {
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27313e.f27768f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27688e.f28143f : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27313e.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27688e.toString() : (String) invokeV.objValue;
     }
 }

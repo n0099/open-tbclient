@@ -19,7 +19,7 @@ import com.yxcorp.kuaishou.addfp.android.a.d;
 import com.yxcorp.kuaishou.addfp.android.a.e;
 import java.util.LinkedHashMap;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KWEGIDDFP {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGID_LENGTH = 64;
@@ -129,7 +129,7 @@ public class KWEGIDDFP {
                     String str2 = "";
                     if (TextUtils.isEmpty(a2)) {
                         com.yxcorp.kuaishou.addfp.android.b.b.a();
-                        if (com.yxcorp.kuaishou.addfp.android.b.e.b(this.mParamContext, new String[]{s.f56844i, "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                        if (com.yxcorp.kuaishou.addfp.android.b.e.b(this.mParamContext, new String[]{s.f57425i, "android.permission.WRITE_EXTERNAL_STORAGE"})) {
                             str2 = c.a(this.mParamContext).b("Lm91a2R0ZnQ=");
                         }
                     }

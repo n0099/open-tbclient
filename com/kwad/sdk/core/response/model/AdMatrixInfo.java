@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1399297421861223421L;
@@ -15,7 +15,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
     public AdDataV2 adDataV2;
     public Styles styles;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ActionBarInfoNew extends BaseMatrixTemplate {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2897900789505229105L;
@@ -37,7 +37,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AdDataV2 extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8017805390945915342L;
@@ -79,7 +79,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class BaseMatrixTemplate extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3594661163877934414L;
@@ -101,7 +101,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BottomBannerInfo extends BaseMatrixTemplate {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 9099955467009566699L;
@@ -124,7 +124,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class EndCardInfo extends BaseMatrixTemplate {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1534468715847534303L;
@@ -145,7 +145,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FeedInfo extends BaseMatrixTemplate {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -299328228771513399L;
@@ -166,7 +166,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FullPageActionBarInfo extends BaseMatrixTemplate {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4774130082398115713L;
@@ -188,7 +188,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class HalfCardInfo extends BaseMatrixTemplate {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3368566251206621911L;
@@ -209,7 +209,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class InteractionInfo extends BaseMatrixTemplate {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1783857570602844781L;
@@ -230,7 +230,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class InterstitialCardInfo extends BaseMatrixTemplate {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5881505827627373593L;
@@ -251,7 +251,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MatrixTemplate extends BaseMatrixTemplate {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1943039524913069727L;
@@ -276,7 +276,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ShakeInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4528782399998808588L;
@@ -301,7 +301,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SplashInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 240426032769377332L;
@@ -325,7 +325,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SplashInteractionInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8105791433429537031L;
@@ -350,7 +350,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Styles extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1713930699658485883L;
@@ -374,7 +374,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TemplateData extends BaseMatrixTemplate {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3330357033837521996L;

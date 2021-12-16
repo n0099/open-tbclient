@@ -2,7 +2,7 @@ package c.a.d.f.e;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,15 +22,15 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f2372d;
+    public static a f2336d;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2373b;
+    public String f2337b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2374c;
+    public long f2338c;
 
     static {
         InterceptResult invokeClinit;
@@ -61,26 +61,26 @@ public class a {
             }
         }
         this.a = 0L;
-        this.f2373b = null;
-        this.f2374c = 0L;
+        this.f2337b = null;
+        this.f2338c = 0L;
         SharedPreferences a = a();
         this.a = a.getLong(f("c.tieba.baidu.com"), 0L);
-        this.f2373b = a.getString(e("c.tieba.baidu.com"), null);
-        this.f2374c = a.getLong(d("c.tieba.baidu.com"), 0L);
+        this.f2337b = a.getString(e("c.tieba.baidu.com"), null);
+        this.f2338c = a.getLong(d("c.tieba.baidu.com"), 0L);
     }
 
     public static final a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2372d == null) {
+            if (f2336d == null) {
                 synchronized (a.class) {
-                    if (f2372d == null) {
-                        f2372d = new a();
+                    if (f2336d == null) {
+                        f2336d = new a();
                     }
                 }
             }
-            return f2372d;
+            return f2336d;
         }
         return (a) invokeV.objValue;
     }
@@ -136,7 +136,7 @@ public class a {
         String str3;
         String host;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && !TextUtils.isEmpty(str) && j.z()) {
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && !TextUtils.isEmpty(str) && k.z()) {
             try {
                 URL url = new URL(str);
                 String host2 = url.getHost();
@@ -150,8 +150,8 @@ public class a {
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
                     long j2 = this.a;
-                    long j3 = this.f2374c;
-                    String str4 = this.f2373b;
+                    long j3 = this.f2338c;
+                    String str4 = this.f2337b;
                     if (currentTimeMillis - j2 > 43200000) {
                         h(host, str3, z, "12hour", z2);
                         return;
@@ -165,7 +165,7 @@ public class a {
                     } else if (System.currentTimeMillis() - j3 > 3600000) {
                         String b2 = TextUtils.isEmpty(str3) ? b(host) : str3;
                         if (TextUtils.equals(b2, str4) && str4 != null) {
-                            this.f2374c = System.currentTimeMillis();
+                            this.f2338c = System.currentTimeMillis();
                         } else {
                             h(host, b2, z, "ipchange", z2);
                         }
@@ -200,7 +200,7 @@ public class a {
         EditorHelper.putString(a, e(str), str2);
         EditorHelper.putLong(a, d(str), currentTimeMillis2);
         this.a = currentTimeMillis;
-        this.f2374c = currentTimeMillis2;
-        this.f2373b = str2;
+        this.f2338c = currentTimeMillis2;
+        this.f2337b = str2;
     }
 }

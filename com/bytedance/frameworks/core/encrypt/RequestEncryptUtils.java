@@ -21,7 +21,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class RequestEncryptUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CONTENT_CHARSET = "ISO-8859-1";
@@ -40,7 +40,7 @@ public class RequestEncryptUtils {
     public static IEncryptConfig sEncryptConfig;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public interface IEncryptConfig {
         boolean isSsQueriesHeaderOpen();
 

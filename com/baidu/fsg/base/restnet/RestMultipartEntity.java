@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Random;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RestMultipartEntity {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] MULTIPART_CHARS;
@@ -29,7 +29,7 @@ public class RestMultipartEntity {
     public boolean mIsSetLast;
     public ByteArrayOutputStream mOut;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class CountingOutputStream extends FilterOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class RestMultipartEntity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface ProgressListener {
         void transferred(long j2, long j3);
     }

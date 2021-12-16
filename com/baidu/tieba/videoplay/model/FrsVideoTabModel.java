@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FrsVideoTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f50088e;
+    public b f50607e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50089f;
+    public int f50608f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f50090g;
+    public CustomMessageListener f50609g;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,11 +61,11 @@ public class FrsVideoTabModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.a.f50088e.a();
+            this.a.f50607e.a();
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void a();
     }
@@ -88,9 +88,9 @@ public class FrsVideoTabModel extends BdBaseModel {
                 return;
             }
         }
-        this.f50090g = new a(this, 2921628);
+        this.f50609g = new a(this, 2921628);
         setUniqueId(bdUniqueId);
-        registerListener(this.f50090g);
+        registerListener(this.f50609g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -116,8 +116,8 @@ public class FrsVideoTabModel extends BdBaseModel {
     public void loadMore() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f50089f < 2) {
-                this.f50089f = 2;
+            if (this.f50608f < 2) {
+                this.f50608f = 2;
             }
             x(2);
         }
@@ -145,7 +145,7 @@ public class FrsVideoTabModel extends BdBaseModel {
     public void z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f50088e = bVar;
+            this.f50607e = bVar;
         }
     }
 }

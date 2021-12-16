@@ -3,7 +3,7 @@ package com.baidu.tbadk.game;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.q0.l0.b.a;
+import c.a.r0.l0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import tbclient.GetGameCenter.RecommendGame;
 import tbclient.GetGameDetailNew.CodeInfo;
 import tbclient.GetGameDetailNew.GiftPkgInfo;
 import tbclient.GetNewGameList.NewGameInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class GameInfoData implements Serializable, a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TYPE = 1;

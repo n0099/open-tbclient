@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.b.b.e;
 import com.cmic.sso.sdk.b.b.g;
 import com.cmic.sso.sdk.d.r;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class b extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f54952b;
+    public final e f55532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f54953c;
+    public boolean f55533c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(String str, e eVar, String str2, String str3) {
@@ -37,20 +37,20 @@ public class b extends c {
                 return;
             }
         }
-        this.f54953c = false;
-        this.f54952b = eVar;
+        this.f55533c = false;
+        this.f55532b = eVar;
     }
 
     public void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f54953c) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f55533c) {
             return;
         }
         String a = r.a(true);
         String a2 = r.a(true, "1".equals(aVar.b("operatortype", "")));
         aVar.a("ipv4_list", a);
         aVar.a("ipv6_list", a2);
-        com.cmic.sso.sdk.b.b.a c2 = this.f54952b.c();
+        com.cmic.sso.sdk.b.b.a c2 = this.f55532b.c();
         if (!aVar.b("isCloseIpv4", false)) {
             c2.s(a);
         }
@@ -58,9 +58,9 @@ public class b extends c {
             c2.t(a2);
         }
         c2.p(c2.w(aVar.b("appkey")));
-        this.f54952b.a(c2);
-        this.f54952b.a(true);
-        this.a = this.f54952b.b().toString();
-        this.f54953c = true;
+        this.f55532b.a(c2);
+        this.f55532b.a(true);
+        this.a = this.f55532b.b().toString();
+        this.f55533c = true;
     }
 }

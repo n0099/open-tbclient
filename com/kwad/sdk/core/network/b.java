@@ -19,14 +19,14 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class b implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final JSONObject a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, String> f57505b;
+    public final Map<String, String> f58086b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public abstract class b implements g {
                 return;
             }
         }
-        this.f57505b = new HashMap();
+        this.f58086b = new HashMap();
         this.a = new JSONObject();
         g();
         h();
@@ -90,7 +90,7 @@ public abstract class b implements g {
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            this.f57505b.put(str, str2);
+            this.f58086b.put(str, str2);
         }
     }
 
@@ -144,7 +144,7 @@ public abstract class b implements g {
     public Map<String, String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f57505b : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f58086b : (Map) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.core.network.g

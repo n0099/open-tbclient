@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import org.webrtc.EncodedImage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface VideoEncoder {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class BitrateAllocation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,12 +56,12 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface Callback {
         void onEncodedFrame(EncodedImage encodedImage, CodecSpecificInfo codecSpecificInfo);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CodecSpecificInfoH264 extends CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CodecSpecificInfoVP8 extends CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CodecSpecificInfoVP9 extends CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +141,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class EncodeInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,7 +167,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Settings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -229,7 +229,7 @@ public interface VideoEncoder {
     @CalledByNative
     VideoCodecStatus setRateAllocation(BitrateAllocation bitrateAllocation, int i2);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ScalingSettings {
         public static /* synthetic */ Interceptable $ic;
         public static final ScalingSettings OFF;

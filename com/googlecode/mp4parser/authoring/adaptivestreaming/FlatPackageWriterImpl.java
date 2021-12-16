@@ -30,7 +30,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.logging.Logger;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlatPackageWriterImpl implements PackageWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;

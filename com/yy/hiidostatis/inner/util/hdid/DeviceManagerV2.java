@@ -22,7 +22,7 @@ import java.io.FilenameFilter;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class DeviceManagerV2 {
     public static final /* synthetic */ DeviceManagerV2[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;

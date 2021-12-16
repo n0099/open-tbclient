@@ -15,7 +15,7 @@ import com.kwad.sdk.export.proxy.AdHttpProxy;
 import com.kwad.sdk.export.proxy.AdInstallProxy;
 import com.kwad.sdk.utils.aq;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

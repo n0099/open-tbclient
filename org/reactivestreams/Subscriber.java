@@ -1,5 +1,5 @@
 package org.reactivestreams;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface Subscriber<T> {
     void onComplete();
 

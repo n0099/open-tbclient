@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AbsTabActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
     public FragmentTabHost mTabHost;
     public FragmentTabHost.a onTabSelectionListener;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CustomOnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,14 +89,14 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this);
-        bVar.f41050c = fragment;
+        bVar.f41541c = fragment;
         bVar.a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.setTextColorResId(R.color.ala_sub_list_game_live_tab_txt_color);
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f41049b = fragmentTabIndicator;
+        bVar.f41540b = fragmentTabIndicator;
         this.mTabHost.addTabSpec(bVar);
     }
 
@@ -234,8 +234,8 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
             this.mTabHost.reset();
             this.mTabHost.getFragmentTabWidget().setDiverColor(getResources().getColor(R.color.CAM_X0105));
             this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.ds12));
-            this.mTabHost.getFragmentTabWidget().setDviderRectWidth(l.f(getActivity(), R.dimen.ds64));
-            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(l.f(getActivity(), R.dimen.ds4));
+            this.mTabHost.getFragmentTabWidget().setDviderRectWidth(m.f(getActivity(), R.dimen.ds64));
+            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(m.f(getActivity(), R.dimen.ds4));
             this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(R.color.CAM_X0201);
             initTabSpec();
             this.mTabHost.setCurrentTab(getCurrentIndex());

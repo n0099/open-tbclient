@@ -26,7 +26,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TTIStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -43,7 +43,7 @@ public class TTIStats {
     public transient /* synthetic */ FieldHolder $fh;
     public UBCManager mUbcManager;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class TTIData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class TTIStats {
                         this.val$jsonObject = jSONObject;
                     }
 
-                    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0096 -> B:39:0x0099). Please submit an issue!!! */
+                    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0094 -> B:39:0x0097). Please submit an issue!!! */
                     @Override // java.lang.Runnable
                     public void run() {
                         BufferedWriter bufferedWriter;
@@ -149,11 +149,11 @@ public class TTIStats {
                                             file.createNewFile();
                                         }
                                         bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true)));
-                                    } catch (IOException e2) {
-                                        e = e2;
+                                    } catch (Throwable th) {
+                                        th = th;
                                     }
-                                } catch (Throwable th) {
-                                    th = th;
+                                } catch (IOException e2) {
+                                    e = e2;
                                 }
                             } catch (IOException e3) {
                                 e3.printStackTrace();

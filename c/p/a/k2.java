@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class k2 implements p0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ u2 f30823b;
+    public final /* synthetic */ u2 f31193b;
 
     public k2(u2 u2Var, View view) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class k2 implements p0 {
                 return;
             }
         }
-        this.f30823b = u2Var;
+        this.f31193b = u2Var;
         this.a = view;
     }
 
@@ -42,7 +42,7 @@ public class k2 implements p0 {
         if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.a == null) {
             return;
         }
-        this.f30823b.f30962f.a(z);
+        this.f31193b.f31332f.a(z);
     }
 
     @Override // c.p.a.p0
@@ -51,7 +51,7 @@ public class k2 implements p0 {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
             return;
         }
-        this.f30823b.f30962f.onDisplayed();
+        this.f31193b.f31332f.onDisplayed();
     }
 
     @Override // c.p.a.p0
@@ -60,6 +60,6 @@ public class k2 implements p0 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        new Handler(Looper.getMainLooper()).postDelayed(new h2(this), this.f30823b.f30959c.getSpet());
+        new Handler(Looper.getMainLooper()).postDelayed(new h2(this), this.f31193b.f31329c.getSpet());
     }
 }

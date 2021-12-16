@@ -2,7 +2,7 @@ package com.baidu.tieba.im.forum.detail;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.t3.x;
+import c.a.s0.v3.x;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -26,18 +26,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumDetailActivity f45990e;
+    public ForumDetailActivity f46489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f45991f;
+    public f f46490f;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,12 +69,12 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof x)) {
-                this.a.f45990e.updateLikeAndMsgStatus(((x) customResponsedMessage.getData()).l() == 1);
+                this.a.f46489e.updateLikeAndMsgStatus(((x) customResponsedMessage.getData()).l() == 1);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,26 +107,26 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage == null) {
-                    if (this.a.f45991f != null) {
-                        this.a.f45991f.onNetError(null);
+                    if (this.a.f46490f != null) {
+                        this.a.f46490f.onNetError(null);
                     }
                 } else if (responsedMessage.hasError()) {
-                    if (this.a.f45991f != null) {
-                        this.a.f45991f.onNetError(responsedMessage.getErrorString());
+                    if (this.a.f46490f != null) {
+                        this.a.f46490f.onNetError(responsedMessage.getErrorString());
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
-                        this.a.f45991f.onHttpResponsedMessage((ForumDetailHttpResponse) responsedMessage);
+                        this.a.f46490f.onHttpResponsedMessage((ForumDetailHttpResponse) responsedMessage);
                     }
                     if (responsedMessage instanceof ForumDetailSocketResponse) {
-                        this.a.f45991f.onSocketResponsedMessage((ForumDetailSocketResponse) responsedMessage);
+                        this.a.f46490f.onSocketResponsedMessage((ForumDetailSocketResponse) responsedMessage);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class c extends c.a.d.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,27 +168,27 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     }
                     if (responseUpdateMaskInfoMessage.getError() != 0) {
                         if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                            errorString = this.a.f45990e.getResources().getString(R.string.neterror);
+                            errorString = this.a.f46489e.getResources().getString(R.string.neterror);
                         } else {
                             errorString = responseUpdateMaskInfoMessage.getErrorString();
                         }
-                        this.a.f45990e.showToast(errorString);
+                        this.a.f46489e.showToast(errorString);
                         if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                            this.a.f45991f.onSubscrib(false);
+                            this.a.f46490f.onSubscrib(false);
                         } else {
-                            this.a.f45991f.onUnSubscrib(false);
+                            this.a.f46490f.onUnSubscrib(false);
                         }
                     } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                        this.a.f45991f.onSubscrib(true);
+                        this.a.f46490f.onSubscrib(true);
                     } else {
-                        this.a.f45991f.onUnSubscrib(true);
+                        this.a.f46490f.onUnSubscrib(true);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,12 +220,12 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001151) {
-                this.a.f45990e.showToast(R.string.delete_success);
+                this.a.f46489e.showToast(R.string.delete_success);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class e extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,17 +259,17 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002510 && ((z = httpResponsedMessage instanceof BarEmotionResponseMessage))) {
                 if (httpResponsedMessage.hasError()) {
-                    if (this.a.f45991f != null) {
-                        this.a.f45991f.onNetError(httpResponsedMessage.getErrorString());
+                    if (this.a.f46490f != null) {
+                        this.a.f46490f.onNetError(httpResponsedMessage.getErrorString());
                     }
                 } else if (z && httpResponsedMessage.getCmd() == 1002510) {
-                    this.a.f45991f.onHttpEmotionResponseMessage((BarEmotionResponseMessage) httpResponsedMessage);
+                    this.a.f46490f.onHttpEmotionResponseMessage((BarEmotionResponseMessage) httpResponsedMessage);
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface f {
         void onHttpEmotionResponseMessage(BarEmotionResponseMessage barEmotionResponseMessage);
 
@@ -302,8 +302,8 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                 return;
             }
         }
-        this.f45990e = forumDetailActivity;
-        this.f45991f = forumDetailActivity;
+        this.f46489e = forumDetailActivity;
+        this.f46490f = forumDetailActivity;
         B();
         C();
         y();

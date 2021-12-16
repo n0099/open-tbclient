@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBox.c, ImageProvider, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_COMMON_ATTENTION = 1;
@@ -161,7 +161,7 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, c.a.q0.s.g0.t.a
+    @Override // com.baidu.tbadk.data.MetaData, c.a.r0.s.i0.t.a
     public void setIsLike(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {

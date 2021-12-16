@@ -10,30 +10,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f31373b;
+    public static final a f31743b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f31374c;
+    public static final a f31744c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f31375d;
+    public static final a f31745d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f31376e;
+    public static final a f31746e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f31377f;
+    public static final a f31747f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f31378g;
+    public static final a f31748g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ a[] f31379h;
+    public static final /* synthetic */ a[] f31749h;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -50,14 +50,14 @@ public final class a {
                 return;
             }
         }
-        f31373b = new a("None", 0, "none");
-        f31374c = new a("WapPay", 1, "js://wappay");
-        f31375d = new a("Update", 2, "js://update");
-        f31376e = new a("OpenWeb", 3, "loc:openweb");
-        f31377f = new a("SetResult", 4, "loc:setResult");
+        f31743b = new a("None", 0, "none");
+        f31744c = new a("WapPay", 1, "js://wappay");
+        f31745d = new a("Update", 2, "js://update");
+        f31746e = new a("OpenWeb", 3, "loc:openweb");
+        f31747f = new a("SetResult", 4, "loc:setResult");
         a aVar = new a("Exit", 5, "loc:exit");
-        f31378g = aVar;
-        f31379h = new a[]{f31373b, f31374c, f31375d, f31376e, f31377f, aVar};
+        f31748g = aVar;
+        f31749h = new a[]{f31743b, f31744c, f31745d, f31746e, f31747f, aVar};
     }
 
     public a(String str, int i2, String str2) {
@@ -87,9 +87,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f31373b;
+                return f31743b;
             }
-            a aVar = f31373b;
+            a aVar = f31743b;
             for (a aVar2 : values()) {
                 if (str.startsWith(aVar2.a)) {
                     return aVar2;
@@ -109,6 +109,6 @@ public final class a {
     public static a[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (a[]) f31379h.clone() : (a[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (a[]) f31749h.clone() : (a[]) invokeV.objValue;
     }
 }

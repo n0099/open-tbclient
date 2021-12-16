@@ -1,8 +1,8 @@
 package com.baidu.tieba.wallet;
 
-import c.a.d.f.p.k;
 import c.a.d.f.p.l;
-import c.a.q0.s.s.a;
+import c.a.d.f.p.m;
+import c.a.r0.s.t.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CurrencySwitchTDouYBeanDialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_RETRY_TIME = 3;
@@ -83,10 +83,10 @@ public class CurrencySwitchTDouYBeanDialog {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str}) == null) {
             if (!z) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_CLICK_FAIL_REASON).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", 2));
-                if (k.isEmpty(str)) {
-                    l.L(TbadkCoreApplication.getInst().getContext(), R.string.default_t_dou_switching_fail_toast);
+                if (l.isEmpty(str)) {
+                    m.L(TbadkCoreApplication.getInst().getContext(), R.string.default_t_dou_switching_fail_toast);
                 } else {
-                    l.M(TbadkCoreApplication.getInst().getContext(), str);
+                    m.M(TbadkCoreApplication.getInst().getContext(), str);
                 }
                 showDialog();
             } else if (i2 == 0) {
@@ -99,10 +99,10 @@ public class CurrencySwitchTDouYBeanDialog {
                 this.dialog.dismiss();
             } else {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_CLICK_FAIL_REASON).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", 1));
-                if (k.isEmpty(str)) {
-                    l.L(TbadkCoreApplication.getInst().getContext(), R.string.default_t_dou_switching_fail_toast);
+                if (l.isEmpty(str)) {
+                    m.L(TbadkCoreApplication.getInst().getContext(), R.string.default_t_dou_switching_fail_toast);
                 } else {
-                    l.M(TbadkCoreApplication.getInst().getContext(), str);
+                    m.M(TbadkCoreApplication.getInst().getContext(), str);
                 }
                 showDialog();
             }
@@ -167,7 +167,7 @@ public class CurrencySwitchTDouYBeanDialog {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.q0.s.s.a.e
+                @Override // c.a.r0.s.t.a.e
                 public void onClick(a aVar3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) {

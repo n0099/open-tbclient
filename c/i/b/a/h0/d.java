@@ -12,17 +12,17 @@ import com.bumptech.glide.load.model.DataUrlLoader;
 import com.google.android.exoplayer2.ParserException;
 import java.io.IOException;
 import java.net.URLDecoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class d implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30131b;
+    public int f30501b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f30132c;
+    public byte[] f30502c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -52,14 +52,14 @@ public final class d implements e {
                     String str = split[1];
                     if (split[0].contains(DataUrlLoader.BASE64_TAG)) {
                         try {
-                            this.f30132c = Base64.decode(str, 0);
+                            this.f30502c = Base64.decode(str, 0);
                         } catch (IllegalArgumentException e2) {
                             throw new ParserException("Error while parsing Base64 encoded string: " + str, e2);
                         }
                     } else {
-                        this.f30132c = URLDecoder.decode(str, "US-ASCII").getBytes();
+                        this.f30502c = URLDecoder.decode(str, "US-ASCII").getBytes();
                     }
-                    return this.f30132c.length;
+                    return this.f30502c.length;
                 }
                 throw new ParserException("Unexpected URI format: " + uri);
             }
@@ -73,7 +73,7 @@ public final class d implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = null;
-            this.f30132c = null;
+            this.f30502c = null;
         }
     }
 
@@ -99,13 +99,13 @@ public final class d implements e {
             if (i3 == 0) {
                 return 0;
             }
-            int length = this.f30132c.length - this.f30131b;
+            int length = this.f30502c.length - this.f30501b;
             if (length == 0) {
                 return -1;
             }
             int min = Math.min(i3, length);
-            System.arraycopy(this.f30132c, this.f30131b, bArr, i2, min);
-            this.f30131b += min;
+            System.arraycopy(this.f30502c, this.f30501b, bArr, i2, min);
+            this.f30501b += min;
             return min;
         }
         return invokeLII.intValue;

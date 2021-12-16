@@ -24,21 +24,21 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class PayRequestCache implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HashMap<String, BeanRequestBase> a;
 
     /* renamed from: com.baidu.wallet.paysdk.storage.PayRequestCache$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class BindCategory {
         public static final /* synthetic */ BindCategory[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -123,7 +123,7 @@ public final class PayRequestCache implements NoProguard {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static PayRequestCache a;

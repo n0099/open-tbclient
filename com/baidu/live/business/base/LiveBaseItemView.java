@@ -3,21 +3,22 @@ package com.baidu.live.business.base;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class LiveBaseItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f35288e;
+    public float f35768e;
     public boolean mIsImmersion;
     public String mUiMode;
     public boolean needRatio;
@@ -41,9 +42,18 @@ public abstract class LiveBaseItemView extends RelativeLayout {
             }
         }
         this.needRatio = false;
-        this.f35288e = 1.0f;
+        this.f35768e = 1.0f;
         this.mIsImmersion = false;
         this.mUiMode = "day";
+    }
+
+    public ViewGroup getVideoContainer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (ViewGroup) invokeV.objValue;
     }
 
     public abstract void onDarkModeChange(String str);
@@ -51,9 +61,9 @@ public abstract class LiveBaseItemView extends RelativeLayout {
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             if (this.needRatio) {
-                i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f35288e), 1073741824);
+                i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f35768e), 1073741824);
             }
             super.onMeasure(i2, i3);
         }
@@ -61,32 +71,32 @@ public abstract class LiveBaseItemView extends RelativeLayout {
 
     public void onViewAttached() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
     public void onViewDetached() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
     public void onViewRecycled() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
     public void releaseHolder() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
     public void setAspectRatio(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            this.f35288e = f2;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
+            this.f35768e = f2;
         }
     }
 
@@ -94,21 +104,21 @@ public abstract class LiveBaseItemView extends RelativeLayout {
 
     public void setIsImmersion(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.mIsImmersion = z;
         }
     }
 
     public void setNeedRatio(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.needRatio = z;
         }
     }
 
     public void setUiMode(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.mUiMode = str;
         }
     }
@@ -133,7 +143,7 @@ public abstract class LiveBaseItemView extends RelativeLayout {
             }
         }
         this.needRatio = false;
-        this.f35288e = 1.0f;
+        this.f35768e = 1.0f;
         this.mIsImmersion = false;
         this.mUiMode = "day";
     }
@@ -158,7 +168,7 @@ public abstract class LiveBaseItemView extends RelativeLayout {
             }
         }
         this.needRatio = false;
-        this.f35288e = 1.0f;
+        this.f35768e = 1.0f;
         this.mIsImmersion = false;
         this.mUiMode = "day";
     }

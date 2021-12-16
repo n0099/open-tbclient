@@ -14,13 +14,13 @@ import com.google.android.exoplayer2.extractor.flv.TagPayloadReader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class c extends TagPayloadReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f29039b;
+    public long f29409b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(m mVar) {
@@ -40,7 +40,7 @@ public final class c extends TagPayloadReader {
                 return;
             }
         }
-        this.f29039b = -9223372036854775807L;
+        this.f29409b = -9223372036854775807L;
     }
 
     public static Boolean e(l lVar) {
@@ -182,7 +182,7 @@ public final class c extends TagPayloadReader {
                     if (i2.containsKey("duration")) {
                         double doubleValue = ((Double) i2.get("duration")).doubleValue();
                         if (doubleValue > 0.0d) {
-                            this.f29039b = (long) (doubleValue * 1000000.0d);
+                            this.f29409b = (long) (doubleValue * 1000000.0d);
                             return;
                         }
                         return;
@@ -198,6 +198,6 @@ public final class c extends TagPayloadReader {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29039b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29409b : invokeV.longValue;
     }
 }

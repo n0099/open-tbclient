@@ -2,7 +2,7 @@ package com.baidu.ar.arrender;
 
 import com.baidu.ar.DuMixOutput;
 import com.baidu.ar.DuMixStateListener;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IRenderer {
     void addFrameRenderListener(FrameRenderListener frameRenderListener);
 

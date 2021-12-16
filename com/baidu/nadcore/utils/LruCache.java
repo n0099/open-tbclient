@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LruCache<K, V> extends LinkedHashMap<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_CACHE_SIZE = 32;

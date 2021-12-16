@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class HomeRecommendView extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f52604b;
+    public ViewGroup f53184b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f52605c;
+    public List<BaseItemView> f53185c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomeRecommendView(Context context, AttributeSet attributeSet) {
@@ -45,14 +45,14 @@ public class HomeRecommendView extends BaseItemLayout {
                 return;
             }
         }
-        this.f52605c = new ArrayList();
+        this.f53185c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52605c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53185c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -61,7 +61,7 @@ public class HomeRecommendView extends BaseItemLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_recommend_layout"), this);
             this.a = (ViewGroup) findViewById(ResUtils.id(getContext(), "rmd_rl_left"));
-            this.f52604b = (ViewGroup) findViewById(ResUtils.id(getContext(), "rmd_rl_right"));
+            this.f53184b = (ViewGroup) findViewById(ResUtils.id(getContext(), "rmd_rl_right"));
         }
     }
 
@@ -91,9 +91,9 @@ public class HomeRecommendView extends BaseItemLayout {
             HomeRecommendItemView homeRecommendItemView2 = new HomeRecommendItemView(getContext());
             homeRecommendItemView2.setData(dataItemArr[1], getWalletInterface());
             this.a.addView(homeRecommendItemView);
-            this.f52604b.addView(homeRecommendItemView2);
-            this.f52605c.add(homeRecommendItemView);
-            this.f52605c.add(homeRecommendItemView2);
+            this.f53184b.addView(homeRecommendItemView2);
+            this.f53185c.add(homeRecommendItemView);
+            this.f53185c.add(homeRecommendItemView2);
         }
     }
 
@@ -115,6 +115,6 @@ public class HomeRecommendView extends BaseItemLayout {
                 return;
             }
         }
-        this.f52605c = new ArrayList();
+        this.f53185c = new ArrayList();
     }
 }

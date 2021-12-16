@@ -11,9 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.q0.s.g0.f;
-import c.a.q0.s.g0.g;
+import c.a.d.f.p.m;
+import c.a.r0.s.i0.f;
+import c.a.r0.s.i0.g;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
@@ -34,38 +34,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SigleRecordsFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConsumptionRecordsActivity f43314e;
+    public ConsumptionRecordsActivity f43805e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ConsumptionRecordsModel f43315f;
+    public ConsumptionRecordsModel f43806f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f43316g;
+    public boolean f43807g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f43317h;
+    public boolean f43808h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f43318i;
+    public int f43809i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f43319j;
+    public LinearLayout f43810j;
 
     /* renamed from: k  reason: collision with root package name */
-    public BdListView f43320k;
+    public BdListView f43811k;
     public g l;
-    public c.a.r0.j0.c m;
+    public c.a.s0.j0.c m;
     public NoDataView n;
     public TextView o;
     public TbImageView p;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements ConsumptionRecordsModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,10 +93,10 @@ public class SigleRecordsFragment extends BaseFragment {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f43316g = true;
+                this.a.f43807g = true;
                 SigleRecordsFragment sigleRecordsFragment = this.a;
-                sigleRecordsFragment.hideLoadingView(sigleRecordsFragment.f43319j);
-                if (this.a.f43317h) {
+                sigleRecordsFragment.hideLoadingView(sigleRecordsFragment.f43810j);
+                if (this.a.f43808h) {
                     this.a.o.setText(R.string.load_more);
                 } else {
                     this.a.o.setText(R.string.no_more_data);
@@ -105,15 +105,15 @@ public class SigleRecordsFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel.b
-        public void b(int i2, String str, ArrayList<c.a.r0.j0.a> arrayList, c.a.r0.j0.b bVar, boolean z) {
+        public void b(int i2, String str, ArrayList<c.a.s0.j0.a> arrayList, c.a.s0.j0.b bVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, arrayList, bVar, Boolean.valueOf(z)}) == null) {
-                this.a.f43317h = z;
+                this.a.f43808h = z;
                 SigleRecordsFragment sigleRecordsFragment = this.a;
-                sigleRecordsFragment.hideLoadingView(sigleRecordsFragment.f43319j);
-                this.a.f43320k.completePullRefresh();
+                sigleRecordsFragment.hideLoadingView(sigleRecordsFragment.f43810j);
+                this.a.f43811k.completePullRefresh();
                 if (i2 == 0) {
-                    this.a.f43316g = true;
+                    this.a.f43807g = true;
                     if (arrayList == null || arrayList.size() <= 0) {
                         if (bVar != null) {
                             this.a.x(bVar);
@@ -134,25 +134,25 @@ public class SigleRecordsFragment extends BaseFragment {
                     return;
                 }
                 this.a.showToast(str);
-                if (!this.a.f43316g) {
+                if (!this.a.f43807g) {
                     this.a.w();
                 } else if (z) {
                     this.a.o.setText(R.string.load_more);
                 } else {
                     this.a.o.setText(R.string.no_more_data);
                 }
-                this.a.f43316g = true;
+                this.a.f43807g = true;
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class b implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SigleRecordsFragment f43321e;
+        public final /* synthetic */ SigleRecordsFragment f43812e;
 
         public b(SigleRecordsFragment sigleRecordsFragment) {
             Interceptable interceptable = $ic;
@@ -169,25 +169,25 @@ public class SigleRecordsFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43321e = sigleRecordsFragment;
+            this.f43812e = sigleRecordsFragment;
         }
 
-        @Override // c.a.q0.s.g0.f.g
+        @Override // c.a.r0.s.i0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f43321e.f43315f.C();
+                this.f43812e.f43806f.C();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class c implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SigleRecordsFragment f43322e;
+        public final /* synthetic */ SigleRecordsFragment f43813e;
 
         public c(SigleRecordsFragment sigleRecordsFragment) {
             Interceptable interceptable = $ic;
@@ -204,30 +204,30 @@ public class SigleRecordsFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43322e = sigleRecordsFragment;
+            this.f43813e = sigleRecordsFragment;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43322e.f43315f.D();
+                this.f43813e.f43806f.D();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.j0.b f43323e;
+        public final /* synthetic */ c.a.s0.j0.b f43814e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SigleRecordsFragment f43324f;
+        public final /* synthetic */ SigleRecordsFragment f43815f;
 
-        public d(SigleRecordsFragment sigleRecordsFragment, c.a.r0.j0.b bVar) {
+        public d(SigleRecordsFragment sigleRecordsFragment, c.a.s0.j0.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -242,15 +242,15 @@ public class SigleRecordsFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43324f = sigleRecordsFragment;
-            this.f43323e = bVar;
+            this.f43815f = sigleRecordsFragment;
+            this.f43814e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f43324f.getPageContext(), new String[]{this.f43323e.b()});
+                UrlManager.getInstance().dealOneLink(this.f43815f.getPageContext(), new String[]{this.f43814e.b()});
             }
         }
     }
@@ -268,15 +268,15 @@ public class SigleRecordsFragment extends BaseFragment {
                 return;
             }
         }
-        this.f43316g = false;
-        this.f43317h = false;
+        this.f43807g = false;
+        this.f43808h = false;
         this.l = null;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43318i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43809i : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -285,7 +285,7 @@ public class SigleRecordsFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            LinearLayout linearLayout = this.f43319j;
+            LinearLayout linearLayout = this.f43810j;
             if (linearLayout != null) {
                 SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0201);
             }
@@ -297,7 +297,7 @@ public class SigleRecordsFragment extends BaseFragment {
             if (gVar != null) {
                 gVar.C(i2);
             }
-            if (this.m != null && (bdListView = this.f43320k) != null) {
+            if (this.m != null && (bdListView = this.f43811k) != null) {
                 SkinManager.setBackgroundColor(bdListView, R.color.CAM_X0204);
                 this.m.notifyDataSetChanged();
             }
@@ -305,7 +305,7 @@ public class SigleRecordsFragment extends BaseFragment {
             if (noDataView == null || noDataView.getVisibility() != 0) {
                 return;
             }
-            this.n.onChangeSkinType(this.f43314e.getPageContext(), i2);
+            this.n.onChangeSkinType(this.f43805e.getPageContext(), i2);
         }
     }
 
@@ -314,16 +314,16 @@ public class SigleRecordsFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f43314e = (ConsumptionRecordsActivity) getBaseFragmentActivity();
+            this.f43805e = (ConsumptionRecordsActivity) getBaseFragmentActivity();
             ConsumptionRecordsModel consumptionRecordsModel = new ConsumptionRecordsModel(getUniqueId());
-            this.f43315f = consumptionRecordsModel;
-            consumptionRecordsModel.setType(this.f43318i);
-            if (this.f43318i == 3) {
-                this.f43315f.setShowMember(1);
+            this.f43806f = consumptionRecordsModel;
+            consumptionRecordsModel.setType(this.f43809i);
+            if (this.f43809i == 3) {
+                this.f43806f.setShowMember(1);
             } else {
-                this.f43315f.setShowMember(0);
+                this.f43806f.setShowMember(0);
             }
-            this.f43315f.F(new a(this));
+            this.f43806f.F(new a(this));
         }
     }
 
@@ -333,23 +333,23 @@ public class SigleRecordsFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.single_fragment_layout, (ViewGroup) null);
-            this.f43319j = linearLayout;
-            this.f43320k = (BdListView) linearLayout.findViewById(R.id.records_list_view);
-            this.l = new g(this.f43314e.getPageContext());
-            c.a.r0.j0.c cVar = new c.a.r0.j0.c(this.f43314e.getPageContext(), this.f43318i);
+            this.f43810j = linearLayout;
+            this.f43811k = (BdListView) linearLayout.findViewById(R.id.records_list_view);
+            this.l = new g(this.f43805e.getPageContext());
+            c.a.s0.j0.c cVar = new c.a.s0.j0.c(this.f43805e.getPageContext(), this.f43809i);
             this.m = cVar;
-            this.f43320k.setAdapter((ListAdapter) cVar);
-            this.f43320k.setPullRefresh(this.l);
-            TextView textView = new TextView(this.f43314e.getActivity());
-            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.f(this.f43314e.getActivity(), R.dimen.ds176)));
-            this.f43320k.addHeaderView(textView, 0);
+            this.f43811k.setAdapter((ListAdapter) cVar);
+            this.f43811k.setPullRefresh(this.l);
+            TextView textView = new TextView(this.f43805e.getActivity());
+            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + m.f(this.f43805e.getActivity(), R.dimen.ds176)));
+            this.f43811k.addHeaderView(textView, 0);
             this.l.a(new b(this));
-            this.f43320k.setOnSrollToBottomListener(new c(this));
+            this.f43811k.setOnSrollToBottomListener(new c(this));
             TextView textView2 = (TextView) layoutInflater.inflate(R.layout.load_more_view, (ViewGroup) null);
             this.o = textView2;
-            this.f43320k.addFooterView(textView2);
+            this.f43811k.addFooterView(textView2);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            return this.f43319j;
+            return this.f43810j;
         }
         return (View) invokeLLL.objValue;
     }
@@ -359,12 +359,12 @@ public class SigleRecordsFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            ConsumptionRecordsModel consumptionRecordsModel = this.f43315f;
+            ConsumptionRecordsModel consumptionRecordsModel = this.f43806f;
             if (consumptionRecordsModel != null) {
                 consumptionRecordsModel.destroy();
             }
-            hideLoadingView(this.f43319j);
-            this.f43320k.completePullRefresh();
+            hideLoadingView(this.f43810j);
+            this.f43811k.completePullRefresh();
             this.l = null;
             this.n = null;
         }
@@ -375,18 +375,18 @@ public class SigleRecordsFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPrimary();
-            if (this.f43316g) {
+            if (this.f43807g) {
                 return;
             }
-            this.f43315f.C();
-            showLoadingView(this.f43319j, true, 400);
+            this.f43806f.C();
+            showLoadingView(this.f43810j, true, 400);
         }
     }
 
     public final void s() {
         BdListView bdListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bdListView = this.f43320k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bdListView = this.f43811k) == null) {
             return;
         }
         bdListView.setVisibility(8);
@@ -395,7 +395,7 @@ public class SigleRecordsFragment extends BaseFragment {
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f43318i = i2;
+            this.f43809i = i2;
         }
     }
 
@@ -414,7 +414,7 @@ public class SigleRecordsFragment extends BaseFragment {
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (tbImageView = this.p) == null) {
             return;
         }
-        this.f43319j.removeView(tbImageView);
+        this.f43810j.removeView(tbImageView);
     }
 
     public final void v() {
@@ -422,7 +422,7 @@ public class SigleRecordsFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             t();
             u();
-            BdListView bdListView = this.f43320k;
+            BdListView bdListView = this.f43811k;
             if (bdListView != null) {
                 bdListView.setVisibility(0);
             }
@@ -433,7 +433,7 @@ public class SigleRecordsFragment extends BaseFragment {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            int i3 = this.f43318i;
+            int i3 = this.f43809i;
             if (i3 == 1) {
                 i2 = R.string.no_expenditure_records_tip;
             } else if (i3 == 2) {
@@ -444,19 +444,19 @@ public class SigleRecordsFragment extends BaseFragment {
                 i2 = R.string.no_recharge_records_tip;
             }
             if (this.n == null) {
-                this.n = NoDataViewFactory.a(this.f43314e.getPageContext().getPageActivity(), this.f43319j, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.f(this.f43314e.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(i2), null);
+                this.n = NoDataViewFactory.a(this.f43805e.getPageContext().getPageActivity(), this.f43810j, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, m.f(this.f43805e.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(i2), null);
             }
             this.n.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(i2)));
-            this.n.onChangeSkinType(this.f43314e.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.n.onChangeSkinType(this.f43805e.getPageContext(), TbadkApplication.getInst().getSkinType());
             u();
             s();
             this.n.setVisibility(0);
         }
     }
 
-    public final void x(c.a.r0.j0.b bVar) {
+    public final void x(c.a.s0.j0.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) || bVar == null || this.f43319j == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) || bVar == null || this.f43810j == null) {
             return;
         }
         if (this.p == null) {
@@ -469,6 +469,6 @@ public class SigleRecordsFragment extends BaseFragment {
         this.p.setOnClickListener(new d(this, bVar));
         s();
         t();
-        this.f43319j.addView(this.p);
+        this.f43810j.addView(this.p);
     }
 }

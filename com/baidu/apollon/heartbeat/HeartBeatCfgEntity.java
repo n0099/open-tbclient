@@ -19,7 +19,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HeartBeatCfgEntity implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HEART_BEAT_CFG_UNUSE = "0";
@@ -125,9 +125,9 @@ public class HeartBeatCfgEntity implements NoProguard, Serializable {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             String json = JsonUtils.toJson(this);
             if (!TextUtils.isEmpty(json)) {
-                FileCopyUtils.copyToFile(json, new File(context.getCacheDir() + File.separator + a.f32987b));
+                FileCopyUtils.copyToFile(json, new File(context.getCacheDir() + File.separator + a.f33357b));
             }
-            c.a(context, c.f33005b, Calendar.getInstance().getTimeInMillis() / 1000);
+            c.a(context, c.f33375b, Calendar.getInstance().getTimeInMillis() / 1000);
         }
     }
 

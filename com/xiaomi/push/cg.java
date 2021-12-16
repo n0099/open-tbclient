@@ -22,7 +22,7 @@ import java.util.Random;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class cg {
     public static /* synthetic */ Interceptable $ic;
     public static volatile cg a;
@@ -43,7 +43,7 @@ public class cg {
     /* renamed from: a  reason: collision with other field name */
     public ThreadPoolExecutor f182a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class cg {
         public Random f187a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f62753b;
+        public String f63334b;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class cg {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048582, this, ceVar, context) == null) {
                 this.f183a = ceVar;
-                this.f62753b = ceVar.a();
+                this.f63334b = ceVar.a();
                 this.f186a = new WeakReference<>(context);
             }
         }
@@ -151,7 +151,7 @@ public class cg {
         public boolean m269a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f183a == null || TextUtils.isEmpty(this.f62753b) || this.f186a == null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f183a == null || TextUtils.isEmpty(this.f63334b) || this.f186a == null : invokeV.booleanValue;
         }
 
         public void b(Context context) {
@@ -173,7 +173,7 @@ public class cg {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class b<T> extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -189,16 +189,16 @@ public class cg {
         public String[] f190a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<T> f62754b;
+        public List<T> f63335b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f62755c;
+        public String f63336c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f62756d;
+        public String f63337d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f62757e;
+        public String f63338e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i2) {
@@ -218,13 +218,13 @@ public class cg {
                     return;
                 }
             }
-            this.f62754b = new ArrayList();
+            this.f63335b = new ArrayList();
             this.f189a = list;
             this.f188a = str2;
             this.f190a = strArr;
-            this.f62755c = str3;
-            this.f62756d = str4;
-            this.f62757e = str5;
+            this.f63336c = str3;
+            this.f63337d = str4;
+            this.f63338e = str5;
             this.a = i2;
         }
 
@@ -242,7 +242,7 @@ public class cg {
             String[] strArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, sQLiteDatabase) == null) {
-                this.f62754b.clear();
+                this.f63335b.clear();
                 List<String> list = this.f189a;
                 if (list == null || list.size() <= 0) {
                     strArr = null;
@@ -252,24 +252,24 @@ public class cg {
                     strArr = strArr2;
                 }
                 int i2 = this.a;
-                Cursor query = sQLiteDatabase.query(super.f62753b, strArr, this.f188a, this.f190a, this.f62755c, this.f62756d, this.f62757e, i2 > 0 ? String.valueOf(i2) : null);
+                Cursor query = sQLiteDatabase.query(super.f63334b, strArr, this.f188a, this.f190a, this.f63336c, this.f63337d, this.f63338e, i2 > 0 ? String.valueOf(i2) : null);
                 if (query != null && query.moveToFirst()) {
                     do {
                         T a = a(context, query);
                         if (a != null) {
-                            this.f62754b.add(a);
+                            this.f63335b.add(a);
                         }
                     } while (query.moveToNext());
                     query.close();
                 }
-                a(context, (List) this.f62754b);
+                a(context, (List) this.f63335b);
             }
         }
 
         public abstract void a(Context context, List<T> list);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -328,7 +328,7 @@ public class cg {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -363,12 +363,12 @@ public class cg {
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, sQLiteDatabase) == null) {
-                sQLiteDatabase.delete(this.f62753b, this.a, this.f191a);
+                sQLiteDatabase.delete(this.f63334b, this.a, this.f191a);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -399,7 +399,7 @@ public class cg {
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, sQLiteDatabase) == null) {
-                sQLiteDatabase.insert(this.f62753b, null, this.a);
+                sQLiteDatabase.insert(this.f63334b, null, this.a);
             }
         }
     }

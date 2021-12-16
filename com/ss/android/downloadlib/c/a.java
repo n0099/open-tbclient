@@ -20,7 +20,7 @@ import com.ss.android.socialbase.downloader.depend.m;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class a implements m {
                     public final /* synthetic */ DownloadInfo a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f61367b;
+                    public final /* synthetic */ a f61948b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -118,7 +118,7 @@ public class a implements m {
                                 return;
                             }
                         }
-                        this.f61367b = this;
+                        this.f61948b = this;
                         this.a = downloadInfo;
                     }
 

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CouponDetailResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,13 +37,13 @@ public class CouponDetailResponse implements IBeanResponse, Serializable {
     public String sub_title2;
     public String template_num;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class AppSceneService implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: android  reason: collision with root package name */
-        public int f54063android;
+        public int f54643android;
         public String url;
 
         public AppSceneService() {
@@ -61,7 +61,7 @@ public class CouponDetailResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class Detail implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7483625839289305699L;

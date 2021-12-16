@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ah {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f58714b;
+    public final boolean f59295b;
 
     public ah(e eVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class ah {
             }
         }
         this.a = eVar;
-        this.f58714b = !(eVar instanceof f);
+        this.f59295b = !(eVar instanceof f);
     }
 
     public List<? extends ae> a(String str) {

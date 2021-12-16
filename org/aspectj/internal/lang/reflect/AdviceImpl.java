@@ -16,7 +16,7 @@ import org.aspectj.lang.reflect.AdviceKind;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.PointcutExpression;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdviceImpl implements Advice {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AJC_INTERNAL = "org.aspectj.runtime.internal";
@@ -30,7 +30,7 @@ public class AdviceImpl implements Advice {
     public PointcutExpression pointcutExpression;
 
     /* renamed from: org.aspectj.internal.lang.reflect.AdviceImpl$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$aspectj$lang$reflect$AdviceKind;
         public static /* synthetic */ Interceptable $ic;

@@ -7,14 +7,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.j;
-import c.a.d.f.p.l;
-import c.a.k.p;
-import c.a.k.q;
-import c.a.q0.n.c;
-import c.a.q0.s.q.m;
-import c.a.q0.s.q.n;
-import c.a.q0.s.w.b.d;
-import c.a.q0.s.w.b.e;
+import c.a.l.p;
+import c.a.l.q;
+import c.a.r0.n.c;
+import c.a.r0.s.r.m;
+import c.a.r0.s.r.n;
+import c.a.r0.s.x.b.d;
+import c.a.r0.s.x.b.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.flow.CoverFlowView;
@@ -28,31 +27,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CoverFlowView<m> f33570e;
+    public CoverFlowView<m> f34038e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<m> f33571f;
+    public List<m> f34039f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f33572g;
+    public c f34040g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f33573h;
+    public String f34041h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d<m> f33574i;
+    public d<m> f34042i;
 
     /* renamed from: j  reason: collision with root package name */
-    public d<m> f33575j;
+    public d<m> f34043j;
 
-    /* loaded from: classes8.dex */
-    public class a extends c.a.q0.s.w.b.b {
+    /* loaded from: classes9.dex */
+    public class a extends c.a.r0.s.x.b.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoBannerLayout a;
@@ -75,12 +74,12 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
             this.a = autoBannerLayout;
         }
 
-        @Override // c.a.q0.s.w.b.b, c.a.q0.s.w.a
-        public c.a.q0.s.w.b.c a() {
+        @Override // c.a.r0.s.x.b.b, c.a.r0.s.x.a
+        public c.a.r0.s.x.b.c a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.q0.s.w.b.c cVar = new c.a.q0.s.w.b.c();
+                c.a.r0.s.x.b.c cVar = new c.a.r0.s.x.b.c();
                 cVar.c(R.drawable.shape_home_feed_banner_dot_n);
                 cVar.g(R.drawable.shape_home_feed_banner_dot_s);
                 cVar.d(81);
@@ -88,22 +87,22 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
                 cVar.h(R.dimen.M_W_X003);
                 return cVar;
             }
-            return (c.a.q0.s.w.b.c) invokeV.objValue;
+            return (c.a.r0.s.x.b.c) invokeV.objValue;
         }
 
-        @Override // c.a.q0.s.w.b.b, c.a.q0.s.w.a
+        @Override // c.a.r0.s.x.b.b, c.a.r0.s.x.a
         public e c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 e eVar = new e();
-                eVar.a(l.f(this.a.getContext(), R.dimen.tbds209));
+                eVar.a(c.a.d.f.p.m.f(this.a.getContext(), R.dimen.tbds209));
                 return eVar;
             }
             return (e) invokeV.objValue;
         }
 
-        @Override // c.a.q0.s.w.b.b, c.a.q0.s.w.a
+        @Override // c.a.r0.s.x.b.b, c.a.r0.s.x.a
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -114,14 +113,14 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
                 tbImageView.setGifIconSupport(false);
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 tbImageView.setDrawerType(1);
-                tbImageView.setRadius(l.f(this.a.getContext(), R.dimen.tbds31));
+                tbImageView.setRadius(c.a.d.f.p.m.f(this.a.getContext(), R.dimen.tbds31));
                 return tbImageView;
             }
             return (TbImageView) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements d<m> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,30 +144,30 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
             this.a = autoBannerLayout;
         }
 
-        @Override // c.a.q0.s.w.b.d
+        @Override // c.a.r0.s.x.b.d
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 this.a.dealOneLink(str);
-                int count = ListUtils.getCount(this.a.f33571f);
-                if (i2 < 0 || i2 > count || this.a.f33574i == null) {
+                int count = ListUtils.getCount(this.a.f34039f);
+                if (i2 < 0 || i2 > count || this.a.f34042i == null) {
                     return;
                 }
-                this.a.f33574i.b(i2, str);
+                this.a.f34042i.b(i2, str);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.s.w.b.d
+        @Override // c.a.r0.s.x.b.d
         /* renamed from: c */
         public void a(int i2, m mVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, mVar) == null) {
-                int count = ListUtils.getCount(this.a.f33571f);
-                if (i2 < 0 || i2 > count || this.a.f33574i == null) {
+                int count = ListUtils.getCount(this.a.f34039f);
+                if (i2 < 0 || i2 > count || this.a.f34042i == null) {
                     return;
                 }
-                this.a.f33574i.a(i2, mVar);
+                this.a.f34042i.a(i2, mVar);
             }
         }
     }
@@ -197,23 +196,23 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f33570e = new CoverFlowView<>(getContext());
+            this.f34038e = new CoverFlowView<>(getContext());
             a aVar = new a(this);
-            this.f33570e.setPageMargin(l.f(getContext(), R.dimen.tbds42));
-            this.f33570e.setIndicatorNoOffet(false);
-            this.f33570e.setDisableParentEvent(false);
-            this.f33570e.setCoverFlowFactory(aVar);
-            this.f33570e.setIndicatorVisible(0);
-            this.f33570e.setIsAutoPlayDragging(false);
-            this.f33570e.setCallback(this.f33575j);
-            addView(this.f33570e);
+            this.f34038e.setPageMargin(c.a.d.f.p.m.f(getContext(), R.dimen.tbds42));
+            this.f34038e.setIndicatorNoOffet(false);
+            this.f34038e.setDisableParentEvent(false);
+            this.f34038e.setCoverFlowFactory(aVar);
+            this.f34038e.setIndicatorVisible(0);
+            this.f34038e.setIsAutoPlayDragging(false);
+            this.f34038e.setCallback(this.f34043j);
+            addView(this.f34038e);
         }
     }
 
     public void checkAndStartMarqueen() {
         CoverFlowView<m> coverFlowView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (coverFlowView = this.f33570e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (coverFlowView = this.f34038e) == null) {
             return;
         }
         coverFlowView.checkAndStartMarqueen();
@@ -222,7 +221,7 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
     public boolean checkIndex(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? i2 > 0 && i2 <= ListUtils.getCount(this.f33571f) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? i2 > 0 && i2 <= ListUtils.getCount(this.f34039f) : invokeI.booleanValue;
     }
 
     public void dealOneLink(String str) {
@@ -233,8 +232,8 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
                     return;
                 }
                 TbPageContext<?> tbPageContext = (TbPageContext) j.a(getContext());
-                if (!TextUtils.isEmpty(this.f33573h)) {
-                    str = str + "&source=" + this.f33573h;
+                if (!TextUtils.isEmpty(this.f34041h)) {
+                    str = str + "&source=" + this.f34041h;
                 }
                 UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
             } catch (Exception e2) {
@@ -246,19 +245,19 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
     public CoverFlowView getCoverFlowView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33570e : (CoverFlowView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34038e : (CoverFlowView) invokeV.objValue;
     }
 
     public m getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (m) ListUtils.getItem(this.f33571f, i2) : (m) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (m) ListUtils.getItem(this.f34039f, i2) : (m) invokeI.objValue;
     }
 
     public void onChangeSkinType(int i2) {
         CoverFlowView<m> coverFlowView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (coverFlowView = this.f33570e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (coverFlowView = this.f34038e) == null) {
             return;
         }
         coverFlowView.onChangeSkinType();
@@ -269,40 +268,40 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
-            if (this.f33572g != null) {
-                this.f33572g.a(this, i2 == 0, null);
+            if (this.f34040g != null) {
+                this.f34040g.a(this, i2 == 0, null);
             }
         }
     }
 
     public void setBannerHeight(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || this.f33570e == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || this.f34038e == null) {
             return;
         }
         e eVar = new e();
         eVar.a(i2);
-        this.f33570e.updateViewPager(eVar);
+        this.f34038e.updateViewPager(eVar);
     }
 
     public void setFrom(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f33573h = str;
+            this.f34041h = str;
         }
     }
 
     public void setIWindowChangedListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, cVar) == null) {
-            this.f33572g = cVar;
+            this.f34040g = cVar;
         }
     }
 
     public void setIndicatorVisible(int i2) {
         CoverFlowView<m> coverFlowView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || (coverFlowView = this.f33570e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || (coverFlowView = this.f34038e) == null) {
             return;
         }
         coverFlowView.setIndicatorVisible(i2);
@@ -311,7 +310,7 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
     public void setMarqueenTime(long j2) {
         CoverFlowView<m> coverFlowView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) || (coverFlowView = this.f33570e) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) || (coverFlowView = this.f34038e) == null) {
             return;
         }
         coverFlowView.setMarqueenTime(j2);
@@ -320,14 +319,14 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
     public void setOnCoverViewCallback(d<m> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, dVar) == null) {
-            this.f33574i = dVar;
+            this.f34042i = dVar;
         }
     }
 
     public void setPageMargin(int i2) {
         CoverFlowView<m> coverFlowView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || (coverFlowView = this.f33570e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || (coverFlowView = this.f34038e) == null) {
             return;
         }
         coverFlowView.setPageMargin(i2);
@@ -336,7 +335,7 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
     public void startAutoScroll() {
         CoverFlowView<m> coverFlowView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (coverFlowView = this.f33570e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (coverFlowView = this.f34038e) == null) {
             return;
         }
         coverFlowView.startMarqueen();
@@ -345,7 +344,7 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
     public void stopAutoScroll() {
         CoverFlowView<m> coverFlowView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (coverFlowView = this.f33570e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (coverFlowView = this.f34038e) == null) {
             return;
         }
         coverFlowView.stopMarqueen();
@@ -377,8 +376,8 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             if (list != null && !ListUtils.isEmpty(list)) {
                 setVisibility(0);
-                this.f33571f = list;
-                this.f33570e.setData(list);
+                this.f34039f = list;
+                this.f34038e.setData(list);
                 return;
             }
             setVisibility(8);
@@ -404,30 +403,30 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<n> {
                 return;
             }
         }
-        this.f33570e = null;
-        this.f33571f = null;
-        this.f33573h = "";
-        this.f33575j = new b(this);
+        this.f34038e = null;
+        this.f34039f = null;
+        this.f34041h = "";
+        this.f34043j = new b(this);
         c();
     }
 
-    @Override // c.a.k.q
+    @Override // c.a.l.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         CoverFlowView<m> coverFlowView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048586, this, tbPageContext, i2) == null) || (coverFlowView = this.f33570e) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048586, this, tbPageContext, i2) == null) || (coverFlowView = this.f34038e) == null) {
             return;
         }
         coverFlowView.onChangeSkinType();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.k.p
+    @Override // c.a.l.p
     public void onBindDataToView(n nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, nVar) == null) {
-            if (nVar != null && !ListUtils.isEmpty(nVar.f13017e)) {
-                onBindDataToView(nVar.f13017e);
+            if (nVar != null && !ListUtils.isEmpty(nVar.f13397e)) {
+                onBindDataToView(nVar.f13397e);
             } else {
                 setVisibility(8);
             }

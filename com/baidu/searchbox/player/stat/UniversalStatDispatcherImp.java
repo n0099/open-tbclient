@@ -1,6 +1,5 @@
 package com.baidu.searchbox.player.stat;
 
-import android.graphics.Point;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UniversalStatDispatcherImp implements IUniversalPlayerStatDispatcher {
     public static /* synthetic */ Interceptable $ic;
     public static final UniversalStatDispatcherImp EMPTY;
@@ -98,87 +97,59 @@ public class UniversalStatDispatcherImp implements IUniversalPlayerStatDispatche
         }
     }
 
-    @Override // com.baidu.searchbox.player.stat.IUniversalPlayerStatDispatcher
-    public void onFloatingClick(String str, Point point) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, point) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.stat.IUniversalPlayerStatDispatcher
-    public void onFloatingDismiss(String str, Point point) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, point) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.stat.IUniversalPlayerStatDispatcher
-    public void onFloatingScale(boolean z, String str, Point point) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, point}) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.stat.IUniversalPlayerStatDispatcher
-    public void onFloatingShow(String str, Point point) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, point) == null) {
-        }
-    }
-
     @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
     public void onInfo(int i2, int i3, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048585, this, i2, i3, obj) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, obj) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
     public void pause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
     public void resume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
     public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
     public void startInitPlayer() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
     public void startInitPlayerKernel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
     public void stop(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
         }
     }
 }

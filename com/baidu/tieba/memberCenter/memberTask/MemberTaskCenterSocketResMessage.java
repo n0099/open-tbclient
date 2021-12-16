@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.memberTask;
 
-import c.a.r0.e2.c.k.r;
+import c.a.s0.f2.c.k.r;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import tbclient.GetMemberTaskList.GetMemberTaskListResIdl;
 import tbclient.GetMemberTaskList.ImgInfo;
 import tbclient.GetMemberTaskList.PointTaskInfo;
 import tbclient.GetMemberTaskList.UserPointInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

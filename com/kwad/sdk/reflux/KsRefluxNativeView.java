@@ -24,16 +24,16 @@ import com.kwad.sdk.reflux.b;
 import com.kwad.sdk.reflux.kwai.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KsRefluxNativeView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f58825b;
+    public b f59406b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,14 +73,14 @@ public class KsRefluxNativeView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b extends RecyclerView.Adapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<com.kwad.sdk.reflux.b> f58826b;
+        public List<com.kwad.sdk.reflux.b> f59407b;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class KsRefluxNativeView extends FrameLayout {
                     return;
                 }
             }
-            this.f58826b = new ArrayList();
+            this.f59407b = new ArrayList();
             this.a = context;
         }
 
@@ -127,8 +127,8 @@ public class KsRefluxNativeView extends FrameLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null) {
                 return;
             }
-            this.f58826b.clear();
-            a(this.f58826b, list);
+            this.f59407b.clear();
+            a(this.f59407b, list);
             notifyDataSetChanged();
         }
 
@@ -136,7 +136,7 @@ public class KsRefluxNativeView extends FrameLayout {
         public int getItemCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58826b.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59407b.size() : invokeV.intValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -150,14 +150,14 @@ public class KsRefluxNativeView extends FrameLayout {
         public int getItemViewType(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f58826b.get(i2).k() : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f59407b.get(i2).k() : invokeI.intValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i2) == null) {
-                com.kwad.sdk.reflux.b bVar = this.f58826b.get(i2);
+                com.kwad.sdk.reflux.b bVar = this.f59407b.get(i2);
                 a aVar = (a) viewHolder;
                 int itemViewType = aVar.getItemViewType();
                 if (itemViewType == FeedType.FEED_TYPE_UNKNOWN.getType() || itemViewType == FeedType.FEED_TYPE_TEXT_ABOVE.getType() || itemViewType == FeedType.FEED_TYPE_TEXT_LEFT.getType()) {
@@ -332,16 +332,16 @@ public class KsRefluxNativeView extends FrameLayout {
             this.a = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 1, false));
             b bVar = new b(getContext());
-            this.f58825b = bVar;
+            this.f59406b = bVar;
             bVar.setHasStableIds(true);
-            this.a.setAdapter(this.f58825b);
+            this.a.setAdapter(this.f59406b);
         }
     }
 
     public void a(List<com.kwad.sdk.reflux.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f58825b.a(list);
+            this.f59406b.a(list);
         }
     }
 }

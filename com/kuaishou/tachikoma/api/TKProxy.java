@@ -12,7 +12,7 @@ import com.kwad.v8.V8Value;
 import com.tachikoma.core.utility.V8Proxy;
 import com.tachikoma.core.yoga.layout.YogaLayout;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TKProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

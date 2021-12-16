@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class dx implements com.kwad.sdk.core.d<com.kwad.sdk.splashscreen.kwai.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class dx implements com.kwad.sdk.core.d<com.kwad.sdk.splashscreen.kwai.b>
             return;
         }
         bVar.a = jSONObject.optLong("lastShowShakeTimestamp");
-        bVar.f59590b = jSONObject.optInt("currentDailyCount");
+        bVar.f60171b = jSONObject.optInt("currentDailyCount");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,7 +47,7 @@ public class dx implements com.kwad.sdk.core.d<com.kwad.sdk.splashscreen.kwai.b>
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "lastShowShakeTimestamp", bVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "currentDailyCount", bVar.f59590b);
+            com.kwad.sdk.utils.t.a(jSONObject, "currentDailyCount", bVar.f60171b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

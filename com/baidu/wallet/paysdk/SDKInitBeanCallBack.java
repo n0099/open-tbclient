@@ -25,12 +25,12 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SDKInitBeanCallBack implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f53332b;
+    public static int f53912b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 

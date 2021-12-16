@@ -29,7 +29,7 @@ import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PackageParserAPI22 extends PackageParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PackageParserAPI22";

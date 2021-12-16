@@ -21,28 +21,28 @@ import com.baidu.wallet.base.widget.GridLayout;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class FinancingManageLayout extends BaseItemLayout implements ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<BaseItemView> f52588b;
+    public List<BaseItemView> f53168b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<GridLayout> f52589c;
+    public List<GridLayout> f53169c;
 
     /* renamed from: e  reason: collision with root package name */
-    public HomeLayoutOneTipView f52590e;
+    public HomeLayoutOneTipView f53170e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewPager f52591f;
+    public ViewPager f53171f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PagerAdapter f52592g;
+    public PagerAdapter f53172g;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public class MyPagerAdapter extends PagerAdapter implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
         public void destroyItem(View view, int i2, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i2, obj) == null) {
-                ((ViewPager) view).removeView((View) this.a.f52589c.get(i2 % this.a.f52589c.size()));
+                ((ViewPager) view).removeView((View) this.a.f53169c.get(i2 % this.a.f53169c.size()));
             }
         }
 
@@ -78,7 +78,7 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.f52589c.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.f53169c.size() : invokeV.intValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -86,8 +86,8 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2)) == null) {
-                ((ViewPager) view).addView((View) this.a.f52589c.get(i2 % this.a.f52589c.size()), 0);
-                return this.a.f52589c.get(i2 % this.a.f52589c.size());
+                ((ViewPager) view).addView((View) this.a.f53169c.get(i2 % this.a.f53169c.size()), 0);
+                return this.a.f53169c.get(i2 % this.a.f53169c.size());
             }
             return invokeLI.objValue;
         }
@@ -118,15 +118,15 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
                 return;
             }
         }
-        this.f52588b = new ArrayList();
-        this.f52589c = new ArrayList();
+        this.f53168b = new ArrayList();
+        this.f53169c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52588b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53168b : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -134,13 +134,13 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_finance_manager_layout"), this);
-            this.f52591f = (ViewPager) findViewById(ResUtils.id(getContext(), "view_pager"));
-            this.f52590e = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
+            this.f53171f = (ViewPager) findViewById(ResUtils.id(getContext(), "view_pager"));
+            this.f53170e = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
             this.a = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_home_banner_indicators"));
-            this.f52592g = new MyPagerAdapter(this);
-            this.f52591f.setPageMargin(DisplayUtils.dip2px(getContext(), 9.0f));
-            this.f52591f.setAdapter(this.f52592g);
-            this.f52591f.setOnPageChangeListener(this);
+            this.f53172g = new MyPagerAdapter(this);
+            this.f53171f.setPageMargin(DisplayUtils.dip2px(getContext(), 9.0f));
+            this.f53171f.setAdapter(this.f53172g);
+            this.f53171f.setOnPageChangeListener(this);
         }
     }
 
@@ -175,7 +175,7 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             int i3 = 0;
-            while (i3 < this.f52589c.size()) {
+            while (i3 < this.f53169c.size()) {
                 if (this.a.getChildAt(i3) != null) {
                     this.a.getChildAt(i3).setSelected(i3 == i2);
                 }
@@ -188,7 +188,7 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
     public void refreshData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f52590e.setData(this.mConfigData, getWalletInterface());
+            this.f53170e.setData(this.mConfigData, getWalletInterface());
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
             int length = (dataItemArr.length / 3) + (dataItemArr.length % 3 == 0 ? 0 : 1);
             GridLayout gridLayout = null;
@@ -199,7 +199,7 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
                 if (!z) {
                     z = financeItemView.showValue1();
                 }
-                this.f52588b.add(financeItemView);
+                this.f53168b.add(financeItemView);
                 if (i2 % 3 == 0) {
                     gridLayout = new GridLayout(getContext());
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
@@ -209,23 +209,23 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
                     gridLayout.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_whiteColor"));
                     gridLayout.setHorizontalSpacing(DisplayUtils.dip2px(getContext(), 9.0f));
                     gridLayout.setColumnCount(length == 1 ? dataItemArr.length : 3);
-                    this.f52589c.add(gridLayout);
+                    this.f53169c.add(gridLayout);
                 }
                 if (gridLayout != null) {
                     gridLayout.addView(financeItemView);
                 }
             }
             if (z) {
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f52591f.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f53171f.getLayoutParams();
                 layoutParams2.height += DisplayUtils.dip2px(getContext(), 21.0f);
-                this.f52591f.setLayoutParams(layoutParams2);
-                this.f52591f.requestLayout();
+                this.f53171f.setLayoutParams(layoutParams2);
+                this.f53171f.requestLayout();
             }
             int drawable = ResUtils.drawable(getContext(), "wallet_base_indicator_selector");
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 7.0f), DisplayUtils.dip2px(getContext(), 2.0f));
-            if (this.f52589c.size() > 1) {
+            if (this.f53169c.size() > 1) {
                 int i3 = 0;
-                while (i3 < this.f52589c.size()) {
+                while (i3 < this.f53169c.size()) {
                     View view = new View(getContext());
                     view.setBackgroundResource(drawable);
                     view.setSelected(i3 == 0);
@@ -237,7 +237,7 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
             } else {
                 this.a.setVisibility(8);
             }
-            this.f52592g.notifyDataSetChanged();
+            this.f53172g.notifyDataSetChanged();
         }
     }
 
@@ -260,7 +260,7 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
                 return;
             }
         }
-        this.f52588b = new ArrayList();
-        this.f52589c = new ArrayList();
+        this.f53168b = new ArrayList();
+        this.f53169c = new ArrayList();
     }
 }

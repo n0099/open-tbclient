@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import i.d;
 import i.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DelegateUtils implements DelegateDef {
     public static /* synthetic */ Interceptable $ic;
     public static Handler sMainHandler;

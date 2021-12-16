@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.collector.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i2, String str);
 
@@ -33,7 +33,7 @@ public class c {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f57094b;
+                public final /* synthetic */ a f57675b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -51,14 +51,14 @@ public class c {
                         }
                     }
                     this.a = context;
-                    this.f57094b = aVar;
+                    this.f57675b = aVar;
                 }
 
                 @Override // com.kwad.sdk.collector.d.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        c.b(this.a, this.f57094b);
+                        c.b(this.a, this.f57675b);
                     }
                 }
 

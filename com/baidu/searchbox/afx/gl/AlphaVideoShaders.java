@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlphaVideoShaders {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SHADER_FRAGMENT = "#extension GL_OES_EGL_image_external : require \n precision highp float; \n varying vec2 vTextureAlphaCoord; \n varying vec2 vTextureColorCoord; \n uniform samplerExternalOES sTexture; \n varying float vFilterFactor; \n varying float vDismissFlag; \n void main() { \n vec4 alphaColor = texture2D(sTexture, vTextureAlphaCoord); \n vec4 color = texture2D(sTexture, vTextureColorCoord); \n float blendFactor = alphaColor.r; \n if (blendFactor == 0.0) { \n blendFactor = 1.0; \n } \n float alpha = alphaColor.r; \n if (vDismissFlag < 0.0) { \n alpha = 0.0; \n } \n gl_FragColor = vec4(color.r/blendFactor*vFilterFactor,color.g/blendFactor*vFilterFactor,color.b/blendFactor*vFilterFactor,alpha); \n } \n ";

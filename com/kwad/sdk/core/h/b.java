@@ -14,22 +14,22 @@ import java.io.InputStream;
 import java.util.Collections;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static volatile boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f57459b = false;
+    public static volatile boolean f58040b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile Set<c> f57460c = null;
+    public static volatile Set<c> f58041c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f57461d = null;
+    public static volatile b f58042d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f57462e = 204800;
+    public static volatile int f58043e = 204800;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public class b {
                 return;
             }
         }
-        f57460c = Collections.synchronizedSet(Collections.newSetFromMap(new WeakHashMap()));
+        f58041c = Collections.synchronizedSet(Collections.newSetFromMap(new WeakHashMap()));
     }
 
     public b() {
@@ -66,14 +66,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f57461d == null) {
+            if (f58042d == null) {
                 synchronized (b.class) {
-                    if (f57461d == null) {
-                        f57461d = new b();
+                    if (f58042d == null) {
+                        f58042d = new b();
                     }
                 }
             }
-            return f57461d;
+            return f58042d;
         }
         return (b) invokeV.objValue;
     }
@@ -84,8 +84,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
             synchronized (b.class) {
-                cVar = new c(inputStream, f57462e / (f57460c.size() + 1));
-                f57460c.add(cVar);
+                cVar = new c(inputStream, f58043e / (f58041c.size() + 1));
+                f58041c.add(cVar);
             }
             return cVar;
         }
@@ -96,8 +96,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cVar) == null) {
             synchronized (b.class) {
-                if (f57460c.contains(cVar)) {
-                    f57460c.remove(cVar);
+                if (f58041c.contains(cVar)) {
+                    f58041c.remove(cVar);
                 }
             }
         }
@@ -107,7 +107,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if (i2 > 0) {
-                f57462e = i2 * 1024;
+                f58043e = i2 * 1024;
             }
             a = z;
         }
@@ -128,7 +128,7 @@ public class b {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f57462e / 1024 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f58043e / 1024 : invokeV.intValue;
     }
 
     public synchronized int d() {
@@ -139,7 +139,7 @@ public class b {
             synchronized (this) {
                 i2 = 0;
                 try {
-                    for (c cVar : f57460c) {
+                    for (c cVar : f58041c) {
                         i2 += (int) cVar.a();
                     }
                 } catch (Exception unused) {

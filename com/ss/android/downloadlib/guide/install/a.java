@@ -1,5 +1,5 @@
 package com.ss.android.downloadlib.guide.install;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void a();
 }

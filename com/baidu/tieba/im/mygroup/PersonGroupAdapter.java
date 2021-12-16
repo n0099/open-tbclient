@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PersonGroupAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static int page_count = 1;
@@ -22,7 +22,7 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<PersonalGroupFragment> f46092b;
+    public ArrayList<PersonalGroupFragment> f46591b;
 
     static {
         InterceptResult invokeClinit;
@@ -57,12 +57,12 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f46092b = new ArrayList<>();
+        this.f46591b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         PersonalGroupFragment personalGroupFragment = new PersonalGroupFragment();
         personalGroupFragment.setArguments(bundle);
-        this.f46092b.add(personalGroupFragment);
+        this.f46591b.add(personalGroupFragment);
         if (z) {
             this.a = new int[]{0};
         } else {
@@ -70,13 +70,13 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
             bundle2.putInt("page_type", 1);
             PersonalGroupFragment personalGroupFragment2 = new PersonalGroupFragment();
             personalGroupFragment2.setArguments(bundle2);
-            this.f46092b.add(personalGroupFragment2);
+            this.f46591b.add(personalGroupFragment2);
             this.a = new int[]{0, 1};
         }
         page_count = this.a.length;
-        Iterator<PersonalGroupFragment> it = this.f46092b.iterator();
+        Iterator<PersonalGroupFragment> it = this.f46591b.iterator();
         while (it.hasNext()) {
-            it.next().getArguments().putInt("page_size", this.f46092b.size());
+            it.next().getArguments().putInt("page_size", this.f46591b.size());
         }
     }
 
@@ -95,7 +95,7 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
             if (i2 >= page_count || i2 < 0) {
                 return null;
             }
-            return this.f46092b.get(i2);
+            return this.f46591b.get(i2);
         }
         return (Fragment) invokeI.objValue;
     }

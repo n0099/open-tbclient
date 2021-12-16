@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TKPagerIndicatorDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class TKPagerIndicatorDecoration extends RecyclerView.ItemDecoration {
     public final Interpolator mInterpolator;
     public final Paint mPaint;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IIndicatorRender {
         void drawHighlights(float f2, float f3, float f4, float f5, int i2, int i3, Paint paint, Canvas canvas);
 

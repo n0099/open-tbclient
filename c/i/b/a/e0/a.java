@@ -12,29 +12,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f29892g;
+    public static final a f30262g;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29893b;
+    public final int f30263b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f29894c;
+    public final int f30264c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f29895d;
+    public final int f30265d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f29896e;
+    public final int f30266e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Typeface f29897f;
+    public final Typeface f30267f;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public final class a {
                 return;
             }
         }
-        f29892g = new a(-1, -16777216, 0, 0, -1, null);
+        f30262g = new a(-1, -16777216, 0, 0, -1, null);
     }
 
     public a(int i2, int i3, int i4, int i5, int i6, Typeface typeface) {
@@ -68,11 +68,11 @@ public final class a {
             }
         }
         this.a = i2;
-        this.f29893b = i3;
-        this.f29894c = i4;
-        this.f29895d = i5;
-        this.f29896e = i6;
-        this.f29897f = typeface;
+        this.f30263b = i3;
+        this.f30264c = i4;
+        this.f30265d = i5;
+        this.f30266e = i6;
+        this.f30267f = typeface;
     }
 
     @TargetApi(19)
@@ -100,7 +100,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, captionStyle)) == null) {
-            return new a(captionStyle.hasForegroundColor() ? captionStyle.foregroundColor : f29892g.a, captionStyle.hasBackgroundColor() ? captionStyle.backgroundColor : f29892g.f29893b, captionStyle.hasWindowColor() ? captionStyle.windowColor : f29892g.f29894c, captionStyle.hasEdgeType() ? captionStyle.edgeType : f29892g.f29895d, captionStyle.hasEdgeColor() ? captionStyle.edgeColor : f29892g.f29896e, captionStyle.getTypeface());
+            return new a(captionStyle.hasForegroundColor() ? captionStyle.foregroundColor : f30262g.a, captionStyle.hasBackgroundColor() ? captionStyle.backgroundColor : f30262g.f30263b, captionStyle.hasWindowColor() ? captionStyle.windowColor : f30262g.f30264c, captionStyle.hasEdgeType() ? captionStyle.edgeType : f30262g.f30265d, captionStyle.hasEdgeColor() ? captionStyle.edgeColor : f30262g.f30266e, captionStyle.getTypeface());
         }
         return (a) invokeL.objValue;
     }

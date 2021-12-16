@@ -34,19 +34,19 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class w {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37481b;
+    public static String f37970b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f37482c;
+    public static String f37971c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f37483d;
+    public static final Pattern f37972d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,7 +62,7 @@ public class w {
                 return;
             }
         }
-        f37483d = Pattern.compile("\\s*|\t|\r|\n");
+        f37972d = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public static String a(Context context, String str) {
@@ -212,7 +212,7 @@ public class w {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
-            String str = f37481b;
+            String str = f37970b;
             if (str == null) {
                 String n = n(context);
                 String b2 = b(context, n);
@@ -220,7 +220,7 @@ public class w {
                     b2 = c(context, n);
                 }
                 str = b2 == null ? "" : b2;
-                f37481b = str;
+                f37970b = str;
             }
             return str;
         }
@@ -466,7 +466,7 @@ public class w {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String str2 = f37482c;
+            String str2 = f37971c;
             if (str2 != null) {
                 return str2;
             }
@@ -487,7 +487,7 @@ public class w {
                     str = "flyme";
                 }
             }
-            f37482c = str;
+            f37971c = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -496,7 +496,7 @@ public class w {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f37483d.matcher(x.a(context)).replaceAll("") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f37972d.matcher(x.a(context)).replaceAll("") : (String) invokeL.objValue;
     }
 
     public static String a(int i2, Context context) {

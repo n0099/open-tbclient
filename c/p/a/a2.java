@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.win.opensdk.activitys.H5OpenActivity;
 import com.win.opensdk.core.Info;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class a2 {
             } else if (b(context, Uri.parse(str), info)) {
             } else {
                 if (info.getOpent() == 1) {
-                    if (u0.f30953d.f30955c) {
+                    if (u0.f31323d.f31325c) {
                         Toast.makeText(context, context.getString(m1.win_wdownload_loading), 1).show();
                         y2 a = c3.a(context);
                         a.q(new g3(info), 5);
@@ -64,29 +64,29 @@ public class a2 {
                     g3 g3Var = new g3(info);
                     String open = info.getOpen();
                     try {
-                        a2.f31007b = c3.d("wdtr", g3Var);
+                        a2.f31377b = c3.d("wdtr", g3Var);
                         a2.l("msg", c3.b(open));
                     } catch (JSONException unused2) {
                     }
                     a2.m();
                     if (h4Var != null) {
-                        h4Var.f30802c = info;
-                        WebView webView2 = h4Var.f30801b;
+                        h4Var.f31172c = info;
+                        WebView webView2 = h4Var.f31171b;
                         if (webView2 == null) {
                             return;
                         }
                         webView2.loadUrl(info.getOpen());
-                        webView = h4Var.f30801b;
+                        webView = h4Var.f31171b;
                         d4Var = new d4(h4Var);
                     } else {
                         h4 h4Var2 = new h4(context);
-                        h4Var2.f30802c = info;
-                        WebView webView3 = h4Var2.f30801b;
+                        h4Var2.f31172c = info;
+                        WebView webView3 = h4Var2.f31171b;
                         if (webView3 == null) {
                             return;
                         }
                         webView3.loadUrl(info.getOpen());
-                        webView = h4Var2.f30801b;
+                        webView = h4Var2.f31171b;
                         d4Var = new d4(h4Var2);
                     }
                     webView.setDownloadListener(d4Var);

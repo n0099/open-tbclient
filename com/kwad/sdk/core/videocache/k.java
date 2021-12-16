@@ -9,41 +9,41 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.Thread;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.a f57924b;
+    public final com.kwad.sdk.core.videocache.a f58505b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f57925c;
+    public final Object f58506c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f57926d;
+    public final Object f58507d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicInteger f57927e;
+    public final AtomicInteger f58508e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile Thread f57928f;
+    public volatile Thread f58509f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f57929g;
+    public volatile boolean f58510g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile int f57930h;
+    public volatile int f58511h;
 
     /* renamed from: com.kwad.sdk.core.videocache.k$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,21 +95,21 @@ public class k {
                 return;
             }
         }
-        this.f57925c = new Object();
-        this.f57926d = new Object();
-        this.f57930h = -1;
+        this.f58506c = new Object();
+        this.f58507d = new Object();
+        this.f58511h = -1;
         this.a = (m) j.a(mVar);
-        this.f57924b = (com.kwad.sdk.core.videocache.a) j.a(aVar);
-        this.f57927e = new AtomicInteger();
+        this.f58505b = (com.kwad.sdk.core.videocache.a) j.a(aVar);
+        this.f58508e = new AtomicInteger();
     }
 
     private void b() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (i2 = this.f57927e.get()) < 1) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (i2 = this.f58508e.get()) < 1) {
             return;
         }
-        this.f57927e.set(0);
+        this.f58508e.set(0);
         throw new ProxyCacheException("Error reading source " + i2 + " times");
     }
 
@@ -117,8 +117,8 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             a(j2, j3);
-            synchronized (this.f57925c) {
-                this.f57925c.notifyAll();
+            synchronized (this.f58506c) {
+                this.f58506c.notifyAll();
             }
         }
     }
@@ -127,11 +127,11 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             synchronized (this) {
-                boolean z = (this.f57928f == null || this.f57928f.getState() == Thread.State.TERMINATED) ? false : true;
-                if (!this.f57929g && !this.f57924b.d() && !z) {
+                boolean z = (this.f58509f == null || this.f58509f.getState() == Thread.State.TERMINATED) ? false : true;
+                if (!this.f58510g && !this.f58505b.d() && !z) {
                     a aVar = new a(this, null);
-                    this.f57928f = new Thread(aVar, "Source reader for " + this.a);
-                    this.f57928f.start();
+                    this.f58509f = new Thread(aVar, "Source reader for " + this.a);
+                    this.f58509f.start();
                 }
             }
         }
@@ -140,10 +140,10 @@ public class k {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            synchronized (this.f57925c) {
+            synchronized (this.f58506c) {
                 try {
                     try {
-                        this.f57925c.wait(1000L);
+                        this.f58506c.wait(1000L);
                     } catch (InterruptedException e2) {
                         throw new ProxyCacheException("Waiting source data is interrupted!", e2);
                     }
@@ -164,7 +164,7 @@ public class k {
         long j2 = -1;
         long j3 = 0;
         try {
-            j3 = this.f57924b.a();
+            j3 = this.f58505b.a();
             this.a.a(j3);
             j2 = this.a.a();
             byte[] bArr = new byte[8192];
@@ -175,11 +175,11 @@ public class k {
                     f();
                     break;
                 }
-                synchronized (this.f57926d) {
+                synchronized (this.f58507d) {
                     if (h()) {
                         return;
                     }
-                    this.f57924b.a(bArr, a2);
+                    this.f58505b.a(bArr, a2);
                 }
                 j3 += a2;
                 b(j3, j2);
@@ -194,17 +194,17 @@ public class k {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.f57930h = 100;
-            a(this.f57930h);
+            this.f58511h = 100;
+            a(this.f58511h);
         }
     }
 
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            synchronized (this.f57926d) {
-                if (!h() && this.f57924b.a() == this.a.a()) {
-                    this.f57924b.c();
+            synchronized (this.f58507d) {
+                if (!h() && this.f58505b.a() == this.a.a()) {
+                    this.f58505b.c();
                 }
             }
         }
@@ -213,7 +213,7 @@ public class k {
     private boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? Thread.currentThread().isInterrupted() || this.f57929g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? Thread.currentThread().isInterrupted() || this.f58510g : invokeV.booleanValue;
     }
 
     private void i() {
@@ -232,14 +232,14 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             l.a(bArr, j2, i2);
-            while (!this.f57924b.d() && this.f57924b.a() < i2 + j2 && !this.f57929g) {
+            while (!this.f58505b.d() && this.f58505b.a() < i2 + j2 && !this.f58510g) {
                 c();
                 d();
                 b();
             }
-            int a2 = this.f57924b.a(bArr, j2, i2);
-            if (this.f57924b.d() && this.f57930h != 100) {
-                this.f57930h = 100;
+            int a2 = this.f58505b.a(bArr, j2, i2);
+            if (this.f58505b.d() && this.f58511h != 100) {
+                this.f58511h = 100;
                 a(100);
             }
             return a2;
@@ -250,14 +250,14 @@ public class k {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.f57926d) {
+            synchronized (this.f58507d) {
                 com.kwad.sdk.core.d.a.a("ProxyCache", "Shutdown proxy for " + this.a);
                 try {
-                    this.f57929g = true;
-                    if (this.f57928f != null) {
-                        this.f57928f.interrupt();
+                    this.f58510g = true;
+                    if (this.f58509f != null) {
+                        this.f58509f.interrupt();
                     }
-                    this.f57924b.b();
+                    this.f58505b.b();
                 } catch (ProxyCacheException e2) {
                     a(e2);
                 }
@@ -276,11 +276,11 @@ public class k {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             int i2 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
             int i3 = i2 == 0 ? 100 : (int) ((((float) j2) / ((float) j3)) * 100.0f);
-            boolean z = i3 != this.f57930h;
+            boolean z = i3 != this.f58511h;
             if ((i2 >= 0) && z) {
                 a(i3);
             }
-            this.f57930h = i3;
+            this.f58511h = i3;
         }
     }
 

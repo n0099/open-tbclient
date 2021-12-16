@@ -1,96 +1,287 @@
 package c.a.p.a;
 
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.LongSparseArray;
+import androidx.annotation.NonNull;
+import c.a.p.a.c;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.flutter.cyberplayer.CyberRemotePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.flutter.embedding.engine.plugins.FlutterPlugin;
+import io.flutter.plugin.common.BinaryMessenger;
+import io.flutter.plugin.common.MethodCall;
+import io.flutter.plugin.common.MethodChannel;
+import io.flutter.view.TextureRegistry;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public final class a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] GenericDraweeHierarchy;
-    public static final int GenericDraweeHierarchy_actualImageScaleType = 0;
-    public static final int GenericDraweeHierarchy_backgroundImage = 1;
-    public static final int GenericDraweeHierarchy_fadeDuration = 2;
-    public static final int GenericDraweeHierarchy_failureImage = 3;
-    public static final int GenericDraweeHierarchy_failureImageScaleType = 4;
-    public static final int GenericDraweeHierarchy_overlayImage = 5;
-    public static final int GenericDraweeHierarchy_placeholderImage = 6;
-    public static final int GenericDraweeHierarchy_placeholderImageScaleType = 7;
-    public static final int GenericDraweeHierarchy_pressedStateOverlayImage = 8;
-    public static final int GenericDraweeHierarchy_progressBarAutoRotateInterval = 9;
-    public static final int GenericDraweeHierarchy_progressBarImage = 10;
-    public static final int GenericDraweeHierarchy_progressBarImageScaleType = 11;
-    public static final int GenericDraweeHierarchy_retryImage = 12;
-    public static final int GenericDraweeHierarchy_retryImageScaleType = 13;
-    public static final int GenericDraweeHierarchy_roundAsCircle = 14;
-    public static final int GenericDraweeHierarchy_roundBottomEnd = 15;
-    public static final int GenericDraweeHierarchy_roundBottomLeft = 16;
-    public static final int GenericDraweeHierarchy_roundBottomRight = 17;
-    public static final int GenericDraweeHierarchy_roundBottomStart = 18;
-    public static final int GenericDraweeHierarchy_roundTopEnd = 19;
-    public static final int GenericDraweeHierarchy_roundTopLeft = 20;
-    public static final int GenericDraweeHierarchy_roundTopRight = 21;
-    public static final int GenericDraweeHierarchy_roundTopStart = 22;
-    public static final int GenericDraweeHierarchy_roundWithOverlayColor = 23;
-    public static final int GenericDraweeHierarchy_roundedCornerRadius = 24;
-    public static final int GenericDraweeHierarchy_roundingBorderColor = 25;
-    public static final int GenericDraweeHierarchy_roundingBorderPadding = 26;
-    public static final int GenericDraweeHierarchy_roundingBorderWidth = 27;
-    public static final int GenericDraweeHierarchy_viewAspectRatio = 28;
-    public static final int[] SVGImageView;
-    public static final int SVGImageView_svg = 0;
-    public static final int[] SimpleDraweeView;
-    public static final int SimpleDraweeView_actualImageResource = 0;
-    public static final int SimpleDraweeView_actualImageScaleType = 1;
-    public static final int SimpleDraweeView_actualImageUri = 2;
-    public static final int SimpleDraweeView_backgroundImage = 3;
-    public static final int SimpleDraweeView_fadeDuration = 4;
-    public static final int SimpleDraweeView_failureImage = 5;
-    public static final int SimpleDraweeView_failureImageScaleType = 6;
-    public static final int SimpleDraweeView_overlayImage = 7;
-    public static final int SimpleDraweeView_placeholderImage = 8;
-    public static final int SimpleDraweeView_placeholderImageScaleType = 9;
-    public static final int SimpleDraweeView_pressedStateOverlayImage = 10;
-    public static final int SimpleDraweeView_progressBarAutoRotateInterval = 11;
-    public static final int SimpleDraweeView_progressBarImage = 12;
-    public static final int SimpleDraweeView_progressBarImageScaleType = 13;
-    public static final int SimpleDraweeView_retryImage = 14;
-    public static final int SimpleDraweeView_retryImageScaleType = 15;
-    public static final int SimpleDraweeView_roundAsCircle = 16;
-    public static final int SimpleDraweeView_roundBottomEnd = 17;
-    public static final int SimpleDraweeView_roundBottomLeft = 18;
-    public static final int SimpleDraweeView_roundBottomRight = 19;
-    public static final int SimpleDraweeView_roundBottomStart = 20;
-    public static final int SimpleDraweeView_roundTopEnd = 21;
-    public static final int SimpleDraweeView_roundTopLeft = 22;
-    public static final int SimpleDraweeView_roundTopRight = 23;
-    public static final int SimpleDraweeView_roundTopStart = 24;
-    public static final int SimpleDraweeView_roundWithOverlayColor = 25;
-    public static final int SimpleDraweeView_roundedCornerRadius = 26;
-    public static final int SimpleDraweeView_roundingBorderColor = 27;
-    public static final int SimpleDraweeView_roundingBorderPadding = 28;
-    public static final int SimpleDraweeView_roundingBorderWidth = 29;
-    public static final int SimpleDraweeView_svgImage = 31;
-    public static final int SimpleDraweeView_viewAspectRatio = 30;
+public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1185612403, "Lc/a/p/a/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* renamed from: e  reason: collision with root package name */
+    public MethodChannel f4403e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Context f4404f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d f4405g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public LongSparseArray<c.a.p.a.c> f4406h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final BroadcastReceiver f4407i;
+
+    /* renamed from: c.a.p.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public class C0198a implements c.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
+
+        public C0198a(a aVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1185612403, "Lc/a/p/a/a;");
+            this.a = aVar;
+        }
+
+        @Override // c.a.p.a.c.a
+        public void a(long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+                this.a.f4406h.delete(j2);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class b implements CyberPlayerManager.OnDeleteListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
+
+        public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnDeleteListener
+        public void onDeleteComplete(int i2, long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("result", Integer.valueOf(i2));
+                hashMap.put("freeSpaceSize", Long.valueOf(j2));
+                this.a.f4403e.invokeMethod("onDeleteComplete", hashMap);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a this$0;
+
+        public c(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = aVar;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent.getAction().equals("android.intent.action.HEADSET_PLUG") && intent.hasExtra("state")) {
+                int intExtra = intent.getIntExtra("state", 0);
+                boolean z = true;
+                z = (intExtra == 0 || intExtra != 1) ? false : false;
+                for (int i2 = 0; i2 < this.this$0.f4406h.size(); i2++) {
+                    c.a.p.a.c valueAt = this.this$0.f4406h.valueAt(i2);
+                    if (valueAt != null) {
+                        valueAt.b(z);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static final class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Context a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final BinaryMessenger f4408b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final TextureRegistry f4409c;
+
+        public d(Context context, BinaryMessenger binaryMessenger, TextureRegistry textureRegistry) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, binaryMessenger, textureRegistry};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.f4408b = binaryMessenger;
+            this.f4409c = textureRegistry;
+        }
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        GenericDraweeHierarchy = new int[]{R.attr.actualImageScaleType, R.attr.backgroundImage, R.attr.fadeDuration, R.attr.failureImage, R.attr.failureImageScaleType, R.attr.overlayImage, R.attr.placeholderImage, R.attr.placeholderImageScaleType, R.attr.pressedStateOverlayImage, R.attr.progressBarAutoRotateInterval, R.attr.progressBarImage, R.attr.progressBarImageScaleType, R.attr.retryImage, R.attr.retryImageScaleType, R.attr.roundAsCircle, R.attr.roundBottomEnd, R.attr.roundBottomLeft, R.attr.roundBottomRight, R.attr.roundBottomStart, R.attr.roundTopEnd, R.attr.roundTopLeft, R.attr.roundTopRight, R.attr.roundTopStart, R.attr.roundWithOverlayColor, R.attr.roundedCornerRadius, R.attr.roundingBorderColor, R.attr.roundingBorderPadding, R.attr.roundingBorderWidth, R.attr.viewAspectRatio};
-        SVGImageView = new int[]{R.attr.svg};
-        SimpleDraweeView = new int[]{R.attr.actualImageResource, R.attr.actualImageScaleType, R.attr.actualImageUri, R.attr.backgroundImage, R.attr.fadeDuration, R.attr.failureImage, R.attr.failureImageScaleType, R.attr.overlayImage, R.attr.placeholderImage, R.attr.placeholderImageScaleType, R.attr.pressedStateOverlayImage, R.attr.progressBarAutoRotateInterval, R.attr.progressBarImage, R.attr.progressBarImageScaleType, R.attr.retryImage, R.attr.retryImageScaleType, R.attr.roundAsCircle, R.attr.roundBottomEnd, R.attr.roundBottomLeft, R.attr.roundBottomRight, R.attr.roundBottomStart, R.attr.roundTopEnd, R.attr.roundTopLeft, R.attr.roundTopRight, R.attr.roundTopStart, R.attr.roundWithOverlayColor, R.attr.roundedCornerRadius, R.attr.roundingBorderColor, R.attr.roundingBorderPadding, R.attr.roundingBorderWidth, R.attr.viewAspectRatio, R.attr.svgImage};
+        this.f4407i = new c(this);
+    }
+
+    public void b(String str, int i2, HashMap hashMap, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLILL(1048576, this, str, i2, hashMap, str2) == null) || CyberPlayerManager.isCoreLoaded(1)) {
+            return;
+        }
+        try {
+            CyberPlayerManager.install(this.f4404f, str, str2, i2, CyberRemotePlayerService.class, hashMap, (CyberPlayerManager.InstallListener) null);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public void c(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
+            CyberPlayerManager.prefetch(str, null, null, i2, null);
+        }
+    }
+
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
+    public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, flutterPluginBinding) == null) {
+            this.f4405g = new d(flutterPluginBinding.getApplicationContext(), flutterPluginBinding.getBinaryMessenger(), flutterPluginBinding.getTextureRegistry());
+            MethodChannel methodChannel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "cyberplayer");
+            this.f4403e = methodChannel;
+            methodChannel.setMethodCallHandler(this);
+            this.f4404f = flutterPluginBinding.getApplicationContext();
+            this.f4406h = new LongSparseArray<>();
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.intent.action.HEADSET_PLUG");
+            this.f4404f.registerReceiver(this.f4407i, intentFilter);
+        }
+    }
+
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
+    public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, flutterPluginBinding) == null) {
+            this.f4403e.setMethodCallHandler(null);
+            this.f4404f.unregisterReceiver(this.f4407i);
+            for (int i2 = 0; i2 < this.f4406h.size(); i2++) {
+                c.a.p.a.c valueAt = this.f4406h.valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a();
+                }
+            }
+        }
+    }
+
+    @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
+    public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, methodCall, result) == null) {
+            if (methodCall.method.equals("create")) {
+                String str = (String) methodCall.argument("url");
+                boolean booleanValue = ((Boolean) methodCall.argument("isLoop")).booleanValue();
+                String str2 = (String) methodCall.argument("clarityInfo");
+                int intValue = ((Integer) methodCall.argument("switchMediaSource")).intValue();
+                HashMap hashMap = (HashMap) methodCall.argument("options");
+                TextureRegistry.SurfaceTextureEntry createSurfaceTexture = this.f4405g.f4409c.createSurfaceTexture();
+                c.a.p.a.c cVar = new c.a.p.a.c(this.f4405g.a, this.f4405g.f4408b, createSurfaceTexture, hashMap, str, str2, intValue, booleanValue);
+                cVar.e(new C0198a(this));
+                this.f4406h.put(createSurfaceTexture.id(), cVar);
+                result.success(Long.valueOf(createSurfaceTexture.id()));
+            } else if (methodCall.method.equals("init")) {
+                HashMap hashMap2 = (HashMap) methodCall.arguments;
+                b((String) hashMap2.get("clientId"), ((Integer) hashMap2.get("installType")).intValue(), (HashMap) hashMap2.get("opt"), (String) hashMap2.get("downloadCoreServer"));
+            } else if (methodCall.method.equals("startPreload")) {
+                HashMap hashMap3 = (HashMap) methodCall.arguments;
+                c((String) hashMap3.get("url"), ((Integer) hashMap3.get("length")).intValue());
+            } else if (methodCall.method.equals("stopPreload")) {
+                CyberPlayerManager.stopPrefetch((String) methodCall.arguments);
+            } else if (methodCall.method.equals("hasCacheFile")) {
+                CyberPlayerManager.hasCacheFile((String) methodCall.arguments);
+            } else if (methodCall.method.equals("deleteVideoCache")) {
+                CyberPlayerManager.deleteVideoCache(new b(this));
+            } else if (methodCall.method.equals("getDevicePlayQualityScore")) {
+                CyberPlayerManager.getDevicePlayQualityScore((String) methodCall.argument("mimeType"), ((Integer) methodCall.argument("decodeMode")).intValue(), ((Integer) methodCall.argument("width")).intValue(), ((Integer) methodCall.argument("height")).intValue(), (HashMap) methodCall.argument("options"));
+            } else {
+                result.notImplemented();
+            }
+        }
     }
 }

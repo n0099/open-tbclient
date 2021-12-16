@@ -1,5 +1,5 @@
 package com.baidu.wallet.paysdk.precashier;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface IModifyPayTypeCallback {
     void onPayTypeModified(PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData);
 

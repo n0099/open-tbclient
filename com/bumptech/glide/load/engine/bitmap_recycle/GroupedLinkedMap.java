@@ -14,14 +14,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class GroupedLinkedMap<K extends Poolable, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedEntry<K, V> head;
     public final Map<K, LinkedEntry<K, V>> keyToEntry;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class LinkedEntry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

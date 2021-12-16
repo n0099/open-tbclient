@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.ApollonConstants;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class RestDebugConfig {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static RestDebugConfig f55107b;
+    public static RestDebugConfig f55687b;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
@@ -38,10 +38,10 @@ public final class RestDebugConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (RestDebugConfig.class) {
-                if (f55107b == null) {
-                    f55107b = new RestDebugConfig();
+                if (f55687b == null) {
+                    f55687b = new RestDebugConfig();
                 }
-                restDebugConfig = f55107b;
+                restDebugConfig = f55687b;
             }
             return restDebugConfig;
         }

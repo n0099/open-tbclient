@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.m.e.a;
-import c.a.r0.y0.x.c.b;
+import c.a.s0.y0.x.c.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.a) == null || bVar == null) {
                 return;
             }
-            emotionHorizontalView.setData(bVar.f25699e);
+            emotionHorizontalView.setData(bVar.f26111e);
         }
     }
 

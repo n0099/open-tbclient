@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "HttpCache";

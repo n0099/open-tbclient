@@ -14,45 +14,45 @@ import com.fun.ad.sdk.internal.api.utils.PxUtils;
 import com.fun.ad.sdk.internal.api.utils.ViewUtils;
 import com.qq.e.ads.splash.SplashAD;
 import com.qq.e.comm.managers.GDTADManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28686b;
+    public int f29056b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28687c;
+    public int f29057c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28688d;
+    public int f29058d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28689e;
+    public int f29059e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28690f;
+    public int f29060f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SplashAD f28691g;
+    public SplashAD f29061g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f28692h;
+    public View f29062h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28693i;
+    public int f29063i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f28694j;
+    public int f29064j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int[] f28695k;
+    public int[] f29065k;
     public int l;
     public int m;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
     }
 
@@ -69,15 +69,15 @@ public class a0 {
                 return;
             }
         }
-        this.f28695k = new int[2];
+        this.f29065k = new int[2];
         Context appContext = GDTADManager.getInstance().getAppContext();
         int round = Math.round(Math.min(PxUtils.getDeviceHeightInPixel(appContext), PxUtils.getDeviceWidthInPixel(appContext)) * 0.3f);
         this.a = round;
-        this.f28686b = Math.round((round * 16) / 9);
-        this.f28687c = PxUtils.dpToPx(appContext, 6);
-        this.f28688d = PxUtils.dpToPx(appContext, 100);
-        this.f28689e = 1;
-        this.f28690f = 300;
+        this.f29056b = Math.round((round * 16) / 9);
+        this.f29057c = PxUtils.dpToPx(appContext, 6);
+        this.f29058d = PxUtils.dpToPx(appContext, 100);
+        this.f29059e = 1;
+        this.f29060f = 300;
     }
 
     public final void a(View view, ViewGroup viewGroup, float f2, float f3, int[] iArr, ViewGroup viewGroup2, a aVar) {
@@ -96,11 +96,11 @@ public class a0 {
             LogPrinter.d("zoomOut distX:" + f4 + " distY:" + f5, new Object[0]);
             LogPrinter.d("zoomOut containerScreenX:" + iArr2[0] + " containerScreenY:" + iArr2[1], new Object[0]);
             viewGroup2.addView(view, -1, -1);
-            viewGroup.addView(viewGroup2, new FrameLayout.LayoutParams(this.a, this.f28686b));
+            viewGroup.addView(viewGroup2, new FrameLayout.LayoutParams(this.a, this.f29056b));
             viewGroup2.setTranslationX(f4);
             viewGroup2.setTranslationY(f5);
             if (aVar != null) {
-                ((w.b.a) aVar).a.f28732b.zoomOutAnimationFinish();
+                ((w.b.a) aVar).a.f29102b.zoomOutAnimationFinish();
             }
         }
     }

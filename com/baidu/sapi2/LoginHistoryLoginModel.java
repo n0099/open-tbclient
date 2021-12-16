@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LoginHistoryLoginModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long SECONDS_OF_ONE_DAY = 86400;

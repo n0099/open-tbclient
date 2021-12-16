@@ -11,31 +11,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f57456b;
+    public volatile boolean f58037b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.g.a f57457c;
+    public com.kwad.sdk.core.g.a f58038c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public a f57458d;
+    public a f58039d;
 
     /* renamed from: com.kwad.sdk.core.g.b$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements SensorEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,11 +79,11 @@ public class b {
                 float f3 = fArr[1];
                 float f4 = fArr[2];
                 double sqrt = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
-                if (!this.a.f57456b || sqrt < this.a.a || this.a.f57457c == null) {
+                if (!this.a.f58037b || sqrt < this.a.a || this.a.f58038c == null) {
                     return;
                 }
-                this.a.f57456b = false;
-                this.a.f57457c.a(sqrt);
+                this.a.f58037b = false;
+                this.a.f58038c.a(sqrt);
             }
         }
     }
@@ -103,7 +103,7 @@ public class b {
                 return;
             }
         }
-        this.f57456b = true;
+        this.f58037b = true;
         this.a = f2 <= 0.0f ? 5.0f : f2;
     }
 
@@ -111,7 +111,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                this.f57456b = true;
+                this.f58037b = true;
             }
         }
     }
@@ -136,25 +136,25 @@ public class b {
                 com.kwad.sdk.core.d.a.a("ShakeDetector", "startDetect default linear acceleration is null");
                 return;
             }
-            if (this.f57458d == null) {
-                this.f57458d = new a(this, null);
+            if (this.f58039d == null) {
+                this.f58039d = new a(this, null);
             }
-            sensorManager.registerListener(this.f57458d, defaultSensor, 2);
+            sensorManager.registerListener(this.f58039d, defaultSensor, 2);
         }
     }
 
     public void a(@Nullable com.kwad.sdk.core.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f57457c = aVar;
+            this.f58038c = aVar;
         }
     }
 
     public void b(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, context) == null) || context == null || this.f57458d == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, context) == null) || context == null || this.f58039d == null) {
             return;
         }
-        ((SensorManager) context.getSystemService("sensor")).unregisterListener(this.f57458d);
+        ((SensorManager) context.getSystemService("sensor")).unregisterListener(this.f58039d);
     }
 }

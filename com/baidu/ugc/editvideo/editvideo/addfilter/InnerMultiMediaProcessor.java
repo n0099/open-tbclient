@@ -14,11 +14,11 @@ import android.text.TextUtils;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
-import c.a.a0.b.a.g;
-import c.a.x0.t.c;
-import c.a.x0.t.h;
-import c.a.x0.t.m;
-import c.a.x0.t.u;
+import c.a.b0.b.a.g;
+import c.a.y0.t.c;
+import c.a.y0.t.h;
+import c.a.y0.t.m;
+import c.a.y0.t.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -50,7 +50,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(18)
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMultiMediaDataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InnerMultiMediaProcessor";
@@ -598,7 +598,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 }
                 mediaSegment.effectStart = subTitle.startTime;
                 mediaSegment.effectEnd = subTitle.endTime;
-                mediaSegment.mediaAEffect = c.a.a0.b.a.k.c.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
+                mediaSegment.mediaAEffect = c.a.b0.b.a.k.c.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
                 multiMediaData.width = 0;
                 multiMediaData.height = 0;
                 multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, subTitle.textBitmap.copy(Bitmap.Config.ARGB_8888, false));
@@ -692,7 +692,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
     private void log() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            c.a.a0.b.a.k.c.l();
+            c.a.b0.b.a.k.c.l();
         }
     }
 

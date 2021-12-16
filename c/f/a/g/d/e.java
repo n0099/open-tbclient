@@ -3,7 +3,7 @@ package c.f.a.g.d;
 import com.dxmpay.apollon.restnet.http.HttpStatus;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface e {
     String a() throws IOException;
 

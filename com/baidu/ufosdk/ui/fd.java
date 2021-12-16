@@ -17,20 +17,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class fd extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f51736b;
+    public JSONArray f52285b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51737c;
+    public int f52286c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f51738d;
+    public boolean f52287d;
 
     public fd(Context context, JSONArray jSONArray, int i2, boolean z) {
         Interceptable interceptable = $ic;
@@ -47,11 +47,11 @@ public final class fd extends BaseAdapter {
                 return;
             }
         }
-        this.f51738d = false;
+        this.f52287d = false;
         this.a = context;
-        this.f51736b = jSONArray;
-        this.f51737c = i2;
-        this.f51738d = z;
+        this.f52285b = jSONArray;
+        this.f52286c = i2;
+        this.f52287d = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +63,7 @@ public final class fd extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
             try {
-                return ((JSONObject) this.f51736b.get(i2)).getString("name");
+                return ((JSONObject) this.f52285b.get(i2)).getString("name");
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return "";
@@ -76,7 +76,7 @@ public final class fd extends BaseAdapter {
     public final int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51736b.length() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52285b.length() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -120,15 +120,15 @@ public final class fd extends BaseAdapter {
                 feVar = (fe) view.getTag();
             }
             try {
-                jSONObject = (JSONObject) this.f51736b.get(i2);
+                jSONObject = (JSONObject) this.f52285b.get(i2);
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 feVar.a.setText("");
             }
-            if (this.f51737c == 0) {
+            if (this.f52286c == 0) {
                 feVar.a.setText(jSONObject.getString("question"));
                 feVar.a.setSingleLine(true);
-                if (this.f51738d) {
+                if (this.f52287d) {
                     textView2 = feVar.a;
                     textView2.setTextColor(-13421773);
                     return linearLayout;
@@ -139,7 +139,7 @@ public final class fd extends BaseAdapter {
             }
             feVar.a.setText(jSONObject.getString("name"));
             feVar.a.setSingleLine(true);
-            if (this.f51738d) {
+            if (this.f52287d) {
                 textView2 = feVar.a;
                 textView2.setTextColor(-13421773);
                 return linearLayout;

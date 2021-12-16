@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.h.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

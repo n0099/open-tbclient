@@ -15,14 +15,14 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObservableCollect<T, U> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BiConsumer<? super U, ? super T> collector;
     public final Callable<? extends U> initialSupplier;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class CollectObserver<T, U> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

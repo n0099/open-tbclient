@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 @SuppressLint({"BDThrowableCheck"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BaseNCodecOutputStream extends FilterOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

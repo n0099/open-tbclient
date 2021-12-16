@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final t a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30546b;
+    public boolean f30916b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f30547c;
+    public long f30917c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f30548d;
+    public long f30918d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -173,22 +173,22 @@ public final class p {
     public final long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30546b ? (this.a.a() - this.f30548d) + this.f30547c : this.f30547c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30916b ? (this.a.a() - this.f30918d) + this.f30917c : this.f30917c : invokeV.longValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30546b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30916b : invokeV.booleanValue;
     }
 
     public p h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n.x(!this.f30546b, "This stopwatch is already running.");
-            this.f30546b = true;
-            this.f30548d = this.a.a();
+            n.x(!this.f30916b, "This stopwatch is already running.");
+            this.f30916b = true;
+            this.f30918d = this.a.a();
             return this;
         }
         return (p) invokeV.objValue;
@@ -199,9 +199,9 @@ public final class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             long a2 = this.a.a();
-            n.x(this.f30546b, "This stopwatch is already stopped.");
-            this.f30546b = false;
-            this.f30547c += a2 - this.f30548d;
+            n.x(this.f30916b, "This stopwatch is already stopped.");
+            this.f30916b = false;
+            this.f30917c += a2 - this.f30918d;
             return this;
         }
         return (p) invokeV.objValue;

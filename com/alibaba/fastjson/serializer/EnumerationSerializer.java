@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Enumeration;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class EnumerationSerializer implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public static EnumerationSerializer instance;

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f38305b;
+    public static final Pattern f38794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f38306c;
+    public static boolean f38795c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class e {
                 return;
             }
         }
-        f38305b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
-        f38306c = false;
+        f38794b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f38795c = false;
     }
 
     public e() {
@@ -55,14 +55,14 @@ public class e {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            boolean z = f38306c;
+            boolean z = f38795c;
         }
     }
 
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f38305b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f38794b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static void a(String str) {

@@ -13,7 +13,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class MediaType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern PARAMETER;

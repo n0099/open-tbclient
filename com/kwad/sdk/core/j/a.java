@@ -19,23 +19,23 @@ import com.kwad.sdk.utils.bc;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a implements c, bc.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final bc a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicBoolean f57484b;
+    public final AtomicBoolean f58065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<d> f57485c;
+    public Set<d> f58066c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final View f57486d;
+    public final View f58067d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f57487e;
+    public final int f58068e;
 
     public a(@NonNull View view, int i2) {
         Interceptable interceptable = $ic;
@@ -52,16 +52,16 @@ public abstract class a implements c, bc.a {
                 return;
             }
         }
-        this.f57484b = new AtomicBoolean(false);
-        this.f57486d = view;
-        this.f57487e = i2;
+        this.f58065b = new AtomicBoolean(false);
+        this.f58067d = view;
+        this.f58068e = i2;
         this.a = new bc(this);
     }
 
     private void a(boolean z) {
         Set<d> set;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65537, this, z) == null) || (set = this.f57485c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65537, this, z) == null) || (set = this.f58066c) == null) {
             return;
         }
         for (d dVar : set) {
@@ -110,10 +110,10 @@ public abstract class a implements c, bc.a {
             } else {
                 dVar.f();
             }
-            if (this.f57485c == null) {
-                this.f57485c = new HashSet();
+            if (this.f58066c == null) {
+                this.f58066c = new HashSet();
             }
-            this.f57485c.add(dVar);
+            this.f58066c.add(dVar);
         }
     }
 
@@ -131,7 +131,7 @@ public abstract class a implements c, bc.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
             ae.a();
-            if (dVar == null || (set = this.f57485c) == null) {
+            if (dVar == null || (set = this.f58066c) == null) {
                 return;
             }
             set.remove(dVar);
@@ -143,12 +143,12 @@ public abstract class a implements c, bc.a {
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? bb.a(this.f57486d, this.f57487e, false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? bb.a(this.f58067d, this.f58068e, false) : invokeV.booleanValue;
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f57484b.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f58065b.getAndSet(true)) {
             return;
         }
         a(true);
@@ -156,7 +156,7 @@ public abstract class a implements c, bc.a {
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f57484b.getAndSet(false)) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f58065b.getAndSet(false)) {
             a(false);
         }
     }
@@ -166,7 +166,7 @@ public abstract class a implements c, bc.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             b();
-            Set<d> set = this.f57485c;
+            Set<d> set = this.f58066c;
             if (set != null) {
                 set.clear();
             }

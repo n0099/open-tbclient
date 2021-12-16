@@ -1,7 +1,7 @@
 package com.baidu.searchbox.perfframe.impl;
 
 import android.content.Context;
-import c.a.i0.a.b.d;
+import c.a.j0.a.b.d;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Autowired
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PerfFrameContext {
     public static /* synthetic */ Interceptable $ic;
     public static final IPerfFrameCallBack PERFFRAME_CONTEXT_DEFAULT;

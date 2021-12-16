@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.as;
 import java.net.URLEncoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f57518b = "";
+    public static String f58099b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -86,26 +86,26 @@ public final class k {
         String f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TextUtils.isEmpty(f57518b)) {
+            if (TextUtils.isEmpty(f58099b)) {
                 Context context = KsAdSDKImpl.get().getContext();
                 if (context == null) {
                     return "";
                 }
                 try {
                     f2 = as.f(context);
-                    f57518b = f2;
+                    f58099b = f2;
                 } catch (Exception unused) {
                 }
                 if (TextUtils.isEmpty(f2)) {
-                    f57518b = Build.VERSION.SDK_INT >= 17 ? WebSettings.getDefaultUserAgent(context) : System.getProperty("http.agent");
-                    String encode = URLEncoder.encode(f57518b, "UTF-8");
-                    f57518b = encode;
+                    f58099b = Build.VERSION.SDK_INT >= 17 ? WebSettings.getDefaultUserAgent(context) : System.getProperty("http.agent");
+                    String encode = URLEncoder.encode(f58099b, "UTF-8");
+                    f58099b = encode;
                     as.j(context, encode);
-                    return f57518b;
+                    return f58099b;
                 }
-                return f57518b;
+                return f58099b;
             }
-            return f57518b;
+            return f58099b;
         }
         return (String) invokeV.objValue;
     }

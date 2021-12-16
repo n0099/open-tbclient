@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class NetWorkDetector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -27,7 +27,7 @@ public final class NetWorkDetector {
     public boolean sNeedDetect;
 
     /* renamed from: com.baidu.down.utils.network.NetWorkDetector$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public final class NetWorkDetector {
         return invokeLJ.booleanValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class HostStatusCache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

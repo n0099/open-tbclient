@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTSplashAd;
 import com.fun.ad.sdk.FunSplashAdInteractionListener;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class g extends d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ o f28623f;
+    public final /* synthetic */ o f28993f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(d dVar, TTSplashAd tTSplashAd, String str, o oVar) {
@@ -36,7 +36,7 @@ public class g extends d.b {
                 return;
             }
         }
-        this.f28623f = oVar;
+        this.f28993f = oVar;
     }
 
     @Override // c.g.a0.a.d.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
@@ -44,9 +44,9 @@ public class g extends d.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
             super.onAdClicked(view, i2);
-            o oVar = this.f28623f;
-            String str = this.f28614b;
-            FunSplashAdInteractionListener funSplashAdInteractionListener = oVar.f28653j;
+            o oVar = this.f28993f;
+            String str = this.f28984b;
+            FunSplashAdInteractionListener funSplashAdInteractionListener = oVar.f29023j;
             if (funSplashAdInteractionListener != null) {
                 funSplashAdInteractionListener.onAdClicked(str);
             }
@@ -58,9 +58,9 @@ public class g extends d.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
             super.onAdShow(view, i2);
-            o oVar = this.f28623f;
-            oVar.f28650g = oVar.f28645b.getWidth();
-            oVar.f28651h = oVar.f28645b.getHeight();
+            o oVar = this.f28993f;
+            oVar.f29020g = oVar.f29015b.getWidth();
+            oVar.f29021h = oVar.f29015b.getHeight();
         }
     }
 }

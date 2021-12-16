@@ -19,7 +19,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayEventType;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
             if (this.iPayCallback != null) {
                 PayCallBackBean payCallBackBean2 = new PayCallBackBean(this.orderId, this.params.getProductId(), "", this.requestTime, null, this.payLoad, null, null, PurchaseStatus.PAY_FAIL, this.params.getAppClientExpand());
                 this.iPayCallback.onPayStatus(PurchaseStatus.PAY_FAIL, payCallBackBean2);
-                this.iPayCallback.onFail(i2, "failed reason:" + str, payCallBackBean2);
+                this.iPayCallback.onFail(i2, "failed " + str, payCallBackBean2);
             }
             IEventReporter iEventReporter = this.mEventReporter;
             if (iEventReporter != null) {

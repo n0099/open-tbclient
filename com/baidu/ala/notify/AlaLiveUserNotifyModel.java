@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AlaLiveUserNotifyModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class AlaLiveUserNotifyModel {
     public boolean mIsNeedShowDialog;
     public TbPageContext mTbPageContext;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface AlaLiveNotifyCallBack {
         void onCallBack(AlaLiveUserNotifyData alaLiveUserNotifyData);
     }

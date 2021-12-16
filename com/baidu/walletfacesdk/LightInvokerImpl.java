@@ -12,11 +12,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.walletfacesdk.LivenessManager;
-import com.dxmpay.wallet.core.beans.BeanConstants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class LightInvokerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALL_NATIVE_VOICE = "callNativeVoice";
@@ -38,7 +37,7 @@ public class LightInvokerImpl {
     public static final String VOICE_PRODUCTID = "productId";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public interface IResultListener {
         void onResult(int i2, JSONObject jSONObject);
     }
@@ -79,7 +78,7 @@ public class LightInvokerImpl {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("result", i2);
-                jSONObject2.put(BeanConstants.DXM_OCR_KEY_CNT, jSONObject);
+                jSONObject2.put("cnt", jSONObject);
             } catch (JSONException unused) {
             }
             return jSONObject2.toString();
@@ -158,7 +157,7 @@ public class LightInvokerImpl {
                 public final /* synthetic */ JSONObject a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IResultListener f54237b;
+                public final /* synthetic */ IResultListener f54817b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -176,7 +175,7 @@ public class LightInvokerImpl {
                         }
                     }
                     this.a = jSONObject2;
-                    this.f54237b = iResultListener;
+                    this.f54817b = iResultListener;
                 }
 
                 @Override // com.baidu.walletfacesdk.LivenessManager.IvoiceListener
@@ -192,7 +191,7 @@ public class LightInvokerImpl {
                         }
                         this.a.put("errCode", i3);
                         this.a.put("des", str2);
-                        this.f54237b.onResult(i2, this.a);
+                        this.f54817b.onResult(i2, this.a);
                     }
                 }
             });

@@ -10,21 +10,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.router.LocalRouter;
+import com.baidu.wallet.router.RouterCallback;
 import com.baidu.wallet.router.RouterProvider;
+import com.baidu.wallet.router.RouterRequest;
 import com.dxmpay.wallet.core.utils.ReflectUtils;
-/* loaded from: classes11.dex */
+import java.util.HashMap;
+/* loaded from: classes13.dex */
 public class DxmPay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: com.baidu.wallet.api.DxmPay$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final DxmPay a;
@@ -43,12 +39,8 @@ public class DxmPay {
                     return;
                 }
             }
-            a = new DxmPay(null);
+            a = new DxmPay();
         }
-    }
-
-    public /* synthetic */ DxmPay(AnonymousClass1 anonymousClass1) {
-        this();
     }
 
     private void a(Application application) {
@@ -67,6 +59,36 @@ public class DxmPay {
                 return;
             }
             LocalRouter.getInstance(application).registerProvider("bankdetection", (RouterProvider) providerObject3);
+            LocalRouter.getInstance(application).route(application, new RouterRequest().provider("bankdetection").action("initbankcarddetction"), new RouterCallback(this) { // from class: com.baidu.wallet.api.DxmPay.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ DxmPay a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // com.baidu.wallet.router.RouterCallback
+                public void onResult(int i2, HashMap hashMap) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, hashMap) == null) {
+                    }
+                }
+            });
         }
     }
 

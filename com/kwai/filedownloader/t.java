@@ -2,7 +2,7 @@ package com.kwai.filedownloader;
 
 import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.message.MessageSnapshot;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface t {
     void a(a.b bVar, a.d dVar);
 

@@ -15,28 +15,28 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<c.e.b.a.c.b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f28499b;
+    public Handler f28874b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f28500c;
+    public WeakReference<Activity> f28875c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f28501d;
+    public final AtomicBoolean f28876d;
 
     /* renamed from: c.e.b.a.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1572a implements Comparator<c.e.b.a.c.b> {
+    /* loaded from: classes9.dex */
+    public class C1612a implements Comparator<c.e.b.a.c.b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1572a(a aVar) {
+        public C1612a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,13 +80,13 @@ public class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f28502e;
+        public final /* synthetic */ a f28877e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class a {
                     return;
                 }
             }
-            this.f28502e = aVar;
+            this.f28877e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -111,14 +111,14 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    c.e.b.a.c.b bVar = (c.e.b.a.c.b) this.f28502e.a.get(0);
+                    c.e.b.a.c.b bVar = (c.e.b.a.c.b) this.f28877e.a.get(0);
                     if (bVar.isShowing()) {
                         return;
                     }
                     bVar.show();
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    this.f28502e.f();
+                    this.f28877e.f();
                 }
             }
         }
@@ -140,9 +140,9 @@ public class a {
             }
         }
         this.a = new ArrayList();
-        this.f28501d = new AtomicBoolean(false);
-        this.f28500c = new WeakReference<>(activity);
-        this.f28499b = new Handler(Looper.getMainLooper());
+        this.f28876d = new AtomicBoolean(false);
+        this.f28875c = new WeakReference<>(activity);
+        this.f28874b = new Handler(Looper.getMainLooper());
     }
 
     public List<c.e.b.a.c.b> a() {
@@ -159,7 +159,7 @@ public class a {
                 return false;
             }
             if (this.a.isEmpty()) {
-                this.f28501d.set(false);
+                this.f28876d.set(false);
             }
             this.a.add(bVar);
             bVar.setHostQuene(this);
@@ -173,7 +173,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.clear();
-            this.f28501d.set(false);
+            this.f28876d.set(false);
         }
     }
 
@@ -197,19 +197,19 @@ public class a {
             if (!this.a.isEmpty()) {
                 this.a.remove(0);
             }
-            this.f28501d.set(false);
+            this.f28876d.set(false);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            WeakReference<Activity> weakReference = this.f28500c;
-            if (weakReference == null || weakReference.get() == null || this.f28500c.get().isFinishing()) {
+            WeakReference<Activity> weakReference = this.f28875c;
+            if (weakReference == null || weakReference.get() == null || this.f28875c.get().isFinishing()) {
                 d();
-            } else if (this.a.isEmpty() || this.f28501d.getAndSet(true)) {
+            } else if (this.a.isEmpty() || this.f28876d.getAndSet(true)) {
             } else {
-                this.f28499b.postDelayed(new b(this), 500L);
+                this.f28874b.postDelayed(new b(this), 500L);
             }
         }
     }
@@ -217,7 +217,7 @@ public class a {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Collections.sort(this.a, new C1572a(this));
+            Collections.sort(this.a, new C1612a(this));
         }
     }
 }

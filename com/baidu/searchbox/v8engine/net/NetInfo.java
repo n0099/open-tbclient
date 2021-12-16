@@ -15,7 +15,7 @@ import com.tachikoma.core.component.input.ReturnKeyType;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NetInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NetInfo";
@@ -28,7 +28,7 @@ public class NetInfo {
     public SwanExtra mSwanExtra;
     public Timing mTiming;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Base {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,13 +72,13 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Dns {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JSONObject mJSONObject;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class Config {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class NetInfo {
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class Result {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class JSONObjectUtils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,7 +259,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Quic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -279,7 +279,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Response {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -347,7 +347,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Socket {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -355,7 +355,7 @@ public class NetInfo {
         public boolean mQuic;
         public boolean mReused;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class Attempts {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -407,7 +407,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Ssl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -453,13 +453,13 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SwanExtra {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Timing mTiming;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class Timing {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -508,7 +508,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Timing {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -540,7 +540,7 @@ public class NetInfo {
             if (jSONObject != null) {
                 this.mJSONObject = jSONObject;
                 this.mConnect = JSONObjectUtils.getLong(jSONObject, "connect");
-                this.mDns = JSONObjectUtils.getLong(this.mJSONObject, b.c.f33122b);
+                this.mDns = JSONObjectUtils.getLong(this.mJSONObject, b.c.f33492b);
                 this.mDurationTime = JSONObjectUtils.getLong(this.mJSONObject, "duration_time");
                 this.mHeadRecv = JSONObjectUtils.getInt(this.mJSONObject, "head_recv");
                 this.mRedirect = JSONObjectUtils.getInt(this.mJSONObject, "redirect");

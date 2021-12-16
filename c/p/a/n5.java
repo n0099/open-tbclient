@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBError;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class n5 extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d1 f30865b;
+    public final /* synthetic */ d1 f31235b;
 
     public n5(d1 d1Var, String str) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class n5 extends AsyncTask {
                 return;
             }
         }
-        this.f30865b = d1Var;
+        this.f31235b = d1Var;
         this.a = str;
     }
 
@@ -63,26 +63,26 @@ public class n5 extends AsyncTask {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             byte[] bArr = (byte[]) obj;
             if (bArr == null) {
-                d1 d1Var = this.f30865b;
-                e1 e1Var = d1Var.f30768e;
-                if (e1Var != null && !d1Var.f30773j) {
+                d1 d1Var = this.f31235b;
+                e1 e1Var = d1Var.f31138e;
+                if (e1Var != null && !d1Var.f31143j) {
                     e1Var.onFail(PBError.NO_RESUOURCE);
-                    this.f30865b.f30772i = true;
+                    this.f31235b.f31142i = true;
                 }
             } else {
-                d1 d1Var2 = this.f30865b;
-                e1 e1Var2 = d1Var2.f30768e;
-                if (e1Var2 != null && !d1Var2.f30773j) {
+                d1 d1Var2 = this.f31235b;
+                e1 e1Var2 = d1Var2.f31138e;
+                if (e1Var2 != null && !d1Var2.f31143j) {
                     d1Var2.m = bArr;
                     e1Var2.onLoaded();
-                    this.f30865b.f30772i = true;
+                    this.f31235b.f31142i = true;
                 }
             }
             if (bArr != null) {
-                d1 d1Var3 = this.f30865b;
-                if (d1Var3.f30773j) {
+                d1 d1Var3 = this.f31235b;
+                if (d1Var3.f31143j) {
                     StringBuilder sb = new StringBuilder();
-                    context = this.f30865b.a;
+                    context = this.f31235b.a;
                     sb.append(r0.e(context));
                     sb.append(File.separator);
                     sb.append("win");
@@ -90,7 +90,7 @@ public class n5 extends AsyncTask {
                     sb.append(r0.D(this.a));
                     sb.append(".gif");
                     d1Var3.p = new File(sb.toString());
-                    new Thread(new y(bArr, this.f30865b.p.getPath())).start();
+                    new Thread(new y(bArr, this.f31235b.p.getPath())).start();
                 }
             }
         }

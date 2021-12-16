@@ -13,24 +13,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<w.b<String, c.b.b.n.l.g.g.b>> f27367b;
+    public c.b.b.q.a<w.b<String, c.b.b.n.l.g.g.b>> f27742b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f27368c;
+    public a f27743c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends c.b.b.j.c<c.b.b.n.l.d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public p.b f27369b;
+        public p.b f27744b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -46,13 +46,13 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
                 }
             }
             p.b bVar = new p.b();
-            this.f27369b = bVar;
+            this.f27744b = bVar;
             Texture.TextureFilter textureFilter = Texture.TextureFilter.Linear;
-            bVar.f27395g = textureFilter;
-            bVar.f27394f = textureFilter;
+            bVar.f27770g = textureFilter;
+            bVar.f27769f = textureFilter;
             Texture.TextureWrap textureWrap = Texture.TextureWrap.Repeat;
-            bVar.f27397i = textureWrap;
-            bVar.f27396h = textureWrap;
+            bVar.f27772i = textureWrap;
+            bVar.f27771h = textureWrap;
         }
     }
 
@@ -74,8 +74,8 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
                 return;
             }
         }
-        this.f27367b = new c.b.b.q.a<>();
-        this.f27368c = new a();
+        this.f27742b = new c.b.b.q.a<>();
+        this.f27743c = new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -95,14 +95,14 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
             }
             w.b<String, c.b.b.n.l.g.g.b> bVar = new w.b<>();
             bVar.a = str;
-            bVar.f27939b = h2;
-            synchronized (this.f27367b) {
-                this.f27367b.a(bVar);
+            bVar.f28314b = h2;
+            synchronized (this.f27742b) {
+                this.f27742b.a(bVar);
             }
-            p.b bVar2 = p != null ? p.f27369b : this.f27368c.f27369b;
-            a.b<ModelMaterial> it = h2.f27643c.iterator();
+            p.b bVar2 = p != null ? p.f27744b : this.f27743c.f27744b;
+            a.b<ModelMaterial> it = h2.f28018c.iterator();
             while (it.hasNext()) {
-                c.b.b.q.a<c.b.b.n.l.g.g.i> aVar3 = it.next().f31614i;
+                c.b.b.q.a<c.b.b.n.l.g.g.i> aVar3 = it.next().f31984i;
                 if (aVar3 != null) {
                     a.b<c.b.b.n.l.g.g.i> it2 = aVar3.iterator();
                     while (it2.hasNext()) {
@@ -134,12 +134,12 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
         c.b.b.n.l.g.g.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, eVar, str, aVar, p)) == null) {
-            synchronized (this.f27367b) {
+            synchronized (this.f27742b) {
                 bVar = null;
-                for (int i2 = 0; i2 < this.f27367b.f27768f; i2++) {
-                    if (this.f27367b.get(i2).a.equals(str)) {
-                        bVar = this.f27367b.get(i2).f27939b;
-                        this.f27367b.h(i2);
+                for (int i2 = 0; i2 < this.f27742b.f28143f; i2++) {
+                    if (this.f27742b.get(i2).a.equals(str)) {
+                        bVar = this.f27742b.get(i2).f28314b;
+                        this.f27742b.h(i2);
                     }
                 }
             }

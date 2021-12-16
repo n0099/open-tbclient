@@ -15,7 +15,7 @@ import com.xiaomi.push.fl;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class fj implements fx {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -37,9 +37,9 @@ public class fj implements fx {
     public SimpleDateFormat f393a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f62884b;
+    public a f63465b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements fq, fy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public class fj implements fx {
                         faVar4.a(faVar.e());
                         faVar4.a(faVar.m356a());
                         faVar4.b(faVar.f());
-                        faVar4.a(faVar.m359a(com.xiaomi.push.service.av.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), faVar.g()).f63246h), (String) null);
+                        faVar4.a(faVar.m359a(com.xiaomi.push.service.av.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), faVar.g()).f63827h), (String) null);
                         faVar2 = faVar4;
                     }
                 }
@@ -216,7 +216,7 @@ public class fj implements fx {
         this.f393a = new SimpleDateFormat("hh:mm:ss aaa");
         this.f390a = null;
         this.f389a = null;
-        this.f62884b = null;
+        this.f63465b = null;
         this.f391a = null;
         this.f392a = "[Slim] ";
         this.f390a = flVar;
@@ -227,12 +227,12 @@ public class fj implements fx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.f389a = new a(this, true);
-            this.f62884b = new a(this, false);
+            this.f63465b = new a(this, false);
             fl flVar = this.f390a;
             a aVar = this.f389a;
             flVar.a(aVar, aVar);
             fl flVar2 = this.f390a;
-            a aVar2 = this.f62884b;
+            a aVar2 = this.f63465b;
             flVar2.b(aVar2, aVar2);
             this.f391a = new fk(this);
         }

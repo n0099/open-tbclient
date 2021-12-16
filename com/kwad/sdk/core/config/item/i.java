@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i extends b<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57257b;
+        public int f57838b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class i extends b<a> {
                 }
             }
             this.a = TiebaStatic.MAX_COST_VALUE;
-            this.f57257b = 90000;
+            this.f57838b = 90000;
         }
     }
 

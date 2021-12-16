@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,16 +27,19 @@ import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlutterSplashView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "FlutterSplashView";
     public static boolean isNeedCustomDartInitFinish;
     public transient /* synthetic */ FieldHolder $fh;
+    public String containerUrl;
     @Nullable
     public FlutterView flutterView;
     public boolean forceShowSplash;
     public Handler handler;
+    public boolean isFlutterPostFrame;
+    public boolean isFlutterUiDisplayed;
     public FlutterEngine mFlutterEngine;
     @NonNull
     public final FlutterUiDisplayListener onFirstFrameRenderedListener;
@@ -54,7 +58,7 @@ public class FlutterSplashView extends FrameLayout {
     @Nullable
     public View splashScreenView;
     @NonNull
-    public final Runnable transitionToFlutter;
+    public final Runnable transitionToFlutterRunnable;
     @Nullable
     public String transitioningIsolateId;
 
@@ -169,10 +173,17 @@ public class FlutterSplashView extends FrameLayout {
         }
     }
 
+    public void setContainerUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.containerUrl = str;
+        }
+    }
+
     @RequiresApi(api = 19)
     public void showSplash(SplashScreen splashScreen) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, splashScreen) == null) || splashScreen == null || isAttachedToFlutterEngine()) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, splashScreen) == null) || splashScreen == null || isAttachedToFlutterEngine()) {
             return;
         }
         if (this.splashScreenView.isAttachedToWindow()) {
@@ -186,7 +197,7 @@ public class FlutterSplashView extends FrameLayout {
 
     public final void transitionToFlutter() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.flutterView.getAttachedFlutterEngine() != null) {
                 this.transitioningIsolateId = this.flutterView.getAttachedFlutterEngine().getDartExecutor().getIsolateServiceId();
                 String str = TAG;
@@ -195,6 +206,21 @@ public class FlutterSplashView extends FrameLayout {
             SplashScreen splashScreen = this.splashScreen;
             if (splashScreen != null) {
                 splashScreen.transitionToFlutter(this.onTransitionComplete);
+            }
+        }
+    }
+
+    public void tryTransitionToFlutter() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (isNeedCustomDartInitFinish) {
+                if (this.isFlutterUiDisplayed && this.isFlutterPostFrame) {
+                    this.handler.removeCallbacks(this.transitionToFlutterRunnable);
+                    this.handler.postDelayed(this.transitionToFlutterRunnable, this.removeDelay);
+                }
+            } else if (this.isFlutterUiDisplayed) {
+                this.handler.removeCallbacks(this.transitionToFlutterRunnable);
+                this.handler.postDelayed(this.transitionToFlutterRunnable, this.removeDelay);
             }
         }
     }
@@ -242,6 +268,9 @@ public class FlutterSplashView extends FrameLayout {
         this.handler = new Handler();
         this.forceShowSplash = false;
         this.removeDelay = 0L;
+        this.containerUrl = "";
+        this.isFlutterUiDisplayed = false;
+        this.isFlutterPostFrame = false;
         this.onFirstFrameRenderedListener = new FlutterUiDisplayListener(this) { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -268,10 +297,11 @@ public class FlutterSplashView extends FrameLayout {
             @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
             public void onFlutterUiDisplayed() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.splashScreen == null || FlutterSplashView.isNeedCustomDartInitFinish) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.splashScreen == null) {
                     return;
                 }
-                this.this$0.transitionToFlutter();
+                this.this$0.isFlutterUiDisplayed = true;
+                this.this$0.tryTransitionToFlutter();
             }
 
             @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
@@ -281,7 +311,7 @@ public class FlutterSplashView extends FrameLayout {
                 }
             }
         };
-        this.transitionToFlutter = new Runnable(this) { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.3
+        this.transitionToFlutterRunnable = new Runnable(this) { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ FlutterSplashView this$0;
@@ -373,8 +403,9 @@ public class FlutterSplashView extends FrameLayout {
             @Override // com.idlefish.flutterboost.FlutterBoostPlugin.EventListener
             public void onEvent(String str, Map map) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, str, map) == null) && "flutterPostFrame".equals(str)) {
-                    this.this$0.handler.postDelayed(this.this$0.transitionToFlutter, this.this$0.removeDelay);
+                if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, str, map) == null) && "flutterPostFrame".equals(str) && this.this$0.containerUrl.equals(map.get("pageName"))) {
+                    this.this$0.isFlutterPostFrame = true;
+                    this.this$0.tryTransitionToFlutter();
                 }
             }
         };

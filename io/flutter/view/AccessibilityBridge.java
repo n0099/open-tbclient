@@ -64,7 +64,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AccessibilityBridge extends AccessibilityNodeProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_SHOW_ON_SCREEN = 16908342;
@@ -118,7 +118,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     public final AccessibilityManager.TouchExplorationStateChangeListener touchExplorationStateChangeListener;
 
     /* renamed from: io.flutter.view.AccessibilityBridge$5  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$view$AccessibilityBridge$StringAttributeType;
         public static /* synthetic */ Interceptable $ic;
@@ -151,7 +151,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class AccessibilityFeature {
         public static final /* synthetic */ AccessibilityFeature[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -216,7 +216,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Action {
         public static final /* synthetic */ Action[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -318,7 +318,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CustomAccessibilityAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -348,7 +348,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Flag {
         public static final /* synthetic */ Flag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -454,7 +454,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LocaleStringAttribute extends StringAttribute {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -479,12 +479,12 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnAccessibilityChangeListener {
         void onAccessibilityChanged(boolean z, boolean z2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SemanticsNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -985,7 +985,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SpellOutStringAttribute extends StringAttribute {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1009,7 +1009,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class StringAttribute {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1033,7 +1033,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class StringAttributeType {
         public static final /* synthetic */ StringAttributeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1093,7 +1093,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class TextDirection {
         public static final /* synthetic */ TextDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

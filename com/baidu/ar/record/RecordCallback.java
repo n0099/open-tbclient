@@ -1,5 +1,5 @@
 package com.baidu.ar.record;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface RecordCallback {
     void onRecorderComplete(boolean z, String str);
 

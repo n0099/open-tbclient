@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.io.Writer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StringBuilderWriter extends Writer implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4424285024471074820L;

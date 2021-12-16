@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class StreamEncoder implements Encoder<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "StreamEncoder";

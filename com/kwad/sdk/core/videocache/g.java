@@ -14,35 +14,35 @@ import java.net.Socket;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicInteger a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f57911b;
+    public final String f58492b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile e f57912c;
+    public volatile e f58493c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<b> f57913d;
+    public final List<b> f58494d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f57914e;
+    public final b f58495e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f57915f;
+    public final c f58496f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a extends Handler implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<b> f57916b;
+        public final List<b> f58497b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(String str, List<b> list) {
@@ -63,7 +63,7 @@ public final class g {
                 }
             }
             this.a = str;
-            this.f57916b = list;
+            this.f58497b = list;
         }
 
         @Override // com.kwad.sdk.core.videocache.b
@@ -81,7 +81,7 @@ public final class g {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-                for (b bVar : this.f57916b) {
+                for (b bVar : this.f58497b) {
                     bVar.a((File) message.obj, this.a, message.arg1);
                 }
             }
@@ -104,17 +104,17 @@ public final class g {
             }
         }
         this.a = new AtomicInteger(0);
-        this.f57913d = new CopyOnWriteArrayList();
-        this.f57911b = (String) j.a(str);
-        this.f57915f = (c) j.a(cVar);
-        this.f57914e = new a(str, this.f57913d);
+        this.f58494d = new CopyOnWriteArrayList();
+        this.f58492b = (String) j.a(str);
+        this.f58496f = (c) j.a(cVar);
+        this.f58495e = new a(str, this.f58494d);
     }
 
     private synchronized void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             synchronized (this) {
-                this.f57912c = this.f57912c == null ? e() : this.f57912c;
+                this.f58493c = this.f58493c == null ? e() : this.f58493c;
             }
         }
     }
@@ -124,8 +124,8 @@ public final class g {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             synchronized (this) {
                 if (this.a.decrementAndGet() <= 0) {
-                    this.f57912c.a();
-                    this.f57912c = null;
+                    this.f58493c.a();
+                    this.f58493c = null;
                 }
             }
         }
@@ -135,10 +135,10 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            String str = this.f57911b;
-            c cVar = this.f57915f;
-            e eVar = new e(new h(str, cVar.f57891d, cVar.f57892e), new com.kwad.sdk.core.videocache.kwai.b(this.f57915f.a(this.f57911b), this.f57915f.f57890c));
-            eVar.a(this.f57914e);
+            String str = this.f58492b;
+            c cVar = this.f58496f;
+            e eVar = new e(new h(str, cVar.f58472d, cVar.f58473e), new com.kwad.sdk.core.videocache.kwai.b(this.f58496f.a(this.f58492b), this.f58496f.f58471c));
+            eVar.a(this.f58495e);
             return eVar;
         }
         return (e) invokeV.objValue;
@@ -147,11 +147,11 @@ public final class g {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f57913d.clear();
-            if (this.f57912c != null) {
-                this.f57912c.a((b) null);
-                this.f57912c.a();
-                this.f57912c = null;
+            this.f58494d.clear();
+            if (this.f58493c != null) {
+                this.f58493c.a((b) null);
+                this.f58493c.a();
+                this.f58493c = null;
             }
             this.a.set(0);
         }
@@ -163,7 +163,7 @@ public final class g {
             c();
             try {
                 this.a.incrementAndGet();
-                this.f57912c.a(dVar, socket);
+                this.f58493c.a(dVar, socket);
             } finally {
                 d();
             }

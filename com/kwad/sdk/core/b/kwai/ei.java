@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.webview.jshandler.u;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ei implements com.kwad.sdk.core.d<u.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class ei implements com.kwad.sdk.core.d<u.a> {
             return;
         }
         aVar.a = jSONObject.optInt("timerName");
-        aVar.f58085b = jSONObject.optInt("time");
+        aVar.f58666b = jSONObject.optInt("time");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,7 +48,7 @@ public class ei implements com.kwad.sdk.core.d<u.a> {
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "timerName", aVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "time", aVar.f58085b);
+            com.kwad.sdk.utils.t.a(jSONObject, "time", aVar.f58666b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

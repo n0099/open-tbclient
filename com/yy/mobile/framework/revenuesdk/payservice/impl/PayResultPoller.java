@@ -22,7 +22,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderSt
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReqParams;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PayResultPoller {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class PayResultPoller {
     public IAppPayService payService;
     public IPayServiceCallback payServiceCallback;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface PollerListener {
         void onFail(ChargeCurrencyReqParams chargeCurrencyReqParams, int i2, String str);
 

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.INoProGuard;
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class UtilsBlink implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEX_FILE_SUBFIX = ".dex";

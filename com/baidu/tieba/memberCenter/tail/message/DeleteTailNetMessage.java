@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.tail.message;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.DeleteTail.DeleteTailReqIdl;
 import tbclient.DeleteTail.ReqData;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class DeleteTailNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class DeleteTailNetMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DeleteTailReqIdl.Builder builder = new DeleteTailReqIdl.Builder();
             if (z) {
-                z.a(this.data, true);
+                b0.a(this.data, true);
             }
             builder.data = this.data.build(false);
             return builder.build(false);

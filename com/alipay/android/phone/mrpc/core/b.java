@@ -51,28 +51,28 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.protocol.HttpContext;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b implements HttpClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static long a = 160;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String[] f31125b;
+    public static String[] f31495b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HttpRequestInterceptor f31126c;
+    public static final HttpRequestInterceptor f31496c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HttpClient f31127d;
+    public final HttpClient f31497d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RuntimeException f31128e;
+    public RuntimeException f31498e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile C1633b f31129f;
+    public volatile C1672b f31499f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements HttpRequestInterceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,30 +102,30 @@ public final class b implements HttpClient {
 
         @Override // org.apache.http.HttpRequestInterceptor
         public final void process(HttpRequest httpRequest, HttpContext httpContext) {
-            C1633b c1633b;
+            C1672b c1672b;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, httpRequest, httpContext) == null) && (c1633b = this.a.f31129f) != null && C1633b.a(c1633b) && (httpRequest instanceof HttpUriRequest)) {
-                C1633b.a(c1633b, b.a((HttpUriRequest) httpRequest));
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, httpRequest, httpContext) == null) && (c1672b = this.a.f31499f) != null && C1672b.a(c1672b) && (httpRequest instanceof HttpUriRequest)) {
+                C1672b.a(c1672b, b.a((HttpUriRequest) httpRequest));
             }
         }
     }
 
     /* renamed from: com.alipay.android.phone.mrpc.core.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1633b {
+    /* loaded from: classes9.dex */
+    public static class C1672b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f31130b;
+        public final int f31500b;
 
-        public static /* synthetic */ void a(C1633b c1633b, String str) {
-            Log.println(c1633b.f31130b, c1633b.a, str);
+        public static /* synthetic */ void a(C1672b c1672b, String str) {
+            Log.println(c1672b.f31500b, c1672b.a, str);
         }
 
-        public static /* synthetic */ boolean a(C1633b c1633b) {
-            return Log.isLoggable(c1633b.a, c1633b.f31130b);
+        public static /* synthetic */ boolean a(C1672b c1672b) {
+            return Log.isLoggable(c1672b.a, c1672b.f31500b);
         }
     }
 
@@ -142,8 +142,8 @@ public final class b implements HttpClient {
                 return;
             }
         }
-        f31125b = new String[]{"text/", "application/xml", "application/json"};
-        f31126c = new c();
+        f31495b = new String[]{"text/", "application/xml", "application/json"};
+        f31496c = new c();
     }
 
     public b(ClientConnectionManager clientConnectionManager, HttpParams httpParams) {
@@ -161,8 +161,8 @@ public final class b implements HttpClient {
                 return;
             }
         }
-        this.f31128e = new IllegalStateException("AndroidHttpClient created and never closed");
-        this.f31127d = new d(this, clientConnectionManager, httpParams);
+        this.f31498e = new IllegalStateException("AndroidHttpClient created and never closed");
+        this.f31497d = new d(this, clientConnectionManager, httpParams);
     }
 
     public static b a(String str) {
@@ -306,7 +306,7 @@ public final class b implements HttpClient {
             Header[] headers2 = httpUriRequest.getHeaders("content-type");
             if (headers2 != null) {
                 for (Header header2 : headers2) {
-                    for (String str : f31125b) {
+                    for (String str : f31495b) {
                         if (header2.getValue().startsWith(str)) {
                             return false;
                         }
@@ -321,7 +321,7 @@ public final class b implements HttpClient {
     public final void a(HttpRequestRetryHandler httpRequestRetryHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpRequestRetryHandler) == null) {
-            ((DefaultHttpClient) this.f31127d).setHttpRequestRetryHandler(httpRequestRetryHandler);
+            ((DefaultHttpClient) this.f31497d).setHttpRequestRetryHandler(httpRequestRetryHandler);
         }
     }
 
@@ -329,69 +329,69 @@ public final class b implements HttpClient {
     public final <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpHost, httpRequest, responseHandler)) == null) ? (T) this.f31127d.execute(httpHost, httpRequest, responseHandler) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpHost, httpRequest, responseHandler)) == null) ? (T) this.f31497d.execute(httpHost, httpRequest, responseHandler) : (T) invokeLLL.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
     public final <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, httpHost, httpRequest, responseHandler, httpContext)) == null) ? (T) this.f31127d.execute(httpHost, httpRequest, responseHandler, httpContext) : (T) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, httpHost, httpRequest, responseHandler, httpContext)) == null) ? (T) this.f31497d.execute(httpHost, httpRequest, responseHandler, httpContext) : (T) invokeLLLL.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
     public final <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, httpUriRequest, responseHandler)) == null) ? (T) this.f31127d.execute(httpUriRequest, responseHandler) : (T) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, httpUriRequest, responseHandler)) == null) ? (T) this.f31497d.execute(httpUriRequest, responseHandler) : (T) invokeLL.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
     public final <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, httpUriRequest, responseHandler, httpContext)) == null) ? (T) this.f31127d.execute(httpUriRequest, responseHandler, httpContext) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, httpUriRequest, responseHandler, httpContext)) == null) ? (T) this.f31497d.execute(httpUriRequest, responseHandler, httpContext) : (T) invokeLLL.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
     public final HttpResponse execute(HttpHost httpHost, HttpRequest httpRequest) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, httpHost, httpRequest)) == null) ? this.f31127d.execute(httpHost, httpRequest) : (HttpResponse) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, httpHost, httpRequest)) == null) ? this.f31497d.execute(httpHost, httpRequest) : (HttpResponse) invokeLL.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
     public final HttpResponse execute(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, httpHost, httpRequest, httpContext)) == null) ? this.f31127d.execute(httpHost, httpRequest, httpContext) : (HttpResponse) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, httpHost, httpRequest, httpContext)) == null) ? this.f31497d.execute(httpHost, httpRequest, httpContext) : (HttpResponse) invokeLLL.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
     public final HttpResponse execute(HttpUriRequest httpUriRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, httpUriRequest)) == null) ? this.f31127d.execute(httpUriRequest) : (HttpResponse) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, httpUriRequest)) == null) ? this.f31497d.execute(httpUriRequest) : (HttpResponse) invokeL.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
     public final HttpResponse execute(HttpUriRequest httpUriRequest, HttpContext httpContext) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, httpUriRequest, httpContext)) == null) ? this.f31127d.execute(httpUriRequest, httpContext) : (HttpResponse) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, httpUriRequest, httpContext)) == null) ? this.f31497d.execute(httpUriRequest, httpContext) : (HttpResponse) invokeLL.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
     public final ClientConnectionManager getConnectionManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31127d.getConnectionManager() : (ClientConnectionManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31497d.getConnectionManager() : (ClientConnectionManager) invokeV.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
     public final HttpParams getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f31127d.getParams() : (HttpParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f31497d.getParams() : (HttpParams) invokeV.objValue;
     }
 }

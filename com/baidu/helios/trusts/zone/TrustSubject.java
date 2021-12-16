@@ -6,8 +6,8 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q.h.c.a.e;
-import c.a.q.h.d.a;
+import c.a.r.h.c.a.e;
+import c.a.r.h.d.a;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,34 +25,34 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class TrustSubject {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Comparator<TrustSubject> f35107g;
+    public static Comparator<TrustSubject> f35575g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Comparator<TrustSubject> f35108h;
+    public static Comparator<TrustSubject> f35576h;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.q.l.a.c.a f35109b;
+    public final c.a.r.l.a.c.a f35577b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.q.l.a.b.a f35110c;
+    public final c.a.r.l.a.b.a f35578c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f35111d;
+    public Context f35579d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a.C0742a f35112e;
+    public a.C0776a f35580e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f35113f;
+    public c f35581f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class ConfigNotFoundException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public class TrustSubject {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Comparator<TrustSubject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,14 +145,14 @@ public class TrustSubject {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, trustSubject, trustSubject2)) == null) {
-                int i2 = ((trustSubject.f35113f.o() - trustSubject2.f35113f.o()) > 0L ? 1 : ((trustSubject.f35113f.o() - trustSubject2.f35113f.o()) == 0L ? 0 : -1));
+                int i2 = ((trustSubject.f35581f.o() - trustSubject2.f35581f.o()) > 0L ? 1 : ((trustSubject.f35581f.o() - trustSubject2.f35581f.o()) == 0L ? 0 : -1));
                 return i2 != 0 ? i2 > 0 ? -1 : 1 : trustSubject.a.compareTo(trustSubject2.a);
             }
             return invokeLL.intValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class b implements Comparator<TrustSubject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,42 +178,42 @@ public class TrustSubject {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, trustSubject, trustSubject2)) == null) {
-                int i2 = ((trustSubject.f35113f.l() - trustSubject2.f35113f.l()) > 0L ? 1 : ((trustSubject.f35113f.l() - trustSubject2.f35113f.l()) == 0L ? 0 : -1));
+                int i2 = ((trustSubject.f35581f.l() - trustSubject2.f35581f.l()) > 0L ? 1 : ((trustSubject.f35581f.l() - trustSubject2.f35581f.l()) == 0L ? 0 : -1));
                 return i2 != 0 ? i2 > 0 ? -1 : 1 : trustSubject.a.compareTo(trustSubject2.a);
             }
             return invokeLL.intValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f35114b;
+        public long f35582b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f35115c;
+        public long f35583c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f35116d;
+        public long f35584d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f35117e;
+        public long f35585e;
 
         /* renamed from: f  reason: collision with root package name */
-        public e f35118f;
+        public e f35586f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f35119g;
+        public boolean f35587g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Set<String> f35120h;
+        public Set<String> f35588h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ TrustSubject f35121i;
+        public final /* synthetic */ TrustSubject f35589i;
 
         public c(TrustSubject trustSubject) {
             Interceptable interceptable = $ic;
@@ -230,39 +230,39 @@ public class TrustSubject {
                     return;
                 }
             }
-            this.f35121i = trustSubject;
-            this.f35118f = new e();
-            this.f35119g = true;
-            this.f35120h = new HashSet();
+            this.f35589i = trustSubject;
+            this.f35586f = new e();
+            this.f35587g = true;
+            this.f35588h = new HashSet();
         }
 
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35117e : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35585e : invokeV.longValue;
         }
 
         public long b(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? this.f35118f.a(j2) : invokeJ.longValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? this.f35586f.a(j2) : invokeJ.longValue;
         }
 
         public void d(Set<String> set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, set) == null) {
                 if (set == null || set.size() == 0) {
-                    if (this.f35120h.size() == 0) {
+                    if (this.f35588h.size() == 0) {
                         return;
                     }
-                    this.f35120h.clear();
-                } else if (this.f35120h.equals(set)) {
+                    this.f35588h.clear();
+                } else if (this.f35588h.equals(set)) {
                     return;
                 } else {
-                    this.f35120h.clear();
-                    this.f35120h.addAll(set);
+                    this.f35588h.clear();
+                    this.f35588h.addAll(set);
                 }
-                this.f35119g = true;
+                this.f35587g = true;
             }
         }
 
@@ -272,7 +272,7 @@ public class TrustSubject {
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
                 if (this.a != i2) {
                     this.a = i2;
-                    this.f35119g = true;
+                    this.f35587g = true;
                     return true;
                 }
                 return false;
@@ -284,8 +284,8 @@ public class TrustSubject {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-                if (this.f35118f.c(j2, j3)) {
-                    this.f35119g = true;
+                if (this.f35586f.c(j2, j3)) {
+                    this.f35587g = true;
                     return true;
                 }
                 return false;
@@ -305,16 +305,16 @@ public class TrustSubject {
         public long h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35114b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35582b : invokeV.longValue;
         }
 
         public boolean i(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-                if (this.f35117e != j2) {
-                    this.f35117e = j2;
-                    this.f35119g = true;
+                if (this.f35585e != j2) {
+                    this.f35585e = j2;
+                    this.f35587g = true;
                     return true;
                 }
                 return false;
@@ -325,16 +325,16 @@ public class TrustSubject {
         public Set<String> j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f35120h : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f35588h : (Set) invokeV.objValue;
         }
 
         public boolean k(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
-                if (this.f35114b != j2) {
-                    this.f35114b = j2;
-                    this.f35119g = true;
+                if (this.f35582b != j2) {
+                    this.f35582b = j2;
+                    this.f35587g = true;
                     return true;
                 }
                 return false;
@@ -345,15 +345,15 @@ public class TrustSubject {
         public long l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f35116d : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f35584d : invokeV.longValue;
         }
 
         public boolean m(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
-                if (this.f35116d != j2) {
-                    this.f35116d = j2;
+                if (this.f35584d != j2) {
+                    this.f35584d = j2;
                     return true;
                 }
                 return false;
@@ -365,9 +365,9 @@ public class TrustSubject {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j2)) == null) {
-                if (this.f35115c != j2) {
-                    this.f35115c = j2;
-                    this.f35119g = true;
+                if (this.f35583c != j2) {
+                    this.f35583c = j2;
+                    this.f35587g = true;
                     return true;
                 }
                 return false;
@@ -378,7 +378,7 @@ public class TrustSubject {
         public long o() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f35115c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f35583c : invokeV.longValue;
         }
 
         public int p() {
@@ -390,27 +390,27 @@ public class TrustSubject {
         public void q() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-                String g2 = this.f35121i.f35112e.g("ts_info", true);
+                String g2 = this.f35589i.f35580e.g("ts_info", true);
                 if (TextUtils.isEmpty(g2)) {
                     return;
                 }
                 try {
                     JSONObject jSONObject = new JSONObject(g2);
-                    this.f35114b = jSONObject.getLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME);
+                    this.f35582b = jSONObject.getLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME);
                     this.a = jSONObject.getInt("version_code");
-                    this.f35115c = jSONObject.getLong("trust_priority");
-                    this.f35116d = jSONObject.getLong("quick_config_version");
-                    this.f35117e = jSONObject.getLong("config_version");
-                    this.f35118f.b(jSONObject.getLong("flags"));
-                    this.f35120h.clear();
+                    this.f35583c = jSONObject.getLong("trust_priority");
+                    this.f35584d = jSONObject.getLong("quick_config_version");
+                    this.f35585e = jSONObject.getLong("config_version");
+                    this.f35586f.b(jSONObject.getLong("flags"));
+                    this.f35588h.clear();
                     JSONArray optJSONArray = jSONObject.optJSONArray("pkg_sigs");
                     if (optJSONArray != null) {
                         int length = optJSONArray.length();
                         for (int i2 = 0; i2 < length; i2++) {
-                            this.f35120h.add(optJSONArray.getString(i2));
+                            this.f35588h.add(optJSONArray.getString(i2));
                         }
                     }
-                    this.f35119g = false;
+                    this.f35587g = false;
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -421,24 +421,24 @@ public class TrustSubject {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                if (this.f35119g) {
+                if (this.f35587g) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, this.f35114b);
+                        jSONObject.put(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, this.f35582b);
                         jSONObject.put("version_code", this.a);
-                        jSONObject.put("trust_priority", this.f35115c);
-                        jSONObject.put("quick_config_version", this.f35116d);
-                        jSONObject.put("config_version", this.f35117e);
-                        jSONObject.put("flags", this.f35118f.d());
-                        if (this.f35120h.size() > 0) {
+                        jSONObject.put("trust_priority", this.f35583c);
+                        jSONObject.put("quick_config_version", this.f35584d);
+                        jSONObject.put("config_version", this.f35585e);
+                        jSONObject.put("flags", this.f35586f.d());
+                        if (this.f35588h.size() > 0) {
                             JSONArray jSONArray = new JSONArray();
-                            for (String str : this.f35120h) {
+                            for (String str : this.f35588h) {
                                 jSONArray.put(str);
                             }
                             jSONObject.put("pkg_sigs", jSONArray);
                         }
-                        this.f35121i.f35112e.i("ts_info", jSONObject.toString(), true);
-                        this.f35119g = false;
+                        this.f35589i.f35580e.i("ts_info", jSONObject.toString(), true);
+                        this.f35587g = false;
                         return true;
                     } catch (JSONException e2) {
                         e2.printStackTrace();
@@ -450,7 +450,7 @@ public class TrustSubject {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class d implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -490,16 +490,16 @@ public class TrustSubject {
                 return;
             }
         }
-        f35107g = new a();
-        f35108h = new b();
+        f35575g = new a();
+        f35576h = new b();
     }
 
-    public TrustSubject(String str, Context context, a.C0742a c0742a) {
+    public TrustSubject(String str, Context context, a.C0776a c0776a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, context, c0742a};
+            Object[] objArr = {str, context, c0776a};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -509,12 +509,12 @@ public class TrustSubject {
                 return;
             }
         }
-        this.f35109b = new c.a.q.l.a.c.a();
-        this.f35110c = new c.a.q.l.a.b.a();
-        this.f35113f = new c(this);
-        this.f35111d = context;
+        this.f35577b = new c.a.r.l.a.c.a();
+        this.f35578c = new c.a.r.l.a.b.a();
+        this.f35581f = new c(this);
+        this.f35579d = context;
         this.a = str;
-        this.f35112e = c0742a.f(b(str));
+        this.f35580e = c0776a.f(b(str));
         c();
     }
 
@@ -546,18 +546,18 @@ public class TrustSubject {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f35109b.d(this.a, this.f35111d);
-            this.f35110c.c(this.a, this.f35111d, this.f35112e);
+            this.f35577b.d(this.a, this.f35579d);
+            this.f35578c.c(this.a, this.f35579d, this.f35580e);
         }
     }
 
-    public void d(c.a.q.h.b.e.a aVar) {
+    public void d(c.a.r.h.b.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f35109b.c(aVar, true);
-            this.f35113f.g(this.f35109b.j());
-            this.f35113f.n(this.f35109b.i());
-            this.f35113f.d(this.f35109b.a());
+            this.f35577b.c(aVar, true);
+            this.f35581f.g(this.f35577b.j());
+            this.f35581f.n(this.f35577b.i());
+            this.f35581f.d(this.f35577b.a());
         }
     }
 
@@ -579,14 +579,14 @@ public class TrustSubject {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f35110c.e();
+            this.f35578c.e();
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f35110c.f();
+            this.f35578c.f();
         }
     }
 
@@ -599,27 +599,27 @@ public class TrustSubject {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f35110c.g();
-            this.f35113f.f(0L, 64L);
+            this.f35578c.g();
+            this.f35581f.f(0L, 64L);
         }
     }
 
     public c j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f35113f : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f35581f : (c) invokeV.objValue;
     }
 
     public Set<String> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new HashSet(this.f35113f.j()) : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new HashSet(this.f35581f.j()) : (Set) invokeV.objValue;
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f35113f.q();
+            this.f35581f.q();
         }
     }
 
@@ -627,8 +627,8 @@ public class TrustSubject {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            this.f35110c.k();
-            return this.f35110c.b(str);
+            this.f35578c.k();
+            return this.f35578c.b(str);
         }
         return (String) invokeL.objValue;
     }
@@ -636,19 +636,19 @@ public class TrustSubject {
     public long n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f35113f.f35117e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f35581f.f35585e : invokeV.longValue;
     }
 
     public long o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f35113f.o() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f35581f.o() : invokeV.longValue;
     }
 
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f35113f.l() == this.f35113f.a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f35581f.l() == this.f35581f.a() : invokeV.booleanValue;
     }
 
     public boolean q() {
@@ -656,11 +656,11 @@ public class TrustSubject {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             try {
-                PackageInfo packageInfo = this.f35111d.getPackageManager().getPackageInfo(this.a, 0);
+                PackageInfo packageInfo = this.f35579d.getPackageManager().getPackageInfo(this.a, 0);
                 long j2 = packageInfo.lastUpdateTime;
                 int i2 = packageInfo.versionCode;
-                if (this.f35113f.h() == j2) {
-                    return this.f35113f.p() == i2;
+                if (this.f35581f.h() == j2) {
+                    return this.f35581f.p() == i2;
                 }
                 return false;
             } catch (PackageManager.NameNotFoundException e2) {
@@ -674,7 +674,7 @@ public class TrustSubject {
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f35113f.b(12L) == 4 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f35581f.b(12L) == 4 : invokeV.booleanValue;
     }
 
     public boolean s() {
@@ -683,7 +683,7 @@ public class TrustSubject {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             try {
-                packageInfo = this.f35111d.getPackageManager().getPackageInfo(this.a, 0);
+                packageInfo = this.f35579d.getPackageManager().getPackageInfo(this.a, 0);
             } catch (PackageManager.NameNotFoundException unused) {
                 packageInfo = null;
             }
@@ -695,35 +695,35 @@ public class TrustSubject {
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f35110c.k();
+            this.f35578c.k();
         }
     }
 
     public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f35113f.r() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f35581f.r() : invokeV.booleanValue;
     }
 
     public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            int a2 = this.f35110c.a();
+            int a2 = this.f35578c.a();
             if (a2 == 0) {
-                this.f35113f.f(16L, 48L);
-                this.f35113f.f(64L, 64L);
-                this.f35113f.f(4L, 12L);
+                this.f35581f.f(16L, 48L);
+                this.f35581f.f(64L, 64L);
+                this.f35581f.f(4L, 12L);
                 t();
-                this.f35113f.i(this.f35110c.i());
+                this.f35581f.i(this.f35578c.i());
                 return true;
             } else if (a2 != 3) {
-                this.f35113f.f(32L, 48L);
-                this.f35113f.f(0L, 64L);
+                this.f35581f.f(32L, 48L);
+                this.f35581f.f(0L, 64L);
                 return false;
             } else {
-                this.f35113f.f(32L, 48L);
-                this.f35113f.f(8L, 12L);
+                this.f35581f.f(32L, 48L);
+                this.f35581f.f(8L, 12L);
                 return false;
             }
         }
@@ -734,11 +734,11 @@ public class TrustSubject {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             try {
-                PackageInfo packageInfo = this.f35111d.getPackageManager().getPackageInfo(this.a, 0);
+                PackageInfo packageInfo = this.f35579d.getPackageManager().getPackageInfo(this.a, 0);
                 long j2 = packageInfo.lastUpdateTime;
                 int i2 = packageInfo.versionCode;
-                this.f35113f.k(j2);
-                this.f35113f.e(i2);
+                this.f35581f.k(j2);
+                this.f35581f.e(i2);
             } catch (PackageManager.NameNotFoundException e2) {
                 e2.printStackTrace();
             }
@@ -748,9 +748,9 @@ public class TrustSubject {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            long j2 = this.f35110c.j();
-            this.f35113f.f(j2 > -1 ? 128L : 256L, 384L);
-            this.f35113f.m(j2);
+            long j2 = this.f35578c.j();
+            this.f35581f.f(j2 > -1 ? 128L : 256L, 384L);
+            this.f35581f.m(j2);
         }
     }
 }

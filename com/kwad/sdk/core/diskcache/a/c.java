@@ -23,13 +23,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static ExecutorService a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,10 +75,10 @@ public class c {
                 public final /* synthetic */ com.kwad.sdk.core.diskcache.kwai.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f57281b;
+                public final /* synthetic */ String f57862b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f57282c;
+                public final /* synthetic */ String f57863c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -96,8 +96,8 @@ public class c {
                         }
                     }
                     this.a = aVar;
-                    this.f57281b = str2;
-                    this.f57282c = str;
+                    this.f57862b = str2;
+                    this.f57863c = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -107,10 +107,10 @@ public class c {
                         OutputStream outputStream = null;
                         try {
                             try {
-                                a.C2013a b2 = this.a.b(this.f57281b);
+                                a.C2074a b2 = this.a.b(this.f57862b);
                                 if (b2 != null) {
                                     outputStream = b2.a(0);
-                                    if (c.b(this.f57282c, outputStream, new a())) {
+                                    if (c.b(this.f57863c, outputStream, new a())) {
                                         b2.a();
                                     } else {
                                         b2.b();
@@ -138,7 +138,7 @@ public class c {
             OutputStream outputStream = null;
             try {
                 try {
-                    a.C2013a b2 = aVar.b(str2);
+                    a.C2074a b2 = aVar.b(str2);
                     if (b2 != null) {
                         outputStream = b2.a(0);
                         if (b(str, outputStream, aVar2)) {

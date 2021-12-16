@@ -15,8 +15,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.k0.a.j.a;
-import c.a.k0.a.l.h;
+import c.a.l0.a.j.a;
+import c.a.l0.a.l.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sdk.container.player.BaseMediaPlayer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,39 +26,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
 import java.lang.ref.SoftReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AdVideoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SurfaceHolder A;
-    public c.a.k0.a.j.b B;
+    public c.a.l0.a.j.b B;
 
     /* renamed from: e  reason: collision with root package name */
-    public a.InterfaceC0143a f38889e;
+    public a.InterfaceC0177a f39378e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.b f38890f;
+    public a.b f39379f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdVideoProgressBar f38891g;
+    public AdVideoProgressBar f39380g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38892h;
+    public int f39381h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38893i;
+    public int f39382i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f38894j;
+    public boolean f39383j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f38895k;
+    public int f39384k;
     public e l;
     public boolean m;
     public View mLoadingView;
     public BaseMediaPlayer mMediaPlayer;
-    public c.a.k0.a.j.c mSurfaceView;
-    public c.a.k0.a.j.a mVideoViewListener;
+    public c.a.l0.a.j.c mSurfaceView;
+    public c.a.l0.a.j.a mVideoViewListener;
     public Context mViewContext;
     public String n;
     public d o;
@@ -72,10 +72,10 @@ public class AdVideoView extends RelativeLayout {
     public int w;
     public boolean x;
     public Surface y;
-    public c.a.k0.a.j.d z;
+    public c.a.l0.a.j.d z;
 
-    /* loaded from: classes9.dex */
-    public class a implements c.a.k0.a.j.e {
+    /* loaded from: classes10.dex */
+    public class a implements c.a.l0.a.j.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoView a;
@@ -98,7 +98,7 @@ public class AdVideoView extends RelativeLayout {
             this.a = adVideoView;
         }
 
-        @Override // c.a.k0.a.j.e
+        @Override // c.a.l0.a.j.e
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
@@ -107,8 +107,8 @@ public class AdVideoView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class b implements c.a.k0.a.j.d {
+    /* loaded from: classes10.dex */
+    public class b implements c.a.l0.a.j.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoView a;
@@ -131,12 +131,12 @@ public class AdVideoView extends RelativeLayout {
             this.a = adVideoView;
         }
 
-        @Override // c.a.k0.a.j.d
+        @Override // c.a.l0.a.j.d
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.f38889e != null) {
-                    this.a.f38889e.a();
+                if (this.a.f39378e != null) {
+                    this.a.f39378e.a();
                 }
                 this.a.p = false;
                 this.a.q = false;
@@ -144,7 +144,7 @@ public class AdVideoView extends RelativeLayout {
             }
         }
 
-        @Override // c.a.k0.a.j.d
+        @Override // c.a.l0.a.j.d
         public void b(Surface surface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surface) == null) {
@@ -155,8 +155,8 @@ public class AdVideoView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class c implements c.a.k0.a.j.b {
+    /* loaded from: classes10.dex */
+    public class c implements c.a.l0.a.j.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoView a;
@@ -179,12 +179,12 @@ public class AdVideoView extends RelativeLayout {
             this.a = adVideoView;
         }
 
-        @Override // c.a.k0.a.j.b
+        @Override // c.a.l0.a.j.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.f38889e != null) {
-                    this.a.f38889e.a();
+                if (this.a.f39378e != null) {
+                    this.a.f39378e.a();
                 }
                 this.a.p = false;
                 this.a.q = false;
@@ -192,7 +192,7 @@ public class AdVideoView extends RelativeLayout {
             }
         }
 
-        @Override // c.a.k0.a.j.b
+        @Override // c.a.l0.a.j.b
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceHolder) == null) {
@@ -203,7 +203,7 @@ public class AdVideoView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class d extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +234,7 @@ public class AdVideoView extends RelativeLayout {
                 String action = intent.getAction();
                 if ("android.intent.action.SCREEN_OFF".equals(action)) {
                     Context context2 = this.this$0.mViewContext;
-                    if (c.a.k0.a.l.c.a(context2, context2.getPackageName())) {
+                    if (c.a.l0.a.l.c.a(context2, context2.getPackageName())) {
                         return;
                     }
                     this.this$0.r = true;
@@ -251,16 +251,16 @@ public class AdVideoView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public SoftReference<AdVideoView> f38896e;
+        public SoftReference<AdVideoView> f39385e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f38897f;
+        public boolean f39386f;
 
         public e(AdVideoView adVideoView) {
             Interceptable interceptable = $ic;
@@ -277,14 +277,14 @@ public class AdVideoView extends RelativeLayout {
                     return;
                 }
             }
-            this.f38897f = false;
-            this.f38896e = new SoftReference<>(adVideoView);
+            this.f39386f = false;
+            this.f39385e = new SoftReference<>(adVideoView);
         }
 
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f38897f = z;
+                this.f39386f = z;
             }
         }
 
@@ -293,15 +293,15 @@ public class AdVideoView extends RelativeLayout {
             SoftReference<AdVideoView> softReference;
             AdVideoView adVideoView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (softReference = this.f38896e) == null || (adVideoView = softReference.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (softReference = this.f39385e) == null || (adVideoView = softReference.get()) == null) {
                 return;
             }
             int currentPosition = adVideoView.getCurrentPosition();
             int duration = adVideoView.getDuration();
-            if (adVideoView.f38891g != null && duration > 0) {
-                adVideoView.f38891g.setProgress(currentPosition / duration);
+            if (adVideoView.f39380g != null && duration > 0) {
+                adVideoView.f39380g.setProgress(currentPosition / duration);
             }
-            if (this.f38897f) {
+            if (this.f39386f) {
                 adVideoView.postDelayed(this, 200L);
             }
         }
@@ -325,10 +325,10 @@ public class AdVideoView extends RelativeLayout {
                 return;
             }
         }
-        this.f38892h = -1;
-        this.f38893i = -16777216;
-        this.f38894j = false;
-        this.f38895k = 4;
+        this.f39381h = -1;
+        this.f39382i = -16777216;
+        this.f39383j = false;
+        this.f39384k = 4;
         this.n = "";
         this.q = false;
         this.r = false;
@@ -424,7 +424,7 @@ public class AdVideoView extends RelativeLayout {
                     this.u = 0;
                     this.v = false;
                     l();
-                    c.a.k0.a.j.a aVar = this.mVideoViewListener;
+                    c.a.l0.a.j.a aVar = this.mVideoViewListener;
                     if (aVar != null) {
                         aVar.d();
                         return;
@@ -436,7 +436,7 @@ public class AdVideoView extends RelativeLayout {
                     r();
                     return;
                 case 258:
-                    a.b bVar = this.f38890f;
+                    a.b bVar = this.f39379f;
                     if (bVar != null) {
                         bVar.onPrepared();
                     }
@@ -445,11 +445,11 @@ public class AdVideoView extends RelativeLayout {
                         this.mMediaPlayer.l(i3);
                     }
                     setVideoMute(this.m);
-                    c.a.k0.a.j.c cVar = this.mSurfaceView;
+                    c.a.l0.a.j.c cVar = this.mSurfaceView;
                     if (cVar != null) {
                         cVar.onVideoSizeChanged(this.mMediaPlayer.d(), this.mMediaPlayer.c());
                     }
-                    AdVideoProgressBar adVideoProgressBar = this.f38891g;
+                    AdVideoProgressBar adVideoProgressBar = this.f39380g;
                     if (adVideoProgressBar != null) {
                         adVideoProgressBar.setProgress(this.u / getDuration());
                         e eVar = this.l;
@@ -470,7 +470,7 @@ public class AdVideoView extends RelativeLayout {
                 case 260:
                     this.v = true;
                     l();
-                    c.a.k0.a.j.a aVar2 = this.mVideoViewListener;
+                    c.a.l0.a.j.a aVar2 = this.mVideoViewListener;
                     if (aVar2 != null) {
                         aVar2.e();
                         return;
@@ -514,21 +514,21 @@ public class AdVideoView extends RelativeLayout {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (this.f38894j) {
+            if (this.f39383j) {
                 AdVideoProgressBar adVideoProgressBar = new AdVideoProgressBar(this.mViewContext);
-                this.f38891g = adVideoProgressBar;
-                adVideoProgressBar.setProgressColor(this.f38892h);
-                this.f38891g.setProgressBackgroundColor(this.f38893i);
-                this.f38891g.setProgressHeight(this.f38895k);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f38895k);
+                this.f39380g = adVideoProgressBar;
+                adVideoProgressBar.setProgressColor(this.f39381h);
+                this.f39380g.setProgressBackgroundColor(this.f39382i);
+                this.f39380g.setProgressHeight(this.f39384k);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f39384k);
                 layoutParams.addRule(12);
-                addView(this.f38891g, layoutParams);
-                this.f38891g.setProgress(0.0f);
-                this.f38891g.setVisibility(4);
+                addView(this.f39380g, layoutParams);
+                this.f39380g.setProgress(0.0f);
+                this.f39380g.setVisibility(4);
                 this.l = new e(this);
                 return;
             }
-            AdVideoProgressBar adVideoProgressBar2 = this.f38891g;
+            AdVideoProgressBar adVideoProgressBar2 = this.f39380g;
             if (adVideoProgressBar2 != null) {
                 adVideoProgressBar2.setVisibility(8);
             }
@@ -566,11 +566,11 @@ public class AdVideoView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             this.p = false;
             BaseMediaPlayer baseMediaPlayer = this.mMediaPlayer;
-            if (baseMediaPlayer == null || baseMediaPlayer.f38902i == BaseMediaPlayer.State.PLAYBACKCOMPLETED) {
+            if (baseMediaPlayer == null || baseMediaPlayer.f39391i == BaseMediaPlayer.State.PLAYBACKCOMPLETED) {
                 return;
             }
             baseMediaPlayer.h();
-            c.a.k0.a.j.a aVar = this.mVideoViewListener;
+            c.a.l0.a.j.a aVar = this.mVideoViewListener;
             if (aVar != null) {
                 aVar.b();
             }
@@ -622,7 +622,7 @@ public class AdVideoView extends RelativeLayout {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            c.a.k0.a.j.a aVar = this.mVideoViewListener;
+            c.a.l0.a.j.a aVar = this.mVideoViewListener;
             if (aVar != null) {
                 aVar.a();
             }
@@ -655,17 +655,17 @@ public class AdVideoView extends RelativeLayout {
         baseMediaPlayer.l(i2);
     }
 
-    public void setAdVideoViewListener(c.a.k0.a.j.a aVar) {
+    public void setAdVideoViewListener(c.a.l0.a.j.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, aVar) == null) {
             this.mVideoViewListener = aVar;
         }
     }
 
-    public void setDestroyedListener(a.InterfaceC0143a interfaceC0143a) {
+    public void setDestroyedListener(a.InterfaceC0177a interfaceC0177a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, interfaceC0143a) == null) {
-            this.f38889e = interfaceC0143a;
+        if (interceptable == null || interceptable.invokeL(1048600, this, interfaceC0177a) == null) {
+            this.f39378e = interfaceC0177a;
         }
     }
 
@@ -679,24 +679,24 @@ public class AdVideoView extends RelativeLayout {
     public void setPreparedListener(a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, bVar) == null) {
-            this.f38890f = bVar;
+            this.f39379f = bVar;
         }
     }
 
     public void setProgressBar(boolean z, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.f38894j = z;
-            this.f38893i = i2;
-            this.f38892h = i3;
-            this.f38895k = h.a(getContext(), i4);
+            this.f39383j = z;
+            this.f39382i = i2;
+            this.f39381h = i3;
+            this.f39384k = h.a(getContext(), i4);
         }
     }
 
     public void setProgressBarVisibility(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048604, this, i2) == null) && this.f38894j) {
-            this.f38891g.setVisibility(i2);
+        if ((interceptable == null || interceptable.invokeI(1048604, this, i2) == null) && this.f39383j) {
+            this.f39380g.setVisibility(i2);
         }
     }
 
@@ -761,8 +761,8 @@ public class AdVideoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048609, this) == null) && !TextUtils.isEmpty(this.n) && this.p && this.q) {
             Context context = this.mViewContext;
-            if ((c.a.k0.a.l.c.a(context, context.getPackageName()) || !this.r) && this.v) {
-                c.a.k0.a.j.a aVar = this.mVideoViewListener;
+            if ((c.a.l0.a.l.c.a(context, context.getPackageName()) || !this.r) && this.v) {
+                c.a.l0.a.j.a aVar = this.mVideoViewListener;
                 if (aVar != null) {
                     aVar.c();
                 }
@@ -857,10 +857,10 @@ public class AdVideoView extends RelativeLayout {
                 return;
             }
         }
-        this.f38892h = -1;
-        this.f38893i = -16777216;
-        this.f38894j = false;
-        this.f38895k = 4;
+        this.f39381h = -1;
+        this.f39382i = -16777216;
+        this.f39383j = false;
+        this.f39384k = 4;
         this.n = "";
         this.q = false;
         this.r = false;
@@ -893,10 +893,10 @@ public class AdVideoView extends RelativeLayout {
                 return;
             }
         }
-        this.f38892h = -1;
-        this.f38893i = -16777216;
-        this.f38894j = false;
-        this.f38895k = 4;
+        this.f39381h = -1;
+        this.f39382i = -16777216;
+        this.f39383j = false;
+        this.f39384k = 4;
         this.n = "";
         this.q = false;
         this.r = false;

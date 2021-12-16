@@ -12,16 +12,16 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class h implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<k> f63871e;
+    public List<k> f64452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f63872f;
+    public volatile boolean f64453f;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -61,13 +61,13 @@ public final class h implements k {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) || kVar.isUnsubscribed()) {
             return;
         }
-        if (!this.f63872f) {
+        if (!this.f64453f) {
             synchronized (this) {
-                if (!this.f63872f) {
-                    List list = this.f63871e;
+                if (!this.f64453f) {
+                    List list = this.f64452e;
                     if (list == null) {
                         list = new LinkedList();
-                        this.f63871e = list;
+                        this.f64452e = list;
                     }
                     list.add(kVar);
                     return;
@@ -79,12 +79,12 @@ public final class h implements k {
 
     public void b(k kVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar) == null) || this.f63872f) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar) == null) || this.f64453f) {
             return;
         }
         synchronized (this) {
-            List<k> list = this.f63871e;
-            if (!this.f63872f && list != null) {
+            List<k> list = this.f64452e;
+            if (!this.f64453f && list != null) {
                 boolean remove = list.remove(kVar);
                 if (remove) {
                     kVar.unsubscribe();
@@ -97,22 +97,22 @@ public final class h implements k {
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63872f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64453f : invokeV.booleanValue;
     }
 
     @Override // i.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f63872f) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f64453f) {
             return;
         }
         synchronized (this) {
-            if (this.f63872f) {
+            if (this.f64453f) {
                 return;
             }
-            this.f63872f = true;
-            List<k> list = this.f63871e;
-            this.f63871e = null;
+            this.f64453f = true;
+            List<k> list = this.f64452e;
+            this.f64452e = null;
             c(list);
         }
     }
@@ -132,7 +132,7 @@ public final class h implements k {
                 return;
             }
         }
-        this.f63871e = new LinkedList(Arrays.asList(kVarArr));
+        this.f64452e = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public h(k kVar) {
@@ -151,7 +151,7 @@ public final class h implements k {
             }
         }
         LinkedList linkedList = new LinkedList();
-        this.f63871e = linkedList;
+        this.f64452e = linkedList;
         linkedList.add(kVar);
     }
 }

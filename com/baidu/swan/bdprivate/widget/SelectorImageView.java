@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SelectorImageView extends BdBaseImageView {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f40278g = 255;
+    public static int f40767g = 255;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class SelectorImageView extends BdBaseImageView {
                 if (action == 0) {
                     setImageAlpha(76);
                 } else if (action == 1 || action == 3) {
-                    setImageAlpha(f40278g);
+                    setImageAlpha(f40767g);
                 }
             }
             return super.onTouchEvent(motionEvent);
@@ -133,7 +133,7 @@ public class SelectorImageView extends BdBaseImageView {
             if (!z) {
                 setImageAlpha(255);
             } else {
-                setImageAlpha(f40278g);
+                setImageAlpha(f40767g);
             }
         }
     }

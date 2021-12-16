@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a extends com.kwad.sdk.core.download.a.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f59456b;
+    public AdTemplate f60037b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f59457c;
+    public AdInfo f60038c;
 
     public a(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public abstract class a extends com.kwad.sdk.core.download.a.c {
                 return;
             }
         }
-        this.f59456b = adTemplate;
-        this.f59457c = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.f60037b = adTemplate;
+        this.f60038c = com.kwad.sdk.core.response.a.d.j(adTemplate);
     }
 
     private void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, this, i2) == null) {
-            a(e.a(this.f59456b, this.f59457c, i2));
+            a(e.a(this.f60037b, this.f60038c, i2));
         }
     }
 
@@ -55,7 +55,7 @@ public abstract class a extends com.kwad.sdk.core.download.a.c {
     public void a(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            this.f59456b = adTemplate;
+            this.f60037b = adTemplate;
         }
     }
 

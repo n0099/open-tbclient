@@ -7,9 +7,9 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.g1.f;
-import c.a.p0.a.h0.g.g;
-import c.a.p0.a.k;
+import c.a.q0.a.g1.f;
+import c.a.q0.a.h0.g.g;
+import c.a.q0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.PolyActivity;
 import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
@@ -27,48 +27,48 @@ import com.baidu.wallet.lightapp.base.LightappConstants;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
-public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
+/* loaded from: classes11.dex */
+public class AudioPlayer implements c.a.q0.a.j1.a, c.a.q0.o.a.c {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean o;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.p0.a.j1.c.f.a a;
+    public c.a.q0.a.j1.c.f.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PlayerStatus f40496b;
+    public PlayerStatus f40985b;
 
     /* renamed from: c  reason: collision with root package name */
-    public UserStatus f40497c;
+    public UserStatus f40986c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40498d;
+    public String f40987d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.j.c.j.c f40499e;
+    public c.a.q0.j.c.j.c f40988e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.p0.j.c.d f40500f;
+    public c.a.q0.j.c.d f40989f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f40501g;
+    public e f40990g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40502h;
+    public int f40991h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f40503i;
+    public String f40992i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f40504j;
+    public String f40993j;
 
     /* renamed from: k  reason: collision with root package name */
-    public d f40505k;
+    public d f40994k;
     public float l;
     public boolean m;
     public long n;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class PlayerStatus {
         public static final /* synthetic */ PlayerStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -132,7 +132,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class UserStatus {
         public static final /* synthetic */ UserStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -197,27 +197,27 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements TypedCallbackHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AudioPlayer f40506e;
+        public final /* synthetic */ AudioPlayer f40995e;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f40507e;
+            public final /* synthetic */ b f40996e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -234,14 +234,14 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
                         return;
                     }
                 }
-                this.f40507e = bVar;
+                this.f40996e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f40507e.f40506e.P();
+                    this.f40996e.f40995e.P();
                 }
             }
         }
@@ -261,20 +261,20 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
                     return;
                 }
             }
-            this.f40506e = audioPlayer;
+            this.f40995e = audioPlayer;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.j.c.j.b.h().e().post(new a(this));
+                c.a.q0.j.c.j.b.h().e().post(new a(this));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class c implements c.a.p0.j.c.i.a {
+    /* loaded from: classes11.dex */
+    public class c implements c.a.q0.j.c.i.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AudioPlayer a;
@@ -297,16 +297,16 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
             this.a = audioPlayer;
         }
 
-        @Override // c.a.p0.j.c.i.a
+        @Override // c.a.q0.j.c.i.a
         public void a(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                this.a.f40504j = str2;
+                this.a.f40993j = str2;
                 this.a.w();
             }
         }
 
-        @Override // c.a.p0.j.c.i.a
+        @Override // c.a.q0.j.c.i.a
         public void fail(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
@@ -315,13 +315,13 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class d implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnInfoListener, MediaPlayer.OnErrorListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnBufferingUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AudioPlayer f40508e;
+        public final /* synthetic */ AudioPlayer f40997e;
 
         public d(AudioPlayer audioPlayer) {
             Interceptable interceptable = $ic;
@@ -338,7 +338,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
                     return;
                 }
             }
-            this.f40508e = audioPlayer;
+            this.f40997e = audioPlayer;
         }
 
         @Override // android.media.MediaPlayer.OnBufferingUpdateListener
@@ -349,14 +349,14 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
                     if (AudioPlayer.o) {
                         String str = "onBufferUpdate : " + i2 + "%";
                     }
-                    if (this.f40508e.H()) {
-                        this.f40508e.f40502h = (((int) this.f40508e.A()) * i2) / 100;
-                        if (this.f40508e.a != null) {
-                            this.f40508e.J("onBufferingUpdate");
-                            if (this.f40508e.f40496b != PlayerStatus.PREPARED || this.f40508e.f40497c == UserStatus.STOP || (i2 * this.f40508e.A()) / 100 > this.f40508e.z()) {
+                    if (this.f40997e.H()) {
+                        this.f40997e.f40991h = (((int) this.f40997e.A()) * i2) / 100;
+                        if (this.f40997e.a != null) {
+                            this.f40997e.J("onBufferingUpdate");
+                            if (this.f40997e.f40985b != PlayerStatus.PREPARED || this.f40997e.f40986c == UserStatus.STOP || (i2 * this.f40997e.A()) / 100 > this.f40997e.z()) {
                                 return;
                             }
-                            this.f40508e.J("onWaiting");
+                            this.f40997e.J("onWaiting");
                         }
                     }
                 } catch (Exception e2) {
@@ -373,11 +373,11 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaPlayer) == null) {
                 boolean unused = AudioPlayer.o;
                 try {
-                    if (!this.f40508e.f40500f.f10042f) {
-                        this.f40508e.f40497c = UserStatus.STOP;
-                        this.f40508e.F();
+                    if (!this.f40997e.f40989f.f10351f) {
+                        this.f40997e.f40986c = UserStatus.STOP;
+                        this.f40997e.F();
                     }
-                    this.f40508e.J("onEnded");
+                    this.f40997e.J("onEnded");
                 } catch (Exception e2) {
                     if (AudioPlayer.o) {
                         e2.printStackTrace();
@@ -393,7 +393,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
             if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, mediaPlayer, i2, i3)) == null) {
                 if (AudioPlayer.o) {
                     String str = "onError : what is " + i2 + " extra is " + i3;
-                    String str2 = "Audio Error = " + i2 + "playerId = " + this.f40508e.f40500f.a + " url = " + this.f40508e.f40500f.f10039c;
+                    String str2 = "Audio Error = " + i2 + "playerId = " + this.f40997e.f40989f.a + " url = " + this.f40997e.f40989f.f10348c;
                 }
                 String str3 = "-1";
                 if (i2 != 1 && i2 == 100) {
@@ -402,8 +402,8 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
                 if (i3 == -1007) {
                     str3 = "10004";
                 }
-                this.f40508e.L(str3);
-                this.f40508e.F();
+                this.f40997e.L(str3);
+                this.f40997e.F();
                 return true;
             }
             return invokeLII.booleanValue;
@@ -428,26 +428,26 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayer) == null) {
                 boolean unused = AudioPlayer.o;
-                AudioPlayer audioPlayer = this.f40508e;
-                audioPlayer.f40496b = PlayerStatus.PREPARED;
+                AudioPlayer audioPlayer = this.f40997e;
+                audioPlayer.f40985b = PlayerStatus.PREPARED;
                 if (!audioPlayer.m) {
-                    this.f40508e.J("onCanplay");
+                    this.f40997e.J("onCanplay");
                 }
                 if (AudioPlayer.o) {
-                    String str = "prepare 2 path: " + this.f40508e.f40504j;
+                    String str = "prepare 2 path: " + this.f40997e.f40993j;
                 }
-                this.f40508e.m = true;
+                this.f40997e.m = true;
                 UserStatus userStatus = UserStatus.PLAY;
-                AudioPlayer audioPlayer2 = this.f40508e;
-                if (userStatus == audioPlayer2.f40497c) {
+                AudioPlayer audioPlayer2 = this.f40997e;
+                if (userStatus == audioPlayer2.f40986c) {
                     audioPlayer2.Q();
                 }
                 try {
-                    if (this.f40508e.f40500f.f10040d > 0.0f) {
-                        this.f40508e.B().seek(this.f40508e.f40500f.f10040d);
-                    } else if (this.f40508e.l >= 0.0f) {
-                        this.f40508e.B().seek(this.f40508e.l);
-                        this.f40508e.l = -1.0f;
+                    if (this.f40997e.f40989f.f10349d > 0.0f) {
+                        this.f40997e.B().seek(this.f40997e.f40989f.f10349d);
+                    } else if (this.f40997e.l >= 0.0f) {
+                        this.f40997e.B().seek(this.f40997e.l);
+                        this.f40997e.l = -1.0f;
                     }
                 } catch (Exception e2) {
                     if (AudioPlayer.o) {
@@ -462,7 +462,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, mediaPlayer) == null) {
                 boolean unused = AudioPlayer.o;
-                this.f40508e.J("onSeeked");
+                this.f40997e.J("onSeeked");
             }
         }
 
@@ -472,7 +472,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class e extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -480,7 +480,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(AudioPlayer audioPlayer) {
-            super(c.a.p0.j.c.j.b.h().e().getLooper());
+            super(c.a.q0.j.c.j.b.h().e().getLooper());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -502,7 +502,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0 && this.a.f40496b == PlayerStatus.PREPARED) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0 && this.a.f40985b == PlayerStatus.PREPARED) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.putOpt("currentTime", Double.valueOf(this.a.z() / 1000.0d));
@@ -549,13 +549,13 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
                 return;
             }
         }
-        this.f40496b = PlayerStatus.NONE;
-        this.f40497c = UserStatus.OPEN;
-        this.f40498d = "";
-        this.f40500f = new c.a.p0.j.c.d();
-        this.f40501g = new e(this);
+        this.f40985b = PlayerStatus.NONE;
+        this.f40986c = UserStatus.OPEN;
+        this.f40987d = "";
+        this.f40989f = new c.a.q0.j.c.d();
+        this.f40990g = new e(this);
         this.l = -1.0f;
-        this.f40498d = str;
+        this.f40987d = str;
     }
 
     public long A() {
@@ -563,8 +563,8 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (0 == this.n && this.f40499e != null) {
-                    return this.f40499e.getDuration();
+                if (0 == this.n && this.f40988e != null) {
+                    return this.f40988e.getDuration();
                 }
             } catch (Exception e2) {
                 if (o) {
@@ -576,45 +576,45 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         return invokeV.longValue;
     }
 
-    public c.a.p0.j.c.j.c B() {
+    public c.a.q0.j.c.j.c B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.p0.j.c.j.c cVar = this.f40499e;
+            c.a.q0.j.c.j.c cVar = this.f40988e;
             if (cVar == null || cVar.s()) {
-                this.f40499e = c.a.p0.j.c.j.b.h().d(this.f40504j, this.f40500f.f10042f);
+                this.f40988e = c.a.q0.j.c.j.b.h().d(this.f40993j, this.f40989f.f10351f);
                 S();
             }
-            return this.f40499e;
+            return this.f40988e;
         }
-        return (c.a.p0.j.c.j.c) invokeV.objValue;
+        return (c.a.q0.j.c.j.c) invokeV.objValue;
     }
 
-    public final c.a.p0.a.l0.a C() {
+    public final c.a.q0.a.l0.a C() {
         InterceptResult invokeV;
         SwanAppActivity x;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c.a.p0.a.d2.e L = c.a.p0.a.d2.e.L();
+            c.a.q0.a.d2.e L = c.a.q0.a.d2.e.L();
             if (L == null || !L.v0() || (x = L.x()) == null) {
                 return null;
             }
-            c.a.p0.a.t0.c frame = x.getFrame();
-            if (frame instanceof c.a.p0.j.o.d) {
-                return ((c.a.p0.j.o.d) frame).g1();
+            c.a.q0.a.t0.c frame = x.getFrame();
+            if (frame instanceof c.a.q0.j.o.d) {
+                return ((c.a.q0.j.o.d) frame).g1();
             }
             return null;
         }
-        return (c.a.p0.a.l0.a) invokeV.objValue;
+        return (c.a.q0.a.l0.a) invokeV.objValue;
     }
 
     public float D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.p0.j.c.d dVar = this.f40500f;
+            c.a.q0.j.c.d dVar = this.f40989f;
             if (dVar != null) {
-                return dVar.f10045i;
+                return dVar.f10354i;
             }
             return 1.0f;
         }
@@ -625,36 +625,36 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             J(MissionEvent.MESSAGE_PAUSE);
-            this.f40501g.removeMessages(0);
+            this.f40990g.removeMessages(0);
         }
     }
 
     public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f40496b = PlayerStatus.IDLE;
-            c.a.p0.j.c.j.c cVar = this.f40499e;
+            this.f40985b = PlayerStatus.IDLE;
+            c.a.q0.j.c.j.c cVar = this.f40988e;
             if (cVar != null) {
                 cVar.destroy();
-                this.f40499e = null;
+                this.f40988e = null;
             }
-            this.f40501g.removeMessages(0);
+            this.f40990g.removeMessages(0);
         }
     }
 
     public final boolean G() {
         InterceptResult invokeV;
-        c.a.p0.a.h0.g.d m;
+        c.a.q0.a.h0.g.d m;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (c.a.p0.a.d2.e.L() == null || !c.a.p0.a.d2.e.L().v0()) {
+            if (c.a.q0.a.d2.e.L() == null || !c.a.q0.a.d2.e.L().v0()) {
                 return false;
             }
             g V = f.U().V();
-            if (V == null || (m = V.m()) == null || !(m instanceof c.a.p0.j.n.a)) {
+            if (V == null || (m = V.m()) == null || !(m instanceof c.a.q0.j.n.a)) {
                 return true;
             }
-            return ((c.a.p0.j.n.a) m).E3();
+            return ((c.a.q0.j.n.a) m).E3();
         }
         return invokeV.booleanValue;
     }
@@ -662,7 +662,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
     public final boolean H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f40499e != null && this.f40496b == PlayerStatus.PREPARED : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f40988e != null && this.f40985b == PlayerStatus.PREPARED : invokeV.booleanValue;
     }
 
     public boolean I() {
@@ -670,7 +670,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             UserStatus userStatus = UserStatus.STOP;
-            UserStatus userStatus2 = this.f40497c;
+            UserStatus userStatus2 = this.f40986c;
             return (userStatus == userStatus2 || UserStatus.DESTROY == userStatus2) ? false : true;
         }
         return invokeV.booleanValue;
@@ -684,7 +684,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
     }
 
     public final void K(String str, JSONObject jSONObject) {
-        c.a.p0.a.j1.c.f.a aVar;
+        c.a.q0.a.j1.c.f.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048586, this, str, jSONObject) == null) || (aVar = this.a) == null) {
             return;
@@ -712,18 +712,18 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             try {
-                if (this.f40503i.contains("http")) {
-                    c.a.p0.j.c.j.b h2 = c.a.p0.j.c.j.b.h();
-                    File file = new File(h2.g(this.f40503i));
+                if (this.f40992i.contains("http")) {
+                    c.a.q0.j.c.j.b h2 = c.a.q0.j.c.j.b.h();
+                    File file = new File(h2.g(this.f40992i));
                     if (file.exists() && !file.isDirectory()) {
-                        this.f40504j = file.getAbsolutePath();
+                        this.f40993j = file.getAbsolutePath();
                         w();
                         return;
                     }
-                    h2.j(this.f40503i, new c(this));
+                    h2.j(this.f40992i, new c(this));
                     return;
                 }
-                this.f40504j = this.f40503i;
+                this.f40993j = this.f40992i;
                 w();
             } catch (Exception e2) {
                 if (o) {
@@ -733,18 +733,18 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         }
     }
 
-    public void N(c.a.p0.j.c.d dVar) {
+    public void N(c.a.q0.j.c.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
             boolean z = o;
-            if (this.f40499e != null) {
+            if (this.f40988e != null) {
                 F();
             }
-            this.f40497c = UserStatus.OPEN;
-            this.f40500f = dVar;
-            this.f40502h = 0;
-            this.f40503i = f.U().G().a(this.f40500f.f10039c);
-            this.f40496b = PlayerStatus.IDLE;
+            this.f40986c = UserStatus.OPEN;
+            this.f40989f = dVar;
+            this.f40991h = 0;
+            this.f40992i = f.U().G().a(this.f40989f.f10348c);
+            this.f40985b = PlayerStatus.IDLE;
             J("onWaiting");
             M();
         }
@@ -753,7 +753,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
     public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f40497c = UserStatus.PAUSE;
+            this.f40986c = UserStatus.PAUSE;
             P();
         }
     }
@@ -761,32 +761,32 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
     public final void P() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && H()) {
-            this.f40499e.pause();
+            this.f40988e.pause();
         }
     }
 
     public void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f40497c = UserStatus.PLAY;
+            this.f40986c = UserStatus.PLAY;
             if (this.m) {
                 try {
                     if (!G() && x()) {
                         if (o) {
-                            String str = "play music first: " + this.f40504j;
+                            String str = "play music first: " + this.f40993j;
                         }
-                        if (this.f40496b == PlayerStatus.PREPARED) {
-                            this.f40501g.sendEmptyMessage(0);
+                        if (this.f40985b == PlayerStatus.PREPARED) {
+                            this.f40990g.sendEmptyMessage(0);
                             Z();
                             if (o) {
-                                String str2 = "play music: " + this.f40504j;
+                                String str2 = "play music: " + this.f40993j;
                             }
                             B().play();
                             J("onPlay");
-                        } else if (this.f40496b == PlayerStatus.IDLE) {
+                        } else if (this.f40985b == PlayerStatus.IDLE) {
                             try {
-                                B().d(this.f40504j);
-                                this.f40496b = PlayerStatus.PREPARING;
+                                B().d(this.f40993j);
+                                this.f40985b = PlayerStatus.PREPARING;
                             } catch (Exception e2) {
                                 if (o) {
                                     e2.printStackTrace();
@@ -808,14 +808,14 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             try {
-                File file = new File(this.f40504j);
+                File file = new File(this.f40993j);
                 if (file.exists() && !file.isDirectory()) {
-                    long f2 = c.a.p0.j.c.j.b.h().f(this.f40504j);
+                    long f2 = c.a.q0.j.c.j.b.h().f(this.f40993j);
                     this.n = f2;
                     if (0 != f2) {
-                        B().d(this.f40504j);
+                        B().d(this.f40993j);
                         if (o) {
-                            String str = "setSrc path: " + this.f40504j;
+                            String str = "setSrc path: " + this.f40993j;
                             return;
                         }
                         return;
@@ -833,16 +833,16 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
     public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            if (this.f40505k == null) {
-                this.f40505k = new d(this, null);
+            if (this.f40994k == null) {
+                this.f40994k = new d(this, null);
             }
-            this.f40499e.j(this.f40505k);
-            this.f40499e.q(this.f40505k);
-            this.f40499e.g(this.f40505k);
-            this.f40499e.k(this.f40505k);
-            this.f40499e.h(this.f40505k);
-            this.f40499e.n(this.f40505k);
-            this.f40499e.f(this);
+            this.f40988e.j(this.f40994k);
+            this.f40988e.q(this.f40994k);
+            this.f40988e.g(this.f40994k);
+            this.f40988e.k(this.f40994k);
+            this.f40988e.h(this.f40994k);
+            this.f40988e.n(this.f40994k);
+            this.f40988e.f(this);
         }
     }
 
@@ -851,8 +851,8 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             F();
             this.m = false;
-            this.f40497c = UserStatus.DESTROY;
-            this.f40496b = PlayerStatus.NONE;
+            this.f40986c = UserStatus.DESTROY;
+            this.f40985b = PlayerStatus.NONE;
         }
     }
 
@@ -864,12 +864,12 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
                 int i2 = (int) (f2 * 1000.0f);
                 if (H()) {
                     if (i2 >= 0 && i2 <= A()) {
-                        this.f40499e.seek(i2);
+                        this.f40988e.seek(i2);
                     }
                     this.l = -1.0f;
                     return;
                 }
-                if (this.m && this.f40496b == PlayerStatus.IDLE) {
+                if (this.m && this.f40985b == PlayerStatus.IDLE) {
                     R();
                 }
                 this.l = i2;
@@ -881,7 +881,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         }
     }
 
-    public void V(c.a.p0.a.j1.c.f.a aVar) {
+    public void V(c.a.q0.a.j1.c.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, aVar) == null) {
             this.a = aVar;
@@ -893,7 +893,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
             try {
                 if (H()) {
-                    this.f40499e.a(z);
+                    this.f40988e.a(z);
                 }
             } catch (Exception e2) {
                 if (o) {
@@ -912,7 +912,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
                 f2 = 0.0f;
             }
             try {
-                this.f40499e.setVolume(f2);
+                this.f40988e.setVolume(f2);
             } catch (Exception e2) {
                 if (o) {
                     e2.printStackTrace();
@@ -924,9 +924,9 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
     public void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.f40497c = UserStatus.STOP;
+            this.f40986c = UserStatus.STOP;
             if (H()) {
-                this.f40499e.stop();
+                this.f40988e.stop();
             }
             F();
             J(MissionEvent.MESSAGE_STOP);
@@ -937,28 +937,28 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             if (o) {
-                String str = "update AudioPlayer params : " + this.f40500f.toString();
+                String str = "update AudioPlayer params : " + this.f40989f.toString();
             }
-            W(this.f40500f.f10042f);
-            X(this.f40500f.f10045i);
+            W(this.f40989f.f10351f);
+            X(this.f40989f.f10354i);
         }
     }
 
-    @Override // c.a.p0.a.j1.a
+    @Override // c.a.q0.a.j1.a
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f40500f.f10038b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f40989f.f10347b : (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.a.j1.a
+    @Override // c.a.q0.a.j1.a
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f40498d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f40987d : (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.a.j1.a
+    @Override // c.a.q0.a.j1.a
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -968,32 +968,32 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.a.j1.a
+    @Override // c.a.q0.a.j1.a
     public Object i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this : invokeV.objValue;
     }
 
-    @Override // c.a.p0.a.j1.a
+    @Override // c.a.q0.a.j1.a
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
         }
     }
 
-    @Override // c.a.p0.a.j1.a
+    @Override // c.a.q0.a.j1.a
     public void k(boolean z) {
-        c.a.p0.a.d2.e L;
-        c.a.p0.a.l0.a C;
+        c.a.q0.a.d2.e L;
+        c.a.q0.a.l0.a C;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048607, this, z) == null) || (L = c.a.p0.a.d2.e.L()) == null || !L.v0() || z || (C = C()) == null || C.u0()) {
+        if (!(interceptable == null || interceptable.invokeZ(1048607, this, z) == null) || (L = c.a.q0.a.d2.e.L()) == null || !L.v0() || z || (C = C()) == null || C.u0()) {
             return;
         }
         C.runOnJSThread(new b(this));
     }
 
-    @Override // c.a.p0.a.j1.a
+    @Override // c.a.q0.a.j1.a
     public boolean onBackPressed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1003,16 +1003,16 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.p0.a.j1.a
+    @Override // c.a.q0.a.j1.a
     public void onDestroy() {
-        c.a.p0.a.d2.e L;
+        c.a.q0.a.d2.e L;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048609, this) == null) && (L = c.a.p0.a.d2.e.L()) != null && L.v0()) {
+        if ((interceptable == null || interceptable.invokeV(1048609, this) == null) && (L = c.a.q0.a.d2.e.L()) != null && L.v0()) {
             T();
         }
     }
 
-    @Override // c.a.p0.o.a.c
+    @Override // c.a.q0.o.a.c
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
@@ -1020,13 +1020,13 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         }
     }
 
-    public void update(c.a.p0.j.c.d dVar) {
+    public void update(c.a.q0.j.c.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, dVar) == null) {
-            this.f40500f = dVar;
-            c.a.p0.a.j1.c.f.a aVar = this.a;
+            this.f40989f = dVar;
+            c.a.q0.a.j1.c.f.a aVar = this.a;
             if (aVar != null) {
-                aVar.d(dVar.f10046j);
+                aVar.d(dVar.f10355j);
             }
             Z();
         }
@@ -1043,7 +1043,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            File file = new File(this.f40504j);
+            File file = new File(this.f40993j);
             if (!file.exists() || file.isDirectory()) {
                 L(LightappConstants.ERRCODE_INNER_ERROR);
                 return false;
@@ -1056,7 +1056,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
     public int y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f40502h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f40991h : invokeV.intValue;
     }
 
     public int z() {
@@ -1064,7 +1064,7 @@ public class AudioPlayer implements c.a.p0.a.j1.a, c.a.p0.o.a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
             if (H()) {
-                return this.f40499e.v();
+                return this.f40988e.v();
             }
             return 0;
         }

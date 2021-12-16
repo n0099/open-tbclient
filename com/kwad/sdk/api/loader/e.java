@@ -28,25 +28,25 @@ import java.util.Map;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56995b;
+    public String f57576b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f56996c;
+    public int f57577c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f56997d;
+    public Map<String, String> f57578d;
 
     /* renamed from: e  reason: collision with root package name */
-    public IKsAdSDK f56998e;
+    public IKsAdSDK f57579e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(a.b bVar);
 
@@ -68,10 +68,10 @@ public class e {
                 return;
             }
         }
-        this.f56997d = new HashMap();
-        this.f56995b = str;
+        this.f57578d = new HashMap();
+        this.f57576b = str;
         this.a = str;
-        this.f56998e = iKsAdSDK;
+        this.f57579e = iKsAdSDK;
     }
 
     private String a() {
@@ -106,16 +106,16 @@ public class e {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            if (this.f56998e != null) {
+            if (this.f57579e != null) {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.put("version", "3.3.17.4");
                     jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, appInfo.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
-                    jSONObject2.put("message", this.f56998e.getRM(jSONObject.toString()));
+                    jSONObject2.put("message", this.f57579e.getRM(jSONObject.toString()));
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }
-                this.f56998e.sR(this.f56995b.replace("https://open.e.kuaishou.com", ""), this.f56997d, jSONObject2.toString());
+                this.f57579e.sR(this.f57576b.replace("https://open.e.kuaishou.com", ""), this.f57578d, jSONObject2.toString());
                 return jSONObject2.toString();
             }
             return jSONObject.toString();
@@ -199,7 +199,7 @@ public class e {
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, str, str2) == null) {
-            this.f56997d.put(str, str2);
+            this.f57578d.put(str, str2);
         }
     }
 
@@ -217,9 +217,9 @@ public class e {
             httpURLConnection.setInstanceFollowRedirects(true);
             a("Content-Type", "application/json; charset=UTF-8");
             a("User-Agent", RequestParamsUtils.getUserAgent());
-            IKsAdSDK iKsAdSDK = this.f56998e;
+            IKsAdSDK iKsAdSDK = this.f57579e;
             if (iKsAdSDK != null) {
-                iKsAdSDK.addHp(this.f56997d);
+                iKsAdSDK.addHp(this.f57578d);
             }
             return httpURLConnection;
         }
@@ -238,8 +238,8 @@ public class e {
                 httpURLConnection = b();
                 if (httpURLConnection != null) {
                     String a2 = a();
-                    if (this.f56997d != null) {
-                        for (Map.Entry<String, String> entry : this.f56997d.entrySet()) {
+                    if (this.f57578d != null) {
+                        for (Map.Entry<String, String> entry : this.f57578d.entrySet()) {
                             httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                         }
                     }
@@ -250,16 +250,16 @@ public class e {
                         String a3 = a(httpURLConnection.getInputStream());
                         a.b bVar = new a.b();
                         JSONObject jSONObject = new JSONObject(a3);
-                        if (this.f56998e != null) {
-                            jSONObject.put("data", new JSONObject(this.f56998e.getRD(jSONObject.optString("data"))));
+                        if (this.f57579e != null) {
+                            jSONObject.put("data", new JSONObject(this.f57579e.getRD(jSONObject.optString("data"))));
                         }
                         bVar.a(jSONObject);
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f56996c < 21) {
+                    } else if (this.f57577c < 21) {
                         this.a = httpURLConnection.getHeaderField("Location");
-                        this.f56996c++;
+                        this.f57577c++;
                         b(aVar);
                     }
                 }
@@ -296,7 +296,7 @@ public class e {
                 public final /* synthetic */ a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f56999b;
+                public final /* synthetic */ e f57580b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -313,7 +313,7 @@ public class e {
                             return;
                         }
                     }
-                    this.f56999b = this;
+                    this.f57580b = this;
                     this.a = aVar;
                 }
 
@@ -321,7 +321,7 @@ public class e {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f56999b.b(this.a);
+                        this.f57580b.b(this.a);
                     }
                 }
             });

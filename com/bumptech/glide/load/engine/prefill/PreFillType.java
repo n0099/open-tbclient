@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Preconditions;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class PreFillType {
     public static /* synthetic */ Interceptable $ic;
     @VisibleForTesting
@@ -24,7 +24,7 @@ public final class PreFillType {
     public final int weight;
     public final int width;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

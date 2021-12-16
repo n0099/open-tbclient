@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.BdMenu;
 import com.baidu.wallet.base.widget.BdMenuItem;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetChangedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "BdContextMenuView";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f52006b = true;
+    public static final boolean f52586b = true;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mMenuLoaded;
 
@@ -205,7 +205,7 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
                 public final /* synthetic */ BdMenuItem a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BdContextMenuView f52007b;
+                public final /* synthetic */ BdContextMenuView f52587b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -222,7 +222,7 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
                             return;
                         }
                     }
-                    this.f52007b = this;
+                    this.f52587b = this;
                     this.a = bdMenuItem;
                 }
 

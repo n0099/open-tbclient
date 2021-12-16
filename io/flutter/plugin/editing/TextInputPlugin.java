@@ -35,7 +35,7 @@ import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.editing.ListenableEditingState;
 import io.flutter.plugin.platform.PlatformViewsController;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TextInputPlugin implements ListenableEditingState.EditingStateWatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TextInputPlugin";
@@ -67,7 +67,7 @@ public class TextInputPlugin implements ListenableEditingState.EditingStateWatch
     @NonNull
     public final TextInputChannel textInputChannel;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class InputTarget {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class TextInputPlugin implements ListenableEditingState.EditingStateWatch
         public Type type;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static final class Type {
             public static final /* synthetic */ Type[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -159,7 +159,7 @@ public class TextInputPlugin implements ListenableEditingState.EditingStateWatch
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface MinMax {
         void inspect(double d2, double d3);
     }

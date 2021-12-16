@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f57262b;
+    public static boolean f57843b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -90,7 +90,7 @@ public class a {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f57262b) {
+            if (f57843b) {
                 StackTraceElement[] stackTrace = new Throwable().getStackTrace();
                 if (stackTrace.length > 3) {
                     str = stackTrace[3].getFileName();

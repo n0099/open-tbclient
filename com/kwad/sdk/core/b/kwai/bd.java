@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.webview.kwai.h;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bd implements com.kwad.sdk.core.d<h.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class bd implements com.kwad.sdk.core.d<h.b> {
             return;
         }
         bVar.a = jSONObject.optInt("status");
-        bVar.f58112b = jSONObject.optInt("progress");
+        bVar.f58693b = jSONObject.optInt("progress");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,7 +48,7 @@ public class bd implements com.kwad.sdk.core.d<h.b> {
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "status", bVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "progress", bVar.f58112b);
+            com.kwad.sdk.utils.t.a(jSONObject, "progress", bVar.f58693b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

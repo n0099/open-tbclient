@@ -11,78 +11,78 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61079b;
+    public String f61660b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61080c;
+    public String f61661c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61081d;
+    public String f61662d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61082e;
+    public String f61663e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f61083f;
+    public boolean f61664f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f61084g;
+    public Drawable f61665g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC2094b f61085h;
+    public InterfaceC2155b f61666h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f61086i;
+    public View f61667i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f61087j;
+    public int f61668j;
 
     /* renamed from: com.ss.android.download.api.model.b$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f61088b;
+        public int f61669b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f61089c;
+        public Context f61670c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f61090d;
+        public String f61671d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f61091e;
+        public String f61672e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f61092f;
+        public String f61673f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f61093g;
+        public String f61674g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f61094h;
+        public boolean f61675h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Drawable f61095i;
+        public Drawable f61676i;
 
         /* renamed from: j  reason: collision with root package name */
-        public InterfaceC2094b f61096j;
+        public InterfaceC2155b f61677j;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -99,14 +99,14 @@ public class b {
                     return;
                 }
             }
-            this.f61089c = context;
+            this.f61670c = context;
         }
 
         public a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f61090d = str;
+                this.f61671d = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -116,7 +116,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f61091e = str;
+                this.f61672e = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -126,7 +126,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.f61092f = str;
+                this.f61673f = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -136,7 +136,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                this.f61093g = str;
+                this.f61674g = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -146,7 +146,7 @@ public class b {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f61094h = z;
+                this.f61675h = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -156,17 +156,17 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable)) == null) {
-                this.f61095i = drawable;
+                this.f61676i = drawable;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public a a(InterfaceC2094b interfaceC2094b) {
+        public a a(InterfaceC2155b interfaceC2155b) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC2094b)) == null) {
-                this.f61096j = interfaceC2094b;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC2155b)) == null) {
+                this.f61677j = interfaceC2155b;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -176,7 +176,7 @@ public class b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f61088b = i2;
+                this.f61669b = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -190,8 +190,8 @@ public class b {
     }
 
     /* renamed from: com.ss.android.download.api.model.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC2094b {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC2155b {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);
@@ -218,16 +218,16 @@ public class b {
                 return;
             }
         }
-        this.f61083f = true;
-        this.a = aVar.f61089c;
-        this.f61079b = aVar.f61090d;
-        this.f61080c = aVar.f61091e;
-        this.f61081d = aVar.f61092f;
-        this.f61082e = aVar.f61093g;
-        this.f61083f = aVar.f61094h;
-        this.f61084g = aVar.f61095i;
-        this.f61085h = aVar.f61096j;
-        this.f61086i = aVar.a;
-        this.f61087j = aVar.f61088b;
+        this.f61664f = true;
+        this.a = aVar.f61670c;
+        this.f61660b = aVar.f61671d;
+        this.f61661c = aVar.f61672e;
+        this.f61662d = aVar.f61673f;
+        this.f61663e = aVar.f61674g;
+        this.f61664f = aVar.f61675h;
+        this.f61665g = aVar.f61676i;
+        this.f61666h = aVar.f61677j;
+        this.f61667i = aVar.a;
+        this.f61668j = aVar.f61669b;
     }
 }

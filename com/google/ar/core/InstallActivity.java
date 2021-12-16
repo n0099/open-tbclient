@@ -27,7 +27,7 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 import com.google.protobuf.CodedInputStream;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(24)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InstallActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BOX_SIZE_DP = 280;
@@ -58,7 +58,7 @@ public class InstallActivity extends Activity {
             }
         }
         this.themeWrapper = new ContextThemeWrapper(this, 16974394);
-        this.lastEvent = p.f55969b;
+        this.lastEvent = p.f56550b;
     }
 
     /* JADX DEBUG: Marked for inline */
@@ -181,7 +181,7 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             this.installStarted = true;
-            this.lastEvent = p.f55969b;
+            this.lastEvent = p.f56550b;
             c.i.c.a.f.d().e(this).c(this, new m(this));
         }
     }
@@ -217,7 +217,7 @@ public class InstallActivity extends Activity {
                     return;
                 }
                 this.messageType = (ArCoreApk.UserMessageType) getIntent().getSerializableExtra("message");
-                ArCoreApk.InstallBehavior installBehavior = (ArCoreApk.InstallBehavior) getIntent().getSerializableExtra(INSTALL_BEHAVIOR_KEY);
+                ArCoreApk.InstallBehavior installBehavior = (ArCoreApk.InstallBehavior) getIntent().getSerializableExtra("behavior");
                 this.installBehavior = installBehavior;
                 if (this.messageType != null && installBehavior != null) {
                     setTheme(16974394);
@@ -274,7 +274,7 @@ public class InstallActivity extends Activity {
             } else if (this.finished) {
             } else {
                 synchronized (this) {
-                    if (this.lastEvent == p.f55969b) {
+                    if (this.lastEvent == p.f56550b) {
                         finish();
                     } else if (this.lastEvent == p.a) {
                         this.waitingForCompletion = true;

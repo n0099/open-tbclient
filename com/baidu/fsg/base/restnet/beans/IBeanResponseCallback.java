@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.restnet.beans;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IBeanResponseCallback {
     void onBeanExecFailure(int i2, int i3, String str);
 

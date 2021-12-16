@@ -1,13 +1,11 @@
 package com.baidu.searchbox.player.message;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.player.session.VideoSession;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MessengerFactory implements IMessengerFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +25,9 @@ public class MessengerFactory implements IMessengerFactory {
     }
 
     @Override // com.baidu.searchbox.player.message.IMessengerFactory
-    public IMessenger createMessenger(@NonNull VideoSession videoSession) {
-        InterceptResult invokeL;
+    public IMessenger createMessenger() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, videoSession)) == null) ? new HandlerMessenger(videoSession) : (IMessenger) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HandlerMessenger() : (IMessenger) invokeV.objValue;
     }
 }

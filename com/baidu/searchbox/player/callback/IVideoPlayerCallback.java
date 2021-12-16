@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.callback;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IVideoPlayerCallback {
     void goBackOrForeground(boolean z);
 
@@ -10,6 +10,8 @@ public interface IVideoPlayerCallback {
     void onEnd(int i2);
 
     void onError(int i2, int i3, String str);
+
+    void onGlobalOrientationLock(boolean z);
 
     void onInfo(int i2, int i3);
 

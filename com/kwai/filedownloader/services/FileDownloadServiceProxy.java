@@ -22,7 +22,7 @@ import java.lang.ref.WeakReference;
 @KsAdSdkDynamicImpl(FileDownloadService.class)
 @Keep
 @SuppressLint({"Registered"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FileDownloadServiceProxy extends com.kwad.sdk.h.c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "filedownloader";
@@ -32,7 +32,7 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.c {
 
     @KsAdSdkDynamicImpl(FileDownloadService.SeparateProcessService.class)
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SeparateProcessServiceProxy extends FileDownloadServiceProxy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.c {
 
     @KsAdSdkDynamicImpl(FileDownloadService.SharedMainProcessService.class)
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SharedMainProcessServiceProxy extends FileDownloadServiceProxy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,12 +149,12 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.c {
         com.kwai.filedownloader.e.c.a(service);
         try {
             com.kwai.filedownloader.e.f.a(com.kwai.filedownloader.e.e.a().a);
-            com.kwai.filedownloader.e.f.a(com.kwai.filedownloader.e.e.a().f59988b);
+            com.kwai.filedownloader.e.f.a(com.kwai.filedownloader.e.e.a().f60569b);
         } catch (IllegalAccessException e2) {
             e2.printStackTrace();
         }
         g gVar = new g();
-        this.handler = com.kwai.filedownloader.e.e.a().f59990d ? new e(new WeakReference(this), gVar) : new d(new WeakReference(this), gVar);
+        this.handler = com.kwai.filedownloader.e.e.a().f60571d ? new e(new WeakReference(this), gVar) : new d(new WeakReference(this), gVar);
     }
 
     @Override // com.kwad.sdk.h.c, com.kwad.sdk.api.proxy.IServiceProxy

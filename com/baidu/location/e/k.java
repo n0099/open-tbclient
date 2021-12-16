@@ -33,7 +33,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
     public static float A = 2.2f;
@@ -96,34 +96,34 @@ public class k {
     public static String az = "http://loc.map.baidu.com/user_err.php";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f35713b = false;
+    public static boolean f36202b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f35714c = false;
+    public static boolean f36203c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f35715d = 0;
+    public static int f36204d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f35716e = "http://loc.map.baidu.com/sdk_ep.php";
+    public static String f36205e = "http://loc.map.baidu.com/sdk_ep.php";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f35717f = "https://loc.map.baidu.com/sdk.php";
+    public static String f36206f = "https://loc.map.baidu.com/sdk.php";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f35718g = "no";
+    public static String f36207g = "no";
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f35719h = false;
+    public static boolean f36208h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f35720i = false;
+    public static boolean f36209i = false;
 
     /* renamed from: j  reason: collision with root package name */
-    public static boolean f35721j = false;
+    public static boolean f36210j = false;
 
     /* renamed from: k  reason: collision with root package name */
-    public static boolean f35722k = false;
+    public static boolean f36211k = false;
     public static boolean l = false;
     public static boolean m = false;
     public static String n = "gcj02";
@@ -242,7 +242,7 @@ public class k {
                 }
             }
             if (location != null) {
-                String b4 = (f35715d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
+                String b4 = (f36204d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
                 if (b4 != null) {
                     stringBuffer.append(b4);
                 }
@@ -261,7 +261,7 @@ public class k {
             if (location != null && hVar != null) {
                 try {
                     float speed = location.getSpeed();
-                    int i3 = f35715d;
+                    int i3 = f36204d;
                     int h2 = hVar.h();
                     int a4 = hVar.a();
                     boolean i4 = hVar.i();
@@ -406,9 +406,9 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            int a2 = a(context, s.f56843h);
-            int a3 = a(context, s.f56842g);
-            int a4 = a(context, s.f56838c);
+            int a2 = a(context, s.f57424h);
+            int a3 = a(context, s.f57423g);
+            int a4 = a(context, s.f57419c);
             return "&per=" + a2 + "|" + a3 + "|" + a4;
         }
         return (String) invokeL.objValue;

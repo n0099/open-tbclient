@@ -16,7 +16,7 @@ import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import com.kwad.sdk.core.imageloader.utils.L;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ViewAware implements ImageAware {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String WARN_CANT_SET_BITMAP = "Can't set a bitmap into view. You should call ImageLoader on UI thread for it.";

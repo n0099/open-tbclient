@@ -12,7 +12,7 @@ import com.dxmpay.apollon.restnet.http.HttpDefines$HttpMethod;
 import com.dxmpay.apollon.restnet.rest.RestHttpNetwork;
 import com.dxmpay.apollon.restnet.rest.httpurlconnection.RestUrlConnectionRequest;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static c a;

@@ -28,48 +28,48 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "g";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public RoleOptions f36605b;
+    public RoleOptions f37094b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DisplayOptions f36606c;
+    public DisplayOptions f37095c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BlockingQueue<SyncResponseResult> f36607d;
+    public BlockingQueue<SyncResponseResult> f37096d;
 
     /* renamed from: e  reason: collision with root package name */
-    public i f36608e;
+    public i f37097e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f36609f;
+    public String f37098f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f36610g;
+    public String f37099g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.synchronization.c.a f36611h;
+    public com.baidu.mapsdkplatform.comapi.synchronization.c.a f37100h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HandlerThread f36612i;
+    public HandlerThread f37101i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f36613j;
+    public b f37102j;
 
     /* renamed from: k  reason: collision with root package name */
-    public volatile int f36614k;
+    public volatile int f37103k;
     public k l;
     public boolean m;
     public float n;
     public long o;
     public int p;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final g a;
@@ -92,7 +92,7 @@ public final class g {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,11 +173,11 @@ public final class g {
                 return;
             }
         }
-        this.f36607d = new LinkedBlockingQueue();
-        this.f36609f = String.valueOf(0);
-        this.f36610g = String.valueOf(0);
-        this.f36611h = new com.baidu.mapsdkplatform.comapi.synchronization.c.a();
-        this.f36614k = 0;
+        this.f37096d = new LinkedBlockingQueue();
+        this.f37098f = String.valueOf(0);
+        this.f37099g = String.valueOf(0);
+        this.f37100h = new com.baidu.mapsdkplatform.comapi.synchronization.c.a();
+        this.f37103k = 0;
         this.m = false;
         this.n = 0.0f;
         this.o = 0L;
@@ -192,21 +192,21 @@ public final class g {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
-            if (this.f36605b == null) {
+            if (this.f37094b == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "RoleOptions is null");
                 return null;
             }
             f fVar = new f();
-            fVar.a(this.f36605b.getOrderId());
-            fVar.b(this.f36605b.getDriverId());
-            fVar.c(this.f36605b.getUserId());
+            fVar.a(this.f37094b.getOrderId());
+            fVar.b(this.f37094b.getDriverId());
+            fVar.c(this.f37094b.getUserId());
             fVar.a(i2);
             if (this.m) {
-                this.f36609f = String.valueOf(0);
-                this.f36610g = String.valueOf(0);
+                this.f37098f = String.valueOf(0);
+                this.f37099g = String.valueOf(0);
             }
-            fVar.d(this.f36609f);
-            fVar.e(this.f36610g);
+            fVar.d(this.f37098f);
+            fVar.e(this.f37099g);
             return fVar;
         }
         return (f) invokeI.objValue;
@@ -222,15 +222,15 @@ public final class g {
     public void a(SyncResponseResult syncResponseResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, syncResponseResult) == null) {
-            if (this.f36607d == null) {
-                this.f36607d = new LinkedBlockingQueue();
+            if (this.f37096d == null) {
+                this.f37096d = new LinkedBlockingQueue();
             }
             if (this.m) {
                 this.m = false;
-                this.f36607d.clear();
+                this.f37096d.clear();
             }
             try {
-                this.f36607d.put(syncResponseResult);
+                this.f37096d.put(syncResponseResult);
             } catch (InterruptedException e2) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "InterruptedException happened when put item into queue", e2);
                 Thread.currentThread().interrupt();
@@ -241,7 +241,7 @@ public final class g {
     private void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, str) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.c.a aVar = this.f36611h;
+            com.baidu.mapsdkplatform.comapi.synchronization.c.a aVar = this.f37100h;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "HttpClient cannot be null");
             } else {
@@ -414,8 +414,8 @@ public final class g {
     }
 
     public static /* synthetic */ int b(g gVar) {
-        int i2 = gVar.f36614k;
-        gVar.f36614k = i2 + 1;
+        int i2 = gVar.f37103k;
+        gVar.f37103k = i2 + 1;
         return i2;
     }
 
@@ -543,8 +543,8 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65556, this, jSONObject, syncResponseResult) == null) {
             syncResponseResult.a().a(jSONObject.optInt("c") != 0);
-            this.f36609f = jSONObject.optString("f");
-            syncResponseResult.a().a(this.f36609f);
+            this.f37098f = jSONObject.optString("f");
+            syncResponseResult.a().a(this.f37098f);
             String optString = jSONObject.optString("d");
             if (TextUtils.isEmpty(optString)) {
                 return;
@@ -582,8 +582,8 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65559, this, jSONObject, syncResponseResult) == null) {
             syncResponseResult.b().a(jSONObject.optInt("c") != 0);
-            this.f36610g = jSONObject.optString("f");
-            syncResponseResult.b().a(this.f36610g);
+            this.f37099g = jSONObject.optString("f");
+            syncResponseResult.b().a(this.f37099g);
             String optString = jSONObject.optString("d");
             if (TextUtils.isEmpty(optString)) {
                 return;
@@ -621,7 +621,7 @@ public final class g {
     public void j() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65563, this) == null) || (iVar = this.f36608e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65563, this) == null) || (iVar = this.f37097e) == null) {
             return;
         }
         iVar.a();
@@ -631,7 +631,7 @@ public final class g {
     public void k() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65564, this) == null) || (iVar = this.f36608e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65564, this) == null) || (iVar = this.f37097e) == null) {
             return;
         }
         iVar.b();
@@ -666,8 +666,8 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             synchronized (this) {
-                if (this.f36606c != null) {
-                    this.f36606c.setStartPositionInfoWindowView(view);
+                if (this.f37095c != null) {
+                    this.f37095c.setStartPositionInfoWindowView(view);
                     return;
                 }
                 if (this.l != null) {
@@ -681,7 +681,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, displayOptions) == null) {
             synchronized (this) {
-                this.f36606c = displayOptions;
+                this.f37095c = displayOptions;
             }
         }
     }
@@ -690,7 +690,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, roleOptions) == null) {
             synchronized (this) {
-                this.f36605b = roleOptions;
+                this.f37094b = roleOptions;
             }
         }
     }
@@ -698,7 +698,7 @@ public final class g {
     public void a(i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, iVar) == null) {
-            this.f36608e = iVar;
+            this.f37097e = iVar;
         }
     }
 
@@ -713,9 +713,9 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             HandlerThread handlerThread = new HandlerThread("SyncDataStorage");
-            this.f36612i = handlerThread;
+            this.f37101i = handlerThread;
             handlerThread.start();
-            this.f36613j = new b(this, this.f36612i.getLooper());
+            this.f37102j = new b(this, this.f37101i.getLooper());
         }
     }
 
@@ -723,8 +723,8 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
             synchronized (this) {
-                if (this.f36606c != null) {
-                    this.f36606c.setEndPositionInfoWindowView(view);
+                if (this.f37095c != null) {
+                    this.f37095c.setEndPositionInfoWindowView(view);
                     return;
                 }
                 if (this.l != null) {
@@ -736,18 +736,18 @@ public final class g {
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f36608e == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f37097e == null) {
             return;
         }
-        this.f36608e = null;
+        this.f37097e = null;
     }
 
     public synchronized void c(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
             synchronized (this) {
-                if (this.f36606c != null) {
-                    this.f36606c.setCarInfoWindowView(view);
+                if (this.f37095c != null) {
+                    this.f37095c.setCarInfoWindowView(view);
                     return;
                 }
                 if (this.l != null) {
@@ -760,25 +760,25 @@ public final class g {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f36614k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f37103k : invokeV.intValue;
     }
 
     public RoleOptions e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f36605b : (RoleOptions) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f37094b : (RoleOptions) invokeV.objValue;
     }
 
     public DisplayOptions f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f36606c : (DisplayOptions) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f37095c : (DisplayOptions) invokeV.objValue;
     }
 
     public BlockingQueue<SyncResponseResult> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f36607d : (BlockingQueue) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f37096d : (BlockingQueue) invokeV.objValue;
     }
 
     public void h() {
@@ -787,8 +787,8 @@ public final class g {
             this.m = false;
             this.n = 0.0f;
             this.o = 0L;
-            this.f36613j.removeCallbacksAndMessages(null);
-            this.f36612i.quit();
+            this.f37102j.removeCallbacksAndMessages(null);
+            this.f37101i.quit();
         }
     }
 }

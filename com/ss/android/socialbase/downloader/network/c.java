@@ -12,31 +12,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.ss.android.socialbase.downloader.i.h<String, b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f62044b;
+    public final Handler f62625b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f62045c;
+    public final Handler f62626c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(String str, List<InetAddress> list);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<InetAddress> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f62052b;
+        public long f62633b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class c {
     }
 
     /* renamed from: com.ss.android.socialbase.downloader.network.c$c  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2139c {
+    /* loaded from: classes3.dex */
+    public static class C2200c {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class c {
             synchronized (this.a) {
                 bVar = this.a.get(host);
             }
-            if (bVar != null && System.currentTimeMillis() - bVar.f62052b < com.ss.android.socialbase.downloader.g.a.c().a("dns_expire_min", 10) * 60 * 1000) {
+            if (bVar != null && System.currentTimeMillis() - bVar.f62633b < com.ss.android.socialbase.downloader.g.a.c().a("dns_expire_min", 10) * 60 * 1000) {
                 if (aVar != null) {
                     aVar.a(str, bVar.a);
                     return;
@@ -111,13 +111,13 @@ public class c {
                 public final /* synthetic */ a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f62049b;
+                public final /* synthetic */ String f62630b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ b f62050c;
+                public final /* synthetic */ b f62631c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ c f62051d;
+                public final /* synthetic */ c f62632d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -134,10 +134,10 @@ public class c {
                             return;
                         }
                     }
-                    this.f62051d = this;
+                    this.f62632d = this;
                     this.a = aVar;
-                    this.f62049b = str;
-                    this.f62050c = bVar;
+                    this.f62630b = str;
+                    this.f62631c = bVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -147,12 +147,12 @@ public class c {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar2 = this.a) == null) {
                         return;
                     }
-                    String str2 = this.f62049b;
-                    b bVar2 = this.f62050c;
+                    String str2 = this.f62630b;
+                    b bVar2 = this.f62631c;
                     aVar2.a(str2, bVar2 == null ? null : bVar2.a);
                 }
             };
-            this.f62045c.postDelayed(runnable, j2);
+            this.f62626c.postDelayed(runnable, j2);
             List<InetAddress> list = null;
             if (com.ss.android.socialbase.downloader.g.a.c().a("use_host_dns", 1) == 1 && (u = com.ss.android.socialbase.downloader.downloader.c.u()) != null) {
                 list = u.a(host);
@@ -162,14 +162,14 @@ public class c {
             }
             if (list != null && !list.isEmpty()) {
                 a(host, list);
-                this.f62045c.removeCallbacks(runnable);
+                this.f62626c.removeCallbacks(runnable);
                 if (aVar == null) {
                     aVar.a(str, list);
                     return;
                 }
                 return;
             }
-            this.f62045c.removeCallbacks(runnable);
+            this.f62626c.removeCallbacks(runnable);
             if (aVar == null) {
             }
         } catch (Throwable th) {
@@ -191,32 +191,32 @@ public class c {
             }
         }
         this.a = new com.ss.android.socialbase.downloader.i.h<>(4, 16, false);
-        this.f62044b = new Handler(com.ss.android.socialbase.downloader.network.a.b.a());
-        this.f62045c = new Handler(com.ss.android.socialbase.downloader.h.e.a());
+        this.f62625b = new Handler(com.ss.android.socialbase.downloader.network.a.b.a());
+        this.f62626c = new Handler(com.ss.android.socialbase.downloader.h.e.a());
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2139c.a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2200c.a : (c) invokeV.objValue;
     }
 
     public void a(String str, a aVar, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, aVar, Long.valueOf(j2)}) == null) {
-            this.f62044b.post(new Runnable(this, str, aVar, j2) { // from class: com.ss.android.socialbase.downloader.network.c.1
+            this.f62625b.post(new Runnable(this, str, aVar, j2) { // from class: com.ss.android.socialbase.downloader.network.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f62046b;
+                public final /* synthetic */ a f62627b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f62047c;
+                public final /* synthetic */ long f62628c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ c f62048d;
+                public final /* synthetic */ c f62629d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -233,17 +233,17 @@ public class c {
                             return;
                         }
                     }
-                    this.f62048d = this;
+                    this.f62629d = this;
                     this.a = str;
-                    this.f62046b = aVar;
-                    this.f62047c = j2;
+                    this.f62627b = aVar;
+                    this.f62628c = j2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f62048d.b(this.a, this.f62046b, this.f62047c);
+                        this.f62629d.b(this.a, this.f62627b, this.f62628c);
                     }
                 }
             });
@@ -260,7 +260,7 @@ public class c {
                     this.a.put(str, bVar);
                 }
                 bVar.a = list;
-                bVar.f62052b = System.currentTimeMillis();
+                bVar.f62633b = System.currentTimeMillis();
             }
         }
     }

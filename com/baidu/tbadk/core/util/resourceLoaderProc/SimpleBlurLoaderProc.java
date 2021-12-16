@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SimpleBlurLoaderProc extends SimpleLoaderProc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,26 +35,12 @@ public class SimpleBlurLoaderProc extends SimpleLoaderProc {
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc, com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public void storeLocal(String str, byte[] bArr, Object... objArr) {
-        byte[] Bitmap2Bytes;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr, objArr) == null) {
-            Bitmap bitmap = (Bitmap) objArr[4];
-            if (bitmap != null && (Bitmap2Bytes = BitmapHelper.Bitmap2Bytes(bitmap, 100)) != null) {
-                bArr = Bitmap2Bytes;
-            }
-            super.storeLocal(str, bArr, objArr);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public a decodeToResource(byte[] bArr, Object... objArr) {
-        InterceptResult invokeLL;
+    public a decodeToResourceWithWH(byte[] bArr, int i2, int i3) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
-            Bitmap p = super.m45decodeToResource(bArr, objArr).p();
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
+            Bitmap p = super.decodeToResourceWithWH(bArr, i2, i3).p();
             if (p == null) {
                 return null;
             }
@@ -64,6 +50,19 @@ public class SimpleBlurLoaderProc extends SimpleLoaderProc {
             }
             return new a(fastblur);
         }
-        return (a) invokeLL.objValue;
+        return (a) invokeLII.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc, com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
+    public void storeLocal(String str, byte[] bArr, Object... objArr) {
+        byte[] Bitmap2Bytes;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, objArr) == null) {
+            Bitmap bitmap = (Bitmap) objArr[4];
+            if (bitmap != null && (Bitmap2Bytes = BitmapHelper.Bitmap2Bytes(bitmap, 100)) != null) {
+                bArr = Bitmap2Bytes;
+            }
+            super.storeLocal(str, bArr, objArr);
+        }
     }
 }

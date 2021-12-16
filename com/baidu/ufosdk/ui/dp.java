@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class dp implements AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,15 +41,15 @@ public final class dp implements AdapterView.OnItemClickListener {
         List list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            list = this.a.f51617e;
+            list = this.a.f52166e;
             ((Map) list.get(i2)).put("newmsg", "0");
             duVar = this.a.u;
             duVar.notifyDataSetChanged();
             Intent intent = new Intent();
             intent.setClass(this.a, FeedbackInputActivity.class);
-            list2 = this.a.f51617e;
+            list2 = this.a.f52166e;
             intent.putExtra("msgid", (String) ((Map) list2.get(i2)).get("id"));
-            list3 = this.a.f51617e;
+            list3 = this.a.f52166e;
             intent.putExtra("appid", (String) ((Map) list3.get(i2)).get("appid"));
             intent.putExtra("fromList", true);
             intent.putExtra("fromEdit", false);

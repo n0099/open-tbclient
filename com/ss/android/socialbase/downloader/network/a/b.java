@@ -18,19 +18,19 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.network.j;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f62018b;
+    public static long f62599b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HandlerThread f62019c;
+    public static final HandlerThread f62600c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Handler f62020d;
+    public static final Handler f62601d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,11 +46,11 @@ public class b {
                 return;
             }
         }
-        f62019c = new HandlerThread("Downloader-preconnecter");
+        f62600c = new HandlerThread("Downloader-preconnecter");
         b();
-        f62019c.start();
-        Handler handler = new Handler(f62019c.getLooper());
-        f62020d = handler;
+        f62600c.start();
+        Handler handler = new Handler(f62600c.getLooper());
+        f62601d = handler;
         handler.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.a.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             a = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_connection_outdate_time", 300000L);
-            f62018b = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_head_info_outdate_time", 300000L);
+            f62599b = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_head_info_outdate_time", 300000L);
             a.a().a(com.ss.android.socialbase.downloader.g.a.c().a("preconnect_max_cache_size", 3));
         }
     }
@@ -94,19 +94,19 @@ public class b {
     public static Looper a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f62019c.getLooper() : (Looper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f62600c.getLooper() : (Looper) invokeV.objValue;
     }
 
     public static void a(String str, j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, jVar) == null) {
-            f62020d.post(new Runnable(str, jVar) { // from class: com.ss.android.socialbase.downloader.network.a.b.2
+            f62601d.post(new Runnable(str, jVar) { // from class: com.ss.android.socialbase.downloader.network.a.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ j f62021b;
+                public final /* synthetic */ j f62602b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -124,7 +124,7 @@ public class b {
                         }
                     }
                     this.a = str;
-                    this.f62021b = jVar;
+                    this.f62602b = jVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -162,8 +162,8 @@ public class b {
                                     }
                                 }
                                 Map<String, String> i2 = r1.i();
-                                if (this.f62021b != null) {
-                                    this.f62021b.a(i2);
+                                if (this.f62602b != null) {
+                                    this.f62602b.a(i2);
                                 }
                             } catch (Throwable th2) {
                                 th = th2;
@@ -176,7 +176,7 @@ public class b {
                         } catch (Throwable unused2) {
                         }
                     } else {
-                        j jVar2 = this.f62021b;
+                        j jVar2 = this.f62602b;
                         if (jVar2 != null) {
                             jVar2.a(null);
                         }

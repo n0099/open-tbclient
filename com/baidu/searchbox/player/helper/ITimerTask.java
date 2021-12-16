@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.helper;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ITimerTask {
     void cancel();
 

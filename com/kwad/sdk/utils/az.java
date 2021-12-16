@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class az {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class az {
                 public final /* synthetic */ View a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f59629b;
+                public final /* synthetic */ int f60210b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -78,14 +78,14 @@ public class az {
                         }
                     }
                     this.a = view;
-                    this.f59629b = i3;
+                    this.f60210b = i3;
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        az.b(this.a, this.f59629b);
+                        az.b(this.a, this.f60210b);
                     }
                 }
 
@@ -93,7 +93,7 @@ public class az {
                 public void onAnimationEnd(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                        az.b(this.a, this.f59629b);
+                        az.b(this.a, this.f60210b);
                     }
                 }
             });

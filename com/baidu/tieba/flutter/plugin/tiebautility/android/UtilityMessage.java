@@ -1,9 +1,9 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import android.text.TextUtils;
-import c.a.d.f.p.k;
-import c.a.r0.i3.a;
-import c.a.r0.r1.t.d;
+import c.a.d.f.p.l;
+import c.a.s0.k3.a;
+import c.a.s0.s1.t.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class UtilityMessage implements TiebaUtilityMessageAuto.HostUtilityMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class UtilityMessage implements TiebaUtilityMessageAuto.HostUtilityMessag
     @Override // com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityMessageAuto.HostUtilityMessage
     public void delAllMsgInForumUser(TiebaUtilityMessageAuto.MessageStringParam messageStringParam) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageStringParam) == null) || k.isEmpty(messageStringParam.getResult())) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageStringParam) == null) || l.isEmpty(messageStringParam.getResult())) {
             return;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(messageStringParam.getResult(), 4, null, 1)));

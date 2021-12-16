@@ -1,5 +1,5 @@
 package com.dxmpay.apollon.beans;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface IBeanResponseCallback {
     void onBeanExecFailure(int i2, int i3, String str);
 

@@ -19,7 +19,7 @@ import com.google.zxing.client.result.ExpandedProductParsedResult;
 import com.kuaishou.weapon.un.w0;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class EANManufacturerOrgSupport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -160,7 +160,7 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{900, CyberPlayerManager.MEDIA_INFO_CONNECT_BEGIN}, "AT");
                     add(new int[]{930, CyberPlayerManager.MEDIA_INFO_VIDEO_BITRATE}, "AU");
                     add(new int[]{CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE, 949}, "AZ");
-                    add(new int[]{CyberPlayerManager.MEDIA_INFO_LOOP_REPLAYED}, "MY");
+                    add(new int[]{955}, "MY");
                     add(new int[]{958}, "MO");
                 }
             }

@@ -25,22 +25,22 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final c a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Map f30643b;
+        public final /* synthetic */ Map f31013b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Type f30644c;
+        public final /* synthetic */ Type f31014c;
 
         public a(Map map, Type type) {
             Interceptable interceptable = $ic;
@@ -57,30 +57,30 @@ public final class f {
                     return;
                 }
             }
-            this.f30643b = map;
-            this.f30644c = type;
+            this.f31013b = map;
+            this.f31014c = type;
         }
 
         @Override // c.i.d.h.g
         public void b(Class<?> cls) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cls) == null) || (this.f30644c instanceof WildcardType)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, cls) == null) || (this.f31014c instanceof WildcardType)) {
                 return;
             }
-            throw new IllegalArgumentException("No type mapping from " + cls + " to " + this.f30644c);
+            throw new IllegalArgumentException("No type mapping from " + cls + " to " + this.f31014c);
         }
 
         @Override // c.i.d.h.g
         public void c(GenericArrayType genericArrayType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, genericArrayType) == null) {
-                Type type = this.f30644c;
+                Type type = this.f31014c;
                 if (type instanceof WildcardType) {
                     return;
                 }
                 Type j2 = Types.j(type);
-                n.k(j2 != null, "%s is not an array type.", this.f30644c);
-                f.g(this.f30643b, genericArrayType.getGenericComponentType(), j2);
+                n.k(j2 != null, "%s is not an array type.", this.f31014c);
+                f.g(this.f31013b, genericArrayType.getGenericComponentType(), j2);
             }
         }
 
@@ -88,20 +88,20 @@ public final class f {
         public void d(ParameterizedType parameterizedType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parameterizedType) == null) {
-                Type type = this.f30644c;
+                Type type = this.f31014c;
                 if (type instanceof WildcardType) {
                     return;
                 }
                 ParameterizedType parameterizedType2 = (ParameterizedType) f.e(ParameterizedType.class, type);
                 if (parameterizedType.getOwnerType() != null && parameterizedType2.getOwnerType() != null) {
-                    f.g(this.f30643b, parameterizedType.getOwnerType(), parameterizedType2.getOwnerType());
+                    f.g(this.f31013b, parameterizedType.getOwnerType(), parameterizedType2.getOwnerType());
                 }
-                n.l(parameterizedType.getRawType().equals(parameterizedType2.getRawType()), "Inconsistent raw type: %s vs. %s", parameterizedType, this.f30644c);
+                n.l(parameterizedType.getRawType().equals(parameterizedType2.getRawType()), "Inconsistent raw type: %s vs. %s", parameterizedType, this.f31014c);
                 Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
                 Type[] actualTypeArguments2 = parameterizedType2.getActualTypeArguments();
                 n.l(actualTypeArguments.length == actualTypeArguments2.length, "%s not compatible with %s", parameterizedType, parameterizedType2);
                 for (int i2 = 0; i2 < actualTypeArguments.length; i2++) {
-                    f.g(this.f30643b, actualTypeArguments[i2], actualTypeArguments2[i2]);
+                    f.g(this.f31013b, actualTypeArguments[i2], actualTypeArguments2[i2]);
                 }
             }
         }
@@ -110,7 +110,7 @@ public final class f {
         public void e(TypeVariable<?> typeVariable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, typeVariable) == null) {
-                this.f30643b.put(new d(typeVariable), this.f30644c);
+                this.f31013b.put(new d(typeVariable), this.f31014c);
             }
         }
 
@@ -118,32 +118,32 @@ public final class f {
         public void f(WildcardType wildcardType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, wildcardType) == null) {
-                Type type = this.f30644c;
+                Type type = this.f31014c;
                 if (type instanceof WildcardType) {
                     WildcardType wildcardType2 = (WildcardType) type;
                     Type[] upperBounds = wildcardType.getUpperBounds();
                     Type[] upperBounds2 = wildcardType2.getUpperBounds();
                     Type[] lowerBounds = wildcardType.getLowerBounds();
                     Type[] lowerBounds2 = wildcardType2.getLowerBounds();
-                    n.l(upperBounds.length == upperBounds2.length && lowerBounds.length == lowerBounds2.length, "Incompatible type: %s vs. %s", wildcardType, this.f30644c);
+                    n.l(upperBounds.length == upperBounds2.length && lowerBounds.length == lowerBounds2.length, "Incompatible type: %s vs. %s", wildcardType, this.f31014c);
                     for (int i2 = 0; i2 < upperBounds.length; i2++) {
-                        f.g(this.f30643b, upperBounds[i2], upperBounds2[i2]);
+                        f.g(this.f31013b, upperBounds[i2], upperBounds2[i2]);
                     }
                     for (int i3 = 0; i3 < lowerBounds.length; i3++) {
-                        f.g(this.f30643b, lowerBounds[i3], lowerBounds2[i3]);
+                        f.g(this.f31013b, lowerBounds[i3], lowerBounds2[i3]);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b extends g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Map<d, Type> f30645b;
+        public final Map<d, Type> f31015b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public final class f {
                     return;
                 }
             }
-            this.f30645b = Maps.s();
+            this.f31015b = Maps.s();
         }
 
         public static ImmutableMap<d, Type> g(Type type) {
@@ -168,7 +168,7 @@ public final class f {
                 n.p(type);
                 b bVar = new b();
                 bVar.a(type);
-                return ImmutableMap.copyOf((Map) bVar.f30645b);
+                return ImmutableMap.copyOf((Map) bVar.f31015b);
             }
             return (ImmutableMap) invokeL.objValue;
         }
@@ -216,24 +216,24 @@ public final class f {
 
         public final void h(d dVar, Type type) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048580, this, dVar, type) == null) || this.f30645b.containsKey(dVar)) {
+            if (!(interceptable == null || interceptable.invokeLL(1048580, this, dVar, type) == null) || this.f31015b.containsKey(dVar)) {
                 return;
             }
             Type type2 = type;
             while (type2 != null) {
                 if (dVar.a(type2)) {
                     while (type != null) {
-                        type = this.f30645b.remove(d.c(type));
+                        type = this.f31015b.remove(d.c(type));
                     }
                     return;
                 }
-                type2 = this.f30645b.get(d.c(type2));
+                type2 = this.f31015b.get(d.c(type2));
             }
-            this.f30645b.put(dVar, type);
+            this.f31015b.put(dVar, type);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -313,22 +313,22 @@ public final class f {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final e f30648b;
+        public static final e f31018b;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger a;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public class a extends e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ TypeVariable f30649c;
+            public final /* synthetic */ TypeVariable f31019c;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(e eVar, AtomicInteger atomicInteger, TypeVariable typeVariable) {
@@ -349,7 +349,7 @@ public final class f {
                         return;
                     }
                 }
-                this.f30649c = typeVariable;
+                this.f31019c = typeVariable;
             }
 
             @Override // c.i.d.h.f.e
@@ -358,7 +358,7 @@ public final class f {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, typeArr)) == null) {
                     LinkedHashSet linkedHashSet = new LinkedHashSet(Arrays.asList(typeArr));
-                    linkedHashSet.addAll(Arrays.asList(this.f30649c.getBounds()));
+                    linkedHashSet.addAll(Arrays.asList(this.f31019c.getBounds()));
                     if (linkedHashSet.size() > 1) {
                         linkedHashSet.remove(Object.class);
                     }
@@ -381,7 +381,7 @@ public final class f {
                     return;
                 }
             }
-            f30648b = new e();
+            f31018b = new e();
         }
 
         public /* synthetic */ e(AtomicInteger atomicInteger, a aVar) {
@@ -514,7 +514,7 @@ public final class f {
     public static f f(Type type) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, type)) == null) ? new f().o(b.g(e.f30648b.a(type))) : (f) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, type)) == null) ? new f().o(b.g(e.f31018b.a(type))) : (f) invokeL.objValue;
     }
 
     public static void g(Map<d, Type> map, Type type, Type type2) {
@@ -610,22 +610,22 @@ public final class f {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, map)) == null) ? new f(this.a.c(map)) : (f) invokeL.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ImmutableMap<d, Type> a;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public class a extends c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ TypeVariable f30646b;
+            public final /* synthetic */ TypeVariable f31016b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ c f30647c;
+            public final /* synthetic */ c f31017c;
 
             public a(c cVar, TypeVariable typeVariable, c cVar2) {
                 Interceptable interceptable = $ic;
@@ -642,15 +642,15 @@ public final class f {
                         return;
                     }
                 }
-                this.f30646b = typeVariable;
-                this.f30647c = cVar2;
+                this.f31016b = typeVariable;
+                this.f31017c = cVar2;
             }
 
             @Override // c.i.d.h.f.c
             public Type b(TypeVariable<?> typeVariable, c cVar) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, typeVariable, cVar)) == null) ? typeVariable.getGenericDeclaration().equals(this.f30646b.getGenericDeclaration()) ? typeVariable : this.f30647c.b(typeVariable, cVar) : (Type) invokeLL.objValue;
+                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, typeVariable, cVar)) == null) ? typeVariable.getGenericDeclaration().equals(this.f31016b.getGenericDeclaration()) ? typeVariable : this.f31017c.b(typeVariable, cVar) : (Type) invokeLL.objValue;
             }
         }
 

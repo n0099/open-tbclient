@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class p extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public final class p extends Handler {
         }
         int i2 = message.getData().getInt("type");
         String string = message.getData().getString("appid");
-        o oVar = q.f55774j;
+        o oVar = q.f56355j;
         oVar.getClass();
         if (i2 != 0) {
             if (i2 == 1) {
@@ -69,10 +69,10 @@ public final class p extends Handler {
                     r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                     query.close();
                 }
-                q.f55771g = r2;
+                q.f56352g = r2;
                 Context context = q.a;
-                synchronized (q.f55768d) {
-                    q.f55768d.notify();
+                synchronized (q.f56349d) {
+                    q.f56349d.notify();
                 }
                 return;
             } else {
@@ -88,9 +88,9 @@ public final class p extends Handler {
         query = oVar.a.getContentResolver().query(parse, null, null, null, null);
         if (query != null) {
         }
-        q.f55771g = r2;
+        q.f56352g = r2;
         Context context2 = q.a;
-        synchronized (q.f55768d) {
+        synchronized (q.f56349d) {
         }
     }
 }

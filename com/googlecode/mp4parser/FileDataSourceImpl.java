@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FileDataSourceImpl implements DataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

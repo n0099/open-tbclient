@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class h3 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class h3 extends Handler {
                 str = (String) message.obj;
                 y2 a = c3.a(this.a.a);
                 try {
-                    a.f31007b = c3.d("ps", new g3(this.a.f30874b));
+                    a.f31377b = c3.d("ps", new g3(this.a.f31244b));
                     a.k("co", 2002);
                     a.l("msg", str);
                 } catch (JSONException unused) {

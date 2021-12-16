@@ -1,7 +1,7 @@
 package com.baidu.tieba.imageProblem.httpNet;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class CdnCacheItem implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TB_CDNCACHEITEM_ERROR = -1;
@@ -37,7 +37,7 @@ public class CdnCacheItem implements Serializable {
     public long mobileLastTachometerTime;
 
     /* renamed from: com.baidu.tieba.imageProblem.httpNet.CdnCacheItem$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +187,7 @@ public class CdnCacheItem implements Serializable {
     public boolean hasImageProblem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j.H() ? this.cdnDomainRank > 0 || this.isUsedIp : this.cdnDomainRank > 0 || this.mobileIsUsedIp : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? k.H() ? this.cdnDomainRank > 0 || this.isUsedIp : this.cdnDomainRank > 0 || this.mobileIsUsedIp : invokeV.booleanValue;
     }
 
     public boolean mobileIsUsedIp() {
@@ -374,7 +374,7 @@ public class CdnCacheItem implements Serializable {
         return invokeCommon.intValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class TBIPListItem implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -99289965442562023L;

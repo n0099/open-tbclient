@@ -12,24 +12,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ExpandGridView extends GridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f49666e;
+    public Scroller f50182e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f49667f;
+    public boolean f50183f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f49668g;
+    public a f50184g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f49669h;
+    public boolean f50185h;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void a(float f2);
     }
@@ -52,19 +52,19 @@ public class ExpandGridView extends GridView {
                 return;
             }
         }
-        this.f49667f = false;
-        this.f49669h = false;
-        this.f49666e = new Scroller(context);
+        this.f50183f = false;
+        this.f50185h = false;
+        this.f50182e = new Scroller(context);
     }
 
     @Override // android.view.View
     public void computeScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f49666e.computeScrollOffset()) {
-                this.f49669h = true;
-                int currY = this.f49666e.getCurrY();
-                a aVar = this.f49668g;
+            if (this.f50182e.computeScrollOffset()) {
+                this.f50185h = true;
+                int currY = this.f50182e.getCurrY();
+                a aVar = this.f50184g;
                 if (aVar != null) {
                     aVar.a(currY);
                 }
@@ -74,7 +74,7 @@ public class ExpandGridView extends GridView {
                     setLayoutParams(layoutParams);
                 }
             } else {
-                this.f49669h = false;
+                this.f50185h = false;
             }
             super.computeScroll();
         }
@@ -86,9 +86,9 @@ public class ExpandGridView extends GridView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             if (motionEvent.getAction() != 3 && motionEvent.getAction() != 1) {
-                this.f49667f = true;
+                this.f50183f = true;
             } else {
-                this.f49667f = false;
+                this.f50183f = false;
             }
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -98,13 +98,13 @@ public class ExpandGridView extends GridView {
     public boolean isOnAutoScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49669h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50185h : invokeV.booleanValue;
     }
 
     public boolean isOnTouch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49667f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50183f : invokeV.booleanValue;
     }
 
     @Override // android.widget.AbsListView, android.view.View
@@ -117,15 +117,15 @@ public class ExpandGridView extends GridView {
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f49668g = aVar;
+            this.f50184g = aVar;
         }
     }
 
     public void startScroll(int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            this.f49666e.startScroll(i2, i3, i4, i5, i6);
-            this.f49669h = true;
+            this.f50182e.startScroll(i2, i3, i4, i5, i6);
+            this.f50185h = true;
             invalidate();
         }
     }
@@ -133,8 +133,8 @@ public class ExpandGridView extends GridView {
     public void startScroll(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
-            this.f49666e.startScroll(i2, i3, i4, i5);
-            this.f49669h = true;
+            this.f50182e.startScroll(i2, i3, i4, i5);
+            this.f50185h = true;
             invalidate();
         }
     }
@@ -158,9 +158,9 @@ public class ExpandGridView extends GridView {
                 return;
             }
         }
-        this.f49667f = false;
-        this.f49669h = false;
-        this.f49666e = new Scroller(context);
+        this.f50183f = false;
+        this.f50185h = false;
+        this.f50182e = new Scroller(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -182,8 +182,8 @@ public class ExpandGridView extends GridView {
                 return;
             }
         }
-        this.f49667f = false;
-        this.f49669h = false;
-        this.f49666e = new Scroller(context);
+        this.f50183f = false;
+        this.f50185h = false;
+        this.f50182e = new Scroller(context);
     }
 }

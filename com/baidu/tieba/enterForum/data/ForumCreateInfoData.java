@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ForumCreateInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ForumCreateInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43469e;
+    public int f43960e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43470f;
+    public int f43961f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f43471g;
+    public int f43962g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43472h;
+    public String f43963h;
 
     public ForumCreateInfoData() {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public class ForumCreateInfoData extends OrmObject {
                 return;
             }
         }
-        this.f43469e = 0;
-        this.f43470f = 0;
-        this.f43471g = 0;
-        this.f43472h = null;
+        this.f43960e = 0;
+        this.f43961f = 0;
+        this.f43962g = 0;
+        this.f43963h = null;
     }
 
     public void A(ForumCreateInfo forumCreateInfo) {
@@ -49,33 +49,33 @@ public class ForumCreateInfoData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, forumCreateInfo) == null) || forumCreateInfo == null) {
             return;
         }
-        this.f43469e = forumCreateInfo.is_show_create.intValue();
-        this.f43470f = forumCreateInfo.is_can_create.intValue();
-        this.f43471g = forumCreateInfo.can_create_errno.intValue();
-        this.f43472h = forumCreateInfo.can_create_errdata;
+        this.f43960e = forumCreateInfo.is_show_create.intValue();
+        this.f43961f = forumCreateInfo.is_can_create.intValue();
+        this.f43962g = forumCreateInfo.can_create_errno.intValue();
+        this.f43963h = forumCreateInfo.can_create_errdata;
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43472h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43963h : (String) invokeV.objValue;
     }
 
     public int x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43471g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43962g : invokeV.intValue;
     }
 
     public boolean y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43470f != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43961f != 0 : invokeV.booleanValue;
     }
 
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43469e != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43960e != 0 : invokeV.booleanValue;
     }
 }

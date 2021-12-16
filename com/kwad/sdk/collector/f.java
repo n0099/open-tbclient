@@ -12,7 +12,7 @@ import com.kwad.sdk.utils.ah;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             boolean a = ah.a(context);
             com.kwad.sdk.core.d.a.a("InfoCollector", "queryAccessibilityServicePermission result: " + a);
-            return new g(s.f56845j, a ? g.f57096b : g.f57097c);
+            return new g(s.f57426j, a ? g.f57677b : g.f57678c);
         }
         return (g) invokeL.objValue;
     }
@@ -54,7 +54,7 @@ public class f {
                 if (strArr != null) {
                     for (String str : strArr) {
                         int a = ah.a(context, str);
-                        arrayList.add(new g(str, a == 0 ? g.f57096b : a == -1 ? g.f57097c : g.a));
+                        arrayList.add(new g(str, a == 0 ? g.f57677b : a == -1 ? g.f57678c : g.a));
                     }
                 }
                 return arrayList;

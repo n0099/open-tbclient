@@ -2,8 +2,8 @@ package com.baidu.swan.game.guide;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
-import c.a.p0.a.k;
-import c.a.p0.h.j.o.a;
+import c.a.q0.a.k;
+import c.a.q0.h.j.o.a;
 import com.airbnb.lottie.LottieComposition;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class GameGuideConfigInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_APP_KEY = "app_key";
@@ -79,7 +79,7 @@ public class GameGuideConfigInfo implements Serializable {
     public String targetAppPackageId;
     public ViewInfo viewInfo;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class CloseInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TARGET_TYPE_GAME = 1;
@@ -160,7 +160,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class DialogInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,7 +221,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class RecommendGameInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -260,7 +260,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class ViewInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

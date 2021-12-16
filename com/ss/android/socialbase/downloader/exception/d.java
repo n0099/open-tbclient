@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends BaseException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f61767b;
+    public final long f62348b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(long j2, long j3) {
@@ -35,7 +35,7 @@ public class d extends BaseException {
             }
         }
         this.a = j2;
-        this.f61767b = j3;
+        this.f62348b = j3;
     }
 
     public long a() {
@@ -47,6 +47,6 @@ public class d extends BaseException {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61767b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62348b : invokeV.longValue;
     }
 }

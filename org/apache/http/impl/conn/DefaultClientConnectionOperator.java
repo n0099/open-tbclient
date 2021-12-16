@@ -16,7 +16,7 @@ import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DefaultClientConnectionOperator implements ClientConnectionOperator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

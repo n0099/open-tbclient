@@ -1,5 +1,5 @@
 package com.baidu.ugc.editvideo.record;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public interface IMediaLifeCycle {
     void onDestroy();
 

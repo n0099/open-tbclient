@@ -69,7 +69,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class TKBase<T extends View> implements ILifeCycle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DISPLAY_INLINE = "inline";
@@ -100,7 +100,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
     public ViewBackgroundManager viewBackgroundManager;
     public String viewID;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IJS2NativeInvoker {
         Object onJSInvokeNativeWithJSONString(String str, String str2, IV8Function iV8Function);
     }
@@ -607,7 +607,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                     iBaseEvent.configWithData(new HashMap<String, Object>(this) { // from class: com.tachikoma.core.component.TKBase.2.2.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ C21482 this$2;
+                                        public final /* synthetic */ C22092 this$2;
 
                                         {
                                             Interceptable interceptable4 = $ic;
@@ -981,7 +981,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                         tKTapEvent.setPosition(new HashMap<String, Float>(this) { // from class: com.tachikoma.core.component.TKBase.1.1.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ C21451 this$2;
+                                            public final /* synthetic */ C22061 this$2;
 
                                             {
                                                 Interceptable interceptable4 = $ic;

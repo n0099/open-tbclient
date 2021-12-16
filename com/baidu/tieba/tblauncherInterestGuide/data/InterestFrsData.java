@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class InterestFrsData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3148930531307087667L;
@@ -19,7 +19,7 @@ public class InterestFrsData extends OrmObject implements Serializable {
     public int errno;
     public ArrayList<Tag> tag_list;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Card extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6381883030119073721L;
@@ -110,7 +110,7 @@ public class InterestFrsData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Tag extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -161320459489433271L;

@@ -12,7 +12,7 @@ import com.xiaomi.push.cw;
 import com.xiaomi.push.dt;
 import com.xiaomi.push.service.bi;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bj extends al.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

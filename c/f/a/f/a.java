@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final c a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.f.a.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class C1579a {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class C1619a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public final class a {
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
-                    super((C1579a) newInitContext.callArgs[0]);
+                    super((C1619a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -61,12 +61,12 @@ public final class a {
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? c.f.a.f.b.b(str) : (String) invokeL.objValue;
         }
 
-        public /* synthetic */ b(C1579a c1579a) {
+        public /* synthetic */ b(C1619a c1619a) {
             this();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public final class a {
             return (String) invokeL.objValue;
         }
 
-        public /* synthetic */ c(C1579a c1579a) {
+        public /* synthetic */ c(C1619a c1619a) {
             this();
         }
     }

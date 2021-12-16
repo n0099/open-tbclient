@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUILD_TYPE = "release";
@@ -13,7 +13,7 @@ public final class BuildConfig {
     public static final boolean IS_BUSINESS_VERSION = false;
     public static final String LIBRARY_PACKAGE_NAME = "com.baidu.walletsdk.core";
     public static final int VERSION_CODE = -1;
-    public static final String VERSION_NAME = "9.5.5.109";
+    public static final String VERSION_NAME = "9.5.5.128";
     public static final boolean hasSdkAsPlugin = false;
     public static final boolean isImmersive = true;
     public static final String sChannelId = "baiduapp";

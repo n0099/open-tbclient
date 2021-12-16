@@ -11,7 +11,7 @@ import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.dxmpay.apollon.utils.ResUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class e extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class e extends b {
                 if (PayDataCache.getInstance().hasMobilePwd()) {
                     this.a.a("", strArr[0]);
                 } else {
-                    CardData.BondCard bondCard = this.f53366e.mBondCard;
+                    CardData.BondCard bondCard = this.f53946e.mBondCard;
                     if (bondCard != null) {
                         this.a.a(strArr[0], bondCard.account_no);
                     } else {
@@ -58,7 +58,7 @@ public class e extends b {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr) == null) {
-            CardData.BondCard bondCard = this.f53366e.getmBondCard();
+            CardData.BondCard bondCard = this.f53946e.getmBondCard();
             if (bondCard != null) {
                 str2 = bondCard.true_name;
                 str3 = bondCard.certificate_code;
@@ -70,25 +70,25 @@ public class e extends b {
             }
             if (strArr.length >= 5) {
                 if (k()) {
-                    this.f53366e.setmCvv(strArr[0]);
+                    this.f53946e.setmCvv(strArr[0]);
                 }
                 if (l()) {
-                    this.f53366e.setmValidDate(strArr[1].replaceAll("/", ""));
+                    this.f53946e.setmValidDate(strArr[1].replaceAll("/", ""));
                 }
                 if (j()) {
-                    this.f53366e.setmName(strArr[2]);
+                    this.f53946e.setmName(strArr[2]);
                 } else {
-                    this.f53366e.setmName(str2);
+                    this.f53946e.setmName(str2);
                 }
                 if (m()) {
-                    this.f53366e.setmIdCard(strArr[3]);
+                    this.f53946e.setmIdCard(strArr[3]);
                 } else {
-                    this.f53366e.setmIdCard(str3);
+                    this.f53946e.setmIdCard(str3);
                 }
                 if (n()) {
-                    this.f53366e.setmPhone(strArr[4].replaceAll(" ", ""));
+                    this.f53946e.setmPhone(strArr[4].replaceAll(" ", ""));
                 } else {
-                    this.f53366e.setmPhone(str);
+                    this.f53946e.setmPhone(str);
                 }
             }
             super.b(strArr);
@@ -110,19 +110,19 @@ public class e extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            CardData.BondCard bondCard = this.f53366e.mBondCard;
+            CardData.BondCard bondCard = this.f53946e.mBondCard;
             if (bondCard == null) {
-                this.f53365d.finish();
+                this.f53945d.finish();
                 return super.p();
             }
             String last4Num = bondCard.getLast4Num();
             if (PayDataCache.getInstance().hasMobilePwd()) {
-                if (this.f53366e.mBondCard.card_type == 2) {
-                    return this.f53366e.mBondCard.bank_name + " " + ResUtils.getString(this.f53365d, "wallet_base_mode_debit") + " " + ResUtils.getString(this.f53365d, "ebpay_last_nums") + last4Num;
+                if (this.f53946e.mBondCard.card_type == 2) {
+                    return this.f53946e.mBondCard.bank_name + " " + ResUtils.getString(this.f53945d, "wallet_base_mode_debit") + " " + ResUtils.getString(this.f53945d, "ebpay_last_nums") + last4Num;
                 }
-                return this.f53366e.mBondCard.bank_name + " " + ResUtils.getString(this.f53365d, "wallet_base_mode_credit") + " " + ResUtils.getString(this.f53365d, "ebpay_last_nums") + last4Num;
+                return this.f53946e.mBondCard.bank_name + " " + ResUtils.getString(this.f53945d, "wallet_base_mode_credit") + " " + ResUtils.getString(this.f53945d, "ebpay_last_nums") + last4Num;
             }
-            return String.format(ResUtils.getString(this.f53365d, "ebpay_hint_last4num"), last4Num);
+            return String.format(ResUtils.getString(this.f53945d, "ebpay_hint_last4num"), last4Num);
         }
         return (String) invokeV.objValue;
     }
@@ -139,32 +139,32 @@ public class e extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            BindFastRequest bindFastRequest = this.f53366e;
+            BindFastRequest bindFastRequest = this.f53946e;
             if (bindFastRequest != null) {
-                if (bindFastRequest.getmBankInfo() != null && this.f53366e.getmBankInfo().channel_info != null && this.f53366e.getmBankInfo().channel_info.card_item_required != null) {
-                    this.f53367f = "1".equals(this.f53366e.getmBankInfo().channel_info.card_item_required.valid_code);
-                    this.f53368g = "1".equals(this.f53366e.getmBankInfo().channel_info.card_item_required.true_name);
-                    this.f53369h = "1".equals(this.f53366e.getmBankInfo().channel_info.card_item_required.valid_date);
-                    this.f53370i = "1".equals(this.f53366e.getmBankInfo().channel_info.card_item_required.certificate_code);
-                    this.f53371j = "1".equals(this.f53366e.getmBankInfo().channel_info.card_item_required.mobile) && (u() == null || !"1".equals(u().b()));
+                if (bindFastRequest.getmBankInfo() != null && this.f53946e.getmBankInfo().channel_info != null && this.f53946e.getmBankInfo().channel_info.card_item_required != null) {
+                    this.f53947f = "1".equals(this.f53946e.getmBankInfo().channel_info.card_item_required.valid_code);
+                    this.f53948g = "1".equals(this.f53946e.getmBankInfo().channel_info.card_item_required.true_name);
+                    this.f53949h = "1".equals(this.f53946e.getmBankInfo().channel_info.card_item_required.valid_date);
+                    this.f53950i = "1".equals(this.f53946e.getmBankInfo().channel_info.card_item_required.certificate_code);
+                    this.f53951j = "1".equals(this.f53946e.getmBankInfo().channel_info.card_item_required.mobile) && (u() == null || !"1".equals(u().b()));
                 }
-                if (this.f53365d != null) {
-                    if (this.f53366e.getmBankInfo() != null) {
-                        this.f53365d.updateBankTitleInfo(this.f53366e.getmBankInfo().card_info, true);
+                if (this.f53945d != null) {
+                    if (this.f53946e.getmBankInfo() != null) {
+                        this.f53945d.updateBankTitleInfo(this.f53946e.getmBankInfo().card_info, true);
                     } else {
-                        this.f53365d.updateBankTitleInfo(null, true);
+                        this.f53945d.updateBankTitleInfo(null, true);
                     }
-                    if (this.f53366e.getmBankInfo() != null) {
-                        if ("11".equals(this.f53366e.getCardRequestType())) {
-                            this.f53365d.updateBindCardProtocolFields(this.f53366e.getmBankInfo().protocol_platform_info);
+                    if (this.f53946e.getmBankInfo() != null) {
+                        if ("11".equals(this.f53946e.getCardRequestType())) {
+                            this.f53945d.updateBindCardProtocolFields(this.f53946e.getmBankInfo().protocol_platform_info);
                         } else {
-                            this.f53365d.updateProtocolFields(this.f53366e.getmBankInfo().protocol_info);
+                            this.f53945d.updateProtocolFields(this.f53946e.getmBankInfo().protocol_info);
                         }
                     } else {
-                        this.f53365d.updateBindCardProtocolFields(null);
-                        this.f53365d.updateProtocolFields(null);
+                        this.f53945d.updateBindCardProtocolFields(null);
+                        this.f53945d.updateProtocolFields(null);
                     }
-                    this.f53365d.updateCardElement(this.f53367f, this.f53369h, this.f53368g, this.f53370i, this.f53371j);
+                    this.f53945d.updateCardElement(this.f53947f, this.f53949h, this.f53948g, this.f53950i, this.f53951j);
                 }
             }
         }

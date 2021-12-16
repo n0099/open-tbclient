@@ -17,7 +17,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import org.webrtc.HardwareVideoEncoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Mp4ComposerEngine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long PROGRESS_INTERVAL_STEPS = 10;
@@ -28,7 +28,7 @@ public class Mp4ComposerEngine {
     public long mDurationUs;
     public ProgressCallback mProgressCallback;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ProgressCallback {
         void onProgress(float f2);
     }

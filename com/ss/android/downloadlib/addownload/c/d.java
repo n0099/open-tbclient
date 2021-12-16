@@ -16,23 +16,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f61240b;
+    public long f61821b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<String, e> f61241c;
+    public ConcurrentHashMap<String, e> f61822c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Integer> f61242d;
+    public HashMap<String, Integer> f61823d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f61243e;
+    public List<String> f61824e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -47,10 +47,10 @@ public class d {
                 return;
             }
         }
-        this.f61240b = 0L;
-        this.f61241c = new ConcurrentHashMap<>();
-        this.f61242d = new HashMap<>();
-        this.f61243e = new CopyOnWriteArrayList();
+        this.f61821b = 0L;
+        this.f61822c = new ConcurrentHashMap<>();
+        this.f61823d = new HashMap<>();
+        this.f61824e = new CopyOnWriteArrayList();
     }
 
     public static d a() {
@@ -72,13 +72,13 @@ public class d {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61240b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61821b : invokeV.longValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f61240b = System.currentTimeMillis();
+            this.f61821b = System.currentTimeMillis();
         }
     }
 
@@ -89,11 +89,11 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return 0;
             }
-            if (this.f61242d == null) {
-                this.f61242d = new HashMap<>();
+            if (this.f61823d == null) {
+                this.f61823d = new HashMap<>();
             }
-            if (this.f61242d.containsKey(str)) {
-                return this.f61242d.get(str).intValue();
+            if (this.f61823d.containsKey(str)) {
+                return this.f61823d.get(str).intValue();
             }
             return 0;
         }
@@ -105,7 +105,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, eVar) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f61241c.put(str, eVar);
+        this.f61822c.put(str, eVar);
     }
 
     public void a(String str) {
@@ -113,7 +113,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f61241c.remove(str);
+        this.f61822c.remove(str);
     }
 
     @WorkerThread

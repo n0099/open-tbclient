@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
-import c.a.d.f.p.k;
-import c.a.q0.s.q.g;
+import c.a.d.f.p.l;
+import c.a.r0.s.r.g;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
@@ -22,7 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaStageDislikeInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AlaInfoData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<AlaInfoData> CREATOR;
@@ -77,7 +77,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public long thread_id;
     public transient AlaUserInfoData user_info;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Parcelable.Creator<AlaInfoData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,7 +160,7 @@ public class AlaInfoData implements Serializable, Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            return (yyExtData == null || k.isEmpty(yyExtData.mSid) || k.isEmpty(this.mYyExtData.mSsid)) ? false : true;
+            return (yyExtData == null || l.isEmpty(yyExtData.mSid) || l.isEmpty(this.mYyExtData.mSsid)) ? false : true;
         }
         return invokeV.booleanValue;
     }

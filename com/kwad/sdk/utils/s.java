@@ -10,20 +10,20 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Class<?>, Class<?>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Class<? extends T> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f59663b;
+        public final T f60244b;
     }
 
     static {
@@ -247,7 +247,7 @@ public class s {
                 if (obj == null || !(obj instanceof a)) {
                     objArr2[i2] = obj;
                 } else {
-                    objArr2[i2] = ((a) obj).f59663b;
+                    objArr2[i2] = ((a) obj).f60244b;
                 }
             }
             return objArr2;

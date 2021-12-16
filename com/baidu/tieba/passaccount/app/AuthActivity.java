@@ -7,8 +7,8 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.a.f;
-import c.a.d0.a.g;
+import c.a.e0.a.f;
+import c.a.e0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
@@ -33,7 +33,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class AuthActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_AUTH_TOKEN = "EXTRA_AUTH_TOKEN";
@@ -51,7 +51,7 @@ public class AuthActivity extends BaseActivity {
     public String tpl;
     public int type;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a implements SapiWebView.OnBackCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b implements SapiWebView.OnFinishCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class c implements SapiWebView.WebviewClientCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +168,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class d implements SapiWebView.ChangePwdCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,13 +223,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(65539, this, z, str) == null) {
             int i2 = this.type;
             if (i2 == 0) {
-                c.a.r0.o2.d.b.f().b(z, str);
+                c.a.s0.q2.d.b.f().b(z, str);
             } else if (i2 == 1) {
-                c.a.r0.o2.d.b.f().e(z);
+                c.a.s0.q2.d.b.f().e(z);
             } else if (i2 == 2) {
-                c.a.r0.o2.d.b.f().c(z);
+                c.a.s0.q2.d.b.f().c(z);
             } else {
-                c.a.r0.o2.d.b.f().a(null);
+                c.a.s0.q2.d.b.f().a(null);
             }
             finish();
         }

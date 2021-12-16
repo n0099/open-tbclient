@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MediaAEffectKeyData implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MediaAEffectKeyData> CREATOR;
@@ -24,7 +24,7 @@ public class MediaAEffectKeyData implements Parcelable, Cloneable {
     public String keyMode;
     public String type;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Parcelable.Creator<MediaAEffectKeyData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

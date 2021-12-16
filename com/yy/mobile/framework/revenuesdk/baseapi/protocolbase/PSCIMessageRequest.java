@@ -13,7 +13,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PSCIMessageRequest extends RequestPacket {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PSCIMessageRequest";

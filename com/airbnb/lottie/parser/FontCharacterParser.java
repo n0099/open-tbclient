@@ -6,7 +6,7 @@ import com.airbnb.lottie.model.content.ShapeGroup;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FontCharacterParser {
     public static final JsonReader.Options NAMES = JsonReader.Options.of("ch", "size", "w", "style", "fFamily", "data");
     public static final JsonReader.Options DATA_NAMES = JsonReader.Options.of("shapes");

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 8652448382850235426L;
@@ -21,7 +21,7 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
     public StatPackage statPackage;
     public String timeZone;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ExceptionEvent implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5177557263564436344L;
@@ -73,7 +73,7 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class StatPackage implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6225392281821567840L;
@@ -116,7 +116,7 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UrlPackage implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2535768638193007414L;

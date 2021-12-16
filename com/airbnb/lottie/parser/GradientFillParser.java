@@ -12,7 +12,7 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.Keyframe;
 import java.io.IOException;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GradientFillParser {
     public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", "r", "hd");
     public static final JsonReader.Options GRADIENT_NAMES = JsonReader.Options.of("p", "k");

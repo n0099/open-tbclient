@@ -2,7 +2,7 @@ package c.b.b.n;
 
 import java.nio.Buffer;
 import java.nio.IntBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface d extends c {
     void A(int i2, IntBuffer intBuffer);
 

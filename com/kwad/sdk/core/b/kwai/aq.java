@@ -10,7 +10,7 @@ import com.kwad.sdk.contentalliance.coupon.model.CouponStatus;
 import com.kwad.sdk.contentalliance.coupon.model.CouponStatusInfo;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class aq implements com.kwad.sdk.core.d<CouponStatus> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

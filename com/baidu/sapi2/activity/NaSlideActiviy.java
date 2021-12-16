@@ -29,33 +29,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NaSlideActiviy extends AppCompatActivity {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38674g = "NaSlideActivity";
+    public static final String f39163g = "NaSlideActivity";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f38675h = true;
+    public static final boolean f39164h = true;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38676b;
+    public boolean f39165b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38677c;
+    public boolean f39166c;
     public SapiConfiguration configuration;
 
     /* renamed from: d  reason: collision with root package name */
-    public SlideInterceptor f38678d;
+    public SlideInterceptor f39167d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SlidingPaneLayout.PanelSlideListener f38679e;
+    public SlidingPaneLayout.PanelSlideListener f39168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<Activity> f38680f;
+    public WeakReference<Activity> f39169f;
     public SlideHelper mSlideHelper;
 
     public NaSlideActiviy() {
@@ -72,8 +72,8 @@ public class NaSlideActiviy extends AppCompatActivity {
             }
         }
         this.a = false;
-        this.f38676b = false;
-        this.f38677c = false;
+        this.f39165b = false;
+        this.f39166c = false;
         this.configuration = SapiAccountManager.getInstance().getConfignation();
     }
 
@@ -101,7 +101,7 @@ public class NaSlideActiviy extends AppCompatActivity {
     public void forceActivityTransparent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f38677c = z;
+            this.f39166c = z;
         }
     }
 
@@ -110,7 +110,7 @@ public class NaSlideActiviy extends AppCompatActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            Log.d(f38674g, "onConfigurationChanged: ");
+            Log.d(f39163g, "onConfigurationChanged: ");
             SlideHelper slideHelper = this.mSlideHelper;
             if (slideHelper != null) {
                 slideHelper.setCanSlide(configuration.orientation != 2);
@@ -146,7 +146,7 @@ public class NaSlideActiviy extends AppCompatActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onPostCreate(bundle);
-            Log.d(f38674g, "onPostCreate");
+            Log.d(f39163g, "onPostCreate");
             a();
         }
     }
@@ -197,14 +197,14 @@ public class NaSlideActiviy extends AppCompatActivity {
     public void setEnableTaskRootSlide(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f38676b = z;
+            this.f39165b = z;
         }
     }
 
     public void setSlideExtraListener(SlidingPaneLayout.PanelSlideListener panelSlideListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, panelSlideListener) == null) {
-            this.f38679e = panelSlideListener;
+            this.f39168e = panelSlideListener;
         }
     }
 
@@ -212,7 +212,7 @@ public class NaSlideActiviy extends AppCompatActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048583, this, z, slideInterceptor) == null) {
             this.a = z;
-            this.f38678d = slideInterceptor;
+            this.f39167d = slideInterceptor;
         }
     }
 
@@ -220,11 +220,11 @@ public class NaSlideActiviy extends AppCompatActivity {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.a) {
             boolean z = getResources().getConfiguration().orientation != 2;
-            if (!this.f38676b && isTaskRoot()) {
+            if (!this.f39165b && isTaskRoot()) {
                 z = false;
             }
             if ((getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
-                Log.e(f38674g, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
+                Log.e(f39163g, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
             }
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
             int i2 = displayMetrics != null ? displayMetrics.widthPixels : 0;
@@ -232,15 +232,15 @@ public class NaSlideActiviy extends AppCompatActivity {
             this.mSlideHelper = slideHelper;
             slideHelper.attachSlideActivity(this);
             this.mSlideHelper.setCanSlide(z);
-            this.mSlideHelper.forceActivityTransparent(this.f38677c);
-            this.mSlideHelper.setSlideInterceptor(this.f38678d);
+            this.mSlideHelper.forceActivityTransparent(this.f39166c);
+            this.mSlideHelper.setSlideInterceptor(this.f39167d);
             this.mSlideHelper.setSlideListener(new SlidingPaneLayout.PanelSlideListener(this, i2) { // from class: com.baidu.sapi2.activity.NaSlideActiviy.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ NaSlideActiviy f38681b;
+                public final /* synthetic */ NaSlideActiviy f39170b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -257,7 +257,7 @@ public class NaSlideActiviy extends AppCompatActivity {
                             return;
                         }
                     }
-                    this.f38681b = this;
+                    this.f39170b = this;
                     this.a = i2;
                 }
 
@@ -265,10 +265,10 @@ public class NaSlideActiviy extends AppCompatActivity {
                 public void onPanelClosed(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (this.f38681b.f38679e != null) {
-                            this.f38681b.f38679e.onPanelClosed(view);
+                        if (this.f39170b.f39168e != null) {
+                            this.f39170b.f39168e.onPanelClosed(view);
                         }
-                        this.f38681b.a(0.0f);
+                        this.f39170b.a(0.0f);
                     }
                 }
 
@@ -276,13 +276,13 @@ public class NaSlideActiviy extends AppCompatActivity {
                 public void onPanelOpened(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                        if (this.f38681b.f38679e != null) {
-                            this.f38681b.f38679e.onPanelOpened(view);
+                        if (this.f39170b.f39168e != null) {
+                            this.f39170b.f39168e.onPanelOpened(view);
                         }
-                        this.f38681b.a(0.0f);
-                        this.f38681b.mSlideHelper.setShadowDrawable(null);
-                        this.f38681b.finishActivityAfterSlideOver();
-                        this.f38681b.overridePendingTransition(0, 0);
+                        this.f39170b.a(0.0f);
+                        this.f39170b.mSlideHelper.setShadowDrawable(null);
+                        this.f39170b.finishActivityAfterSlideOver();
+                        this.f39170b.overridePendingTransition(0, 0);
                     }
                 }
 
@@ -290,7 +290,7 @@ public class NaSlideActiviy extends AppCompatActivity {
                 public void onPanelSlide(View view, float f2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
-                        View maskView = this.f38681b.mSlideHelper.getMaskView();
+                        View maskView = this.f39170b.mSlideHelper.getMaskView();
                         if (maskView != null) {
                             float f3 = 1.0f - f2;
                             if (f3 < 0.0f) {
@@ -298,11 +298,11 @@ public class NaSlideActiviy extends AppCompatActivity {
                             }
                             maskView.setAlpha(f3);
                         }
-                        if (this.f38681b.f38679e != null) {
-                            this.f38681b.f38679e.onPanelSlide(view, f2);
+                        if (this.f39170b.f39168e != null) {
+                            this.f39170b.f39168e.onPanelSlide(view, f2);
                         }
                         float f4 = this.a >> 2;
-                        this.f38681b.a((f2 * f4) - f4);
+                        this.f39170b.a((f2 * f4) - f4);
                     }
                 }
             });
@@ -314,12 +314,12 @@ public class NaSlideActiviy extends AppCompatActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65539, this, f2) == null) {
             try {
-                if (this.f38680f == null || this.f38680f.get() == null) {
-                    this.f38680f = new WeakReference<>(ActivityStackManager.getInstance().getPenultimateActivity());
+                if (this.f39169f == null || this.f39169f.get() == null) {
+                    this.f39169f = new WeakReference<>(ActivityStackManager.getInstance().getPenultimateActivity());
                 }
-                if (this.f38680f.get() != null) {
+                if (this.f39169f.get() != null) {
                     Activity realTopActivity = ActivityStackManager.getInstance().getRealTopActivity();
-                    Activity activity = this.f38680f.get();
+                    Activity activity = this.f39169f.get();
                     if (realTopActivity != null && activity != null && realTopActivity.getLocalClassName().equals(activity.getLocalClassName())) {
                         a(activity, 0.0f);
                     } else {

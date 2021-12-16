@@ -22,7 +22,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DownloadSerialQueueTaskStartEndListener extends DownloadTaskStartEndListener implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ID_INVALID = 0;

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.activity.GenerateProxyActivity;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class Stub_SingleTask_Activity_T extends GenerateProxyActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

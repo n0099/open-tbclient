@@ -39,7 +39,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class e extends f implements View.OnTouchListener, OnRenderFinishedListener, OnRenderStartedListener, IRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
     public float[] hq;
 
     /* renamed from: com.baidu.ar.arrender.e$2  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] hs;
@@ -127,13 +127,13 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
         this.hd = new com.baidu.ar.arplay.core.engine.a(Looper.getMainLooper());
         com.baidu.ar.f.c cVar = new com.baidu.ar.f.c(context);
         this.hf = cVar;
-        cVar.b(this.f33366f);
+        cVar.b(this.f33736f);
         com.baidu.ar.lua.a aVar = new com.baidu.ar.lua.a();
         this.hh = aVar;
-        aVar.b(this.f33366f);
+        aVar.b(this.f33736f);
         com.baidu.ar.steploading.d dVar = new com.baidu.ar.steploading.d(context);
         this.hg = dVar;
-        dVar.b(this.f33366f);
+        dVar.b(this.f33736f);
         this.hi = new ConcurrentHashMap<>();
         boolean A = com.baidu.ar.h.p.A(this.mContext);
         this.hl = A;

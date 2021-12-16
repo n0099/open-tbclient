@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.game.strategy.data;
 
-import c.a.r0.d1.d2.a.a.a;
+import c.a.s0.d1.d2.a.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.ForumSubLabel;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class LabelDataList extends ArrayList<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class LabelDataList extends ArrayList<a> {
             while (it.hasNext()) {
                 a next = it.next();
                 if (next != null && next.a == i2) {
-                    return next.f15401b;
+                    return next.f15811b;
                 }
             }
             return null;
@@ -54,13 +54,13 @@ public class LabelDataList extends ArrayList<a> {
             Iterator<a> it = iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next != null && next.f15402c) {
+                if (next != null && next.f15812c) {
                     return next.a;
                 }
             }
             a aVar = (a) ListUtils.getItem(this, 0);
             if (aVar != null) {
-                aVar.f15402c = true;
+                aVar.f15812c = true;
                 return aVar.a;
             }
             return 0;
@@ -79,14 +79,14 @@ public class LabelDataList extends ArrayList<a> {
                 if (forumSubLabel != null) {
                     a aVar = new a();
                     aVar.a = forumSubLabel.id.intValue();
-                    aVar.f15401b = forumSubLabel.sub_label_name;
+                    aVar.f15811b = forumSubLabel.sub_label_name;
                     add(aVar);
                 }
             }
             if (isEmpty()) {
                 return;
             }
-            get(0).f15402c = true;
+            get(0).f15812c = true;
         }
     }
 
@@ -96,12 +96,12 @@ public class LabelDataList extends ArrayList<a> {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (aVar = (a) ListUtils.getItem(this, i2)) == null) {
             return;
         }
-        aVar.f15402c = true;
+        aVar.f15812c = true;
         Iterator<a> it = iterator();
         while (it.hasNext()) {
             a next = it.next();
             if (next != null && next != aVar) {
-                next.f15402c = false;
+                next.f15812c = false;
             }
         }
     }

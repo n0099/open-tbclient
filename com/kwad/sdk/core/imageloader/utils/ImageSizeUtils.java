@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.core.assist.ImageSize;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ImageSizeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_MAX_BITMAP_DIMENSION = 2048;
@@ -20,7 +20,7 @@ public final class ImageSizeUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.imageloader.utils.ImageSizeUtils$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$assist$ViewScaleType;
         public static /* synthetic */ Interceptable $ic;

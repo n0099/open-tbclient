@@ -15,17 +15,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class o3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Info f30874b;
+    public Info f31244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f30875c;
+    public Handler f31245c;
 
     public o3() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class o3 {
                 return;
             }
         }
-        this.f30875c = new h3(this, Looper.getMainLooper());
+        this.f31245c = new h3(this, Looper.getMainLooper());
     }
 
     public static boolean b(Uri uri) {
@@ -64,7 +64,7 @@ public class o3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, info) == null) {
             this.a = context;
-            this.f30874b = info;
+            this.f31244b = info;
             WebView webView = new WebView(context);
             WebSettings settings = webView.getSettings();
             settings.setAllowContentAccess(true);
@@ -81,7 +81,7 @@ public class o3 {
             Message obtain = Message.obtain();
             obtain.what = 11;
             obtain.obj = str;
-            this.f30875c.sendMessageDelayed(obtain, 5000L);
+            this.f31245c.sendMessageDelayed(obtain, 5000L);
         }
     }
 }

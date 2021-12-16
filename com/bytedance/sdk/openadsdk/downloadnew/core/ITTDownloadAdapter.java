@@ -3,10 +3,10 @@ package com.bytedance.sdk.openadsdk.downloadnew.core;
 import android.app.Activity;
 import android.view.View;
 import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface ITTDownloadAdapter {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public interface OnEventLogHandler {
         boolean onEventLog(int i2, String str, String str2, String str3, Object obj);
     }

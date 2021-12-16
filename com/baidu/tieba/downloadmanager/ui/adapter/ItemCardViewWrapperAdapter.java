@@ -4,10 +4,10 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import c.a.d.m.e.a;
-import c.a.q0.s.u.c;
-import c.a.r0.p0.b.b;
+import c.a.r0.s.v.c;
+import c.a.s0.p0.b.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ItemCardViewWrapperAdapter extends a<b, ItemCardViewWrapperViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,39 +39,39 @@ public class ItemCardViewWrapperAdapter extends a<b, ItemCardViewWrapperViewHold
     public int o;
     public BdTypeRecyclerView p;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class ItemCardViewWrapperViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ItemCardView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f43409b;
+        public View f43900b;
 
         /* renamed from: c  reason: collision with root package name */
-        public EMTextView f43410c;
+        public EMTextView f43901c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f43411d;
+        public View f43902d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ItemCardViewWrapperAdapter f43412e;
+        public final /* synthetic */ ItemCardViewWrapperAdapter f43903e;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes12.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f43413e;
+            public final /* synthetic */ int f43904e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.p0.b.b f43414f;
+            public final /* synthetic */ c.a.s0.p0.b.b f43905f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ ItemCardViewWrapperViewHolder f43415g;
+            public final /* synthetic */ ItemCardViewWrapperViewHolder f43906g;
 
-            public a(ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder, int i2, c.a.r0.p0.b.b bVar) {
+            public a(ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder, int i2, c.a.s0.p0.b.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,38 +86,38 @@ public class ItemCardViewWrapperAdapter extends a<b, ItemCardViewWrapperViewHold
                         return;
                     }
                 }
-                this.f43415g = itemCardViewWrapperViewHolder;
-                this.f43413e = i2;
-                this.f43414f = bVar;
+                this.f43906g = itemCardViewWrapperViewHolder;
+                this.f43904e = i2;
+                this.f43905f = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    int i2 = this.f43415g.f43412e.n;
-                    int i3 = this.f43413e;
-                    c.a.r0.p0.b.b bVar = this.f43414f;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001440, new c.a.r0.p0.b.a(i2, i3, bVar.f21007f, bVar.f21006e.mTitle, view)));
+                    int i2 = this.f43906g.f43903e.n;
+                    int i3 = this.f43904e;
+                    c.a.s0.p0.b.b bVar = this.f43905f;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001440, new c.a.s0.p0.b.a(i2, i3, bVar.f21426f, bVar.f21425e.mTitle, view)));
                 }
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes12.dex */
         public class b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.p0.b.b f43416e;
+            public final /* synthetic */ c.a.s0.p0.b.b f43907e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f43417f;
+            public final /* synthetic */ int f43908f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ ItemCardViewWrapperViewHolder f43418g;
+            public final /* synthetic */ ItemCardViewWrapperViewHolder f43909g;
 
-            public b(ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder, c.a.r0.p0.b.b bVar, int i2) {
+            public b(ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder, c.a.s0.p0.b.b bVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,23 +132,23 @@ public class ItemCardViewWrapperAdapter extends a<b, ItemCardViewWrapperViewHold
                         return;
                     }
                 }
-                this.f43418g = itemCardViewWrapperViewHolder;
-                this.f43416e = bVar;
-                this.f43417f = i2;
+                this.f43909g = itemCardViewWrapperViewHolder;
+                this.f43907e = bVar;
+                this.f43908f = i2;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    ItemData itemData = this.f43416e.f21006e;
+                    ItemData itemData = this.f43907e.f21425e;
                     ItemClickJumpUtil.itemClickJump(itemData.forumName, String.valueOf(itemData.itemId), -1, 15);
-                    if (3 == this.f43418g.f43412e.n) {
-                        int i2 = this.f43418g.f43412e.n;
-                        int i3 = this.f43417f;
-                        int buttonState = this.f43418g.a.getButtonState(this.f43416e.f21006e);
-                        int i4 = this.f43416e.f21007f;
-                        ItemCardHelper.f(i2, i3, buttonState, 2, this.f43416e.f21006e.mTitle, false);
+                    if (3 == this.f43909g.f43903e.n) {
+                        int i2 = this.f43909g.f43903e.n;
+                        int i3 = this.f43908f;
+                        int buttonState = this.f43909g.a.getButtonState(this.f43907e.f21425e);
+                        int i4 = this.f43907e.f21426f;
+                        ItemCardHelper.f(i2, i3, buttonState, 2, this.f43907e.f21425e.mTitle, false);
                     }
                 }
             }
@@ -172,77 +172,77 @@ public class ItemCardViewWrapperAdapter extends a<b, ItemCardViewWrapperViewHold
                     return;
                 }
             }
-            this.f43412e = itemCardViewWrapperAdapter;
+            this.f43903e = itemCardViewWrapperAdapter;
             ViewGroup viewGroup = (ViewGroup) view;
             this.a = (ItemCardView) viewGroup.getChildAt(0);
-            this.f43409b = viewGroup.getChildAt(2);
-            this.f43410c = (EMTextView) viewGroup.getChildAt(1);
-            this.f43411d = viewGroup.getChildAt(3);
+            this.f43900b = viewGroup.getChildAt(2);
+            this.f43901c = (EMTextView) viewGroup.getChildAt(1);
+            this.f43902d = viewGroup.getChildAt(3);
         }
 
         public void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.d(this.f43411d).f(R.color.CAM_X0203);
+                c.d(this.f43902d).f(R.color.CAM_X0203);
                 this.a.onChangeSkinType();
                 this.a.setBackground(null);
-                SkinManager.setBackgroundColor(this.f43409b, R.color.CAM_X0204);
-                c d2 = c.d(this.f43410c);
+                SkinManager.setBackgroundColor(this.f43900b, R.color.CAM_X0204);
+                c d2 = c.d(this.f43901c);
                 d2.z(R.dimen.T_X06);
                 d2.A(R.string.F_X02);
                 d2.v(R.color.CAM_X0105);
-                this.f43410c.setBackground(null);
+                this.f43901c.setBackground(null);
             }
         }
 
-        public void setData(c.a.r0.p0.b.b bVar) {
+        public void setData(c.a.s0.p0.b.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                if (!bVar.f21009h) {
-                    this.f43411d.setVisibility(8);
+                if (!bVar.f21428h) {
+                    this.f43902d.setVisibility(8);
                 } else {
-                    this.f43411d.setVisibility(0);
+                    this.f43902d.setVisibility(0);
                 }
-                if (bVar.f21006e == null) {
-                    this.f43412e.m = getLayoutPosition();
+                if (bVar.f21425e == null) {
+                    this.f43903e.m = getLayoutPosition();
                     this.a.setVisibility(8);
-                    this.f43410c.setVisibility(0);
-                    this.f43409b.setVisibility(0);
+                    this.f43901c.setVisibility(0);
+                    this.f43900b.setVisibility(0);
                     return;
                 }
                 int layoutPosition = getLayoutPosition();
-                if (this.f43412e.m == -1 || layoutPosition <= this.f43412e.m) {
+                if (this.f43903e.m == -1 || layoutPosition <= this.f43903e.m) {
                     layoutPosition++;
                 }
-                if (this.f43412e.p.getHeaderViewsCount() != 0 && layoutPosition > this.f43412e.m) {
+                if (this.f43903e.p.getHeaderViewsCount() != 0 && layoutPosition > this.f43903e.m) {
                     layoutPosition--;
                 }
-                if (layoutPosition == 1 && this.f43412e.p.getHeaderViewsCount() == 0) {
-                    this.f43409b.setVisibility(0);
-                    ((FrameLayout.LayoutParams) this.a.getLayoutParams()).setMargins(0, l.f(this.f43412e.f2907e, R.dimen.tbds21), 0, 0);
+                if (layoutPosition == 1 && this.f43903e.p.getHeaderViewsCount() == 0) {
+                    this.f43900b.setVisibility(0);
+                    ((FrameLayout.LayoutParams) this.a.getLayoutParams()).setMargins(0, m.f(this.f43903e.f2871e, R.dimen.tbds21), 0, 0);
                 } else {
-                    this.f43409b.setVisibility(8);
+                    this.f43900b.setVisibility(8);
                     ((FrameLayout.LayoutParams) this.a.getLayoutParams()).setMargins(0, 0, 0, 0);
                 }
-                this.f43410c.setVisibility(8);
+                this.f43901c.setVisibility(8);
                 this.a.setVisibility(0);
-                int i2 = bVar.f21007f;
+                int i2 = bVar.f21426f;
                 if (i2 == 1) {
-                    this.a.setData(bVar.f21006e, 10, true, this.f43412e.n, layoutPosition);
+                    this.a.setData(bVar.f21425e, 10, true, this.f43903e.n, layoutPosition);
                 } else if (i2 == 2) {
-                    this.a.setData(bVar.f21006e, 10, true, bVar.f21008g, this.f43412e.n, layoutPosition);
+                    this.a.setData(bVar.f21425e, 10, true, bVar.f21427g, this.f43903e.n, layoutPosition);
                 } else {
-                    this.a.setData(bVar.f21006e, 10, true, this.f43412e.n, layoutPosition);
+                    this.a.setData(bVar.f21425e, 10, true, this.f43903e.n, layoutPosition);
                 }
                 this.a.setOnClickListenerOfRightBtn(new a(this, layoutPosition, bVar));
                 this.a.setOnClickListener(new b(this, bVar, layoutPosition));
-                if (bVar.f21006e != null) {
+                if (bVar.f21425e != null) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_DOWNLOAD_MANAGER_SHOW);
                     statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.addParam("obj_locate", this.f43412e.n);
-                    statisticItem.addParam("obj_source", this.f43412e.o);
-                    statisticItem.addParam("obj_name", bVar.f21006e.itemId);
-                    statisticItem.addParam("obj_type", this.a.getButtonState(bVar.f21006e));
+                    statisticItem.addParam("obj_locate", this.f43903e.n);
+                    statisticItem.addParam("obj_source", this.f43903e.o);
+                    statisticItem.addParam("obj_name", bVar.f21425e.itemId);
+                    statisticItem.addParam("obj_type", this.a.getButtonState(bVar.f21425e));
                     TiebaStatic.log(statisticItem);
                 }
             }
@@ -288,27 +288,27 @@ public class ItemCardViewWrapperAdapter extends a<b, ItemCardViewWrapperViewHold
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f2907e);
+            FrameLayout frameLayout = new FrameLayout(this.f2871e);
             frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-            ItemCardView itemCardView = new ItemCardView(this.f2907e);
+            ItemCardView itemCardView = new ItemCardView(this.f2871e);
             itemCardView.setIsShowRightBtn(true);
             itemCardView.setRadius(0);
             itemCardView.setItemImageViewRadius(R.string.J_X05);
             itemCardView.setFirstLineTextColor(R.color.CAM_X0105);
             itemCardView.setPosition(7);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            itemCardView.setPadding(l.f(this.f2907e, R.dimen.tbds18), l.f(this.f2907e, R.dimen.tbds26), l.f(this.f2907e, R.dimen.tbds4), l.f(this.f2907e, R.dimen.tbds18));
+            itemCardView.setPadding(m.f(this.f2871e, R.dimen.tbds18), m.f(this.f2871e, R.dimen.tbds26), m.f(this.f2871e, R.dimen.tbds4), m.f(this.f2871e, R.dimen.tbds18));
             frameLayout.addView(itemCardView, layoutParams);
-            EMTextView eMTextView = new EMTextView(this.f2907e);
+            EMTextView eMTextView = new EMTextView(this.f2871e);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams2.setMargins(0, l.f(this.f2907e, R.dimen.tbds21), 0, 0);
-            eMTextView.setPadding(l.f(this.f2907e, R.dimen.M_W_X007), l.f(this.f2907e, R.dimen.tbds44), 0, 0);
+            layoutParams2.setMargins(0, m.f(this.f2871e, R.dimen.tbds21), 0, 0);
+            eMTextView.setPadding(m.f(this.f2871e, R.dimen.M_W_X007), m.f(this.f2871e, R.dimen.tbds44), 0, 0);
             eMTextView.setText(R.string.recommend_list_title);
             frameLayout.addView(eMTextView, layoutParams2);
-            frameLayout.addView(new View(this.f2907e), new ViewGroup.LayoutParams(-1, l.f(this.f2907e, R.dimen.tbds21)));
-            View view = new View(this.f2907e);
-            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, l.f(this.f2907e, R.dimen.tbds1));
-            layoutParams3.setMargins(l.f(this.f2907e, R.dimen.tbds221), 0, l.f(this.f2907e, R.dimen.M_W_X007), 0);
+            frameLayout.addView(new View(this.f2871e), new ViewGroup.LayoutParams(-1, m.f(this.f2871e, R.dimen.tbds21)));
+            View view = new View(this.f2871e);
+            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, m.f(this.f2871e, R.dimen.tbds1));
+            layoutParams3.setMargins(m.f(this.f2871e, R.dimen.tbds221), 0, m.f(this.f2871e, R.dimen.M_W_X007), 0);
             layoutParams3.gravity = 80;
             frameLayout.addView(view, layoutParams3);
             return new ItemCardViewWrapperViewHolder(this, frameLayout);

@@ -13,17 +13,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.f.a.b;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f57446b;
+    public final LinkedBlockingQueue<IBinder> f58027b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f57447c;
+    public ServiceConnection f58028c;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class b {
                 return;
             }
         }
-        this.f57446b = new LinkedBlockingQueue<>(1);
-        this.f57447c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.kwai.b.1
+        this.f58027b = new LinkedBlockingQueue<>(1);
+        this.f58028c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.kwai.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -70,7 +70,7 @@ public class b {
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     try {
                         com.kwad.sdk.core.d.a.c("HWDeviceIDHelper", "onServiceConnected");
-                        this.a.f57446b.put(iBinder);
+                        this.a.f58027b.put(iBinder);
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
@@ -97,18 +97,18 @@ public class b {
             try {
                 Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
                 intent.setPackage("com.huawei.hwid");
-                if (this.a.bindService(intent, this.f57447c, 1)) {
+                if (this.a.bindService(intent, this.f58028c, 1)) {
                     try {
-                        b.a aVar = new b.a(this.f57446b.take());
+                        b.a aVar = new b.a(this.f58027b.take());
                         str = aVar.a();
                         boolean b2 = aVar.b();
                         com.kwad.sdk.core.d.a.c("HWDeviceIDHelper", "getOAID oaid:" + str + "--boos:" + b2);
                         context = this.a;
-                        serviceConnection = this.f57447c;
+                        serviceConnection = this.f58028c;
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                         context = this.a;
-                        serviceConnection = this.f57447c;
+                        serviceConnection = this.f58028c;
                     }
                     context.unbindService(serviceConnection);
                 }

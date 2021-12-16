@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.a;
 import com.tencent.open.log.SLog;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SecureJsInterface extends a.b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isPWDEdit;
@@ -71,11 +71,11 @@ public class SecureJsInterface extends a.b {
                 i2 = -1;
             }
             if (i2 >= 0) {
-                boolean z = a.f62412c;
-                boolean z2 = a.f62411b;
+                boolean z = a.f62993c;
+                boolean z2 = a.f62992b;
                 if (z2) {
                     if (Boolean.valueOf(JniInterface.BackSpaceChar(z2, i2)).booleanValue()) {
-                        a.f62411b = false;
+                        a.f62992b = false;
                         return;
                     }
                     return;

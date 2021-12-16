@@ -7,7 +7,7 @@ import com.airbnb.lottie.model.content.ShapePath;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.fun.ad.sdk.FunAdSdk;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ShapePathParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", FunAdSdk.PLATFORM_KS, "hd");
 

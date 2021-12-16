@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface SapiEnv {
     public static final String CAPTCHA_URI = "/cgi-bin/genimage?";
     public static final String CHECK_USER_FACE_ID = "/v3/security/sapi/faceCheck";

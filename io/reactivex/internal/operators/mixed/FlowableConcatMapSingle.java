@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 @Experimental
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class FlowableConcatMapSingle<T, R> extends Flowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public final class FlowableConcatMapSingle<T, R> extends Flowable<R> {
     public final int prefetch;
     public final Flowable<T> source;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ConcatMapSingleSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STATE_ACTIVE = 1;
@@ -63,7 +63,7 @@ public final class FlowableConcatMapSingle<T, R> extends Flowable<R> {
         public volatile int state;
         public Subscription upstream;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static final class ConcatMapSingleObserver<R> extends AtomicReference<Disposable> implements SingleObserver<R> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -3051469169682093892L;

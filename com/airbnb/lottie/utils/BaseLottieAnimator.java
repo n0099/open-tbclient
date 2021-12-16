@@ -6,7 +6,7 @@ import android.animation.ValueAnimator;
 import android.os.Build;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseLottieAnimator extends ValueAnimator {
     public final Set<ValueAnimator.AnimatorUpdateListener> updateListeners = new CopyOnWriteArraySet();
     public final Set<Animator.AnimatorListener> listeners = new CopyOnWriteArraySet();

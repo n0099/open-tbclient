@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SharedPrefsWrapper implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences mSp;
+    public final SharedPreferences mSp;
 
     static {
         InterceptResult invokeClinit;

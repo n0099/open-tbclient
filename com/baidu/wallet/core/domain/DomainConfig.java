@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class DomainConfig implements com.baidu.wallet.core.domain.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
     public com.baidu.wallet.core.domain.a o;
 
     /* renamed from: com.baidu.wallet.core.domain.DomainConfig$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -52,7 +52,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static final class DomainStrategyType {
         public static final /* synthetic */ DomainStrategyType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -111,7 +111,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final DomainConfig a;

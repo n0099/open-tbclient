@@ -10,7 +10,7 @@ import com.kwad.sdk.collector.model.jni.AppRunningInfoNative;
 import com.kwad.sdk.collector.model.jni.RulesTargetNative;
 import com.kwad.sdk.collector.model.jni.UploadEntryNative;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AppStatusNative {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

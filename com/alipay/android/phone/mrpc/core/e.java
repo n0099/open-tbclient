@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.HttpResponse;
 import org.apache.http.impl.client.DefaultRedirectHandler;
 import org.apache.http.protocol.HttpContext;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class e extends DefaultRedirectHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f31131b;
+    public final /* synthetic */ d f31501b;
 
     public e(d dVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class e extends DefaultRedirectHandler {
                 return;
             }
         }
-        this.f31131b = dVar;
+        this.f31501b = dVar;
     }
 
     @Override // org.apache.http.impl.client.DefaultRedirectHandler, org.apache.http.client.RedirectHandler

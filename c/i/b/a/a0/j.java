@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.authoring.tracks.MP3TrackImpl;
 import com.kuaishou.weapon.un.w0;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String[] f29012h;
+    public static final String[] f29382h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int[] f29013i;
+    public static final int[] f29383i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int[] f29014j;
+    public static final int[] f29384j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int[] f29015k;
+    public static final int[] f29385k;
     public static final int[] l;
     public static final int[] m;
     public static final int[] n;
@@ -35,22 +35,22 @@ public final class j {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29016b;
+    public String f29386b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29017c;
+    public int f29387c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29018d;
+    public int f29388d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29019e;
+    public int f29389e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29020f;
+    public int f29390f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29021g;
+    public int f29391g;
 
     static {
         InterceptResult invokeClinit;
@@ -65,10 +65,10 @@ public final class j {
                 return;
             }
         }
-        f29012h = new String[]{"audio/mpeg-L1", "audio/mpeg-L2", "audio/mpeg"};
-        f29013i = new int[]{44100, MediaEncodeParams.AUDIO_SAMPLE_RATE, 32000};
-        f29014j = new int[]{32, 64, 96, 128, 160, 192, w0.Q, 256, 288, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 352, 384, 416, FileUtils.S_IRWXU};
-        f29015k = new int[]{32, 48, 56, 64, 80, 96, 112, 128, 144, 160, Opcodes.ARETURN, 192, w0.Q, 256};
+        f29382h = new String[]{"audio/mpeg-L1", "audio/mpeg-L2", "audio/mpeg"};
+        f29383i = new int[]{44100, MediaEncodeParams.AUDIO_SAMPLE_RATE, 32000};
+        f29384j = new int[]{32, 64, 96, 128, 160, 192, w0.Q, 256, 288, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 352, 384, 416, FileUtils.S_IRWXU};
+        f29385k = new int[]{32, 48, 56, 64, 80, 96, 112, 128, 144, 160, Opcodes.ARETURN, 192, w0.Q, 256};
         l = new int[]{32, 48, 56, 64, 80, 96, 112, 128, 160, 192, w0.Q, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 384};
         m = new int[]{32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, w0.Q, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP};
         n = new int[]{8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160};
@@ -100,7 +100,7 @@ public final class j {
             if ((i2 & (-2097152)) != -2097152 || (i3 = (i2 >>> 19) & 3) == 1 || (i4 = (i2 >>> 17) & 3) == 0 || (i5 = (i2 >>> 12) & 15) == 0 || i5 == 15 || (i6 = (i2 >>> 10) & 3) == 3) {
                 return -1;
             }
-            int i8 = f29013i[i6];
+            int i8 = f29383i[i6];
             if (i3 == 2) {
                 i8 /= 2;
             } else if (i3 == 0) {
@@ -108,7 +108,7 @@ public final class j {
             }
             int i9 = (i2 >>> 9) & 1;
             if (i4 == 3) {
-                return ((((i3 == 3 ? f29014j[i5 - 1] : f29015k[i5 - 1]) * w0.X3) / i8) + i9) * 4;
+                return ((((i3 == 3 ? f29384j[i5 - 1] : f29385k[i5 - 1]) * w0.X3) / i8) + i9) * 4;
             }
             if (i3 == 3) {
                 i7 = i4 == 2 ? l[i5 - 1] : m[i5 - 1];
@@ -137,7 +137,7 @@ public final class j {
             if ((i2 & (-2097152)) != -2097152 || (i3 = (i2 >>> 19) & 3) == 1 || (i4 = (i2 >>> 17) & 3) == 0 || (i5 = (i2 >>> 12) & 15) == 0 || i5 == 15 || (i6 = (i2 >>> 10) & 3) == 3) {
                 return false;
             }
-            int i10 = f29013i[i6];
+            int i10 = f29383i[i6];
             if (i3 == 2) {
                 i10 /= 2;
             } else if (i3 == 0) {
@@ -147,7 +147,7 @@ public final class j {
             int i12 = (i2 >>> 9) & 1;
             int i13 = MP3TrackImpl.SAMPLES_PER_FRAME;
             if (i4 == 3) {
-                i7 = i3 == 3 ? f29014j[i5 - 1] : f29015k[i5 - 1];
+                i7 = i3 == 3 ? f29384j[i5 - 1] : f29385k[i5 - 1];
                 i8 = (((i7 * w0.X3) / i11) + i12) * 4;
                 i9 = 384;
             } else {
@@ -164,7 +164,7 @@ public final class j {
                     i9 = i13;
                 }
             }
-            jVar.c(i3, f29012h[3 - i4], i8, i11, ((i2 >> 6) & 3) == 3 ? 1 : 2, i7 * 1000, i9);
+            jVar.c(i3, f29382h[3 - i4], i8, i11, ((i2 >> 6) & 3) == 3 ? 1 : 2, i7 * 1000, i9);
             return true;
         }
         return invokeIL.booleanValue;
@@ -174,12 +174,12 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
             this.a = i2;
-            this.f29016b = str;
-            this.f29017c = i3;
-            this.f29018d = i4;
-            this.f29019e = i5;
-            this.f29020f = i6;
-            this.f29021g = i7;
+            this.f29386b = str;
+            this.f29387c = i3;
+            this.f29388d = i4;
+            this.f29389e = i5;
+            this.f29390f = i6;
+            this.f29391g = i7;
         }
     }
 }

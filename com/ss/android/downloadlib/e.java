@@ -21,7 +21,7 @@ import com.ss.android.socialbase.downloader.depend.af;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.downloader.DownloaderBuilder;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e implements com.ss.android.download.api.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public class e implements com.ss.android.download.api.a {
                 public final /* synthetic */ com.ss.android.download.api.config.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f61382b;
+                public final /* synthetic */ e f61963b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -146,7 +146,7 @@ public class e implements com.ss.android.download.api.a {
                             return;
                         }
                     }
-                    this.f61382b = this;
+                    this.f61963b = this;
                     this.a = bVar;
                 }
             });

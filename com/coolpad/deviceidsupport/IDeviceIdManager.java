@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface IDeviceIdManager extends IInterface {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a extends Binder implements IDeviceIdManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.coolpad.deviceidsupport.IDeviceIdManager$a$a  reason: collision with other inner class name */
-        /* loaded from: classes12.dex */
-        public static class C1965a implements IDeviceIdManager {
+        /* loaded from: classes2.dex */
+        public static class C2026a implements IDeviceIdManager {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: b  reason: collision with root package name */
-            public static IDeviceIdManager f54996b;
+            public static IDeviceIdManager f55576b;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C1965a(IBinder iBinder) {
+            public C2026a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -234,7 +234,7 @@ public interface IDeviceIdManager extends IInterface {
         public static IDeviceIdManager a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C1965a.f54996b : (IDeviceIdManager) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C2026a.f55576b : (IDeviceIdManager) invokeV.objValue;
         }
 
         public static IDeviceIdManager a(IBinder iBinder) {
@@ -245,7 +245,7 @@ public interface IDeviceIdManager extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.coolpad.deviceidsupport.IDeviceIdManager");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof IDeviceIdManager)) ? new C1965a(iBinder) : (IDeviceIdManager) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof IDeviceIdManager)) ? new C2026a(iBinder) : (IDeviceIdManager) queryLocalInterface;
             }
             return (IDeviceIdManager) invokeL.objValue;
         }

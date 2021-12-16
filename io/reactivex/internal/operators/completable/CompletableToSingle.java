@@ -12,7 +12,7 @@ import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import java.util.concurrent.Callable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class CompletableToSingle<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public final class CompletableToSingle<T> extends Single<T> {
     public final Callable<? extends T> completionValueSupplier;
     public final CompletableSource source;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class ToSingle implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

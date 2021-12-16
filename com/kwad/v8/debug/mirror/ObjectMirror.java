@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ObjectMirror extends ValueMirror {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROPERTIES = "properties";
@@ -18,7 +18,7 @@ public class ObjectMirror extends ValueMirror {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class PropertyKind {
         public static final /* synthetic */ PropertyKind[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

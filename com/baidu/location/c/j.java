@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ i.a f35658b;
+    public final /* synthetic */ i.a f36147b;
 
     public j(i.a aVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f35658b = aVar;
+        this.f36147b = aVar;
         this.a = z;
     }
 
@@ -41,11 +41,11 @@ public class j implements Runnable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            z = this.f35658b.a.f35654j;
+            z = this.f36147b.a.f36143j;
             if (!z) {
-                this.f35658b.a.f35654j = this.a;
+                this.f36147b.a.f36143j = this.a;
             }
-            this.f35658b.a.q();
+            this.f36147b.a.q();
             l.c().h();
             if (System.currentTimeMillis() - t.b() <= 5000) {
                 x.a().c();

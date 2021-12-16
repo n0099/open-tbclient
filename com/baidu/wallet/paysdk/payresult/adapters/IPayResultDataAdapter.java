@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.wallet.paysdk.payresult.datamodel.PayResultContent;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface IPayResultDataAdapter {
     void clearDataOnDestroy();
 

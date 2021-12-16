@@ -10,8 +10,9 @@ import com.baidu.wallet.rnauth.RNAuthCallBack;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
+import com.dxmpay.wallet.utils.BdWalletUtils;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class EnterWalletDoRnAuthAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,8 +27,10 @@ public class EnterWalletDoRnAuthAction implements RouterAction {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        BdWalletUtils.putFunctionNameList("doRnAuth");
     }
 
     private void a(Context context, HashMap<String, String> hashMap, RouterCallback routerCallback) {
@@ -39,7 +42,7 @@ public class EnterWalletDoRnAuthAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletDoRnAuthAction f53460b;
+                public final /* synthetic */ EnterWalletDoRnAuthAction f54040b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -56,7 +59,7 @@ public class EnterWalletDoRnAuthAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f53460b = this;
+                    this.f54040b = this;
                     this.a = routerCallback;
                 }
 

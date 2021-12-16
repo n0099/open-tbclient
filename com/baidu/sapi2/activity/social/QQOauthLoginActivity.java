@@ -19,7 +19,7 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.baidu.sapi2.a.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String p = "QQOauthLoginActivity";
@@ -28,17 +28,17 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
     public IUiListener n;
     public ThirdLoginCallback o;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements IUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Tencent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ com.baidu.sapi2.a.a.a f38712b;
+        public final /* synthetic */ com.baidu.sapi2.a.a.a f39201b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ QQOauthLoginActivity f38713c;
+        public final /* synthetic */ QQOauthLoginActivity f39202c;
 
         public a(QQOauthLoginActivity qQOauthLoginActivity, Tencent tencent, com.baidu.sapi2.a.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -55,16 +55,16 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
                     return;
                 }
             }
-            this.f38713c = qQOauthLoginActivity;
+            this.f39202c = qQOauthLoginActivity;
             this.a = tencent;
-            this.f38712b = aVar;
+            this.f39201b = aVar;
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f38712b.a();
+                this.f39201b.a();
             }
         }
 
@@ -80,10 +80,10 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
                         this.a.setAccessToken(optString, optString2);
                         this.a.setOpenId(optString3);
-                        this.f38713c.a(this.a, this.f38712b);
+                        this.f39202c.a(this.a, this.f39201b);
                         return;
                     }
-                    this.f38712b.a();
+                    this.f39201b.a();
                 }
             }
         }
@@ -92,22 +92,22 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
         public void onError(UiError uiError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
-                this.f38712b.a();
+                this.f39201b.a();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements IUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ com.baidu.sapi2.a.a.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Tencent f38714b;
+        public final /* synthetic */ Tencent f39203b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ QQOauthLoginActivity f38715c;
+        public final /* synthetic */ QQOauthLoginActivity f39204c;
 
         public b(QQOauthLoginActivity qQOauthLoginActivity, com.baidu.sapi2.a.a.a aVar, Tencent tencent) {
             Interceptable interceptable = $ic;
@@ -124,9 +124,9 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
                     return;
                 }
             }
-            this.f38715c = qQOauthLoginActivity;
+            this.f39204c = qQOauthLoginActivity;
             this.a = aVar;
-            this.f38714b = tencent;
+            this.f39203b = tencent;
         }
 
         @Override // com.tencent.tauth.IUiListener
@@ -142,7 +142,7 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 if (obj != null) {
-                    this.a.a(this.f38714b.getAccessToken(), this.f38714b.getOpenId(), ((JSONObject) obj).optString("unionid"));
+                    this.a.a(this.f39203b.getAccessToken(), this.f39203b.getOpenId(), ((JSONObject) obj).optString("unionid"));
                     return;
                 }
                 this.a.a();
@@ -199,23 +199,29 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
             super.setupViews();
             this.o = ThirdPartyService.getThirdLoginCallback();
             ThirdPartyService.releaseThirdLoginCallback();
-            a((com.baidu.sapi2.a.a.a) this);
+            try {
+                a((com.baidu.sapi2.a.a.a) this);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                finish();
+            }
         }
     }
 
     private void a(com.baidu.sapi2.a.a.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, aVar) == null) && aVar != null && a("com.tencent.tauth.Tencent").booleanValue()) {
-            Tencent createInstance = Tencent.createInstance(this.configuration.qqAppID, this);
-            if (!SapiUtils.isAppInstalled(this, "com.tencent.mobileqq")) {
-                Toast.makeText(this.configuration.context, q, 0).show();
-                aVar.a();
-                return;
-            }
-            a aVar2 = new a(this, createInstance, aVar);
-            this.n = aVar2;
-            createInstance.login(this, "all", aVar2);
+        if (!(interceptable == null || interceptable.invokeL(65537, this, aVar) == null) || aVar == null) {
+            return;
         }
+        Tencent createInstance = Tencent.createInstance(this.configuration.qqAppID, this);
+        if (!SapiUtils.isAppInstalled(this, "com.tencent.mobileqq")) {
+            Toast.makeText(this.configuration.context, q, 0).show();
+            aVar.a();
+            return;
+        }
+        a aVar2 = new a(this, createInstance, aVar);
+        this.n = aVar2;
+        createInstance.login(this, "all", aVar2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

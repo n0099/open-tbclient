@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public final class k {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public final class k {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,26 +83,26 @@ public final class k {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f29250b;
+        public final long f29620b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f29251c;
+        public final int f29621c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f29252d;
+        public final int f29622d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f29253e;
+        public final int f29623e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final byte[] f29254f;
+        public final byte[] f29624f;
 
         public d(long j2, int i2, long j3, int i3, int i4, int i5, int i6, int i7, boolean z, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -120,11 +120,11 @@ public final class k {
                 }
             }
             this.a = i2;
-            this.f29250b = j3;
-            this.f29251c = i4;
-            this.f29252d = i6;
-            this.f29253e = i7;
-            this.f29254f = bArr;
+            this.f29620b = j3;
+            this.f29621c = i4;
+            this.f29622d = i6;
+            this.f29623e = i7;
+            this.f29624f = bArr;
         }
     }
 

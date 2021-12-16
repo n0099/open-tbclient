@@ -11,17 +11,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.p;
 import com.vivo.push.util.z;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f62482b;
+    public static volatile b f63063b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f62483c;
+    public e f63064c;
 
     static {
         InterceptResult invokeClinit;
@@ -57,14 +57,14 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f62482b == null) {
+            if (f63063b == null) {
                 synchronized (a) {
-                    if (f62482b == null) {
-                        f62482b = new b();
+                    if (f63063b == null) {
+                        f63063b = new b();
                     }
                 }
             }
-            return f62482b;
+            return f63063b;
         }
         return (b) invokeV.objValue;
     }
@@ -73,7 +73,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            e eVar = this.f62483c;
+            e eVar = this.f63064c;
             if (eVar != null) {
                 return eVar;
             }
@@ -82,7 +82,7 @@ public final class b {
                 Method method = Class.forName(str).getMethod("getInstance", Context.class);
                 p.d("ConfigManagerFactory", "createConfig success is " + str);
                 e eVar2 = (e) method.invoke(null, context);
-                this.f62483c = eVar2;
+                this.f63064c = eVar2;
                 return eVar2;
             } catch (Exception e2) {
                 e2.printStackTrace();

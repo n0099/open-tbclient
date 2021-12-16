@@ -15,23 +15,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class y3 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static y3 f31009d;
+    public static y3 f31379d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f31010e;
+    public static String f31380e;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f31011b;
+    public long f31381b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f31012c;
+    public long f31382c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class y3 {
                 return;
             }
         }
-        f31010e = x5.f30997d + "jy/cf?";
+        f31380e = x5.f31367d + "jy/cf?";
     }
 
     public y3(Context context) {
@@ -71,14 +71,14 @@ public class y3 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f31009d == null) {
+            if (f31379d == null) {
                 synchronized (y3.class) {
-                    if (f31009d == null) {
-                        f31009d = new y3(context);
+                    if (f31379d == null) {
+                        f31379d = new y3(context);
                     }
                 }
             }
-            return f31009d;
+            return f31379d;
         }
         return (y3) invokeL.objValue;
     }
@@ -86,17 +86,17 @@ public class y3 {
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f31010e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f31380e : (String) invokeV.objValue;
     }
 
     public final void e(b6 b6Var) {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b6Var) == null) || b6Var == null || (jSONObject = b6Var.f30758c) == null || jSONObject.length() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b6Var) == null) || b6Var == null || (jSONObject = b6Var.f31128c) == null || jSONObject.length() == 0) {
             return;
         }
         try {
-            JSONObject jSONObject2 = b6Var.f30758c;
+            JSONObject jSONObject2 = b6Var.f31128c;
             m2.q(this.a, jSONObject2.optString("bt", ""));
             int optInt = jSONObject2.optInt("time", 12);
             SharedPreferences.Editor edit = this.a.getSharedPreferences("_prefs", 0).edit();
@@ -165,7 +165,7 @@ public class y3 {
             m2.p(this.a, new Date().getTime());
         } catch (Exception e2) {
             y2 a = c3.a(this.a);
-            a.a(101, this.f31012c);
+            a.a(101, this.f31382c);
             a.m();
             e2.printStackTrace();
         }

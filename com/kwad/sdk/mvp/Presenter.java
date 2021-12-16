@@ -21,30 +21,30 @@ import com.kwad.sdk.core.kwai.a;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<Presenter> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f58652b;
+    public View f59233b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f58653c;
+    public Object f59234c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PresenterState f58654d;
+    public PresenterState f59235d;
 
     /* renamed from: com.kwad.sdk.mvp.Presenter$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class PresenterState {
         public static final /* synthetic */ PresenterState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -132,7 +132,7 @@ public class Presenter {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, presenter) == null) {
                         for (Presenter presenter2 : presenter.a) {
                             try {
-                                presenter2.c(presenter.f58652b);
+                                presenter2.c(presenter.f59233b);
                             } catch (Exception e2) {
                                 a.a(e2);
                                 com.kwad.sdk.core.d.a.a(e2);
@@ -172,7 +172,7 @@ public class Presenter {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, presenter) == null) {
                         for (Presenter presenter2 : presenter.a) {
                             try {
-                                presenter2.a(presenter.f58653c);
+                                presenter2.a(presenter.f59234c);
                             } catch (Exception e2) {
                                 a.a(e2);
                                 com.kwad.sdk.core.d.a.a(e2);
@@ -325,13 +325,13 @@ public class Presenter {
             }
         }
         this.a = new ArrayList();
-        this.f58654d = PresenterState.INIT;
+        this.f59235d = PresenterState.INIT;
     }
 
     public final <T extends View> T a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (T) this.f58652b.findViewById(i2) : (T) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (T) this.f59233b.findViewById(i2) : (T) invokeI.objValue;
     }
 
     public void a() {
@@ -347,7 +347,7 @@ public class Presenter {
             if (!l() || presenter.l()) {
                 return;
             }
-            c(this.f58652b);
+            c(this.f59233b);
         }
     }
 
@@ -355,16 +355,16 @@ public class Presenter {
     public final void a(@NonNull Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            if (this.f58654d != PresenterState.INIT) {
+            if (this.f59235d != PresenterState.INIT) {
                 PresenterState presenterState = PresenterState.DESTROY;
             }
-            if (this.f58654d == PresenterState.BIND) {
+            if (this.f59235d == PresenterState.BIND) {
                 j();
             }
-            this.f58654d = PresenterState.BIND;
-            this.f58653c = obj;
+            this.f59235d = PresenterState.BIND;
+            this.f59234c = obj;
             a();
-            this.f58654d.performCallState(this);
+            this.f59235d.performCallState(this);
         }
     }
 
@@ -378,10 +378,10 @@ public class Presenter {
     public final void c(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
-            this.f58654d = PresenterState.CREATE;
-            this.f58652b = view;
+            this.f59235d = PresenterState.CREATE;
+            this.f59233b = view;
             c_();
-            this.f58654d.performCallState(this);
+            this.f59235d.performCallState(this);
         }
     }
 
@@ -401,9 +401,9 @@ public class Presenter {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f58654d = PresenterState.UNBIND;
+            this.f59235d = PresenterState.UNBIND;
             c();
-            this.f58654d.performCallState(this);
+            this.f59235d.performCallState(this);
         }
     }
 
@@ -411,25 +411,25 @@ public class Presenter {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.f58654d == PresenterState.BIND) {
+            if (this.f59235d == PresenterState.BIND) {
                 j();
             }
-            this.f58654d = PresenterState.DESTROY;
+            this.f59235d = PresenterState.DESTROY;
             d_();
-            this.f58654d.performCallState(this);
+            this.f59235d.performCallState(this);
         }
     }
 
     public final boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f58654d.index() >= PresenterState.CREATE.index() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f59235d.index() >= PresenterState.CREATE.index() : invokeV.booleanValue;
     }
 
     public View m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f58652b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f59233b : (View) invokeV.objValue;
     }
 
     public List<Presenter> n() {
@@ -470,14 +470,14 @@ public class Presenter {
     public Object p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f58653c : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f59234c : invokeV.objValue;
     }
 
     public final Context q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            View view = this.f58652b;
+            View view = this.f59233b;
             if (view == null) {
                 return null;
             }

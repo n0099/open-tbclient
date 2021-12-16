@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class i extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class i extends a {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29667i + this.l : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30037i + this.l : invokeV.intValue;
     }
 
     @Override // c.i.b.a.d0.u.l
@@ -86,23 +86,23 @@ public class i extends a {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             c.i.b.a.h0.g b2 = this.a.b(this.o);
             try {
-                c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.f29637h, b2.f30140c, this.f29637h.a(b2));
+                c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.f30007h, b2.f30510c, this.f30007h.a(b2));
                 if (this.o == 0) {
                     b g2 = g();
                     g2.c(this.m);
                     this.n.d(g2);
                 }
-                c.i.b.a.a0.e eVar = this.n.f29638e;
+                c.i.b.a.a0.e eVar = this.n.f30008e;
                 int i2 = 0;
                 while (i2 == 0 && !this.p) {
                     i2 = eVar.e(bVar, null);
                 }
                 c.i.b.a.i0.a.f(i2 != 1);
-                this.o = (int) (bVar.getPosition() - this.a.f30140c);
-                v.h(this.f29637h);
+                this.o = (int) (bVar.getPosition() - this.a.f30510c);
+                v.h(this.f30007h);
                 this.q = true;
             } catch (Throwable th) {
-                v.h(this.f29637h);
+                v.h(this.f30007h);
                 throw th;
             }
         }

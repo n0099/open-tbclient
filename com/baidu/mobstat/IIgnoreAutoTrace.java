@@ -1,4 +1,4 @@
 package com.baidu.mobstat;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IIgnoreAutoTrace {
 }

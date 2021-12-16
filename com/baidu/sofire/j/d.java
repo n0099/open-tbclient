@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public final class d {
             if (supportedVideoSizes == null || supportedVideoSizes.size() == 0 || supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
                 return aVar;
             }
-            float f2 = aVar.f39148b / aVar.a;
+            float f2 = aVar.f39637b / aVar.a;
             c.a aVar2 = new c.a(0, 0);
             c.a aVar3 = new c.a(0, 0);
             c.a aVar4 = new c.a(0, 0);
@@ -99,16 +99,16 @@ public final class d {
                 int i5 = size.width;
                 aVar3.a = i5;
                 int i6 = size.height;
-                aVar3.f39148b = i6;
-                if (i5 == aVar.a && i6 == aVar.f39148b) {
+                aVar3.f39637b = i6;
+                if (i5 == aVar.a && i6 == aVar.f39637b) {
                     aVar2.a = i5;
-                    aVar2.f39148b = i6;
+                    aVar2.f39637b = i6;
                     return aVar2;
                 }
                 float f3 = 0.01f;
-                if (Math.abs((size.height / size.width) - f2) < 0.01f && (i2 = aVar3.a) >= aVar2.a && (i3 = aVar3.f39148b) >= aVar2.f39148b && i2 * i3 <= 921600) {
+                if (Math.abs((size.height / size.width) - f2) < 0.01f && (i2 = aVar3.a) >= aVar2.a && (i3 = aVar3.f39637b) >= aVar2.f39637b && i2 * i3 <= 921600) {
                     aVar2.a = i2;
-                    aVar2.f39148b = i3;
+                    aVar2.f39637b = i3;
                 }
                 int i7 = 0;
                 while (i7 < supportedPreviewSizes.size()) {
@@ -116,17 +116,17 @@ public final class d {
                     int i8 = size2.width;
                     aVar4.a = i8;
                     int i9 = size2.height;
-                    aVar4.f39148b = i9;
-                    if (!(aVar3.a == i8 && aVar3.f39148b == i9) && Math.abs((aVar4.f39148b / aVar4.a) - (aVar3.f39148b / aVar3.a)) >= f3) {
+                    aVar4.f39637b = i9;
+                    if (!(aVar3.a == i8 && aVar3.f39637b == i9) && Math.abs((aVar4.f39637b / aVar4.a) - (aVar3.f39637b / aVar3.a)) >= f3) {
                         list = supportedVideoSizes;
                     } else {
                         int i10 = aVar3.a;
-                        int i11 = aVar3.f39148b;
+                        int i11 = aVar3.f39637b;
                         list = supportedVideoSizes;
-                        if (i10 * i11 >= aVar5.a * aVar5.f39148b && i10 * i11 <= 921600) {
+                        if (i10 * i11 >= aVar5.a * aVar5.f39637b && i10 * i11 <= 921600) {
                             aVar5.a = i10;
-                            aVar5.f39148b = i11;
-                            aVar6.f39148b = aVar4.f39148b;
+                            aVar5.f39637b = i11;
+                            aVar6.f39637b = aVar4.f39637b;
                             aVar6.a = aVar4.a;
                         }
                     }
@@ -136,10 +136,10 @@ public final class d {
                 }
                 List<Camera.Size> list2 = supportedVideoSizes;
                 int i12 = aVar3.a;
-                int i13 = aVar3.f39148b;
-                if (i12 * i13 >= aVar7.a * aVar7.f39148b && i12 * i13 <= 921600) {
+                int i13 = aVar3.f39637b;
+                if (i12 * i13 >= aVar7.a * aVar7.f39637b && i12 * i13 <= 921600) {
                     aVar7.a = i12;
-                    aVar7.f39148b = i13;
+                    aVar7.f39637b = i13;
                 }
                 i4++;
                 supportedVideoSizes = list2;

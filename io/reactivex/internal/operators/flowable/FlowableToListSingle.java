@@ -21,14 +21,14 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.Collection;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class FlowableToListSingle<T, U extends Collection<? super T>> extends Single<U> implements FuseToFlowable<U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Callable<U> collectionSupplier;
     public final Flowable<T> source;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ToListSubscriber<T, U extends Collection<? super T>> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -14,14 +14,14 @@ import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.bumptech.glide.request.transition.Transition;
 import java.util.Arrays;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProvider<T>, SizeReadyCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] size;
     public SizeViewTarget viewTarget;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class SizeViewTarget extends ViewTarget<View, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

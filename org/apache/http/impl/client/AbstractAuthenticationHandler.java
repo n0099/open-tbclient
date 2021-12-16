@@ -16,7 +16,7 @@ import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.client.AuthenticationHandler;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractAuthenticationHandler implements AuthenticationHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

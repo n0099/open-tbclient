@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AuthoritySharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FIRSTSHOT_CONFIG = "firstshot_config";
@@ -114,7 +114,7 @@ public class AuthoritySharedPreferences {
             }
             try {
                 JSONObject jSONObject2 = new JSONObject(firstShotConfig);
-                return (!jSONObject2.has(KEY_CONFIG_FIRSTSHOT_GUIDE) || (jSONObject = jSONObject2.getJSONObject(KEY_CONFIG_FIRSTSHOT_GUIDE)) == null) ? "" : jSONObject.optString("image");
+                return (!jSONObject2.has("guide") || (jSONObject = jSONObject2.getJSONObject("guide")) == null) ? "" : jSONObject.optString("image");
             } catch (JSONException | Exception unused) {
                 return "";
             }

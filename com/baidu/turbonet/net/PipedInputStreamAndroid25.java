@@ -12,31 +12,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InterruptedIOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PipedInputStreamAndroid25 extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f51412e;
+    public boolean f51961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f51413f;
+    public volatile boolean f51962f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f51414g;
+    public boolean f51963g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Thread f51415h;
+    public Thread f51964h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Thread f51416i;
+    public Thread f51965i;
 
     /* renamed from: j  reason: collision with root package name */
-    public byte[] f51417j;
+    public byte[] f51966j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f51418k;
+    public int f51967k;
     public int l;
 
     static {
@@ -68,10 +68,10 @@ public class PipedInputStreamAndroid25 extends InputStream {
                 return;
             }
         }
-        this.f51412e = false;
-        this.f51413f = false;
-        this.f51414g = false;
-        this.f51418k = -1;
+        this.f51961e = false;
+        this.f51962f = false;
+        this.f51963g = false;
+        this.f51967k = -1;
         this.l = 0;
         e(i2);
         d(pipedOutputStreamAndroid25);
@@ -80,7 +80,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
     public final void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            while (this.f51418k == this.l) {
+            while (this.f51967k == this.l) {
                 c();
                 notifyAll();
                 try {
@@ -99,16 +99,16 @@ public class PipedInputStreamAndroid25 extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (this.f51418k < 0) {
+                if (this.f51967k < 0) {
                     return 0;
                 }
-                if (this.f51418k == this.l) {
-                    return this.f51417j.length;
+                if (this.f51967k == this.l) {
+                    return this.f51966j.length;
                 }
-                if (this.f51418k > this.l) {
-                    return this.f51418k - this.l;
+                if (this.f51967k > this.l) {
+                    return this.f51967k - this.l;
                 }
-                return (this.f51418k + this.f51417j.length) - this.l;
+                return (this.f51967k + this.f51966j.length) - this.l;
             }
         }
         return invokeV.intValue;
@@ -117,9 +117,9 @@ public class PipedInputStreamAndroid25 extends InputStream {
     public final void c() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f51414g) {
-                if (!this.f51412e && !this.f51413f) {
-                    Thread thread = this.f51415h;
+            if (this.f51963g) {
+                if (!this.f51961e && !this.f51962f) {
+                    Thread thread = this.f51964h;
                     if (thread != null && !thread.isAlive()) {
                         throw new IOException("Read end dead");
                     }
@@ -135,9 +135,9 @@ public class PipedInputStreamAndroid25 extends InputStream {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f51413f = true;
+            this.f51962f = true;
             synchronized (this) {
-                this.f51418k = -1;
+                this.f51967k = -1;
             }
         }
     }
@@ -153,7 +153,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             if (i2 > 0) {
-                this.f51417j = new byte[i2];
+                this.f51966j = new byte[i2];
                 return;
             }
             throw new IllegalArgumentException("Pipe Size <= 0");
@@ -165,21 +165,21 @@ public class PipedInputStreamAndroid25 extends InputStream {
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             synchronized (this) {
                 c();
-                this.f51416i = Thread.currentThread();
-                if (this.f51418k == this.l) {
+                this.f51965i = Thread.currentThread();
+                if (this.f51967k == this.l) {
                     a();
                 }
-                if (this.f51418k < 0) {
-                    this.f51418k = 0;
+                if (this.f51967k < 0) {
+                    this.f51967k = 0;
                     this.l = 0;
                 }
-                byte[] bArr = this.f51417j;
-                int i3 = this.f51418k;
+                byte[] bArr = this.f51966j;
+                int i3 = this.f51967k;
                 int i4 = i3 + 1;
-                this.f51418k = i4;
+                this.f51967k = i4;
                 bArr[i3] = (byte) (i2 & 255);
-                if (i4 >= this.f51417j.length) {
-                    this.f51418k = 0;
+                if (i4 >= this.f51966j.length) {
+                    this.f51967k = 0;
                 }
             }
         }
@@ -200,46 +200,46 @@ public class PipedInputStreamAndroid25 extends InputStream {
         if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i2, i3) == null) {
             synchronized (this) {
                 c();
-                this.f51416i = Thread.currentThread();
+                this.f51965i = Thread.currentThread();
                 while (i3 > 0) {
-                    if (this.f51418k == this.l) {
+                    if (this.f51967k == this.l) {
                         a();
                     }
-                    if (this.l < this.f51418k) {
-                        i5 = this.f51417j.length;
-                        i6 = this.f51418k;
+                    if (this.l < this.f51967k) {
+                        i5 = this.f51966j.length;
+                        i6 = this.f51967k;
                     } else {
-                        if (this.f51418k >= this.l) {
+                        if (this.f51967k >= this.l) {
                             i4 = 0;
-                        } else if (this.f51418k == -1) {
+                        } else if (this.f51967k == -1) {
                             this.l = 0;
-                            this.f51418k = 0;
-                            i4 = this.f51417j.length - 0;
+                            this.f51967k = 0;
+                            i4 = this.f51966j.length - 0;
                         } else {
                             i5 = this.l;
-                            i6 = this.f51418k;
+                            i6 = this.f51967k;
                         }
                         if (i4 > i3) {
                             i4 = i3;
                         }
-                        System.arraycopy(bArr, i2, this.f51417j, this.f51418k, i4);
+                        System.arraycopy(bArr, i2, this.f51966j, this.f51967k, i4);
                         i3 -= i4;
                         i2 += i4;
-                        i7 = this.f51418k + i4;
-                        this.f51418k = i7;
-                        if (i7 < this.f51417j.length) {
-                            this.f51418k = 0;
+                        i7 = this.f51967k + i4;
+                        this.f51967k = i7;
+                        if (i7 < this.f51966j.length) {
+                            this.f51967k = 0;
                         }
                     }
                     i4 = i5 - i6;
                     if (i4 > i3) {
                     }
-                    System.arraycopy(bArr, i2, this.f51417j, this.f51418k, i4);
+                    System.arraycopy(bArr, i2, this.f51966j, this.f51967k, i4);
                     i3 -= i4;
                     i2 += i4;
-                    i7 = this.f51418k + i4;
-                    this.f51418k = i7;
-                    if (i7 < this.f51417j.length) {
+                    i7 = this.f51967k + i4;
+                    this.f51967k = i7;
+                    if (i7 < this.f51966j.length) {
                     }
                 }
             }
@@ -250,7 +250,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             synchronized (this) {
-                this.f51412e = true;
+                this.f51961e = true;
                 notifyAll();
             }
         }
@@ -262,18 +262,18 @@ public class PipedInputStreamAndroid25 extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this) {
-                if (this.f51414g) {
-                    if (!this.f51413f) {
-                        if (this.f51416i != null && !this.f51416i.isAlive() && !this.f51412e && this.f51418k < 0) {
+                if (this.f51963g) {
+                    if (!this.f51962f) {
+                        if (this.f51965i != null && !this.f51965i.isAlive() && !this.f51961e && this.f51967k < 0) {
                             throw new IOException("Write end dead");
                         }
-                        this.f51415h = Thread.currentThread();
+                        this.f51964h = Thread.currentThread();
                         int i2 = 2;
-                        while (this.f51418k < 0) {
-                            if (this.f51412e) {
+                        while (this.f51967k < 0) {
+                            if (this.f51961e) {
                                 return -1;
                             }
-                            if (this.f51416i != null && !this.f51416i.isAlive() && i2 - 1 < 0) {
+                            if (this.f51965i != null && !this.f51965i.isAlive() && i2 - 1 < 0) {
                                 throw new IOException("Pipe broken");
                             }
                             notifyAll();
@@ -284,16 +284,16 @@ public class PipedInputStreamAndroid25 extends InputStream {
                                 throw new InterruptedIOException();
                             }
                         }
-                        byte[] bArr = this.f51417j;
+                        byte[] bArr = this.f51966j;
                         int i3 = this.l;
                         int i4 = i3 + 1;
                         this.l = i4;
                         int i5 = bArr[i3] & 255;
-                        if (i4 >= this.f51417j.length) {
+                        if (i4 >= this.f51966j.length) {
                             this.l = 0;
                         }
-                        if (this.f51418k == this.l) {
-                            this.f51418k = -1;
+                        if (this.f51967k == this.l) {
+                            this.f51967k = -1;
                         }
                         return i5;
                     }
@@ -318,10 +318,10 @@ public class PipedInputStreamAndroid25 extends InputStream {
                 return;
             }
         }
-        this.f51412e = false;
-        this.f51413f = false;
-        this.f51414g = false;
-        this.f51418k = -1;
+        this.f51961e = false;
+        this.f51962f = false;
+        this.f51963g = false;
+        this.f51967k = -1;
         this.l = 0;
         e(1024);
     }
@@ -346,26 +346,26 @@ public class PipedInputStreamAndroid25 extends InputStream {
                     }
                     bArr[i2] = (byte) read;
                     int i4 = 1;
-                    while (this.f51418k >= 0 && i3 > 1) {
-                        if (this.f51418k > this.l) {
-                            length = Math.min(this.f51417j.length - this.l, this.f51418k - this.l);
+                    while (this.f51967k >= 0 && i3 > 1) {
+                        if (this.f51967k > this.l) {
+                            length = Math.min(this.f51966j.length - this.l, this.f51967k - this.l);
                         } else {
-                            length = this.f51417j.length - this.l;
+                            length = this.f51966j.length - this.l;
                         }
                         int i5 = i3 - 1;
                         if (length > i5) {
                             length = i5;
                         }
-                        System.arraycopy(this.f51417j, this.l, bArr, i2 + i4, length);
+                        System.arraycopy(this.f51966j, this.l, bArr, i2 + i4, length);
                         int i6 = this.l + length;
                         this.l = i6;
                         i4 += length;
                         i3 -= length;
-                        if (i6 >= this.f51417j.length) {
+                        if (i6 >= this.f51966j.length) {
                             this.l = 0;
                         }
-                        if (this.f51418k == this.l) {
-                            this.f51418k = -1;
+                        if (this.f51967k == this.l) {
+                            this.f51967k = -1;
                         }
                     }
                     return i4;

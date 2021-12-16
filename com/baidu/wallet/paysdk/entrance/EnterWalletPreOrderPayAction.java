@@ -9,8 +9,9 @@ import com.baidu.wallet.api.BaiduPayDelegate;
 import com.baidu.wallet.api.IPrecashierCallback;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
+import com.dxmpay.wallet.utils.BdWalletUtils;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class EnterWalletPreOrderPayAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,8 +26,10 @@ public class EnterWalletPreOrderPayAction implements RouterAction {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        BdWalletUtils.putFunctionNameList("preOrderPay");
     }
 
     private void a(Context context, String str, RouterCallback routerCallback) {
@@ -38,7 +41,7 @@ public class EnterWalletPreOrderPayAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletPreOrderPayAction f53470b;
+                public final /* synthetic */ EnterWalletPreOrderPayAction f54050b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -55,7 +58,7 @@ public class EnterWalletPreOrderPayAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f53470b = this;
+                    this.f54050b = this;
                     this.a = routerCallback;
                 }
 

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.bh;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = -1;
@@ -36,9 +36,9 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.f62688f : af.a;
+                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.f63269f : af.a;
             } catch (Exception unused) {
-                return af.f62688f;
+                return af.f63269f;
             }
         }
         return (af) invokeL.objValue;

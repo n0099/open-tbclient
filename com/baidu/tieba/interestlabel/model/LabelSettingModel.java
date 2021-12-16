@@ -1,7 +1,7 @@
 package com.baidu.tieba.interestlabel.model;
 
 import c.a.d.a.f;
-import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -21,27 +21,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f46438e;
+    public TbPageContext<?> f46937e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.u1.c.a f46439f;
+    public c.a.s0.v1.c.a f46938f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.u1.b.b f46440g;
+    public c.a.s0.v1.b.b f46939g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d.c.g.a f46441h;
+    public c.a.d.c.g.a f46940h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.d.c.g.a f46442i;
+    public c.a.d.c.g.a f46941i;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,13 +75,13 @@ public class LabelSettingModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
                 return;
             }
-            if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag() && this.a.f46439f != null) {
-                this.a.f46439f.callback(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? this.a.f46440g : null, responsedMessage.getError());
+            if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag() && this.a.f46938f != null) {
+                this.a.f46938f.callback(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? this.a.f46939g : null, responsedMessage.getError());
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,12 +117,12 @@ public class LabelSettingModel extends BdBaseModel {
             }
             if (((responsedMessage instanceof ResponseHttpSubLabelMessage) || (responsedMessage instanceof ResponseSocketSubLabelMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
                 if (responsedMessage.getError() != 0 && !StringUtils.isNull(responsedMessage.getErrorString())) {
-                    this.a.f46438e.showToast(responsedMessage.getErrorString());
+                    this.a.f46937e.showToast(responsedMessage.getErrorString());
                 }
-                if (this.a.f46439f == null) {
+                if (this.a.f46938f == null) {
                     return;
                 }
-                this.a.f46439f.callback(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
+                this.a.f46938f.callback(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
             }
         }
     }
@@ -145,19 +145,19 @@ public class LabelSettingModel extends BdBaseModel {
                 return;
             }
         }
-        this.f46441h = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
-        this.f46442i = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
-        this.f46438e = tbPageContext;
-        this.f46440g = new c.a.r0.u1.b.b();
-        registerListener(this.f46441h);
-        registerListener(this.f46442i);
+        this.f46940h = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
+        this.f46941i = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
+        this.f46937e = tbPageContext;
+        this.f46939g = new c.a.s0.v1.b.b();
+        registerListener(this.f46940h);
+        registerListener(this.f46941i);
     }
 
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!j.A()) {
-                c.a.r0.u1.c.a aVar = this.f46439f;
+            if (!k.A()) {
+                c.a.s0.v1.c.a aVar = this.f46938f;
                 if (aVar != null) {
                     aVar.callback(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
@@ -166,7 +166,7 @@ public class LabelSettingModel extends BdBaseModel {
             }
             RequestGetLabelMessage requestGetLabelMessage = new RequestGetLabelMessage();
             requestGetLabelMessage.setFrom(1);
-            requestGetLabelMessage.setLabelDataSet(this.f46440g);
+            requestGetLabelMessage.setLabelDataSet(this.f46939g);
             requestGetLabelMessage.setTag(this.unique_id);
             sendMessage(requestGetLabelMessage);
         }
@@ -175,8 +175,8 @@ public class LabelSettingModel extends BdBaseModel {
     public void C(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            if (!j.A()) {
-                this.f46438e.showToast(R.string.neterror);
+            if (!k.A()) {
+                this.f46937e.showToast(R.string.neterror);
                 return;
             }
             RequestSubLabelMessage requestSubLabelMessage = new RequestSubLabelMessage();
@@ -186,10 +186,10 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void D(c.a.r0.u1.c.a aVar) {
+    public void D(c.a.s0.v1.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f46439f = aVar;
+            this.f46938f = aVar;
         }
     }
 

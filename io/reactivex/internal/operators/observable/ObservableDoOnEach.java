@@ -15,7 +15,7 @@ import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObservableDoOnEach<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public final class ObservableDoOnEach<T> extends AbstractObservableWithUpstream<
     public final Consumer<? super Throwable> onError;
     public final Consumer<? super T> onNext;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class DoOnEachObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

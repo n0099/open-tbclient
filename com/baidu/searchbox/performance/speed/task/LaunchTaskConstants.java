@@ -4,13 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LaunchTaskConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AI_PROCESS = 2;
     public static final int ALL_PROCESS = -1;
     public static final int LIFE_CYCLE_APP_CREATE = 2;
-    public static final int LIFE_CYCLE_APP_CREATE_BEFORE = 1;
+    public static final int LIFE_CYCLE_APP_CREATE_AFTER_SUPER = 1;
     public static final int LIFE_CYCLE_MAIN_CREATE = 3;
     public static final int LIFE_CYCLE_PRIVACY_POLICY_GRANTED = 4;
     public static final int LIFE_CYCLE_SECONDARY_PAGE_ENTER = 5;

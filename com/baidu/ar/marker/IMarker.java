@@ -1,5 +1,5 @@
 package com.baidu.ar.marker;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IMarker {
     void chioceOneCoordinate(com.baidu.ar.marker.a.a aVar);
 

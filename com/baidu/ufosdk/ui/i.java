@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class i extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Paint a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f51741b;
+    public Path f52290b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(Context context) {
@@ -42,7 +42,7 @@ public final class i extends View {
         paint.setColor(-3355444);
         this.a.setStyle(Paint.Style.STROKE);
         this.a.setStrokeWidth(3.0f);
-        this.f51741b = new Path();
+        this.f52290b = new Path();
         this.a.setPathEffect(new DashPathEffect(new float[]{15.0f, 5.0f}, 0.0f));
     }
 
@@ -50,10 +50,10 @@ public final class i extends View {
     public final void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f51741b.reset();
-            this.f51741b.moveTo(0.0f, 0.0f);
-            this.f51741b.lineTo(getWidth(), 0.0f);
-            canvas.drawPath(this.f51741b, this.a);
+            this.f52290b.reset();
+            this.f52290b.moveTo(0.0f, 0.0f);
+            this.f52290b.lineTo(getWidth(), 0.0f);
+            canvas.drawPath(this.f52290b, this.a);
         }
     }
 }

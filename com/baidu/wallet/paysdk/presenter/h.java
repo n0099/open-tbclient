@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.wallet.paysdk.contract.PayTypeContract;
 import com.baidu.wallet.paysdk.ui.PayTypeActivity;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

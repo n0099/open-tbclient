@@ -22,7 +22,7 @@ import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ZeusParam zeusParam = com.bytedance.pangle.i.a().f54604b;
+            ZeusParam zeusParam = com.bytedance.pangle.i.a().f55184b;
             String host = zeusParam.getHost();
             if (TextUtils.isEmpty(host)) {
                 host = "https://plugin-patch-api.bytedance.com/api/plugin/config/v2/";

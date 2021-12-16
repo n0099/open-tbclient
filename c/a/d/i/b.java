@@ -29,28 +29,28 @@ public class b {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f2777b;
+    public File f2741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PackageInfo f2778c;
+    public PackageInfo f2742c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, ActivityInfo> f2779d;
+    public Map<String, ActivityInfo> f2743d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, ProviderInfo> f2780e;
+    public Map<String, ProviderInfo> f2744e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, IntentFilter> f2781f;
+    public Map<String, IntentFilter> f2745f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, IntentFilter> f2782g;
+    public Map<String, IntentFilter> f2746g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ActivityInfo f2783h;
+    public ActivityInfo f2747h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Resources f2784i;
+    public Resources f2748i;
 
     public b(Context context, File file, Resources resources) {
         Interceptable interceptable = $ic;
@@ -67,20 +67,20 @@ public class b {
                 return;
             }
         }
-        this.f2778c = null;
-        this.f2779d = null;
-        this.f2780e = null;
-        this.f2781f = null;
-        this.f2782g = null;
-        this.f2783h = null;
-        this.f2784i = null;
+        this.f2742c = null;
+        this.f2743d = null;
+        this.f2744e = null;
+        this.f2745f = null;
+        this.f2746g = null;
+        this.f2747h = null;
+        this.f2748i = null;
         this.a = context;
-        this.f2777b = file;
-        this.f2784i = resources;
-        this.f2779d = new HashMap();
-        this.f2781f = new HashMap();
-        this.f2782g = new HashMap();
-        this.f2780e = new HashMap();
+        this.f2741b = file;
+        this.f2748i = resources;
+        this.f2743d = new HashMap();
+        this.f2745f = new HashMap();
+        this.f2746g = new HashMap();
+        this.f2744e = new HashMap();
     }
 
     public ServiceInfo a(String str) {
@@ -89,9 +89,9 @@ public class b {
         ServiceInfo[] serviceInfoArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (c2 = c()) != null && c2.services != null && !this.f2782g.isEmpty()) {
+            if (!TextUtils.isEmpty(str) && (c2 = c()) != null && c2.services != null && !this.f2746g.isEmpty()) {
                 for (ServiceInfo serviceInfo : c2.services) {
-                    IntentFilter intentFilter = this.f2782g.get(serviceInfo.name);
+                    IntentFilter intentFilter = this.f2746g.get(serviceInfo.name);
                     if (intentFilter != null && intentFilter.hasAction(str)) {
                         return serviceInfo;
                     }
@@ -105,7 +105,7 @@ public class b {
     public Map<String, ProviderInfo> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2780e : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2744e : (Map) invokeV.objValue;
     }
 
     public PackageInfo c() {
@@ -113,18 +113,18 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Context context = this.a;
-            if (context == null || this.f2777b == null) {
+            if (context == null || this.f2741b == null) {
                 return null;
             }
-            if (this.f2778c == null) {
+            if (this.f2742c == null) {
                 try {
-                    this.f2778c = context.getPackageManager().getPackageArchiveInfo(this.f2777b.getAbsolutePath(), 15);
+                    this.f2742c = context.getPackageManager().getPackageArchiveInfo(this.f2741b.getAbsolutePath(), 15);
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     c.a.d.i.h.a.b().p("plugin_use", "plugin_manifest_pkginfo_failed", "getPluginPackageInfo", e2.getMessage());
                 }
             }
-            return this.f2778c;
+            return this.f2742c;
         }
         return (PackageInfo) invokeV.objValue;
     }
@@ -132,7 +132,7 @@ public class b {
     public Map<String, IntentFilter> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2781f : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2745f : (Map) invokeV.objValue;
     }
 
     public boolean e() {
@@ -148,17 +148,17 @@ public class b {
             ActivityInfo[] activityInfoArr = c2.receivers;
             if (activityInfoArr != null) {
                 for (ActivityInfo activityInfo : activityInfoArr) {
-                    this.f2779d.put(activityInfo.name, activityInfo);
+                    this.f2743d.put(activityInfo.name, activityInfo);
                 }
             }
             ProviderInfo[] providerInfoArr = c2.providers;
             if (providerInfoArr != null) {
                 for (ProviderInfo providerInfo : providerInfoArr) {
-                    this.f2780e.put(providerInfo.name, providerInfo);
+                    this.f2744e.put(providerInfo.name, providerInfo);
                 }
             }
             try {
-                openXmlResourceParser = this.f2784i.getAssets().openXmlResourceParser("AndroidManifest.xml");
+                openXmlResourceParser = this.f2748i.getAssets().openXmlResourceParser("AndroidManifest.xml");
             } catch (Exception e2) {
                 BdLog.e(e2);
                 c.a.d.i.h.a.b().p("plugin_install", "plugin_third_manifest_failed", c2.packageName, e2.getMessage());
@@ -184,9 +184,9 @@ public class b {
                     } else if (str != null && "action".equals(openXmlResourceParser.getName())) {
                         String attributeValue2 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "name");
                         if (attributeValue2 != null) {
-                            Map<String, IntentFilter> map = this.f2781f;
+                            Map<String, IntentFilter> map = this.f2745f;
                             if (c3 == 1) {
-                                map = this.f2782g;
+                                map = this.f2746g;
                             }
                             IntentFilter intentFilter = map.get(str);
                             if (intentFilter == null) {
@@ -196,7 +196,7 @@ public class b {
                             }
                             map.put(str, intentFilter);
                         }
-                    } else if (this.f2783h == null && "activity".equals(openXmlResourceParser.getName())) {
+                    } else if (this.f2747h == null && "activity".equals(openXmlResourceParser.getName())) {
                         f(openXmlResourceParser, next);
                     }
                 } else if (next != 3) {
@@ -219,7 +219,7 @@ public class b {
     public final void f(XmlResourceParser xmlResourceParser, int i2) throws XmlPullParserException, IOException {
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, xmlResourceParser, i2) == null) || (packageInfo = this.f2778c) == null || packageInfo.activities == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048581, this, xmlResourceParser, i2) == null) || (packageInfo = this.f2742c) == null || packageInfo.activities == null) {
             return;
         }
         String attributeValue = xmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "name");
@@ -233,15 +233,15 @@ public class b {
                     i2 = xmlResourceParser.next();
                 } else {
                     if (attributeValue.startsWith(".")) {
-                        attributeValue = this.f2778c.packageName + attributeValue;
+                        attributeValue = this.f2742c.packageName + attributeValue;
                     }
                     int i3 = 0;
                     while (true) {
-                        ActivityInfo[] activityInfoArr = this.f2778c.activities;
+                        ActivityInfo[] activityInfoArr = this.f2742c.activities;
                         if (i3 >= activityInfoArr.length) {
                             break;
                         } else if (activityInfoArr[i3].name.equals(attributeValue)) {
-                            this.f2783h = this.f2778c.activities[i3];
+                            this.f2747h = this.f2742c.activities[i3];
                             return;
                         } else {
                             i3++;

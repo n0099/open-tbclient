@@ -2,10 +2,10 @@ package com.baidu.tieba.frs.loadmore;
 
 import android.text.TextUtils;
 import c.a.d.m.e.n;
-import c.a.q0.s.q.d2;
-import c.a.q0.s.q.p0;
-import c.a.r0.h3.j0.a;
-import c.a.r0.h3.l0.b;
+import c.a.r0.s.r.d2;
+import c.a.r0.s.r.p0;
+import c.a.s0.j3.j0.a;
+import c.a.s0.j3.l0.b;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,7 +25,7 @@ import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

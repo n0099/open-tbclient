@@ -32,41 +32,41 @@ import com.ss.android.socialbase.downloader.h.g;
 import com.ss.android.socialbase.downloader.i.f;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadNotificationService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f62067b;
+    public static int f62648b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f62068c;
+    public static int f62649c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f62069d;
+    public static boolean f62650d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f62070e;
+    public static boolean f62651e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile long f62071f;
+    public static volatile long f62652f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile long f62072g;
+    public static volatile long f62653g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f62073h;
+    public static boolean f62654h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static long f62074i;
+    public static long f62655i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public g f62075j;
+    public g f62656j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final SparseArray<Notification> f62076k;
+    public final SparseArray<Notification> f62657k;
 
     static {
         InterceptResult invokeClinit;
@@ -82,11 +82,11 @@ public class DownloadNotificationService extends Service {
             }
         }
         a = DownloadNotificationService.class.getSimpleName();
-        f62067b = -1;
-        f62068c = -1;
-        f62069d = true;
-        f62070e = false;
-        f62074i = 900L;
+        f62648b = -1;
+        f62649c = -1;
+        f62650d = true;
+        f62651e = false;
+        f62655i = 900L;
     }
 
     public DownloadNotificationService() {
@@ -102,14 +102,14 @@ public class DownloadNotificationService extends Service {
                 return;
             }
         }
-        this.f62076k = new SparseArray<>(2);
+        this.f62657k = new SparseArray<>(2);
     }
 
     private void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65552, this) == null) && this.f62075j == null) {
+        if ((interceptable == null || interceptable.invokeV(65552, this) == null) && this.f62656j == null) {
             g gVar = new g("DownloaderNotifyThread");
-            this.f62075j = gVar;
+            this.f62656j = gVar;
             gVar.a();
         }
     }
@@ -133,18 +133,18 @@ public class DownloadNotificationService extends Service {
             c.a(this);
             com.ss.android.socialbase.downloader.g.a c2 = com.ss.android.socialbase.downloader.g.a.c();
             int a2 = c2.a("download_service_foreground", 0);
-            if ((a2 == 1 || a2 == 3) && f62067b == -1) {
-                f62067b = 0;
+            if ((a2 == 1 || a2 == 3) && f62648b == -1) {
+                f62648b = 0;
             }
-            if ((a2 == 2 || a2 == 3) && f62068c == -1) {
-                f62068c = 0;
+            if ((a2 == 2 || a2 == 3) && f62649c == -1) {
+                f62649c = 0;
             }
-            f62070e = c2.b("non_going_notification_foreground", false);
-            f62073h = c2.b("notify_too_fast", false);
+            f62651e = c2.b("non_going_notification_foreground", false);
+            f62654h = c2.b("notify_too_fast", false);
             long a3 = c2.a("notification_time_window", 900L);
-            f62074i = a3;
+            f62655i = a3;
             if (a3 < 0 || a3 > IMLikeRequest.TIME_INTERVAL) {
-                f62074i = 900L;
+                f62655i = 900L;
             }
         }
     }
@@ -154,13 +154,13 @@ public class DownloadNotificationService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            g gVar = this.f62075j;
+            g gVar = this.f62656j;
             if (gVar != null) {
                 try {
                     gVar.b();
                 } catch (Throwable unused) {
                 }
-                this.f62075j = null;
+                this.f62656j = null;
             }
         }
     }
@@ -178,7 +178,7 @@ public class DownloadNotificationService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0023, code lost:
-        if (com.ss.android.socialbase.downloader.notification.DownloadNotificationService.f62067b == 0) goto L33;
+        if (com.ss.android.socialbase.downloader.notification.DownloadNotificationService.f62648b == 0) goto L33;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -192,7 +192,7 @@ public class DownloadNotificationService extends Service {
                     boolean z2 = d.a().a(i2) == 1 && !f.c();
                     if (!z2) {
                     }
-                    if (z2 && f62068c == 0) {
+                    if (z2 && f62649c == 0) {
                         z = true;
                     }
                     if (z) {
@@ -201,9 +201,9 @@ public class DownloadNotificationService extends Service {
                             String str = a;
                             com.ss.android.socialbase.downloader.c.a.c(str, "doNotify, startForeground, ======== id = " + i2 + ", isIndependentProcess = " + z2);
                             if (z2) {
-                                f62068c = i2;
+                                f62649c = i2;
                             } else {
-                                f62067b = i2;
+                                f62648b = i2;
                             }
                             c2.a(i2, notification);
                         } else {
@@ -214,13 +214,13 @@ public class DownloadNotificationService extends Service {
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
-            } else if ((f62067b == i2 || f62068c == i2) && f62070e && (notification.flags & 2) == 0) {
+            } else if ((f62648b == i2 || f62649c == i2) && f62651e && (notification.flags & 2) == 0) {
                 b(notificationManager, i2);
             }
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (f62071f < currentTimeMillis) {
-                    f62071f = currentTimeMillis;
+                if (f62652f < currentTimeMillis) {
+                    f62652f = currentTimeMillis;
                 }
                 notificationManager.notify(i2, notification);
             } catch (Throwable unused) {
@@ -235,7 +235,7 @@ public class DownloadNotificationService extends Service {
             return;
         }
         String action = intent.getAction();
-        if (TextUtils.isEmpty(action) || (gVar = this.f62075j) == null) {
+        if (TextUtils.isEmpty(action) || (gVar = this.f62656j) == null) {
             return;
         }
         gVar.a(new Runnable(this, intent, action) { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.1
@@ -244,10 +244,10 @@ public class DownloadNotificationService extends Service {
             public final /* synthetic */ Intent a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f62077b;
+            public final /* synthetic */ String f62658b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ DownloadNotificationService f62078c;
+            public final /* synthetic */ DownloadNotificationService f62659c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -264,9 +264,9 @@ public class DownloadNotificationService extends Service {
                         return;
                     }
                 }
-                this.f62078c = this;
+                this.f62659c = this;
                 this.a = intent;
-                this.f62077b = action;
+                this.f62658b = action;
             }
 
             @Override // java.lang.Runnable
@@ -275,9 +275,9 @@ public class DownloadNotificationService extends Service {
                 NetworkInfo activeNetworkInfo;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    NotificationManager notificationManager = (NotificationManager) this.f62078c.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+                    NotificationManager notificationManager = (NotificationManager) this.f62659c.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                     int intExtra = this.a.getIntExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA_ID", 0);
-                    if (this.f62077b.equals("android.ss.intent.action.DOWNLOAD_NOTIFICATION_NOTIFY")) {
+                    if (this.f62658b.equals("android.ss.intent.action.DOWNLOAD_NOTIFICATION_NOTIFY")) {
                         Notification notification = (Notification) this.a.getParcelableExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA");
                         int intExtra2 = this.a.getIntExtra("DOWNLOAD_NOTIFICATION_EXTRA_STATUS", 0);
                         if (intExtra == 0 || notification == null || notificationManager == null) {
@@ -285,21 +285,21 @@ public class DownloadNotificationService extends Service {
                         }
                         if (intExtra2 != 4) {
                             if (intExtra2 == -2 || intExtra2 == -3) {
-                                if (!DownloadNotificationService.f62073h) {
-                                    if (this.f62078c.f62075j != null) {
-                                        this.f62078c.f62075j.a(new Runnable(this, notificationManager, intExtra, notification) { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.1.1
+                                if (!DownloadNotificationService.f62654h) {
+                                    if (this.f62659c.f62656j != null) {
+                                        this.f62659c.f62656j.a(new Runnable(this, notificationManager, intExtra, notification) { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.1.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
                                             public final /* synthetic */ NotificationManager a;
 
                                             /* renamed from: b  reason: collision with root package name */
-                                            public final /* synthetic */ int f62079b;
+                                            public final /* synthetic */ int f62660b;
 
                                             /* renamed from: c  reason: collision with root package name */
-                                            public final /* synthetic */ Notification f62080c;
+                                            public final /* synthetic */ Notification f62661c;
 
                                             /* renamed from: d  reason: collision with root package name */
-                                            public final /* synthetic */ AnonymousClass1 f62081d;
+                                            public final /* synthetic */ AnonymousClass1 f62662d;
 
                                             {
                                                 Interceptable interceptable3 = $ic;
@@ -316,17 +316,17 @@ public class DownloadNotificationService extends Service {
                                                         return;
                                                     }
                                                 }
-                                                this.f62081d = this;
+                                                this.f62662d = this;
                                                 this.a = notificationManager;
-                                                this.f62079b = intExtra;
-                                                this.f62080c = notification;
+                                                this.f62660b = intExtra;
+                                                this.f62661c = notification;
                                             }
 
                                             @Override // java.lang.Runnable
                                             public void run() {
                                                 Interceptable interceptable3 = $ic;
                                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                    this.f62081d.f62078c.b(this.a, this.f62079b, this.f62080c);
+                                                    this.f62662d.f62659c.b(this.a, this.f62660b, this.f62661c);
                                                 }
                                             }
                                         }, intExtra2 == -2 ? 50L : 200L);
@@ -334,39 +334,39 @@ public class DownloadNotificationService extends Service {
                                     }
                                     return;
                                 }
-                                this.f62078c.a(notificationManager, intExtra, notification);
-                            } else if (DownloadNotificationService.f62073h) {
-                                this.f62078c.a(notificationManager, intExtra, notification);
+                                this.f62659c.a(notificationManager, intExtra, notification);
+                            } else if (DownloadNotificationService.f62654h) {
+                                this.f62659c.a(notificationManager, intExtra, notification);
                             } else {
-                                this.f62078c.b(notificationManager, intExtra, notification);
+                                this.f62659c.b(notificationManager, intExtra, notification);
                             }
                         } else if (Downloader.getInstance(c.N()).isDownloading(intExtra)) {
                             DownloadInfo downloadInfo = Downloader.getInstance(c.N()).getDownloadInfo(intExtra);
-                            if (DownloadNotificationService.f62073h) {
-                                if (downloadInfo == null || !downloadInfo.canNotifyProgress() || System.currentTimeMillis() - DownloadNotificationService.f62072g <= DownloadNotificationService.f62074i) {
+                            if (DownloadNotificationService.f62654h) {
+                                if (downloadInfo == null || !downloadInfo.canNotifyProgress() || System.currentTimeMillis() - DownloadNotificationService.f62653g <= DownloadNotificationService.f62655i) {
                                     return;
                                 }
-                                this.f62078c.b(notificationManager, intExtra, notification);
+                                this.f62659c.b(notificationManager, intExtra, notification);
                                 downloadInfo.setLastNotifyProgressTime();
                             } else if (downloadInfo == null || !downloadInfo.canNotifyProgress()) {
                             } else {
-                                this.f62078c.b(notificationManager, intExtra, notification);
+                                this.f62659c.b(notificationManager, intExtra, notification);
                                 downloadInfo.setLastNotifyProgressTime();
                             }
                         }
-                    } else if (this.f62077b.equals("android.ss.intent.action.DOWNLOAD_NOTIFICATION_CANCEL")) {
+                    } else if (this.f62658b.equals("android.ss.intent.action.DOWNLOAD_NOTIFICATION_CANCEL")) {
                         if (intExtra != 0) {
-                            this.f62078c.b(notificationManager, intExtra);
+                            this.f62659c.b(notificationManager, intExtra);
                         }
-                    } else if (this.f62077b.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
+                    } else if (this.f62658b.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
                         try {
-                            if (f.a((Context) this.f62078c, "android.permission.ACCESS_NETWORK_STATE") && (connectivityManager = (ConnectivityManager) this.f62078c.getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
+                            if (f.a((Context) this.f62659c, "android.permission.ACCESS_NETWORK_STATE") && (connectivityManager = (ConnectivityManager) this.f62659c.getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
                                 ArrayList arrayList = new ArrayList();
                                 if (!TextUtils.isEmpty(e.a)) {
                                     arrayList.add(e.a);
                                 }
                                 arrayList.add("mime_type_plg");
-                                Context applicationContext = this.f62078c.getApplicationContext();
+                                Context applicationContext = this.f62659c.getApplicationContext();
                                 if (applicationContext != null) {
                                     Downloader.getInstance(applicationContext).restartAllFailedDownloadTasks(arrayList);
                                     Downloader.getInstance(applicationContext).restartAllPauseReserveOnWifiDownloadTasks(arrayList);
@@ -375,9 +375,9 @@ public class DownloadNotificationService extends Service {
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
-                    } else if (this.f62077b.equals("android.intent.action.MEDIA_UNMOUNTED") || this.f62077b.equals("android.intent.action.MEDIA_REMOVED") || this.f62077b.equals("android.intent.action.MEDIA_BAD_REMOVAL") || this.f62077b.equals("android.intent.action.MEDIA_EJECT")) {
+                    } else if (this.f62658b.equals("android.intent.action.MEDIA_UNMOUNTED") || this.f62658b.equals("android.intent.action.MEDIA_REMOVED") || this.f62658b.equals("android.intent.action.MEDIA_BAD_REMOVAL") || this.f62658b.equals("android.intent.action.MEDIA_EJECT")) {
                         try {
-                            Downloader.getInstance(this.f62078c).pauseAll();
+                            Downloader.getInstance(this.f62659c).pauseAll();
                         } catch (Exception e3) {
                             e3.printStackTrace();
                         }
@@ -391,13 +391,13 @@ public class DownloadNotificationService extends Service {
     public void a(NotificationManager notificationManager, int i2, Notification notification) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, this, notificationManager, i2, notification) == null) {
-            synchronized (this.f62076k) {
-                int indexOfKey = this.f62076k.indexOfKey(i2);
-                if (indexOfKey >= 0 && indexOfKey < this.f62076k.size()) {
-                    this.f62076k.setValueAt(indexOfKey, notification);
+            synchronized (this.f62657k) {
+                int indexOfKey = this.f62657k.indexOfKey(i2);
+                if (indexOfKey >= 0 && indexOfKey < this.f62657k.size()) {
+                    this.f62657k.setValueAt(indexOfKey, notification);
                     return;
                 }
-                long currentTimeMillis = f62074i - (System.currentTimeMillis() - f62071f);
+                long currentTimeMillis = f62655i - (System.currentTimeMillis() - f62652f);
                 if (currentTimeMillis <= 0) {
                     currentTimeMillis = 0;
                 }
@@ -405,24 +405,24 @@ public class DownloadNotificationService extends Service {
                     currentTimeMillis = 20000;
                 }
                 long currentTimeMillis2 = System.currentTimeMillis() + currentTimeMillis;
-                f62072g = currentTimeMillis2;
-                f62071f = currentTimeMillis2;
+                f62653g = currentTimeMillis2;
+                f62652f = currentTimeMillis2;
                 if (currentTimeMillis <= 0) {
                     b(notificationManager, i2, notification);
-                } else if (this.f62075j != null) {
-                    synchronized (this.f62076k) {
-                        this.f62076k.put(i2, notification);
+                } else if (this.f62656j != null) {
+                    synchronized (this.f62657k) {
+                        this.f62657k.put(i2, notification);
                     }
-                    this.f62075j.a(new Runnable(this, notificationManager, i2) { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.2
+                    this.f62656j.a(new Runnable(this, notificationManager, i2) { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ NotificationManager a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ int f62082b;
+                        public final /* synthetic */ int f62663b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ DownloadNotificationService f62083c;
+                        public final /* synthetic */ DownloadNotificationService f62664c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -439,16 +439,16 @@ public class DownloadNotificationService extends Service {
                                     return;
                                 }
                             }
-                            this.f62083c = this;
+                            this.f62664c = this;
                             this.a = notificationManager;
-                            this.f62082b = i2;
+                            this.f62663b = i2;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f62083c.a(this.a, this.f62082b);
+                                this.f62664c.a(this.a, this.f62663b);
                             }
                         }
                     }, currentTimeMillis);
@@ -462,9 +462,9 @@ public class DownloadNotificationService extends Service {
         Notification notification;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, this, notificationManager, i2) == null) {
-            synchronized (this.f62076k) {
-                notification = this.f62076k.get(i2);
-                this.f62076k.remove(i2);
+            synchronized (this.f62657k) {
+                notification = this.f62657k.get(i2);
+                this.f62657k.remove(i2);
             }
             if (notification != null) {
                 b(notificationManager, i2, notification);
@@ -479,7 +479,7 @@ public class DownloadNotificationService extends Service {
         int a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65547, this, notificationManager, i2) == null) {
-            if (f62067b != i2 && f62068c != i2) {
+            if (f62648b != i2 && f62649c != i2) {
                 try {
                     notificationManager.cancel(i2);
                     return;
@@ -488,17 +488,17 @@ public class DownloadNotificationService extends Service {
                 }
             }
             boolean z2 = true;
-            if (f62067b == i2) {
-                f62067b = 0;
+            if (f62648b == i2) {
+                f62648b = 0;
                 z = false;
             } else {
-                f62068c = 0;
+                f62649c = 0;
                 z = true;
             }
             try {
                 m c2 = d.a().c(i2);
                 if (!c2.b()) {
-                    f62069d = false;
+                    f62650d = false;
                     com.ss.android.socialbase.downloader.c.a.d(a, "try to stopForeground when is not Foreground, id = " + i2 + ", isIndependentProcess = " + z);
                 }
                 com.ss.android.socialbase.downloader.c.a.c(a, "doCancel, ========== stopForeground id = " + i2 + ", isIndependentProcess = " + z);
@@ -510,13 +510,13 @@ public class DownloadNotificationService extends Service {
                 notificationManager.cancel(i2);
             } catch (Throwable unused2) {
             }
-            if (f62069d) {
+            if (f62650d) {
                 try {
                     SparseArray<a> b2 = b.a().b();
                     if (b2 != null) {
                         for (int size = b2.size() - 1; size >= 0; size--) {
                             aVar = b2.valueAt(size);
-                            if (aVar != null && (a2 = aVar.a()) != i2 && a2 != f62067b && a2 != f62068c && aVar.i()) {
+                            if (aVar != null && (a2 = aVar.a()) != i2 && a2 != f62648b && a2 != f62649c && aVar.i()) {
                                 if ((d.a().a(aVar.a()) == 1 && !f.c()) == z) {
                                     break;
                                 }
@@ -546,11 +546,11 @@ public class DownloadNotificationService extends Service {
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65545, this, i2, notification)) == null) {
-            if (!f62069d || (i3 = f62067b) == i2 || (i4 = f62068c) == i2) {
+            if (!f62650d || (i3 = f62648b) == i2 || (i4 = f62649c) == i2) {
                 return false;
             }
             if (i3 == 0 || i4 == 0) {
-                if (f62070e && (notification.flags & 2) == 0) {
+                if (f62651e && (notification.flags & 2) == 0) {
                     return false;
                 }
                 return Build.VERSION.SDK_INT < 26 || !TextUtils.isEmpty(notification.getChannelId());

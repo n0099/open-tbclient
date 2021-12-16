@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ASMSerializerFactory implements Opcodes {
     public static /* synthetic */ Interceptable $ic;
     public static final String JSONSerializer;
@@ -2071,7 +2071,7 @@ public class ASMSerializerFactory implements Opcodes {
         return (JavaBeanSerializer) invokeL.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Context {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int features = 5;

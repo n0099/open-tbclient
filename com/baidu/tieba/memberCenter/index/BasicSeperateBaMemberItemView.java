@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.r0.e2.c.k.o;
+import c.a.s0.f2.c.k.o;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
@@ -15,31 +15,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class BasicSeperateBaMemberItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f46884e;
+    public Context f47383e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46885f;
+    public View f47384f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f46886g;
+    public View f47385g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f46887h;
+    public TbImageView f47386h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f46888i;
+    public TextView f47387i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f46889j;
+    public TextView f47388j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TbImageView f46890k;
+    public TbImageView f47389k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasicSeperateBaMemberItemView(Context context) {
@@ -59,20 +59,20 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
                 return;
             }
         }
-        this.f46884e = context;
+        this.f47383e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f46884e).inflate(R.layout.index_seperate_ba_item, this);
-            this.f46885f = inflate;
-            this.f46886g = inflate.findViewById(R.id.ly_desc);
-            this.f46887h = (TbImageView) this.f46885f.findViewById(R.id.task_icon);
-            this.f46888i = (TextView) this.f46885f.findViewById(R.id.txt_title);
-            this.f46889j = (TextView) this.f46885f.findViewById(R.id.txt_desc);
-            this.f46890k = (TbImageView) this.f46885f.findViewById(R.id.privilege_spread_icon);
+            View inflate = LayoutInflater.from(this.f47383e).inflate(R.layout.index_seperate_ba_item, this);
+            this.f47384f = inflate;
+            this.f47385g = inflate.findViewById(R.id.ly_desc);
+            this.f47386h = (TbImageView) this.f47384f.findViewById(R.id.task_icon);
+            this.f47387i = (TextView) this.f47384f.findViewById(R.id.txt_title);
+            this.f47388j = (TextView) this.f47384f.findViewById(R.id.txt_desc);
+            this.f47389k = (TbImageView) this.f47384f.findViewById(R.id.privilege_spread_icon);
         }
     }
 
@@ -81,15 +81,15 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oVar) == null) || oVar == null) {
             return;
         }
-        this.f46886g.setTag(oVar);
-        this.f46887h.startLoad(oVar.b(), 10, false);
-        this.f46888i.setText(oVar.f());
+        this.f47385g.setTag(oVar);
+        this.f47386h.startLoad(oVar.b(), 10, false);
+        this.f47387i.setText(oVar.f());
         if (StringUtils.isNull(oVar.e())) {
-            this.f46890k.setVisibility(4);
+            this.f47389k.setVisibility(4);
         } else {
-            this.f46890k.setVisibility(0);
+            this.f47389k.setVisibility(0);
         }
-        this.f46889j.setText(oVar.a());
+        this.f47388j.setText(oVar.a());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -111,7 +111,7 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
                 return;
             }
         }
-        this.f46884e = context;
+        this.f47383e = context;
         a();
     }
 
@@ -134,7 +134,7 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
                 return;
             }
         }
-        this.f46884e = context;
+        this.f47383e = context;
         a();
     }
 }

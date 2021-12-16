@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.BitArray;
 import kotlin.text.Typography;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SimpleToken extends Token {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

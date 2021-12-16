@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.protocolbase;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IBaseJsonRequest {
     void constructPSCIMessageRequest();
 

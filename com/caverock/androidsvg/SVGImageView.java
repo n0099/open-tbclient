@@ -22,21 +22,21 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class SVGImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Method f54848e;
+    public static Method f55428e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class b extends AsyncTask<String, Integer, Picture> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class SVGImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class c extends AsyncTask<Integer, Integer, Picture> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +158,7 @@ public class SVGImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class d extends AsyncTask<InputStream, Integer, Picture> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -268,7 +268,7 @@ public class SVGImageView extends ImageView {
             }
         }
         try {
-            f54848e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            f55428e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
     }
@@ -278,14 +278,14 @@ public class SVGImageView extends ImageView {
         if (!(interceptable == null || interceptable.invokeLI(1048576, this, attributeSet, i2) == null) || isInEditMode()) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, c.a.p.a.a.SVGImageView, i2, 0);
+        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, c.a.q.a.a.SVGImageView, i2, 0);
         try {
-            int resourceId = obtainStyledAttributes.getResourceId(c.a.p.a.a.SVGImageView_svg, -1);
+            int resourceId = obtainStyledAttributes.getResourceId(c.a.q.a.a.SVGImageView_svg, -1);
             if (resourceId != -1) {
                 setImageResource(resourceId);
                 return;
             }
-            String string = obtainStyledAttributes.getString(c.a.p.a.a.SVGImageView_svg);
+            String string = obtainStyledAttributes.getString(c.a.q.a.a.SVGImageView_svg);
             if (string != null) {
                 if (c(Uri.parse(string), false)) {
                     return;
@@ -316,11 +316,11 @@ public class SVGImageView extends ImageView {
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || f54848e == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || f55428e == null) {
             return;
         }
         try {
-            f54848e.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
+            f55428e.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
         } catch (Exception unused) {
         }
     }
@@ -380,7 +380,7 @@ public class SVGImageView extends ImageView {
             }
         }
         try {
-            f54848e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            f55428e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
         b(attributeSet, 0);
@@ -406,7 +406,7 @@ public class SVGImageView extends ImageView {
             }
         }
         try {
-            f54848e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            f55428e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
         b(attributeSet, i2);

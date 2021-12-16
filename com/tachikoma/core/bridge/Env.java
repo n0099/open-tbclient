@@ -17,14 +17,14 @@ import com.tachikoma.core.component.anim.AnimationProperty;
 import com.tachikoma.core.utility.TKConverter;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Env {
     public static /* synthetic */ Interceptable $ic;
     public static TKEnvListener mEnvListener;
     public static HashMap<String, Object> sContextInfo;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface TKEnvListener {
         void onUpdate(HashMap<String, Object> hashMap);
     }

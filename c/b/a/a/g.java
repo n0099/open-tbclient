@@ -9,50 +9,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static w<String, g> f27287e;
+    public static w<String, g> f27662e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f27288f;
+    public static int f27663f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final b f27289g;
+    public static final b f27664g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c.b.b.q.d f27290h;
+    public static final c.b.b.q.d f27665h;
     public transient /* synthetic */ FieldHolder $fh;
     public final c.b.b.q.d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.b.b.q.d f27291b;
+    public final c.b.b.q.d f27666b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.b.b.q.d f27292c;
+    public final c.b.b.q.d f27667c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f27293d;
+    public final int f27668d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public c.b.b.q.d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.b.b.q.d f27294b;
+        public c.b.b.q.d f27669b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.b.b.q.d f27295c;
+        public c.b.b.q.d f27670c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -67,9 +67,9 @@ public class g {
                     return;
                 }
             }
-            this.a = g.f27290h;
-            this.f27294b = g.f27290h;
-            this.f27295c = g.f27290h;
+            this.a = g.f27665h;
+            this.f27669b = g.f27665h;
+            this.f27670c = g.f27665h;
         }
 
         @SafeVarargs
@@ -87,11 +87,11 @@ public class g {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                String f2 = g.f(this.a, this.f27294b, this.f27295c);
-                g gVar = (g) g.f27287e.d(f2, null);
+                String f2 = g.f(this.a, this.f27669b, this.f27670c);
+                g gVar = (g) g.f27662e.d(f2, null);
                 if (gVar == null) {
-                    g gVar2 = new g(this.a, this.f27294b, this.f27295c, null);
-                    g.f27287e.i(f2, gVar2);
+                    g gVar2 = new g(this.a, this.f27669b, this.f27670c, null);
+                    g.f27662e.i(f2, gVar2);
                     return gVar2;
                 }
                 return gVar;
@@ -104,7 +104,7 @@ public class g {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, clsArr)) == null) {
-                this.f27294b = c.b.a.a.b.a(clsArr);
+                this.f27669b = c.b.a.a.b.a(clsArr);
                 return this;
             }
             return (b) invokeL.objValue;
@@ -114,9 +114,9 @@ public class g {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                this.a = g.f27290h;
-                this.f27294b = g.f27290h;
-                this.f27295c = g.f27290h;
+                this.a = g.f27665h;
+                this.f27669b = g.f27665h;
+                this.f27670c = g.f27665h;
                 return this;
             }
             return (b) invokeV.objValue;
@@ -136,10 +136,10 @@ public class g {
                 return;
             }
         }
-        f27287e = new w<>();
-        f27288f = 0;
-        f27289g = new b();
-        f27290h = new c.b.b.q.d();
+        f27662e = new w<>();
+        f27663f = 0;
+        f27664g = new b();
+        f27665h = new c.b.b.q.d();
     }
 
     public /* synthetic */ g(c.b.b.q.d dVar, c.b.b.q.d dVar2, c.b.b.q.d dVar3, a aVar) {
@@ -151,7 +151,7 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, clsArr)) == null) {
-            b bVar = f27289g;
+            b bVar = f27664g;
             bVar.d();
             bVar.a(clsArr);
             return bVar;
@@ -203,7 +203,7 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, clsArr)) == null) {
-            b bVar = f27289g;
+            b bVar = f27664g;
             bVar.d();
             bVar.c(clsArr);
             return bVar;
@@ -220,7 +220,7 @@ public class g {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27293d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27668d : invokeV.intValue;
     }
 
     public boolean h(d dVar) {
@@ -229,8 +229,8 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar)) == null) {
             c.b.b.q.d e2 = dVar.e();
             if (e2.d(this.a)) {
-                if (this.f27291b.g() || this.f27291b.f(e2)) {
-                    return this.f27292c.g() || !this.f27292c.f(e2);
+                if (this.f27666b.g() || this.f27666b.f(e2)) {
+                    return this.f27667c.g() || !this.f27667c.f(e2);
                 }
                 return false;
             }
@@ -242,7 +242,7 @@ public class g {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27293d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27668d : invokeV.intValue;
     }
 
     public g(c.b.b.q.d dVar, c.b.b.q.d dVar2, c.b.b.q.d dVar3) {
@@ -261,10 +261,10 @@ public class g {
             }
         }
         this.a = dVar;
-        this.f27291b = dVar2;
-        this.f27292c = dVar3;
-        int i4 = f27288f;
-        f27288f = i4 + 1;
-        this.f27293d = i4;
+        this.f27666b = dVar2;
+        this.f27667c = dVar3;
+        int i4 = f27663f;
+        f27663f = i4 + 1;
+        this.f27668d = i4;
     }
 }

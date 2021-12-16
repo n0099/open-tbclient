@@ -31,41 +31,41 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f61493b;
+    public static volatile d f62074b;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f61494f;
+    public static boolean f62075f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f61495g;
+    public static boolean f62076g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61496c;
+    public String f62077c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61497d;
+    public String f62078d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DownloadReceiver f61498e;
+    public DownloadReceiver f62079e;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f61499h;
+    public boolean f62080h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.ss.android.socialbase.appdownloader.c.c f61500i;
+    public com.ss.android.socialbase.appdownloader.c.c f62081i;
 
     /* renamed from: j  reason: collision with root package name */
-    public com.ss.android.socialbase.appdownloader.c.d f61501j;
+    public com.ss.android.socialbase.appdownloader.c.d f62082j;
 
     /* renamed from: k  reason: collision with root package name */
-    public com.ss.android.socialbase.appdownloader.c.h f61502k;
+    public com.ss.android.socialbase.appdownloader.c.h f62083k;
     public com.ss.android.socialbase.appdownloader.c.g l;
     public m m;
     public com.ss.android.socialbase.appdownloader.c.f n;
@@ -101,32 +101,32 @@ public class d {
                 return;
             }
         }
-        this.f61499h = false;
+        this.f62080h = false;
     }
 
     public static d j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (f61493b == null) {
+            if (f62074b == null) {
                 synchronized (d.class) {
-                    if (f61493b == null) {
-                        f61493b = new d();
+                    if (f62074b == null) {
+                        f62074b = new d();
                     }
                 }
             }
-            return f61493b;
+            return f62074b;
         }
         return (d) invokeV.objValue;
     }
 
     private void q() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || f61495g) {
+        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || f62076g) {
             return;
         }
-        if (this.f61498e == null) {
-            this.f61498e = new DownloadReceiver();
+        if (this.f62079e == null) {
+            this.f62079e = new DownloadReceiver();
         }
         try {
             IntentFilter intentFilter = new IntentFilter();
@@ -140,10 +140,10 @@ public class d {
             IntentFilter intentFilter3 = new IntentFilter();
             intentFilter3.addAction("android.intent.action.MEDIA_MOUNTED");
             intentFilter3.addDataScheme("file");
-            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f61498e, intentFilter);
-            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f61498e, intentFilter2);
-            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f61498e, intentFilter3);
-            f61495g = true;
+            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f62079e, intentFilter);
+            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f62079e, intentFilter2);
+            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f62079e, intentFilter3);
+            f62076g = true;
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -190,19 +190,19 @@ public class d {
     public com.ss.android.socialbase.appdownloader.c.d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f61501j : (com.ss.android.socialbase.appdownloader.c.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f62082j : (com.ss.android.socialbase.appdownloader.c.d) invokeV.objValue;
     }
 
     public com.ss.android.socialbase.appdownloader.c.h c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f61502k : (com.ss.android.socialbase.appdownloader.c.h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f62083k : (com.ss.android.socialbase.appdownloader.c.h) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f61497d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f62078d : (String) invokeV.objValue;
     }
 
     public com.ss.android.socialbase.appdownloader.c.f e() {
@@ -232,7 +232,7 @@ public class d {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f61496c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f62077c : (String) invokeV.objValue;
     }
 
     public m k() {
@@ -267,7 +267,7 @@ public class d {
 
     private void c(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, this, context) == null) || context == null || f61494f) {
+        if (!(interceptable == null || interceptable.invokeL(65546, this, context) == null) || context == null || f62075f) {
             return;
         }
         com.ss.android.socialbase.downloader.constants.e.a("application/vnd.android.package-archive");
@@ -275,7 +275,7 @@ public class d {
         com.ss.android.socialbase.downloader.downloader.c.a(new com.ss.android.socialbase.appdownloader.d.b());
         q();
         r();
-        f61494f = true;
+        f62075f = true;
     }
 
     public void b(String str) {
@@ -306,7 +306,7 @@ public class d {
     public com.ss.android.socialbase.appdownloader.c.c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61500i : (com.ss.android.socialbase.appdownloader.c.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62081i : (com.ss.android.socialbase.appdownloader.c.c) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -314,7 +314,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f61497d = str;
+        this.f62078d = str;
     }
 
     public void a(j jVar) {
@@ -335,13 +335,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048582, this, context, str, cVar, dVar, hVar) == null) {
             if (cVar != null) {
-                this.f61500i = cVar;
+                this.f62081i = cVar;
             }
             if (dVar != null) {
-                this.f61501j = dVar;
+                this.f62082j = dVar;
             }
             if (hVar != null) {
-                this.f61502k = hVar;
+                this.f62083k = hVar;
             }
             c(context);
         }
@@ -491,10 +491,10 @@ public class d {
                                     @Override // com.ss.android.socialbase.downloader.depend.n
                                     public void a(DownloadInfo downloadInfo2, BaseException baseException, int i4) {
                                         Interceptable interceptable2 = $ic;
-                                        if (!(interceptable2 == null || interceptable2.invokeLLI(1048576, this, downloadInfo2, baseException, i4) == null) || this.a.f61502k == null) {
+                                        if (!(interceptable2 == null || interceptable2.invokeLLI(1048576, this, downloadInfo2, baseException, i4) == null) || this.a.f62083k == null) {
                                             return;
                                         }
-                                        this.a.f61502k.a(downloadInfo2, baseException, i4);
+                                        this.a.f62083k.a(downloadInfo2, baseException, i4);
                                     }
                                 };
                             }
@@ -533,16 +533,16 @@ public class d {
                                             public final /* synthetic */ String a;
 
                                             /* renamed from: b  reason: collision with root package name */
-                                            public final /* synthetic */ DownloadTask f61503b;
+                                            public final /* synthetic */ DownloadTask f62084b;
 
                                             /* renamed from: c  reason: collision with root package name */
-                                            public final /* synthetic */ int f61504c;
+                                            public final /* synthetic */ int f62085c;
 
                                             /* renamed from: d  reason: collision with root package name */
-                                            public final /* synthetic */ boolean f61505d;
+                                            public final /* synthetic */ boolean f62086d;
 
                                             /* renamed from: e  reason: collision with root package name */
-                                            public final /* synthetic */ d f61506e;
+                                            public final /* synthetic */ d f62087e;
 
                                             {
                                                 Interceptable interceptable2 = $ic;
@@ -559,11 +559,11 @@ public class d {
                                                         return;
                                                     }
                                                 }
-                                                this.f61506e = this;
+                                                this.f62087e = this;
                                                 this.a = b2;
-                                                this.f61503b = autoInstall;
-                                                this.f61504c = s;
-                                                this.f61505d = z2;
+                                                this.f62084b = autoInstall;
+                                                this.f62085c = s;
+                                                this.f62086d = z2;
                                             }
 
                                             @Override // com.ss.android.socialbase.appdownloader.c.n
@@ -572,7 +572,7 @@ public class d {
                                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                                     String str3 = d.a;
                                                     com.ss.android.socialbase.downloader.c.a.b(str3, "notification permission granted, start download :" + this.a);
-                                                    this.f61506e.a(this.f61503b, this.f61504c, this.f61505d);
+                                                    this.f62087e.a(this.f62084b, this.f62085c, this.f62086d);
                                                 }
                                             }
 
@@ -582,7 +582,7 @@ public class d {
                                                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                                                     String str3 = d.a;
                                                     com.ss.android.socialbase.downloader.c.a.b(str3, "notification permission denied, start download :" + this.a);
-                                                    this.f61506e.a(this.f61503b, this.f61504c, this.f61505d);
+                                                    this.f62087e.a(this.f62084b, this.f62085c, this.f62086d);
                                                 }
                                             }
                                         });
@@ -715,7 +715,7 @@ public class d {
                 public final /* synthetic */ com.ss.android.socialbase.appdownloader.c.e a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f61507b;
+                public final /* synthetic */ d f62088b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -732,7 +732,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f61507b = this;
+                    this.f62088b = this;
                     this.a = eVar;
                 }
 

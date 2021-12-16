@@ -32,7 +32,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MP3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BIT_RATE;
@@ -52,7 +52,7 @@ public class MP3TrackImpl extends AbstractTrack {
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class MP3Header {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

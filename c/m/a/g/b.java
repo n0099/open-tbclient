@@ -11,14 +11,14 @@ import java.util.StringTokenizer;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f30690b;
+    public Path f31060b;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public final class b {
         Set set;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, path) == null) {
-            Path path2 = this.f30690b;
+            Path path2 = this.f31060b;
             if (path2 != null) {
                 path.set(path2);
                 return;
@@ -65,7 +65,7 @@ public final class b {
                     }
                 }
             }
-            this.f30690b = path3;
+            this.f31060b = path3;
             path.set(path3);
         }
     }

@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsImage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements KsImage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58650b;
+    public int f59231b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f58651c;
+    public String f59232c;
 
     public b(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
@@ -36,22 +36,22 @@ public class b implements KsImage {
             }
         }
         this.a = i2;
-        this.f58650b = i3;
-        this.f58651c = str;
+        this.f59231b = i3;
+        this.f59232c = str;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58650b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59231b : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public String getImageUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58651c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59232c : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsImage
@@ -65,6 +65,6 @@ public class b implements KsImage {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a > 0 && this.f58650b > 0 && !TextUtils.isEmpty(this.f58651c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a > 0 && this.f59231b > 0 && !TextUtils.isEmpty(this.f59232c) : invokeV.booleanValue;
     }
 }

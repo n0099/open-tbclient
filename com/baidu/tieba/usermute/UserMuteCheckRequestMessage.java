@@ -1,6 +1,6 @@
 package com.baidu.tieba.usermute;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.UserMuteCheck.DataReq;
 import tbclient.UserMuteCheck.UserMuteCheckReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UserMuteCheckRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class UserMuteCheckRequestMessage extends NetMessage {
             builder.user_id_f = Long.valueOf(this.userIdF);
             builder.user_id_t = Long.valueOf(this.userIdT);
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             UserMuteCheckReqIdl.Builder builder2 = new UserMuteCheckReqIdl.Builder();
             builder2.data = builder.build(false);

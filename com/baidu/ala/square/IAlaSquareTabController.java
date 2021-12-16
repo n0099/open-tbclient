@@ -1,5 +1,5 @@
 package com.baidu.ala.square;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IAlaSquareTabController {
     int getTabIndex(int i2);
 

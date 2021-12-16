@@ -1,7 +1,7 @@
 package com.ss.android.download.api.download;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface DownloadEventConfig {
     String getClickButtonTag();
 

@@ -11,7 +11,7 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.log.ZeusLogger;
 import java.lang.ref.WeakReference;
 import java.security.cert.CertificateException;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public static WeakReference<Signature[]> a;
@@ -31,7 +31,7 @@ public final class e {
                 } else {
                     a2 = a.a(str);
                 }
-                Signature[] signatureArr = a2 != null ? a2.f54591b : null;
+                Signature[] signatureArr = a2 != null ? a2.f55171b : null;
                 WeakReference<Signature[]> weakReference = a;
                 Signature[] signatureArr2 = weakReference != null ? weakReference.get() : null;
                 if (signatureArr2 == null || signatureArr2.length == 0) {

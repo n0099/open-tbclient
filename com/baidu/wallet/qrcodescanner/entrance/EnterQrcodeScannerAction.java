@@ -19,7 +19,7 @@ import com.baidu.wallet.qrcodescanner.ScanCodeController;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class EnterQrcodeScannerAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TAG = "enterQrcodeScannerAction";
@@ -95,7 +95,7 @@ public class EnterQrcodeScannerAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterQrcodeScannerAction f54189b;
+                public final /* synthetic */ EnterQrcodeScannerAction f54769b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -112,7 +112,7 @@ public class EnterQrcodeScannerAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f54189b = this;
+                    this.f54769b = this;
                     this.a = routerCallback;
                 }
 

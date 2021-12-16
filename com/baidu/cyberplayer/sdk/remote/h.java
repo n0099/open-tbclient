@@ -28,47 +28,48 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h extends PlayerProvider implements g.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.cyberplayer.sdk.remote.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CyberPlayerManager.HttpDNS f34065b;
+    public CyberPlayerManager.HttpDNS f34533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CyberPlayerManager.OnPreparedListener f34066c;
+    public CyberPlayerManager.OnPreparedListener f34534c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CyberPlayerManager.OnCompletionListener f34067d;
+    public CyberPlayerManager.OnCompletionListener f34535d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CyberPlayerManager.OnBufferingUpdateListener f34068e;
+    public CyberPlayerManager.OnBufferingUpdateListener f34536e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CyberPlayerManager.OnSeekCompleteListener f34069f;
+    public CyberPlayerManager.OnSeekCompleteListener f34537f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CyberPlayerManager.OnVideoSizeChangedListener f34070g;
+    public CyberPlayerManager.OnVideoSizeChangedListener f34538g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CyberPlayerManager.OnErrorListener f34071h;
+    public CyberPlayerManager.OnErrorListener f34539h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CyberPlayerManager.OnInfoListener f34072i;
+    public CyberPlayerManager.OnInfoListener f34540i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CyberPlayerManager.OnMediaSourceChangedListener f34073j;
+    public CyberPlayerManager.OnMediaSourceChangedListener f34541j;
 
     /* renamed from: k  reason: collision with root package name */
-    public a f34074k;
+    public a f34542k;
     public Surface l;
     public b m;
     public int n;
     public int o;
+    public boolean p;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,45 +123,45 @@ public class h extends PlayerProvider implements g.b {
             }
             switch (message.what) {
                 case 0:
-                    if (hVar.f34066c != null) {
-                        hVar.f34066c.onPrepared();
+                    if (hVar.f34534c != null) {
+                        hVar.f34534c.onPrepared();
                         return;
                     }
                     return;
                 case 1:
-                    if (hVar.f34067d != null) {
-                        hVar.f34067d.onCompletion();
+                    if (hVar.f34535d != null) {
+                        hVar.f34535d.onCompletion();
                         return;
                     }
                     return;
                 case 2:
-                    if (hVar.f34068e != null) {
-                        hVar.f34068e.onBufferingUpdate(message.arg1);
+                    if (hVar.f34536e != null) {
+                        hVar.f34536e.onBufferingUpdate(message.arg1);
                         return;
                     }
                     return;
                 case 3:
-                    if (hVar.f34069f != null) {
-                        hVar.f34069f.onSeekComplete();
+                    if (hVar.f34537f != null) {
+                        hVar.f34537f.onSeekComplete();
                         return;
                     }
                     return;
                 case 4:
-                    if (hVar.f34070g != null) {
+                    if (hVar.f34538g != null) {
                         int[] iArr = (int[]) message.obj;
-                        hVar.f34070g.onVideoSizeChanged(iArr[0], iArr[1], iArr[2], iArr[3]);
+                        hVar.f34538g.onVideoSizeChanged(iArr[0], iArr[1], iArr[2], iArr[3]);
                         return;
                     }
                     return;
                 case 5:
-                    if (hVar.f34071h != null) {
-                        hVar.f34071h.onError(message.arg1, message.arg2, message.obj);
+                    if (hVar.f34539h != null) {
+                        hVar.f34539h.onError(message.arg1, message.arg2, message.obj);
                         return;
                     }
                     return;
                 case 6:
-                    if (hVar.f34072i != null) {
-                        hVar.f34072i.onInfo(message.arg1, message.arg2, message.obj);
+                    if (hVar.f34540i != null) {
+                        hVar.f34540i.onInfo(message.arg1, message.arg2, message.obj);
                     }
                     int i2 = message.arg1;
                     if (904 == i2) {
@@ -173,8 +174,8 @@ public class h extends PlayerProvider implements g.b {
                         return;
                     }
                 case 7:
-                    if (hVar.f34073j != null) {
-                        hVar.f34073j.onMediaSourceChanged(message.arg1, message.arg2, message.obj);
+                    if (hVar.f34541j != null) {
+                        hVar.f34541j.onMediaSourceChanged(message.arg1, message.arg2, message.obj);
                         return;
                     }
                     return;
@@ -184,14 +185,14 @@ public class h extends PlayerProvider implements g.b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class b extends d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CyberPlayerManager.HttpDNS f34075b;
+        public CyberPlayerManager.HttpDNS f34543b;
 
         public b(a aVar, CyberPlayerManager.HttpDNS httpDNS) {
             Interceptable interceptable = $ic;
@@ -209,7 +210,7 @@ public class h extends PlayerProvider implements g.b {
                 }
             }
             this.a = aVar;
-            this.f34075b = httpDNS;
+            this.f34543b = httpDNS;
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.d
@@ -250,7 +251,7 @@ public class h extends PlayerProvider implements g.b {
         public void a(String str, List<String> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) && str.equals("onHttpDNS")) {
-                if (this.f34075b == null || list == null || list.size() <= 0) {
+                if (this.f34543b == null || list == null || list.size() <= 0) {
                     if (list != null) {
                         list.clear();
                         return;
@@ -258,7 +259,7 @@ public class h extends PlayerProvider implements g.b {
                     return;
                 }
                 list.clear();
-                List<String> ipList = this.f34075b.getIpList(list.get(0));
+                List<String> ipList = this.f34543b.getIpList(list.get(0));
                 if (ipList != null) {
                     list.addAll(ipList);
                 }
@@ -348,7 +349,7 @@ public class h extends PlayerProvider implements g.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
                 this.a = null;
-                this.f34075b = null;
+                this.f34543b = null;
             }
         }
     }
@@ -370,10 +371,11 @@ public class h extends PlayerProvider implements g.b {
         }
         this.n = -1;
         this.o = -1;
+        this.p = false;
         this.a = bVar;
-        this.f34065b = httpDNS;
-        this.f34074k = new a(this);
-        b bVar2 = new b(this.f34074k, httpDNS);
+        this.f34533b = httpDNS;
+        this.f34542k = new a(this);
+        b bVar2 = new b(this.f34542k, httpDNS);
         this.m = bVar2;
         com.baidu.cyberplayer.sdk.remote.b bVar3 = this.a;
         if (bVar3 != null) {
@@ -409,7 +411,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.a(new e(uri, map));
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setDataSource(Uri, Map)");
             }
@@ -420,14 +422,15 @@ public class h extends PlayerProvider implements g.b {
     public void a() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f34074k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f34542k) == null) {
             return;
         }
         Message obtain = Message.obtain(aVar, 5);
         obtain.arg1 = CyberPlayerManager.MEDIA_ERROR_REMOTE_DIED;
         obtain.arg2 = CyberPlayerManager.MEDIA_ERROR_REMOTE_DIED;
         obtain.obj = "binderDied";
-        this.f34074k.sendMessage(obtain);
+        this.p = true;
+        this.f34542k.sendMessage(obtain);
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
@@ -441,7 +444,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.a(str, z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "changeProxyDynamic(String, boolean)");
             }
@@ -499,9 +502,9 @@ public class h extends PlayerProvider implements g.b {
                     return bVar.a();
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
-                    CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+                    CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
                     if (onErrorListener != null) {
-                        onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "getDecodeMode()");
+                        onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "getDecodeMode() mIsBinderDied:" + this.p);
                     }
                 }
             }
@@ -663,7 +666,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.d(z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "muteOrUnmuteAudio(boolean)");
             }
@@ -681,7 +684,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.e();
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "pause()");
             }
@@ -699,7 +702,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.b();
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "prepareAsync()");
             }
@@ -727,19 +730,19 @@ public class h extends PlayerProvider implements g.b {
             g.a().b(this);
             this.a = null;
             this.l = null;
-            this.f34074k.removeCallbacksAndMessages(null);
+            this.f34542k.removeCallbacksAndMessages(null);
             this.m.d();
             this.m = null;
-            this.f34074k = null;
-            this.f34065b = null;
-            this.f34066c = null;
-            this.f34067d = null;
-            this.f34068e = null;
-            this.f34069f = null;
-            this.f34070g = null;
-            this.f34071h = null;
-            this.f34072i = null;
-            this.f34073j = null;
+            this.f34542k = null;
+            this.f34533b = null;
+            this.f34534c = null;
+            this.f34535d = null;
+            this.f34536e = null;
+            this.f34537f = null;
+            this.f34538g = null;
+            this.f34539h = null;
+            this.f34540i = null;
+            this.f34541j = null;
             this.n = -1;
             this.o = -1;
         }
@@ -754,10 +757,10 @@ public class h extends PlayerProvider implements g.b {
         }
         try {
             bVar.m();
-            this.f34074k.removeCallbacksAndMessages(null);
+            this.f34542k.removeCallbacksAndMessages(null);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "reset()");
             }
@@ -785,7 +788,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.a(j2, i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "seekTo(long)");
             }
@@ -803,9 +806,9 @@ public class h extends PlayerProvider implements g.b {
             bVar.a(i2, i3, j2, str);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
-                onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "sendCommand(int, int, long, String)");
+                onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "sendCommand what:" + i2 + " arg1:" + i3 + " arg2:" + j2 + " isBinderDied:" + this.p);
             }
         }
     }
@@ -844,7 +847,7 @@ public class h extends PlayerProvider implements g.b {
     public void setDataSource(FileDescriptor fileDescriptor) {
         CyberPlayerManager.OnErrorListener onErrorListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, fileDescriptor) == null) || (onErrorListener = this.f34071h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, fileDescriptor) == null) || (onErrorListener = this.f34539h) == null) {
             return;
         }
         onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setDataSource(FileDescriptor)");
@@ -878,7 +881,7 @@ public class h extends PlayerProvider implements g.b {
                 surface = surfaceHolder.getSurface();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
-                CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+                CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
                 if (onErrorListener != null) {
                     onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setDisplay()");
                     return;
@@ -902,7 +905,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.c(z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setEnableDumediaUA(boolean)");
             }
@@ -920,7 +923,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.b(z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setLooping(boolean)");
             }
@@ -931,7 +934,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, onBufferingUpdateListener) == null) {
-            this.f34068e = onBufferingUpdateListener;
+            this.f34536e = onBufferingUpdateListener;
         }
     }
 
@@ -939,7 +942,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, onCompletionListener) == null) {
-            this.f34067d = onCompletionListener;
+            this.f34535d = onCompletionListener;
         }
     }
 
@@ -947,7 +950,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnErrorListener(CyberPlayerManager.OnErrorListener onErrorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, onErrorListener) == null) {
-            this.f34071h = onErrorListener;
+            this.f34539h = onErrorListener;
         }
     }
 
@@ -955,7 +958,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, onInfoListener) == null) {
-            this.f34072i = onInfoListener;
+            this.f34540i = onInfoListener;
         }
     }
 
@@ -963,7 +966,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, onMediaSourceChangedListener) == null) {
-            this.f34073j = onMediaSourceChangedListener;
+            this.f34541j = onMediaSourceChangedListener;
         }
     }
 
@@ -971,7 +974,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, onPreparedListener) == null) {
-            this.f34066c = onPreparedListener;
+            this.f34534c = onPreparedListener;
         }
     }
 
@@ -979,7 +982,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, onSeekCompleteListener) == null) {
-            this.f34069f = onSeekCompleteListener;
+            this.f34537f = onSeekCompleteListener;
         }
     }
 
@@ -987,7 +990,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, onVideoSizeChangedListener) == null) {
-            this.f34070g = onVideoSizeChangedListener;
+            this.f34538g = onVideoSizeChangedListener;
         }
     }
 
@@ -1010,7 +1013,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.a(str, str2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setOption(String, String)");
             }
@@ -1027,7 +1030,7 @@ public class h extends PlayerProvider implements g.b {
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();
-                CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+                CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
                 if (onErrorListener != null) {
                     onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setPlayJson(String)");
                 }
@@ -1046,7 +1049,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.a(z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setScreenOnWhilePlaying(boolean)");
             }
@@ -1064,7 +1067,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.a(f2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setSpeed(float)");
             }
@@ -1084,7 +1087,7 @@ public class h extends PlayerProvider implements g.b {
                 this.l = surface;
             } catch (RemoteException e2) {
                 e2.printStackTrace();
-                CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+                CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
                 if (onErrorListener != null) {
                     onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setSurface()");
                 }
@@ -1104,7 +1107,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.a(f2, f3);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setVolume(float, float)");
             }
@@ -1122,7 +1125,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.a(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setWakeMode()");
             }
@@ -1140,7 +1143,7 @@ public class h extends PlayerProvider implements g.b {
             bVar.c();
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f34071h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f34539h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "start()");
             }

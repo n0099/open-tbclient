@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.OutputStream;
 import org.apache.http.client.methods.HttpDelete;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class DiskFileOperate {
     public int mTrySuccessWeight;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Action {
         public static final /* synthetic */ Action[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -115,7 +115,7 @@ public class DiskFileOperate {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class OperateType {
         public static final /* synthetic */ OperateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

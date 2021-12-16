@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.tail.message;
 
-import c.a.r0.e2.h.a.g;
+import c.a.s0.f2.h.a.g;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.UpdateTail.UpdateTailResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class UpdateTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

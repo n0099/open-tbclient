@@ -9,20 +9,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.net.TurbonetEngine;
 import org.json.JSONException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class TurbonetContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TurbonetEngine a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f51456b;
+    public Context f52005b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f51457c;
+    public String f52006c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51458d;
+    public String f52007d;
 
     public TurbonetContext(Context context, String str, String str2, TurbonetConfig turbonetConfig) {
         Interceptable interceptable = $ic;
@@ -39,19 +39,19 @@ public final class TurbonetContext {
                 return;
             }
         }
-        this.f51456b = context;
-        this.f51457c = str;
-        this.f51458d = str2;
+        this.f52005b = context;
+        this.f52006c = str;
+        this.f52007d = str2;
         a(turbonetConfig);
     }
 
     public final void a(TurbonetConfig turbonetConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, turbonetConfig) == null) {
-            TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.f51456b);
+            TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.f52005b);
             if (turbonetConfig == null) {
-                builder.q(this.f51457c);
-                builder.p(this.f51458d);
+                builder.q(this.f52006c);
+                builder.p(this.f52007d);
                 this.a = builder.b();
                 return;
             }
@@ -65,8 +65,8 @@ public final class TurbonetContext {
             } catch (JSONException e2) {
                 String str = "JSON expcetion: " + e2;
             }
-            builder.q(this.f51457c);
-            builder.p(this.f51458d);
+            builder.q(this.f52006c);
+            builder.p(this.f52007d);
             builder.a(turbonetConfig.g().toString());
             this.a = builder.b();
         }

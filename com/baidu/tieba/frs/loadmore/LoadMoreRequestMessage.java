@@ -2,10 +2,10 @@ package com.baidu.tieba.frs.loadmore;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.d.f.p.l;
-import c.a.q0.d1.g;
-import c.a.q0.d1.z;
-import c.a.r0.h3.j0.a;
+import c.a.d.f.p.m;
+import c.a.r0.d1.b0;
+import c.a.r0.d1.i;
+import c.a.s0.j3.j0.a;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ThreadList.AdParam;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class LoadMoreRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,8 +70,8 @@ public class LoadMoreRequestMessage extends NetMessage {
             builder.user_id = Long.valueOf(b.g(TbadkCoreApplication.getCurrentAccount(), 0L));
             builder.forum_name = this.forumName;
             builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-            int k2 = l.k(TbadkCoreApplication.getInst());
-            int i2 = l.i(TbadkCoreApplication.getInst());
+            int k2 = m.k(TbadkCoreApplication.getInst());
+            int i2 = m.i(TbadkCoreApplication.getInst());
             builder.pn = Integer.valueOf(this.pn);
             builder.st_type = Integer.valueOf(this.st_type);
             builder.scr_h = Integer.valueOf(i2);
@@ -79,17 +79,17 @@ public class LoadMoreRequestMessage extends NetMessage {
             builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             builder.last_click_tid = Long.valueOf(this.mLastClickTid);
             builder.sort_type = Integer.valueOf(this.mSortType);
-            builder.ad_context_list = c.a.r0.h3.l0.b.f().d("FRS");
+            builder.ad_context_list = c.a.s0.j3.l0.b.f().d("FRS");
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.e(this.adFloorInfo);
             builder.ad_ext_params = b2.a();
-            z.c(builder, true, false, true);
+            b0.c(builder, true, false, true);
             builder.app_pos = a.e().a();
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.load_count = Integer.valueOf(this.loadCount);
             builder2.refresh_count = Integer.valueOf(this.refreshCount);
             builder.ad_param = builder2.build(false);
-            builder.app_transmit_data = g.b();
+            builder.app_transmit_data = i.b();
             ThreadListReqIdl.Builder builder3 = new ThreadListReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);

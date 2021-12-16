@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.network.BaseResultData;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CollectResponse extends BaseResultData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7505107872418364848L;

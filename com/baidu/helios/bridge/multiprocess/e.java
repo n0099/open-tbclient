@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface e extends IInterface {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,30 +80,30 @@ public interface e extends IInterface {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static abstract class b extends Binder implements e {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String a = "com.baidu.helios.bridge.multiprocess.IMultiProcessBridge";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f35039b = 1;
+        public static final int f35507b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f35040c = 2;
+        public static final int f35508c = 2;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int f35041d = 3;
+        public static final int f35509d = 3;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final int f35042e = 4;
+        public static final int f35510e = 4;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public static class a implements e {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: b  reason: collision with root package name */
-            public static e f35043b;
+            public static e f35511b;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
@@ -275,10 +275,10 @@ public interface e extends IInterface {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) {
-                if (a.f35043b != null || eVar == null) {
+                if (a.f35511b != null || eVar == null) {
                     return false;
                 }
-                a.f35043b = eVar;
+                a.f35511b = eVar;
                 return true;
             }
             return invokeL.booleanValue;
@@ -287,7 +287,7 @@ public interface e extends IInterface {
         public static e b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f35043b : (e) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f35511b : (e) invokeV.objValue;
         }
 
         @Override // android.os.IInterface

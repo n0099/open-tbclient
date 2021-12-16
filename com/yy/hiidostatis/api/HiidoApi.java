@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface HiidoApi {
     void addActAdditionListener(ActListener actListener);
 

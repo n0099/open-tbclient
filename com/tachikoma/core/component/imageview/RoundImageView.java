@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.Tachikoma;
 import com.tachikoma.core.log.Logger;
 import com.tachikoma.core.utility.TKConverter;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RoundImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Bitmap.Config BITMAP_CONFIG;

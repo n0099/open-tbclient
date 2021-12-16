@@ -7,30 +7,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import i.d;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class g<T, R> implements d.a<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.d<T> f63661e;
+    public final i.d<T> f64242e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.n.f<? super T, ? extends R> f63662f;
+    public final i.n.f<? super T, ? extends R> f64243f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T, R> extends i.j<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final i.j<? super R> f63663i;
+        public final i.j<? super R> f64244i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final i.n.f<? super T, ? extends R> f63664j;
+        public final i.n.f<? super T, ? extends R> f64245j;
 
         /* renamed from: k  reason: collision with root package name */
-        public boolean f63665k;
+        public boolean f64246k;
 
         public a(i.j<? super R> jVar, i.n.f<? super T, ? extends R> fVar) {
             Interceptable interceptable = $ic;
@@ -47,37 +47,37 @@ public final class g<T, R> implements d.a<R> {
                     return;
                 }
             }
-            this.f63663i = jVar;
-            this.f63664j = fVar;
+            this.f64244i = jVar;
+            this.f64245j = fVar;
         }
 
         @Override // i.j
         public void f(i.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                this.f63663i.f(fVar);
+                this.f64244i.f(fVar);
             }
         }
 
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f63665k) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f64246k) {
                 return;
             }
-            this.f63663i.onCompleted();
+            this.f64244i.onCompleted();
         }
 
         @Override // i.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                if (this.f63665k) {
+                if (this.f64246k) {
                     i.r.c.j(th);
                     return;
                 }
-                this.f63665k = true;
-                this.f63663i.onError(th);
+                this.f64246k = true;
+                this.f64244i.onError(th);
             }
         }
 
@@ -86,7 +86,7 @@ public final class g<T, R> implements d.a<R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
                 try {
-                    this.f63663i.onNext(this.f63664j.call(t));
+                    this.f64244i.onNext(this.f64245j.call(t));
                 } catch (Throwable th) {
                     i.m.a.e(th);
                     unsubscribe();
@@ -111,8 +111,8 @@ public final class g<T, R> implements d.a<R> {
                 return;
             }
         }
-        this.f63661e = dVar;
-        this.f63662f = fVar;
+        this.f64242e = dVar;
+        this.f64243f = fVar;
     }
 
     @Override // i.d.a, i.n.b
@@ -123,9 +123,9 @@ public final class g<T, R> implements d.a<R> {
     public void call(i.j<? super R> jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            a aVar = new a(jVar, this.f63662f);
+            a aVar = new a(jVar, this.f64243f);
             jVar.b(aVar);
-            this.f63661e.D(aVar);
+            this.f64242e.D(aVar);
         }
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class az implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.d> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,39 +38,39 @@ public class az implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.d
         if (jSONObject.opt("imei") == JSONObject.NULL) {
             dVar.a = "";
         }
-        dVar.f57771b = jSONObject.optString("imei1");
+        dVar.f58352b = jSONObject.optString("imei1");
         if (jSONObject.opt("imei1") == JSONObject.NULL) {
-            dVar.f57771b = "";
+            dVar.f58352b = "";
         }
-        dVar.f57772c = jSONObject.optString("imei2");
+        dVar.f58353c = jSONObject.optString("imei2");
         if (jSONObject.opt("imei2") == JSONObject.NULL) {
-            dVar.f57772c = "";
+            dVar.f58353c = "";
         }
-        dVar.f57773d = jSONObject.optString("meid");
+        dVar.f58354d = jSONObject.optString("meid");
         if (jSONObject.opt("meid") == JSONObject.NULL) {
-            dVar.f57773d = "";
+            dVar.f58354d = "";
         }
-        dVar.f57774e = jSONObject.optString("oaid");
+        dVar.f58355e = jSONObject.optString("oaid");
         if (jSONObject.opt("oaid") == JSONObject.NULL) {
-            dVar.f57774e = "";
+            dVar.f58355e = "";
         }
-        dVar.f57775f = jSONObject.optString("appMkt");
+        dVar.f58356f = jSONObject.optString("appMkt");
         if (jSONObject.opt("appMkt") == JSONObject.NULL) {
-            dVar.f57775f = "";
+            dVar.f58356f = "";
         }
-        dVar.f57776g = jSONObject.optString("appMktParam");
+        dVar.f58357g = jSONObject.optString("appMktParam");
         if (jSONObject.opt("appMktParam") == JSONObject.NULL) {
-            dVar.f57776g = "";
+            dVar.f58357g = "";
         }
-        dVar.f57777h = jSONObject.optInt(HttpConstants.HTTP_OS_TYPE_OLD);
-        dVar.f57778i = jSONObject.optInt("osApi");
-        dVar.f57779j = jSONObject.optString("osVersion");
+        dVar.f58358h = jSONObject.optInt(HttpConstants.HTTP_OS_TYPE_OLD);
+        dVar.f58359i = jSONObject.optInt("osApi");
+        dVar.f58360j = jSONObject.optString("osVersion");
         if (jSONObject.opt("osVersion") == JSONObject.NULL) {
-            dVar.f57779j = "";
+            dVar.f58360j = "";
         }
-        dVar.f57780k = jSONObject.optString("language");
+        dVar.f58361k = jSONObject.optString("language");
         if (jSONObject.opt("language") == JSONObject.NULL) {
-            dVar.f57780k = "";
+            dVar.f58361k = "";
         }
         dVar.l = jSONObject.optInt("screenWidth");
         dVar.m = jSONObject.optInt("screenHeight");
@@ -132,16 +132,16 @@ public class az implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.d
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "imei", dVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "imei1", dVar.f57771b);
-            com.kwad.sdk.utils.t.a(jSONObject, "imei2", dVar.f57772c);
-            com.kwad.sdk.utils.t.a(jSONObject, "meid", dVar.f57773d);
-            com.kwad.sdk.utils.t.a(jSONObject, "oaid", dVar.f57774e);
-            com.kwad.sdk.utils.t.a(jSONObject, "appMkt", dVar.f57775f);
-            com.kwad.sdk.utils.t.a(jSONObject, "appMktParam", dVar.f57776g);
-            com.kwad.sdk.utils.t.a(jSONObject, HttpConstants.HTTP_OS_TYPE_OLD, dVar.f57777h);
-            com.kwad.sdk.utils.t.a(jSONObject, "osApi", dVar.f57778i);
-            com.kwad.sdk.utils.t.a(jSONObject, "osVersion", dVar.f57779j);
-            com.kwad.sdk.utils.t.a(jSONObject, "language", dVar.f57780k);
+            com.kwad.sdk.utils.t.a(jSONObject, "imei1", dVar.f58352b);
+            com.kwad.sdk.utils.t.a(jSONObject, "imei2", dVar.f58353c);
+            com.kwad.sdk.utils.t.a(jSONObject, "meid", dVar.f58354d);
+            com.kwad.sdk.utils.t.a(jSONObject, "oaid", dVar.f58355e);
+            com.kwad.sdk.utils.t.a(jSONObject, "appMkt", dVar.f58356f);
+            com.kwad.sdk.utils.t.a(jSONObject, "appMktParam", dVar.f58357g);
+            com.kwad.sdk.utils.t.a(jSONObject, HttpConstants.HTTP_OS_TYPE_OLD, dVar.f58358h);
+            com.kwad.sdk.utils.t.a(jSONObject, "osApi", dVar.f58359i);
+            com.kwad.sdk.utils.t.a(jSONObject, "osVersion", dVar.f58360j);
+            com.kwad.sdk.utils.t.a(jSONObject, "language", dVar.f58361k);
             com.kwad.sdk.utils.t.a(jSONObject, "screenWidth", dVar.l);
             com.kwad.sdk.utils.t.a(jSONObject, "screenHeight", dVar.m);
             com.kwad.sdk.utils.t.a(jSONObject, "deviceWidth", dVar.n);

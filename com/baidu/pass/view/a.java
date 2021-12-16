@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ CommonDialog a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ CommonDialog.Builder f38324b;
+    public final /* synthetic */ CommonDialog.Builder f38813b;
 
     public a(CommonDialog.Builder builder, CommonDialog commonDialog) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class a implements View.OnClickListener {
                 return;
             }
         }
-        this.f38324b = builder;
+        this.f38813b = builder;
         this.a = commonDialog;
     }
 
@@ -39,7 +39,7 @@ public class a implements View.OnClickListener {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            onClickListener = this.f38324b.f38322i;
+            onClickListener = this.f38813b.f38811i;
             onClickListener.onClick(view);
             this.a.dismiss();
         }

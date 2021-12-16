@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ShapeDataParser implements ValueParser<ShapeData> {
     public static final ShapeDataParser INSTANCE = new ShapeDataParser();
     public static final JsonReader.Options NAMES = JsonReader.Options.of("c", "v", "i", "o");

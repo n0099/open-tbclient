@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class UrlSchemaHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_PAY_MEMBER_SUCC_PARAM = "from=autopay";
@@ -118,6 +118,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_TYPE_HOT_TOPIC_LIST = "hottopiclist:";
     public static final String SCHEMA_TYPE_HOT_TOPIC_LIST_NEW = "http://tieba.baidu.com/mo/q/hotMessage/list";
     public static final String SCHEMA_TYPE_HOT_TOPIC_LIST_NEW_HTTPS = "https://tieba.baidu.com/mo/q/hotMessage/list";
+    public static final String SCHEMA_TYPE_HOT_TOPIC_RANK_LIST = "unidispatch/hot_topic_rank_list";
     public static final String SCHEMA_TYPE_HTTP = "http:";
     public static final String SCHEMA_TYPE_HTTPS = "https:";
     public static final String SCHEMA_TYPE_INTERVIEW_LIVE = "ppinterview:";

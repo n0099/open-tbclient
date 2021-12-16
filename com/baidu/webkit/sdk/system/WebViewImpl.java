@@ -40,7 +40,7 @@ import java.io.BufferedWriter;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Objects;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class WebViewImpl extends WebView implements WebViewProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     public WebViewClient mWebViewClient;
     public final WebView.PrivateAccess mWebViewPrivateAccess;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class FindAdapter implements WebView.FindListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class PictureAdapter implements WebView.PictureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public class WebViewTransportImpl extends WebView.WebViewTransport {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -17,7 +17,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSocketFactory;
 import okhttp3.HttpUrl;
 import okhttp3.internal.Util;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Address {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

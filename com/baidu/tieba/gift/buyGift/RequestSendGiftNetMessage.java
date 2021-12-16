@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SendGiftAndroid.DataReq;
 import tbclient.SendGiftAndroid.SendGiftAndroidReqIdl;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class RequestSendGiftNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_PERSON_CENTER = 1;

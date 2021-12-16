@@ -2,7 +2,7 @@ package com.baidu.tieba.play.monitor;
 
 import androidx.core.app.NotificationCompat;
 import c.a.d.f.m.b;
-import c.a.q0.s.q.d2;
+import c.a.r0.s.r.d2;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
@@ -25,7 +25,7 @@ import tbclient.Agree;
 import tbclient.BaijiahaoInfo;
 import tbclient.User;
 import tbclient.VideoInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class VideoSerializeVideoThreadInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7659795764367587672L;
@@ -56,7 +56,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
     public boolean waitConfirm;
     public String weight;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class VideoAggregationAuthorData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 937744153926100702L;
@@ -70,7 +70,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         public String userName;
         public String userNickname;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         public static class BaijiahaoAuthorData implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 7277512143348542714L;
@@ -112,7 +112,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class VideoAggregationVideoData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7265311334325180130L;
@@ -147,7 +147,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class VideoCardViewInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5722373220077065607L;
@@ -355,21 +355,21 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         }
         OriginalThreadInfo originalThreadInfo = d2Var.A1;
         VideoAggregationAuthorData videoAggregationAuthorData = new VideoAggregationAuthorData();
-        User user = originalThreadInfo.x;
+        User user = originalThreadInfo.y;
         if (user != null) {
             videoAggregationAuthorData.userId = String.valueOf(user.id);
-            User user2 = originalThreadInfo.x;
+            User user2 = originalThreadInfo.y;
             videoAggregationAuthorData.userName = user2.name;
             videoAggregationAuthorData.userNickname = user2.name_show;
             videoAggregationAuthorData.isBigV = user2.tb_vip != null;
-            videoAggregationAuthorData.isGod = originalThreadInfo.x.god_data != null;
-            User user3 = originalThreadInfo.x;
+            videoAggregationAuthorData.isGod = originalThreadInfo.y.god_data != null;
+            User user3 = originalThreadInfo.y;
             videoAggregationAuthorData.portrait = user3.portrait;
             videoAggregationAuthorData.hasFocus = user3.has_concerned.intValue() != 0;
-            if (originalThreadInfo.x.baijiahao_info != null) {
+            if (originalThreadInfo.y.baijiahao_info != null) {
                 VideoAggregationAuthorData.BaijiahaoAuthorData baijiahaoAuthorData = new VideoAggregationAuthorData.BaijiahaoAuthorData();
                 videoAggregationAuthorData.baijiahaoData = baijiahaoAuthorData;
-                BaijiahaoInfo baijiahaoInfo = originalThreadInfo.x.baijiahao_info;
+                BaijiahaoInfo baijiahaoInfo = originalThreadInfo.y.baijiahao_info;
                 baijiahaoAuthorData.name = baijiahaoInfo.name;
                 baijiahaoAuthorData.avatar = baijiahaoInfo.avatar;
                 baijiahaoAuthorData.avatar_h = baijiahaoInfo.avatar_h;
@@ -412,28 +412,28 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.forumId = originalForumInfo.id;
         }
         if (originalThreadInfo != null) {
-            this.threadId = originalThreadInfo.f40904f;
-            this.title = originalThreadInfo.f40900b;
-            this.postNum = originalThreadInfo.z.intValue();
+            this.threadId = originalThreadInfo.f41395f;
+            this.title = originalThreadInfo.f41391b;
+            this.postNum = originalThreadInfo.A.intValue();
         }
-        if (originalThreadInfo != null && (agree = originalThreadInfo.y) != null) {
+        if (originalThreadInfo != null && (agree = originalThreadInfo.z) != null) {
             this.agreeNum = agree.agree_num.longValue();
-            this.disAgreeNum = originalThreadInfo.y.disagree_num.longValue();
-            this.agreeType = originalThreadInfo.y.agree_type.intValue();
-            this.shareNum = originalThreadInfo.A.intValue();
-            this.hasAgree = originalThreadInfo.y.has_agree.intValue() == 1;
+            this.disAgreeNum = originalThreadInfo.z.disagree_num.longValue();
+            this.agreeType = originalThreadInfo.z.agree_type.intValue();
+            this.shareNum = originalThreadInfo.B.intValue();
+            this.hasAgree = originalThreadInfo.z.has_agree.intValue() == 1;
         }
-        if (originalThreadInfo == null || originalThreadInfo.y == null) {
+        if (originalThreadInfo == null || originalThreadInfo.z == null) {
             return;
         }
         AgreeData agreeData = new AgreeData();
         this.mAgreeData = agreeData;
         agreeData.threadId = this.threadId;
-        agreeData.agreeNum = originalThreadInfo.y.agree_num.longValue();
-        this.mAgreeData.diffAgreeNum = originalThreadInfo.y.diff_agree_num.longValue();
-        this.mAgreeData.disAgreeNum = originalThreadInfo.y.disagree_num.longValue();
-        this.mAgreeData.agreeType = originalThreadInfo.y.agree_type.intValue();
-        this.mAgreeData.hasAgree = originalThreadInfo.y.has_agree.intValue() == 1;
+        agreeData.agreeNum = originalThreadInfo.z.agree_num.longValue();
+        this.mAgreeData.diffAgreeNum = originalThreadInfo.z.diff_agree_num.longValue();
+        this.mAgreeData.disAgreeNum = originalThreadInfo.z.disagree_num.longValue();
+        this.mAgreeData.agreeType = originalThreadInfo.z.agree_type.intValue();
+        this.mAgreeData.hasAgree = originalThreadInfo.z.has_agree.intValue() == 1;
     }
 
     public VideoAggregationAuthorData getAuthor() {

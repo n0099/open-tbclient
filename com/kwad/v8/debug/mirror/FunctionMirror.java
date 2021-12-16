@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8Object;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FunctionMirror extends ObjectMirror {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NAME = "name";

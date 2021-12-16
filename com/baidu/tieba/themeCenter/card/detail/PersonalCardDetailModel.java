@@ -11,21 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.z3.a f49613e;
+    public c.a.s0.b4.a f50129e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f49614f;
+    public b f50130f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f49615g;
+    public c.a.d.c.g.a f50131g;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,20 +62,20 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
             boolean z = responsedMessage instanceof PersonalCardDetailHttpReponse;
             if (z || (responsedMessage instanceof PersonalCardDetailSocketReponse)) {
                 if (z) {
-                    this.a.f49613e = ((PersonalCardDetailHttpReponse) responsedMessage).getCardData();
+                    this.a.f50129e = ((PersonalCardDetailHttpReponse) responsedMessage).getCardData();
                 } else if (responsedMessage instanceof PersonalCardDetailSocketReponse) {
-                    this.a.f49613e = ((PersonalCardDetailSocketReponse) responsedMessage).getCardData();
+                    this.a.f50129e = ((PersonalCardDetailSocketReponse) responsedMessage).getCardData();
                 }
-                if (this.a.f49614f != null) {
-                    this.a.f49614f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f49613e);
+                if (this.a.f50130f != null) {
+                    this.a.f50130f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f50129e);
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface b {
-        void a(int i2, String str, c.a.r0.z3.a aVar);
+        void a(int i2, String str, c.a.s0.b4.a aVar);
     }
 
     public PersonalCardDetailModel() {
@@ -91,16 +91,16 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
                 return;
             }
         }
-        this.f49615g = new a(this, CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
-        c.a.r0.t3.f0.a.h(309333, PersonalCardDetailSocketReponse.class, false, false);
-        c.a.r0.t3.f0.a.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
-        registerListener(this.f49615g);
+        this.f50131g = new a(this, CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
+        c.a.s0.v3.f0.a.h(309333, PersonalCardDetailSocketReponse.class, false, false);
+        c.a.s0.v3.f0.a.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
+        registerListener(this.f50131g);
     }
 
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f49614f = bVar;
+            this.f50130f = bVar;
         }
     }
 
@@ -127,7 +127,7 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f49615g);
+            MessageManager.getInstance().unRegisterListener(this.f50131g);
         }
     }
 

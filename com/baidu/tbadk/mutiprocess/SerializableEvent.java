@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mutiprocess;
 
 import android.os.Process;
-import c.a.q0.k0.a;
+import c.a.r0.k0.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class SerializableEvent implements Serializable, a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 286737332558666966L;
@@ -37,28 +37,28 @@ public abstract class SerializableEvent implements Serializable, a {
         this.mPid = Process.myPid();
     }
 
-    @Override // c.a.q0.k0.a
+    @Override // c.a.r0.k0.a
     public int getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPid : invokeV.intValue;
     }
 
-    @Override // c.a.q0.k0.a
+    @Override // c.a.r0.k0.a
     public int getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTag : invokeV.intValue;
     }
 
-    @Override // c.a.q0.k0.a
+    @Override // c.a.r0.k0.a
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mType : invokeV.intValue;
     }
 
-    @Override // c.a.q0.k0.a
+    @Override // c.a.r0.k0.a
     public void setTag(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) || bdUniqueId == null) {

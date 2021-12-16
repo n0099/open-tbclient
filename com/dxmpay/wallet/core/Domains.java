@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class Domains implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final EnumSet<Permission> ALL_PERMISSION;
@@ -27,13 +27,13 @@ public class Domains implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, EnumSet<Permission>> mDomainsPermissionConfig;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final Domains a;

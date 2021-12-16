@@ -9,7 +9,7 @@ import io.reactivex.Observer;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class HalfSerializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

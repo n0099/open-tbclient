@@ -19,13 +19,13 @@ import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
 import com.kwai.video.ksvodplayerkit.KSVodPlayerCoreInitConfig;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AtomicBoolean f57858b;
+    public static AtomicBoolean f58439b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,12 +60,12 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            AtomicBoolean atomicBoolean = f57858b;
+            AtomicBoolean atomicBoolean = f58439b;
             if (atomicBoolean != null) {
                 return atomicBoolean.get();
             }
             AtomicBoolean atomicBoolean2 = new AtomicBoolean(true);
-            f57858b = atomicBoolean2;
+            f58439b = atomicBoolean2;
             return atomicBoolean2.get();
         }
         return invokeV.booleanValue;
@@ -74,7 +74,7 @@ public class e {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.get() || KsAdSDKImpl.get().getIsExternal() || com.kwad.sdk.b.f57046e.booleanValue() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.get() || KsAdSDKImpl.get().getIsExternal() || com.kwad.sdk.b.f57627e.booleanValue() : invokeV.booleanValue;
     }
 
     public static void c(Context context) {
@@ -108,11 +108,11 @@ public class e {
             }
             com.kwai.sodler.kwai.b.a(context);
             com.kwai.sodler.lib.a.b bVar = new com.kwai.sodler.lib.a.b();
-            bVar.f60084c = v;
-            bVar.f60086e = true;
+            bVar.f60665c = v;
+            bVar.f60667e = true;
             bVar.a = str;
-            bVar.f60083b = "3.4";
-            bVar.f60088g = true;
+            bVar.f60664b = "3.4";
+            bVar.f60669g = true;
             com.kwai.sodler.kwai.b.a(str, bVar, new b.a(context) { // from class: com.kwad.sdk.core.video.kwai.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

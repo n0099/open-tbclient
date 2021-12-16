@@ -22,14 +22,14 @@ import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObservableFlatMapCompletable<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
     public final Function<? super T, ? extends CompletableSource> mapper;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class FlatMapCompletableMainObserver<T> extends BasicIntQueueDisposable<T> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8443155186132538303L;
@@ -37,14 +37,14 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f64008d;
+        public Disposable f64589d;
         public final boolean delayErrors;
         public volatile boolean disposed;
         public final AtomicThrowable errors;
         public final Function<? super T, ? extends CompletableSource> mapper;
         public final CompositeDisposable set;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public final class InnerObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8606673141535671828L;
@@ -144,7 +144,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.disposed = true;
-                this.f64008d.dispose();
+                this.f64589d.dispose();
                 this.set.dispose();
             }
         }
@@ -169,7 +169,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64008d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64589d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -232,7 +232,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
                     completableSource.subscribe(innerObserver);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
-                    this.f64008d.dispose();
+                    this.f64589d.dispose();
                     onError(th);
                 }
             }
@@ -241,8 +241,8 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048585, this, disposable) == null) && DisposableHelper.validate(this.f64008d, disposable)) {
-                this.f64008d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048585, this, disposable) == null) && DisposableHelper.validate(this.f64589d, disposable)) {
+                this.f64589d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

@@ -18,7 +18,7 @@ import com.kwai.sodler.lib.ext.b;
 import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicBoolean a;
@@ -63,11 +63,11 @@ public class a {
         }
         com.kwai.sodler.kwai.b.a(context);
         com.kwai.sodler.lib.a.b bVar = new com.kwai.sodler.lib.a.b();
-        bVar.f60084c = v;
-        bVar.f60086e = true;
+        bVar.f60665c = v;
+        bVar.f60667e = true;
         bVar.a = str;
-        bVar.f60083b = "3.0";
-        bVar.f60088g = false;
+        bVar.f60664b = "3.0";
+        bVar.f60669g = false;
         com.kwai.sodler.kwai.b.a(str, bVar, new b.a() { // from class: com.kwad.sdk.glide.kwai.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

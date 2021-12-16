@@ -15,14 +15,14 @@ public class v extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f3003g;
+    public static final BdUniqueId f2967g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3004e;
+    public String f2968e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3005f;
+    public int f2969f;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class v extends BaseCardInfo {
                 return;
             }
         }
-        f3003g = BdUniqueId.gen();
+        f2967g = BdUniqueId.gen();
     }
 
     public v() {
@@ -53,13 +53,13 @@ public class v extends BaseCardInfo {
                 return;
             }
         }
-        this.f3005f = R.drawable.new_pic_emotion_06;
+        this.f2969f = R.drawable.new_pic_emotion_06;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f3003g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f2967g : (BdUniqueId) invokeV.objValue;
     }
 }

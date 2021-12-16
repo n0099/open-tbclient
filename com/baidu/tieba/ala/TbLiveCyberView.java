@@ -6,8 +6,8 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
-import c.a.r0.h4.h;
+import c.a.d.f.p.l;
+import c.a.s0.j4.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class TbLiveCyberView extends CyberVideoView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TB_FREE_HOST = "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv";
@@ -38,7 +38,7 @@ public class TbLiveCyberView extends CyberVideoView {
     public b L;
     public final CustomMessageListener M;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class TbLiveCyberView extends CyberVideoView {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void onError();
 
@@ -115,7 +115,7 @@ public class TbLiveCyberView extends CyberVideoView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!k.isEmpty(str) && h.d().e()) {
+            if (!l.isEmpty(str) && h.d().e()) {
                 if (str.contains("http://tb-video.bdstatic.com")) {
                     return str.replace("http://tb-video.bdstatic.com", "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv");
                 }
@@ -141,7 +141,7 @@ public class TbLiveCyberView extends CyberVideoView {
             }
             new WeakReference(TbadkCoreApplication.getInst());
             SkinManager.setBackgroundResource(this, R.color.black_alpha100);
-            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: c.a.r0.a0.b
+            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: c.a.s0.a0.b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -152,7 +152,7 @@ public class TbLiveCyberView extends CyberVideoView {
                     return (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048576, this, i2, i3, obj)) == null) ? TbLiveCyberView.this.l(i2, i3, obj) : invokeIIL.booleanValue;
                 }
             });
-            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: c.a.r0.a0.a
+            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: c.a.s0.a0.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -218,7 +218,7 @@ public class TbLiveCyberView extends CyberVideoView {
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView
     public void setVideoPath(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || k.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || l.isEmpty(str)) {
             return;
         }
         this.J = str;

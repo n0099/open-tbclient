@@ -37,7 +37,7 @@ import java.util.Map;
 import java.util.UUID;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHARSET = "utf-8";

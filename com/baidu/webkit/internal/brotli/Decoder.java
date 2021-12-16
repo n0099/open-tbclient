@@ -15,7 +15,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class Decoder implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteBuffer EMPTY_BUFER;
@@ -27,7 +27,7 @@ public class Decoder implements INoProGuard {
     public final ReadableByteChannel source;
 
     /* renamed from: com.baidu.webkit.internal.brotli.Decoder$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -49,19 +49,19 @@ public class Decoder implements INoProGuard {
             int[] iArr = new int[DecoderJNI.a.values().length];
             a = iArr;
             try {
-                iArr[DecoderJNI.a.f54268b.ordinal()] = 1;
+                iArr[DecoderJNI.a.f54848b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[DecoderJNI.a.f54271e.ordinal()] = 2;
+                a[DecoderJNI.a.f54851e.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[DecoderJNI.a.f54269c.ordinal()] = 3;
+                a[DecoderJNI.a.f54849c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[DecoderJNI.a.f54270d.ordinal()] = 4;
+                a[DecoderJNI.a.f54850d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -118,7 +118,7 @@ public class Decoder implements INoProGuard {
                 wrapper.getInputBuffer().put(bArr);
                 wrapper.push(bArr.length);
                 int i2 = 0;
-                while (wrapper.getStatus() != DecoderJNI.a.f54268b) {
+                while (wrapper.getStatus() != DecoderJNI.a.f54848b) {
                     int i3 = AnonymousClass1.a[wrapper.getStatus().ordinal()];
                     if (i3 == 2) {
                         wrapper.push(0);

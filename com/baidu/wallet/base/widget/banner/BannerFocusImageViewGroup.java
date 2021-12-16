@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCellLayout.FocusImageEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FOCUS_IMAGE_MAX = 10;
@@ -46,34 +46,34 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
     public static final int a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f52224b = 0;
+    public static final int f52804b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f52225c = 1;
+    public static final int f52805c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f52226d = 200;
+    public static final int f52806d = 200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f52227e = -1;
+    public static final int f52807e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f52228f = -999;
+    public static final int f52808f = -999;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f52229g = 3000;
+    public static final int f52809g = 3000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f52230h = 100;
+    public static final int f52810h = 100;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f52231i = 5;
+    public static final int f52811i = 5;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final float f52232j = 0.23f;
+    public static final float f52812j = 0.23f;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final float f52233k = 1.0E9f;
+    public static final float f52813k = 1.0E9f;
     public static final float l = 0.75f;
     public static final float m = 2500.0f;
     public static final float n;
@@ -105,30 +105,30 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
     public float y;
     public float z;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface CurrFocusImagePos {
         void setCurrPos(int i2, int i3);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface FoucsImageEvent {
         void submitPage(Bundle bundle);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f52238b = 2;
+        public static final int f52818b = 2;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public WeakReference<BannerFocusImageViewGroup> f52239c;
+        public WeakReference<BannerFocusImageViewGroup> f52819c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f52240d;
+        public int f52820d;
 
         public a(BannerFocusImageViewGroup bannerFocusImageViewGroup) {
             Interceptable interceptable = $ic;
@@ -145,14 +145,14 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
                     return;
                 }
             }
-            this.f52240d = 0;
-            this.f52239c = new WeakReference<>(bannerFocusImageViewGroup);
+            this.f52820d = 0;
+            this.f52819c = new WeakReference<>(bannerFocusImageViewGroup);
         }
 
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f52240d = i2;
+                this.f52820d = i2;
             }
         }
 
@@ -160,7 +160,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-                BannerFocusImageViewGroup bannerFocusImageViewGroup = this.f52239c.get();
+                BannerFocusImageViewGroup bannerFocusImageViewGroup = this.f52819c.get();
                 if (message == null || bannerFocusImageViewGroup == null) {
                     return;
                 }
@@ -168,7 +168,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
                 if (i2 == 1) {
                     Rect rect = new Rect();
                     bannerFocusImageViewGroup.getGlobalVisibleRect(rect);
-                    if (this.f52240d == rect.left) {
+                    if (this.f52820d == rect.left) {
                         bannerFocusImageViewGroup.moveToNext();
                     }
                     sendMessageDelayed(obtainMessage(1), 3000L);
@@ -182,7 +182,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
                             if (!it.hasNext()) {
                                 z = z2;
                                 break;
-                            } else if (TextUtils.isEmpty(((FoucsImageItem) it.next()).f52237c)) {
+                            } else if (TextUtils.isEmpty(((FoucsImageItem) it.next()).f52817c)) {
                                 break;
                             }
                         }
@@ -269,7 +269,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
                 public final /* synthetic */ BannerBaseItemInfo a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BannerFocusImageViewGroup f52234b;
+                public final /* synthetic */ BannerFocusImageViewGroup f52814b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -286,7 +286,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
                             return;
                         }
                     }
-                    this.f52234b = this;
+                    this.f52814b = this;
                     this.a = r7;
                 }
 
@@ -296,13 +296,13 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         view.setClickable(false);
-                        this.f52234b.G.postDelayed(new Runnable(this, view) { // from class: com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup.1.1
+                        this.f52814b.G.postDelayed(new Runnable(this, view) { // from class: com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ View a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f52235b;
+                            public final /* synthetic */ AnonymousClass1 f52815b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -319,7 +319,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
                                         return;
                                     }
                                 }
-                                this.f52235b = this;
+                                this.f52815b = this;
                                 this.a = view;
                             }
 
@@ -331,10 +331,10 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
                                 }
                             }
                         }, 600L);
-                        if (this.f52234b.B != null && (bannerBaseItemInfo = this.a) != null && !TextUtils.isEmpty(bannerBaseItemInfo.getName())) {
-                            this.f52234b.triggerOnEvent(this.a.getName());
+                        if (this.f52814b.B != null && (bannerBaseItemInfo = this.a) != null && !TextUtils.isEmpty(bannerBaseItemInfo.getName())) {
+                            this.f52814b.triggerOnEvent(this.a.getName());
                         }
-                        this.f52234b.jump(this.a);
+                        this.f52814b.jump(this.a);
                     }
                 }
             });
@@ -368,7 +368,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
                 } else {
                     this.s = Math.max(0, Math.min(this.r, getChildCount() - 1));
                 }
-                this.r = f52228f;
+                this.r = f52808f;
             } else if (this.t != 1 || this.M <= 1) {
             } else {
                 super.scrollTo(getScrollX() + ((int) ((this.z - getScrollX()) * ((float) Math.exp(((((float) System.nanoTime()) / 1.0E9f) - this.A) / n)))), getScrollY());
@@ -820,7 +820,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
             }
         }
         this.p = -1;
-        this.r = f52228f;
+        this.r = f52808f;
         this.t = 0;
         this.u = 0;
         this.v = 0;
@@ -842,17 +842,17 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static class FoucsImageItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f52236b;
+        public String f52816b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f52237c;
+        public String f52817c;
 
         public FoucsImageItem() {
             Interceptable interceptable = $ic;
@@ -868,23 +868,23 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
                 }
             }
             this.a = 0;
-            this.f52236b = "";
-            this.f52237c = "";
+            this.f52816b = "";
+            this.f52817c = "";
             this.a = 0;
-            this.f52236b = "";
-            this.f52237c = "";
+            this.f52816b = "";
+            this.f52817c = "";
         }
 
         public String getImageUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52237c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52817c : (String) invokeV.objValue;
         }
 
         public String getPageID() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52236b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52816b : (String) invokeV.objValue;
         }
 
         public int getPageType() {
@@ -896,14 +896,14 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
         public void setImageUrl(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.f52237c = str;
+                this.f52817c = str;
             }
         }
 
         public void setPageID(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f52236b = str;
+                this.f52816b = str;
             }
         }
 
@@ -930,11 +930,11 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
                 }
             }
             this.a = 0;
-            this.f52236b = "";
-            this.f52237c = "";
-            this.f52236b = str;
+            this.f52816b = "";
+            this.f52817c = "";
+            this.f52816b = str;
             this.a = i2;
-            this.f52237c = str2;
+            this.f52817c = str2;
         }
     }
 

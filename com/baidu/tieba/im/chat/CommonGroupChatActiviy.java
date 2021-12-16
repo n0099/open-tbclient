@@ -41,14 +41,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener mCustomListener;
     public c mListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -329,7 +329,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), msg3.getUserInfo().getUserId(), msg3.getUserInfo().getUserName(), null, AddFriendActivityConfig.TYPE_IM_GROUP)));
             } else if (i2 != 4) {
-                if (i2 == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg2 = msglistModel.getMsg(i3)) != null && c.a.r0.r1.w.c.q(msg2) && content != null) {
+                if (i2 == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg2 = msglistModel.getMsg(i3)) != null && c.a.s0.s1.w.c.q(msg2) && content != null) {
                     JSONObject jSONObject = null;
                     try {
                         try {
@@ -347,9 +347,9 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                         sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(getPageContext().getContext(), jSONObject.optString("pid"), jSONObject.optString("packet_name"), jSONObject.optString("icon"), jSONObject.optString("url_s"), jSONObject.optString("url_d"), jSONObject.optString("face_name"), 3, jSONObject.optInt("size_width"), jSONObject.optInt("size_height"))));
                     }
                 }
-            } else if (isExStorageOk() && (msg = this.mListModel.getMsg(i3)) != null && c.a.r0.r1.w.c.s(msg)) {
-                String f2 = c.a.r0.r1.w.c.f(msg.getContent(), true);
-                String f3 = c.a.r0.r1.w.c.f(msg.getContent(), false);
+            } else if (isExStorageOk() && (msg = this.mListModel.getMsg(i3)) != null && c.a.s0.s1.w.c.s(msg)) {
+                String f2 = c.a.s0.s1.w.c.f(msg.getContent(), true);
+                String f3 = c.a.s0.s1.w.c.f(msg.getContent(), false);
                 if (f2 == null) {
                     return;
                 }
@@ -427,7 +427,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             String stringExtra = intent.getStringExtra(GroupChatActivityConfig.GROUP_OBJ_TP);
             String valueOf = String.valueOf(groupData.getGroupId());
             if (!PvCacheModel.getInstance().isSameDay(valueOf)) {
-                new c.a.r0.r1.w.a(TbConfig.ST_TYPE_IM, stringExtra, valueOf).start();
+                new c.a.s0.s1.w.a(TbConfig.ST_TYPE_IM, stringExtra, valueOf).start();
                 TiebaStatic.eventStat(TbadkApplication.getInst().getApp(), TbConfig.ST_TYPE_IM, "", 1, "obj_tp", stringExtra, "group_id", valueOf);
                 PvCacheModel.getInstance().addCacheData(valueOf, Long.valueOf(System.currentTimeMillis()));
             }

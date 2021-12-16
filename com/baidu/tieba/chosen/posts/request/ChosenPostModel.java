@@ -1,8 +1,8 @@
 package com.baidu.tieba.chosen.posts.request;
 
-import c.a.q0.l0.b.g;
-import c.a.r0.h0.a.d.a;
-import c.a.r0.h0.a.d.b;
+import c.a.r0.l0.b.g;
+import c.a.s0.h0.a.d.a;
+import c.a.s0.h0.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ChosenPostModel extends NetAutoModel<a, b, ChosenPostActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -9,25 +9,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
     public static final l a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final l f62062b;
+    public static final l f62643b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final l f62063c;
+    public static final l f62644c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final l f62064d;
+    public static final l f62645d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final l f62065e;
+    public static final l f62646e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ l[] f62066f;
+    public static final /* synthetic */ l[] f62647f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,12 +44,12 @@ public final class l {
             }
         }
         a = new l("POOR", 0);
-        f62062b = new l("MODERATE", 1);
-        f62063c = new l("GOOD", 2);
-        f62064d = new l("EXCELLENT", 3);
+        f62643b = new l("MODERATE", 1);
+        f62644c = new l("GOOD", 2);
+        f62645d = new l("EXCELLENT", 3);
         l lVar = new l(RomUtils.UNKNOWN, 4);
-        f62065e = lVar;
-        f62066f = new l[]{a, f62062b, f62063c, f62064d, lVar};
+        f62646e = lVar;
+        f62647f = new l[]{a, f62643b, f62644c, f62645d, lVar};
     }
 
     public l(String str, int i2) {
@@ -80,6 +80,6 @@ public final class l {
     public static l[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (l[]) f62066f.clone() : (l[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (l[]) f62647f.clone() : (l[]) invokeV.objValue;
     }
 }

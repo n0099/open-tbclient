@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.e;
 import com.fun.openid.sdk.f;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OnGetOaidListener f55761b;
+    public final OnGetOaidListener f56342b;
 
     public e(Context context, OnGetOaidListener onGetOaidListener) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class e implements Runnable {
             }
         }
         this.a = context.getApplicationContext();
-        this.f55761b = onGetOaidListener;
+        this.f56342b = onGetOaidListener;
     }
 
     public final void a() {
@@ -62,11 +62,11 @@ public class e implements Runnable {
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                     throw new IllegalStateException("Cannot be called from the main thread");
                 }
-                if (i.a == null && !i.f55762b) {
+                if (i.a == null && !i.f56343b) {
                     synchronized (i.class) {
-                        if (i.a == null && !i.f55762b) {
+                        if (i.a == null && !i.f56343b) {
                             i.a = b.a();
-                            i.f55762b = true;
+                            i.f56343b = true;
                         }
                     }
                 }
@@ -92,7 +92,7 @@ public class e implements Runnable {
             if (FunOpenIDSdk.isLogEnabled()) {
                 String str = "==========在缓存中查找到oaid，直接返回 oaid = " + string;
             }
-            OnGetOaidListener onGetOaidListener = this.f55761b;
+            OnGetOaidListener onGetOaidListener = this.f56342b;
             if (onGetOaidListener != null) {
                 onGetOaidListener.onGetOaid(string);
             }
@@ -125,20 +125,20 @@ public class e implements Runnable {
                         return;
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
-                        onGetOaidListener = this.f55761b;
+                        onGetOaidListener = this.f56342b;
                         if (onGetOaidListener == null) {
                             return;
                         }
                     }
                 } else {
-                    onGetOaidListener = this.f55761b;
+                    onGetOaidListener = this.f56342b;
                     if (onGetOaidListener == null) {
                         return;
                     }
                 }
                 str = null;
             } else {
-                onGetOaidListener = this.f55761b;
+                onGetOaidListener = this.f56342b;
                 if (onGetOaidListener == null) {
                     return;
                 }

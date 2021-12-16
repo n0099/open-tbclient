@@ -13,47 +13,47 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58847b;
+    public int f59428b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f58848c;
+    public AdTemplate f59429c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f58849d;
+    public int f59430d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58850e;
+    public String f59431e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58851f;
+    public String f59432f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58852g;
+    public String f59433g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f58853h;
+    public String f59434h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f58854i;
+    public String f59435i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f58855j;
+    public String f59436j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f58856k;
+    public boolean f59437k;
     public int l;
     public com.kwad.sdk.core.download.a.b m;
     public int n;
     public int o;
     public a p;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(b bVar);
     }
@@ -71,7 +71,7 @@ public class b extends c {
                 return;
             }
         }
-        this.f58856k = false;
+        this.f59437k = false;
         this.l = -1;
     }
 
@@ -83,27 +83,27 @@ public class b extends c {
             AdInfo j2 = d.j(adTemplate);
             b bVar = new b();
             bVar.b(0);
-            bVar.f58856k = com.kwad.sdk.core.response.a.a.B(j2);
-            bVar.f58849d = adTemplate.type;
-            bVar.f58848c = adTemplate;
-            bVar.f58850e = com.kwad.sdk.core.response.a.a.s(j2);
+            bVar.f59437k = com.kwad.sdk.core.response.a.a.B(j2);
+            bVar.f59430d = adTemplate.type;
+            bVar.f59429c = adTemplate;
+            bVar.f59431e = com.kwad.sdk.core.response.a.a.s(j2);
             List<String> O = com.kwad.sdk.core.response.a.a.O(j2);
             if (O.size() <= 0) {
                 if (com.kwad.sdk.core.response.a.a.P(j2)) {
                     h2 = com.kwad.sdk.core.response.a.a.h(j2);
                 }
-                bVar.f58855j = com.kwad.sdk.core.response.a.a.A(j2);
-                bVar.f58854i = com.kwad.sdk.core.response.a.a.s(j2);
-                bVar.f58853h = com.kwad.sdk.core.response.a.a.at(j2);
-                bVar.f58851f = com.kwad.sdk.core.response.a.a.au(j2);
+                bVar.f59436j = com.kwad.sdk.core.response.a.a.A(j2);
+                bVar.f59435i = com.kwad.sdk.core.response.a.a.s(j2);
+                bVar.f59434h = com.kwad.sdk.core.response.a.a.at(j2);
+                bVar.f59432f = com.kwad.sdk.core.response.a.a.au(j2);
                 return bVar;
             }
             h2 = O.get(0);
-            bVar.f58852g = h2;
-            bVar.f58855j = com.kwad.sdk.core.response.a.a.A(j2);
-            bVar.f58854i = com.kwad.sdk.core.response.a.a.s(j2);
-            bVar.f58853h = com.kwad.sdk.core.response.a.a.at(j2);
-            bVar.f58851f = com.kwad.sdk.core.response.a.a.au(j2);
+            bVar.f59433g = h2;
+            bVar.f59436j = com.kwad.sdk.core.response.a.a.A(j2);
+            bVar.f59435i = com.kwad.sdk.core.response.a.a.s(j2);
+            bVar.f59434h = com.kwad.sdk.core.response.a.a.at(j2);
+            bVar.f59432f = com.kwad.sdk.core.response.a.a.au(j2);
             return bVar;
         }
         return (b) invokeL.objValue;
@@ -167,50 +167,50 @@ public class b extends c {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f58847b = i2;
+            this.f59428b = i2;
         }
     }
 
     public AdTemplate c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58848c : (AdTemplate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59429c : (AdTemplate) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f58850e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59431e : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f58851f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59432f : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f58853h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59434h : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f58854i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59435i : (String) invokeV.objValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f58852g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f59433g : (String) invokeV.objValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f58856k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f59437k : invokeV.booleanValue;
     }
 
     public int j() {
@@ -223,8 +223,8 @@ public class b extends c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i2 = this.f58847b;
-            return i2 == 0 ? this.f58849d : i2;
+            int i2 = this.f59428b;
+            return i2 == 0 ? this.f59430d : i2;
         }
         return invokeV.intValue;
     }

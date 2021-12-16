@@ -16,7 +16,7 @@ import com.kwad.sdk.core.page.AdRewardPreviewActivityProxy;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f implements KsRewardVideoAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,13 +24,13 @@ public class f implements KsRewardVideoAd {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f58948b;
+    public AdTemplate f59529b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f58949c;
+    public AdInfo f59530c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsRewardVideoAd.RewardAdInteractionListener f58950d;
+    public KsRewardVideoAd.RewardAdInteractionListener f59531d;
 
     public f(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class f implements KsRewardVideoAd {
             }
         }
         this.a = 1;
-        this.f58948b = adTemplate;
-        this.f58949c = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.f59529b = adTemplate;
+        this.f59530c = com.kwad.sdk.core.response.a.d.j(adTemplate);
     }
 
     private void a(Context context, KsVideoPlayConfig ksVideoPlayConfig) {
@@ -70,10 +70,10 @@ public class f implements KsRewardVideoAd {
             if (a2 != null) {
                 ksVideoPlayConfig.setSkipThirtySecond(((Boolean) a2.getValue()).booleanValue());
             }
-            if (com.kwad.sdk.core.response.a.a.as(this.f58949c)) {
-                AdRewardPreviewActivityProxy.launch(context, this.f58948b, com.kwad.sdk.core.response.a.a.G(this.f58949c), this.f58950d);
+            if (com.kwad.sdk.core.response.a.a.as(this.f59530c)) {
+                AdRewardPreviewActivityProxy.launch(context, this.f59529b, com.kwad.sdk.core.response.a.a.G(this.f59530c), this.f59531d);
             } else {
-                KSRewardVideoActivityProxy.launch(context, this.f58948b, ksVideoPlayConfig, this.f58950d, this.a);
+                KSRewardVideoActivityProxy.launch(context, this.f59529b, ksVideoPlayConfig, this.f59531d, this.a);
             }
         }
     }
@@ -82,21 +82,21 @@ public class f implements KsRewardVideoAd {
     public int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.core.response.a.a.F(this.f58949c) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.core.response.a.a.F(this.f59530c) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
     public int getInteractionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.a.a.E(this.f58949c) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.a.a.E(this.f59530c) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
     public int getMaterialType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.a.a.R(this.f58949c) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.a.a.R(this.f59530c) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
@@ -107,7 +107,7 @@ public class f implements KsRewardVideoAd {
             if (com.kwad.sdk.core.config.b.C() >= 0) {
                 return true;
             }
-            return n.b(this.f58948b);
+            return n.b(this.f59529b);
         }
         return invokeV.booleanValue;
     }
@@ -116,7 +116,7 @@ public class f implements KsRewardVideoAd {
     public void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, adExposureFailedReason) == null) {
-            com.kwad.sdk.core.report.a.a(this.f58948b, i2, adExposureFailedReason);
+            com.kwad.sdk.core.report.a.a(this.f59529b, i2, adExposureFailedReason);
         }
     }
 
@@ -124,7 +124,7 @@ public class f implements KsRewardVideoAd {
     public void setBidEcpm(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            AdTemplate adTemplate = this.f58948b;
+            AdTemplate adTemplate = this.f59529b;
             adTemplate.mBidEcpm = i2;
             com.kwad.sdk.core.report.a.m(adTemplate);
         }
@@ -134,7 +134,7 @@ public class f implements KsRewardVideoAd {
     public void setRewardAdInteractionListener(KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, rewardAdInteractionListener) == null) {
-            this.f58950d = rewardAdInteractionListener;
+            this.f59531d = rewardAdInteractionListener;
         }
     }
 

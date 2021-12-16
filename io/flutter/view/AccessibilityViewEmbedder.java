@@ -29,7 +29,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AccessibilityViewEmbedder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AccessibilityBridge";
@@ -42,13 +42,13 @@ public class AccessibilityViewEmbedder {
     public final View rootAccessibilityView;
 
     /* renamed from: io.flutter.view.AccessibilityViewEmbedder$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ReflectionAccessors {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -301,7 +301,7 @@ public class AccessibilityViewEmbedder {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ViewAndId {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

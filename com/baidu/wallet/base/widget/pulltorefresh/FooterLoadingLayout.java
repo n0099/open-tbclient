@@ -18,20 +18,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class FooterLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ProgressBar a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f52272b;
+    public TextView f52852b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CharSequence f52273c;
+    public CharSequence f52853c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CharSequence f52274d;
+    public CharSequence f52854d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FooterLoadingLayout(Context context) {
@@ -58,7 +58,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             this.a = (ProgressBar) findViewById(ResUtils.id(getContext(), "bd_wallet_progress_footer"));
-            this.f52272b = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_loadmore_text"));
+            this.f52852b = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_loadmore_text"));
             setState(LoadingLayout.State.RESET);
         }
     }
@@ -82,11 +82,11 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onNoMoreData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f52272b.setVisibility(0);
-            if (TextUtils.isEmpty(this.f52274d)) {
-                this.f52272b.setText(ResUtils.getString(getContext(), "wallet_base_no_more"));
+            this.f52852b.setVisibility(0);
+            if (TextUtils.isEmpty(this.f52854d)) {
+                this.f52852b.setText(ResUtils.getString(getContext(), "wallet_base_no_more"));
             } else {
-                this.f52272b.setText(this.f52274d);
+                this.f52852b.setText(this.f52854d);
             }
         }
     }
@@ -96,11 +96,11 @@ public class FooterLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.setVisibility(0);
-            this.f52272b.setVisibility(0);
-            if (TextUtils.isEmpty(this.f52273c)) {
-                this.f52272b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
+            this.f52852b.setVisibility(0);
+            if (TextUtils.isEmpty(this.f52853c)) {
+                this.f52852b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
             } else {
-                this.f52272b.setText(this.f52273c);
+                this.f52852b.setText(this.f52853c);
             }
         }
     }
@@ -109,10 +109,10 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onReset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (TextUtils.isEmpty(this.f52273c)) {
-                this.f52272b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
+            if (TextUtils.isEmpty(this.f52853c)) {
+                this.f52852b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
             } else {
-                this.f52272b.setText(this.f52273c);
+                this.f52852b.setText(this.f52853c);
             }
         }
     }
@@ -122,7 +122,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, state, state2) == null) {
             this.a.setVisibility(8);
-            this.f52272b.setVisibility(4);
+            this.f52852b.setVisibility(4);
             super.onStateChanged(state, state2);
         }
     }
@@ -140,8 +140,8 @@ public class FooterLoadingLayout extends LoadingLayout {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, charSequence) == null) || TextUtils.isEmpty(charSequence)) {
             return;
         }
-        this.f52274d = charSequence;
-        TextView textView = this.f52272b;
+        this.f52854d = charSequence;
+        TextView textView = this.f52852b;
         if (textView != null) {
             textView.setText(charSequence);
         }
@@ -153,8 +153,8 @@ public class FooterLoadingLayout extends LoadingLayout {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence) == null) || TextUtils.isEmpty(charSequence)) {
             return;
         }
-        this.f52273c = charSequence;
-        TextView textView = this.f52272b;
+        this.f52853c = charSequence;
+        TextView textView = this.f52852b;
         if (textView != null) {
             textView.setText(charSequence);
         }

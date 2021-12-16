@@ -8,12 +8,12 @@ import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface KsDrawAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AdInteractionListener {
         @KsAdSdkApi
         @Keep

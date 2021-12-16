@@ -19,7 +19,7 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class FileCopyUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

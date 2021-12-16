@@ -3,8 +3,8 @@ package com.baidu.android.imsdk.internal;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import c.a.s.a;
-import c.a.t.a.b.d.b;
+import c.a.t.a;
+import c.a.u.a.b.d.b;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory;
@@ -41,13 +41,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MessageParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MessageParser";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class DuParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -631,13 +631,13 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j2, z);
                 newAckMessage.addTriples(list2);
-                if (a.f26073e) {
+                if (a.f26457e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
                     bLCPRequest.a = 2L;
-                    bLCPRequest.f35158b = 95L;
-                    bLCPRequest.f35159c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f35160d = System.nanoTime();
-                    c.a.t.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
+                    bLCPRequest.f35626b = 95L;
+                    bLCPRequest.f35627c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.f35628d = System.nanoTime();
+                    c.a.u.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Context val$context;
@@ -662,7 +662,7 @@ public class MessageParser {
                             this.val$context = context;
                         }
 
-                        @Override // c.a.t.a.b.d.b
+                        @Override // c.a.u.a.b.d.b
                         public void onResponse(int i2, String str, long j3, long j4, long j5, byte[] bArr) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), bArr}) == null) {

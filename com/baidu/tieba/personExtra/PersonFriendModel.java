@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.q0.s.q.h1;
+import c.a.r0.s.r.h1;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -20,22 +20,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PersonFriendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f48288g;
+    public static final String f48801g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f48289h;
+    public static TbHttpMessageTask f48802h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public h1 f48290e;
+    public h1 f48803e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f48291f;
+    public String f48804f;
 
     static {
         InterceptResult invokeClinit;
@@ -51,11 +51,11 @@ public class PersonFriendModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
-        f48288g = str;
+        f48801g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, str);
-        f48289h = tbHttpMessageTask;
+        f48802h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f48289h);
+        MessageManager.getInstance().registerTask(f48802h);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,13 +76,13 @@ public class PersonFriendModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48290e = new h1();
+        this.f48803e = new h1();
     }
 
     public void A(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f48291f = str;
+            this.f48804f = str;
         }
     }
 
@@ -99,7 +99,7 @@ public class PersonFriendModel extends BdBaseModel {
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48291f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48804f : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -121,7 +121,7 @@ public class PersonFriendModel extends BdBaseModel {
     public h1 w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f48290e : (h1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f48803e : (h1) invokeV.objValue;
     }
 
     public void x() {
@@ -149,7 +149,7 @@ public class PersonFriendModel extends BdBaseModel {
     public void z(h1 h1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h1Var) == null) {
-            this.f48290e = h1Var;
+            this.f48803e = h1Var;
         }
     }
 }

@@ -15,13 +15,13 @@ import com.fun.ad.sdk.channel.csj.R;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.module.csj.e0;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class CSJNativeAdVerticalImgView extends e0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f55643f;
+    public ImageView f56224f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdVerticalImgView(Context context) {
@@ -95,7 +95,7 @@ public final class CSJNativeAdVerticalImgView extends e0 {
             if (imageList == null || imageList.isEmpty() || (tTImage = imageList.get(0)) == null || !tTImage.isValid()) {
                 return;
             }
-            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f55643f);
+            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f56224f);
         }
     }
 
@@ -104,7 +104,7 @@ public final class CSJNativeAdVerticalImgView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f55643f = (ImageView) findViewById(R.id.ad_img);
+            this.f56224f = (ImageView) findViewById(R.id.ad_img);
         }
     }
 }

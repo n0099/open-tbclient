@@ -5,8 +5,8 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import androidx.annotation.NonNull;
-import c.a.s.a;
-import c.a.t.a.b.d.b;
+import c.a.t.a;
+import c.a.u.a.b.d.b;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.searchbox.pms.constants.PmsConstant;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AckHandlerThread extends HandlerThread {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ACK_DELAY = 1000;
@@ -125,15 +125,15 @@ public class AckHandlerThread extends HandlerThread {
     /* JADX INFO: Access modifiers changed from: private */
     public void retryAck(Context context, NewAckMessage newAckMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && a.f26073e && newAckMessage != null) {
+        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && a.f26457e && newAckMessage != null) {
             BLCPRequest bLCPRequest = new BLCPRequest();
             bLCPRequest.a = 2L;
-            bLCPRequest.f35158b = 95L;
-            bLCPRequest.f35159c = newAckMessage.getBody().getBytes();
-            bLCPRequest.f35160d = System.nanoTime();
+            bLCPRequest.f35626b = 95L;
+            bLCPRequest.f35627c = newAckMessage.getBody().getBytes();
+            bLCPRequest.f35628d = System.nanoTime();
             String str = TAG;
-            LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f35160d);
-            c.a.t.a.b.a.c(bLCPRequest, new b(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
+            LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f35628d);
+            c.a.u.a.b.a.c(bLCPRequest, new b(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AckHandlerThread this$0;
@@ -160,7 +160,7 @@ public class AckHandlerThread extends HandlerThread {
                     this.val$context = context;
                 }
 
-                @Override // c.a.t.a.b.d.b
+                @Override // c.a.u.a.b.d.b
                 public void onResponse(int i2, String str2, long j2, long j3, long j4, byte[] bArr) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) && i2 == 0) {

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class StatServiceEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCESS_WALLET_ENTRY_EVENT = "accessWalletEntryEvent";
@@ -23,6 +23,9 @@ public final class StatServiceEvent {
     public static final String CERTIFICATE_WHITE_LIST_PASSED = "#certificate_white_list_passed";
     public static final String CHANGE_PAY_METHOD = "changePayMethod";
     public static final String CHECK_CLICK_PWD = "clickCheckPwd";
+    public static final String CHECK_SIGN_ERROR = "checkSignError";
+    public static final String CHECK_SIGN_FAIL = "checkSignFail";
+    public static final String CHECK_SIGN_SUCCESS = "checkSignSuccess";
     public static final String CLICK_AGREE_BTN = "clickAgreeBtn";
     public static final String CLICK_CONFIRM_CARDNO = "confirmCardNo";
     public static final String CLICK_CONFIRM_PWD = "clickConfirmPwd";
@@ -239,6 +242,14 @@ public final class StatServiceEvent {
     public static final String NULL_SMS_LENTH = "smsLengthNull";
     public static final String NULL_SMS_STYLE = "smsStyleNull";
     public static final String OBTAINED_CAMERA_PERMISSION = "obtainedDXMPayCameraPermission";
+    public static final String OCR_BANKCARD_LOAD_SO_ERROR = "ocrBankcardLoadSoError";
+    public static final String OCR_BANKCARD_LOAD_SO_FAIL = "ocrBankcardLoadSoFail";
+    public static final String OCR_BANKCARD_LOAD_SO_SUCCESS = "ocrBankcardLoadSoSuccess";
+    public static final String OCR_BANKCARD_START_LOAD_SO = "ocrBankcardStartLoadSo";
+    public static final String OCR_IDCARD_LOAD_SO_ERROR = "ocrIdcardLoadSoError";
+    public static final String OCR_IDCARD_LOAD_SO_FAIL = "ocrIdcardLoadSoFail";
+    public static final String OCR_IDCARD_LOAD_SO_SUCCESS = "ocrIdcardLoadSoSuccess";
+    public static final String OCR_IDCARD_START_LOAD_SO = "ocrIdcardStartLoadSo";
     public static final String ONE_KEY_CLICK_PAY = "onekeyClickpay";
     public static final String ONE_KEY_PAY_ACCEPT_FAIL = "onekeyPayAcceptFail";
     public static final String OPEN_BDUSS_EMPTY = "open_bduss_empty";
@@ -289,6 +300,7 @@ public final class StatServiceEvent {
     public static final String SMS_STYLE = "smsStyle";
     public static final String SSL_CERTIFICATE_ERROR = "#ssl_certificate_error";
     public static final String SSL_PINNING_ERROR = "#ssl_pinning_error";
+    public static final String START_CHECK_SIGN = "startCheckSign";
     public static final String STAT_CHANGENUMAFTSCAN = "#bankCardNumChangedAfterScan";
     public static final String STAT_CLICKNEXT = "takephotoClickNext";
     public static final String STAT_MANUAINPUT = "manualInputBankCard";

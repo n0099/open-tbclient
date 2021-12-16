@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletApiExtListener;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class b implements WalletApiExtListener.LoginstatuSyncListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class b implements WalletApiExtListener.LoginstatuSyncListener {
                 public final /* synthetic */ WalletApiExtListener.SyncLoginStatusCb a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f53329b;
+                public final /* synthetic */ b f53909b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -70,7 +70,7 @@ public class b implements WalletApiExtListener.LoginstatuSyncListener {
                             return;
                         }
                     }
-                    this.f53329b = this;
+                    this.f53909b = this;
                     this.a = syncLoginStatusCb;
                 }
 

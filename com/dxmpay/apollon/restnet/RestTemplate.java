@@ -26,34 +26,34 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class RestTemplate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AbstractHttpMessageConverter<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RestHttpRequestInterceptor> f55125b;
+    public List<RestHttpRequestInterceptor> f55705b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f55126c;
+    public Context f55706c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f55127d;
+    public String f55707d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55128e;
+    public String f55708e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f55129f;
+    public boolean f55709f;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public final class b implements RestHttpRequestInterceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,9 +143,9 @@ public class RestTemplate {
                 }
                 LogUtil.d("RestTemplate", sb.toString());
             }
-            d a2 = c.b().a(this.f55126c, this.f55128e, this.f55127d, str, httpDefines$HttpMethod, list, restMultipartEntity, str2, z);
+            d a2 = c.b().a(this.f55706c, this.f55708e, this.f55707d, str, httpDefines$HttpMethod, list, restMultipartEntity, str2, z);
             for (RestHttpRequestInterceptor restHttpRequestInterceptor : f()) {
-                restHttpRequestInterceptor.a(this.f55126c, a2);
+                restHttpRequestInterceptor.a(this.f55706c, a2);
             }
             return a2;
         }
@@ -163,7 +163,7 @@ public class RestTemplate {
                 if (port > 0) {
                     String str = host + ":" + port;
                 }
-                if (this.f55129f) {
+                if (this.f55709f) {
                     ((RestUrlConnectionRequest) dVar).c(RestHttpDNSEnabler.a(url));
                 }
                 dVar.a(url.toString());
@@ -261,7 +261,7 @@ public class RestTemplate {
     public List<RestHttpRequestInterceptor> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55125b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55705b : (List) invokeV.objValue;
     }
 
     public final void g(HttpDefines$HttpMethod httpDefines$HttpMethod, String str, e eVar) {
@@ -415,7 +415,7 @@ public class RestTemplate {
     public void setRequestInterceptor(List<RestHttpRequestInterceptor> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
-            this.f55125b = list;
+            this.f55705b = list;
         }
     }
 
@@ -456,13 +456,13 @@ public class RestTemplate {
             }
         }
         this.a = null;
-        this.f55125b = new ArrayList();
-        this.f55126c = null;
-        this.f55127d = null;
-        this.f55128e = "";
-        this.f55129f = true;
-        this.f55128e = str2;
-        this.f55126c = context.getApplicationContext();
-        this.f55127d = str;
+        this.f55705b = new ArrayList();
+        this.f55706c = null;
+        this.f55707d = null;
+        this.f55708e = "";
+        this.f55709f = true;
+        this.f55708e = str2;
+        this.f55706c = context.getApplicationContext();
+        this.f55707d = str;
     }
 }

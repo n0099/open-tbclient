@@ -2,16 +2,16 @@ package com.baidu.nadcore.player.tail;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import c.a.b0.b.b;
-import c.a.b0.b.d;
-import c.a.b0.b.g;
+import c.a.c0.b.b;
+import c.a.c0.b.d;
+import c.a.c0.b.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

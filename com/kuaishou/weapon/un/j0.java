@@ -13,15 +13,15 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j0 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f56676b = "su";
+    public static final String f57257b = "su";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f56677c;
+    public static final String[] f57258c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -38,7 +38,7 @@ public class j0 {
                 return;
             }
         }
-        f56677c = new String[]{u1.a("jMfC18KMz8zAws+M"), u1.a("jMfC18KMz8zAws+MwcrNjA=="), u1.a("jMfC18KMz8zAws+M28HKzYw="), u1.a("jNDBys2M"), u1.a("jNDWjMHKzYw="), u1.a("jNDa0NfGzozBys2M"), u1.a("jNDa0NfGzozBys2MxcLKz9DCxcaM"), u1.a("jNDa0NfGzozbwcrNjA==")};
+        f57258c = new String[]{u1.a("jMfC18KMz8zAws+M"), u1.a("jMfC18KMz8zAws+MwcrNjA=="), u1.a("jMfC18KMz8zAws+M28HKzYw="), u1.a("jNDBys2M"), u1.a("jNDWjMHKzYw="), u1.a("jNDa0NfGzozBys2M"), u1.a("jNDa0NfGzozBys2MxcLKz9DCxcaM"), u1.a("jNDa0NfGzozbwcrNjA==")};
     }
 
     public j0(Context context) {
@@ -93,8 +93,8 @@ public class j0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                for (String str : a(f56677c)) {
-                    if (new File(str, f56676b).exists()) {
+                for (String str : a(f57258c)) {
+                    if (new File(str, f57257b).exists()) {
                         return 1;
                     }
                 }

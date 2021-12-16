@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Comparator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Range<T> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -25,7 +25,7 @@ public final class Range<T> implements Serializable {
     public transient String toString;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ComparableComparator implements Comparator {
         public static final /* synthetic */ ComparableComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

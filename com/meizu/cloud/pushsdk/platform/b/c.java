@@ -11,41 +11,41 @@ import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class c<T extends BasicPushStatus> {
 
     /* renamed from: d  reason: collision with root package name */
-    public ScheduledExecutorService f60570d;
+    public ScheduledExecutorService f61151d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f60571e;
+    public Context f61152e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60572f;
+    public String f61153f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f60573g;
+    public String f61154g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f60574h;
+    public String f61155h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile String f60575i;
+    public volatile String f61156i;
 
     /* renamed from: j  reason: collision with root package name */
-    public com.meizu.cloud.pushsdk.platform.a.a f60576j;
+    public com.meizu.cloud.pushsdk.platform.a.a f61157j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f60577k = true;
+    public boolean f61158k = true;
     public boolean l = true;
     public String a = null;
 
     public c(Context context, String str, String str2, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
-        this.f60570d = scheduledExecutorService;
-        this.f60571e = context;
-        this.f60572f = str;
-        this.f60573g = str2;
-        this.f60576j = aVar;
+        this.f61151d = scheduledExecutorService;
+        this.f61152e = context;
+        this.f61153f = str;
+        this.f61154g = str2;
+        this.f61157j = aVar;
     }
 
     private boolean a(int i2) {
@@ -58,7 +58,7 @@ public abstract class c<T extends BasicPushStatus> {
     }
 
     private boolean h() {
-        return this.l && !this.f60571e.getPackageName().equals(this.a);
+        return this.l && !this.f61152e.getPackageName().equals(this.a);
     }
 
     public String a(Context context, String str) {
@@ -93,7 +93,7 @@ public abstract class c<T extends BasicPushStatus> {
         try {
             intent.setPackage(this.a);
             intent.setAction(PushConstants.MZ_PUSH_MANAGER_SERVICE_ACTION);
-            this.f60571e.startService(intent);
+            this.f61152e.startService(intent);
         } catch (Exception e2) {
             c.k.a.a.a.b("Strategy", "start RemoteService error " + e2.getMessage());
         }
@@ -102,7 +102,7 @@ public abstract class c<T extends BasicPushStatus> {
     public abstract void a(T t);
 
     public void a(boolean z) {
-        this.f60577k = z;
+        this.f61158k = z;
     }
 
     public abstract boolean a();
@@ -110,17 +110,17 @@ public abstract class c<T extends BasicPushStatus> {
     public abstract T b();
 
     public void b(String str) {
-        this.f60572f = str;
+        this.f61153f = str;
     }
 
     public abstract Intent c();
 
     public void c(String str) {
-        this.f60573g = str;
+        this.f61154g = str;
     }
 
     public void d(String str) {
-        this.f60574h = str;
+        this.f61155h = str;
     }
 
     public Intent[] d() {
@@ -134,7 +134,7 @@ public abstract class c<T extends BasicPushStatus> {
     public abstract int g();
 
     public boolean k() {
-        return this.l && this.f60577k && !TextUtils.isEmpty(a(this.f60571e, PushConstants.MZ_PUSH_MANAGER_SERVICE_ACTION));
+        return this.l && this.f61158k && !TextUtils.isEmpty(a(this.f61152e, PushConstants.MZ_PUSH_MANAGER_SERVICE_ACTION));
     }
 
     public boolean l() {
@@ -142,7 +142,7 @@ public abstract class c<T extends BasicPushStatus> {
     }
 
     public boolean m() {
-        ScheduledExecutorService scheduledExecutorService = this.f60570d;
+        ScheduledExecutorService scheduledExecutorService = this.f61151d;
         if (scheduledExecutorService != null) {
             scheduledExecutorService.execute(new Runnable() { // from class: com.meizu.cloud.pushsdk.platform.b.c.1
                 @Override // java.lang.Runnable
@@ -186,7 +186,7 @@ public abstract class c<T extends BasicPushStatus> {
                         a(intent);
                     }
                 }
-                MzSystemUtils.sendMessageFromBroadcast(this.f60571e, new Intent("com.meizu.cloud.pushservice.action.PUSH_SERVICE_START"), null, this.f60571e.getPackageName());
+                MzSystemUtils.sendMessageFromBroadcast(this.f61152e, new Intent("com.meizu.cloud.pushservice.action.PUSH_SERVICE_START"), null, this.f61152e.getPackageName());
             } else {
                 t = e();
                 c.k.a.a.a.d("Strategy", "real response status " + t);
@@ -226,10 +226,10 @@ public abstract class c<T extends BasicPushStatus> {
     }
 
     public String o() {
-        if (TextUtils.isEmpty(this.f60575i)) {
-            this.f60575i = MzSystemUtils.getDeviceId(this.f60571e);
-            c.k.a.a.a.b("Strategy", "deviceId " + this.f60575i);
+        if (TextUtils.isEmpty(this.f61156i)) {
+            this.f61156i = MzSystemUtils.getDeviceId(this.f61152e);
+            c.k.a.a.a.b("Strategy", "deviceId " + this.f61156i);
         }
-        return this.f60575i;
+        return this.f61156i;
     }
 }

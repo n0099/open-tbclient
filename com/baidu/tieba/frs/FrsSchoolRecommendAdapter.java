@@ -2,12 +2,12 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.q0.s.q.t1;
-import c.a.q0.s.q.u1;
-import c.a.r0.d1.c3.d;
-import c.a.r0.d1.k;
-import c.a.r0.d1.k1;
-import c.a.r0.d1.x;
+import c.a.r0.s.r.t1;
+import c.a.r0.s.r.u1;
+import c.a.s0.d1.c3.d;
+import c.a.s0.d1.k;
+import c.a.s0.d1.k1;
+import c.a.s0.d1.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public d x;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class FrsSchoolRecommendViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,14 +80,14 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.x = new d(this.o, this.f2911i);
+            this.x = new d(this.o, this.f2875i);
             return new FrsSchoolRecommendViewHolder(this, this.x);
         }
         return (FrsSchoolRecommendViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.d1.k, c.a.d.m.e.a
+    @Override // c.a.s0.d1.k, c.a.d.m.e.a
     /* renamed from: u0 */
     public View Z(int i2, View view, ViewGroup viewGroup, t1 t1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         InterceptResult invokeCommon;

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ProcessDelegateBaseProvider extends ContentProvider implements Agent, DelegateDef {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

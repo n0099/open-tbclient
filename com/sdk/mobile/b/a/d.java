@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.a.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f61039b;
+    public long f61620b;
 
     /* renamed from: c  reason: collision with root package name */
-    public /* synthetic */ a f61040c;
+    public /* synthetic */ a f61621c;
 
     public d(a aVar, long j2) {
         Interceptable interceptable = $ic;
@@ -35,15 +35,15 @@ public final class d implements Runnable {
                 return;
             }
         }
-        this.f61040c = aVar;
+        this.f61621c = aVar;
         this.a = new Handler(Looper.getMainLooper());
-        this.f61039b = j2;
+        this.f61620b = j2;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.postDelayed(this, this.f61039b);
+            this.a.postDelayed(this, this.f61620b);
         }
     }
 
@@ -62,15 +62,15 @@ public final class d implements Runnable {
         f fVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            fVar = this.f61040c.f61034e;
+            fVar = this.f61621c.f61615e;
             if (fVar != null) {
                 str = a.a;
-                bool = a.f61031b;
+                bool = a.f61612b;
                 com.sdk.base.framework.a.a.c.c(str, "超时，已取消请求", bool);
-                fVar2 = this.f61040c.f61034e;
+                fVar2 = this.f61621c.f61615e;
                 fVar2.a();
             }
-            this.f61040c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
+            this.f61621c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
         }
     }
 }

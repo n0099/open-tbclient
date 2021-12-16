@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.payresult.datamodel.H5ResultParams;
 import com.dxmpay.apollon.beans.IBeanResponse;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PayResponse implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

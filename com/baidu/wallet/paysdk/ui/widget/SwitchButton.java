@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.utils.AccessibilityUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SwitchButton extends ImageButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f53972b;
+    public boolean f54552b;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface a {
         void a(boolean z);
     }
@@ -44,14 +44,14 @@ public class SwitchButton extends ImageButton {
                 return;
             }
         }
-        this.f53972b = false;
+        this.f54552b = false;
         a();
     }
 
     public boolean isChanged() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == this.f53972b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == this.f54552b : invokeV.booleanValue;
     }
 
     public boolean isChecked() {
@@ -63,7 +63,7 @@ public class SwitchButton extends ImageButton {
     public void resetChecked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f53972b = this.a;
+            this.f54552b = this.a;
         }
     }
 
@@ -89,7 +89,7 @@ public class SwitchButton extends ImageButton {
                 public final /* synthetic */ a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SwitchButton f53973b;
+                public final /* synthetic */ SwitchButton f54553b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -106,7 +106,7 @@ public class SwitchButton extends ImageButton {
                             return;
                         }
                     }
-                    this.f53973b = this;
+                    this.f54553b = this;
                     this.a = aVar;
                 }
 
@@ -117,7 +117,7 @@ public class SwitchButton extends ImageButton {
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (aVar2 = this.a) == null) {
                         return;
                     }
-                    aVar2.a(!this.f53973b.a);
+                    aVar2.a(!this.f54553b.a);
                 }
             });
         }
@@ -150,7 +150,7 @@ public class SwitchButton extends ImageButton {
                 return;
             }
         }
-        this.f53972b = false;
+        this.f54552b = false;
         a();
     }
 }

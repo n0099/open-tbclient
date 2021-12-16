@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class IndoorPlanNode {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36163b;
+    public String f36652b;
 
     public IndoorPlanNode(LatLng latLng, String str) {
         Interceptable interceptable = $ic;
@@ -32,15 +32,15 @@ public class IndoorPlanNode {
             }
         }
         this.a = null;
-        this.f36163b = null;
+        this.f36652b = null;
         this.a = latLng;
-        this.f36163b = str;
+        this.f36652b = str;
     }
 
     public String getFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36163b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36652b : (String) invokeV.objValue;
     }
 
     public LatLng getLocation() {

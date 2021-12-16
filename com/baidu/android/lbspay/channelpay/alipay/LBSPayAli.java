@@ -20,7 +20,7 @@ import com.dxmpay.wallet.core.NoProguard;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LBSPayAli implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALI_AUTH_PAY = "authorize_pay";
@@ -33,18 +33,18 @@ public class LBSPayAli implements NoProguard {
     public String mServiceType;
 
     /* renamed from: com.baidu.android.lbspay.channelpay.alipay.LBSPayAli$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface INoSupportAliAuthorizePay {
         void onNoSupportAliAuthorizePay();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static LBSPayAli a;

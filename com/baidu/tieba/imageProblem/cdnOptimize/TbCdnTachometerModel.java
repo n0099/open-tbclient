@@ -2,8 +2,8 @@ package com.baidu.tieba.imageProblem.cdnOptimize;
 
 import c.a.d.a.f;
 import c.a.d.f.j.a.e;
-import c.a.d.f.p.q;
-import c.a.q0.d1.r;
+import c.a.d.f.p.r;
+import c.a.r0.d1.t;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IPLIST_ADDRESS;
@@ -32,12 +32,12 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbCdnTachometerModelCallBack f46390e;
+    public TbCdnTachometerModelCallBack f46889e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f46391f;
+    public HttpMessageListener f46890f;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface TbCdnTachometerModelCallBack {
         void callBack(TbCdnIpListData tbCdnIpListData);
     }
@@ -76,8 +76,8 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                 return;
             }
         }
-        this.f46390e = null;
-        this.f46391f = new HttpMessageListener(this, CmdConfigHttp.CDN_IPLIST_CMD) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.1
+        this.f46889e = null;
+        this.f46890f = new HttpMessageListener(this, CmdConfigHttp.CDN_IPLIST_CMD) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ TbCdnTachometerModel a;
@@ -114,12 +114,12 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                     boolean z = false;
                     boolean z2 = true;
                     if (httpResponsedMessage.getError() != 0 || tbCdnIpListData == null || tbCdnIpListData.a != 0) {
-                        if (this.a.f46390e != null) {
+                        if (this.a.f46889e != null) {
                             i4 = httpResponsedMessage.getError();
                             String errorString = httpResponsedMessage.getErrorString();
                             if (httpResponsedMessage.getError() == 0) {
                                 i4 = tbCdnIpListData.a;
-                                str = tbCdnIpListData.f46377b;
+                                str = tbCdnIpListData.f46876b;
                                 ImageLogger.getCDNListError(z, z2, String.valueOf(i4), str);
                             }
                             str = errorString;
@@ -127,10 +127,10 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                             ImageLogger.getCDNListError(z, z2, String.valueOf(i4), str);
                         }
                     } else {
-                        if (this.a.f46390e != null) {
-                            this.a.f46390e.callBack(tbCdnIpListData);
+                        if (this.a.f46889e != null) {
+                            this.a.f46889e.callBack(tbCdnIpListData);
                         }
-                        if (tbCdnIpListData.f46380e.size() == 0) {
+                        if (tbCdnIpListData.f46879e.size() == 0) {
                             str = "noList";
                             z = true;
                             z2 = false;
@@ -147,8 +147,8 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CDN_IPLIST_CMD, IPLIST_ADDRESS);
         tbHttpMessageTask.setResponsedClass(TbCdnGetIPListHttpResponseMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().unRegisterListener(this.f46391f);
-        MessageManager.getInstance().registerListener(this.f46391f);
+        MessageManager.getInstance().unRegisterListener(this.f46890f);
+        MessageManager.getInstance().registerListener(this.f46890f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -165,7 +165,7 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CDN_IPLIST_CMD);
-            MessageManager.getInstance().unRegisterListener(this.f46391f);
+            MessageManager.getInstance().unRegisterListener(this.f46890f);
         }
     }
 
@@ -184,7 +184,7 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, str4, Boolean.valueOf(z)})) == null) {
-            if (str == null || str2 == null || str3 == null || str4 == null || !r.b(str)) {
+            if (str == null || str2 == null || str3 == null || str4 == null || !t.b(str)) {
                 return false;
             }
             try {
@@ -194,21 +194,21 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                 eVar.b().s(str);
                 boolean z3 = true;
                 imgHttpClient.getNetDataWithIp(str2, str3, 1);
-                byte[] bArr = eVar.c().f2450h;
+                byte[] bArr = eVar.c().f2414h;
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                if (eVar.c().f2444b != 200) {
+                if (eVar.c().f2408b != 200) {
                     z3 = false;
                 }
                 String str7 = "";
                 if (!z3) {
-                    str5 = "NETError_" + eVar.c().f2444b + "-" + (eVar.a() != null ? eVar.a().f2431h : null);
+                    str5 = "NETError_" + eVar.c().f2408b + "-" + (eVar.a() != null ? eVar.a().f2395h : null);
                 } else if (bArr != null) {
                     i2 = bArr.length;
-                    String d2 = q.d(bArr);
+                    String d2 = r.d(bArr);
                     if (!str4.equalsIgnoreCase(d2)) {
                         String str8 = "MD5Error_" + d2 + "_" + str4;
-                        if (eVar.a() != null && eVar.a().f2431h != null && eVar.a().f2431h.length() != 0) {
-                            str8 = str8 + ":" + eVar.c().f2444b + "-" + eVar.a().f2431h;
+                        if (eVar.a() != null && eVar.a().f2395h != null && eVar.a().f2395h.length() != 0) {
+                            str8 = str8 + ":" + eVar.c().f2408b + "-" + eVar.a().f2395h;
                             eVar.f(null);
                         }
                         str7 = str8;
@@ -220,8 +220,8 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                     return z2;
                 } else {
                     str5 = "downSizeZero";
-                    if (eVar.a() != null && eVar.a().f2431h != null && eVar.a().f2431h.length() != 0) {
-                        str5 = "downSizeZero:" + eVar.c().f2444b + "-" + eVar.a().f2431h;
+                    if (eVar.a() != null && eVar.a().f2395h != null && eVar.a().f2395h.length() != 0) {
+                        str5 = "downSizeZero:" + eVar.c().f2408b + "-" + eVar.a().f2395h;
                         eVar.f(null);
                     }
                 }
@@ -256,7 +256,7 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
     public void setCndTachometerModelCallBack(TbCdnTachometerModelCallBack tbCdnTachometerModelCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tbCdnTachometerModelCallBack) == null) {
-            this.f46390e = tbCdnTachometerModelCallBack;
+            this.f46889e = tbCdnTachometerModelCallBack;
         }
     }
 }

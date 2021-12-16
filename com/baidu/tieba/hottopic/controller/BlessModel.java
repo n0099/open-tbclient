@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class BlessModel extends BdBaseModel<BaseActivity<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f45632e;
+    public BaseActivity<?> f46131e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlessModel(BaseActivity<?> baseActivity) {
@@ -36,7 +36,7 @@ public class BlessModel extends BdBaseModel<BaseActivity<?>> {
                 return;
             }
         }
-        this.f45632e = baseActivity;
+        this.f46131e = baseActivity;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

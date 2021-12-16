@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class y implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f27454b;
+    public final String f27829b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AssetManager f27455c;
+    public final AssetManager f27830c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a0 f27456d;
+    public a0 f27831d;
 
     public y(AssetManager assetManager, ContextWrapper contextWrapper, boolean z) {
         Interceptable interceptable = $ic;
@@ -40,13 +40,13 @@ public class y implements h {
                 return;
             }
         }
-        this.f27456d = null;
-        this.f27455c = assetManager;
+        this.f27831d = null;
+        this.f27830c = assetManager;
         String absolutePath = contextWrapper.getFilesDir().getAbsolutePath();
         if (!absolutePath.endsWith("/")) {
             absolutePath = absolutePath + "/";
         }
-        this.f27454b = absolutePath;
+        this.f27829b = absolutePath;
         if (z) {
             this.a = h(contextWrapper);
         } else {
@@ -59,8 +59,8 @@ public class y implements h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            g gVar = new g(this.f27455c, str, Files.FileType.Internal);
-            return this.f27456d != null ? g(gVar, str) : gVar;
+            g gVar = new g(this.f27830c, str, Files.FileType.Internal);
+            return this.f27831d != null ? g(gVar, str) : gVar;
         }
         return (c.b.b.m.a) invokeL.objValue;
     }
@@ -69,14 +69,14 @@ public class y implements h {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27454b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27829b : (String) invokeV.objValue;
     }
 
     @Override // c.b.b.l.a.h
     public a0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27456d : (a0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27831d : (a0) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Files
@@ -84,8 +84,8 @@ public class y implements h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, fileType)) == null) {
-            g gVar = new g(fileType == Files.FileType.Internal ? this.f27455c : null, str, fileType);
-            return (this.f27456d == null || fileType != Files.FileType.Internal) ? gVar : g(gVar, str);
+            g gVar = new g(fileType == Files.FileType.Internal ? this.f27830c : null, str, fileType);
+            return (this.f27831d == null || fileType != Files.FileType.Internal) ? gVar : g(gVar, str);
         }
         return (c.b.b.m.a) invokeLL.objValue;
     }
@@ -109,7 +109,7 @@ public class y implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, aVar, str)) == null) {
             try {
-                this.f27455c.open(str).close();
+                this.f27830c.open(str).close();
                 return aVar;
             } catch (Exception unused) {
                 w wVar = new w(str);

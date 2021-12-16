@@ -11,14 +11,14 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, PidLoaderCreator> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Ssp.Pid, PidLoader> f28870b;
+    public final Map<Ssp.Pid, PidLoader> f29240b;
 
     public i(Map<String, PidLoaderCreator> map) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class i {
                 return;
             }
         }
-        this.f28870b = new HashMap();
+        this.f29240b = new HashMap();
         this.a = map;
     }
 
@@ -43,8 +43,8 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            synchronized (this.f28870b) {
-                PidLoader pidLoader = this.f28870b.get(pid);
+            synchronized (this.f29240b) {
+                PidLoader pidLoader = this.f29240b.get(pid);
                 if (pidLoader != null) {
                     return pidLoader;
                 }
@@ -59,7 +59,7 @@ public class i {
                     return null;
                 }
                 q0 q0Var = new q0(create);
-                this.f28870b.put(pid, q0Var);
+                this.f29240b.put(pid, q0Var);
                 return q0Var;
             }
         }

@@ -18,19 +18,19 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.kwad.sdk.core.webview.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f58005b;
+    public final boolean f58586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> f58006c;
+    public com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> f58587c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
             }
         }
         this.a = aVar;
-        this.f58005b = false;
+        this.f58586b = false;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
@@ -111,7 +111,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
     public void a(com.kwad.sdk.core.request.model.f fVar, com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, cVar) == null) {
-            com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> iVar = this.f58006c;
+            com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> iVar = this.f58587c;
             if (iVar != null) {
                 iVar.e();
             }
@@ -121,7 +121,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                 public final /* synthetic */ com.kwad.sdk.core.request.model.f a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f f58007b;
+                public final /* synthetic */ f f58588b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -138,7 +138,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                             return;
                         }
                     }
-                    this.f58007b = this;
+                    this.f58588b = this;
                     this.a = fVar;
                 }
 
@@ -168,14 +168,14 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                     return (AdResultData) invokeL.objValue;
                 }
             };
-            this.f58006c = iVar2;
+            this.f58587c = iVar2;
             iVar2.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.core.request.a, AdResultData>(this, cVar) { // from class: com.kwad.sdk.core.webview.jshandler.f.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.kwad.sdk.core.webview.kwai.c a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f f58008b;
+                public final /* synthetic */ f f58589b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -192,7 +192,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                             return;
                         }
                     }
-                    this.f58008b = this;
+                    this.f58589b = this;
                     this.a = cVar;
                 }
 
@@ -245,7 +245,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048579, this, aVar, adResultData) == null) {
                         if (adResultData.isAdResultDataEmpty()) {
-                            com.kwad.sdk.core.d.a.a("WebCardGetKsAdDataHandler", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(com.kwad.sdk.core.network.f.f57510e.n), com.kwad.sdk.core.network.f.f57510e.o));
+                            com.kwad.sdk.core.d.a.a("WebCardGetKsAdDataHandler", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(com.kwad.sdk.core.network.f.f58091e.n), com.kwad.sdk.core.network.f.f58091e.o));
                             runnable = new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.f.2.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +286,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                                 public final /* synthetic */ AdResultData a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass2 f58009b;
+                                public final /* synthetic */ AnonymousClass2 f58590b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -303,7 +303,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                                             return;
                                         }
                                     }
-                                    this.f58009b = this;
+                                    this.f58590b = this;
                                     this.a = adResultData;
                                 }
 
@@ -313,7 +313,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         a aVar2 = new a();
                                         aVar2.a = this.a.adTemplateList;
-                                        this.f58009b.a.a(aVar2);
+                                        this.f58590b.a.a(aVar2);
                                     }
                                 }
                             };
@@ -329,7 +329,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) {
-            if (!this.f58005b) {
+            if (!this.f58586b) {
                 if (this.a.c()) {
                     cVar.a(-1, "native adTemplate is null");
                     return;
@@ -343,11 +343,11 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
             com.kwad.sdk.core.request.model.f fVar = new com.kwad.sdk.core.request.model.f(a2.mAdScene);
             SceneImpl sceneImpl = a2.mAdScene;
             if (sceneImpl != null) {
-                fVar.f57783b = sceneImpl.getPageScene();
+                fVar.f58364b = sceneImpl.getPageScene();
             }
-            fVar.f57784c = 106L;
+            fVar.f58365c = 106L;
             fVar.a.setAdNum(12);
-            fVar.f57785d = com.kwad.sdk.core.response.a.d.x(a2);
+            fVar.f58366d = com.kwad.sdk.core.response.a.d.x(a2);
             a(fVar, cVar);
         }
     }
@@ -356,7 +356,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
     public void b() {
         com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (iVar = this.f58006c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (iVar = this.f58587c) == null) {
             return;
         }
         iVar.e();

@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface SdpObserver {
     @CalledByNative
     void onCreateFailure(String str);

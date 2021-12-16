@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import android.opengl.Matrix;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.t.h;
+import c.a.y0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +23,7 @@ import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnMediaPreviewTouchEventListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_DELETE = 106;

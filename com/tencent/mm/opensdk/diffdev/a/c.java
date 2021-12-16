@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ b f62249g;
+    public final /* synthetic */ b f62830g;
 
     public c(b bVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class c implements Runnable {
                 return;
             }
         }
-        this.f62249g = bVar;
+        this.f62830g = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -39,7 +39,7 @@ public final class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ArrayList<OAuthListener> arrayList = new ArrayList();
-            list = this.f62249g.f62248f.f62245c;
+            list = this.f62830g.f62829f.f62826c;
             arrayList.addAll(list);
             for (OAuthListener oAuthListener : arrayList) {
                 oAuthListener.onQrcodeScanned();

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,13 +34,13 @@ public class f1 {
             try {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 String networkCountryIso = telephonyManager.getNetworkCountryIso();
-                return TextUtils.isEmpty(networkCountryIso) ? y0.f56911c : networkCountryIso;
+                return TextUtils.isEmpty(networkCountryIso) ? y0.f57492c : networkCountryIso;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;
@@ -53,13 +53,13 @@ public class f1 {
             try {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f56910b;
+                    return y0.f57491b;
                 }
                 String networkOperator = telephonyManager.getNetworkOperator();
-                return TextUtils.isEmpty(networkOperator) ? y0.f56911c : networkOperator;
+                return TextUtils.isEmpty(networkOperator) ? y0.f57492c : networkOperator;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f56912d;
+                return y0.f57493d;
             }
         }
         return (String) invokeL.objValue;

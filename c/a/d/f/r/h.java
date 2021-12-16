@@ -22,27 +22,27 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static h f2718h;
+    public static h f2682h;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<BasicNameValuePair> f2719b;
+    public List<BasicNameValuePair> f2683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f2720c;
+    public String[] f2684c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2721d;
+    public String f2685d;
 
     /* renamed from: e  reason: collision with root package name */
-    public i f2722e;
+    public i f2686e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<g> f2723f;
+    public ArrayList<g> f2687f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f2724g;
+    public g f2688g;
 
     /* loaded from: classes.dex */
     public class a implements g {
@@ -72,7 +72,7 @@ public class h {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                Iterator it = this.a.f2723f.iterator();
+                Iterator it = this.a.f2687f.iterator();
                 while (it.hasNext()) {
                     ((g) it.next()).a(str);
                 }
@@ -83,8 +83,8 @@ public class h {
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.a.f2722e = null;
-                Iterator it = this.a.f2723f.iterator();
+                this.a.f2686e = null;
+                Iterator it = this.a.f2687f.iterator();
                 while (it.hasNext()) {
                     ((g) it.next()).b(i2, str);
                 }
@@ -95,7 +95,7 @@ public class h {
         public void c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-                Iterator it = this.a.f2723f.iterator();
+                Iterator it = this.a.f2687f.iterator();
                 while (it.hasNext()) {
                     ((g) it.next()).c(cVar);
                 }
@@ -106,7 +106,7 @@ public class h {
         public void d(byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-                Iterator it = this.a.f2723f.iterator();
+                Iterator it = this.a.f2687f.iterator();
                 while (it.hasNext()) {
                     ((g) it.next()).d(bArr);
                 }
@@ -117,7 +117,7 @@ public class h {
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                Iterator it = this.a.f2723f.iterator();
+                Iterator it = this.a.f2687f.iterator();
                 while (it.hasNext()) {
                     ((g) it.next()).e();
                 }
@@ -128,7 +128,7 @@ public class h {
         public void f(k kVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, kVar) == null) {
-                Iterator it = this.a.f2723f.iterator();
+                Iterator it = this.a.f2687f.iterator();
                 while (it.hasNext()) {
                     ((g) it.next()).f(kVar);
                 }
@@ -166,7 +166,7 @@ public class h {
         public void onOpen(Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
-                Iterator it = this.a.f2723f.iterator();
+                Iterator it = this.a.f2687f.iterator();
                 while (it.hasNext()) {
                     ((g) it.next()).onOpen(map);
                 }
@@ -203,26 +203,26 @@ public class h {
             }
         }
         this.a = null;
-        this.f2719b = null;
-        this.f2721d = null;
-        this.f2722e = null;
-        this.f2723f = new ArrayList<>();
-        this.f2724g = null;
-        this.f2724g = new a(this);
+        this.f2683b = null;
+        this.f2685d = null;
+        this.f2686e = null;
+        this.f2687f = new ArrayList<>();
+        this.f2688g = null;
+        this.f2688g = new a(this);
     }
 
     public static h j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f2718h == null) {
+            if (f2682h == null) {
                 synchronized (h.class) {
-                    if (f2718h == null) {
-                        f2718h = new h();
+                    if (f2682h == null) {
+                        f2682h = new h();
                     }
                 }
             }
-            return f2718h;
+            return f2682h;
         }
         return (h) invokeV.objValue;
     }
@@ -233,10 +233,10 @@ public class h {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             if (gVar != null) {
                 synchronized (h.class) {
-                    if (this.f2723f.contains(gVar)) {
+                    if (this.f2687f.contains(gVar)) {
                         return false;
                     }
-                    return this.f2723f.add(gVar);
+                    return this.f2687f.add(gVar);
                 }
             }
             return false;
@@ -247,7 +247,7 @@ public class h {
     public void d() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (iVar = this.f2722e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (iVar = this.f2686e) == null) {
             return;
         }
         iVar.o();
@@ -256,7 +256,7 @@ public class h {
     public void e() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (iVar = this.f2722e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (iVar = this.f2686e) == null) {
             return;
         }
         iVar.p();
@@ -265,14 +265,14 @@ public class h {
     public void f(int i2, String str) {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || (iVar = this.f2722e) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || (iVar = this.f2686e) == null) {
             return;
         }
-        this.f2722e = null;
+        this.f2686e = null;
         iVar.q(i2, str);
-        if (this.f2722e != null) {
+        if (this.f2686e != null) {
             BdLog.e("close is opened and thread is leaded!!!");
-            this.f2722e = null;
+            this.f2686e = null;
         }
     }
 
@@ -280,7 +280,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            i iVar = this.f2722e;
+            i iVar = this.f2686e;
             if (iVar != null) {
                 return iVar.z();
             }
@@ -293,7 +293,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            i iVar = this.f2722e;
+            i iVar = this.f2686e;
             if (iVar != null) {
                 return iVar.A();
             }
@@ -306,7 +306,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            i iVar = this.f2722e;
+            i iVar = this.f2686e;
             if (iVar != null) {
                 return iVar.v();
             }
@@ -320,10 +320,10 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (t()) {
-                c.a.d.f.p.l.c();
+                c.a.d.f.p.m.c();
             }
-            i iVar = this.f2722e;
-            return (iVar == null || !iVar.E() || this.f2722e.F()) ? false : true;
+            i iVar = this.f2686e;
+            return (iVar == null || !iVar.E() || this.f2686e.F()) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -333,9 +333,9 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (t()) {
-                c.a.d.f.p.l.c();
+                c.a.d.f.p.m.c();
             }
-            i iVar = this.f2722e;
+            i iVar = this.f2686e;
             return iVar != null && iVar.E();
         }
         return invokeV.booleanValue;
@@ -345,7 +345,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            i iVar = this.f2722e;
+            i iVar = this.f2686e;
             if (iVar != null) {
                 return iVar.w();
             }
@@ -358,7 +358,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            i iVar = this.f2722e;
+            i iVar = this.f2686e;
             if (iVar != null) {
                 return iVar.x();
             }
@@ -371,7 +371,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            i iVar = this.f2722e;
+            i iVar = this.f2686e;
             if (iVar != null) {
                 return iVar.B();
             }
@@ -384,7 +384,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            i iVar = this.f2722e;
+            i iVar = this.f2686e;
             if (iVar != null) {
                 return iVar.y();
             }
@@ -403,9 +403,9 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, str2, strArr, list) == null) {
             this.a = str;
-            this.f2721d = str2;
-            this.f2720c = strArr;
-            this.f2719b = list;
+            this.f2685d = str2;
+            this.f2684c = strArr;
+            this.f2683b = list;
             t();
         }
     }
@@ -415,9 +415,9 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             if (t()) {
-                c.a.d.f.p.l.c();
+                c.a.d.f.p.m.c();
             }
-            i iVar = this.f2722e;
+            i iVar = this.f2686e;
             return iVar != null && iVar.C();
         }
         return invokeV.booleanValue;
@@ -434,26 +434,26 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             if (t()) {
-                c.a.d.f.p.l.c();
+                c.a.d.f.p.m.c();
             }
-            i iVar = this.f2722e;
+            i iVar = this.f2686e;
             if (iVar != null) {
-                if (!iVar.C() && !this.f2722e.E()) {
-                    this.f2722e.q(1, null);
-                    this.f2722e = null;
+                if (!iVar.C() && !this.f2686e.E()) {
+                    this.f2686e.q(1, null);
+                    this.f2686e = null;
                 } else {
                     t();
                     return true;
                 }
             }
-            this.f2722e = new i();
+            this.f2686e = new i();
             try {
                 d0 d0Var = new d0();
-                d0Var.j(this.f2721d);
-                this.f2722e.r(this.a, this.f2720c, this.f2724g, d0Var, this.f2719b);
+                d0Var.j(this.f2685d);
+                this.f2686e.r(this.a, this.f2684c, this.f2688g, d0Var, this.f2683b);
                 return true;
             } catch (WebSocketException unused) {
-                this.f2722e = null;
+                this.f2686e = null;
                 return false;
             }
         }
@@ -468,9 +468,9 @@ public class h {
                 if (cVar == null) {
                     return false;
                 }
-                c.a.d.f.p.l.c();
-                if (this.f2722e != null) {
-                    return this.f2722e.I(cVar);
+                c.a.d.f.p.m.c();
+                if (this.f2686e != null) {
+                    return this.f2686e.I(cVar);
                 }
                 if (cVar != null) {
                     cVar.a(1);

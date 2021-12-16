@@ -12,7 +12,7 @@ import java.lang.reflect.Modifier;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.Validate;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ConstructorUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

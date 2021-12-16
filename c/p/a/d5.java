@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.image.gif2.GifImageView;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d5 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ GifImageView f30775e;
+    public final /* synthetic */ GifImageView f31145e;
 
     public d5(GifImageView gifImageView) {
         Interceptable interceptable = $ic;
@@ -28,18 +28,18 @@ public class d5 implements Runnable {
                 return;
             }
         }
-        this.f30775e = gifImageView;
+        this.f31145e = gifImageView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            GifImageView gifImageView = this.f30775e;
-            gifImageView.f62641b = null;
+            GifImageView gifImageView = this.f31145e;
+            gifImageView.f63222b = null;
             gifImageView.a = null;
-            gifImageView.f62646g = null;
-            gifImageView.f62645f = false;
+            gifImageView.f63227g = null;
+            gifImageView.f63226f = false;
         }
     }
 }

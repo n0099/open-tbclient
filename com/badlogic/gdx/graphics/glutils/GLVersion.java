@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GLVersion {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Type f31620b;
+    public final Type f31990b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -103,19 +103,19 @@ public class GLVersion {
             }
         }
         if (applicationType == Application.ApplicationType.Android) {
-            this.f31620b = Type.GLES;
+            this.f31990b = Type.GLES;
         } else if (applicationType == Application.ApplicationType.iOS) {
-            this.f31620b = Type.GLES;
+            this.f31990b = Type.GLES;
         } else if (applicationType == Application.ApplicationType.Desktop) {
-            this.f31620b = Type.OpenGL;
+            this.f31990b = Type.OpenGL;
         } else if (applicationType == Application.ApplicationType.Applet) {
-            this.f31620b = Type.OpenGL;
+            this.f31990b = Type.OpenGL;
         } else if (applicationType == Application.ApplicationType.WebGL) {
-            this.f31620b = Type.WebGL;
+            this.f31990b = Type.WebGL;
         } else {
-            this.f31620b = Type.NONE;
+            this.f31990b = Type.NONE;
         }
-        Type type = this.f31620b;
+        Type type = this.f31990b;
         if (type == Type.GLES) {
             a("OpenGL ES (\\d(\\.\\d){0,2})", str);
         } else if (type == Type.WebGL) {
@@ -173,6 +173,6 @@ public class GLVersion {
     public Type getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31620b : (Type) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31990b : (Type) invokeV.objValue;
     }
 }

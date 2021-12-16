@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class YYStatInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOAD_TYPE_LOADED = "launch";
@@ -13,10 +13,13 @@ public class YYStatInfo {
     public static final String LOAD_TYPE_NOT_INSTALL = "install";
     public static final String LOAD_TYPE_NOT_LOAD = "load";
     public transient /* synthetic */ FieldHolder $fh;
+    public Object flowAudioObj;
+    public Object flowAudioRtcObj;
     public Object flowObj;
     @Deprecated
     public boolean isColdLaunch;
     public String loadType;
+    public String roomId;
     public HashMap<String, Object> statInfo;
 
     public YYStatInfo() {

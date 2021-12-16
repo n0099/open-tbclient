@@ -13,7 +13,7 @@ import javax.net.ssl.SSLException;
 import org.apache.http.NoHttpResponseException;
 import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.protocol.HttpContext;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ad implements HttpRequestRetryHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "ad";

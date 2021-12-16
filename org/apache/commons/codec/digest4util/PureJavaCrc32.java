@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.zip.Checksum;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PureJavaCrc32 implements Checksum {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] T;

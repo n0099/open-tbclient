@@ -6,21 +6,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SystemEvent extends VideoEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_BATTERY_CHANGED = "system_event_battery_changed";
+    public static final String ACTION_BATTERY_CHARGING_CHANGED = "system_event_battery_charging_changed";
     public static final String ACTION_BLUETOOTH_HEADSET = "system_event_bluetooth_headset";
     public static final String ACTION_CLOSE_SYSTEM_DIALOGS = "system_event_net_changed";
+    public static final String ACTION_CONFIGURATION_CHANGED = "system_event_configuration_changed";
     public static final String ACTION_CONNECT_CHANGED = "system_event_connect_changed";
     public static final String ACTION_HEADSET_PLUG = "system_event_headset_plug";
+    public static final String ACTION_ORIENTATION_LOCK_SYNC_STATE = "layer_event_orientation_lock_state_changed";
     public static final String ACTION_SCREEN_OFF = "system_event_screen_off";
     public static final String ACTION_SCREEN_ON = "system_event_screen_on";
     public static final String ACTION_VOLUME_CHANGED = "system_event_volume_changed";
+    public static final int KEY_BATTERY_CHARGING = 8;
     public static final int KEY_BATTERY_LEVEL = 4;
     public static final int KEY_BLUETOOTH_HEADSET_CONNECT_STATE = 6;
     public static final int KEY_CONNNECT_STATE = 1;
     public static final int KEY_HEADSET_CONNECT_STATE = 3;
+    public static final int KEY_ORIENTATION_LOCK_STATE = 7;
     public static final int KEY_SCREEN_STATE = 2;
     public static final int KEY_VOLUME = 5;
     public transient /* synthetic */ FieldHolder $fh;

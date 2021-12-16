@@ -2,13 +2,13 @@ package com.baidu.common.param;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.m.c.a;
-import c.a.m.c.b;
-import c.a.m.c.c;
-import c.a.m.c.d;
-import c.a.m.c.f;
-import c.a.m.c.h;
-import c.a.m.c.i;
+import c.a.n.c.a;
+import c.a.n.c.b;
+import c.a.n.c.c;
+import c.a.n.c.d;
+import c.a.n.c.f;
+import c.a.n.c.h;
+import c.a.n.c.i;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.config.AppIdentityManager;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class CommonUrlParamManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PARAM_APP_NAME = "appname";
@@ -158,10 +158,10 @@ public final class CommonUrlParamManager {
             String c2 = a.b().c();
             String a4 = a.b().a();
             if (TextUtils.isEmpty(from)) {
-                from = c.a.m.a.a.b().a();
+                from = c.a.n.a.a.b().a();
             }
             if (TextUtils.isEmpty(cfrom)) {
-                cfrom = c.a.m.a.a.b().c();
+                cfrom = c.a.n.a.a.b().c();
             }
             String addParam = addParam(addParam(this.mNetworkParam.a(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str5, "appname", appName), "sid", sid), "ut", a3), "ua", a2), "bdvc", bDVCInfo), "zid", str2), "uid", str), "iid", str4), "cfrom", cfrom), "from", from), "scheme", schemeHeader), true), "c3_aid", str3), PARAM_MATRIXSTYLE, c2);
             if (!TextUtils.isEmpty(a4)) {

@@ -1,6 +1,6 @@
 package com.baidu.tieba.videoplay.danmu;
 
-import c.a.r0.m0.i.c;
+import c.a.s0.m0.i.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import kotlin.Pair;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/danmu/render/TypedDanmakuRenderer;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class VideoDanmuController$renderer$2 extends Lambda implements Function0<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public final class VideoDanmuController$renderer$2 extends Lambda implements Fun
         DefaultRenderer defaultRenderer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            defaultRenderer = this.this$0.y;
+            defaultRenderer = this.this$0.A;
             return new c(defaultRenderer, new Pair[0]);
         }
         return (c) invokeV.objValue;

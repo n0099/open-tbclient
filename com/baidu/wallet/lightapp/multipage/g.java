@@ -14,20 +14,20 @@ import com.baidu.wallet.core.utils.LogUtil;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Vector;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Collection<Collection<c>> a;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.g$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static g a;

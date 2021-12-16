@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ObjectDescriptorFactory {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, Map<Integer, Class<? extends BaseDescriptor>>> descriptorRegistry;

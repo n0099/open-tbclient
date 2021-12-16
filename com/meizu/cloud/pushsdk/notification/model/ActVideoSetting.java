@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ActVideoSetting implements Parcelable {
     public static final String ACT_URL = "au";
     public static final String ACT_VIDEO_SETTING = "acts";

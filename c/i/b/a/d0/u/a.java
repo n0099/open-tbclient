@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class a extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f29628j;
+    public b f29998j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int[] f29629k;
+    public int[] f29999k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(c.i.b.a.h0.e eVar, c.i.b.a.h0.g gVar, Format format, int i2, Object obj, long j2, long j3, int i3) {
@@ -42,20 +42,20 @@ public abstract class a extends l {
     public final int f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f29629k[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f29999k[i2] : invokeI.intValue;
     }
 
     public final b g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29628j : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29998j : (b) invokeV.objValue;
     }
 
     public void h(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f29628j = bVar;
-            this.f29629k = bVar.b();
+            this.f29998j = bVar;
+            this.f29999k = bVar.b();
         }
     }
 }

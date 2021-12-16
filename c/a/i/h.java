@@ -16,10 +16,10 @@ public class h {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LruCache<String, a> f3405b;
+    public final LruCache<String, a> f3420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f3406c;
+    public boolean f3421c;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -28,13 +28,13 @@ public class h {
         public ArrayList<String> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<String> f3407b;
+        public ArrayList<String> f3422b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f3408c;
+        public long f3423c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f3409d;
+        public long f3424d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class h {
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                this.f3408c = j2;
+                this.f3423c = j2;
             }
         }
 
@@ -67,7 +67,7 @@ public class h {
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? i() + this.f3408c < System.currentTimeMillis() / 1000 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? i() + this.f3423c < System.currentTimeMillis() / 1000 : invokeV.booleanValue;
         }
 
         public ArrayList<String> d() {
@@ -79,33 +79,33 @@ public class h {
         public void e(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.f3409d = j2;
+                this.f3424d = j2;
             }
         }
 
         public void f(ArrayList<String> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-                this.f3407b = arrayList;
+                this.f3422b = arrayList;
             }
         }
 
         public ArrayList<String> g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3407b : (ArrayList) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3422b : (ArrayList) invokeV.objValue;
         }
 
         public long h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3408c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3423c : invokeV.longValue;
         }
 
         public long i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f3409d : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f3424d : invokeV.longValue;
         }
     }
 
@@ -124,19 +124,19 @@ public class h {
                 return;
             }
         }
-        this.f3406c = false;
-        this.f3405b = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
+        this.f3421c = false;
+        this.f3420b = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
         this.a = str;
-        this.f3406c = z;
+        this.f3421c = z;
     }
 
     public a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            a aVar = this.f3405b.get(str);
-            if (aVar != null && aVar.c() && this.f3406c) {
-                this.f3405b.remove(str);
+            a aVar = this.f3420b.get(str);
+            if (aVar != null && aVar.c() && this.f3421c) {
+                this.f3420b.remove(str);
                 k.a("Remove expired entry from %s cache while reading, host(%s)", this.a, str);
                 return null;
             }
@@ -148,7 +148,7 @@ public class h {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f3405b.evictAll();
+            this.f3420b.evictAll();
             k.a("Clear %s cache", this.a);
         }
     }
@@ -161,7 +161,7 @@ public class h {
             if ((d2 == null || d2.isEmpty()) && (g2 == null || g2.isEmpty())) {
                 return;
             }
-            this.f3405b.put(str, aVar);
+            this.f3420b.put(str, aVar);
             Object[] objArr = new Object[5];
             objArr[0] = this.a;
             objArr[1] = str;
@@ -175,7 +175,7 @@ public class h {
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f3406c = z;
+            this.f3421c = z;
         }
     }
 
@@ -184,7 +184,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            for (String str : this.f3405b.snapshot().keySet()) {
+            for (String str : this.f3420b.snapshot().keySet()) {
                 arrayList.add(str);
             }
             return arrayList;
@@ -196,7 +196,7 @@ public class h {
         a a2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (a2 = a(str)) != null && a2.c()) {
-            this.f3405b.remove(str);
+            this.f3420b.remove(str);
             k.a("Remove expired entry from %s cache, host(%s)", this.a, str);
         }
     }

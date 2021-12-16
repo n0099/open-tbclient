@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.FeedBackLayout;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class NHFooterView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static int MARGIN_BOTTOM = 35;

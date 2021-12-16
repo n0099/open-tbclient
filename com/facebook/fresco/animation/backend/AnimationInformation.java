@@ -1,5 +1,5 @@
 package com.facebook.fresco.animation.backend;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public interface AnimationInformation {
     public static final int LOOP_COUNT_INFINITE = 0;
 

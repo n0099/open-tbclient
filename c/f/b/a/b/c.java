@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.base.nopassauth.OtpTokenUtils;
 import java.util.Calendar;
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28585e;
+    public int f28960e;
 
     static {
         InterceptResult invokeClinit;
@@ -53,7 +53,7 @@ public class c extends a {
                 return;
             }
         }
-        this.f28585e = i2;
+        this.f28960e = i2;
     }
 
     @Override // c.f.b.a.b.a, c.f.b.a.b.b
@@ -61,7 +61,7 @@ public class c extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            super.b(((Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis() / 1000) - OtpTokenUtils.getmSyncWithServerTime(context)) / this.f28585e);
+            super.b(((Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis() / 1000) - OtpTokenUtils.getmSyncWithServerTime(context)) / this.f28960e);
             return super.a(context);
         }
         return (String) invokeL.objValue;

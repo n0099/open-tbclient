@@ -33,23 +33,23 @@ import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.beans.BeanManager;
 import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class b implements ISmsController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PayBaseActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SmsUpdateUiInterface f53591b;
+    public SmsUpdateUiInterface f54171b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SmsVerifyHandler f53592c;
+    public SmsVerifyHandler f54172c;
 
     /* renamed from: d  reason: collision with root package name */
-    public O2OTransInfo f53593d;
+    public O2OTransInfo f54173d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PayQueryRequest f53594e;
+    public PayQueryRequest f54174e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -67,12 +67,12 @@ public class b implements ISmsController {
 
     private void a(ScanCodeLimitPayResponse scanCodeLimitPayResponse) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, scanCodeLimitPayResponse) == null) || scanCodeLimitPayResponse == null || this.f53593d == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, scanCodeLimitPayResponse) == null) || scanCodeLimitPayResponse == null || this.f54173d == null) {
             return;
         }
         PayRequest payRequest = new PayRequest();
         payRequest.setPayFrom(BeanConstants.PAY_FROM_B_SAO_C);
-        payRequest.mGoodName = this.f53593d.goods_name;
+        payRequest.mGoodName = this.f54173d.goods_name;
         PayRequestCache.getInstance().addBeanRequestToCache(payRequest.getRequestId(), payRequest);
         PayResultContent payResultContent = new PayResultContent();
         payResultContent.notify = scanCodeLimitPayResponse.notify;
@@ -146,7 +146,7 @@ public class b implements ISmsController {
     public void doOnSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            bundle.putSerializable(ScanCodeConstant.ORDER_INFO_KEY, this.f53593d);
+            bundle.putSerializable(ScanCodeConstant.ORDER_INFO_KEY, this.f54173d);
         }
     }
 
@@ -159,7 +159,7 @@ public class b implements ISmsController {
                 if (TextUtils.isEmpty(str)) {
                     str = ResUtils.getString(this.a.getActivity(), "ebpay_send_fail");
                 }
-                SmsVerifyHandler smsVerifyHandler = this.f53592c;
+                SmsVerifyHandler smsVerifyHandler = this.f54172c;
                 if (smsVerifyHandler != null) {
                     smsVerifyHandler.onSmsSendFailure(i3, str);
                 }
@@ -192,12 +192,12 @@ public class b implements ISmsController {
             if (i2 == 595) {
                 if (obj instanceof O2OScancodeSendSMSRsp) {
                     O2OScancodeSendSMSRsp o2OScancodeSendSMSRsp = (O2OScancodeSendSMSRsp) obj;
-                    SmsUpdateUiInterface smsUpdateUiInterface = this.f53591b;
+                    SmsUpdateUiInterface smsUpdateUiInterface = this.f54171b;
                     if (smsUpdateUiInterface != null) {
                         smsUpdateUiInterface.upDateSafeKeyBoradView(o2OScancodeSendSMSRsp.sms_length, o2OScancodeSendSMSRsp.sms_type);
                     }
                 }
-                SmsVerifyHandler smsVerifyHandler = this.f53592c;
+                SmsVerifyHandler smsVerifyHandler = this.f54172c;
                 if (smsVerifyHandler != null) {
                     smsVerifyHandler.onSmsSendSuccess();
                 }
@@ -206,27 +206,27 @@ public class b implements ISmsController {
                 if (i2 == 12) {
                     PayRequest payRequest = new PayRequest();
                     payRequest.setPayFrom(BeanConstants.PAY_FROM_B_SAO_C);
-                    payRequest.mGoodName = this.f53593d.goods_name;
+                    payRequest.mGoodName = this.f54173d.goods_name;
                     PayRequestCache.getInstance().addBeanRequestToCache(payRequest.getRequestId(), payRequest);
                 }
                 return false;
             } else {
                 ScanCodeLimitPayResponse scanCodeLimitPayResponse = (ScanCodeLimitPayResponse) obj;
                 if (scanCodeLimitPayResponse.checkResponseValidity()) {
-                    O2OTransInfo o2OTransInfo = this.f53593d;
+                    O2OTransInfo o2OTransInfo = this.f54173d;
                     o2OTransInfo.notify = scanCodeLimitPayResponse.notify;
                     o2OTransInfo.score_tip = scanCodeLimitPayResponse.score_tip;
                     if ("2".equalsIgnoreCase(scanCodeLimitPayResponse.pay_type)) {
-                        if (this.f53594e == null) {
-                            this.f53594e = new PayQueryRequest();
+                        if (this.f54174e == null) {
+                            this.f54174e = new PayQueryRequest();
                         }
-                        PayQueryRequest payQueryRequest = this.f53594e;
+                        PayQueryRequest payQueryRequest = this.f54174e;
                         payQueryRequest.mBankNo = scanCodeLimitPayResponse.bank_no;
                         payQueryRequest.mOrderNo = scanCodeLimitPayResponse.bank_send_trans_no;
-                        PayRequestCache.getInstance().addBeanRequestToCache(this.f53594e.getRequestId(), this.f53594e);
+                        PayRequestCache.getInstance().addBeanRequestToCache(this.f54174e.getRequestId(), this.f54174e);
                         this.a.queryPayResult();
                     } else {
-                        this.f53593d.paytype_desc = scanCodeLimitPayResponse.paytype_desc;
+                        this.f54173d.paytype_desc = scanCodeLimitPayResponse.paytype_desc;
                         a(scanCodeLimitPayResponse);
                     }
                 }
@@ -241,9 +241,9 @@ public class b implements ISmsController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             String string = ResUtils.getString(this.a, "dxm_ebpay_pay_next");
-            SmsUpdateUiInterface smsUpdateUiInterface = this.f53591b;
+            SmsUpdateUiInterface smsUpdateUiInterface = this.f54171b;
             if (smsUpdateUiInterface != null) {
-                smsUpdateUiInterface.initSMSActivityView("ebpay_sms_title_tip_security_check", "", string, this.f53593d.mobile, true);
+                smsUpdateUiInterface.initSMSActivityView("ebpay_sms_title_tip_security_check", "", string, this.f54173d.mobile, true);
             }
         }
     }
@@ -274,10 +274,10 @@ public class b implements ISmsController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bundle)) == null) {
             if (bundle == null) {
-                this.f53593d = (O2OTransInfo) this.a.getIntent().getSerializableExtra(ScanCodeConstant.ORDER_INFO_KEY);
+                this.f54173d = (O2OTransInfo) this.a.getIntent().getSerializableExtra(ScanCodeConstant.ORDER_INFO_KEY);
                 return true;
             }
-            this.f53593d = (O2OTransInfo) bundle.getSerializable(ScanCodeConstant.ORDER_INFO_KEY);
+            this.f54173d = (O2OTransInfo) bundle.getSerializable(ScanCodeConstant.ORDER_INFO_KEY);
             return true;
         }
         return invokeL.booleanValue;
@@ -290,7 +290,7 @@ public class b implements ISmsController {
             WalletGlobalUtils.safeShowDialog(this.a, 0, "");
             BaseBean<?> bean = PayBeanFactory.getInstance().getBean((Context) this.a, PayBeanFactory.BEAN_ID_SCANCODE_PAY, ISmsController.BEAN_TAG);
             if (bean != null) {
-                O2OTransInfo o2OTransInfo = this.f53593d;
+                O2OTransInfo o2OTransInfo = this.f54173d;
                 bean.setBeanParams(o2OTransInfo.sp_no, o2OTransInfo.order_no, o2OTransInfo.pay_code, str);
                 bean.setResponseCallback((WalletSmsActivity) this.a);
                 bean.execBean();
@@ -305,7 +305,7 @@ public class b implements ISmsController {
             WalletGlobalUtils.safeShowDialog(this.a, 0, "");
             BaseBean<?> bean = PayBeanFactory.getInstance().getBean((Context) this.a, PayBeanFactory.BEAN_ID_SCANCODE_SEND_SMS_TO_PAY, ISmsController.BEAN_TAG);
             if (bean != null) {
-                O2OTransInfo o2OTransInfo = this.f53593d;
+                O2OTransInfo o2OTransInfo = this.f54173d;
                 bean.setBeanParams(o2OTransInfo.sp_no, o2OTransInfo.order_no, o2OTransInfo.pay_code, o2OTransInfo.mobile);
                 bean.setResponseCallback((WalletSmsActivity) this.a);
                 bean.execBean();
@@ -325,7 +325,7 @@ public class b implements ISmsController {
     public void setSmsUpdateUIInterface(SmsUpdateUiInterface smsUpdateUiInterface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, smsUpdateUiInterface) == null) {
-            this.f53591b = smsUpdateUiInterface;
+            this.f54171b = smsUpdateUiInterface;
         }
     }
 
@@ -333,7 +333,7 @@ public class b implements ISmsController {
     public void setSmsVerifyHandler(SmsVerifyHandler smsVerifyHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, smsVerifyHandler) == null) {
-            this.f53592c = smsVerifyHandler;
+            this.f54172c = smsVerifyHandler;
         }
     }
 }

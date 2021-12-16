@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.inner.implementation;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ITaskManager {
     void enableSend(boolean z);
 

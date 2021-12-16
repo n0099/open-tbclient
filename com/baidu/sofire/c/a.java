@@ -8,23 +8,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39035b;
+    public String f39524b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39036c;
+    public String f39525c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39037d;
+    public String f39526d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39038e;
+    public String f39527e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -47,10 +47,10 @@ public final class a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("0", aVar.a);
-                jSONObject.put("1", aVar.f39036c);
-                jSONObject.put("2", aVar.f39037d);
-                jSONObject.put("3", aVar.f39038e);
-                jSONObject.put("4", aVar.f39035b);
+                jSONObject.put("1", aVar.f39525c);
+                jSONObject.put("2", aVar.f39526d);
+                jSONObject.put("3", aVar.f39527e);
+                jSONObject.put("4", aVar.f39524b);
             } catch (Throwable unused) {
                 c.a();
             }
@@ -68,28 +68,28 @@ public final class a {
             }
             if (obj != null && a.class == obj.getClass()) {
                 a aVar = (a) obj;
-                String str = this.f39037d;
+                String str = this.f39526d;
                 if (str == null) {
-                    if (aVar.f39037d != null) {
+                    if (aVar.f39526d != null) {
                         return false;
                     }
-                } else if (!str.equals(aVar.f39037d)) {
+                } else if (!str.equals(aVar.f39526d)) {
                     return false;
                 }
-                String str2 = this.f39038e;
+                String str2 = this.f39527e;
                 if (str2 == null) {
-                    if (aVar.f39038e != null) {
+                    if (aVar.f39527e != null) {
                         return false;
                     }
-                } else if (!str2.equals(aVar.f39038e)) {
+                } else if (!str2.equals(aVar.f39527e)) {
                     return false;
                 }
-                String str3 = this.f39035b;
+                String str3 = this.f39524b;
                 if (str3 == null) {
-                    if (aVar.f39035b != null) {
+                    if (aVar.f39524b != null) {
                         return false;
                     }
-                } else if (!str3.equals(aVar.f39035b)) {
+                } else if (!str3.equals(aVar.f39524b)) {
                     return false;
                 }
                 return true;
@@ -103,11 +103,11 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.f39037d;
+            String str = this.f39526d;
             int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
-            String str2 = this.f39038e;
+            String str2 = this.f39527e;
             int hashCode2 = (hashCode + (str2 == null ? 0 : str2.hashCode())) * 31;
-            String str3 = this.f39035b;
+            String str3 = this.f39524b;
             return hashCode2 + (str3 != null ? str3.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -121,10 +121,10 @@ public final class a {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 aVar.a = jSONObject.optString("0");
-                aVar.f39036c = jSONObject.optString("1");
-                aVar.f39037d = jSONObject.optString("2");
-                aVar.f39038e = jSONObject.optString("3");
-                aVar.f39035b = jSONObject.optString("4");
+                aVar.f39525c = jSONObject.optString("1");
+                aVar.f39526d = jSONObject.optString("2");
+                aVar.f39527e = jSONObject.optString("3");
+                aVar.f39524b = jSONObject.optString("4");
                 return aVar;
             } catch (Exception unused) {
                 c.a();

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.ILightappInvokerCallback;
 import com.baidu.wallet.lightapp.ability.datamodle.NativeAbilityUserAgentModel;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class j extends com.baidu.wallet.lightapp.ability.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 1;

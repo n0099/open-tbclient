@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AC3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public static int[][][][] bitRateAndFrameSizeTable;

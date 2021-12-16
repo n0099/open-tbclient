@@ -39,20 +39,20 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TTDelegateActivity extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f61160d;
+    public static a f61741d;
     public transient /* synthetic */ FieldHolder $fh;
     public Intent a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61161b;
+    public boolean f61742b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f61162c;
+    public b f61743c;
 
     public TTDelegateActivity() {
         Interceptable interceptable = $ic;
@@ -149,7 +149,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onStop();
-            if (!this.f61161b || this.f61162c == null || (a = g.a((Context) null).a(this.f61162c.a())) == null || a.getCurBytes() < a.getTotalBytes() || isFinishing()) {
+            if (!this.f61742b || this.f61743c == null || (a = g.a((Context) null).a(this.f61743c.a())) == null || a.getCurBytes() < a.getTotalBytes() || isFinishing()) {
                 return;
             }
             finish();
@@ -186,8 +186,8 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f61161b = true;
-            this.f61162c = d2;
+            this.f61742b = true;
+            this.f61743c = d2;
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("pause_optimise_type", str);
@@ -259,8 +259,8 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             com.ss.android.downloadlib.d.a.a().b("pause_reserve_wifi_dialog_show", jSONObject, d2);
         }
         new d.a(this).a(false).a(l.a()).a().show();
-        this.f61161b = true;
-        this.f61162c = d2;
+        this.f61742b = true;
+        this.f61743c = d2;
     }
 
     public static void a(com.ss.android.downloadad.api.a.a aVar) {
@@ -282,7 +282,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             Intent c2 = c(aVar);
             c2.addFlags(268435456);
             c2.putExtra("type", 9);
-            f61160d = aVar2;
+            f61741d = aVar2;
             if (j.getContext() != null) {
                 j.getContext().startActivity(c2);
             }
@@ -315,13 +315,13 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             b.a a = new b.a(this).a("已安装完成");
             Object[] objArr = new Object[1];
             objArr[0] = TextUtils.isEmpty(d2.N()) ? "刚刚下载的应用" : d2.N();
-            c2.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d("取消").a(false).a(com.ss.android.downloadlib.g.l.c(this, d2.e())).a(new b.InterfaceC2094b(this, d2) { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
+            c2.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d("取消").a(false).a(com.ss.android.downloadlib.g.l.c(this, d2.e())).a(new b.InterfaceC2155b(this, d2) { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ TTDelegateActivity f61165b;
+                public final /* synthetic */ TTDelegateActivity f61746b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -338,35 +338,35 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                             return;
                         }
                     }
-                    this.f61165b = this;
+                    this.f61746b = this;
                     this.a = d2;
                 }
 
-                @Override // com.ss.android.download.api.model.b.InterfaceC2094b
+                @Override // com.ss.android.download.api.model.b.InterfaceC2155b
                 public void a(DialogInterface dialogInterface) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
                         com.ss.android.downloadlib.b.a.b(this.a);
                         dialogInterface.dismiss();
-                        com.ss.android.socialbase.appdownloader.c.a((Activity) this.f61165b);
+                        com.ss.android.socialbase.appdownloader.c.a((Activity) this.f61746b);
                     }
                 }
 
-                @Override // com.ss.android.download.api.model.b.InterfaceC2094b
+                @Override // com.ss.android.download.api.model.b.InterfaceC2155b
                 public void b(DialogInterface dialogInterface) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
                         com.ss.android.downloadlib.d.a.a().b("market_openapp_cancel", this.a);
                         dialogInterface.dismiss();
-                        com.ss.android.socialbase.appdownloader.c.a((Activity) this.f61165b);
+                        com.ss.android.socialbase.appdownloader.c.a((Activity) this.f61746b);
                     }
                 }
 
-                @Override // com.ss.android.download.api.model.b.InterfaceC2094b
+                @Override // com.ss.android.download.api.model.b.InterfaceC2155b
                 public void c(DialogInterface dialogInterface) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
-                        com.ss.android.socialbase.appdownloader.c.a((Activity) this.f61165b);
+                        com.ss.android.socialbase.appdownloader.c.a((Activity) this.f61746b);
                     }
                 }
             }).a(2).a());
@@ -384,10 +384,10 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTDelegateActivity f61163b;
+                    public final /* synthetic */ TTDelegateActivity f61744b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public WeakReference<Activity> f61164c;
+                    public WeakReference<Activity> f61745c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -404,9 +404,9 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                                 return;
                             }
                         }
-                        this.f61163b = this;
+                        this.f61744b = this;
                         this.a = str;
-                        this.f61164c = new WeakReference<>(this.f61163b);
+                        this.f61745c = new WeakReference<>(this.f61744b);
                     }
 
                     @Override // com.ss.android.download.api.config.s
@@ -414,7 +414,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             com.ss.android.downloadlib.g.j.a(this.a);
-                            com.ss.android.socialbase.appdownloader.c.a(this.f61164c.get());
+                            com.ss.android.socialbase.appdownloader.c.a(this.f61745c.get());
                         }
                     }
 
@@ -423,7 +423,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
                             com.ss.android.downloadlib.g.j.a(this.a, str2);
-                            com.ss.android.socialbase.appdownloader.c.a(this.f61164c.get());
+                            com.ss.android.socialbase.appdownloader.c.a(this.f61745c.get());
                         }
                     }
                 };
@@ -539,7 +539,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                 c();
                 break;
             case 9:
-                a aVar = f61160d;
+                a aVar = f61741d;
                 if (aVar != null) {
                     aVar.a();
                 }

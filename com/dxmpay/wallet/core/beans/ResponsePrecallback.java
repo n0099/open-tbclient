@@ -13,13 +13,13 @@ import com.dxmpay.apollon.beans.IBeanResponseCallback;
 import com.dxmpay.apollon.eventbus.EventBus;
 import com.dxmpay.wallet.core.NoProguard;
 import com.yy.hiidostatis.inner.util.log.ActLog;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class ResponsePrecallback implements IBeanResponseCallback, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class ResponseType {
         public static final /* synthetic */ ResponseType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

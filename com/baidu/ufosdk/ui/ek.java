@@ -4,14 +4,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ek implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ FeedbackInputActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ ej f51695b;
+    public final /* synthetic */ ej f52244b;
 
     public ek(ej ejVar, FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class ek implements Runnable {
                 return;
             }
         }
-        this.f51695b = ejVar;
+        this.f52244b = ejVar;
         this.a = feedbackInputActivity;
     }
 

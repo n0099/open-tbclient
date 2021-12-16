@@ -1,8 +1,15 @@
 package com.baidu.tieba.homepage.tabfeed;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HomePageTabFeedCollegeSecondActivityConfig;
+import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity;
+import com.baidu.tieba.nearby.NearbyFriendsActivity;
+import com.baidu.tieba.nearby.message.NearbyFriendsHttpResponseMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class TabFeedStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,6 +36,8 @@ public class TabFeedStatic {
             }
         }
         TbadkCoreApplication.getInst().RegisterIntent(HomePageTabFeedCollegeSecondActivityConfig.class, HomePageTabFeedCollegeSecondActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(NearbyFriendsActivityConfig.class, NearbyFriendsActivity.class);
+        a();
     }
 
     public TabFeedStatic() {
@@ -42,6 +51,16 @@ public class TabFeedStatic {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
+        }
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_NEARBY_FRIENDS, TbConfig.SERVER_ADDRESS + "c/f/forum/getNearbyPersonInfo");
+            tbHttpMessageTask.setResponsedClass(NearbyFriendsHttpResponseMessage.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 }

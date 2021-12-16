@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class MoreModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonChangeData f48922e;
+    public PersonChangeData f49436e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f48923f;
+    public boolean f49437f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class TaskType {
         public static final /* synthetic */ TaskType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -100,11 +100,11 @@ public class MoreModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48922e = null;
-        this.f48923f = false;
-        this.f48922e = personChangeData;
+        this.f49436e = null;
+        this.f49437f = false;
+        this.f49436e = personChangeData;
         if (personChangeData == null) {
-            this.f48922e = new PersonChangeData();
+            this.f49436e = new PersonChangeData();
         }
     }
 
@@ -131,26 +131,26 @@ public class MoreModel extends BdBaseModel {
     public PersonChangeData w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48922e : (PersonChangeData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49436e : (PersonChangeData) invokeV.objValue;
     }
 
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48923f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49437f : invokeV.booleanValue;
     }
 
     public void y(PersonChangeData personChangeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, personChangeData) == null) {
-            this.f48922e = personChangeData;
+            this.f49436e = personChangeData;
         }
     }
 
     public void z(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f48923f = z;
+            this.f49437f = z;
         }
     }
 }

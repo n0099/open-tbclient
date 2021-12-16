@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Stack;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Call {
     public static /* synthetic */ Interceptable $ic;
     public static final Formatter METHOD_ID_FORMATTER;
@@ -36,7 +36,7 @@ public class Call {
     public final boolean mIsRecursive;
     public final long mMethodId;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class Call {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CallHierarchyIterator implements Iterator<Call> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -198,7 +198,7 @@ public class Call {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Formatter {
         String format(Call call);
     }

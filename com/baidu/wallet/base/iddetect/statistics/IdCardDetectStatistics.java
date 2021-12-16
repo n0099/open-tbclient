@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class IdCardDetectStatistics implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IDCARD_PHOTO_COMPLETE = "#IDPhotoComplete";

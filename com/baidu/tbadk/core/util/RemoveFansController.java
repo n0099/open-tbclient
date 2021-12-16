@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RemoveFansController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class RemoveFansController {
     public TbPageContext mPageContext;
     public BdUniqueId mUniqueId;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface IResultCallBack {
         void onResultCallBack(int i2, String str, long j2, boolean z);
     }

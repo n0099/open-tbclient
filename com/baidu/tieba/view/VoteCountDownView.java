@@ -16,33 +16,33 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class VoteCountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f50402e;
+    public Context f50950e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50403f;
+    public View f50951f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f50404g;
+    public View f50952g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50405h;
+    public TextView f50953h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f50406i;
+    public TextView f50954i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CountDownTimer f50407j;
+    public CountDownTimer f50955j;
 
     /* renamed from: k  reason: collision with root package name */
-    public b f50408k;
+    public b f50956k;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class VoteCountDownView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void a();
     }
@@ -118,7 +118,7 @@ public class VoteCountDownView extends LinearLayout {
     public final void b() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f50408k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f50956k) == null) {
             return;
         }
         bVar.a();
@@ -127,17 +127,17 @@ public class VoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f50403f = findViewById(R.id.hour_num_container);
-            this.f50404g = findViewById(R.id.minute_num_container);
-            this.f50405h = (TextView) findViewById(R.id.hour_num_count_down_view);
-            this.f50406i = (TextView) findViewById(R.id.minute_num_count_down_view);
+            this.f50951f = findViewById(R.id.hour_num_container);
+            this.f50952g = findViewById(R.id.minute_num_container);
+            this.f50953h = (TextView) findViewById(R.id.hour_num_count_down_view);
+            this.f50954i = (TextView) findViewById(R.id.minute_num_count_down_view);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f50402e = getContext();
+            this.f50950e = getContext();
             setOrientation(0);
             setClipToPadding(false);
             setClipChildren(false);
@@ -149,9 +149,9 @@ public class VoteCountDownView extends LinearLayout {
 
     public final void e(long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) && this.f50407j == null) {
+        if ((interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) && this.f50955j == null) {
             a aVar = new a(this, j2, 1000L);
-            this.f50407j = aVar;
+            this.f50955j = aVar;
             aVar.start();
         }
     }
@@ -159,28 +159,28 @@ public class VoteCountDownView extends LinearLayout {
     public void onDestroy() {
         CountDownTimer countDownTimer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (countDownTimer = this.f50407j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (countDownTimer = this.f50955j) == null) {
             return;
         }
         countDownTimer.cancel();
-        this.f50407j = null;
+        this.f50955j = null;
     }
 
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            SkinManager.setBackgroundResource(this.f50403f, R.drawable.bg_gradient_round, i2);
-            SkinManager.setBackgroundResource(this.f50404g, R.drawable.bg_gradient_round, i2);
-            SkinManager.setViewTextColor(this.f50405h, R.color.CAM_X0101, 1, i2);
-            SkinManager.setViewTextColor(this.f50405h, R.color.CAM_X0101, 1, i2);
+            SkinManager.setBackgroundResource(this.f50951f, R.drawable.bg_gradient_round, i2);
+            SkinManager.setBackgroundResource(this.f50952g, R.drawable.bg_gradient_round, i2);
+            SkinManager.setViewTextColor(this.f50953h, R.color.CAM_X0101, 1, i2);
+            SkinManager.setViewTextColor(this.f50953h, R.color.CAM_X0101, 1, i2);
         }
     }
 
     public void setContent(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f50406i.setText(String.valueOf(j3));
-            this.f50405h.setText(String.valueOf(j2));
+            this.f50954i.setText(String.valueOf(j3));
+            this.f50953h.setText(String.valueOf(j2));
         }
     }
 
@@ -196,7 +196,7 @@ public class VoteCountDownView extends LinearLayout {
     public void setOnCountDownFinished(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f50408k = bVar;
+            this.f50956k = bVar;
         }
     }
 

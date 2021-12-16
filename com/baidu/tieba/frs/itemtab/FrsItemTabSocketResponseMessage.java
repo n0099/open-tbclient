@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.itemtab;
 
-import c.a.r0.d1.m2.d;
+import c.a.s0.d1.m2.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemPage.ItemPageResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<d, ItemPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

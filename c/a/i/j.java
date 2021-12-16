@@ -16,13 +16,13 @@ public class j implements i.a {
     public final h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BDHttpDns f3410b;
+    public final BDHttpDns f3425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final BDHttpDns.CachePolicy f3411c;
+    public final BDHttpDns.CachePolicy f3426c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.baidu.bdhttpdns.i f3412d;
+    public final com.baidu.bdhttpdns.i f3427d;
 
     public j(Context context) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class j implements i.a {
             }
         }
         BDHttpDns j2 = BDHttpDns.j(context);
-        this.f3410b = j2;
+        this.f3425b = j2;
         this.a = j2.a();
-        this.f3411c = this.f3410b.f();
-        this.f3412d = this.f3410b.g();
+        this.f3426c = this.f3425b.f();
+        this.f3427d = this.f3425b.g();
     }
 
     @Override // com.baidu.bdhttpdns.i.a
@@ -63,20 +63,20 @@ public class j implements i.a {
                             aVar.e(System.currentTimeMillis() / 1000);
                             aVar.b(value.a());
                             this.a.c(key, aVar);
-                        } else if (this.f3411c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                        } else if (this.f3426c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
                             this.a.f(key);
                         }
                     }
                 }
-            } else if (dVar.equals(i.d.a) && this.f3411c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+            } else if (dVar.equals(i.d.a) && this.f3426c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
                 for (String str2 : str.split(",")) {
                     this.a.f(str2);
                 }
             }
-            if (this.f3410b.h() <= 0 || this.f3412d.C()) {
+            if (this.f3425b.h() <= 0 || this.f3427d.C()) {
                 return;
             }
-            this.f3412d.s(true);
+            this.f3427d.s(true);
             k.a("preResolve has finished", new Object[0]);
         }
     }

@@ -15,7 +15,7 @@ import com.coremedia.iso.IsoTypeWriter;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;

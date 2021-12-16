@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.message;
 
-import c.a.q0.s.r.a;
-import c.a.r0.r1.g.b;
-import c.a.r0.r1.g.c;
+import c.a.r0.s.s.a;
+import c.a.s0.s1.g.b;
+import c.a.s0.s1.g.c;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -17,7 +17,7 @@ import java.util.List;
 import tbclient.ForumMenu.ForumMenuResIdl;
 import tbclient.ForumMenu.Menu;
 import tbclient.ForumMenu.SubMenu;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OFFICIAL_BAR_MENU_KEY_PRE = "official_bar_menu_";

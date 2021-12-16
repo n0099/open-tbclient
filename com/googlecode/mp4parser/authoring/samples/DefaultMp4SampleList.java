@@ -18,7 +18,7 @@ import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
 import java.util.AbstractList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DefaultMp4SampleList extends AbstractList<Sample> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

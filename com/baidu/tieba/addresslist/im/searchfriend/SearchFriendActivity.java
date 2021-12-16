@@ -3,7 +3,7 @@ package com.baidu.tieba.addresslist.im.searchfriend;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
-import c.a.r0.x.e.b.a;
+import c.a.s0.x.e.b.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> implements UserIconBox.c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HTTP_PARAMS_SEARCH_KEY = "search_key";
@@ -43,11 +43,11 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     public View mParentView;
     public final HttpMessageListener mRequestSearchFriendListener;
     public NavigationBar navigationBar;
-    public c.a.r0.x.e.b.a searchBar;
+    public c.a.s0.x.e.b.a searchBar;
     public a.c searchBarCallback;
     public View searchView;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
             this.a = searchFriendActivity;
         }
 
-        @Override // c.a.r0.x.e.b.a.c
+        @Override // c.a.s0.x.e.b.a.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -82,7 +82,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             Object next = it.next();
-                            if ((next instanceof c.a.q0.t.f.a) && userInfo.getUserId() == ((c.a.q0.t.f.a) next).e()) {
+                            if ((next instanceof c.a.r0.t.f.a) && userInfo.getUserId() == ((c.a.r0.t.f.a) next).e()) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.a.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
                                 return;
                             }
@@ -136,7 +136,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class c extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,13 +199,13 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchFriendActivity f42676e;
+        public final /* synthetic */ SearchFriendActivity f43167e;
 
         public d(SearchFriendActivity searchFriendActivity) {
             Interceptable interceptable = $ic;
@@ -222,25 +222,25 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                     return;
                 }
             }
-            this.f42676e = searchFriendActivity;
+            this.f43167e = searchFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42676e.searchBar.g();
+                this.f43167e.searchBar.g();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchFriendActivity f42677e;
+        public final /* synthetic */ SearchFriendActivity f43168e;
 
         public e(SearchFriendActivity searchFriendActivity) {
             Interceptable interceptable = $ic;
@@ -257,14 +257,14 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                     return;
                 }
             }
-            this.f42677e = searchFriendActivity;
+            this.f43168e = searchFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42677e.finish();
+                this.f43168e.finish();
             }
         }
     }
@@ -350,7 +350,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
             navigationBar.setTitleText(R.string.find_new_friend);
             this.navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
             this.searchView = findViewById(R.id.new_search_friend_search_container);
-            this.searchBar = new c.a.r0.x.e.b.a(getPageContext(), this.searchView);
+            this.searchBar = new c.a.s0.x.e.b.a(getPageContext(), this.searchView);
             this.searchView.setOnClickListener(dVar);
             this.searchBar.l(this.searchBarCallback);
             TiebaStatic.log("add_new");

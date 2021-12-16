@@ -2,7 +2,7 @@ package com.google.android.material.internal;
 
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ViewGroupOverlayImpl extends ViewOverlayImpl {
     void add(@NonNull View view);
 

@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class DragSortItemView extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42090e;
+    public int f42581e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DragSortItemView(Context context) {
@@ -36,14 +36,14 @@ public class DragSortItemView extends ViewGroup {
                 return;
             }
         }
-        this.f42090e = 48;
+        this.f42581e = 48;
         setLayoutParams(new AbsListView.LayoutParams(-1, -2));
     }
 
     public int getGravity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42090e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42581e : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -53,7 +53,7 @@ public class DragSortItemView extends ViewGroup {
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (childAt = getChildAt(0)) == null) {
             return;
         }
-        if (this.f42090e == 48) {
+        if (this.f42581e == 48) {
             childAt.layout(0, 0, getMeasuredWidth(), childAt.getMeasuredHeight());
         } else {
             childAt.layout(0, getMeasuredHeight() - childAt.getMeasuredHeight(), getMeasuredWidth(), getMeasuredHeight());
@@ -85,7 +85,7 @@ public class DragSortItemView extends ViewGroup {
     public void setGravity(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f42090e = i2;
+            this.f42581e = i2;
         }
     }
 }

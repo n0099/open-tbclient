@@ -17,7 +17,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.logging.Logger;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class MediaDataBox implements Box {
     public static /* synthetic */ Interceptable $ic = null;
     public static Logger LOG = null;

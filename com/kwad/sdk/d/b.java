@@ -18,24 +18,24 @@ import com.kwad.sdk.api.KsVideoPlayConfig;
 import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.sdk.d.a.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f58245b;
+    public AdTemplate f58826b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public KsAdVideoPlayConfig f58246c;
+    public KsAdVideoPlayConfig f58827c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f58247d;
+    public Activity f58828d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KsInterstitialAd.AdInteractionListener f58248e;
+    public KsInterstitialAd.AdInteractionListener f58829e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(@NonNull Activity activity, @NonNull AdTemplate adTemplate, KsVideoPlayConfig ksVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener) {
@@ -55,22 +55,22 @@ public class b extends AlertDialog {
                 return;
             }
         }
-        this.f58247d = activity;
-        this.f58248e = adInteractionListener;
-        this.f58246c = new KsAdVideoPlayConfig.Builder().videoSoundEnable(ksVideoPlayConfig != null && ksVideoPlayConfig.isVideoSoundEnable()).dataFlowAutoStart(com.kwad.sdk.core.config.b.p()).build();
+        this.f58828d = activity;
+        this.f58829e = adInteractionListener;
+        this.f58827c = new KsAdVideoPlayConfig.Builder().videoSoundEnable(ksVideoPlayConfig != null && ksVideoPlayConfig.isVideoSoundEnable()).dataFlowAutoStart(com.kwad.sdk.core.config.b.p()).build();
         setOwnerActivity(activity);
-        this.f58245b = adTemplate;
+        this.f58826b = adTemplate;
         if (this.a == null) {
             com.kwad.sdk.d.a.a aVar = new com.kwad.sdk.d.a.a(Wrapper.wrapContextIfNeed(activity));
             this.a = aVar;
-            aVar.a(this.f58245b, this, this.f58246c, adInteractionListener, ksVideoPlayConfig != null && ksVideoPlayConfig.isShowLandscape());
+            aVar.a(this.f58826b, this, this.f58827c, adInteractionListener, ksVideoPlayConfig != null && ksVideoPlayConfig.isShowLandscape());
         }
     }
 
     public void a(KsInterstitialAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adInteractionListener) == null) {
-            this.f58248e = adInteractionListener;
+            this.f58829e = adInteractionListener;
             com.kwad.sdk.d.a.a aVar = this.a;
             if (aVar != null) {
                 aVar.setAdInteractionListener(adInteractionListener);
@@ -83,12 +83,12 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                if (isShowing() || this.f58247d == null || this.f58247d.isFinishing()) {
+                if (isShowing() || this.f58828d == null || this.f58828d.isFinishing()) {
                     return true;
                 }
                 show();
-                this.f58248e.onAdShow();
-                com.kwad.sdk.core.report.a.a(this.f58245b, (JSONObject) null);
+                this.f58829e.onAdShow();
+                com.kwad.sdk.core.report.a.a(this.f58826b, (JSONObject) null);
                 return true;
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.a(th);
@@ -103,7 +103,7 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.dismiss();
-            KsInterstitialAd.AdInteractionListener adInteractionListener = this.f58248e;
+            KsInterstitialAd.AdInteractionListener adInteractionListener = this.f58829e;
             if (adInteractionListener != null) {
                 adInteractionListener.onPageDismiss();
             }

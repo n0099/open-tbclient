@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.itemtab;
 
-import c.a.d.f.p.l;
-import c.a.q0.d1.z;
-import c.a.q0.l0.b.g;
+import c.a.d.f.p.m;
+import c.a.r0.d1.b0;
+import c.a.r0.l0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import tbclient.ItemPage.DataReq;
 import tbclient.ItemPage.ItemPageReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FrsItemTabRequestData extends OrmObject implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,17 +34,17 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         }
     }
 
-    @Override // c.a.q0.l0.b.i
+    @Override // c.a.r0.l0.b.i
     public Object e(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.item_id = Integer.valueOf(this.itemId);
-            builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Integer.valueOf((int) l.h(TbadkCoreApplication.getInst()));
-            z.c(builder, true, false, true);
+            builder.scr_h = Integer.valueOf(m.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(m.k(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Integer.valueOf((int) m.h(TbadkCoreApplication.getInst()));
+            b0.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -52,7 +52,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         return invokeZ.objValue;
     }
 
-    @Override // c.a.q0.l0.b.f
+    @Override // c.a.r0.l0.b.f
     public HashMap<String, Object> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // c.a.q0.l0.b.f
+    @Override // c.a.r0.l0.b.f
     public HashMap<String, String> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

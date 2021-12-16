@@ -14,7 +14,7 @@ import java.util.Comparator;
 import java.util.NavigableSet;
 import java.util.NoSuchElementException;
 import java.util.SortedSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ContiguousSet<C extends Comparable> extends ImmutableSortedSet<C> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

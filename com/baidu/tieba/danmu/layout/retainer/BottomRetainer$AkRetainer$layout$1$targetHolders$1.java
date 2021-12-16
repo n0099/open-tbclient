@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.layout.retainer;
 
-import c.a.r0.m0.h.i.a;
-import c.a.r0.m0.j.b;
+import c.a.s0.m0.h.i.a;
+import c.a.s0.m0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,8 +24,8 @@ import kotlin.jvm.internal.Ref;
 import kotlin.ranges.IntRange;
 import kotlin.sequences.SequenceScope;
 @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlin/sequences/SequenceScope;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer$RangeHolder;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-@DebugMetadata(c = "com.baidu.tieba.danmu.layout.retainer.BottomRetainer$AkRetainer$layout$1$targetHolders$1", f = "BottomRetainer.kt", i = {0, 0, 0, 1, 1, 1}, l = {220, w0.f56899k, 225}, m = "invokeSuspend", n = {"$this$sequence", "lastTop", "h", "$this$sequence", "lastTop", "h"}, s = {"L$0", "L$1", "L$3", "L$0", "L$1", "L$3"})
-/* loaded from: classes10.dex */
+@DebugMetadata(c = "com.baidu.tieba.danmu.layout.retainer.BottomRetainer$AkRetainer$layout$1$targetHolders$1", f = "BottomRetainer.kt", i = {0, 0, 0, 1, 1, 1}, l = {220, w0.f57480k, 225}, m = "invokeSuspend", n = {"$this$sequence", "lastTop", "h", "$this$sequence", "lastTop", "h"}, s = {"L$0", "L$1", "L$3", "L$0", "L$1", "L$3"})
+/* loaded from: classes11.dex */
 public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super a.b>, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ b $displayer;
@@ -111,7 +111,7 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
             ResultKt.throwOnFailure(obj);
             Ref.IntRef intRef2 = new Ref.IntRef();
             intRef2.element = this.$displayer.getHeight();
-            treeSet = this.this$0.f43360b;
+            treeSet = this.this$0.f43851b;
             int i4 = this.$margin;
             sequenceScope = (SequenceScope) this.L$0;
             intRef = intRef2;

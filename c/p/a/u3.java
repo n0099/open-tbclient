@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class u3 extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Bitmap f30968b;
+    public final /* synthetic */ Bitmap f31338b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Bitmap.CompressFormat f30969c;
+    public final /* synthetic */ Bitmap.CompressFormat f31339c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ r5 f30970d;
+    public final /* synthetic */ r5 f31340d;
 
     public u3(File file, Bitmap bitmap, Bitmap.CompressFormat compressFormat, r5 r5Var) {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public final class u3 extends AsyncTask {
             }
         }
         this.a = file;
-        this.f30968b = bitmap;
-        this.f30969c = compressFormat;
-        this.f30970d = r5Var;
+        this.f31338b = bitmap;
+        this.f31339c = compressFormat;
+        this.f31340d = r5Var;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x003b */
@@ -91,7 +91,7 @@ public final class u3 extends AsyncTask {
                 e3.printStackTrace();
             }
             try {
-                this.f30968b.compress(this.f30969c, 100, e3);
+                this.f31338b.compress(this.f31339c, 100, e3);
                 e3.flush();
                 e3.close();
                 e3 = e3;
@@ -128,7 +128,7 @@ public final class u3 extends AsyncTask {
     public void onCancelled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f30970d.a();
+            this.f31340d.a();
         }
     }
 
@@ -137,7 +137,7 @@ public final class u3 extends AsyncTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             Void r5 = (Void) obj;
-            this.f30970d.b();
+            this.f31340d.b();
         }
     }
 }

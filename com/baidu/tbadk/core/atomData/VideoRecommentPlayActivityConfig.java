@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM = "from";
@@ -31,6 +31,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static final String FROM_MAINTAB_RECOMMEND = "index";
     public static final String FROM_MAINTAB_VIDEO = "video_tab";
     public static final String FROM_NANI_VIDEO = "from_nani_video";
+    public static final String FROM_PB_VIDEO_SCHEME = "from_pb_video_scheme";
     public static final String FROM_PERSONAL_PAGE = "from_personal_page";
     public static final String FROM_VIDEO_ACCOUNT_ATTENTION_TAB = "video_attention_tab";
     public static final String FROM_VIDEO_ACCOUNT_TAB = "video_channel_tab";
@@ -58,7 +59,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static VideoHotTopicParams bigVideoHotTopicParams;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class PersonalPageParams implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String IDENTIFER_FROM_THREAD_TAB = "15";

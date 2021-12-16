@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f31405b = "00:00:00:00:00:00";
+    public static final String f31775b = "00:00:00:00:00:00";
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f31406c;
+    public static a f31776c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -69,10 +69,10 @@ public class a {
                     return;
                 }
             }
-            this.a = f31405b;
+            this.a = f31775b;
         } catch (Throwable th) {
             if (TextUtils.isEmpty(this.a)) {
-                this.a = f31405b;
+                this.a = f31775b;
             }
             throw th;
         }
@@ -82,10 +82,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f31406c == null) {
-                f31406c = new a(context);
+            if (f31776c == null) {
+                f31776c = new a(context);
             }
-            return f31406c;
+            return f31776c;
         }
         return (a) invokeL.objValue;
     }
@@ -148,7 +148,7 @@ public class a {
                     return e.a(activeNetworkInfo.getSubtype());
                 }
                 if (activeNetworkInfo != null && activeNetworkInfo.getType() == 1) {
-                    return e.f31408c;
+                    return e.f31778c;
                 }
                 return e.r;
             } catch (Exception unused) {

@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.ActLog;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class BankSignPayFlow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Action a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.banksign.a f53374b;
+    public com.baidu.wallet.paysdk.banksign.a f53954b;
 
     /* renamed from: com.baidu.wallet.paysdk.banksign.BankSignPayFlow$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -81,7 +81,7 @@ public class BankSignPayFlow {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static final class Action {
         public static final /* synthetic */ Action[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -156,7 +156,7 @@ public class BankSignPayFlow {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static BankSignPayFlow a;
@@ -203,7 +203,7 @@ public class BankSignPayFlow {
             }
         }
         this.a = Action.Null;
-        this.f53374b = new b();
+        this.f53954b = new b();
     }
 
     public void a(Action action) {
@@ -219,31 +219,31 @@ public class BankSignPayFlow {
     public void a(Context context) {
         Action action;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f53374b == null || (action = this.a) == null || Action.Null == action) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f53954b == null || (action = this.a) == null || Action.Null == action) {
             return;
         }
         switch (AnonymousClass1.a[action.ordinal()]) {
             case 1:
-                this.f53374b.e(context);
+                this.f53954b.e(context);
                 return;
             case 2:
             case 3:
             case 4:
-                this.f53374b.b(context);
+                this.f53954b.b(context);
                 return;
             case 5:
-                this.f53374b.a();
+                this.f53954b.a();
                 return;
             case 6:
-                this.f53374b.c(context);
+                this.f53954b.c(context);
                 this.a = Action.Cancel;
                 return;
             case 7:
             case 8:
-                this.f53374b.a(context);
+                this.f53954b.a(context);
                 return;
             case 9:
-                this.f53374b.d(context);
+                this.f53954b.d(context);
                 this.a = Action.Cancel;
                 return;
             default:

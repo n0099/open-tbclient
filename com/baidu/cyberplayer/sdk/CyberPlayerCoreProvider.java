@@ -23,14 +23,14 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class CyberPlayerCoreProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class LibsVersionType {
         public static /* synthetic */ Interceptable $ic;
         public static final LibsVersionType ALL_VERSION;
@@ -149,11 +149,13 @@ public abstract class CyberPlayerCoreProvider {
 
     public abstract boolean isLoaded(int i2);
 
+    public abstract int kernelNetInit(long j2);
+
     public abstract void loadlibs(int i2, Map<String, String> map) throws FileNotFoundException, UnsatisfiedLinkError, SecurityException;
 
-    public abstract int nativeKernelNetInit(long j2);
-
     public abstract void pauseDownload(String str);
+
+    public abstract int pcdnNetInit(long j2);
 
     public abstract void prefetch(String str, String str2, String str3, int i2, int i3, int i4, CyberPlayerManager.HttpDNS httpDNS, String str4, int i5, int i6, int i7, int i8, PrefetchOptions prefetchOptions);
 

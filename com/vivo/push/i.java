@@ -8,14 +8,14 @@ import com.vivo.push.cache.ISubscribeAppTagManager;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class i implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ ArrayList a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f62492b;
+    public final /* synthetic */ LocalAliasTagsManager f63073b;
 
     public i(LocalAliasTagsManager localAliasTagsManager, ArrayList arrayList) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class i implements Runnable {
                 return;
             }
         }
-        this.f62492b = localAliasTagsManager;
+        this.f63073b = localAliasTagsManager;
         this.a = arrayList;
     }
 
@@ -46,7 +46,7 @@ public final class i implements Runnable {
             while (it.hasNext()) {
                 hashSet.add((String) it.next());
             }
-            iSubscribeAppTagManager = this.f62492b.mSubscribeAppTagManager;
+            iSubscribeAppTagManager = this.f63073b.mSubscribeAppTagManager;
             if (iSubscribeAppTagManager.delTags(hashSet)) {
                 p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.a);
             }

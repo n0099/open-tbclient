@@ -12,24 +12,24 @@ import i.n.a;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.subjects.UnicastSubject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final j<? super d<T>> f64389i;
+    public final j<? super d<T>> f64960i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f64390j;
+    public final int f64961j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final int f64391k;
+    public final int f64962k;
     public final AtomicInteger l;
     public int m;
     public i.t.d<T, T> n;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class WindowSkipProducer extends AtomicBoolean implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4625807964358024108L;
@@ -64,9 +64,9 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
                 } else if (i2 != 0) {
                     OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip = this.this$0;
                     if (get() || !compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowSkip.e(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f64391k));
+                        operatorWindowWithSize$WindowSkip.e(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f64962k));
                     } else {
-                        operatorWindowWithSize$WindowSkip.e(i.o.a.a.a(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f64390j), i.o.a.a.c(operatorWindowWithSize$WindowSkip.f64391k - operatorWindowWithSize$WindowSkip.f64390j, j2 - 1)));
+                        operatorWindowWithSize$WindowSkip.e(i.o.a.a.a(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f64961j), i.o.a.a.c(operatorWindowWithSize$WindowSkip.f64962k - operatorWindowWithSize$WindowSkip.f64961j, j2 - 1)));
                     }
                 }
             }
@@ -90,7 +90,7 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
                 this.n = null;
                 dVar.onCompleted();
             }
-            this.f64389i.onCompleted();
+            this.f64960i.onCompleted();
         }
     }
 
@@ -103,7 +103,7 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
                 this.n = null;
                 dVar.onError(th);
             }
-            this.f64389i.onError(th);
+            this.f64960i.onError(th);
         }
     }
 
@@ -115,19 +115,19 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
             UnicastSubject unicastSubject = this.n;
             if (i2 == 0) {
                 this.l.getAndIncrement();
-                unicastSubject = UnicastSubject.F(this.f64390j, this);
+                unicastSubject = UnicastSubject.F(this.f64961j, this);
                 this.n = unicastSubject;
-                this.f64389i.onNext(unicastSubject);
+                this.f64960i.onNext(unicastSubject);
             }
             int i3 = i2 + 1;
             if (unicastSubject != null) {
                 unicastSubject.onNext(t);
             }
-            if (i3 == this.f64390j) {
+            if (i3 == this.f64961j) {
                 this.m = i3;
                 this.n = null;
                 unicastSubject.onCompleted();
-            } else if (i3 == this.f64391k) {
+            } else if (i3 == this.f64962k) {
                 this.m = 0;
             } else {
                 this.m = i3;

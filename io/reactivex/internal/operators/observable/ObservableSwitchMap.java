@@ -23,7 +23,7 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
     public final boolean delayErrors;
     public final Function<? super T, ? extends ObservableSource<? extends R>> mapper;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class SwitchMapInnerObserver<T, R> extends AtomicReference<Disposable> implements Observer<R> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3837284832786408377L;
@@ -119,7 +119,7 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class SwitchMapObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final SwitchMapInnerObserver<Object, Object> CANCELLED;

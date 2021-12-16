@@ -11,7 +11,7 @@ import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueSubscription;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ScalarSubscription<T> extends AtomicInteger implements QueueSubscription<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCELLED = 2;

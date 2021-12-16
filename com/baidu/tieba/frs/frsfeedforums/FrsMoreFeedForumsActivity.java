@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import c.a.r0.d1.c2.d;
-import c.a.r0.t3.x;
+import c.a.s0.d1.c2.d;
+import c.a.s0.v3.x;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,13 +35,13 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
     public NavigationBar mNavigationBar;
     public View.OnClickListener mOnClickListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsMoreFeedForumsActivity f44287e;
+        public final /* synthetic */ FrsMoreFeedForumsActivity f44778e;
 
         public a(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity) {
             Interceptable interceptable = $ic;
@@ -58,19 +58,19 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
                     return;
                 }
             }
-            this.f44287e = frsMoreFeedForumsActivity;
+            this.f44778e = frsMoreFeedForumsActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.f44287e.mBackLogo.getId()) {
-                this.f44287e.finish();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.f44778e.mBackLogo.getId()) {
+                this.f44778e.finish();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

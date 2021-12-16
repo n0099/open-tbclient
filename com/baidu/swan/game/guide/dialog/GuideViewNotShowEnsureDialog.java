@@ -7,28 +7,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import c.a.p0.h.j.h;
-import c.a.p0.h.j.i;
-import c.a.p0.h.j.l;
-import c.a.p0.j.p0.g.f.d;
+import c.a.q0.h.j.h;
+import c.a.q0.h.j.i;
+import c.a.q0.h.j.l;
+import c.a.q0.j.p0.g.f.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class GuideViewNotShowEnsureDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DialogInterface.OnClickListener clickListener;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuideViewNotShowEnsureDialog f40448e;
+        public final /* synthetic */ GuideViewNotShowEnsureDialog f40937e;
 
         public a(GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog) {
             Interceptable interceptable = $ic;
@@ -45,15 +45,15 @@ public class GuideViewNotShowEnsureDialog extends Dialog {
                     return;
                 }
             }
-            this.f40448e = guideViewNotShowEnsureDialog;
+            this.f40937e = guideViewNotShowEnsureDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f40448e.dismiss();
-                GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog = this.f40448e;
+                this.f40937e.dismiss();
+                GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog = this.f40937e;
                 DialogInterface.OnClickListener onClickListener = guideViewNotShowEnsureDialog.clickListener;
                 if (onClickListener != null) {
                     onClickListener.onClick(guideViewNotShowEnsureDialog, -2);
@@ -62,13 +62,13 @@ public class GuideViewNotShowEnsureDialog extends Dialog {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuideViewNotShowEnsureDialog f40449e;
+        public final /* synthetic */ GuideViewNotShowEnsureDialog f40938e;
 
         public b(GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog) {
             Interceptable interceptable = $ic;
@@ -85,15 +85,15 @@ public class GuideViewNotShowEnsureDialog extends Dialog {
                     return;
                 }
             }
-            this.f40449e = guideViewNotShowEnsureDialog;
+            this.f40938e = guideViewNotShowEnsureDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f40449e.dismiss();
-                GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog = this.f40449e;
+                this.f40938e.dismiss();
+                GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog = this.f40938e;
                 DialogInterface.OnClickListener onClickListener = guideViewNotShowEnsureDialog.clickListener;
                 if (onClickListener != null) {
                     onClickListener.onClick(guideViewNotShowEnsureDialog, -1);

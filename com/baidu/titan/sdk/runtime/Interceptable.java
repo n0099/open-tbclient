@@ -1,5 +1,5 @@
 package com.baidu.titan.sdk.runtime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface Interceptable {
     InterceptResult invokeB(int i2, Object obj, byte b2);
 

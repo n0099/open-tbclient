@@ -7,9 +7,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.q0.b;
-import c.a.q0.q0.f;
-import c.a.q0.q0.g;
+import c.a.r0.q0.b;
+import c.a.r0.q0.f;
+import c.a.r0.q0.g;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -50,7 +50,7 @@ import tv.athena.revenue.payui.YYPayUIKit;
 import tv.athena.revenue.payui.model.PayScene;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PayActivityStatic {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_WX_RECHARGE_RESULT_ERROR_CODE = "_wxapi_baseresp_errcode";
@@ -101,7 +101,7 @@ public class PayActivityStatic {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             Context applicationContext = BdBaseApplication.getInst().getApp().getApplicationContext();
             String packageName = applicationContext.getPackageName();
-            String p = c.a.q0.s.e0.b.j().p("version_name", "");
+            String p = c.a.r0.s.g0.b.j().p("version_name", "");
             Context context = TbadkCoreApplication.getInst().getContext();
             MiddleReportConfig build = new MiddleReportConfig.MiddleReportConfigBuilder().build();
             build.setAppName(context.getString(R.string.app_name));
@@ -172,16 +172,16 @@ public class PayActivityStatic {
         }
         initYYPaySDK();
         createUIKit();
-        yyPayResultCallback = fVar.f12490e;
+        yyPayResultCallback = fVar.f12817e;
         Object obj = fVar.a;
         if (!(obj instanceof Activity)) {
             obj = getCurrentActivity();
         }
         IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-        if (!TextUtils.isEmpty(fVar.f12488c)) {
-            viewParams.payAmountDialogTitle = fVar.f12488c;
+        if (!TextUtils.isEmpty(fVar.f12815c)) {
+            viewParams.payAmountDialogTitle = fVar.f12815c;
         }
-        Long l = fVar.f12489d;
+        Long l = fVar.f12816d;
         if (l != null) {
             int intValue = l.intValue();
             viewParams.targetAmount = intValue;
@@ -243,19 +243,19 @@ public class PayActivityStatic {
                     }
                     g gVar = new g();
                     CurrencyChargeMessage currencyChargeMessage = (CurrencyChargeMessage) obj2;
-                    gVar.f12496g = currencyChargeMessage.status;
-                    gVar.f12491b = currencyChargeMessage.appid;
-                    gVar.f12497h = Long.valueOf(currencyChargeMessage.uid);
-                    gVar.f12498i = currencyChargeMessage.usedChannel;
-                    gVar.f12493d = currencyChargeMessage.currencyType;
+                    gVar.f12823g = currencyChargeMessage.status;
+                    gVar.f12818b = currencyChargeMessage.appid;
+                    gVar.f12824h = Long.valueOf(currencyChargeMessage.uid);
+                    gVar.f12825i = currencyChargeMessage.usedChannel;
+                    gVar.f12820d = currencyChargeMessage.currencyType;
                     gVar.a = Long.valueOf(currencyChargeMessage.amount);
-                    gVar.f12492c = Long.valueOf(currencyChargeMessage.currencyAmount);
-                    gVar.f12495f = currencyChargeMessage.orderId;
-                    gVar.f12494e = currencyChargeMessage.expand;
+                    gVar.f12819c = Long.valueOf(currencyChargeMessage.currencyAmount);
+                    gVar.f12822f = currencyChargeMessage.orderId;
+                    gVar.f12821e = currencyChargeMessage.expand;
                     PayActivityStatic.yyPayResultCallback.a(gVar);
                 }
             };
-            if (fVar.f12487b == 0) {
+            if (fVar.f12814b == 0) {
                 yyPayUIKit.startPayDialog((Activity) obj, null, iPayCallback);
             } else {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);

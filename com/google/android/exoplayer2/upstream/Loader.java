@@ -16,19 +16,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Loader implements n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b<? extends c> f55920b;
+    public b<? extends c> f56501b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IOException f55921c;
+    public IOException f56502c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class UnexpectedLoaderException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public final class Loader implements n {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a<T extends c> {
         void l(T t, long j2, long j3, boolean z);
 
@@ -65,31 +65,31 @@ public final class Loader implements n {
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class b<T extends c> extends Handler implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final T f55922e;
+        public final T f56503e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final a<T> f55923f;
+        public final a<T> f56504f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f55924g;
+        public final int f56505g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f55925h;
+        public final long f56506h;
 
         /* renamed from: i  reason: collision with root package name */
-        public IOException f55926i;
+        public IOException f56507i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f55927j;
+        public int f56508j;
 
         /* renamed from: k  reason: collision with root package name */
-        public volatile Thread f55928k;
+        public volatile Thread f56509k;
         public volatile boolean l;
         public final /* synthetic */ Loader m;
 
@@ -112,32 +112,32 @@ public final class Loader implements n {
                 }
             }
             this.m = loader;
-            this.f55922e = t;
-            this.f55923f = aVar;
-            this.f55924g = i2;
-            this.f55925h = j2;
+            this.f56503e = t;
+            this.f56504f = aVar;
+            this.f56505g = i2;
+            this.f56506h = j2;
         }
 
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 this.l = z;
-                this.f55926i = null;
+                this.f56507i = null;
                 if (hasMessages(0)) {
                     removeMessages(0);
                     if (!z) {
                         sendEmptyMessage(1);
                     }
                 } else {
-                    this.f55922e.cancelLoad();
-                    if (this.f55928k != null) {
-                        this.f55928k.interrupt();
+                    this.f56503e.cancelLoad();
+                    if (this.f56509k != null) {
+                        this.f56509k.interrupt();
                     }
                 }
                 if (z) {
                     c();
                     long elapsedRealtime = SystemClock.elapsedRealtime();
-                    this.f55923f.l(this.f55922e, elapsedRealtime, elapsedRealtime - this.f55925h, true);
+                    this.f56504f.l(this.f56503e, elapsedRealtime, elapsedRealtime - this.f56506h, true);
                 }
             }
         }
@@ -145,28 +145,28 @@ public final class Loader implements n {
         public final void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f55926i = null;
-                this.m.a.execute(this.m.f55920b);
+                this.f56507i = null;
+                this.m.a.execute(this.m.f56501b);
             }
         }
 
         public final void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.m.f55920b = null;
+                this.m.f56501b = null;
             }
         }
 
         public final long d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Math.min((this.f55927j - 1) * 1000, 5000) : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Math.min((this.f56508j - 1) * 1000, 5000) : invokeV.longValue;
         }
 
         public void e(int i2) throws IOException {
             IOException iOException;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048580, this, i2) == null) && (iOException = this.f55926i) != null && this.f55927j > i2) {
+            if ((interceptable == null || interceptable.invokeI(1048580, this, i2) == null) && (iOException = this.f56507i) != null && this.f56508j > i2) {
                 throw iOException;
             }
         }
@@ -174,8 +174,8 @@ public final class Loader implements n {
         public void f(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                c.i.b.a.i0.a.f(this.m.f55920b == null);
-                this.m.f55920b = this;
+                c.i.b.a.i0.a.f(this.m.f56501b == null);
+                this.m.f56501b = this;
                 if (j2 > 0) {
                     sendEmptyMessageDelayed(0, j2);
                 } else {
@@ -196,29 +196,29 @@ public final class Loader implements n {
             } else if (i2 != 4) {
                 c();
                 long elapsedRealtime = SystemClock.elapsedRealtime();
-                long j2 = elapsedRealtime - this.f55925h;
-                if (this.f55922e.a()) {
-                    this.f55923f.l(this.f55922e, elapsedRealtime, j2, false);
+                long j2 = elapsedRealtime - this.f56506h;
+                if (this.f56503e.a()) {
+                    this.f56504f.l(this.f56503e, elapsedRealtime, j2, false);
                     return;
                 }
                 int i3 = message.what;
                 if (i3 == 1) {
-                    this.f55923f.l(this.f55922e, elapsedRealtime, j2, false);
+                    this.f56504f.l(this.f56503e, elapsedRealtime, j2, false);
                 } else if (i3 == 2) {
                     try {
-                        this.f55923f.m(this.f55922e, elapsedRealtime, j2);
+                        this.f56504f.m(this.f56503e, elapsedRealtime, j2);
                     } catch (RuntimeException e2) {
-                        this.m.f55921c = new UnexpectedLoaderException(e2);
+                        this.m.f56502c = new UnexpectedLoaderException(e2);
                     }
                 } else if (i3 != 3) {
                 } else {
                     IOException iOException = (IOException) message.obj;
-                    this.f55926i = iOException;
-                    int n = this.f55923f.n(this.f55922e, elapsedRealtime, j2, iOException);
+                    this.f56507i = iOException;
+                    int n = this.f56504f.n(this.f56503e, elapsedRealtime, j2, iOException);
                     if (n == 3) {
-                        this.m.f55921c = this.f55926i;
+                        this.m.f56502c = this.f56507i;
                     } else if (n != 2) {
-                        this.f55927j = n != 1 ? 1 + this.f55927j : 1;
+                        this.f56508j = n != 1 ? 1 + this.f56508j : 1;
                         f(d());
                     }
                 }
@@ -232,11 +232,11 @@ public final class Loader implements n {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 try {
-                    this.f55928k = Thread.currentThread();
-                    if (!this.f55922e.a()) {
-                        t.a("load:" + this.f55922e.getClass().getSimpleName());
+                    this.f56509k = Thread.currentThread();
+                    if (!this.f56503e.a()) {
+                        t.a("load:" + this.f56503e.getClass().getSimpleName());
                         try {
-                            this.f55922e.load();
+                            this.f56503e.load();
                             t.c();
                         } catch (Throwable th) {
                             t.c();
@@ -263,7 +263,7 @@ public final class Loader implements n {
                     }
                     throw e4;
                 } catch (InterruptedException unused) {
-                    c.i.b.a.i0.a.f(this.f55922e.a());
+                    c.i.b.a.i0.a.f(this.f56503e.a());
                     if (this.l) {
                         return;
                     }
@@ -278,7 +278,7 @@ public final class Loader implements n {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         boolean a();
 
@@ -287,18 +287,18 @@ public final class Loader implements n {
         void load() throws IOException, InterruptedException;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void i();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class e extends Handler implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final d f55929e;
+        public final d f56510e;
 
         public e(d dVar) {
             Interceptable interceptable = $ic;
@@ -315,14 +315,14 @@ public final class Loader implements n {
                     return;
                 }
             }
-            this.f55929e = dVar;
+            this.f56510e = dVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f55929e.i();
+                this.f56510e.i();
             }
         }
 
@@ -364,25 +364,25 @@ public final class Loader implements n {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f55920b.a(false);
+            this.f56501b.a(false);
         }
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55920b != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56501b != null : invokeV.booleanValue;
     }
 
     public void h(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            IOException iOException = this.f55921c;
+            IOException iOException = this.f56502c;
             if (iOException == null) {
-                b<? extends c> bVar = this.f55920b;
+                b<? extends c> bVar = this.f56501b;
                 if (bVar != null) {
                     if (i2 == Integer.MIN_VALUE) {
-                        i2 = bVar.f55924g;
+                        i2 = bVar.f56505g;
                     }
                     bVar.e(i2);
                     return;
@@ -404,7 +404,7 @@ public final class Loader implements n {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, dVar)) == null) {
-            b<? extends c> bVar = this.f55920b;
+            b<? extends c> bVar = this.f56501b;
             boolean z = true;
             if (bVar != null) {
                 bVar.a(true);

@@ -19,7 +19,7 @@ import com.tachikoma.core.component.view.TKView;
 import com.tachikoma.core.manager.IProvider;
 import java.util.HashMap;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

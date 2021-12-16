@@ -35,14 +35,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PaInfoDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PaInfoDBManager";
     public static PaInfoDBManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class PaInfoListParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class PaInfoParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class PaidParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -622,16 +622,16 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00c3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00c4, code lost:
         if (r11 != null) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00c5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00c6, code lost:
         r11.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00d3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00d4, code lost:
         if (r11 == null) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00d7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00d8, code lost:
         return r0;
      */
     /*

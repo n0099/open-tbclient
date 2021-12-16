@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import i.n.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class UtilityFunctions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class AlwaysFalse implements f<Object, Boolean> {
         public static final /* synthetic */ AlwaysFalse[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -81,7 +81,7 @@ public final class UtilityFunctions {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class AlwaysTrue implements f<Object, Boolean> {
         public static final /* synthetic */ AlwaysTrue[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -148,7 +148,7 @@ public final class UtilityFunctions {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Identity implements f<Object, Object> {
         public static final /* synthetic */ Identity[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

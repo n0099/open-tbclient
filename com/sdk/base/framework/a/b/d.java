@@ -11,7 +11,7 @@ import com.sdk.base.framework.c.f;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static final Boolean a;
@@ -30,7 +30,7 @@ public final class d {
                 return;
             }
         }
-        a = Boolean.valueOf(f.f60988b);
+        a = Boolean.valueOf(f.f61569b);
     }
 
     public d() {

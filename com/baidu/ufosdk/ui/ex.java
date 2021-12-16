@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ex implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,10 +38,10 @@ public final class ex implements Runnable {
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            i2 = this.a.f51722i;
+            i2 = this.a.f52271i;
             JSONArray jSONArray = null;
-            String trim = i2 != -1 ? this.a.f51715b.getText().toString().trim() : null;
-            i3 = this.a.f51721h;
+            String trim = i2 != -1 ? this.a.f52264b.getText().toString().trim() : null;
+            i3 = this.a.f52270h;
             if (i3 != -1) {
                 arrayList = this.a.m;
                 jSONArray = new JSONArray((Collection) arrayList);

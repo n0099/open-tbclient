@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BooleanCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static final BooleanCodec instance;

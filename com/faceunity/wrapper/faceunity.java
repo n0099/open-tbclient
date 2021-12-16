@@ -44,7 +44,7 @@ public class faceunity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f55607h;
+        public int f56188h;
         public byte[] nv21_data;
         public int tex;
         public int w;

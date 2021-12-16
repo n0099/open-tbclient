@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.google.android.exoplayer2.metadata.Metadata;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class EventMessage implements Metadata.Entry {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<EventMessage> CREATOR;
@@ -26,7 +26,7 @@ public final class EventMessage implements Metadata.Entry {
     public final String schemeIdUri;
     public final String value;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<EventMessage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

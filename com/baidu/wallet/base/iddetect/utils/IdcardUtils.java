@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
-import com.tencent.connect.common.Constants;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -21,7 +20,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class IdcardUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHINA_ID_MAX_LENGTH = 18;
@@ -48,7 +47,7 @@ public final class IdcardUtils {
                 return;
             }
         }
-        CITYCODE = new String[]{"11", "12", "13", "14", "15", "21", Constants.VIA_REPORT_TYPE_DATALINE, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "31", "32", "33", "34", "35", VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, PayConfig.PAYMENT_POS_KEY_MANGA, "41", RoomMasterTable.DEFAULT_ID, "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", WebKitFactory.OS_64, "65", "71", "81", "82", "91"};
+        CITYCODE = new String[]{"11", "12", "13", "14", "15", "21", "22", "23", "31", "32", "33", "34", "35", VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, PayConfig.PAYMENT_POS_KEY_MANGA, "41", RoomMasterTable.DEFAULT_ID, "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", WebKitFactory.OS_64, "65", "71", "81", "82", "91"};
         POWER = new int[]{7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
         VERIFYCODE = new String[]{"1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"};
         cityCodes = new HashMap();
@@ -60,8 +59,8 @@ public final class IdcardUtils {
         cityCodes.put("14", "山西");
         cityCodes.put("15", "内蒙古");
         cityCodes.put("21", "辽宁");
-        cityCodes.put(Constants.VIA_REPORT_TYPE_DATALINE, "吉林");
-        cityCodes.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "黑龙江");
+        cityCodes.put("22", "吉林");
+        cityCodes.put("23", "黑龙江");
         cityCodes.put("31", Address.Builder.SHANG_HAI);
         cityCodes.put("32", "江苏");
         cityCodes.put("33", "浙江");

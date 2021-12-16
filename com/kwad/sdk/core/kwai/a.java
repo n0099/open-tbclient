@@ -25,14 +25,14 @@ import com.kwad.sdk.utils.av;
 import com.kwai.CpuMemoryProfiler;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2021a {
+    /* loaded from: classes3.dex */
+    public static class C2082a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -136,13 +136,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, sdkConfig)) == null) {
             Context applicationContext = context.getApplicationContext();
-            return new b.a().a(applicationContext).f("3.3.17.4").a(3031704).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(1).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(av.w(applicationContext)).b(av.u()).a("Android").c(sdkConfig.appId).d(C2021a.a(applicationContext)).a(new f(sdkConfig, applicationContext) { // from class: com.kwad.sdk.core.kwai.a.2
+            return new b.a().a(applicationContext).f("3.3.17.4").a(3031704).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(1).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(av.w(applicationContext)).b(av.u()).a("Android").c(sdkConfig.appId).d(C2082a.a(applicationContext)).a(new f(sdkConfig, applicationContext) { // from class: com.kwad.sdk.core.kwai.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SdkConfig a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f57491b;
+                public final /* synthetic */ Context f58072b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -160,7 +160,7 @@ public class a {
                         }
                     }
                     this.a = sdkConfig;
-                    this.f57491b = applicationContext;
+                    this.f58072b = applicationContext;
                 }
 
                 @Override // com.kwad.sdk.crash.f
@@ -172,8 +172,8 @@ public class a {
                         aVar.a(n.b());
                         aVar.a("mKsadAppId", this.a.appId);
                         aVar.a("mKsadAppName", this.a.appName);
-                        aVar.a("mKsadAppPackageName", this.f57491b.getPackageName());
-                        aVar.a("mKsadAppVersion", av.w(this.f57491b));
+                        aVar.a("mKsadAppPackageName", this.f58072b.getPackageName());
+                        aVar.a("mKsadAppVersion", av.w(this.f58072b));
                         aVar.a("mKsadSdkName", "com.kwad.sdk");
                         aVar.a("mKsadSdkVersion", "3.3.17.4");
                         aVar.a("mKsadSdKVersionCode", 3031704);

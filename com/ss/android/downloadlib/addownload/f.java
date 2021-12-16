@@ -7,7 +7,7 @@ import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.download.api.download.DownloadStatusChangeListener;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface f {
     f a(long j2);
 

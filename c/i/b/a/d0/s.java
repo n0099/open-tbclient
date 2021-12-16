@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.google.android.exoplayer2.Format;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Format[] f29623b;
+    public final Format[] f29993b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29624c;
+    public int f29994c;
 
     public s(Format... formatArr) {
         Interceptable interceptable = $ic;
@@ -37,14 +37,14 @@ public final class s {
             }
         }
         c.i.b.a.i0.a.f(formatArr.length > 0);
-        this.f29623b = formatArr;
+        this.f29993b = formatArr;
         this.a = formatArr.length;
     }
 
     public Format a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f29623b[i2] : (Format) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f29993b[i2] : (Format) invokeI.objValue;
     }
 
     public int b(Format format) {
@@ -55,7 +55,7 @@ public final class s {
         }
         int i2 = 0;
         while (true) {
-            Format[] formatArr = this.f29623b;
+            Format[] formatArr = this.f29993b;
             if (i2 >= formatArr.length) {
                 return -1;
             }
@@ -77,7 +77,7 @@ public final class s {
                 return false;
             }
             s sVar = (s) obj;
-            return this.a == sVar.a && Arrays.equals(this.f29623b, sVar.f29623b);
+            return this.a == sVar.a && Arrays.equals(this.f29993b, sVar.f29993b);
         }
         return invokeL.booleanValue;
     }
@@ -86,10 +86,10 @@ public final class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f29624c == 0) {
-                this.f29624c = PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.f29623b);
+            if (this.f29994c == 0) {
+                this.f29994c = PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.f29993b);
             }
-            return this.f29624c;
+            return this.f29994c;
         }
         return invokeV.intValue;
     }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.beans.IBeanResponseCallback;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,13 +61,13 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f53573b;
+                public final /* synthetic */ int f54153b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f53574c;
+                public final /* synthetic */ String f54154c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ NetWorkPresenter f53575d;
+                public final /* synthetic */ NetWorkPresenter f54155d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -84,17 +84,17 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                             return;
                         }
                     }
-                    this.f53575d = this;
+                    this.f54155d = this;
                     this.a = i2;
-                    this.f53573b = i3;
-                    this.f53574c = str;
+                    this.f54153b = i3;
+                    this.f54154c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f53575d.handleFailure(this.a, this.f53573b, this.f53574c);
+                        this.f54155d.handleFailure(this.a, this.f54153b, this.f54154c);
                     }
                 }
             });
@@ -111,13 +111,13 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f53570b;
+                public final /* synthetic */ Object f54150b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f53571c;
+                public final /* synthetic */ String f54151c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ NetWorkPresenter f53572d;
+                public final /* synthetic */ NetWorkPresenter f54152d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -134,17 +134,17 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                             return;
                         }
                     }
-                    this.f53572d = this;
+                    this.f54152d = this;
                     this.a = i2;
-                    this.f53570b = obj;
-                    this.f53571c = str;
+                    this.f54150b = obj;
+                    this.f54151c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f53572d.handleResponse(this.a, this.f53570b, this.f53571c);
+                        this.f54152d.handleResponse(this.a, this.f54150b, this.f54151c);
                     }
                 }
             });

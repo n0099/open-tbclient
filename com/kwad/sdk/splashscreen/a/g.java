@@ -25,42 +25,42 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.widget.KsShakeView;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.ax;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.core.g.a, com.kwad.sdk.widget.d {
     public static /* synthetic */ Interceptable $ic = null;
     public static long a = 400;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f59481b;
+    public AdTemplate f60062b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f59482c;
+    public View f60063c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsShakeView f59483d;
+    public KsShakeView f60064d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f59484e;
+    public TextView f60065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.g.b f59485f;
+    public com.kwad.sdk.core.g.b f60066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Vibrator f59486g;
+    public Vibrator f60067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f59487h;
+    public boolean f60068h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.g f59488i;
+    public com.kwad.sdk.splashscreen.g f60069i;
 
     /* renamed from: j  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.a f59489j;
+    public com.kwad.sdk.splashscreen.a f60070j;
 
     /* renamed from: k  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.e f59490k;
+    public com.kwad.sdk.splashscreen.e f60071k;
 
     static {
         InterceptResult invokeClinit;
@@ -94,30 +94,30 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            TextView textView = this.f59484e;
+            TextView textView = this.f60065e;
             if (textView != null) {
-                textView.setText(this.f59490k.a());
+                textView.setText(this.f60071k.a());
             }
-            KsShakeView ksShakeView = this.f59483d;
+            KsShakeView ksShakeView = this.f60064d;
             if (ksShakeView != null) {
-                ksShakeView.a(this.f59490k.b());
+                ksShakeView.a(this.f60071k.b());
             }
         }
     }
 
     private void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || this.f59488i == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || this.f60069i == null) {
             return;
         }
-        com.kwad.sdk.splashscreen.a aVar = this.f59489j;
+        com.kwad.sdk.splashscreen.a aVar = this.f60070j;
         if (aVar == null) {
-            this.f59489j = new com.kwad.sdk.splashscreen.a(this, this.f59481b) { // from class: com.kwad.sdk.splashscreen.a.g.2
+            this.f60070j = new com.kwad.sdk.splashscreen.a(this, this.f60062b) { // from class: com.kwad.sdk.splashscreen.a.g.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ g f59491b;
+                public final /* synthetic */ g f60072b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -137,37 +137,37 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
                             return;
                         }
                     }
-                    this.f59491b = this;
+                    this.f60072b = this;
                 }
 
                 @Override // com.kwad.sdk.splashscreen.a
                 @SuppressLint({"SetTextI18n"})
                 public void a(String str) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || this.f59491b.f59484e == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || this.f60072b.f60065e == null) {
                         return;
                     }
-                    TextView textView = this.f59491b.f59484e;
+                    TextView textView = this.f60072b.f60065e;
                     textView.setText("或点击" + str);
                 }
             };
         } else {
-            aVar.a(this.f59481b);
+            aVar.a(this.f60062b);
         }
-        com.kwad.sdk.core.download.a.b bVar = this.f59488i.f59580g;
+        com.kwad.sdk.core.download.a.b bVar = this.f60069i.f60161g;
         if (bVar != null) {
-            bVar.a(this.f59489j);
+            bVar.a(this.f60070j);
         }
     }
 
     private void g() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (view = this.f59482c) == null || this.f59488i == null) {
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (view = this.f60063c) == null || this.f60069i == null) {
             return;
         }
         view.setVisibility(0);
-        com.kwad.sdk.core.report.a.c(this.f59481b, 19, null);
+        com.kwad.sdk.core.report.a.c(this.f60062b, 19, null);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
@@ -177,21 +177,21 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
             super.a();
             Object p = p();
             if (p instanceof com.kwad.sdk.splashscreen.g) {
-                this.f59488i = (com.kwad.sdk.splashscreen.g) p;
+                this.f60069i = (com.kwad.sdk.splashscreen.g) p;
             }
-            com.kwad.sdk.splashscreen.g gVar = this.f59488i;
+            com.kwad.sdk.splashscreen.g gVar = this.f60069i;
             if (gVar == null) {
                 return;
             }
-            AdTemplate adTemplate = gVar.f59577d;
-            this.f59481b = adTemplate;
+            AdTemplate adTemplate = gVar.f60158d;
+            this.f60062b = adTemplate;
             AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
-            this.f59490k = com.kwad.sdk.splashscreen.e.a(this.f59481b, j2, this.f59488i.f59580g);
-            float o = com.kwad.sdk.core.response.a.b.o(this.f59481b);
-            com.kwad.sdk.core.g.b bVar = this.f59485f;
+            this.f60071k = com.kwad.sdk.splashscreen.e.a(this.f60062b, j2, this.f60069i.f60161g);
+            float o = com.kwad.sdk.core.response.a.b.o(this.f60062b);
+            com.kwad.sdk.core.g.b bVar = this.f60066f;
             if (bVar == null) {
                 com.kwad.sdk.core.g.b bVar2 = new com.kwad.sdk.core.g.b(o);
-                this.f59485f = bVar2;
+                this.f60066f = bVar2;
                 bVar2.a(this);
             } else {
                 bVar.a(o);
@@ -201,8 +201,8 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
                 f();
             }
             g();
-            this.f59485f.a(q());
-            this.f59483d.post(new Runnable(this) { // from class: com.kwad.sdk.splashscreen.a.g.1
+            this.f60066f.a(q());
+            this.f60064d.post(new Runnable(this) { // from class: com.kwad.sdk.splashscreen.a.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ g a;
@@ -229,13 +229,13 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.f59483d.a();
+                        this.a.f60064d.a();
                     }
                 }
             });
             com.kwad.sdk.splashscreen.kwai.a.a(q());
-            this.f59487h = com.kwad.sdk.core.response.a.c.g(this.f59488i.f59577d);
-            new com.kwad.sdk.widget.f(this.f59483d.getContext(), this.f59483d, this);
+            this.f60068h = com.kwad.sdk.core.response.a.c.g(this.f60069i.f60158d);
+            new com.kwad.sdk.widget.f(this.f60064d.getContext(), this.f60064d, this);
         }
     }
 
@@ -245,7 +245,7 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2)}) == null) {
-            boolean isShown = this.f59483d.isShown();
+            boolean isShown = this.f60064d.isShown();
             boolean a2 = com.kwad.sdk.core.download.kwai.b.a();
             com.kwad.sdk.core.d.a.a("SplashShakePresenter", "onShakeEvent called isShakeViewShown: " + isShown + ", isDialogShown: " + a2);
             if (!isShown || a2) {
@@ -276,19 +276,19 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.a.f59485f.a();
+                            this.a.f60066f.a();
                         }
                     }
                 };
                 j2 = 500;
             } else {
-                this.f59483d.a(new AnimatorListenerAdapter(this, d2) { // from class: com.kwad.sdk.splashscreen.a.g.4
+                this.f60064d.a(new AnimatorListenerAdapter(this, d2) { // from class: com.kwad.sdk.splashscreen.a.g.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ double a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ g f59492b;
+                    public final /* synthetic */ g f60073b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -305,7 +305,7 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
                                 return;
                             }
                         }
-                        this.f59492b = this;
+                        this.f60073b = this;
                         this.a = d2;
                     }
 
@@ -314,13 +314,13 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
                             super.onAnimationEnd(animator);
-                            if (this.f59492b.f59488i != null) {
-                                this.f59492b.f59488i.a(this.f59492b.q(), w0.p0, 2, this.a);
+                            if (this.f60073b.f60069i != null) {
+                                this.f60073b.f60069i.a(this.f60073b.q(), w0.p0, 2, this.a);
                             }
                         }
                     }
                 });
-                Vibrator vibrator = this.f59486g;
+                Vibrator vibrator = this.f60067g;
                 if (vibrator != null) {
                     if (Build.VERSION.SDK_INT >= 26) {
                         vibrator.vibrate(VibrationEffect.createOneShot(a, -1));
@@ -355,7 +355,7 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.a.f59485f.a();
+                            this.a.f60066f.a();
                         }
                     }
                 };
@@ -371,7 +371,7 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
             com.kwad.sdk.core.d.a.a("SplashShakePresenter", "onSingleTap: " + view);
-            if (com.kwad.sdk.core.response.a.b.c(com.kwad.sdk.core.response.a.d.j(this.f59481b)) && (gVar = this.f59488i) != null) {
+            if (com.kwad.sdk.core.response.a.b.c(com.kwad.sdk.core.response.a.d.j(this.f60062b)) && (gVar = this.f60069i) != null) {
                 gVar.a(q(), 158, 1);
             }
         }
@@ -382,8 +382,8 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
         com.kwad.sdk.splashscreen.g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            com.kwad.sdk.core.d.a.a("SplashShakePresenter", "onSlide: enableSlickClick: " + this.f59487h);
-            if (this.f59487h && (gVar = this.f59488i) != null) {
+            com.kwad.sdk.core.d.a.a("SplashShakePresenter", "onSlide: enableSlickClick: " + this.f60068h);
+            if (this.f60068h && (gVar = this.f60069i) != null) {
                 gVar.a(view.getContext(), 153, 1);
             }
         }
@@ -395,7 +395,7 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.c();
             com.kwad.sdk.core.d.a.a("SplashShakePresenter", "onUnbind");
-            com.kwad.sdk.core.g.b bVar = this.f59485f;
+            com.kwad.sdk.core.g.b bVar = this.f60066f;
             if (bVar != null) {
                 bVar.b(q());
             }
@@ -409,12 +409,12 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
             super.c_();
             Context q = q();
             if (q != null) {
-                this.f59486g = (Vibrator) q.getSystemService("vibrator");
+                this.f60067g = (Vibrator) q.getSystemService("vibrator");
             }
-            this.f59482c = a(R.id.ksad_shake_layout);
-            this.f59484e = (TextView) a(R.id.ksad_shake_action);
+            this.f60063c = a(R.id.ksad_shake_layout);
+            this.f60065e = (TextView) a(R.id.ksad_shake_action);
             KsShakeView ksShakeView = (KsShakeView) a(R.id.ksad_shake_view);
-            this.f59483d = ksShakeView;
+            this.f60064d = ksShakeView;
             ksShakeView.setOnClickListener(this);
         }
     }
@@ -425,10 +425,10 @@ public class g extends Presenter implements View.OnClickListener, com.kwad.sdk.c
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
             com.kwad.sdk.core.d.a.a("SplashShakePresenter", "onClick: " + view);
-            if (!view.equals(this.f59483d) || this.f59488i == null || (adTemplate = this.f59481b) == null || !com.kwad.sdk.core.response.a.b.c(com.kwad.sdk.core.response.a.d.j(adTemplate))) {
+            if (!view.equals(this.f60064d) || this.f60069i == null || (adTemplate = this.f60062b) == null || !com.kwad.sdk.core.response.a.b.c(com.kwad.sdk.core.response.a.d.j(adTemplate))) {
                 return;
             }
-            this.f59488i.a(q(), 158, 1);
+            this.f60069i.a(q(), 158, 1);
         }
     }
 }

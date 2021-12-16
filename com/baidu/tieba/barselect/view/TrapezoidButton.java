@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class TrapezoidButton extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f43193e;
+    public Paint f43684e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f43194f;
+    public Path f43685f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TrapezoidButton(Context context) {
@@ -49,13 +49,13 @@ public class TrapezoidButton extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f43194f = new Path();
+            this.f43685f = new Path();
             Paint paint = new Paint();
-            this.f43193e = paint;
+            this.f43684e = paint;
             paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-            this.f43193e.setColor(-1);
-            this.f43193e.setStyle(Paint.Style.FILL);
-            this.f43193e.setAntiAlias(true);
+            this.f43684e.setColor(-1);
+            this.f43684e.setStyle(Paint.Style.FILL);
+            this.f43684e.setAntiAlias(true);
             setLayerType(1, null);
         }
     }
@@ -67,13 +67,13 @@ public class TrapezoidButton extends LinearLayout {
             int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
             super.dispatchDraw(canvas);
             int height = canvas.getHeight();
-            this.f43194f.reset();
-            this.f43194f.moveTo(0.0f, 0.0f);
+            this.f43685f.reset();
+            this.f43685f.moveTo(0.0f, 0.0f);
             float f2 = height;
-            this.f43194f.lineTo(0.0f, f2);
-            this.f43194f.lineTo(f2 * 0.45f, 0.0f);
-            this.f43194f.close();
-            canvas.drawPath(this.f43194f, this.f43193e);
+            this.f43685f.lineTo(0.0f, f2);
+            this.f43685f.lineTo(f2 * 0.45f, 0.0f);
+            this.f43685f.close();
+            canvas.drawPath(this.f43685f, this.f43684e);
             canvas.restoreToCount(saveLayer);
         }
     }

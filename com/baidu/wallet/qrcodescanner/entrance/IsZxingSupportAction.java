@@ -10,7 +10,7 @@ import com.baidu.wallet.qrcodescanner.ScanCodeController;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class IsZxingSupportAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

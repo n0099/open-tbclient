@@ -2,7 +2,7 @@ package h.b.g;
 
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface b {
     b a();
 

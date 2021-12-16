@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Segment implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2739667069736519602L;
@@ -16,7 +16,7 @@ public class Segment implements Serializable {
     public final Vector3 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Vector3 f31627b;
+    public final Vector3 f31997b;
 
     public Segment(Vector3 vector3, Vector3 vector32) {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class Segment implements Serializable {
             }
         }
         this.a = new Vector3();
-        this.f31627b = new Vector3();
+        this.f31997b = new Vector3();
         this.a.set(vector3);
-        this.f31627b.set(vector32);
+        this.f31997b.set(vector32);
     }
 
     public boolean equals(Object obj) {
@@ -50,7 +50,7 @@ public class Segment implements Serializable {
                 return false;
             }
             Segment segment = (Segment) obj;
-            return this.a.equals(segment.a) && this.f31627b.equals(segment.f31627b);
+            return this.a.equals(segment.a) && this.f31997b.equals(segment.f31997b);
         }
         return invokeL.booleanValue;
     }
@@ -58,19 +58,19 @@ public class Segment implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.a.hashCode() + 71) * 71) + this.f31627b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.a.hashCode() + 71) * 71) + this.f31997b.hashCode() : invokeV.intValue;
     }
 
     public float len() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.dst(this.f31627b) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.dst(this.f31997b) : invokeV.floatValue;
     }
 
     public float len2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.dst2(this.f31627b) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.dst2(this.f31997b) : invokeV.floatValue;
     }
 
     public Segment(float f2, float f3, float f4, float f5, float f6, float f7) {
@@ -89,8 +89,8 @@ public class Segment implements Serializable {
             }
         }
         this.a = new Vector3();
-        this.f31627b = new Vector3();
+        this.f31997b = new Vector3();
         this.a.set(f2, f3, f4);
-        this.f31627b.set(f5, f6, f7);
+        this.f31997b.set(f5, f6, f7);
     }
 }

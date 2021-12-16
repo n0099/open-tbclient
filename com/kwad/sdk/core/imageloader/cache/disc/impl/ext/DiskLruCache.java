@@ -38,7 +38,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DiskLruCache implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ANY_SEQUENCE_NUMBER = -1;
@@ -72,7 +72,7 @@ public final class DiskLruCache implements Closeable {
     public long size;
     public final int valueCount;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public final class DiskLruCache implements Closeable {
         public final /* synthetic */ DiskLruCache this$0;
         public final boolean[] written;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class FaultHidingOutputStream extends FilterOutputStream {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -297,7 +297,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -390,7 +390,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class Snapshot implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

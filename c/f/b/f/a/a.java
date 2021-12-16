@@ -13,20 +13,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.PhoneUtils;
 import com.dxmpay.wallet.core.utils.UAFilterUtil;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Pattern a;
 
     /* renamed from: c.f.b.f.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class C1584a {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class C1624a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
@@ -49,7 +49,7 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(C1584a c1584a) {
+    public /* synthetic */ a(C1624a c1624a) {
         this();
     }
 

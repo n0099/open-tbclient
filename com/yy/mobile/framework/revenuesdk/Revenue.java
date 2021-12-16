@@ -28,7 +28,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.AppPayServiceImpl;
 import com.yy.mobile.framework.revenuesdk.reporter.EventReporter;
 import com.yy.mobile.framework.revenuesdk.reporter.MonitorReporter;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSender {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Revenue";
@@ -149,13 +149,13 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
                     this.mProtocolType = revenueConfig.getProtoType();
                     RevenueConfigCenter.addConfig(this.mAppId, this.mUsedChannel, revenueConfig);
                     initLogConfig(revenueConfig);
-                    RLog.info(TAG, "initConfig -> versionName:4.3.0-bdpay config:" + revenueConfig.toString());
+                    RLog.info(TAG, "initConfig versionName:4.3.9-bdpay212004-SNAPSHOT config:" + revenueConfig.toString());
                     createService(revenueConfig.getContext(), this.serviceName, this.functionName, false, revenueConfig.getIsOpenRisk());
                     return;
                 }
                 throw new IllegalArgumentException("Data Sender == null,Revenue init fail!");
             }
-            RLog.error(TAG, "initConfig -> versionName:4.3.0-bdpay config null", new Object[0]);
+            RLog.error(TAG, "initConfig versionName:4.3.9-bdpay212004-SNAPSHOT config null", new Object[0]);
             throw new IllegalArgumentException("init Revenue config == null!");
         }
     }

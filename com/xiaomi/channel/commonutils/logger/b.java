@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.l;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 2;
@@ -42,10 +42,10 @@ public abstract class b {
     public static boolean f34a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<Integer, String> f62681b;
+    public static final HashMap<Integer, String> f63262b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements LoggerInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +106,7 @@ public abstract class b {
         f31a = "XMPush-" + Process.myPid();
         f29a = new a();
         f32a = new HashMap<>();
-        f62681b = new HashMap<>();
+        f63262b = new HashMap<>();
         f30a = -1;
         f33a = new AtomicInteger(1);
     }
@@ -124,7 +124,7 @@ public abstract class b {
             if (a <= 1) {
                 Integer valueOf = Integer.valueOf(f33a.incrementAndGet());
                 f32a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
-                f62681b.put(valueOf, str);
+                f63262b.put(valueOf, str);
                 LoggerInterface loggerInterface = f29a;
                 loggerInterface.log(str + " starts");
                 return valueOf;
@@ -209,7 +209,7 @@ public abstract class b {
         if ((interceptable == null || interceptable.invokeL(65548, null, num) == null) && a <= 1 && f32a.containsKey(num)) {
             long currentTimeMillis = System.currentTimeMillis() - f32a.remove(num).longValue();
             LoggerInterface loggerInterface = f29a;
-            loggerInterface.log(f62681b.remove(num) + " ends in " + currentTimeMillis + " ms");
+            loggerInterface.log(f63262b.remove(num) + " ends in " + currentTimeMillis + " ms");
         }
     }
 

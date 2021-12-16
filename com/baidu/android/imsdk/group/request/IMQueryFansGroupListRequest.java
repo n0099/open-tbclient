@@ -32,14 +32,14 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class IMQueryFansGroupListRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansGroupListRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public String mKey;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class FansGetGroupListTask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FormatTools {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FormatTools";

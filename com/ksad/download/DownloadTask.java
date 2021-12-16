@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadTask implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7092669850073266500L;
@@ -40,7 +40,7 @@ public class DownloadTask implements Serializable {
     public boolean mWakeInstallApk;
     public boolean notificationRemoved;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DownloadRequest implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3638290207248829674L;

@@ -14,43 +14,43 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.UUID;
 import java.util.zip.CRC32;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class z1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: k  reason: collision with root package name */
-    public static z1 f56924k;
+    public static z1 f57505k;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f56925b;
+    public Context f57506b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f56926c;
+    public d f57507c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile String f56927d;
+    public volatile String f57508d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f56928e;
+    public volatile int f57509e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile String f56929f;
+    public volatile String f57510f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f56930g;
+    public int f57511g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f56931h;
+    public int f57512h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f56932i;
+    public Handler f57513i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HandlerThread f56933j;
+    public HandlerThread f57514j;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,14 +78,14 @@ public class z1 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long h2 = this.a.f56926c.h();
+                long h2 = this.a.f57507c.h();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - h2 >= this.a.f56926c.b(d.e0, 10) * 1000) {
+                if (currentTimeMillis - h2 >= this.a.f57507c.b(d.e0, 10) * 1000) {
                     z1.c(this.a);
                     this.a.e();
-                    this.a.f56926c.e(currentTimeMillis);
-                    this.a.f56926c.b(d.f56616d, this.a.f56927d);
-                    this.a.f56926c.c(d.f56617e, this.a.f56928e);
+                    this.a.f57507c.e(currentTimeMillis);
+                    this.a.f57507c.b(d.f57197d, this.a.f57508d);
+                    this.a.f57507c.c(d.f57198e, this.a.f57509e);
                 }
             }
         }
@@ -107,12 +107,12 @@ public class z1 {
             }
         }
         this.a = false;
-        this.f56929f = "";
-        this.f56930g = -1;
-        this.f56931h = -1;
-        this.f56933j = new HandlerThread("tokenFKHandlerThread");
-        this.f56925b = context;
-        this.f56926c = new d(context);
+        this.f57510f = "";
+        this.f57511g = -1;
+        this.f57512h = -1;
+        this.f57514j = new HandlerThread("tokenFKHandlerThread");
+        this.f57506b = context;
+        this.f57507c = new d(context);
     }
 
     public static synchronized z1 a(Context context) {
@@ -122,10 +122,10 @@ public class z1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (z1.class) {
                 try {
-                    if (f56924k == null) {
-                        f56924k = new z1(context);
+                    if (f57505k == null) {
+                        f57505k = new z1(context);
                     }
-                    z1Var = f56924k;
+                    z1Var = f57505k;
                 } catch (Exception unused) {
                     return null;
                 }
@@ -136,8 +136,8 @@ public class z1 {
     }
 
     public static /* synthetic */ int c(z1 z1Var) {
-        int i2 = z1Var.f56928e;
-        z1Var.f56928e = i2 + 1;
+        int i2 = z1Var.f57509e;
+        z1Var.f57509e = i2 + 1;
         return i2;
     }
 
@@ -148,19 +148,19 @@ public class z1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             try {
-                String e2 = this.f56926c.e(d.f56618f);
+                String e2 = this.f57507c.e(d.f57199f);
                 if (TextUtils.isEmpty(e2)) {
                     e2 = UUID.randomUUID().toString();
                 }
-                this.f56926c.b(d.f56618f, e2);
-                boolean b3 = this.f56926c.b(d.Z0);
-                boolean b4 = this.f56926c.b(d.a1);
+                this.f57507c.b(d.f57199f, e2);
+                boolean b3 = this.f57507c.b(d.Z0);
+                boolean b4 = this.f57507c.b(d.a1);
                 if (b3 || b4) {
-                    c2 = x0.c(this.f56925b);
+                    c2 = x0.c(this.f57506b);
                     if (!TextUtils.isEmpty(c2) && !c2.contains("RISK_")) {
                         b2 = 1;
-                        this.f56926c.b(d.f56619g, c2);
-                        this.f56926c.c(d.f56620h, b2);
+                        this.f57507c.b(d.f57200g, c2);
+                        this.f57507c.c(d.f57201h, b2);
                         byte[] d2 = s1.d((e2 + " " + l1.l() + " " + c2).getBytes());
                         byte[] array = ByteBuffer.allocate(2).putShort((short) 0).array();
                         byte[] array2 = ByteBuffer.allocate(4).putInt(0).array();
@@ -186,21 +186,21 @@ public class z1 {
                         System.arraycopy(array6, 0, bArr2, length, array6.length);
                         String str = new String(k1.a(r1.u.getBytes(), 2));
                         byte[] c3 = i1.c(str, str, bArr2);
-                        this.f56927d = k1.c(c3, 2);
+                        this.f57508d = k1.c(c3, 2);
                         byte[] array7 = ByteBuffer.allocate(4).putInt(1).array();
                         byte[] bArr3 = new byte[c3.length + array7.length];
                         System.arraycopy(c3, 0, bArr3, 0, c3.length);
                         System.arraycopy(array7, 0, bArr3, c3.length, array7.length);
-                        this.f56929f = k1.c(bArr3, 2);
+                        this.f57510f = k1.c(bArr3, 2);
                     }
-                    context = this.f56925b;
+                    context = this.f57506b;
                 } else {
-                    context = this.f56925b;
+                    context = this.f57506b;
                 }
                 c2 = l1.g(context).replace("ANDROID_", "");
                 b2 = 3;
-                this.f56926c.b(d.f56619g, c2);
-                this.f56926c.c(d.f56620h, b2);
+                this.f57507c.b(d.f57200g, c2);
+                this.f57507c.c(d.f57201h, b2);
                 byte[] d22 = s1.d((e2 + " " + l1.l() + " " + c2).getBytes());
                 byte[] array8 = ByteBuffer.allocate(2).putShort((short) 0).array();
                 byte[] array22 = ByteBuffer.allocate(4).putInt(0).array();
@@ -226,23 +226,23 @@ public class z1 {
                 System.arraycopy(array62, 0, bArr22, length2, array62.length);
                 String str2 = new String(k1.a(r1.u.getBytes(), 2));
                 byte[] c32 = i1.c(str2, str2, bArr22);
-                this.f56927d = k1.c(c32, 2);
+                this.f57508d = k1.c(c32, 2);
                 byte[] array72 = ByteBuffer.allocate(4).putInt(1).array();
                 byte[] bArr32 = new byte[c32.length + array72.length];
                 System.arraycopy(c32, 0, bArr32, 0, c32.length);
                 System.arraycopy(array72, 0, bArr32, c32.length, array72.length);
-                this.f56929f = k1.c(bArr32, 2);
+                this.f57510f = k1.c(bArr32, 2);
             } catch (Throwable th) {
-                this.f56927d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
+                this.f57508d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
                 try {
                     byte[] array9 = ByteBuffer.allocate(4).putInt(1).array();
-                    byte[] a2 = k1.a(this.f56927d, 2);
+                    byte[] a2 = k1.a(this.f57508d, 2);
                     byte[] bArr5 = new byte[a2.length + array9.length];
                     System.arraycopy(a2, 0, bArr5, 0, a2.length);
                     System.arraycopy(array9, 0, bArr5, a2.length, array9.length);
-                    this.f56929f = k1.c(bArr5, 2);
+                    this.f57510f = k1.c(bArr5, 2);
                 } catch (Exception unused) {
-                    this.f56929f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
+                    this.f57510f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
                 }
                 l1.a(th);
             }
@@ -252,7 +252,7 @@ public class z1 {
     public static z1 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f56924k : (z1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f57505k : (z1) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -260,15 +260,15 @@ public class z1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             try {
-                byte[] a2 = k1.a(this.f56927d, 2);
+                byte[] a2 = k1.a(this.f57508d, 2);
                 byte[] bArr = new byte[a2.length + 4];
                 System.arraycopy(a2, 0, bArr, 0, a2.length);
-                byte[] array = ByteBuffer.allocate(4).putInt(this.f56928e).array();
+                byte[] array = ByteBuffer.allocate(4).putInt(this.f57509e).array();
                 System.arraycopy(array, 0, bArr, a2.length, array.length);
-                this.f56929f = k1.c(bArr, 2);
+                this.f57510f = k1.c(bArr, 2);
             } catch (Throwable unused) {
-                this.f56927d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
-                this.f56929f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
+                this.f57508d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
+                this.f57510f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
             }
         }
     }
@@ -277,28 +277,28 @@ public class z1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f56931h == -1) {
-                this.f56931h = this.f56926c.a(d.f0, 0);
+            if (this.f57512h == -1) {
+                this.f57512h = this.f57507c.a(d.f0, 0);
             }
-            if (this.f56931h == 0) {
+            if (this.f57512h == 0) {
                 return null;
             }
-            if (this.f56930g == -1) {
-                this.f56930g = this.f56926c.a(d.d0, 0);
+            if (this.f57511g == -1) {
+                this.f57511g = this.f57507c.a(d.d0, 0);
             }
-            if (this.f56930g == 0) {
+            if (this.f57511g == 0) {
                 return StringUtil.NULL_STRING;
             }
             try {
-                if (TextUtils.isEmpty(this.f56927d) || this.f56932i == null) {
+                if (TextUtils.isEmpty(this.f57508d) || this.f57513i == null) {
                     b();
                 } else {
-                    this.f56932i.removeCallbacksAndMessages(null);
-                    this.f56932i.postDelayed(new a(this), 1000L);
+                    this.f57513i.removeCallbacksAndMessages(null);
+                    this.f57513i.postDelayed(new a(this), 1000L);
                 }
             } catch (Exception unused) {
             }
-            return this.f56929f;
+            return this.f57510f;
         }
         return (String) invokeV.objValue;
     }
@@ -306,17 +306,17 @@ public class z1 {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str) || str.equals(this.f56927d)) {
+            if (TextUtils.isEmpty(str) || str.equals(this.f57508d)) {
                 if (!TextUtils.isEmpty(str)) {
                     return;
                 }
-                str = this.f56926c.a(d.f56616d, "");
-                if (TextUtils.isEmpty(str) || str.equals(this.f56927d)) {
+                str = this.f57507c.a(d.f57197d, "");
+                if (TextUtils.isEmpty(str) || str.equals(this.f57508d)) {
                     return;
                 }
             }
-            this.f56928e = 0;
-            this.f56927d = str;
+            this.f57509e = 0;
+            this.f57508d = str;
         }
     }
 
@@ -326,42 +326,42 @@ public class z1 {
             synchronized (this) {
                 try {
                 } catch (Exception unused) {
-                    this.f56927d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
-                    this.f56929f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
+                    this.f57508d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
+                    this.f57510f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
                 }
                 if (this.a) {
                     return;
                 }
                 this.a = true;
-                if (this.f56930g == -1) {
-                    this.f56930g = this.f56926c.a(d.d0, 0);
+                if (this.f57511g == -1) {
+                    this.f57511g = this.f57507c.a(d.d0, 0);
                 }
-                if (this.f56931h == -1) {
-                    this.f56931h = this.f56926c.a(d.f0, 0);
+                if (this.f57512h == -1) {
+                    this.f57512h = this.f57507c.a(d.f0, 0);
                 }
-                if (this.f56930g == 0) {
+                if (this.f57511g == 0) {
                     return;
                 }
-                this.f56927d = this.f56926c.a(d.f56616d, "");
-                this.f56928e = this.f56926c.b(d.f56617e, 0);
-                if (this.f56933j != null) {
-                    this.f56933j.start();
-                    this.f56932i = new Handler(this.f56933j.getLooper());
+                this.f57508d = this.f57507c.a(d.f57197d, "");
+                this.f57509e = this.f57507c.b(d.f57198e, 0);
+                if (this.f57514j != null) {
+                    this.f57514j.start();
+                    this.f57513i = new Handler(this.f57514j.getLooper());
                 }
-                if (TextUtils.isEmpty(this.f56927d)) {
-                    this.f56928e = 0;
+                if (TextUtils.isEmpty(this.f57508d)) {
+                    this.f57509e = 0;
                     c();
-                    this.f56926c.b(d.f56616d, this.f56927d);
-                    this.f56926c.c(d.f56617e, this.f56928e);
+                    this.f57507c.b(d.f57197d, this.f57508d);
+                    this.f57507c.c(d.f57198e, this.f57509e);
                 } else {
-                    this.f56928e++;
-                    this.f56926c.c(d.f56617e, this.f56928e);
-                    byte[] a2 = k1.a(this.f56927d, 2);
+                    this.f57509e++;
+                    this.f57507c.c(d.f57198e, this.f57509e);
+                    byte[] a2 = k1.a(this.f57508d, 2);
                     byte[] bArr = new byte[a2.length + 4];
                     System.arraycopy(a2, 0, bArr, 0, a2.length);
-                    byte[] array = ByteBuffer.allocate(4).putInt(this.f56928e).array();
+                    byte[] array = ByteBuffer.allocate(4).putInt(this.f57509e).array();
                     System.arraycopy(array, 0, bArr, a2.length, array.length);
-                    this.f56929f = k1.c(bArr, 2);
+                    this.f57510f = k1.c(bArr, 2);
                 }
             }
         }

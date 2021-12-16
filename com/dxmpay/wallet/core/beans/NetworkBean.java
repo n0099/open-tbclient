@@ -40,7 +40,7 @@ import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class NetworkBean<T> extends ApollonBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PARAM_CUID = "cuid_1";
@@ -48,7 +48,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class BizType {
         public static final /* synthetic */ BizType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -109,13 +109,13 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class SessionCache implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HashMap<Integer, BeanResponseBase.Session> mCache;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes2.dex */
         public static class a {
             public static /* synthetic */ Interceptable $ic;
             public static final SessionCache a;
@@ -231,7 +231,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

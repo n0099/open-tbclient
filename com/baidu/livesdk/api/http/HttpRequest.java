@@ -1,5 +1,5 @@
 package com.baidu.livesdk.api.http;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface HttpRequest {
     public static final int GET = 0;
     public static final int POST = 1;

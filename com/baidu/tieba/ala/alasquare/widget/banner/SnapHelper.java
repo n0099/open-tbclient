@@ -16,26 +16,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class SnapHelper extends RecyclerView.OnFlingListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Scroller f42941b;
+    public Scroller f43432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final RecyclerView.OnScrollListener f42942c;
+    public final RecyclerView.OnScrollListener f43433c;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SnapHelper f42943b;
+        public final /* synthetic */ SnapHelper f43434b;
 
         public a(SnapHelper snapHelper) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
                     return;
                 }
             }
-            this.f42943b = snapHelper;
+            this.f43434b = snapHelper;
             this.a = false;
         }
 
@@ -63,7 +63,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
                 super.onScrollStateChanged(recyclerView, i2);
                 if (i2 == 0 && this.a) {
                     this.a = false;
-                    this.f42943b.snapToTargetExistingView();
+                    this.f43434b.snapToTargetExistingView();
                 }
             }
         }
@@ -80,7 +80,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class b extends LinearSmoothScroller {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
                 return;
             }
         }
-        this.f42942c = new a(this);
+        this.f43433c = new a(this);
     }
 
     public void attachToRecyclerView(@Nullable RecyclerView recyclerView) throws IllegalStateException {
@@ -158,7 +158,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
         this.a = recyclerView;
         if (recyclerView != null) {
             setupCallbacks();
-            this.f42941b = new Scroller(this.a.getContext(), new DecelerateInterpolator());
+            this.f43432b = new Scroller(this.a.getContext(), new DecelerateInterpolator());
             snapToTargetExistingView();
         }
     }
@@ -170,8 +170,8 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) {
-            this.f42941b.fling(0, 0, i2, i3, Integer.MIN_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
-            return new int[]{this.f42941b.getFinalX(), this.f42941b.getFinalY()};
+            this.f43432b.fling(0, 0, i2, i3, Integer.MIN_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
+            return new int[]{this.f43432b.getFinalX(), this.f43432b.getFinalY()};
         }
         return (int[]) invokeII.objValue;
     }
@@ -192,7 +192,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
     public final void destroyCallbacks() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.removeOnScrollListener(this.f42942c);
+            this.a.removeOnScrollListener(this.f43433c);
             this.a.setOnFlingListener(null);
         }
     }
@@ -221,7 +221,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.a.getOnFlingListener() == null) {
-                this.a.addOnScrollListener(this.f42942c);
+                this.a.addOnScrollListener(this.f43433c);
                 this.a.setOnFlingListener(this);
                 return;
             }

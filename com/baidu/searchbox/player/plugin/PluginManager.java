@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PluginManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BDVideoPlayer mPlayer;
-    public ArrayList<AbsPlugin> mPlugins;
+    public final BDVideoPlayer mPlayer;
+    public final ArrayList<AbsPlugin> mPlugins;
 
     public PluginManager(@NonNull BDVideoPlayer bDVideoPlayer) {
         Interceptable interceptable = $ic;
@@ -41,6 +41,7 @@ public class PluginManager {
     public void addPlugin(AbsPlugin absPlugin) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, absPlugin) == null) {
+            absPlugin.attachMessenger(getPlayer().getMessenger());
             absPlugin.attachManager(this);
             this.mPlugins.add(absPlugin);
         }
@@ -73,6 +74,7 @@ public class PluginManager {
     public void removePlugin(AbsPlugin absPlugin) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, absPlugin) == null) {
+            absPlugin.detachMessenger();
             absPlugin.detachManager();
             this.mPlugins.remove(absPlugin);
         }

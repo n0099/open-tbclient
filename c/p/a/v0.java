@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBError;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class v0 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,11 +39,11 @@ public class v0 extends Handler {
     public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
-            this.a.f30871i = true;
+            this.a.f31241i = true;
             this.a.o.removeMessages(11);
-            int wt = this.a.e() ? this.a.f30872j.getWt() : 0;
-            y2 a = c3.a(this.a.f30868f);
-            a.e(new g3(this.a.f30872j), 2002, wt * 1000);
+            int wt = this.a.e() ? this.a.f31242j.getWt() : 0;
+            y2 a = c3.a(this.a.f31238f);
+            a.e(new g3(this.a.f31242j), 2002, wt * 1000);
             a.m();
             this.a.l.onFail(PBError.TIMEOUT);
         }

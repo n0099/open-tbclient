@@ -8,35 +8,35 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f61200b;
+    public long f61781b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61201c;
+    public String f61782c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61202d;
+    public String f61783d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61203e;
+    public String f61784e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61204f;
+    public String f61785f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61205g;
+    public String f61786g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<Pair<String, String>> f61206h;
+    public final List<Pair<String, String>> f61787h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f61207i;
+    public String f61788i;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class b {
                 return;
             }
         }
-        this.f61206h = new ArrayList();
+        this.f61787h = new ArrayList();
     }
 
     public static long a(long j2, long j3) {
@@ -63,6 +63,6 @@ public class b {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.a, this.f61200b) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.a, this.f61781b) : invokeV.longValue;
     }
 }

@@ -16,12 +16,12 @@ import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.l;
 import com.ss.android.socialbase.appdownloader.f.e;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements com.ss.android.download.api.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static c a;

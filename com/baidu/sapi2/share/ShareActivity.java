@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ShareActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "sapi_new_share_activity";
@@ -94,7 +94,7 @@ public class ShareActivity extends Activity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         Intent intent = new Intent();
                         Bundle bundle = new Bundle();
-                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.4.7.5");
+                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.4.7.8.2");
                         bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, this.this$0.getPackageName());
                         bundle.putString(ShareLoginModel.INVALIDATE_BDUSS, str);
                         intent.putExtras(bundle);
@@ -112,7 +112,7 @@ public class ShareActivity extends Activity {
                         if (sapiAccount != null) {
                             bundle.putParcelable(ShareLoginModel.SHARE_ACCOUNT_INFO, sapiAccount);
                         }
-                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.4.7.5");
+                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.4.7.8.2");
                         bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, this.this$0.getPackageName());
                         if (SapiContext.getInstance().shareLivingunameEnable()) {
                             intent.putExtra(ShareLoginModel.FACE_LOGIN_UIDS, SapiContext.getInstance().getV2FaceLivingUnames());

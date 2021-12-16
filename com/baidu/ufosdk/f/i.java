@@ -19,14 +19,13 @@ import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
     public static SimpleDateFormat a;
@@ -119,7 +118,7 @@ public final class i {
         if (!(interceptable == null || interceptable.invokeLL(65544, null, context, textView) == null) || context == null || textView == null) {
             return;
         }
-        textView.setText(s.a(Constants.VIA_ACT_TYPE_NINETEEN));
+        textView.setText(s.a("19"));
     }
 
     public static void a(RelativeLayout relativeLayout, String str) {

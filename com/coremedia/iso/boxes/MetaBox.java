@@ -15,7 +15,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class MetaBox extends AbstractContainerBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "meta";

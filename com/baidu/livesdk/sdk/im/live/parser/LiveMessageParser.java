@@ -6,7 +6,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.livesdk.api.account.Account;
 import com.baidu.livesdk.api.account.AccountBean;
 import com.baidu.livesdk.api.im.live.ImageAudioMsg;
@@ -27,7 +26,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LiveMessageParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -477,14 +476,14 @@ public class LiveMessageParser {
                             JSONObject jSONObject3 = new JSONObject();
                             str = "";
                             jSONObject3.put("word", messageBody2.txt.word);
-                            jSONObject2.put(DocumentOpenUtil.TXT, jSONObject3);
+                            jSONObject2.put("txt", jSONObject3);
                         } else {
                             str = "";
                         }
                         if (liveMessageBean.message_body.pic != null) {
                             JSONObject jSONObject4 = new JSONObject();
                             JSONObject jSONObject5 = new JSONObject();
-                            str2 = DocumentOpenUtil.TXT;
+                            str2 = "txt";
                             jSONObject5.put("width", messageBody2.pic.origin.width);
                             jSONObject5.put("height", messageBody2.pic.origin.height);
                             jSONObject5.put("url", messageBody2.pic.origin.url);
@@ -497,7 +496,7 @@ public class LiveMessageParser {
                             jSONObject4.put("thumbnail", jSONObject6);
                             jSONObject2.put("pic", jSONObject4);
                         } else {
-                            str2 = DocumentOpenUtil.TXT;
+                            str2 = "txt";
                             str3 = "word";
                         }
                         if (liveMessageBean.message_body.voice != null) {
@@ -509,7 +508,7 @@ public class LiveMessageParser {
                         jSONObject.put("message_body", jSONObject2);
                     } else {
                         str = "";
-                        str2 = DocumentOpenUtil.TXT;
+                        str2 = "txt";
                         str3 = "word";
                     }
                     jSONObject.put("at_uid", liveMessageBean.at_uid);
@@ -589,9 +588,9 @@ public class LiveMessageParser {
             }
             if (jSONObject != null) {
                 LiveMessageBean.MessageBody messageBody = new LiveMessageBean.MessageBody();
-                if (!TextUtils.isEmpty(jSONObject.optString(DocumentOpenUtil.TXT))) {
+                if (!TextUtils.isEmpty(jSONObject.optString("txt"))) {
                     try {
-                        jSONObject4 = new JSONObject(jSONObject.optString(DocumentOpenUtil.TXT));
+                        jSONObject4 = new JSONObject(jSONObject.optString("txt"));
                     } catch (JSONException e3) {
                         e3.printStackTrace();
                         jSONObject4 = null;

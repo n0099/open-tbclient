@@ -10,23 +10,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<byte[]> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f30282b;
+    public final int f30652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f30283c;
+    public final int f30653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f30284d;
+    public final int f30654d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final float f30285e;
+    public final float f30655e;
 
     public a(List<byte[]> list, int i2, int i3, int i4, float f2) {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public final class a {
             }
         }
         this.a = list;
-        this.f30282b = i2;
-        this.f30283c = i3;
-        this.f30284d = i4;
-        this.f30285e = f2;
+        this.f30652b = i2;
+        this.f30653c = i3;
+        this.f30654d = i4;
+        this.f30655e = f2;
     }
 
     public static byte[] a(l lVar) {
@@ -84,9 +84,9 @@ public final class a {
                     }
                     if (x2 > 0) {
                         j.b i6 = j.i((byte[]) arrayList.get(0), x, ((byte[]) arrayList.get(0)).length);
-                        int i7 = i6.f30220b;
-                        int i8 = i6.f30221c;
-                        f2 = i6.f30222d;
+                        int i7 = i6.f30590b;
+                        int i8 = i6.f30591c;
+                        f2 = i6.f30592d;
                         i2 = i7;
                         i3 = i8;
                     } else {

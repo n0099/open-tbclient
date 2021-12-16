@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MovieRecorder implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_ON_START = 4001;
@@ -53,7 +53,7 @@ public class MovieRecorder implements b {
     public c uu;
     public volatile boolean uv;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

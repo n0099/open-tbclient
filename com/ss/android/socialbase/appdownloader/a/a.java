@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.g.a f61466b;
+    public final com.ss.android.socialbase.downloader.g.a f62047b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f61467c;
+    public final String f62048c;
 
     public a(Context context, com.ss.android.socialbase.downloader.g.a aVar, String str) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public abstract class a implements e {
             }
         }
         this.a = context;
-        this.f61466b = aVar;
-        this.f61467c = str;
+        this.f62047b = aVar;
+        this.f62048c = str;
     }
 
     public boolean a() {

@@ -12,26 +12,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class p implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f58053b;
+    public Handler f58634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.c f58054c;
+    public com.kwad.sdk.core.webview.kwai.c f58635c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58056b;
+        public String f58637b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class p implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         @MainThread
         void a(a aVar);
@@ -70,7 +70,7 @@ public class p implements com.kwad.sdk.core.webview.kwai.a {
             }
         }
         this.a = bVar;
-        this.f58053b = new Handler(Looper.getMainLooper());
+        this.f58634b = new Handler(Looper.getMainLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -95,17 +95,17 @@ public class p implements com.kwad.sdk.core.webview.kwai.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.f58054c = cVar;
+            this.f58635c = cVar;
             try {
                 a aVar = new a();
                 aVar.parseJson(new JSONObject(str));
-                this.f58053b.post(new Runnable(this, aVar) { // from class: com.kwad.sdk.core.webview.jshandler.p.1
+                this.f58634b.post(new Runnable(this, aVar) { // from class: com.kwad.sdk.core.webview.jshandler.p.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ a a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ p f58055b;
+                    public final /* synthetic */ p f58636b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -122,7 +122,7 @@ public class p implements com.kwad.sdk.core.webview.kwai.a {
                                 return;
                             }
                         }
-                        this.f58055b = this;
+                        this.f58636b = this;
                         this.a = aVar;
                     }
 
@@ -130,9 +130,9 @@ public class p implements com.kwad.sdk.core.webview.kwai.a {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f58055b.a(this.a);
-                            if (this.f58055b.f58054c != null) {
-                                this.f58055b.f58054c.a(null);
+                            this.f58636b.a(this.a);
+                            if (this.f58636b.f58635c != null) {
+                                this.f58636b.f58635c.a(null);
                             }
                         }
                     }
@@ -149,8 +149,8 @@ public class p implements com.kwad.sdk.core.webview.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = null;
-            this.f58054c = null;
-            this.f58053b.removeCallbacksAndMessages(null);
+            this.f58635c = null;
+            this.f58634b.removeCallbacksAndMessages(null);
         }
     }
 }

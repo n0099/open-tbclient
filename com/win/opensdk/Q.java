@@ -8,34 +8,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Q {
     public static /* synthetic */ Interceptable $ic;
     public static final Q a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Q f62609b;
+    public static final Q f63190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Q f62610c;
+    public static final Q f63191c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Q f62611d;
+    public static final Q f63192d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Q f62612e;
+    public static final Q f63193e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Q f62613f;
+    public static final Q f63194f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Q f62614g;
+    public static final Q f63195g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Q f62615h;
+    public static final Q f63196h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final /* synthetic */ Q[] f62616i;
+    public static final /* synthetic */ Q[] f63197i;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,15 +52,15 @@ public final class Q {
             }
         }
         a = new Q("UnknownHost", 0);
-        f62609b = new Q("Socket", 1);
-        f62610c = new Q("SocketTimeout", 2);
-        f62611d = new Q("ConnectTimeout", 3);
-        f62612e = new Q("IO", 4);
-        f62613f = new Q("HttpResponse", 5);
-        f62614g = new Q("JSON", 6);
+        f63190b = new Q("Socket", 1);
+        f63191c = new Q("SocketTimeout", 2);
+        f63192d = new Q("ConnectTimeout", 3);
+        f63193e = new Q("IO", 4);
+        f63194f = new Q("HttpResponse", 5);
+        f63195g = new Q("JSON", 6);
         Q q = new Q("Interrupted", 7);
-        f62615h = q;
-        f62616i = new Q[]{a, f62609b, f62610c, f62611d, f62612e, f62613f, f62614g, q};
+        f63196h = q;
+        f63197i = new Q[]{a, f63190b, f63191c, f63192d, f63193e, f63194f, f63195g, q};
     }
 
     public Q(String str, int i2) {
@@ -91,6 +91,6 @@ public final class Q {
     public static Q[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Q[]) f62616i.clone() : (Q[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Q[]) f63197i.clone() : (Q[]) invokeV.objValue;
     }
 }

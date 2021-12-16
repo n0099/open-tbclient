@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class TKJSException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SOURCE_LINE_LENGTH = 350;

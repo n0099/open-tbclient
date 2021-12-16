@@ -20,14 +20,14 @@ import com.kwad.sdk.core.imageloader.core.assist.LoadedFrom;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageViewAware;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CircleBitmapDisplayer implements BitmapDisplayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Integer strokeColor;
     public final float strokeWidth;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CircleDrawable extends Drawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

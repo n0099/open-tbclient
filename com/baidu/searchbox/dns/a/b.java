@@ -1,5 +1,5 @@
 package com.baidu.searchbox.dns.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void clear();
 

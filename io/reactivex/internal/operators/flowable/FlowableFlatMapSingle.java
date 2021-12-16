@@ -27,7 +27,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class FlowableFlatMapSingle<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class FlowableFlatMapSingle<T, R> extends AbstractFlowableWithUpstr
     public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
     public final int maxConcurrency;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class FlatMapSingleSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8600231336733376951L;
@@ -52,7 +52,7 @@ public final class FlowableFlatMapSingle<T, R> extends AbstractFlowableWithUpstr
         public Subscription s;
         public final CompositeDisposable set;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public final class InnerObserver extends AtomicReference<Disposable> implements SingleObserver<R>, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -502562646270949838L;

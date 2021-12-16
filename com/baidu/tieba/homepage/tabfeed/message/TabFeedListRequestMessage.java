@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.tabfeed.message;
 
-import c.a.d.f.p.l;
-import c.a.q0.d1.z;
-import c.a.q0.s.k;
+import c.a.d.f.p.m;
+import c.a.r0.d1.b0;
+import c.a.r0.s.l;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ActivityPage.ActivityPageReqIdl;
 import tbclient.ActivityPage.DataReq;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class TabFeedListRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_RN = 20;
@@ -54,12 +54,12 @@ public class TabFeedListRequestMessage extends NetMessage {
                 builder.activity_name = this.tabCode;
                 builder.pn = Integer.valueOf(this.pn);
                 builder.rn = 20;
-                builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst()));
-                builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst()));
-                builder.scr_dip = Integer.valueOf((int) l.h(TbadkCoreApplication.getInst()));
-                builder.q_type = Integer.valueOf(k.c().e());
+                builder.scr_h = Integer.valueOf(m.i(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(m.k(TbadkCoreApplication.getInst()));
+                builder.scr_dip = Integer.valueOf((int) m.h(TbadkCoreApplication.getInst()));
+                builder.q_type = Integer.valueOf(l.c().e());
                 if (z) {
-                    z.a(builder, true);
+                    b0.a(builder, true);
                 }
                 ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
                 builder2.data = builder.build(false);

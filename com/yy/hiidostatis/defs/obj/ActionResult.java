@@ -10,7 +10,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ActionResult implements IJsonSerialize {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

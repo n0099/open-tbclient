@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
 import kotlin.UShort;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Conversion {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;

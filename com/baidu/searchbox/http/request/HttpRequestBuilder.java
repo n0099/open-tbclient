@@ -18,7 +18,7 @@ import java.util.Map;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

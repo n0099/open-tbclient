@@ -16,8 +16,8 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.g;
 import c.a.d.a.j;
 import c.a.d.f.m.f;
-import c.a.q0.k0.h;
-import c.a.q0.n0.c;
+import c.a.r0.k0.h;
+import c.a.r0.n0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class IntentConfig extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AB_TAG = "ab_tag";
@@ -156,13 +156,13 @@ public class IntentConfig extends OrmObject {
     public ServiceConnection mServiceConnection;
     public int mServiceConnectionFlags;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f41028e;
+        public final /* synthetic */ IntentConfig f41519e;
 
         public a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -179,7 +179,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f41028e = intentConfig;
+            this.f41519e = intentConfig;
         }
 
         @Override // android.content.ServiceConnection
@@ -188,17 +188,17 @@ public class IntentConfig extends OrmObject {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) || iBinder == null) {
                 return;
             }
-            this.f41028e.mReplyMessenger = new Messenger(iBinder);
-            if (this.f41028e.mReplyMessenger != null) {
+            this.f41519e.mReplyMessenger = new Messenger(iBinder);
+            if (this.f41519e.mReplyMessenger != null) {
                 Message obtain = Message.obtain();
                 Bundle bundle = new Bundle();
-                if (this.f41028e.mComponentClass != null) {
-                    bundle.putString(DealIntentService.KEY_CLASS, this.f41028e.mComponentClass.getName());
+                if (this.f41519e.mComponentClass != null) {
+                    bundle.putString(DealIntentService.KEY_CLASS, this.f41519e.mComponentClass.getName());
                 }
                 obtain.setData(bundle);
-                obtain.replyTo = this.f41028e.mClientMessenger;
+                obtain.replyTo = this.f41519e.mClientMessenger;
                 try {
-                    this.f41028e.mReplyMessenger.send(obtain);
+                    this.f41519e.mReplyMessenger.send(obtain);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -213,7 +213,7 @@ public class IntentConfig extends OrmObject {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -312,7 +312,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(context);
-        c.a.q0.o0.b tbPageInfo = b2 instanceof c.a.q0.o0.a ? ((c.a.q0.o0.a) b2).getTbPageInfo() : null;
+        c.a.r0.o0.b tbPageInfo = b2 instanceof c.a.r0.o0.a ? ((c.a.r0.o0.a) b2).getTbPageInfo() : null;
         if (tbPageInfo != null) {
             this.mIntent.putExtra("tb_page_tag_source_trace", tbPageInfo.a());
         }
@@ -364,7 +364,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(this.mContext);
-        ArrayList<String> arrayList = b2 instanceof c.a.q0.p0.a ? (ArrayList) ((c.a.q0.p0.a) b2).getNextPageSourceKeyList() : null;
+        ArrayList<String> arrayList = b2 instanceof c.a.r0.p0.a ? (ArrayList) ((c.a.r0.p0.a) b2).getNextPageSourceKeyList() : null;
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }

@@ -12,31 +12,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBError;
 import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class x4 implements o0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e */
-    public String f30988e;
+    public String f31358e;
 
     /* renamed from: f */
-    public Context f30989f;
+    public Context f31359f;
 
     /* renamed from: g */
-    public boolean f30990g;
+    public boolean f31360g;
 
     /* renamed from: h */
-    public boolean f30991h;
+    public boolean f31361h;
 
     /* renamed from: i */
-    public boolean f30992i;
+    public boolean f31362i;
 
     /* renamed from: j */
-    public Info f30993j;
+    public Info f31363j;
 
     /* renamed from: k */
-    public j3 f30994k;
+    public j3 f31364k;
     public g1 l;
     public a5 m;
     public long n;
@@ -58,8 +58,8 @@ public class x4 implements o0 {
             }
         }
         this.o = new l4(this, Looper.getMainLooper());
-        this.f30989f = context;
-        this.f30988e = str;
+        this.f31359f = context;
+        this.f31358e = str;
     }
 
     /* JADX DEBUG: Method not inlined, still used in: [c.p.a.p4.a(java.lang.Object):void] */
@@ -71,10 +71,10 @@ public class x4 implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, info) == null) {
             boolean z = false;
-            this.f30992i = false;
-            this.f30993j = info;
+            this.f31362i = false;
+            this.f31363j = info;
             this.n = System.currentTimeMillis();
-            if (e() && this.f30993j.getType() == 41) {
+            if (e() && this.f31363j.getType() == 41) {
                 z = true;
             }
             if (z) {
@@ -82,11 +82,11 @@ public class x4 implements o0 {
                     this.l.onLoaded();
                     return;
                 }
-                j3 j3Var = new j3(this.f30989f);
-                this.f30994k = j3Var;
+                j3 j3Var = new j3(this.f31359f);
+                this.f31364k = j3Var;
                 j3Var.a = new t4(this);
-                this.f30994k.a(this.f30993j.getLoad(), this.f30993j);
-                this.o.sendEmptyMessageDelayed(11, this.f30993j.getWt() * 1000);
+                this.f31364k.a(this.f31363j.getLoad(), this.f31363j);
+                this.o.sendEmptyMessageDelayed(11, this.f31363j.getWt() * 1000);
                 return;
             }
             this.l.onFail(PBError.PID_TYPE_ERROR);
@@ -98,7 +98,7 @@ public class x4 implements o0 {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, obj) == null) {
-            if (TextUtils.equals(str, this.f30993j.getId() + this.f30988e)) {
+            if (TextUtils.equals(str, this.f31363j.getId() + this.f31358e)) {
                 char c2 = 65535;
                 switch (str2.hashCode()) {
                     case -1398725913:
@@ -140,7 +140,7 @@ public class x4 implements o0 {
                     this.l.g();
                 } else if (c2 != 3) {
                 } else {
-                    if (!r0.H(this.f30989f) || obj == null) {
+                    if (!r0.H(this.f31359f) || obj == null) {
                         this.l.c(false, 0L);
                         return;
                     }
@@ -163,18 +163,18 @@ public class x4 implements o0 {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30990g && !this.f30992i && e() && !this.f30993j.isShown() && this.f30993j.isEffective() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31360g && !this.f31362i && e() && !this.f31363j.isShown() && this.f31363j.isEffective() : invokeV.booleanValue;
     }
 
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30993j != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31363j != null : invokeV.booleanValue;
     }
 
     public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? e() && this.f30993j.getType() == 41 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? e() && this.f31363j.getType() == 41 : invokeV.booleanValue;
     }
 }

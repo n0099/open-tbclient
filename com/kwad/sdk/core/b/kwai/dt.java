@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class dt implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.f> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class dt implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.f> {
             return;
         }
         fVar.a = jSONObject.optInt("phoneCount");
-        fVar.f57135b = jSONObject.optInt("activePhoneCount");
+        fVar.f57716b = jSONObject.optInt("activePhoneCount");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,7 +47,7 @@ public class dt implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.f> {
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "phoneCount", fVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "activePhoneCount", fVar.f57135b);
+            com.kwad.sdk.utils.t.a(jSONObject, "activePhoneCount", fVar.f57716b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

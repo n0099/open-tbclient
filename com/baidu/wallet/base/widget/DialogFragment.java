@@ -24,7 +24,7 @@ import com.baidu.wallet.core.BaseFragment;
 import com.baidu.wallet.core.beans.BeanErrorContent;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.core.utils.WalletGlobalUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class DialogFragment extends BaseFragment implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIALOG_NO_NETWORK = 3851;
@@ -190,13 +190,13 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f52051b;
+                public final /* synthetic */ int f52631b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f52052c;
+                public final /* synthetic */ String f52632c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DialogFragment f52053d;
+                public final /* synthetic */ DialogFragment f52633d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -213,19 +213,19 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                             return;
                         }
                     }
-                    this.f52053d = this;
+                    this.f52633d = this;
                     this.a = i2;
-                    this.f52051b = i3;
-                    this.f52052c = str;
+                    this.f52631b = i3;
+                    this.f52632c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f52053d).mAct == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f52633d).mAct == null) {
                         return;
                     }
-                    this.f52053d.handleFailure(this.a, this.f52051b, this.f52052c);
+                    this.f52633d.handleFailure(this.a, this.f52631b, this.f52632c);
                 }
             });
         }
@@ -251,13 +251,13 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
             public final /* synthetic */ int a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Object f52048b;
+            public final /* synthetic */ Object f52628b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f52049c;
+            public final /* synthetic */ String f52629c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ DialogFragment f52050d;
+            public final /* synthetic */ DialogFragment f52630d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -274,19 +274,19 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                         return;
                     }
                 }
-                this.f52050d = this;
+                this.f52630d = this;
                 this.a = i2;
-                this.f52048b = obj;
-                this.f52049c = str;
+                this.f52628b = obj;
+                this.f52629c = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f52050d).mAct == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f52630d).mAct == null) {
                     return;
                 }
-                this.f52050d.handleResponse(this.a, this.f52048b, this.f52049c);
+                this.f52630d.handleResponse(this.a, this.f52628b, this.f52629c);
             }
         });
     }

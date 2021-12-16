@@ -29,7 +29,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class IMQueryMemberRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryMemberRequest";
@@ -40,7 +40,7 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
     public String mKey;
     public int mSaveToDB;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

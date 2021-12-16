@@ -23,7 +23,7 @@ import com.google.android.material.transformation.FabTransformationBehavior;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

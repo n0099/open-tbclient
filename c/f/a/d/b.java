@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.heartbeat.HeartBeatManager;
 import com.dxmpay.apollon.utils.LogUtil;
 import java.util.Calendar;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f28536b = "b";
+    public static final String f28911b = "b";
     public transient /* synthetic */ FieldHolder $fh;
     public c.f.a.a.a a;
 
-    /* loaded from: classes7.dex */
-    public class a implements a.InterfaceC1573a {
+    /* loaded from: classes9.dex */
+    public class a implements a.InterfaceC1613a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,12 +42,12 @@ public final class b {
             }
         }
 
-        @Override // c.f.a.a.a.InterfaceC1573a
+        @Override // c.f.a.a.a.InterfaceC1613a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = b.f28536b;
-                LogUtil.i(str, b.f28536b + " Idle ---> Active.");
+                String str = b.f28911b;
+                LogUtil.i(str, b.f28911b + " Idle ---> Active.");
                 HeartBeatManager.getInstance().c(0L);
                 HeartBeatManager.getInstance().startHeartBeat();
             }
@@ -55,12 +55,12 @@ public final class b {
     }
 
     /* renamed from: c.f.a.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1577b implements a.InterfaceC1573a {
+    /* loaded from: classes9.dex */
+    public class C1617b implements a.InterfaceC1613a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1577b(b bVar) {
+        public C1617b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,19 +76,19 @@ public final class b {
             }
         }
 
-        @Override // c.f.a.a.a.InterfaceC1573a
+        @Override // c.f.a.a.a.InterfaceC1613a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = b.f28536b;
-                LogUtil.i(str, b.f28536b + " Active ---> Idle.");
+                String str = b.f28911b;
+                LogUtil.i(str, b.f28911b + " Active ---> Idle.");
                 HeartBeatManager.getInstance().stopHeartBeat();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class c implements a.InterfaceC1573a {
+    /* loaded from: classes9.dex */
+    public class c implements a.InterfaceC1613a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -108,19 +108,19 @@ public final class b {
             }
         }
 
-        @Override // c.f.a.a.a.InterfaceC1573a
+        @Override // c.f.a.a.a.InterfaceC1613a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = b.f28536b;
-                LogUtil.i(str, b.f28536b + " Active ---> HalfActive.");
+                String str = b.f28911b;
+                LogUtil.i(str, b.f28911b + " Active ---> HalfActive.");
                 HeartBeatManager.getInstance().c(Calendar.getInstance().getTimeInMillis() / 1000);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class d implements a.InterfaceC1573a {
+    /* loaded from: classes9.dex */
+    public class d implements a.InterfaceC1613a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -140,20 +140,20 @@ public final class b {
             }
         }
 
-        @Override // c.f.a.a.a.InterfaceC1573a
+        @Override // c.f.a.a.a.InterfaceC1613a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = b.f28536b;
-                LogUtil.i(str, b.f28536b + " HalfActive ---> Active.");
+                String str = b.f28911b;
+                LogUtil.i(str, b.f28911b + " HalfActive ---> Active.");
                 HeartBeatManager.getInstance().c(0L);
                 HeartBeatManager.getInstance().startHeartBeat();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class e implements a.InterfaceC1573a {
+    /* loaded from: classes9.dex */
+    public class e implements a.InterfaceC1613a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -173,12 +173,12 @@ public final class b {
             }
         }
 
-        @Override // c.f.a.a.a.InterfaceC1573a
+        @Override // c.f.a.a.a.InterfaceC1613a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = b.f28536b;
-                LogUtil.i(str, b.f28536b + " HalfActive ---> Idle.");
+                String str = b.f28911b;
+                LogUtil.i(str, b.f28911b + " HalfActive ---> Idle.");
                 HeartBeatManager.getInstance().stopHeartBeat();
             }
         }
@@ -225,9 +225,9 @@ public final class b {
                     aVar.a(i2);
                     return;
                 }
-                throw new RuntimeException(f28536b + " sendEvent but the mStateMachine is null.");
+                throw new RuntimeException(f28911b + " sendEvent but the mStateMachine is null.");
             }
-            throw new IllegalArgumentException(f28536b + " invalid params eventId:" + i2);
+            throw new IllegalArgumentException(f28911b + " invalid params eventId:" + i2);
         }
     }
 
@@ -240,7 +240,7 @@ public final class b {
             aVar.b(new a.b(aVar, 1, 3, 1, new a(this)));
             c.f.a.a.a aVar2 = this.a;
             aVar2.getClass();
-            aVar2.b(new a.b(aVar2, 3, 1, 2, new C1577b(this)));
+            aVar2.b(new a.b(aVar2, 3, 1, 2, new C1617b(this)));
             c.f.a.a.a aVar3 = this.a;
             aVar3.getClass();
             aVar3.b(new a.b(aVar3, 3, 2, 3, new c(this)));

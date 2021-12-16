@@ -12,12 +12,12 @@ import com.kwad.sdk.api.loader.Loader;
 import java.io.Serializable;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface KsVideoPlayConfig extends Serializable {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class v0 implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int A = 7;
@@ -56,46 +56,46 @@ public class v0 implements Runnable {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public n f56869b;
+    public n f57450b;
 
     /* renamed from: c  reason: collision with root package name */
-    public x f56870c;
+    public x f57451c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f56871d;
+    public File f57452d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f56872e;
+    public d f57453e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56873f;
+    public int f57454f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f56874g;
+    public int f57455g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f56875h;
+    public boolean f57456h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Map<Integer, String> f56876i;
+    public Map<Integer, String> f57457i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Map<Integer, String> f56877j;
+    public Map<Integer, String> f57458j;
 
     /* renamed from: k  reason: collision with root package name */
-    public List<Integer> f56878k;
+    public List<Integer> f57459k;
     public List<Integer> l;
     public Map<Integer, a> m;
     public int n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ v0 f56879b;
+        public final /* synthetic */ v0 f57460b;
 
         public a(v0 v0Var, int i2) {
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class v0 implements Runnable {
                     return;
                 }
             }
-            this.f56879b = v0Var;
+            this.f57460b = v0Var;
             this.a = i2;
         }
     }
@@ -147,21 +147,21 @@ public class v0 implements Runnable {
                 return;
             }
         }
-        this.f56873f = 0;
-        this.f56874g = 0;
-        this.f56875h = false;
-        this.f56877j = new HashMap();
-        this.f56878k = new ArrayList();
+        this.f57454f = 0;
+        this.f57455g = 0;
+        this.f57456h = false;
+        this.f57458j = new HashMap();
+        this.f57459k = new ArrayList();
         this.l = new ArrayList();
         this.m = new HashMap();
         this.n = -2;
         this.a = context;
-        this.f56869b = n.a(context);
-        this.f56870c = x.a(context);
-        this.f56872e = new d(context);
-        this.f56871d = new File(context.getFilesDir(), ".tmp");
-        this.f56873f = i2;
-        this.f56875h = z2;
+        this.f57450b = n.a(context);
+        this.f57451c = x.a(context);
+        this.f57453e = new d(context);
+        this.f57452d = new File(context.getFilesDir(), ".tmp");
+        this.f57454f = i2;
+        this.f57456h = z2;
     }
 
     private void a(p pVar) {
@@ -174,13 +174,13 @@ public class v0 implements Runnable {
         }
         try {
             try {
-                if (!TextUtils.isEmpty(pVar.f56794j) && pVar.f56794j.length() >= 10) {
-                    if (!this.f56871d.exists()) {
-                        this.f56871d.mkdir();
+                if (!TextUtils.isEmpty(pVar.f57375j) && pVar.f57375j.length() >= 10) {
+                    if (!this.f57452d.exists()) {
+                        this.f57452d.mkdir();
                     }
-                    File file = new File(this.f56871d, pVar.a + "-" + pVar.f56788d + ".tmp");
-                    File file2 = new File(this.f56871d, pVar.a + "-" + pVar.f56788d + ".zip");
-                    boolean a2 = new p1(this.a, null).a(pVar.f56793i, file);
+                    File file = new File(this.f57452d, pVar.a + "-" + pVar.f57369d + ".tmp");
+                    File file2 = new File(this.f57452d, pVar.a + "-" + pVar.f57369d + ".zip");
+                    boolean a2 = new p1(this.a, null).a(pVar.f57374i, file);
                     try {
                         if (a2) {
                             if (file2.exists()) {
@@ -199,8 +199,8 @@ public class v0 implements Runnable {
                                 sb.append(pVar.a);
                                 sb.append("");
                                 hashMap.put(PushConstants.URI_PACKAGE_NAME, sb.toString());
-                                hashMap.put("pv", pVar.f56788d);
-                                hashMap.put("m", pVar.f56794j);
+                                hashMap.put("pv", pVar.f57369d);
+                                hashMap.put("m", pVar.f57375j);
                                 hashMap.put("len", length + "");
                                 hashMap.put("l", "T");
                                 l1.a(this.a, "1002001", hashMap);
@@ -214,38 +214,38 @@ public class v0 implements Runnable {
                         } else {
                             obj2 = "e";
                             this.m.put(Integer.valueOf(pVar.a), new a(this, 3));
-                            this.f56869b.f();
+                            this.f57450b.f();
                         }
                         String a3 = s1.a(file2);
-                        if (a2 && pVar.f56794j.equals(a3)) {
+                        if (a2 && pVar.f57375j.equals(a3)) {
                             l1.a(file2.getAbsolutePath(), Boolean.TRUE);
-                            pVar.f56789e = file2.getAbsolutePath();
-                            if (this.f56869b.a(pVar, (String) null, (String) null)) {
+                            pVar.f57370e = file2.getAbsolutePath();
+                            if (this.f57450b.a(pVar, (String) null, (String) null)) {
                                 if (this.m != null && !this.m.containsKey(Integer.valueOf(pVar.a))) {
                                     this.m.put(Integer.valueOf(pVar.a), new a(this, 1));
                                 }
-                                this.f56872e.a(d.f56622j, System.currentTimeMillis());
+                                this.f57453e.a(d.f57203j, System.currentTimeMillis());
                                 return;
                             }
                             if (this.m != null && !this.m.containsKey(Integer.valueOf(pVar.a))) {
                                 this.m.put(Integer.valueOf(pVar.a), new a(this, 4));
                             }
-                            this.f56869b.f();
-                            this.f56869b.a(pVar.a, pVar.f56788d, (PackageInfo) null);
+                            this.f57450b.f();
+                            this.f57450b.a(pVar.a, pVar.f57369d, (PackageInfo) null);
                             return;
                         }
-                        this.f56869b.f();
+                        this.f57450b.f();
                         if (file.exists()) {
                             j2 = file.length();
                             file.delete();
                         } else {
                             j2 = -1;
                         }
-                        this.f56869b.a(pVar.a, pVar.f56788d, (PackageInfo) null);
+                        this.f57450b.a(pVar.a, pVar.f57369d, (PackageInfo) null);
                         HashMap hashMap2 = new HashMap();
                         hashMap2.put(obj2, q0.A);
                         hashMap2.put(Constants.KEYS.RET, a2 ? "1" : "0");
-                        hashMap2.put("am", pVar.f56794j);
+                        hashMap2.put("am", pVar.f57375j);
                         hashMap2.put("acm", a3);
                         hashMap2.put("len", j2 + "");
                         hashMap2.put("l", "T");
@@ -259,11 +259,11 @@ public class v0 implements Runnable {
                         hashMap3.put(obj, th.getMessage());
                         hashMap3.put("l", "T");
                         l1.a(this.a, "1002001", hashMap3);
-                        this.f56869b.a(pVar.a, pVar.f56788d, (PackageInfo) null);
+                        this.f57450b.a(pVar.a, pVar.f57369d, (PackageInfo) null);
                         return;
                     }
                 }
-                this.f56869b.a(pVar.a, pVar.f56788d, (PackageInfo) null);
+                this.f57450b.a(pVar.a, pVar.f57369d, (PackageInfo) null);
             } catch (Throwable th2) {
                 th = th2;
             }
@@ -290,7 +290,7 @@ public class v0 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             try {
-                String str3 = r0.a + r0.f56825c;
+                String str3 = r0.a + r0.f57406c;
                 String a2 = p1.a(str, str2);
                 JSONObject b2 = s0.b(this.a);
                 if (!TextUtils.isEmpty(a2)) {
@@ -304,8 +304,8 @@ public class v0 implements Runnable {
                 if (jSONObject2.optInt("result", 0) == 1) {
                     String a3 = new m1(this.a).a(jSONObject2.getString("antispamPluginManageRsp"));
                     if (TextUtils.isEmpty(a3)) {
-                        if (this.f56874g == 0) {
-                            this.f56874g = 8;
+                        if (this.f57455g == 0) {
+                            this.f57455g = 8;
                         }
                         throw new NetworkErrorException("kuaishou risk pluginloader response is null");
                     }
@@ -313,8 +313,8 @@ public class v0 implements Runnable {
                     if (jSONObject3.optInt("status", 0) == 1) {
                         return jSONObject3.optJSONObject("plugin");
                     }
-                    if (this.f56872e != null) {
-                        this.f56872e.a(d.f56622j, System.currentTimeMillis());
+                    if (this.f57453e != null) {
+                        this.f57453e.a(d.f57203j, System.currentTimeMillis());
                     }
                 }
             } catch (Exception unused) {
@@ -333,9 +333,9 @@ public class v0 implements Runnable {
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 synchronized (v0.class) {
-                    if (this.f56873f != 1 && this.f56873f != 2 && this.f56873f != 4 && !this.f56875h && System.currentTimeMillis() - K < 300000) {
-                        if (this.f56874g == 0) {
-                            this.f56874g = 2;
+                    if (this.f57454f != 1 && this.f57454f != 2 && this.f57454f != 4 && !this.f57456h && System.currentTimeMillis() - K < 300000) {
+                        if (this.f57455g == 0) {
+                            this.f57455g = 2;
                             a((String) null);
                         }
                         HashMap hashMap = new HashMap();
@@ -343,33 +343,33 @@ public class v0 implements Runnable {
                         hashMap.put("l", "T");
                         return;
                     }
-                    this.f56870c.h();
+                    this.f57451c.h();
                     String[] a2 = l1.a(this.a);
                     if (a2 == null || a2.length != 2 || TextUtils.isEmpty(a2[0]) || TextUtils.isEmpty(a2[1])) {
                         str = "16";
-                        str2 = l1.f56741d;
+                        str2 = l1.f57322d;
                     } else {
                         str = a2[0];
                         str2 = a2[1];
                     }
                     String c2 = l1.c(this.a);
-                    if (!TextUtils.isEmpty(c2) && this.f56872e != null) {
-                        this.f56872e.f(c2);
+                    if (!TextUtils.isEmpty(c2) && this.f57453e != null) {
+                        this.f57453e.f(c2);
                     }
                     String h2 = l1.h();
-                    if (!TextUtils.isEmpty(h2) && this.f56872e != null) {
-                        this.f56872e.g(h2);
+                    if (!TextUtils.isEmpty(h2) && this.f57453e != null) {
+                        this.f57453e.g(h2);
                     }
                     K = System.currentTimeMillis();
-                    if ((System.currentTimeMillis() - this.f56872e.d(d.f56622j)) - (this.f56872e.b(d.Z, 6) * 3600000) > 0) {
-                        List<p> b2 = this.f56870c.b();
+                    if ((System.currentTimeMillis() - this.f57453e.d(d.f57203j)) - (this.f57453e.b(d.Z, 6) * 3600000) > 0) {
+                        List<p> b2 = this.f57451c.b();
                         ArrayList arrayList = new ArrayList();
                         ArrayList arrayList2 = new ArrayList();
                         ArrayList<p> arrayList3 = new ArrayList();
                         ArrayList arrayList4 = new ArrayList();
                         JSONObject a3 = a(str, str2);
                         if (a3 == null) {
-                            this.f56869b.f();
+                            this.f57450b.f();
                             throw new Exception("pluginJsonObject is null ");
                         }
                         Iterator<String> keys = a3.keys();
@@ -391,19 +391,19 @@ public class v0 implements Runnable {
                                     }
                                 } else {
                                     p pVar = b2.get(indexOf);
-                                    if (l1.b(b3.f56788d, pVar.f56788d)) {
+                                    if (l1.b(b3.f57369d, pVar.f57369d)) {
                                         if (b3.y != pVar.y) {
-                                            this.f56870c.e(b3.a, b3.y);
+                                            this.f57451c.e(b3.a, b3.y);
                                         }
-                                        if (!this.f56870c.e(b3.a)) {
+                                        if (!this.f57451c.e(b3.a)) {
                                             arrayList2.add(b3);
                                         }
                                         it = keys;
                                     } else {
                                         it = keys;
-                                        this.f56872e.a(d.f56622j, System.currentTimeMillis());
+                                        this.f57453e.a(d.f57203j, System.currentTimeMillis());
                                         if (b3.y != pVar.y) {
-                                            this.f56870c.e(b3.a, b3.y);
+                                            this.f57451c.e(b3.a, b3.y);
                                         }
                                         arrayList.add(b3);
                                     }
@@ -413,23 +413,23 @@ public class v0 implements Runnable {
                             }
                         }
                         for (p pVar2 : b2) {
-                            if (!arrayList4.contains(pVar2.f56787c)) {
-                                if (this.f56878k != null) {
-                                    this.f56878k.add(Integer.valueOf(pVar2.a));
+                            if (!arrayList4.contains(pVar2.f57368c)) {
+                                if (this.f57459k != null) {
+                                    this.f57459k.add(Integer.valueOf(pVar2.a));
                                 }
-                                this.f56869b.b(pVar2.f56787c);
+                                this.f57450b.b(pVar2.f57368c);
                             }
                         }
                         for (p pVar3 : arrayList3) {
-                            if (!arrayList4.contains(pVar3.f56787c)) {
-                                if (this.f56878k != null) {
-                                    this.f56878k.add(Integer.valueOf(pVar3.a));
+                            if (!arrayList4.contains(pVar3.f57368c)) {
+                                if (this.f57459k != null) {
+                                    this.f57459k.add(Integer.valueOf(pVar3.a));
                                 }
-                                this.f56869b.b(pVar3.f56787c);
+                                this.f57450b.b(pVar3.f57368c);
                             }
                         }
-                        List<Integer> j2 = this.f56872e.j();
-                        List<Integer> b4 = this.f56872e.b();
+                        List<Integer> j2 = this.f57453e.j();
+                        List<Integer> b4 = this.f57453e.b();
                         for (int i2 = 0; i2 < b4.size(); i2++) {
                             if (!j2.contains(b4.get(i2))) {
                                 j2.add(b4.get(i2));
@@ -445,10 +445,10 @@ public class v0 implements Runnable {
                         for (p pVar4 : arrayList5) {
                             if (pVar4 != null) {
                                 if (arrayList.contains(pVar4)) {
-                                    this.f56869b.a(pVar4.a, pVar4.f56788d, (PackageInfo) null);
+                                    this.f57450b.a(pVar4.a, pVar4.f57369d, (PackageInfo) null);
                                 } else if (arrayList2.contains(pVar4)) {
                                     try {
-                                        if (!pVar4.f56787c.contains(ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT)) {
+                                        if (!pVar4.f57368c.contains(ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT)) {
                                             Thread.sleep(5000L);
                                         }
                                     } catch (Exception unused) {
@@ -458,8 +458,8 @@ public class v0 implements Runnable {
                             }
                         }
                     } else {
-                        this.f56869b.g();
-                        this.f56870c.a();
+                        this.f57450b.g();
+                        this.f57451c.a();
                     }
                 }
             } catch (Throwable th) {
@@ -468,8 +468,8 @@ public class v0 implements Runnable {
                 hashMap2.put("e", th.getMessage());
                 hashMap2.put("l", "T");
                 l1.a(this.a, "1002001", hashMap2);
-                this.f56869b.g();
-                this.f56870c.a();
+                this.f57450b.g();
+                this.f57451c.a();
             }
         }
     }

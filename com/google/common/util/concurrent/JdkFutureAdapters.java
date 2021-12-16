@@ -14,12 +14,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class JdkFutureAdapters {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ListenableFutureAdapter<V> extends ForwardingFuture<V> implements ListenableFuture<V> {
         public static /* synthetic */ Interceptable $ic;
         public static final Executor defaultAdapterExecutor;

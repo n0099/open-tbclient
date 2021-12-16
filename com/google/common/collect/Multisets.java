@@ -26,12 +26,12 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Multisets {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ImmutableEntry<E> extends b<E> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -83,7 +83,7 @@ public final class Multisets {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UnmodifiableMultiset<E> extends g0<E> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -263,7 +263,7 @@ public final class Multisets {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends m1<s0.a<E>, E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -300,7 +300,7 @@ public final class Multisets {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class b<E> implements s0.a<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -358,7 +358,7 @@ public final class Multisets {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class c<E> extends Sets.c<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -423,7 +423,7 @@ public final class Multisets {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class d<E> extends Sets.c<s0.a<E>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -485,24 +485,24 @@ public final class Multisets {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class e<E> extends g<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final s0<E> f56366e;
+        public final s0<E> f56947e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final o<? super E> f56367f;
+        public final o<? super E> f56948f;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a implements o<s0.a<E>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f56368e;
+            public final /* synthetic */ e f56949e;
 
             public a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -519,7 +519,7 @@ public final class Multisets {
                         return;
                     }
                 }
-                this.f56368e = eVar;
+                this.f56949e = eVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -528,7 +528,7 @@ public final class Multisets {
             public boolean apply(s0.a<E> aVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? this.f56368e.f56367f.apply(aVar.getElement()) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? this.f56949e.f56948f.apply(aVar.getElement()) : invokeL.booleanValue;
             }
         }
 
@@ -551,9 +551,9 @@ public final class Multisets {
                 }
             }
             n.p(s0Var);
-            this.f56366e = s0Var;
+            this.f56947e = s0Var;
             n.p(oVar);
-            this.f56367f = oVar;
+            this.f56948f = oVar;
         }
 
         @Override // c.i.d.c.d, c.i.d.c.s0
@@ -561,8 +561,8 @@ public final class Multisets {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, e2, i2)) == null) {
-                n.l(this.f56367f.apply(e2), "Element %s does not match predicate %s", e2, this.f56367f);
-                return this.f56366e.add(e2, i2);
+                n.l(this.f56948f.apply(e2), "Element %s does not match predicate %s", e2, this.f56948f);
+                return this.f56947e.add(e2, i2);
             }
             return invokeLI.intValue;
         }
@@ -573,7 +573,7 @@ public final class Multisets {
         public o1<E> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Iterators.l(this.f56366e.iterator(), this.f56367f) : (o1) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Iterators.l(this.f56947e.iterator(), this.f56948f) : (o1) invokeV.objValue;
         }
 
         @Override // c.i.d.c.s0
@@ -581,8 +581,8 @@ public final class Multisets {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-                int count = this.f56366e.count(obj);
-                if (count <= 0 || !this.f56367f.apply(obj)) {
+                int count = this.f56947e.count(obj);
+                if (count <= 0 || !this.f56948f.apply(obj)) {
                     return 0;
                 }
                 return count;
@@ -594,14 +594,14 @@ public final class Multisets {
         public Set<E> createElementSet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Sets.b(this.f56366e.elementSet(), this.f56367f) : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Sets.b(this.f56947e.elementSet(), this.f56948f) : (Set) invokeV.objValue;
         }
 
         @Override // c.i.d.c.d
         public Set<s0.a<E>> createEntrySet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Sets.b(this.f56366e.entrySet(), new a(this)) : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Sets.b(this.f56947e.entrySet(), new a(this)) : (Set) invokeV.objValue;
         }
 
         @Override // c.i.d.c.d
@@ -634,7 +634,7 @@ public final class Multisets {
                     return count(obj);
                 }
                 if (contains(obj)) {
-                    return this.f56366e.remove(obj, i2);
+                    return this.f56947e.remove(obj, i2);
                 }
                 return 0;
             }
@@ -642,28 +642,28 @@ public final class Multisets {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class f<E> implements Iterator<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final s0<E> f56369e;
+        public final s0<E> f56950e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Iterator<s0.a<E>> f56370f;
+        public final Iterator<s0.a<E>> f56951f;
 
         /* renamed from: g  reason: collision with root package name */
-        public s0.a<E> f56371g;
+        public s0.a<E> f56952g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f56372h;
+        public int f56953h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f56373i;
+        public int f56954i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f56374j;
+        public boolean f56955j;
 
         public f(s0<E> s0Var, Iterator<s0.a<E>> it) {
             Interceptable interceptable = $ic;
@@ -680,15 +680,15 @@ public final class Multisets {
                     return;
                 }
             }
-            this.f56369e = s0Var;
-            this.f56370f = it;
+            this.f56950e = s0Var;
+            this.f56951f = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56372h > 0 || this.f56370f.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56953h > 0 || this.f56951f.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
@@ -697,16 +697,16 @@ public final class Multisets {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (hasNext()) {
-                    if (this.f56372h == 0) {
-                        s0.a<E> next = this.f56370f.next();
-                        this.f56371g = next;
+                    if (this.f56953h == 0) {
+                        s0.a<E> next = this.f56951f.next();
+                        this.f56952g = next;
                         int count = next.getCount();
-                        this.f56372h = count;
-                        this.f56373i = count;
+                        this.f56953h = count;
+                        this.f56954i = count;
                     }
-                    this.f56372h--;
-                    this.f56374j = true;
-                    return this.f56371g.getElement();
+                    this.f56953h--;
+                    this.f56955j = true;
+                    return this.f56952g.getElement();
                 }
                 throw new NoSuchElementException();
             }
@@ -717,19 +717,19 @@ public final class Multisets {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                m.e(this.f56374j);
-                if (this.f56373i == 1) {
-                    this.f56370f.remove();
+                m.e(this.f56955j);
+                if (this.f56954i == 1) {
+                    this.f56951f.remove();
                 } else {
-                    this.f56369e.remove(this.f56371g.getElement());
+                    this.f56950e.remove(this.f56952g.getElement());
                 }
-                this.f56373i--;
-                this.f56374j = false;
+                this.f56954i--;
+                this.f56955j = false;
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class g<E> extends c.i.d.c.d<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -864,7 +864,7 @@ public final class Multisets {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, s0Var, oVar)) == null) {
             if (s0Var instanceof e) {
                 e eVar = (e) s0Var;
-                return new e(eVar.f56366e, Predicates.c(eVar.f56367f, oVar));
+                return new e(eVar.f56947e, Predicates.c(eVar.f56948f, oVar));
             }
             return new e(s0Var, oVar);
         }

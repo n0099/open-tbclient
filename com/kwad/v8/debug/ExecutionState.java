@@ -10,7 +10,7 @@ import com.kwad.v8.Releasable;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
 import com.kwad.v8.debug.mirror.Frame;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ExecutionState implements Releasable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAME = "frame";

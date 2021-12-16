@@ -11,28 +11,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnItemTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureDetectorCompat a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f39595b;
+    public RecyclerView f40084b;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppThumbnailClickListener f39596e;
+        public final /* synthetic */ SwanAppThumbnailClickListener f40085e;
 
         public b(SwanAppThumbnailClickListener swanAppThumbnailClickListener) {
             Interceptable interceptable = $ic;
@@ -49,17 +49,17 @@ public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnIt
                     return;
                 }
             }
-            this.f39596e = swanAppThumbnailClickListener;
+            this.f40085e = swanAppThumbnailClickListener;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public void onLongPress(MotionEvent motionEvent) {
             View findChildViewUnder;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || (findChildViewUnder = this.f39596e.f39595b.findChildViewUnder(motionEvent.getX(), motionEvent.getY())) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || (findChildViewUnder = this.f40085e.f40084b.findChildViewUnder(motionEvent.getX(), motionEvent.getY())) == null) {
                 return;
             }
-            this.f39596e.onItemLongClick(this.f39596e.f39595b.getChildViewHolder(findChildViewUnder));
+            this.f40085e.onItemLongClick(this.f40085e.f40084b.getChildViewHolder(findChildViewUnder));
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -67,9 +67,9 @@ public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnIt
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-                View findChildViewUnder = this.f39596e.f39595b.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
+                View findChildViewUnder = this.f40085e.f40084b.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
                 if (findChildViewUnder != null) {
-                    this.f39596e.onItemClick(this.f39596e.f39595b.getChildViewHolder(findChildViewUnder));
+                    this.f40085e.onItemClick(this.f40085e.f40084b.getChildViewHolder(findChildViewUnder));
                     return true;
                 }
                 return true;
@@ -97,7 +97,7 @@ public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnIt
                 return;
             }
         }
-        this.f39595b = recyclerView;
+        this.f40084b = recyclerView;
         this.a = new GestureDetectorCompat(recyclerView.getContext(), new b(this, null));
     }
 

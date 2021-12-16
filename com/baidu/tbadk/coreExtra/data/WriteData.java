@@ -2,8 +2,8 @@ package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
-import c.a.r0.t3.s0.c;
+import c.a.d.f.p.l;
+import c.a.s0.v3.s0.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
@@ -36,7 +36,7 @@ import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class WriteData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALL_FROM_ONE = "1";
@@ -271,7 +271,7 @@ public class WriteData extends OrmObject implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (k.isEmpty(str)) {
+            if (l.isEmpty(str)) {
                 return null;
             }
             try {
@@ -371,7 +371,7 @@ public class WriteData extends OrmObject implements Serializable {
                     int i2 = 0;
                     while (i2 < chosedFiles.size()) {
                         ImageFileInfo imageFileInfo = chosedFiles.get(i2);
-                        if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !k.isEmpty(imageFileInfo.getFilePath())) {
+                        if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !l.isEmpty(imageFileInfo.getFilePath())) {
                             File file = new File(imageFileInfo.getFilePath());
                             if (file.exists()) {
                                 file.delete();
@@ -1048,7 +1048,7 @@ public class WriteData extends OrmObject implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) {
-            if (k.isEmpty(this.mContent) && k.isEmpty(this.mTitle)) {
+            if (l.isEmpty(this.mContent) && l.isEmpty(this.mTitle)) {
                 WriteImagesInfo writeImagesInfo = this.writeImagesInfo;
                 if (writeImagesInfo == null || writeImagesInfo.size() <= 0) {
                     VideoInfo videoInfo = this.mVideoInfo;

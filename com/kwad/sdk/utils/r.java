@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kuaishou.weapon.adsdk.DeviceInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Location f59662b;
+    public static Location f60243b;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Nullable
@@ -25,8 +25,8 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             if (!ao.a() || ao.b() == null) {
-                if (a || f59662b != null || context == null) {
-                    return f59662b;
+                if (a || f60243b != null || context == null) {
+                    return f60243b;
                 }
                 if (!ao.a() && !com.kwad.sdk.core.config.b.a(64L)) {
                     if (com.kwad.sdk.b.a.booleanValue()) {
@@ -35,15 +35,15 @@ public class r {
                     try {
                         LocationManager locationManager = (LocationManager) context.getSystemService("location");
                         if (locationManager.isProviderEnabled("gps")) {
-                            f59662b = a(context, locationManager);
+                            f60243b = a(context, locationManager);
                         }
-                        if (f59662b == null && locationManager.isProviderEnabled("network")) {
-                            f59662b = b(context, locationManager);
+                        if (f60243b == null && locationManager.isProviderEnabled("network")) {
+                            f60243b = b(context, locationManager);
                         }
-                        if (f59662b == null && locationManager.isProviderEnabled("passive")) {
-                            f59662b = c(context, locationManager);
+                        if (f60243b == null && locationManager.isProviderEnabled("passive")) {
+                            f60243b = c(context, locationManager);
                         }
-                        return f59662b;
+                        return f60243b;
                     } catch (Exception e2) {
                         a = true;
                         com.kwad.sdk.core.d.a.b(e2);
@@ -62,7 +62,7 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, locationManager)) == null) {
             try {
-                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f56842g) == 0) {
+                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f57423g) == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("gps");
                     if (lastKnownLocation == null) {
                         a = true;
@@ -85,7 +85,7 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, locationManager)) == null) {
             try {
-                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f56842g) == 0 || ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f56843h) == 0) {
+                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f57423g) == 0 || ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f57424h) == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("network");
                     if (lastKnownLocation == null) {
                         a = true;
@@ -108,7 +108,7 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, locationManager)) == null) {
             try {
-                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f56843h) == 0) {
+                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f57424h) == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("passive");
                     if (lastKnownLocation == null) {
                         a = true;

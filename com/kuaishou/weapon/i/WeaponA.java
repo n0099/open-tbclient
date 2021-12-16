@@ -13,7 +13,7 @@ import com.kuaishou.weapon.un.n;
 import com.kuaishou.weapon.un.o;
 import com.kuaishou.weapon.un.r;
 import com.kuaishou.weapon.un.x;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WeaponA implements WeaponAI {
     public static /* synthetic */ Interceptable $ic;
     public static WeaponA sInstance;

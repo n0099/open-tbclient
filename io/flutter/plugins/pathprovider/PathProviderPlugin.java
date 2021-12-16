@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
     public final Executor executor;
     public final Executor uiThreadExecutor;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class UiThreadExecutor implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

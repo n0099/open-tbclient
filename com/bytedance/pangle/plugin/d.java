@@ -18,7 +18,7 @@ import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public final class d implements Runnable {
                     return invokeL.booleanValue;
                 }
             });
-            if (file.equals(this.a) || (pluginProvider = i.a().f54604b.getPluginProvider()) == null || (provideBuiltInPlugin = pluginProvider.provideBuiltInPlugin()) == null) {
+            if (file.equals(this.a) || (pluginProvider = i.a().f55184b.getPluginProvider()) == null || (provideBuiltInPlugin = pluginProvider.provideBuiltInPlugin()) == null) {
                 return;
             }
             PluginManager.getInstance().asyncInstall(provideBuiltInPlugin);

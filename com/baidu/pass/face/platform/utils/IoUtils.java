@@ -18,14 +18,14 @@ import java.io.OutputStream;
 import java.io.StringWriter;
 import java.net.ServerSocket;
 import java.util.zip.ZipFile;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class IoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 1024;
     public static final int EOF = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface ProgressListener {
         void progress(long j2, long j3);
     }

@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class LongAdder extends Striped64 implements Serializable, i {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7249069246863182397L;

@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static List<String> f38955i;
+    public static List<String> f39444i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static boolean f38956j;
+    public static boolean f39445j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public class b {
                 return null;
             }
             int i2 = 0;
-            com.baidu.searchbox.dns.c.a k2 = new a.C1774a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+            com.baidu.searchbox.dns.c.a k2 = new a.C1833a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
             com.baidu.searchbox.dns.d.a i3 = k2.i();
             com.baidu.searchbox.dns.d.a.a h2 = k2.h();
             int j2 = k2.j();
@@ -140,8 +140,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             synchronized (b.class) {
-                if (f38955i != null && f38955i.size() > 0) {
-                    for (String str : f38955i) {
+                if (f39444i != null && f39444i.size() > 0) {
+                    for (String str : f39444i) {
                         b(str);
                     }
                 }
@@ -167,11 +167,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
             synchronized (b.class) {
-                if (f38955i == null) {
-                    f38955i = new ArrayList(4);
+                if (f39444i == null) {
+                    f39444i = new ArrayList(4);
                 }
-                if (!f38955i.contains(str)) {
-                    f38955i.add(str);
+                if (!f39444i.contains(str)) {
+                    f39444i.add(str);
                 }
             }
         }
@@ -213,7 +213,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, aVar, i2)) == null) {
             if (i2 == 3) {
-                return a(aVar, f38956j);
+                return a(aVar, f39445j);
             }
             if (i2 == 1) {
                 return a(aVar, false);

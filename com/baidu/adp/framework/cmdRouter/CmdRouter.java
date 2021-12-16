@@ -16,7 +16,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CmdRouter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ROUTE_ROOT_PAKCAGE = "com.baidu.tieba.route";

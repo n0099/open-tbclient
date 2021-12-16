@@ -15,16 +15,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatRatingBar;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.b.e;
-import c.a.b0.b.g;
-import c.a.b0.b.h;
-import c.a.b0.d.c;
-import c.a.b0.d0.f;
-import c.a.b0.g.f.d;
-import c.a.b0.p.j;
-import c.a.b0.p.l;
-import c.a.b0.p.n;
-import c.a.b0.p.p;
+import c.a.c0.b.e;
+import c.a.c0.b.g;
+import c.a.c0.b.h;
+import c.a.c0.d.c;
+import c.a.c0.d0.f;
+import c.a.c0.g.f.d;
+import c.a.c0.p.j;
+import c.a.c0.p.l;
+import c.a.c0.p.n;
+import c.a.c0.p.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.model.AdOperator;
@@ -38,31 +38,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PortraitVideoTailView extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdImageView f38035e;
+    public AdImageView f38524e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f38036f;
+    public TextView f38525f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f38037g;
+    public TextView f38526g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AppCompatRatingBar f38038h;
+    public AppCompatRatingBar f38527h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f38039i;
+    public View f38528i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f38040j;
+    public TextView f38529j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TextView f38041k;
+    public TextView f38530k;
     public NadMiniVideoDownloadView l;
     public d m;
     public View.OnClickListener n;
@@ -78,14 +78,14 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
     public p x;
     public SimpleAdInfoView y;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements SimpleAdInfoView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdBaseModel a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PortraitVideoTailView f38042b;
+        public final /* synthetic */ PortraitVideoTailView f38531b;
 
         public a(PortraitVideoTailView portraitVideoTailView, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
                     return;
                 }
             }
-            this.f38042b = portraitVideoTailView;
+            this.f38531b = portraitVideoTailView;
             this.a = adBaseModel;
         }
 
@@ -110,12 +110,12 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f38042b.f(ClogBuilder.LogType.FREE_CLICK, str, this.a);
+                this.f38531b.f(ClogBuilder.LogType.FREE_CLICK, str, this.a);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a();
     }
@@ -149,7 +149,7 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
             if (pVar == null) {
                 return false;
             }
-            return (TextUtils.isEmpty(pVar.f1815f) && TextUtils.isEmpty(pVar.f1813d) && ((bVar = pVar.f1816g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = pVar.f1817h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
+            return (TextUtils.isEmpty(pVar.f1833f) && TextUtils.isEmpty(pVar.f1831d) && ((bVar = pVar.f1834g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = pVar.f1835h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
         }
         return invokeL.booleanValue;
     }
@@ -158,15 +158,15 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, adBaseModel, view) == null) && d(adBaseModel)) {
-            String str2 = adBaseModel.f37578h.f1790c.f1793c;
-            String str3 = adBaseModel.f37574d.a;
+            String str2 = adBaseModel.f38067h.f1808c.f1811c;
+            String str3 = adBaseModel.f38063d.a;
             int id = view.getId();
             if (id == e.tail_frame_author_avatar) {
                 str = "tail_avatar";
             } else if (id == e.tail_frame_title) {
                 str = "tail_name";
             } else if (id == e.command_layout) {
-                str2 = adBaseModel.f37578h.f1790c.f1794d;
+                str2 = adBaseModel.f38067h.f1808c.f1812d;
                 str = "button";
             } else if (id == e.tail_frame_trade) {
                 str = "tail_tag";
@@ -198,21 +198,21 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             removeAllViews();
             LayoutInflater.from(context).inflate(g.nad_portrait_video_tail_view, this);
-            setBackgroundColor(getResources().getColor(c.a.b0.b.b.nad_mini_video_ad_tail_frame_bg_color));
+            setBackgroundColor(getResources().getColor(c.a.c0.b.b.nad_mini_video_ad_tail_frame_bg_color));
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             layoutParams.height = -1;
             layoutParams.width = -1;
             setLayoutParams(layoutParams);
-            this.f38035e = (AdImageView) findViewById(e.tail_frame_author_avatar);
-            this.f38036f = (TextView) findViewById(e.tail_frame_title);
-            this.f38037g = (TextView) findViewById(e.tail_frame_trade);
-            this.f38039i = findViewById(e.ad_mini_video_detail_rating_bar_root_view);
+            this.f38524e = (AdImageView) findViewById(e.tail_frame_author_avatar);
+            this.f38525f = (TextView) findViewById(e.tail_frame_title);
+            this.f38526g = (TextView) findViewById(e.tail_frame_trade);
+            this.f38528i = findViewById(e.ad_mini_video_detail_rating_bar_root_view);
             this.r = (TextView) findViewById(e.tail_frame_scope);
-            this.f38038h = (AppCompatRatingBar) findViewById(e.tail_frame_rating_bar);
+            this.f38527h = (AppCompatRatingBar) findViewById(e.tail_frame_rating_bar);
             this.s = (TextView) findViewById(e.tail_frame_popular_text);
-            this.f38040j = (TextView) findViewById(e.tail_frame_sub_title);
+            this.f38529j = (TextView) findViewById(e.tail_frame_sub_title);
             View findViewById = findViewById(e.tail_frame_replay_btn);
-            this.f38041k = (TextView) findViewById(e.tail_frame_check_btn_txt);
+            this.f38530k = (TextView) findViewById(e.tail_frame_check_btn_txt);
             this.t = findViewById(e.tail_frame_btn_container);
             this.u = findViewById(e.command_layout);
             this.v = (AdImageView) findViewById(e.common_btn_icon);
@@ -220,19 +220,19 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
             NadMiniVideoDownloadView nadMiniVideoDownloadView = (NadMiniVideoDownloadView) findViewById(e.tail_frame_download_btn_txt);
             this.l = nadMiniVideoDownloadView;
             nadMiniVideoDownloadView.setTextSize(12.0f);
-            this.l.setTextColor(getResources().getColor(c.a.b0.b.b.nad_mini_video_ad_tail_frame_download_text_color));
-            int intrinsicHeight = ContextCompat.getDrawable(getContext(), c.a.b0.b.d.nad_mini_video_tail_star).getIntrinsicHeight();
-            ViewGroup.LayoutParams layoutParams2 = this.f38038h.getLayoutParams();
+            this.l.setTextColor(getResources().getColor(c.a.c0.b.b.nad_mini_video_ad_tail_frame_download_text_color));
+            int intrinsicHeight = ContextCompat.getDrawable(getContext(), c.a.c0.b.d.nad_mini_video_tail_star).getIntrinsicHeight();
+            ViewGroup.LayoutParams layoutParams2 = this.f38527h.getLayoutParams();
             layoutParams2.width = -2;
             layoutParams2.height = intrinsicHeight;
-            this.f38038h.setLayoutParams(layoutParams2);
+            this.f38527h.setLayoutParams(layoutParams2);
             this.y = (SimpleAdInfoView) findViewById(e.ad_app_info_view);
             findViewById.setOnClickListener(this);
-            this.f38035e.setOnClickListener(this);
-            this.f38036f.setOnClickListener(this);
-            this.f38037g.setOnClickListener(this);
-            this.f38039i.setOnClickListener(this);
-            this.f38040j.setOnClickListener(this);
+            this.f38524e.setOnClickListener(this);
+            this.f38525f.setOnClickListener(this);
+            this.f38526g.setOnClickListener(this);
+            this.f38528i.setOnClickListener(this);
+            this.f38529j.setOnClickListener(this);
             this.u.setOnClickListener(this);
             this.s.setOnClickListener(this);
             this.l.setOnClickListener(this);
@@ -244,33 +244,33 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         InterceptResult invokeL;
         l lVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel)) == null) ? (adBaseModel == null || adBaseModel.f37574d == null || (lVar = adBaseModel.f37578h) == null || lVar.f1790c == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel)) == null) ? (adBaseModel == null || adBaseModel.f38063d == null || (lVar = adBaseModel.f38067h) == null || lVar.f1808c == null) ? false : true : invokeL.booleanValue;
     }
 
     public final void e(AdBaseModel adBaseModel) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || adBaseModel == null || (jVar = adBaseModel.f37574d) == null || TextUtils.isEmpty(jVar.f1782b)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || adBaseModel == null || (jVar = adBaseModel.f38063d) == null || TextUtils.isEmpty(jVar.f1800b)) {
             return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
         clogBuilder.r(ClogBuilder.LogType.VIDEO_LP_PV);
         clogBuilder.p(ClogBuilder.Page.PAGE_VIDEO_LANDING);
-        clogBuilder.m(adBaseModel.f37574d.f1782b);
-        c.a.b0.x.a.b(clogBuilder);
+        clogBuilder.m(adBaseModel.f38063d.f1800b);
+        c.a.c0.x.a.b(clogBuilder);
     }
 
     public final void f(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, logType, str, adBaseModel) == null) || adBaseModel == null || (jVar = adBaseModel.f37574d) == null || TextUtils.isEmpty(jVar.f1782b)) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, logType, str, adBaseModel) == null) || adBaseModel == null || (jVar = adBaseModel.f38063d) == null || TextUtils.isEmpty(jVar.f1800b)) {
             return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
         clogBuilder.r(logType);
         clogBuilder.g(str);
-        clogBuilder.m(adBaseModel.f37574d.f1782b);
-        c.a.b0.x.a.b(clogBuilder);
+        clogBuilder.m(adBaseModel.f38063d.f1800b);
+        c.a.c0.x.a.b(clogBuilder);
     }
 
     public void hideReplayBtn() {
@@ -368,79 +368,79 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
                 setVisibility(8);
                 return;
             }
-            n nVar = adBaseModel.f37578h.f1790c;
+            n nVar = adBaseModel.f38067h.f1808c;
             if (nVar != null) {
                 c(getContext());
                 GradientDrawable gradientDrawable = new GradientDrawable();
-                gradientDrawable.setColor(getResources().getColor(c.a.b0.b.b.nad_enhancement_btn_bg_color));
+                gradientDrawable.setColor(getResources().getColor(c.a.c0.b.b.nad_enhancement_btn_bg_color));
                 int a2 = f.c.a(getContext(), 8.0f);
                 gradientDrawable.setCornerRadius(a2);
                 this.u.setBackground(gradientDrawable);
                 this.l.setCornerRadius(a2);
                 this.l.setBackground(gradientDrawable);
-                this.l.setProgressColor(getResources().getColor(c.a.b0.b.b.nad_mini_video_ad_download_progress_color));
+                this.l.setProgressColor(getResources().getColor(c.a.c0.b.b.nad_mini_video_ad_download_progress_color));
                 setVisibility(0);
-                if (!TextUtils.isEmpty(nVar.f1792b)) {
-                    this.f38035e.displayImage(nVar.f1792b);
-                    this.f38035e.setVisibility(0);
+                if (!TextUtils.isEmpty(nVar.f1810b)) {
+                    this.f38524e.displayImage(nVar.f1810b);
+                    this.f38524e.setVisibility(0);
                 } else {
-                    this.f38035e.setVisibility(8);
+                    this.f38524e.setVisibility(8);
                 }
                 if (TextUtils.isEmpty(nVar.a)) {
-                    this.f38036f.setVisibility(8);
+                    this.f38525f.setVisibility(8);
                 } else {
-                    this.f38036f.setText(nVar.a, TextView.BufferType.NORMAL);
-                    this.f38036f.setVisibility(0);
+                    this.f38525f.setText(nVar.a, TextView.BufferType.NORMAL);
+                    this.f38525f.setVisibility(0);
                 }
-                if (TextUtils.isEmpty(nVar.f1797g)) {
-                    this.f38037g.setVisibility(8);
+                if (TextUtils.isEmpty(nVar.f1815g)) {
+                    this.f38526g.setVisibility(8);
                 } else {
-                    this.f38037g.setVisibility(0);
-                    this.f38037g.setText(nVar.f1797g);
+                    this.f38526g.setVisibility(0);
+                    this.f38526g.setText(nVar.f1815g);
                 }
                 p pVar = this.x;
                 if (pVar != null) {
-                    float f2 = (float) pVar.f1814e;
+                    float f2 = (float) pVar.f1832e;
                     if (f2 <= 0.0f) {
-                        this.f38039i.setVisibility(8);
+                        this.f38528i.setVisibility(8);
                     } else {
-                        this.f38039i.setVisibility(0);
+                        this.f38528i.setVisibility(0);
                         this.r.setText(String.valueOf(f2));
-                        this.f38038h.setRating(f2);
+                        this.f38527h.setRating(f2);
                     }
                 } else {
-                    this.f38039i.setVisibility(8);
+                    this.f38528i.setVisibility(8);
                 }
-                if (TextUtils.isEmpty(nVar.f1799i)) {
+                if (TextUtils.isEmpty(nVar.f1817i)) {
                     this.s.setVisibility(8);
                 } else {
                     this.s.setVisibility(0);
-                    this.s.setText(nVar.f1799i);
+                    this.s.setText(nVar.f1817i);
                 }
-                if (TextUtils.isEmpty(nVar.f1798h)) {
-                    this.f38040j.setVisibility(8);
+                if (TextUtils.isEmpty(nVar.f1816h)) {
+                    this.f38529j.setVisibility(8);
                 } else {
-                    this.f38040j.setVisibility(0);
-                    this.f38040j.setText(nVar.f1798h, TextView.BufferType.NORMAL);
+                    this.f38529j.setVisibility(0);
+                    this.f38529j.setText(nVar.f1816h, TextView.BufferType.NORMAL);
                 }
-                if (adBaseModel.f37573c && adBaseModel.f37576f.a == AdOperator.TYPE.DOWNLOAD) {
+                if (adBaseModel.f38062c && adBaseModel.f38065f.a == AdOperator.TYPE.DOWNLOAD) {
                     this.u.setVisibility(8);
-                    c.a.b0.p.c cVar = adBaseModel.f37579i;
-                    if (cVar != null && cVar.f1770d) {
+                    c.a.c0.p.c cVar = adBaseModel.f38068i;
+                    if (cVar != null && cVar.f1788d) {
                         this.l.setVisibility(0);
-                        this.m = new d(c.a.b0.g.d.a.b(adBaseModel), this.l);
+                        this.m = new d(c.a.c0.g.d.a.b(adBaseModel), this.l);
                     } else {
                         this.l.setVisibility(8);
                         this.m = null;
                     }
                 } else {
                     this.u.setVisibility(0);
-                    if (TextUtils.isEmpty(nVar.f1795e)) {
-                        this.f38041k.setText(nVar.f1795e);
+                    if (TextUtils.isEmpty(nVar.f1813e)) {
+                        this.f38530k.setText(nVar.f1813e);
                     } else {
-                        this.f38041k.setText(getResources().getText(h.nad_command_btn_text));
+                        this.f38530k.setText(getResources().getText(h.nad_command_btn_text));
                     }
-                    this.v.setImageDrawable(ContextCompat.getDrawable(getContext(), c.a.b0.b.d.nad_mini_video_ad_pop_command));
+                    this.v.setImageDrawable(ContextCompat.getDrawable(getContext(), c.a.c0.b.d.nad_mini_video_ad_pop_command));
                     this.l.setVisibility(8);
                     if (this.m != null) {
                         this.m = null;
@@ -451,8 +451,8 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
                 } else {
                     Resources resources = getContext().getResources();
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.y.getLayoutParams();
-                    layoutParams.leftMargin = resources.getDimensionPixelOffset(c.a.b0.b.c.nad_dimen_15dp);
-                    layoutParams.rightMargin = resources.getDimensionPixelOffset(c.a.b0.b.c.nad_dimen_15dp);
+                    layoutParams.leftMargin = resources.getDimensionPixelOffset(c.a.c0.b.c.nad_dimen_15dp);
+                    layoutParams.rightMargin = resources.getDimensionPixelOffset(c.a.c0.b.c.nad_dimen_15dp);
                     this.y.setLayoutParams(layoutParams);
                     this.y.setAdInfo(this.x);
                     this.y.setVisibility(0);
@@ -462,7 +462,7 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
             } else {
                 setVisibility(8);
             }
-            this.w.displayBlurBackground(adBaseModel.f37578h.f1789b, 1, 5);
+            this.w.displayBlurBackground(adBaseModel.f38067h.f1807b, 1, 5);
             setTag(adBaseModel);
         }
     }

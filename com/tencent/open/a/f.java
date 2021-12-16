@@ -24,13 +24,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f62296b;
+    public static f f62877b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -76,10 +76,10 @@ public class f extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (f.class) {
-                if (f62296b == null) {
-                    f62296b = new f(com.tencent.open.utils.f.a());
+                if (f62877b == null) {
+                    f62877b = new f(com.tencent.open.utils.f.a());
                 }
-                fVar = f62296b;
+                fVar = f62877b;
             }
             return fVar;
         }

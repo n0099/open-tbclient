@@ -10,10 +10,10 @@ import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import c.a.f0.g;
-import c.a.f0.h;
-import c.a.f0.i;
-import c.a.f0.s.e.a;
+import c.a.g0.g;
+import c.a.g0.h;
+import c.a.g0.i;
+import c.a.g0.s.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.poly.widget.SwitchButton;
@@ -21,36 +21,36 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HostMarketView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f38520e;
+    public TextView f39009e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f38521f;
+    public TextView f39010f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SwitchButton f38522g;
+    public SwitchButton f39011g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PayChannelEntity f38523h;
+    public PayChannelEntity f39012h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f38524i;
+    public c f39013i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f38525j;
+    public boolean f39014j;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements CompoundButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HostMarketView f38526e;
+        public final /* synthetic */ HostMarketView f39015e;
 
         public a(HostMarketView hostMarketView) {
             Interceptable interceptable = $ic;
@@ -67,20 +67,20 @@ public class HostMarketView extends FrameLayout {
                     return;
                 }
             }
-            this.f38526e = hostMarketView;
+            this.f39015e = hostMarketView;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
-                this.f38526e.g(z);
+                this.f39015e.g(z);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class b implements c.a.f0.s.e.a {
+    /* loaded from: classes10.dex */
+    public class b implements c.a.g0.s.e.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HostMarketView a;
@@ -103,28 +103,28 @@ public class HostMarketView extends FrameLayout {
             this.a = hostMarketView;
         }
 
-        @Override // c.a.f0.s.e.a
-        public void a(a.C0116a c0116a) {
+        @Override // c.a.g0.s.e.a
+        public void a(a.C0118a c0118a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c0116a) == null) {
-                this.a.f38524i.b(c0116a);
-                if (c0116a == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, c0118a) == null) {
+                this.a.f39013i.b(c0118a);
+                if (c0118a == null) {
                     return;
                 }
-                if (c0116a.a != 0) {
-                    this.a.f38522g.toggleNoEvent();
+                if (c0118a.a != 0) {
+                    this.a.f39011g.toggleNoEvent();
                     Toast.makeText(this.a.getContext(), this.a.getResources().getString(i.host_market_calculate_error), 0).show();
                 }
-                this.a.f38523h.setIsSelected(this.a.f38522g.isChecked() ? 1 : 0);
+                this.a.f39012h.setIsSelected(this.a.f39011g.isChecked() ? 1 : 0);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface c {
-        void a(boolean z, PayChannelEntity payChannelEntity, c.a.f0.s.e.a aVar);
+        void a(boolean z, PayChannelEntity payChannelEntity, c.a.g0.s.e.a aVar);
 
-        void b(a.C0116a c0116a);
+        void b(a.C0118a c0118a);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -152,10 +152,10 @@ public class HostMarketView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(h.hostmarket_item, (ViewGroup) this, true);
-            this.f38520e = (TextView) findViewById(g.title);
-            this.f38521f = (TextView) findViewById(g.subtitle);
+            this.f39009e = (TextView) findViewById(g.title);
+            this.f39010f = (TextView) findViewById(g.subtitle);
             SwitchButton switchButton = (SwitchButton) findViewById(g.switch_button);
-            this.f38522g = switchButton;
+            this.f39011g = switchButton;
             switchButton.setOnCheckedChangeListener(new a(this));
         }
     }
@@ -163,54 +163,54 @@ public class HostMarketView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f38523h == null) {
+            if (this.f39012h == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.f38520e.setText(this.f38523h.getDisplayName());
-            this.f38521f.setText(this.f38523h.getPayText());
-            if (!TextUtils.isEmpty(this.f38523h.getDisplayColor())) {
+            this.f39009e.setText(this.f39012h.getDisplayName());
+            this.f39010f.setText(this.f39012h.getPayText());
+            if (!TextUtils.isEmpty(this.f39012h.getDisplayColor())) {
                 try {
-                    this.f38521f.setTextColor(Color.parseColor(this.f38523h.getDisplayColor()));
+                    this.f39010f.setTextColor(Color.parseColor(this.f39012h.getDisplayColor()));
                 } catch (Exception unused) {
                 }
             }
-            if (this.f38525j) {
-                this.f38522g.setVisibility(4);
+            if (this.f39014j) {
+                this.f39011g.setVisibility(4);
                 return;
             }
-            this.f38522g.setVisibility(0);
-            if (this.f38523h.getIsSelected() == 1) {
-                this.f38522g.setChecked(true);
+            this.f39011g.setVisibility(0);
+            if (this.f39012h.getIsSelected() == 1) {
+                this.f39011g.setChecked(true);
             } else {
-                this.f38522g.setChecked(false);
+                this.f39011g.setChecked(false);
             }
         }
     }
 
     public final void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f38524i == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f39013i == null) {
             return;
         }
-        this.f38523h.setIsSelected(this.f38522g.isChecked() ? 1 : 0);
-        this.f38524i.a(z, this.f38523h, new b(this));
+        this.f39012h.setIsSelected(this.f39011g.isChecked() ? 1 : 0);
+        this.f39013i.a(z, this.f39012h, new b(this));
     }
 
     public void setListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f38524i = cVar;
+            this.f39013i = cVar;
         }
     }
 
     public void update(PayChannelEntity payChannelEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, payChannelEntity) == null) {
-            this.f38523h = payChannelEntity;
+            this.f39012h = payChannelEntity;
             if (payChannelEntity != null) {
-                this.f38525j = payChannelEntity.getIsSelected() == 1;
+                this.f39014j = payChannelEntity.getIsSelected() == 1;
             }
             f();
         }
@@ -256,7 +256,7 @@ public class HostMarketView extends FrameLayout {
                 return;
             }
         }
-        this.f38525j = false;
+        this.f39014j = false;
         e(context);
     }
 }

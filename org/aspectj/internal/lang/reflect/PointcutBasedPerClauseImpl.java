@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.aspectj.lang.reflect.PerClauseKind;
 import org.aspectj.lang.reflect.PointcutBasedPerClause;
 import org.aspectj.lang.reflect.PointcutExpression;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PointcutBasedPerClauseImpl extends PerClauseImpl implements PointcutBasedPerClause {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final PointcutExpression pointcutExpression;
 
     /* renamed from: org.aspectj.internal.lang.reflect.PointcutBasedPerClauseImpl$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$aspectj$lang$reflect$PerClauseKind;
         public static /* synthetic */ Interceptable $ic;

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ForwardingListenableFuture<V> extends ForwardingFuture<V> implements ListenableFuture<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public abstract class ForwardingListenableFuture<V> extends ForwardingFuture<V> 
     @Override // com.google.common.util.concurrent.ForwardingFuture, c.i.d.c.h0
     public abstract ListenableFuture<? extends V> delegate();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class SimpleForwardingListenableFuture<V> extends ForwardingListenableFuture<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

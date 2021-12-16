@@ -1,6 +1,6 @@
 package com.baidu.tieba.video.localvideo;
 
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import c.a.d.k.d;
 import c.a.d.k.e;
 import com.baidu.adp.base.BdBaseApplication;
@@ -31,12 +31,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LocalVideoActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,38 +56,38 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<c.a.r0.k0.b> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<c.a.s0.k0.b> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage == null || !(customMessage.getData() instanceof c.a.r0.h4.b)) {
+                if (customMessage == null || !(customMessage.getData() instanceof c.a.s0.j4.b)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921466, new c.a.r0.h4.i.h.b((c.a.r0.h4.b) customMessage.getData()));
+                return new CustomResponsedMessage<>(2921466, new c.a.s0.j4.i.h.b((c.a.s0.j4.b) customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         public class a extends DefaultDownloadCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f49746b;
+            public String f50262b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f49747c;
+            public String f50263c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f49748d;
+            public final /* synthetic */ CustomResponsedMessage f50264d;
 
             public a(b bVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class LocalVideoActivityStatic {
                         return;
                     }
                 }
-                this.f49748d = customResponsedMessage;
+                this.f50264d = customResponsedMessage;
             }
 
             @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -112,7 +112,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    l.L(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                    m.L(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
                 }
             }
 
@@ -121,7 +121,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    l.L(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                    m.L(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
                 }
             }
 
@@ -135,13 +135,13 @@ public class LocalVideoActivityStatic {
                     this.a = BdBaseApplication.getInst().getResHashMap().get("libnama.so");
                 }
                 if ("face_beautification.mp3".equals(packageInfo.name)) {
-                    this.f49746b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
+                    this.f50262b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
                 }
                 if ("v3.mp3".equals(packageInfo.name)) {
-                    this.f49747c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
+                    this.f50263c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
                 }
-                if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.f49746b) && !StringUtils.isNull(this.f49747c)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f49748d.getData()));
+                if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.f50262b) && !StringUtils.isNull(this.f50263c)) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f50264d.getData()));
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
             }

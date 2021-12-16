@@ -18,17 +18,17 @@ import com.tachikoma.core.component.text.SpanItem;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f30030c;
+    public static final Pattern f30400c;
     public transient /* synthetic */ FieldHolder $fh;
     public final l a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final StringBuilder f30031b;
+    public final StringBuilder f30401b;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public final class a {
                 return;
             }
         }
-        f30030c = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
+        f30400c = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
     }
 
     public a() {
@@ -60,7 +60,7 @@ public final class a {
             }
         }
         this.a = new l();
-        this.f30031b = new StringBuilder();
+        this.f30401b = new StringBuilder();
     }
 
     public static boolean b(l lVar) {
@@ -295,7 +295,7 @@ public final class a {
         }
         int indexOf = str.indexOf(91);
         if (indexOf != -1) {
-            Matcher matcher = f30030c.matcher(str.substring(indexOf));
+            Matcher matcher = f30400c.matcher(str.substring(indexOf));
             if (matcher.matches()) {
                 dVar.v(matcher.group(1));
             }
@@ -319,13 +319,13 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar)) == null) {
-            this.f30031b.setLength(0);
+            this.f30401b.setLength(0);
             int c2 = lVar.c();
             l(lVar);
             this.a.H(lVar.a, lVar.c());
             this.a.J(c2);
-            String h2 = h(this.a, this.f30031b);
-            if (h2 == null || !StringUtil.ARRAY_START.equals(f(this.a, this.f30031b))) {
+            String h2 = h(this.a, this.f30401b);
+            if (h2 == null || !StringUtil.ARRAY_START.equals(f(this.a, this.f30401b))) {
                 return null;
             }
             d dVar = new d();
@@ -334,11 +334,11 @@ public final class a {
             boolean z = false;
             while (!z) {
                 int c3 = this.a.c();
-                str = f(this.a, this.f30031b);
+                str = f(this.a, this.f30401b);
                 boolean z2 = str == null || "}".equals(str);
                 if (!z2) {
                     this.a.J(c3);
-                    i(this.a, dVar, this.f30031b);
+                    i(this.a, dVar, this.f30401b);
                 }
                 z = z2;
             }

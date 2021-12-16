@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.logging.Logger;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {3})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ESDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public static Logger log;

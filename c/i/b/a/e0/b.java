@@ -7,31 +7,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CharSequence f29898e;
+    public final CharSequence f30268e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Layout.Alignment f29899f;
+    public final Layout.Alignment f30269f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Bitmap f29900g;
+    public final Bitmap f30270g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final float f29901h;
+    public final float f30271h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f29902i;
+    public final int f30272i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f29903j;
+    public final int f30273j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final float f29904k;
+    public final float f30274k;
     public final int l;
     public final float m;
     public final float n;
@@ -137,13 +137,13 @@ public class b {
                 return;
             }
         }
-        this.f29898e = charSequence;
-        this.f29899f = alignment;
-        this.f29900g = bitmap;
-        this.f29901h = f2;
-        this.f29902i = i2;
-        this.f29903j = i3;
-        this.f29904k = f3;
+        this.f30268e = charSequence;
+        this.f30269f = alignment;
+        this.f30270g = bitmap;
+        this.f30271h = f2;
+        this.f30272i = i2;
+        this.f30273j = i3;
+        this.f30274k = f3;
         this.l = i4;
         this.m = f4;
         this.n = f5;

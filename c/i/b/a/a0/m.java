@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface m {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f29022b;
+        public final byte[] f29392b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f29023c;
+        public final int f29393c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f29024d;
+        public final int f29394d;
 
         public a(int i2, byte[] bArr, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public interface m {
                 }
             }
             this.a = i2;
-            this.f29022b = bArr;
-            this.f29023c = i3;
-            this.f29024d = i4;
+            this.f29392b = bArr;
+            this.f29393c = i3;
+            this.f29394d = i4;
         }
 
         public boolean equals(Object obj) {
@@ -59,7 +59,7 @@ public interface m {
                     return false;
                 }
                 a aVar = (a) obj;
-                return this.a == aVar.a && this.f29023c == aVar.f29023c && this.f29024d == aVar.f29024d && Arrays.equals(this.f29022b, aVar.f29022b);
+                return this.a == aVar.a && this.f29393c == aVar.f29393c && this.f29394d == aVar.f29394d && Arrays.equals(this.f29392b, aVar.f29392b);
             }
             return invokeL.booleanValue;
         }
@@ -67,7 +67,7 @@ public interface m {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((((this.a * 31) + Arrays.hashCode(this.f29022b)) * 31) + this.f29023c) * 31) + this.f29024d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((((this.a * 31) + Arrays.hashCode(this.f29392b)) * 31) + this.f29393c) * 31) + this.f29394d : invokeV.intValue;
         }
     }
 

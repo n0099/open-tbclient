@@ -69,7 +69,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Pattern;
 import javax.xml.datatype.XMLGregorianCalendar;
 import org.w3c.dom.Node;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SerializeConfig {
     public static /* synthetic */ Interceptable $ic;
     public static boolean awtError;

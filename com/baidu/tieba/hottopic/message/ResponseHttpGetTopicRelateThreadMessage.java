@@ -1,6 +1,6 @@
 package com.baidu.tieba.hottopic.message;
 
-import c.a.r0.p1.l.d;
+import c.a.s0.q1.l.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -15,7 +15,7 @@ import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;
 import tbclient.Page;
 import tbclient.ThreadInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

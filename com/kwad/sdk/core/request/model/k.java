@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f57805b;
+    public long f58386b;
 
     @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
@@ -31,7 +31,7 @@ public class k implements com.kwad.sdk.core.b {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             t.a(jSONObject, "photoId", this.a);
-            t.a(jSONObject, URLPackage.KEY_AUTHOR_ID, this.f57805b);
+            t.a(jSONObject, URLPackage.KEY_AUTHOR_ID, this.f58386b);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

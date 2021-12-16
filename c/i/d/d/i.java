@@ -1,5 +1,5 @@
 package c.i.d.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface i {
     void add(long j2);
 

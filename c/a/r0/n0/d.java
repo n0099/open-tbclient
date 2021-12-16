@@ -1,73 +1,70 @@
 package c.a.r0.n0;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class d extends BaseCardInfo {
+public class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f20084f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.d1.f2.c.b f20085e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1791194649, "Lc/a/r0/n0/d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static String a(ArrayList<String> arrayList, String str, int i2) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, arrayList, str, i2)) == null) {
+            ArrayList arrayList2 = new ArrayList();
+            if (!ListUtils.isEmpty(arrayList)) {
+                arrayList2.addAll(arrayList);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1791194649, "Lc/a/r0/n0/d;");
-                return;
+            if (!TextUtils.isEmpty(str)) {
+                arrayList2.add(str);
             }
-        }
-        f20084f = BdUniqueId.gen();
-    }
-
-    public d() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            List<String> c2 = c(arrayList2, i2);
+            if (ListUtils.isEmpty(c2)) {
+                return null;
             }
+            return b(c2);
         }
+        return (String) invokeLLI.objValue;
     }
 
-    public c.a.r0.d1.f2.c.b g() {
-        InterceptResult invokeV;
+    public static String b(List<String> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20085e : (c.a.r0.d1.f2.c.b) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.m.e.n
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f20084f : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void i(c.a.r0.d1.f2.c.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f20085e = bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.getCount(list) <= 0) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            boolean z = false;
+            for (String str : list) {
+                if (!StringUtils.isNull(str)) {
+                    if (!z && !StringUtils.isNull(sb.toString())) {
+                        z = true;
+                    }
+                    if (z) {
+                        sb.append("_");
+                    }
+                    sb.append(str);
+                }
+            }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static List<String> c(List<String> list, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i2)) == null) {
+            int count = ListUtils.getCount(list);
+            return (count <= 0 || i2 < 0 || count <= i2) ? list : ListUtils.subList(list, count - i2, count);
+        }
+        return (List) invokeLI.objValue;
     }
 }

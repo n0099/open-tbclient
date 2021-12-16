@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class JavascriptInterfaceManager {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, Permission> a;
@@ -41,7 +41,7 @@ public final class JavascriptInterfaceManager {
         }
         HashMap hashMap = new HashMap();
         a = hashMap;
-        hashMap.put(LightappBusinessClient.METHOD_DO_PAY, Permission.NONE);
+        hashMap.put("dopay", Permission.NONE);
         a.put(LightappBusinessClient.METHOD_INIT_PAY, Permission.NONE);
         a.put(LightappBusinessClient.METHOD_BD_LOGIN, Permission.NONE);
         a.put(LightappBusinessClient.METHOD_CALL_ID_PHOTOS, Permission.NONE);
@@ -56,7 +56,7 @@ public final class JavascriptInterfaceManager {
         a.put(LightappBusinessClient.MTD_ENCRYPT, Permission.NONE);
         a.put(LightappBusinessClient.MTD_DECRYPT, Permission.NONE);
         a.put(LightappBusinessClient.METHOD_CALL_QRCODE_SCANNER, Permission.NONE);
-        a.put(LightappBusinessClient.METHOD_DETECT_BANKCARD, Permission.NONE);
+        a.put("detectBankCard", Permission.NONE);
         a.put(LightappBusinessClient.METHOD_CALL_CAMERA, Permission.NONE);
         a.put(LightappJsNativeClient.VIEW_CALENDAR_EVENT, Permission.NONE);
         a.put(LightappJsNativeClient.ADJUST_SCREEN_BRIGHTNESS, Permission.NONE);
@@ -78,8 +78,8 @@ public final class JavascriptInterfaceManager {
         a.put(LightappJsNativeClient.MW_GET_LANGBRIDGE_HASH_STAMP, Permission.NONE);
         a.put(LightappBusinessClient.MTD_GET_PERMISSIOM_DIALOG_MSG, Permission.NONE);
         a.put(LightappJsNativeClient.MW_GET_LANGBRIDGE_SETTINGS, Permission.NONE);
-        a.put(LightappBusinessClient.METHOD_DO_RN_AUTH, Permission.READ_NORMAL);
-        a.put(LightappBusinessClient.METHOD_DO_BIND_CARD, Permission.READ_NORMAL);
+        a.put("doRnAuth", Permission.READ_NORMAL);
+        a.put("doBindCard", Permission.READ_NORMAL);
         a.put(LightappBusinessClient.MTD_BINDCARD_INDEPENDENT, Permission.READ_NORMAL);
         a.put(LightappBusinessClient.MTD_BINDCARD_INITIATIVE, Permission.READ_NORMAL);
         a.put(LightappBusinessClient.METHOD_ACCESS_WALLET_SERVICE, Permission.READ_NORMAL);
@@ -101,8 +101,8 @@ public final class JavascriptInterfaceManager {
         a.put("selectPhonefromAdressBook", Permission.READ_PRIVATE);
         a.put(LightappBusinessClient.MTD_START_AUDIO_RECORD, Permission.WRITE);
         a.put(LightappBusinessClient.MTD_END_AUDIO_RECORD, Permission.WRITE);
-        a.put(LightappBusinessClient.METHOD_SET_RN_AUTH_RUSULT, Permission.WRITE);
-        a.put(LightappBusinessClient.METHOD_POST_EVENT, Permission.WRITE);
+        a.put("setRnAuthResult", Permission.WRITE);
+        a.put("postEvent", Permission.WRITE);
         a.put("getDeviceInfo", Permission.READ_DEVICE);
         a.put(LightappBusinessClient.MTD_CALLPHONEINFO, Permission.READ_DEVICE);
         a.put(LightappJsNativeClient.METHOD_GET_CURRENT_POSITION, Permission.READ_DEVICE);

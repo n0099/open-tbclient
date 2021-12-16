@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MiPushCommandMessage implements PushMessageHandler.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CATEGORY = "category";

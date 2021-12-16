@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.live_tab.my_concern.view;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.r0.a0.f.g.c.g;
-import c.a.r0.g0.b;
+import c.a.s0.a0.f.g.c.g;
+import c.a.s0.g0.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LiveTabConcernTitleView extends b<g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder m;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,14 +79,14 @@ public class LiveTabConcernTitleView extends b<g> {
         l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.r0.g0.b
+    @Override // c.a.s0.g0.b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.tab_sub_title_view : invokeV.intValue;
     }
 
-    @Override // c.a.r0.g0.b
+    @Override // c.a.s0.g0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
@@ -103,14 +103,14 @@ public class LiveTabConcernTitleView extends b<g> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.g0.b
+    @Override // c.a.s0.g0.b
     /* renamed from: p */
     public void k(g gVar) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f14140f) || (viewHolder = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f14480f) || (viewHolder = this.m) == null) {
             return;
         }
-        viewHolder.mTitle.setText(gVar.f14140f);
+        viewHolder.mTitle.setText(gVar.f14480f);
     }
 }

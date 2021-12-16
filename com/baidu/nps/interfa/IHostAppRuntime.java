@@ -1,7 +1,7 @@
 package com.baidu.nps.interfa;
 
 import android.app.Application;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IHostAppRuntime {
     Application getApplication();
 }

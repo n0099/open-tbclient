@@ -10,7 +10,7 @@ import org.apache.http.HttpRequest;
 import org.apache.http.ProtocolVersion;
 import org.apache.http.RequestLine;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BasicHttpRequest extends AbstractHttpMessage implements HttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

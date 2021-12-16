@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s.a;
+import c.a.t.a;
 import com.baidu.android.imsdk.CallBack;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordManager;
@@ -52,7 +52,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PaManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PaManagerImpl";

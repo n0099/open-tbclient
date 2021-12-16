@@ -18,7 +18,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.math.BigDecimal;
 import java.math.MathContext;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class JSONReaderScanner extends JSONLexerBase {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadLocal<char[]> BUF_LOCAL;

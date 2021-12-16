@@ -1,14 +1,14 @@
 package com.baidu.common.config;
 
 import android.text.TextUtils;
-import c.a.m.b.a;
+import c.a.n.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AppIdentityManager {
     public static /* synthetic */ Interceptable $ic;
     public static AppIdentityManager sAppIdentity;

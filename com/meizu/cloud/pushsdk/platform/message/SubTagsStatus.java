@@ -1,7 +1,6 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
 import c.k.a.a.a;
-import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,12 +8,12 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SubTagsStatus extends BasicPushStatus {
     public String pushId;
     public List<Tag> tagList;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Tag implements Serializable {
         public int tagId;
         public String tagName;
@@ -63,10 +62,10 @@ public class SubTagsStatus extends BasicPushStatus {
         if (!jSONObject.isNull("pushId")) {
             setPushId(jSONObject.getString("pushId"));
         }
-        if (jSONObject.isNull(CommandMessage.TYPE_TAGS)) {
+        if (jSONObject.isNull("tags")) {
             return;
         }
-        JSONArray jSONArray = jSONObject.getJSONArray(CommandMessage.TYPE_TAGS);
+        JSONArray jSONArray = jSONObject.getJSONArray("tags");
         ArrayList arrayList = new ArrayList();
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             JSONObject jSONObject2 = jSONArray.getJSONObject(i2);

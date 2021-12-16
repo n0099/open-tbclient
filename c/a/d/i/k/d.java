@@ -26,7 +26,7 @@ public class d {
         public final Class<? extends T> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f2848b;
+        public final T f2812b;
     }
 
     static {
@@ -239,7 +239,7 @@ public class d {
             for (int i2 = 0; i2 < objArr.length; i2++) {
                 Object obj = objArr[i2];
                 if (obj != null && (obj instanceof a)) {
-                    objArr2[i2] = ((a) obj).f2848b;
+                    objArr2[i2] = ((a) obj).f2812b;
                 } else {
                     objArr2[i2] = obj;
                 }

@@ -6,10 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ad extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +41,7 @@ public final class ad extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a(CommandMessage.TYPE_TAGS, (Serializable) this.a);
+            aVar.a("tags", (Serializable) this.a);
         }
     }
 
@@ -51,7 +50,7 @@ public final class ad extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.d(aVar);
-            this.a = aVar.b(CommandMessage.TYPE_TAGS);
+            this.a = aVar.b("tags");
         }
     }
 

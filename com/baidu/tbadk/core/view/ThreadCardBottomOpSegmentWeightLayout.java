@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import c.a.q0.s.g0.h;
+import c.a.r0.s.i0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AgreeView.d v;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements AgreeView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         public void a(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                this.a.w(z);
+                this.a.v(z);
             }
         }
     }
@@ -103,9 +103,9 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         }
     }
 
-    public final void w(boolean z) {
+    public final void v(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && x()) {
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && w()) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mAgreeView.getLayoutParams();
             float f2 = z ? 1.0f : 2.0f;
             layoutParams.width = 0;
@@ -116,7 +116,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         }
     }
 
-    public final boolean x() {
+    public final boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

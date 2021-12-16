@@ -27,7 +27,7 @@ import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WebRtcAudioTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long AUDIO_TRACK_THREAD_JOIN_TIMEOUT_MS = 2000;
@@ -57,7 +57,7 @@ public class WebRtcAudioTrack {
     public final ThreadUtils.ThreadChecker threadChecker;
     public final VolumeLogger volumeLogger;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class AudioTrackThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

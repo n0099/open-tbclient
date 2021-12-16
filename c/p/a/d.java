@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBNativeListener;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d implements r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,19 +44,19 @@ public class d implements r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
             l lVar = this.a;
-            if (a2.d(lVar.f30827c, lVar.f30832h)) {
-                this.a.f30832h = System.currentTimeMillis();
+            if (a2.d(lVar.f31197c, lVar.f31202h)) {
+                this.a.f31202h = System.currentTimeMillis();
                 l lVar2 = this.a;
-                a2.a(lVar2.a, str, lVar2.f30827c, lVar2.f30831g, str2);
+                a2.a(lVar2.a, str, lVar2.f31197c, lVar2.f31201g, str2);
                 y2 a = c3.a(this.a.a);
-                a.h(new g3(this.a.f30827c), str);
+                a.h(new g3(this.a.f31197c), str);
                 a.l("desc", str2);
                 a.m();
-                PBNativeListener pBNativeListener = this.a.f30830f;
+                PBNativeListener pBNativeListener = this.a.f31200f;
                 if (pBNativeListener != null) {
                     pBNativeListener.onClicked();
                 }
-                r0.p(this.a.f30827c, str2);
+                r0.p(this.a.f31197c, str2);
                 return true;
             }
             return true;

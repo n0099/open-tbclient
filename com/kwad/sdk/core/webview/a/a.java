@@ -7,15 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC2029a a;
+    public InterfaceC2090a a;
 
     /* renamed from: com.kwad.sdk.core.webview.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC2029a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC2090a {
         void a();
     }
 
@@ -45,9 +45,9 @@ public class a implements com.kwad.sdk.core.webview.kwai.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            InterfaceC2029a interfaceC2029a = this.a;
-            if (interfaceC2029a != null) {
-                interfaceC2029a.a();
+            InterfaceC2090a interfaceC2090a = this.a;
+            if (interfaceC2090a != null) {
+                interfaceC2090a.a();
             }
             c();
         }

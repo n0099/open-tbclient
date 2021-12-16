@@ -26,7 +26,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RsaCipher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RSA_PADDING = "RSA/ECB/PKCS1Padding";

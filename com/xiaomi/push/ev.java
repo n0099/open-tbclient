@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.MiPushClient;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ev {
     public static /* synthetic */ Interceptable $ic;
     public static final ev a;
@@ -20,31 +20,31 @@ public final class ev {
     public static final /* synthetic */ ev[] f344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ev f62847b;
+    public static final ev f63428b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ev f62848c;
+    public static final ev f63429c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ev f62849d;
+    public static final ev f63430d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ev f62850e;
+    public static final ev f63431e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ev f62851f;
+    public static final ev f63432f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ev f62852g;
+    public static final ev f63433g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final ev f62853h;
+    public static final ev f63434h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final ev f62854i;
+    public static final ev f63435i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final ev f62855j;
+    public static final ev f63436j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -64,17 +64,17 @@ public final class ev {
             }
         }
         a = new ev("COMMAND_REGISTER", 0, MiPushClient.COMMAND_REGISTER);
-        f62847b = new ev("COMMAND_UNREGISTER", 1, MiPushClient.COMMAND_UNREGISTER);
-        f62848c = new ev("COMMAND_SET_ALIAS", 2, MiPushClient.COMMAND_SET_ALIAS);
-        f62849d = new ev("COMMAND_UNSET_ALIAS", 3, MiPushClient.COMMAND_UNSET_ALIAS);
-        f62850e = new ev("COMMAND_SET_ACCOUNT", 4, MiPushClient.COMMAND_SET_ACCOUNT);
-        f62851f = new ev("COMMAND_UNSET_ACCOUNT", 5, MiPushClient.COMMAND_UNSET_ACCOUNT);
-        f62852g = new ev("COMMAND_SUBSCRIBE_TOPIC", 6, MiPushClient.COMMAND_SUBSCRIBE_TOPIC);
-        f62853h = new ev("COMMAND_UNSUBSCRIBE_TOPIC", 7, MiPushClient.COMMAND_UNSUBSCRIBE_TOPIC);
-        f62854i = new ev("COMMAND_SET_ACCEPT_TIME", 8, MiPushClient.COMMAND_SET_ACCEPT_TIME);
+        f63428b = new ev("COMMAND_UNREGISTER", 1, MiPushClient.COMMAND_UNREGISTER);
+        f63429c = new ev("COMMAND_SET_ALIAS", 2, MiPushClient.COMMAND_SET_ALIAS);
+        f63430d = new ev("COMMAND_UNSET_ALIAS", 3, MiPushClient.COMMAND_UNSET_ALIAS);
+        f63431e = new ev("COMMAND_SET_ACCOUNT", 4, MiPushClient.COMMAND_SET_ACCOUNT);
+        f63432f = new ev("COMMAND_UNSET_ACCOUNT", 5, MiPushClient.COMMAND_UNSET_ACCOUNT);
+        f63433g = new ev("COMMAND_SUBSCRIBE_TOPIC", 6, MiPushClient.COMMAND_SUBSCRIBE_TOPIC);
+        f63434h = new ev("COMMAND_UNSUBSCRIBE_TOPIC", 7, MiPushClient.COMMAND_UNSUBSCRIBE_TOPIC);
+        f63435i = new ev("COMMAND_SET_ACCEPT_TIME", 8, MiPushClient.COMMAND_SET_ACCEPT_TIME);
         ev evVar = new ev("COMMAND_CHK_VDEVID", 9, "check-vdeviceid");
-        f62855j = evVar;
-        f344a = new ev[]{a, f62847b, f62848c, f62849d, f62850e, f62851f, f62852g, f62853h, f62854i, evVar};
+        f63436j = evVar;
+        f344a = new ev[]{a, f63428b, f63429c, f63430d, f63431e, f63432f, f63433g, f63434h, f63435i, evVar};
     }
 
     public ev(String str, int i2, String str2) {

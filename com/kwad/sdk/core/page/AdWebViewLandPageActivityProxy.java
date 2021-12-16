@@ -49,7 +49,7 @@ import java.io.InputStream;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kwad.sdk.reward.a> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_NEED_CLOSE_REWARD = "key_close_reward";
@@ -474,13 +474,13 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ DownloadProgressBar f57526b;
+                public final /* synthetic */ DownloadProgressBar f58107b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ AdInfo f57527c;
+                public final /* synthetic */ AdInfo f58108c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ AdWebViewLandPageActivityProxy f57528d;
+                public final /* synthetic */ AdWebViewLandPageActivityProxy f58109d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -497,17 +497,17 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
                             return;
                         }
                     }
-                    this.f57528d = this;
-                    this.f57526b = downloadProgressBar;
-                    this.f57527c = adInfo;
+                    this.f58109d = this;
+                    this.f58107b = downloadProgressBar;
+                    this.f58108c = adInfo;
                 }
 
                 @Override // com.kwad.sdk.core.download.a.c
                 public void a(int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        this.f57526b.setProgress(i2);
-                        this.f57526b.setText(com.kwad.sdk.core.response.a.a.b(i2));
+                        this.f58107b.setProgress(i2);
+                        this.f58107b.setText(com.kwad.sdk.core.response.a.a.b(i2));
                     }
                 }
 
@@ -515,8 +515,8 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
                 public void onDownloadFailed() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f57526b.setProgress(100.0f);
-                        this.f57526b.setText(com.kwad.sdk.core.response.a.a.A(this.f57527c));
+                        this.f58107b.setProgress(100.0f);
+                        this.f58107b.setText(com.kwad.sdk.core.response.a.a.A(this.f58108c));
                     }
                 }
 
@@ -524,8 +524,8 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
                 public void onDownloadFinished() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.f57526b.setProgress(100.0f);
-                        this.f57526b.setText(com.kwad.sdk.core.response.a.a.a(this.f57528d.mAdTemplate));
+                        this.f58107b.setProgress(100.0f);
+                        this.f58107b.setText(com.kwad.sdk.core.response.a.a.a(this.f58109d.mAdTemplate));
                     }
                 }
 
@@ -533,8 +533,8 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
                 public void onIdle() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                        this.f57526b.setProgress(100.0f);
-                        this.f57526b.setText(com.kwad.sdk.core.response.a.a.A(this.f57527c));
+                        this.f58107b.setProgress(100.0f);
+                        this.f58107b.setText(com.kwad.sdk.core.response.a.a.A(this.f58108c));
                     }
                 }
 
@@ -542,8 +542,8 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
                 public void onInstalled() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                        this.f57526b.setProgress(100.0f);
-                        this.f57526b.setText(com.kwad.sdk.core.response.a.a.m(this.f57527c));
+                        this.f58107b.setProgress(100.0f);
+                        this.f58107b.setText(com.kwad.sdk.core.response.a.a.m(this.f58108c));
                     }
                 }
 
@@ -551,8 +551,8 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
                 public void onProgressUpdate(int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048581, this, i2) == null) {
-                        this.f57526b.setProgress(i2);
-                        this.f57526b.setText(com.kwad.sdk.core.response.a.a.a(i2));
+                        this.f58107b.setProgress(i2);
+                        this.f58107b.setText(com.kwad.sdk.core.response.a.a.a(i2));
                     }
                 }
             });
@@ -641,16 +641,16 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             com.kwad.sdk.reward.a aVar = new com.kwad.sdk.reward.a();
-            aVar.f58875h = getActivity();
-            aVar.f58876i = this.mContext;
+            aVar.f59456h = getActivity();
+            aVar.f59457i = this.mContext;
             AdTemplate adTemplate = this.mAdTemplate;
-            aVar.f58874g = adTemplate;
+            aVar.f59455g = adTemplate;
             aVar.r = false;
             if (com.kwad.sdk.core.response.a.a.P(com.kwad.sdk.core.response.a.d.j(adTemplate))) {
                 com.kwad.sdk.utils.b.a(this.mContext).a(true);
                 com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(this.mAdTemplate, this.mDetailVideoView, new KsVideoPlayConfig.Builder().videoSoundEnable(true).build());
                 this.mRewardPlayModule = aVar2;
-                aVar.f58878k = aVar2;
+                aVar.f59459k = aVar2;
                 aVar2.a(getVideoPlayStateListener());
                 aVar.a.add(this.mRewardPlayModule);
             }

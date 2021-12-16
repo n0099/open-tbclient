@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.SubtitleDecoderException;
 import java.nio.charset.Charset;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public static final int u;
@@ -183,7 +183,7 @@ public final class a extends c {
             this.n.H(bArr, i2);
             String F = F(this.n);
             if (F.isEmpty()) {
-                return b.f30028f;
+                return b.f30398f;
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(F);
             C(spannableStringBuilder, this.p, 0, 0, spannableStringBuilder.length(), 16711680);

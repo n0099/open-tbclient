@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import org.webrtc.EglBase;
 import org.webrtc.RendererCommon;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SurfaceEglRenderer";

@@ -60,13 +60,13 @@ import java.util.regex.Matcher;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public static final File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f58196b;
+    public static final File f58777b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -83,7 +83,7 @@ public final class f {
             }
         }
         a = new File("/proc/self/fd");
-        f58196b = new File("/proc/self/task");
+        f58777b = new File("/proc/self/task");
     }
 
     public static int a() {
@@ -306,17 +306,17 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, null, exceptionMessage, memoryInfo, context) == null) {
             SystemUtil.a c2 = SystemUtil.c();
-            c2.f58194e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+            c2.f58775e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
             c2.a = SystemUtil.a();
             long pss = Debug.getPss();
-            c2.f58193d = pss;
+            c2.f58774d = pss;
             memoryInfo.mTotalMB = (int) (c2.a / 1048576);
             memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.a / 1048576.0d);
-            memoryInfo.mJavaHeapMB = (int) (c2.f58194e / 1048576);
-            memoryInfo.mVssMB = (int) (c2.f58191b / 1024);
-            memoryInfo.mRssMB = (int) (c2.f58192c / 1024);
+            memoryInfo.mJavaHeapMB = (int) (c2.f58775e / 1048576);
+            memoryInfo.mVssMB = (int) (c2.f58772b / 1024);
+            memoryInfo.mRssMB = (int) (c2.f58773c / 1024);
             memoryInfo.mPssMB = (int) (pss / 1024);
-            memoryInfo.mThreadsCount = c2.f58195f;
+            memoryInfo.mThreadsCount = c2.f58776f;
             memoryInfo.mFdCount = a();
             if (context != null) {
                 memoryInfo.mAvailableMB = (int) (SystemUtil.c(context) / 1048576);
@@ -345,7 +345,7 @@ public final class f {
                 }
             }
             exceptionMessage.mThreadOverflow = "False";
-            if (c2.f58195f > 400) {
+            if (c2.f58776f > 400) {
                 exceptionMessage.mCrashType = exceptionMessage.getTypeThreadOOM();
                 exceptionMessage.mThreadOverflow = "True";
                 a(memoryInfo);
@@ -384,7 +384,7 @@ public final class f {
     public static void a(MemoryInfo memoryInfo) {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, null, memoryInfo) == null) || (listFiles = f58196b.listFiles()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65549, null, memoryInfo) == null) || (listFiles = f58777b.listFiles()) == null) {
             return;
         }
         for (File file : listFiles) {
@@ -626,12 +626,12 @@ public final class f {
             com.kwad.sdk.core.d.a.b(e2);
             absolutePath = parentFile.getAbsolutePath();
         }
-        if (com.kwad.sdk.crash.c.f58165b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f58166c.matcher(absolutePath).matches()) {
+        if (com.kwad.sdk.crash.c.f58746b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f58747c.matcher(absolutePath).matches()) {
             exceptionMessage.mVirtualApp = context.getPackageName();
             return;
         }
-        Matcher matcher = com.kwad.sdk.crash.c.f58167d.matcher(absolutePath);
-        Matcher matcher2 = com.kwad.sdk.crash.c.f58168e.matcher(absolutePath);
+        Matcher matcher = com.kwad.sdk.crash.c.f58748d.matcher(absolutePath);
+        Matcher matcher2 = com.kwad.sdk.crash.c.f58749e.matcher(absolutePath);
         if (matcher.matches()) {
             group = matcher.group(1);
         } else if (!matcher2.matches()) {

@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f30539b;
+        public final /* synthetic */ String f30909b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ i f30540c;
+        public final /* synthetic */ i f30910c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(i iVar, i iVar2, String str) {
@@ -46,15 +46,15 @@ public class i {
                     return;
                 }
             }
-            this.f30540c = iVar;
-            this.f30539b = str;
+            this.f30910c = iVar;
+            this.f30909b = str;
         }
 
         @Override // c.i.d.a.i
         public CharSequence h(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj == null ? this.f30539b : this.f30540c.h(obj) : (CharSequence) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj == null ? this.f30909b : this.f30910c.h(obj) : (CharSequence) invokeL.objValue;
         }
 
         @Override // c.i.d.a.i

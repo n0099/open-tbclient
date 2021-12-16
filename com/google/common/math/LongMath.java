@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.primitives.UnsignedLongs;
 import java.math.RoundingMode;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class LongMath {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class MillerRabinTester {
         public static final /* synthetic */ MillerRabinTester[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -264,7 +264,7 @@ public final class LongMath {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;

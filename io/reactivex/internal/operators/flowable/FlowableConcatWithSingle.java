@@ -15,13 +15,13 @@ import io.reactivex.internal.subscribers.SinglePostCompleteSubscriber;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class FlowableConcatWithSingle<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SingleSource<? extends T> other;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ConcatWithSubscriber<T> extends SinglePostCompleteSubscriber<T, T> implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7346385463600070225L;

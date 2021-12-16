@@ -26,7 +26,7 @@ import com.kwad.sdk.utils.bb;
 import com.kwad.sdk.widget.KSFrameLayout;
 import com.kwad.sdk.widget.KsLogoView;
 import com.kwad.sdk.widget.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeListener, com.kwad.sdk.widget.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,34 +34,34 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public View f58228b;
+    public View f58809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KSFrameLayout f58229c;
+    public KSFrameLayout f58810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsLogoView f58230d;
+    public KsLogoView f58811d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f58231e;
+    public ImageView f58812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextProgressBar f58232f;
+    public TextProgressBar f58813f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f58233g;
+    public ViewGroup f58814g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f58234h;
+    public ViewGroup f58815h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewGroup f58235i;
+    public ViewGroup f58816i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CompoundButton f58236j;
+    public CompoundButton f58817j;
 
     /* renamed from: k  reason: collision with root package name */
-    public View f58237k;
+    public View f58818k;
     public View l;
     public TextView m;
     public ImageView n;
@@ -74,20 +74,20 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
     public boolean u;
     public AdTemplate v;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f58238b;
+        public boolean f58819b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f58239c;
+        public int f58820c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f58240d;
+        public boolean f58821d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -103,21 +103,21 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
                 }
             }
             this.a = false;
-            this.f58238b = false;
-            this.f58239c = 0;
-            this.f58240d = true;
+            this.f58819b = false;
+            this.f58820c = 0;
+            this.f58821d = true;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58239c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58820c : invokeV.intValue;
         }
 
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f58239c = i2;
+                this.f58820c = i2;
             }
         }
 
@@ -131,20 +131,20 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.f58238b = z;
+                this.f58819b = z;
             }
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58240d : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58821d : invokeV.booleanValue;
         }
 
         public void c(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-                this.f58240d = z;
+                this.f58821d = z;
             }
         }
     }
@@ -188,7 +188,7 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
                 if (dVar4 != null) {
                     dVar4.a(this);
                 }
-            } else if (view.equals(this.f58237k)) {
+            } else if (view.equals(this.f58818k)) {
                 if (!(1 == this.t.a()) || (dVar2 = this.s) == null) {
                     return;
                 }
@@ -203,12 +203,12 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
                 if (dVar6 != null) {
                     dVar6.b(view);
                 }
-            } else if (view.equals(this.f58234h)) {
+            } else if (view.equals(this.f58815h)) {
                 d dVar7 = this.s;
                 if (dVar7 != null) {
                     dVar7.h(view);
                 }
-            } else if (view.equals(this.f58232f)) {
+            } else if (view.equals(this.f58813f)) {
                 d dVar8 = this.s;
                 if (dVar8 != null) {
                     dVar8.c(view);
@@ -218,17 +218,17 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
                 if (dVar9 != null) {
                     dVar9.f(view);
                 }
-            } else if (view.equals(this.f58229c)) {
+            } else if (view.equals(this.f58810c)) {
                 d dVar10 = this.s;
                 if (dVar10 != null) {
                     dVar10.d(view);
                 }
-            } else if (view.equals(this.f58231e)) {
+            } else if (view.equals(this.f58812e)) {
                 d dVar11 = this.s;
                 if (dVar11 != null) {
                     dVar11.e(view);
                 }
-            } else if (!view.equals(this.f58235i) || (dVar = this.s) == null) {
+            } else if (!view.equals(this.f58816i) || (dVar = this.s) == null) {
             } else {
                 dVar.g(view);
             }
@@ -240,7 +240,7 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         if (interceptable == null || interceptable.invokeLZ(65538, this, kSFrameLayout, z) == null) {
             kSFrameLayout.setClickable(true);
             new f(kSFrameLayout, this);
-            this.f58229c.setWidthBasedRatio(!z);
+            this.f58810c.setWidthBasedRatio(!z);
         }
     }
 
@@ -248,18 +248,18 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
             setClickable(true);
-            this.f58229c = (KSFrameLayout) findViewById(R.id.ksad_interstitial_native_video_container);
-            this.f58228b = findViewById(R.id.ksad_interstitial_full_bg);
-            this.f58231e = (ImageView) findViewById(R.id.ksad_video_first_frame_container);
-            this.f58230d = (KsLogoView) findViewById(R.id.ksad_ad_interstitial_logo);
-            this.f58233g = (ViewGroup) findViewById(R.id.ksad_interstitial_playing);
-            this.f58234h = (ViewGroup) findViewById(R.id.ksad_interstitial_play_end);
-            this.f58232f = (TextProgressBar) findViewById(R.id.ksad_interstitial_download_btn);
-            this.f58235i = (ViewGroup) findViewById(R.id.ksad_ad_desc_layout);
-            this.f58237k = findViewById(R.id.ksad_interstitial_close_outer);
-            this.f58232f.setTextDimen(bb.a(getContext(), 10.0f));
-            this.f58232f.setTextColor(-1);
-            this.f58236j = (CompoundButton) findViewById(R.id.ksad_interstitial_mute);
+            this.f58810c = (KSFrameLayout) findViewById(R.id.ksad_interstitial_native_video_container);
+            this.f58809b = findViewById(R.id.ksad_interstitial_full_bg);
+            this.f58812e = (ImageView) findViewById(R.id.ksad_video_first_frame_container);
+            this.f58811d = (KsLogoView) findViewById(R.id.ksad_ad_interstitial_logo);
+            this.f58814g = (ViewGroup) findViewById(R.id.ksad_interstitial_playing);
+            this.f58815h = (ViewGroup) findViewById(R.id.ksad_interstitial_play_end);
+            this.f58813f = (TextProgressBar) findViewById(R.id.ksad_interstitial_download_btn);
+            this.f58816i = (ViewGroup) findViewById(R.id.ksad_ad_desc_layout);
+            this.f58818k = findViewById(R.id.ksad_interstitial_close_outer);
+            this.f58813f.setTextDimen(bb.a(getContext(), 10.0f));
+            this.f58813f.setTextColor(-1);
+            this.f58817j = (CompoundButton) findViewById(R.id.ksad_interstitial_mute);
             this.m = (TextView) findViewById(R.id.ksad_interstitial_count_down);
             this.n = (ImageView) findViewById(R.id.ksad_interstitial_logo);
             this.o = (TextView) findViewById(R.id.ksad_interstitial_name);
@@ -267,25 +267,25 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
             this.q = (TextProgressBar) findViewById(R.id.ksad_app_download_btn);
             this.l = findViewById(R.id.ksad_ad_download_container);
             new f(this, this);
-            new f(this.f58231e, this);
-            new f(this.f58232f, this);
+            new f(this.f58812e, this);
+            new f(this.f58813f, this);
             new f(this.q, this);
-            new f(this.f58237k, this);
-            new f(this.f58234h, this);
+            new f(this.f58818k, this);
+            new f(this.f58815h, this);
             new f(this.m, this);
             new f(this.l, this);
-            new f(this.f58235i, this);
-            this.f58236j.setOnCheckedChangeListener(this);
+            new f(this.f58816i, this);
+            this.f58817j.setOnCheckedChangeListener(this);
             this.r = (TextView) findViewById(R.id.ksad_interstitial_playable_timer);
-            a(this.f58229c, z);
+            a(this.f58810c, z);
         }
     }
 
     public void a(float f2, com.kwad.sdk.core.video.videoview.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), bVar}) == null) {
-            this.f58229c.setRatio(f2);
-            this.f58229c.addView(bVar);
+            this.f58810c.setRatio(f2);
+            this.f58810c.addView(bVar);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) bVar.getLayoutParams();
             layoutParams.topMargin = 0;
             layoutParams.width = -1;
@@ -309,7 +309,7 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
     public void a(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adTemplate) == null) {
-            this.f58230d.a(adTemplate);
+            this.f58811d.a(adTemplate);
         }
     }
 
@@ -346,7 +346,7 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         if (str != null) {
             textView.setText(str);
         }
-        if (!this.t.f58238b || this.u || this.m.getVisibility() == 0) {
+        if (!this.t.f58819b || this.u || this.m.getVisibility() == 0) {
             return;
         }
         this.m.setVisibility(0);
@@ -355,7 +355,7 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
     public void a(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, str, i2) == null) {
-            TextProgressBar textProgressBar = this.f58232f;
+            TextProgressBar textProgressBar = this.f58813f;
             if (textProgressBar != null) {
                 textProgressBar.a(str, i2);
             }
@@ -371,16 +371,16 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, adTemplate) == null) || at.a(str)) {
             return;
         }
-        this.f58231e.setImageDrawable(null);
-        KSImageLoader.loadImage(this.f58231e, str, adTemplate);
+        this.f58812e.setImageDrawable(null);
+        KSImageLoader.loadImage(this.f58812e, str, adTemplate);
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || this.f58233g == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || this.f58814g == null) {
             return;
         }
-        this.f58233g.setVisibility(z ? 0 : 8);
+        this.f58814g.setVisibility(z ? 0 : 8);
     }
 
     public void a(boolean z, int i2) {
@@ -397,11 +397,11 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
 
     public void a(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f58231e == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f58812e == null) {
             return;
         }
-        this.f58231e.setVisibility(z ? 0 : 8);
-        this.f58231e.setClickable(z2);
+        this.f58812e.setVisibility(z ? 0 : 8);
+        this.f58812e.setClickable(z2);
     }
 
     @Override // com.kwad.sdk.widget.d
@@ -423,7 +423,7 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
     public void b(boolean z) {
         CompoundButton compoundButton;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (compoundButton = this.f58236j) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (compoundButton = this.f58817j) == null) {
             return;
         }
         compoundButton.setChecked(z);
@@ -443,7 +443,7 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             a(false);
-            this.f58234h.setVisibility(0);
+            this.f58815h.setVisibility(0);
         }
     }
 
@@ -451,7 +451,7 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
     public View getBlurBgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f58228b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f58809b : (View) invokeV.objValue;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener

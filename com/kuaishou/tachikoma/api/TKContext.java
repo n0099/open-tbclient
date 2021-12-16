@@ -42,7 +42,7 @@ import com.tachikoma.core.component.network.TKErrorInner;
 import com.tachikoma.core.component.network.delegate.TKBaseResponseInner;
 import com.tachikoma.core.manager.RouterManager;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TKContext {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TKContext";

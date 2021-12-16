@@ -8,7 +8,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.e.a;
-import c.a.q0.s.e0.b;
+import c.a.r0.s.g0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
@@ -43,7 +43,7 @@ import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TO_ACTIVITY_DELAY = 300;
@@ -275,7 +275,7 @@ public class SpeedStats {
                 this.val$map = map;
             }
 
-            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0093 -> B:40:0x0096). Please submit an issue!!! */
+            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0091 -> B:39:0x0094). Please submit an issue!!! */
             @Override // java.lang.Runnable
             public void run() {
                 BufferedWriter bufferedWriter;
@@ -290,11 +290,11 @@ public class SpeedStats {
                                     file.createNewFile();
                                 }
                                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true)));
-                            } catch (IOException e2) {
-                                e = e2;
+                            } catch (Throwable th) {
+                                th = th;
                             }
-                        } catch (Throwable th) {
-                            th = th;
+                        } catch (IOException e2) {
+                            e = e2;
                         }
                     } catch (IOException e3) {
                         e3.printStackTrace();
@@ -700,7 +700,7 @@ public class SpeedStats {
             } else {
                 LaunchStatsUtils.setLaunchTypeDetail(this.mLaunchType, this.mIsStartAppFromLauncher, this.mHasSkin, this.mIntroductionType != -1);
             }
-            a.f().i(true);
+            a.c().g(true);
             if (!SmartLaunchStats.hasTriedToFindFirstAvailableTime() && !hasForegroundToBackground()) {
                 SmartLaunchStats.tryToFindFirstIdleTimeStamp();
             }
@@ -711,7 +711,8 @@ public class SpeedStats {
                 }
                 b.j().v("app_start_time", 0);
             }
-            TiebaStatic.log(new StatisticItem("main_show").param("obj_type", System.currentTimeMillis() - SpeedStatsManager.getInstance().getAppLaunchStartTimeStamp()));
+            long appUserPerceptionLaunchDuration = this.mSpeedStatsManager.getAppUserPerceptionLaunchDuration() - SpeedStatsManager.getInstance().getAdShowDuration();
+            TiebaStatic.log(new StatisticItem("main_show").param("obj_type", System.currentTimeMillis() - SpeedStatsManager.getInstance().getAppLaunchStartTimeStamp()).param("obj_source", (appUserPerceptionLaunchDuration < 50 || appUserPerceptionLaunchDuration > 60000) ? 0L : 0L));
         }
     }
 

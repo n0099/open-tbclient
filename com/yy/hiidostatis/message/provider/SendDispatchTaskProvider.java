@@ -17,7 +17,7 @@ import com.yy.hiidostatis.provider.GlobalProvider;
 import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SendDispatchTaskProvider implements Provider<Task> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

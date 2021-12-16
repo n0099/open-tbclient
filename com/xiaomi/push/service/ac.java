@@ -66,7 +66,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ac {
     public static /* synthetic */ Interceptable $ic;
     public static long a;
@@ -81,7 +81,7 @@ public class ac {
     public static ExecutorService f879a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Callable<Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public class ac {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public class ac {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -438,7 +438,7 @@ public class ac {
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.d("Cause: " + e2.getMessage());
                 }
-            } else if (az.f63253b.equals(str6)) {
+            } else if (az.f63834b.equals(str6)) {
                 if (map.containsKey(str3)) {
                     String str7 = map.get(str3);
                     if (str7 != null) {
@@ -471,7 +471,7 @@ public class ac {
                 }
                 launchIntentForPackage = null;
             } else {
-                if (az.f63254c.equals(str6)) {
+                if (az.f63835c.equals(str6)) {
                     String str8 = map.get(str5);
                     if (!TextUtils.isEmpty(str8)) {
                         String trim = str8.trim();
@@ -1119,7 +1119,7 @@ public class ac {
                 i2 = 0;
             }
             int hashCode = ((a(ibVar).hashCode() / 10) * 10) + i2;
-            if (com.xiaomi.push.l.m588a(context) && a4 == g.a.f62907c) {
+            if (com.xiaomi.push.l.m588a(context) && a4 == g.a.f63488c) {
                 if (m502a != null) {
                     el.a(context.getApplicationContext()).a(ibVar.b(), b(ibVar), m502a.m459a(), "10:" + a(ibVar));
                 }
@@ -1510,7 +1510,7 @@ public class ac {
         if (TextUtils.isEmpty(a2)) {
             return;
         }
-        if (az.a.equals(a2) || az.f63253b.equals(a2) || az.f63254c.equals(a2)) {
+        if (az.a.equals(a2) || az.f63834b.equals(a2) || az.f63835c.equals(a2)) {
             intent.putExtra("local_paid", ibVar.f639a);
             if (!TextUtils.isEmpty(ibVar.f643b)) {
                 intent.putExtra("target_package", ibVar.f643b);

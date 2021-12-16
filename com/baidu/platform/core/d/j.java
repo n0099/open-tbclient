@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class j extends com.baidu.platform.base.a implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetRoutePlanResultListener f38375b;
+    public OnGetRoutePlanResultListener f38864b;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class j extends com.baidu.platform.base.a implements e {
                 return;
             }
         }
-        this.f38375b = null;
+        this.f38864b = null;
     }
 
     @Override // com.baidu.platform.core.d.e
@@ -43,7 +43,7 @@ public class j extends com.baidu.platform.base.a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.lock();
-            this.f38375b = null;
+            this.f38864b = null;
             this.a.unlock();
         }
     }
@@ -53,7 +53,7 @@ public class j extends com.baidu.platform.base.a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetRoutePlanResultListener) == null) {
             this.a.lock();
-            this.f38375b = onGetRoutePlanResultListener;
+            this.f38864b = onGetRoutePlanResultListener;
             this.a.unlock();
         }
     }
@@ -65,7 +65,7 @@ public class j extends com.baidu.platform.base.a implements e {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bikingRoutePlanOption)) == null) {
             a aVar = new a();
             aVar.a(SearchType.l);
-            return a(new b(bikingRoutePlanOption), this.f38375b, aVar);
+            return a(new b(bikingRoutePlanOption), this.f38864b, aVar);
         }
         return invokeL.booleanValue;
     }
@@ -76,8 +76,8 @@ public class j extends com.baidu.platform.base.a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, drivingRoutePlanOption)) == null) {
             c cVar = new c();
-            cVar.a(SearchType.f38342k);
-            return a(new d(drivingRoutePlanOption), this.f38375b, cVar);
+            cVar.a(SearchType.f38831k);
+            return a(new d(drivingRoutePlanOption), this.f38864b, cVar);
         }
         return invokeL.booleanValue;
     }
@@ -89,7 +89,7 @@ public class j extends com.baidu.platform.base.a implements e {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, indoorRoutePlanOption)) == null) {
             f fVar = new f();
             fVar.a(SearchType.n);
-            return a(new g(indoorRoutePlanOption), this.f38375b, fVar);
+            return a(new g(indoorRoutePlanOption), this.f38864b, fVar);
         }
         return invokeL.booleanValue;
     }
@@ -100,8 +100,8 @@ public class j extends com.baidu.platform.base.a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, massTransitRoutePlanOption)) == null) {
             h hVar = new h();
-            hVar.a(SearchType.f38340i);
-            return a(new i(massTransitRoutePlanOption), this.f38375b, hVar);
+            hVar.a(SearchType.f38829i);
+            return a(new i(massTransitRoutePlanOption), this.f38864b, hVar);
         }
         return invokeL.booleanValue;
     }
@@ -112,8 +112,8 @@ public class j extends com.baidu.platform.base.a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, transitRoutePlanOption)) == null) {
             m mVar = new m();
-            mVar.a(SearchType.f38341j);
-            return a(new n(transitRoutePlanOption), this.f38375b, mVar);
+            mVar.a(SearchType.f38830j);
+            return a(new n(transitRoutePlanOption), this.f38864b, mVar);
         }
         return invokeL.booleanValue;
     }
@@ -125,7 +125,7 @@ public class j extends com.baidu.platform.base.a implements e {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, walkingRoutePlanOption)) == null) {
             o oVar = new o();
             oVar.a(SearchType.m);
-            return a(new p(walkingRoutePlanOption), this.f38375b, oVar);
+            return a(new p(walkingRoutePlanOption), this.f38864b, oVar);
         }
         return invokeL.booleanValue;
     }

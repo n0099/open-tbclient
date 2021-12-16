@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class YoungsterPasswordActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,13 +27,13 @@ public class YoungsterPasswordActivity extends BaseActivity {
     public String mPassword;
     public YoungsterPasswordView mYoungsterPasswordView;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YoungsterPasswordActivity f48978e;
+        public final /* synthetic */ YoungsterPasswordActivity f49492e;
 
         public a(YoungsterPasswordActivity youngsterPasswordActivity) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class YoungsterPasswordActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f48978e = youngsterPasswordActivity;
+            this.f49492e = youngsterPasswordActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48978e.finish();
+                this.f49492e.finish();
             }
         }
     }

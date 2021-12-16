@@ -29,7 +29,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class Striped<L> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALL_SET = -1;
@@ -38,7 +38,7 @@ public abstract class Striped<L> {
     public static final r<ReadWriteLock> WEAK_SAFE_READ_WRITE_LOCK_SUPPLIER;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CompactStriped<L> extends PowerOfTwoStriped<L> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LargeLazyStriped<L> extends PowerOfTwoStriped<L> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +150,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PaddedLock extends ReentrantLock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -177,7 +177,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PaddedSemaphore extends Semaphore {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,7 +207,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class PowerOfTwoStriped<L> extends Striped<L> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,7 +250,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SmallLazyStriped<L> extends PowerOfTwoStriped<L> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,7 +259,7 @@ public abstract class Striped<L> {
         public final int size;
         public final r<L> supplier;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class ArrayReference<L> extends WeakReference<L> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -371,7 +371,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class WeakSafeCondition extends ForwardingCondition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -405,7 +405,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class WeakSafeLock extends ForwardingLock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -446,7 +446,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class WeakSafeReadWriteLock implements ReadWriteLock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

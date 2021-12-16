@@ -18,7 +18,7 @@ import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MultiplyTimeScaleTrack implements Track {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

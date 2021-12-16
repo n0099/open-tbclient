@@ -19,7 +19,7 @@ import java.math.BigInteger;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 @SuppressLint({"BDThrowableCheck"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Base64 extends BaseNCodec {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITS_PER_ENCODED_BYTE = 6;

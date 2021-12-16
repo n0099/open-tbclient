@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "content://com.alipay.android.app.settings.data.ServerProvider/current_server";
@@ -49,7 +49,7 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if (EnvUtils.isSandBox()) {
-                return com.alipay.sdk.cons.a.f31292b;
+                return com.alipay.sdk.cons.a.f31662b;
             }
             if (context == null) {
                 return com.alipay.sdk.cons.a.a;

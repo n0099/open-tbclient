@@ -23,25 +23,25 @@ public class b implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f2664e;
+    public volatile int f2628e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AudioTrack f2665f;
+    public AudioTrack f2629f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2666g;
+    public String f2630g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final short[] f2667h;
+    public final short[] f2631h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Amrnb f2668i;
+    public Amrnb f2632i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Handler f2669j;
+    public final Handler f2633j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f2670k;
+    public int f2634k;
     public final Handler l;
     public final Runnable m;
     public int n;
@@ -53,7 +53,7 @@ public class b implements Runnable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f2671e;
+        public final /* synthetic */ b f2635e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -70,42 +70,42 @@ public class b implements Runnable {
                     return;
                 }
             }
-            this.f2671e = bVar;
+            this.f2635e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f2671e.f2665f == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f2635e.f2629f == null) {
                 return;
             }
             try {
-                if (this.f2671e.f2665f.getPlayState() != 3) {
+                if (this.f2635e.f2629f.getPlayState() != 3) {
                     return;
                 }
             } catch (NullPointerException unused) {
             }
-            int g2 = this.f2671e.g() + 0;
-            if (g2 != this.f2671e.f2670k) {
-                this.f2671e.f2670k = g2;
-                Message obtainMessage = this.f2671e.f2669j.obtainMessage(6);
-                obtainMessage.arg1 = this.f2671e.f2670k;
-                this.f2671e.f2669j.sendMessage(obtainMessage);
+            int g2 = this.f2635e.g() + 0;
+            if (g2 != this.f2635e.f2634k) {
+                this.f2635e.f2634k = g2;
+                Message obtainMessage = this.f2635e.f2633j.obtainMessage(6);
+                obtainMessage.arg1 = this.f2635e.f2634k;
+                this.f2635e.f2633j.sendMessage(obtainMessage);
             }
-            this.f2671e.l.postDelayed(this.f2671e.m, 100L);
+            this.f2635e.l.postDelayed(this.f2635e.m, 100L);
         }
     }
 
     /* renamed from: c.a.d.f.q.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0089b implements Runnable {
+    public class RunnableC0087b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f2672e;
+        public final /* synthetic */ b f2636e;
 
-        public RunnableC0089b(b bVar) {
+        public RunnableC0087b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,14 +120,14 @@ public class b implements Runnable {
                     return;
                 }
             }
-            this.f2672e = bVar;
+            this.f2636e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2672e.i();
+                this.f2636e.i();
             }
         }
     }
@@ -163,24 +163,24 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f2664e = 0;
-        this.f2667h = new short[]{12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
-        this.f2670k = 0;
+        this.f2628e = 0;
+        this.f2631h = new short[]{12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
+        this.f2634k = 0;
         this.l = new Handler();
         this.m = new a(this);
         this.n = 0;
-        this.o = new RunnableC0089b(this);
+        this.o = new RunnableC0087b(this);
         this.n = i2;
-        this.f2669j = handler;
+        this.f2633j = handler;
         try {
             Amrnb amrnb = new Amrnb();
-            this.f2668i = amrnb;
-            if (amrnb != null || this.f2669j == null) {
+            this.f2632i = amrnb;
+            if (amrnb != null || this.f2633j == null) {
                 return;
             }
-            this.f2669j.sendMessage(this.f2669j.obtainMessage(2));
+            this.f2633j.sendMessage(this.f2633j.obtainMessage(2));
         } catch (Exception unused) {
-            Handler handler2 = this.f2669j;
+            Handler handler2 = this.f2633j;
             if (handler2 != null) {
                 handler2.sendMessage(handler2.obtainMessage(2));
             }
@@ -191,16 +191,16 @@ public class b implements Runnable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AudioTrack audioTrack = this.f2665f;
+            AudioTrack audioTrack = this.f2629f;
             if (audioTrack == null) {
                 return 0;
             }
             try {
                 int playbackHeadPosition = audioTrack.getPlaybackHeadPosition();
-                if (this.f2665f == null) {
+                if (this.f2629f == null) {
                     return 0;
                 }
-                int sampleRate = this.f2665f.getSampleRate();
+                int sampleRate = this.f2629f.getSampleRate();
                 if (sampleRate == 0) {
                     return 0;
                 }
@@ -216,12 +216,12 @@ public class b implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                this.f2665f = new AudioTrack(h.f2673b, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, 4096), 1);
+                this.f2629f = new AudioTrack(h.f2637b, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, 4096), 1);
             } catch (IllegalArgumentException e2) {
-                this.f2665f = null;
+                this.f2629f = null;
                 BdLog.e(e2.getMessage());
             }
-            this.f2664e = 1;
+            this.f2628e = 1;
         }
     }
 
@@ -229,44 +229,44 @@ public class b implements Runnable {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Handler handler = this.f2669j;
+            Handler handler = this.f2633j;
             if (handler != null) {
                 handler.removeCallbacks(this.o);
             }
             synchronized (p) {
-                if (this.f2665f != null) {
+                if (this.f2629f != null) {
                     try {
-                        i2 = this.f2665f.getPlaybackHeadPosition();
+                        i2 = this.f2629f.getPlaybackHeadPosition();
                         try {
-                            this.f2665f.stop();
-                            this.f2665f.release();
+                            this.f2629f.stop();
+                            this.f2629f.release();
                         } catch (Exception unused) {
                         }
                     } catch (Exception unused2) {
                         i2 = 0;
                     }
                     this.n = 0;
-                    this.f2665f = null;
+                    this.f2629f = null;
                 } else {
                     i2 = 0;
                 }
                 if (this.l != null) {
                     this.l.removeCallbacks(this.m);
                 }
-                if (this.f2669j != null) {
-                    Message obtainMessage = this.f2669j.obtainMessage(0);
+                if (this.f2633j != null) {
+                    Message obtainMessage = this.f2633j.obtainMessage(0);
                     obtainMessage.arg1 = i2;
-                    this.f2669j.sendMessage(obtainMessage);
+                    this.f2633j.sendMessage(obtainMessage);
                 }
             }
-            this.f2664e = 0;
+            this.f2628e = 0;
         }
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f2666g = str;
+            this.f2630g = str;
         }
     }
 
@@ -280,7 +280,7 @@ public class b implements Runnable {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f2664e = 3;
+            this.f2628e = 3;
             i();
         }
     }
@@ -295,8 +295,8 @@ public class b implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             Process.setThreadPriority(-19);
-            if (this.f2668i == null) {
-                Handler handler = this.f2669j;
+            if (this.f2632i == null) {
+                Handler handler = this.f2633j;
                 if (handler != null) {
                     handler.sendMessage(handler.obtainMessage(2));
                     return;
@@ -304,17 +304,17 @@ public class b implements Runnable {
                 return;
             }
             boolean z = true;
-            if (this.f2666g == null) {
-                Handler handler2 = this.f2669j;
+            if (this.f2630g == null) {
+                Handler handler2 = this.f2633j;
                 if (handler2 != null) {
                     handler2.sendMessage(handler2.obtainMessage(1));
                     return;
                 }
                 return;
             }
-            File file = new File(this.f2666g);
+            File file = new File(this.f2630g);
             if (!file.exists()) {
-                Handler handler3 = this.f2669j;
+                Handler handler3 = this.f2633j;
                 if (handler3 != null) {
                     handler3.sendMessage(handler3.obtainMessage(1));
                     return;
@@ -323,25 +323,25 @@ public class b implements Runnable {
             }
             FileInputStream fileInputStream = null;
             h();
-            AudioTrack audioTrack = this.f2665f;
+            AudioTrack audioTrack = this.f2629f;
             if (audioTrack != null && audioTrack.getState() != 0) {
                 if (this.n > 0) {
-                    this.f2665f.reloadStaticData();
-                    this.f2665f.setPlaybackHeadPosition(this.n);
+                    this.f2629f.reloadStaticData();
+                    this.f2629f.setPlaybackHeadPosition(this.n);
                 }
                 boolean z2 = false;
                 try {
-                    this.f2665f.play();
-                    this.f2664e = 2;
+                    this.f2629f.play();
+                    this.f2628e = 2;
                     this.l.post(this.m);
                     FileInputStream fileInputStream2 = new FileInputStream(file);
                     try {
                         Boolean bool = Boolean.TRUE;
                         byte[] bArr = new byte[32];
-                        this.f2668i.decoderInit();
+                        this.f2632i.decoderInit();
                         short[] sArr = new short[160];
                         try {
-                            while (this.f2664e == 2) {
+                            while (this.f2628e == 2) {
                                 if (bool.booleanValue()) {
                                     if (fileInputStream2.read(bArr, 0, 6) != 6 || bArr[0] != 35 || bArr[1] != 33 || bArr[2] != 65 || bArr[3] != 77 || bArr[4] != 82 || bArr[5] != 10) {
                                         break;
@@ -349,23 +349,23 @@ public class b implements Runnable {
                                     bool = Boolean.FALSE;
                                 }
                                 if (fileInputStream2.read(bArr, 0, 1) > 0) {
-                                    short s = this.f2667h[(bArr[0] >> 3) & 15];
+                                    short s = this.f2631h[(bArr[0] >> 3) & 15];
                                     if (fileInputStream2.read(bArr, 1, s) == s) {
                                         synchronized (p) {
-                                            if (this.f2665f != null && this.f2665f.getPlayState() == 3) {
-                                                this.f2668i.decoderDecode(bArr, sArr);
-                                                this.f2665f.write(sArr, 0, 160);
+                                            if (this.f2629f != null && this.f2629f.getPlayState() == 3) {
+                                                this.f2632i.decoderDecode(bArr, sArr);
+                                                this.f2629f.write(sArr, 0, 160);
                                             }
                                         }
                                     }
                                 }
                             }
                             fileInputStream2.close();
-                            this.f2668i.decoderDeinit();
+                            this.f2632i.decoderDeinit();
                         } catch (Exception unused) {
                             z2 = z;
                             fileInputStream = fileInputStream2;
-                            Handler handler4 = this.f2669j;
+                            Handler handler4 = this.f2633j;
                             if (handler4 != null) {
                                 handler4.sendMessage(handler4.obtainMessage(5));
                             }
@@ -377,7 +377,7 @@ public class b implements Runnable {
                                 }
                             }
                             z = z2;
-                            this.f2664e = 3;
+                            this.f2628e = 3;
                             if (!z) {
                             }
                         }
@@ -386,16 +386,16 @@ public class b implements Runnable {
                     }
                 } catch (Exception unused3) {
                 }
-                this.f2664e = 3;
+                this.f2628e = 3;
                 if (!z) {
-                    this.f2669j.postDelayed(this.o, 500L);
+                    this.f2633j.postDelayed(this.o, 500L);
                     return;
                 } else {
                     i();
                     return;
                 }
             }
-            Handler handler5 = this.f2669j;
+            Handler handler5 = this.f2633j;
             if (handler5 != null) {
                 handler5.sendMessage(handler5.obtainMessage(3));
             }

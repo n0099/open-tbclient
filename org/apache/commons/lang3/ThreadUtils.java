@@ -12,20 +12,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ThreadUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final AlwaysTruePredicate ALWAYS_TRUE_PREDICATE;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.apache.commons.lang3.ThreadUtils$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class AlwaysTruePredicate implements ThreadPredicate, ThreadGroupPredicate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class ThreadUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class NamePredicate implements ThreadPredicate, ThreadGroupPredicate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,12 +112,12 @@ public class ThreadUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ThreadGroupPredicate {
         boolean test(ThreadGroup threadGroup);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ThreadIdPredicate implements ThreadPredicate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +153,7 @@ public class ThreadUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ThreadPredicate {
         boolean test(Thread thread);
     }

@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.Validate;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HashCodeBuilder implements Builder<Integer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_INITIAL_VALUE = 17;

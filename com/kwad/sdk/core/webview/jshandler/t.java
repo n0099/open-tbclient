@@ -10,37 +10,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsAppDownloadListener;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class t implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.kwad.sdk.core.webview.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.download.a.b f58071b;
+    public final com.kwad.sdk.core.download.a.b f58652b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.c f58072c;
+    public com.kwad.sdk.core.webview.kwai.c f58653c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public KsAppDownloadListener f58073d;
+    public KsAppDownloadListener f58654d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58075b;
+        public int f58656b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f58076c;
+        public long f58657c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f58077d;
+        public long f58658d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -70,9 +70,9 @@ public class t implements com.kwad.sdk.core.webview.kwai.a {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 com.kwad.sdk.utils.t.a(jSONObject, "progress", this.a);
-                com.kwad.sdk.utils.t.a(jSONObject, "status", this.f58075b);
-                com.kwad.sdk.utils.t.a(jSONObject, "totalBytes", this.f58076c);
-                com.kwad.sdk.utils.t.a(jSONObject, "creativeId", this.f58077d);
+                com.kwad.sdk.utils.t.a(jSONObject, "status", this.f58656b);
+                com.kwad.sdk.utils.t.a(jSONObject, "totalBytes", this.f58657c);
+                com.kwad.sdk.utils.t.a(jSONObject, "creativeId", this.f58658d);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -95,20 +95,20 @@ public class t implements com.kwad.sdk.core.webview.kwai.a {
             }
         }
         this.a = aVar;
-        this.f58071b = bVar;
+        this.f58652b = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || this.f58072c == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || this.f58653c == null) {
             return;
         }
         a aVar = new a();
         aVar.a = f2;
-        aVar.f58075b = i2;
-        aVar.f58076c = com.kwad.sdk.core.response.a.d.j(this.a.a()).totalBytes;
-        this.f58072c.a(aVar);
+        aVar.f58656b = i2;
+        aVar.f58657c = com.kwad.sdk.core.response.a.d.j(this.a.a()).totalBytes;
+        this.f58653c.a(aVar);
     }
 
     private KsAppDownloadListener c() {
@@ -119,7 +119,7 @@ public class t implements com.kwad.sdk.core.webview.kwai.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ t f58074b;
+            public final /* synthetic */ t f58655b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -136,14 +136,14 @@ public class t implements com.kwad.sdk.core.webview.kwai.a {
                         return;
                     }
                 }
-                this.f58074b = this;
+                this.f58655b = this;
             }
 
             @Override // com.kwad.sdk.core.download.a.c
             public void a(int i2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                    this.f58074b.a(3, (i2 * 1.0f) / 100.0f);
+                    this.f58655b.a(3, (i2 * 1.0f) / 100.0f);
                 }
             }
 
@@ -151,7 +151,7 @@ public class t implements com.kwad.sdk.core.webview.kwai.a {
             public void onDownloadFailed() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f58074b.a(1, 0.0f);
+                    this.f58655b.a(1, 0.0f);
                 }
             }
 
@@ -159,7 +159,7 @@ public class t implements com.kwad.sdk.core.webview.kwai.a {
             public void onDownloadFinished() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f58074b.a(5, 1.0f);
+                    this.f58655b.a(5, 1.0f);
                 }
             }
 
@@ -167,7 +167,7 @@ public class t implements com.kwad.sdk.core.webview.kwai.a {
             public void onIdle() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                    this.f58074b.a(1, 0.0f);
+                    this.f58655b.a(1, 0.0f);
                 }
             }
 
@@ -175,7 +175,7 @@ public class t implements com.kwad.sdk.core.webview.kwai.a {
             public void onInstalled() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                    this.f58074b.a(6, 1.0f);
+                    this.f58655b.a(6, 1.0f);
                 }
             }
 
@@ -183,7 +183,7 @@ public class t implements com.kwad.sdk.core.webview.kwai.a {
             public void onProgressUpdate(int i2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeI(1048581, this, i2) == null) {
-                    this.f58074b.a(2, (i2 * 1.0f) / 100.0f);
+                    this.f58655b.a(2, (i2 * 1.0f) / 100.0f);
                 }
             }
         } : (KsAppDownloadListener) invokeV.objValue;
@@ -205,17 +205,17 @@ public class t implements com.kwad.sdk.core.webview.kwai.a {
                 cVar.a(-1, "native photo is null");
                 return;
             }
-            this.f58072c = cVar;
-            com.kwad.sdk.core.download.a.b bVar = this.f58071b;
+            this.f58653c = cVar;
+            com.kwad.sdk.core.download.a.b bVar = this.f58652b;
             if (bVar != null) {
-                KsAppDownloadListener ksAppDownloadListener = this.f58073d;
+                KsAppDownloadListener ksAppDownloadListener = this.f58654d;
                 if (ksAppDownloadListener != null) {
                     bVar.c(ksAppDownloadListener);
                     return;
                 }
                 KsAppDownloadListener c2 = c();
-                this.f58073d = c2;
-                this.f58071b.a(c2);
+                this.f58654d = c2;
+                this.f58652b.a(c2);
             }
         }
     }
@@ -225,13 +225,13 @@ public class t implements com.kwad.sdk.core.webview.kwai.a {
         KsAppDownloadListener ksAppDownloadListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f58072c = null;
-            com.kwad.sdk.core.download.a.b bVar = this.f58071b;
-            if (bVar == null || (ksAppDownloadListener = this.f58073d) == null) {
+            this.f58653c = null;
+            com.kwad.sdk.core.download.a.b bVar = this.f58652b;
+            if (bVar == null || (ksAppDownloadListener = this.f58654d) == null) {
                 return;
             }
             bVar.b(ksAppDownloadListener);
-            this.f58073d = null;
+            this.f58654d = null;
         }
     }
 }

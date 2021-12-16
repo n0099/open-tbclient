@@ -1,7 +1,7 @@
 package c.g;
 
 import com.fun.ad.sdk.internal.api.config.Ssp;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface s0 {
     void onAdClicked(Ssp.Pid pid);
 

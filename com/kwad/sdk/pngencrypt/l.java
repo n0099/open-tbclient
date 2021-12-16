@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f58804b;
+    public final int[] f59385b;
 
     public static h<l> a() {
         InterceptResult invokeV;
@@ -41,7 +41,7 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return " cols=" + this.a.a + " bpc=" + this.a.f58795c + " size=" + this.f58804b.length;
+            return " cols=" + this.a.a + " bpc=" + this.a.f59376c + " size=" + this.f59385b.length;
         }
         return (String) invokeV.objValue;
     }

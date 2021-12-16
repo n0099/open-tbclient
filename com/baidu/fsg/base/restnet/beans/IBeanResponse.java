@@ -2,7 +2,7 @@ package com.baidu.fsg.base.restnet.beans;
 
 import android.content.Context;
 import com.baidu.fsg.base.NoProguard;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IBeanResponse extends NoProguard {
     boolean checkResponseValidity();
 

@@ -21,12 +21,12 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Predicates {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AndPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -96,14 +96,14 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CompositionPredicate<A, B> implements o<A>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final g<A, ? extends B> f55984f;
+        public final g<A, ? extends B> f56565f;
         public final o<B> p;
 
         public /* synthetic */ CompositionPredicate(o oVar, g gVar, a aVar) {
@@ -114,7 +114,7 @@ public final class Predicates {
         public boolean apply(A a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a)) == null) ? this.p.apply(this.f55984f.apply(a)) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a)) == null) ? this.p.apply(this.f56565f.apply(a)) : invokeL.booleanValue;
         }
 
         @Override // c.i.d.a.o
@@ -124,7 +124,7 @@ public final class Predicates {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
                 if (obj instanceof CompositionPredicate) {
                     CompositionPredicate compositionPredicate = (CompositionPredicate) obj;
-                    return this.f55984f.equals(compositionPredicate.f55984f) && this.p.equals(compositionPredicate.p);
+                    return this.f56565f.equals(compositionPredicate.f56565f) && this.p.equals(compositionPredicate.p);
                 }
                 return false;
             }
@@ -134,14 +134,14 @@ public final class Predicates {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55984f.hashCode() ^ this.p.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56565f.hashCode() ^ this.p.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.p + "(" + this.f55984f + SmallTailInfo.EMOTION_SUFFIX;
+                return this.p + "(" + this.f56565f + SmallTailInfo.EMOTION_SUFFIX;
             }
             return (String) invokeV.objValue;
         }
@@ -164,11 +164,11 @@ public final class Predicates {
             n.p(oVar);
             this.p = oVar;
             n.p(gVar);
-            this.f55984f = gVar;
+            this.f56565f = gVar;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ContainsPatternFromStringPredicate extends ContainsPatternPredicate {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -205,7 +205,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ContainsPatternPredicate implements o<CharSequence>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -273,7 +273,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class InPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -346,7 +346,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class InstanceOfPredicate implements o<Object>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -406,7 +406,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class IsEqualToPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -471,7 +471,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class NotPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -534,7 +534,7 @@ public final class Predicates {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class ObjectPredicate implements o<Object> {
         public static final /* synthetic */ ObjectPredicate[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -768,7 +768,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class OrPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -838,7 +838,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SubtypeOfPredicate implements o<Class<?>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -899,7 +899,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

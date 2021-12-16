@@ -8,7 +8,7 @@ import org.webrtc.EglBase;
 import org.webrtc.EglBase10;
 import org.webrtc.EglBase14;
 /* compiled from: EglBase.java */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final /* synthetic */ class i0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

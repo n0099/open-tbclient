@@ -17,26 +17,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PraiseModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LIKE = 1;
     public static final int UN_LIKE = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f49256g;
+    public static final String f49770g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f49257h;
+    public static TbHttpMessageTask f49771h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f49258e;
+    public b f49772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f49259f;
+    public final HttpMessageListener f49773f;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,23 +70,23 @@ public class PraiseModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                    if (this.a.f49258e != null) {
-                        this.a.f49258e.b(statusCode, null);
+                    if (this.a.f49772e != null) {
+                        this.a.f49772e.b(statusCode, null);
                         return;
                     }
                     return;
                 }
                 PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                 if (praiseResponseMessage.getError() == 0) {
-                    this.a.f49258e.a(praiseResponseMessage.getErrMsg());
-                } else if (this.a.f49258e != null) {
-                    this.a.f49258e.b(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                    this.a.f49772e.a(praiseResponseMessage.getErrMsg());
+                } else if (this.a.f49772e != null) {
+                    this.a.f49772e.b(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void a(String str);
 
@@ -107,11 +107,11 @@ public class PraiseModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
-        f49256g = str;
+        f49770g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, str);
-        f49257h = tbHttpMessageTask;
+        f49771h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PraiseResponseMessage.class);
-        MessageManager.getInstance().registerTask(f49257h);
+        MessageManager.getInstance().registerTask(f49771h);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,9 +132,9 @@ public class PraiseModel extends BdBaseModel {
                 return;
             }
         }
-        this.f49258e = null;
-        this.f49259f = new a(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        this.f49258e = bVar;
+        this.f49772e = null;
+        this.f49773f = new a(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.f49772e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -160,9 +160,9 @@ public class PraiseModel extends BdBaseModel {
     public void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f49259f.setSelfListener(true);
-            this.f49259f.setTag(getUniqueId());
-            registerListener(this.f49259f);
+            this.f49773f.setSelfListener(true);
+            this.f49773f.setTag(getUniqueId());
+            registerListener(this.f49773f);
         }
     }
 }

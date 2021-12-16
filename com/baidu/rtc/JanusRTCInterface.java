@@ -3,7 +3,7 @@ package com.baidu.rtc;
 import com.baidu.rtc.BaiduRtcRoom;
 import java.math.BigInteger;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface JanusRTCInterface {
     void onAttribute(BigInteger bigInteger, String str);
 

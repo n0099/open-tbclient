@@ -20,41 +20,41 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class ResUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANIM = "anim";
     public static final String a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34368b = "string";
+    public static final String f34836b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34369c = "layout";
+    public static final String f34837c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34370d = "style";
+    public static final String f34838d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34371e = "drawable";
+    public static final String f34839e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34372f = "color";
+    public static final String f34840f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34373g = "array";
+    public static final String f34841g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34374h = "attr";
+    public static final String f34842h = "attr";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34375i = "dimen";
+    public static final String f34843i = "dimen";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f34376j = "xml";
+    public static final String f34844j = "xml";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f34377k = "integer";
+    public static final String f34845k = "integer";
     public static final String l = "raw";
     public static Context m;
     public transient /* synthetic */ FieldHolder $fh;

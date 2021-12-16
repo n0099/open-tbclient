@@ -1,8 +1,8 @@
 package com.baidu.tieba.hottopic.data;
 
 import c.a.d.m.e.n;
-import c.a.r0.g0.f0.a;
-import c.a.r0.p1.h;
+import c.a.s0.g0.f0.a;
+import c.a.s0.q1.h;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +19,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Hottopic.RelateForum;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PostForumData extends a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_POST_FORUM;

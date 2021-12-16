@@ -19,14 +19,14 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.b;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class CHMyCustomerGroup extends BaseItemLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f52671b;
+    public TextView f53251b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHMyCustomerGroup(Context context) {
@@ -64,7 +64,7 @@ public class CHMyCustomerGroup extends BaseItemLayout implements View.OnClickLis
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_intelligent_customer_layout"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_intelligent_customer_icon"));
-            this.f52671b = (TextView) findViewById(ResUtils.id(getContext(), "ch_intelligent_customer_txt"));
+            this.f53251b = (TextView) findViewById(ResUtils.id(getContext(), "ch_intelligent_customer_txt"));
             setOnClickListener(this);
         }
     }
@@ -92,7 +92,7 @@ public class CHMyCustomerGroup extends BaseItemLayout implements View.OnClickLis
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             NetImageView netImageView = this.a;
             netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.group_logo);
-            this.f52671b.setText(this.mConfigData.group_name);
+            this.f53251b.setText(this.mConfigData.group_name);
         }
     }
 

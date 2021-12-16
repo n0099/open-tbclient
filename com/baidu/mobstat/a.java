@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface a {
     void a(Context context, long j2);
 

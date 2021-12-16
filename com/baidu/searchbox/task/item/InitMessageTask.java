@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class InitMessageTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,8 +37,6 @@ public class InitMessageTask extends LaunchTask {
             message.what = 2;
             TbadkApplication.getInst().handleInitMessage(message);
             message.what = 3;
-            TbadkApplication.getInst().handleInitMessage(message);
-            message.what = 4;
             TbadkApplication.getInst().handleInitMessage(message);
             message.what = 5;
             TbadkApplication.getInst().handleInitMessage(message);

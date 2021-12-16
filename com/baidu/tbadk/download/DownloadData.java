@@ -1,7 +1,7 @@
 package com.baidu.tbadk.download;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.w.e;
+import c.a.r0.w.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class DownloadData implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_DOWNLOAD_STATUS_CANCEL = 4;

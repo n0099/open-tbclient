@@ -12,7 +12,7 @@ import com.yy.hiidostatis.defs.interf.IStatisAPI;
 import com.yy.hiidostatis.inner.util.Util;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PageStateController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class PageStateController {
     public volatile StringBuffer record;
     public volatile IStatisAPI statisAPI;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PageBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -2,7 +2,7 @@ package io.flutter.embedding.engine.renderer;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface RenderSurface {
     void attachToRenderer(@NonNull FlutterRenderer flutterRenderer);
 

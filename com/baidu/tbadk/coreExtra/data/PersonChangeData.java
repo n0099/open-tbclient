@@ -1,15 +1,20 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+import java.util.ArrayList;
+/* loaded from: classes11.dex */
 public class PersonChangeData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_PERSON_INFO = "person_change_data";
@@ -23,6 +28,7 @@ public class PersonChangeData extends OrmObject implements Serializable {
     public int mBirthdayShowStatus;
     public long mBirthdayTime;
     public String mForumAge;
+    public transient ArrayList<SelectForumData> mInterestedForums;
     public String mIntro;
     public String mName;
     public String mNameShow;
@@ -34,6 +40,36 @@ public class PersonChangeData extends OrmObject implements Serializable {
     public int mUserAge;
     public String tempNickName;
     public String userId;
+
+    @Keep
+    /* loaded from: classes11.dex */
+    public class Forum {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String fid;
+        public String fname;
+        public final /* synthetic */ PersonChangeData this$0;
+
+        public Forum(PersonChangeData personChangeData, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personChangeData, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = personChangeData;
+            this.fid = str;
+            this.fname = str2;
+        }
+    }
 
     public PersonChangeData() {
         Interceptable interceptable = $ic;
@@ -60,249 +96,298 @@ public class PersonChangeData extends OrmObject implements Serializable {
         this.canModifyAvatar = true;
     }
 
+    public void addInterestForums(SelectForumData selectForumData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, selectForumData) == null) || selectForumData == null) {
+            return;
+        }
+        if (this.mInterestedForums == null) {
+            this.mInterestedForums = new ArrayList<>();
+        }
+        this.mInterestedForums.add(selectForumData);
+    }
+
     public boolean canModifyAvatar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.canModifyAvatar : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.canModifyAvatar : invokeV.booleanValue;
     }
 
     public long getAlaId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAlaId : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAlaId : invokeV.longValue;
     }
 
     public int getBirthdayShowStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBirthdayShowStatus : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBirthdayShowStatus : invokeV.intValue;
     }
 
     public long getBirthdayTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBirthdayTime : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mBirthdayTime : invokeV.longValue;
     }
 
     public String getCantModifyAvatarDesc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.cantModifyAvatarDesc : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.cantModifyAvatarDesc : (String) invokeV.objValue;
     }
 
     public String getForumAge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mForumAge : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mForumAge : (String) invokeV.objValue;
+    }
+
+    public ArrayList<SelectForumData> getInterestedForums() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mInterestedForums : (ArrayList) invokeV.objValue;
+    }
+
+    public String getInterestedForumsJsonString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(this.mInterestedForums)) {
+                for (int i2 = 0; i2 < this.mInterestedForums.size(); i2++) {
+                    SelectForumData selectForumData = this.mInterestedForums.get(i2);
+                    if (selectForumData != null) {
+                        arrayList.add(new Forum(this, selectForumData.forumId, selectForumData.forumName));
+                    }
+                }
+            }
+            return new Gson().toJson(arrayList);
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getIntro() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIntro : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mIntro : (String) invokeV.objValue;
     }
 
     public String getIsBusinessAccount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.isBusinessAccount : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.isBusinessAccount : (String) invokeV.objValue;
     }
 
     public int getMen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isMem : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.isMem : invokeV.intValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mName : (String) invokeV.objValue;
     }
 
     public String getNameShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mNameShow : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mNameShow : (String) invokeV.objValue;
     }
 
     public int getNickNameLeftDays() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mNickNameLeftDays : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mNickNameLeftDays : invokeV.intValue;
     }
 
     public boolean getPhotoChanged() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mPhotoChanged : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mPhotoChanged : invokeV.booleanValue;
     }
 
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mPortrait : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mPortrait : (String) invokeV.objValue;
     }
 
     public int getSex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mSex : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mSex : invokeV.intValue;
     }
 
     public String getTempNickName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.tempNickName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.tempNickName : (String) invokeV.objValue;
     }
 
     public int getUserAge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mUserAge : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mUserAge : invokeV.intValue;
     }
 
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.userId : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.userId : (String) invokeV.objValue;
     }
 
     public String getmTiebaId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mTiebaId : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mTiebaId : (String) invokeV.objValue;
     }
 
     public void setAlaId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
             this.mAlaId = j2;
         }
     }
 
     public void setBirthdayShowStatus(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
             this.mBirthdayShowStatus = i2;
         }
     }
 
     public void setBirthdayTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
             this.mBirthdayTime = j2;
         }
     }
 
     public void setCanModifyAvatar(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             this.canModifyAvatar = z;
         }
     }
 
     public void setCantModifyAvatarDesc(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
             this.cantModifyAvatarDesc = str;
         }
     }
 
     public void setForumAge(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
             this.mForumAge = str;
+        }
+    }
+
+    public void setInterestForums(ArrayList<SelectForumData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, arrayList) == null) || ListUtils.isEmpty(arrayList)) {
+            return;
+        }
+        ArrayList<SelectForumData> arrayList2 = this.mInterestedForums;
+        if (arrayList2 != null) {
+            arrayList2.clear();
+        }
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            addInterestForums(arrayList.get(i2));
         }
     }
 
     public void setIntro(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
             this.mIntro = str;
         }
     }
 
     public void setIsBusinessAccount(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
             this.isBusinessAccount = str;
         }
     }
 
     public void setMem(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
             this.isMem = i2;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
             this.mName = str;
         }
     }
 
     public void setNameShow(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
             this.mNameShow = str;
         }
     }
 
     public void setNickNameLeftDays(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
             this.mNickNameLeftDays = i2;
         }
     }
 
     public void setPhotoChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
             this.mPhotoChanged = z;
         }
     }
 
     public void setPortrait(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             this.mPortrait = str;
         }
     }
 
     public void setSex(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
             this.mSex = i2;
         }
     }
 
     public void setTempNickName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
             this.tempNickName = str;
         }
     }
 
     public void setTiebaId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
             this.mTiebaId = str;
         }
     }
 
     public void setUserAge(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
             this.mUserAge = i2;
         }
     }
 
     public void setUserId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
             this.userId = str;
         }
     }

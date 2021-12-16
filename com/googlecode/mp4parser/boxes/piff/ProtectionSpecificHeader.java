@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ProtectionSpecificHeader {
     public static /* synthetic */ Interceptable $ic;
     public static Map<UUID, Class<? extends ProtectionSpecificHeader>> uuidRegistry;

@@ -1,5 +1,5 @@
 package c.i.b.a.h0;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface p<S> {
     void a(S s, int i2);
 

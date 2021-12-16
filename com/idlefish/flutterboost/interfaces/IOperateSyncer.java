@@ -2,7 +2,7 @@ package com.idlefish.flutterboost.interfaces;
 
 import android.content.Intent;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IOperateSyncer {
     boolean isLocked();
 

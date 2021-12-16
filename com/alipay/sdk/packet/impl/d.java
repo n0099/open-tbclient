@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d extends com.alipay.sdk.packet.e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String t = "log_v";
@@ -44,9 +44,9 @@ public class d extends com.alipay.sdk.packet.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put(com.alipay.sdk.packet.e.f31363c, String.valueOf(z));
+            hashMap.put(com.alipay.sdk.packet.e.f31733c, String.valueOf(z));
             hashMap.put("content-type", "application/octet-stream");
-            hashMap.put(com.alipay.sdk.packet.e.f31369i, "CBC");
+            hashMap.put(com.alipay.sdk.packet.e.f31739i, "CBC");
             return hashMap;
         }
         return (Map) invokeZL.objValue;
@@ -81,6 +81,6 @@ public class d extends com.alipay.sdk.packet.e {
     public com.alipay.sdk.packet.b a(com.alipay.sdk.sys.a aVar, Context context, String str) throws Throwable {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, aVar, context, str)) == null) ? a(aVar, context, str, com.alipay.sdk.cons.a.f31293c, true) : (com.alipay.sdk.packet.b) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, aVar, context, str)) == null) ? a(aVar, context, str, com.alipay.sdk.cons.a.f31663c, true) : (com.alipay.sdk.packet.b) invokeLLL.objValue;
     }
 }

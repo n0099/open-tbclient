@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.core.domain.DomainConfig;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class BeanConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_THEME_ACTIVITY = 0;
@@ -202,7 +202,7 @@ public abstract class BeanConstants {
     public static final String TITLE_NO_PWD_PROTOL = "免密支付协议";
     public static final String TRANSACTION_RECORDS_URL;
     public static final String UPDATE_MOBILE_DESC = "update_mobile_desc";
-    public static String VERSION_NO = "9.4.5.108";
+    public static String VERSION_NO = "9.5.0.114";
     public static final String WALLET_PLUGIN_FROCE_UPDATE_FLAG = "2";
     public static final int WALLET_PLUGIN_LOAD_MODULE = 2;
     public static final int WALLET_PLUGIN_LOAD_STANDARD = 0;

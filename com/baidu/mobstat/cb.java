@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface cb {
     String a(by byVar) throws ch;
 

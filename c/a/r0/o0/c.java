@@ -1,193 +1,209 @@
 package c.a.r0.o0;
 
+import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
-import c.a.d.f.d.l;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.tieba.dnsproxy.DnsProxyResponseData;
+import androidx.core.view.InputDeviceCompat;
+import c.a.d.a.g;
+import c.a.d.a.j;
+import c.a.d.f.p.l;
+import c.a.r0.s.r.d2;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.GuildActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
+public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    public c(boolean z) {
+    public static StatisticItem a(StatisticItem statisticItem, TbPageTag tbPageTag) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, statisticItem, tbPageTag)) == null) {
+            if (tbPageTag == null || statisticItem == null) {
+                return null;
             }
+            if (!TextUtils.isEmpty(tbPageTag.locatePage)) {
+                if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
+                    statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
+            }
+            statisticItem.param("sort_tab", tbPageTag.sortType);
+            return statisticItem;
         }
-        this.a = z;
-        setPriority(4);
+        return (StatisticItem) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x0283  */
-    /* JADX WARN: Removed duplicated region for block: B:113:0x02af  */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> doInBackground(Collection<String>... collectionArr) {
-        InterceptResult invokeL;
-        Collection<String> collection;
-        String message;
-        String str;
-        StringBuilder sb;
+    public static StatisticItem b(Context context, StatisticItem statisticItem) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collectionArr)) == null) {
-            l<String> c2 = BdCacheService.j().c("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-            if (this.a) {
-                String str2 = c2.get("dnsproxycachedata");
-                if (str2 != null) {
-                    DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) OrmObject.objectWithJsonStr(str2, DnsProxyResponseData.class);
-                    if (dnsProxyResponseData != null && dnsProxyResponseData.getErrno() == 0) {
-                        List<HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> data = dnsProxyResponseData.getData();
-                        HashMap hashMap = new HashMap(data.size());
-                        for (HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap2 : data) {
-                            for (Map.Entry<String, List<DnsProxyResponseData.DnsProxyIpData>> entry : hashMap2.entrySet()) {
-                                hashMap.put(entry.getKey(), entry.getValue());
-                            }
-                        }
-                        publishProgress(hashMap);
-                    } else {
-                        publishProgress(null);
-                    }
-                } else {
-                    publishProgress(null);
-                }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, statisticItem)) == null) ? (context == null || statisticItem == null) ? statisticItem : c(statisticItem, j(context)) : (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem c(StatisticItem statisticItem, b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, statisticItem, bVar)) == null) ? (bVar == null || statisticItem == null) ? statisticItem : d(statisticItem, bVar.b(), bVar.a()) : (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem d(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
+            if (statisticItem == null) {
                 return null;
             }
-            try {
-                Thread.sleep(2000L);
-            } catch (InterruptedException e2) {
-                e2.printStackTrace();
+            if (tbPageTag2 != null) {
+                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
+                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
+                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
+                    }
+                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag2.locatePage);
+                }
+                statisticItem.param("sort_tab", tbPageTag2.sortType);
             }
-            if (collectionArr == null || collectionArr.length != 1 || (collection = collectionArr[0]) == null) {
+            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
+                statisticItem.param(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLLL.objValue;
+    }
+
+    public static StatisticItem e(Context context, StatisticItem statisticItem) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, statisticItem)) == null) ? (context == null || statisticItem == null) ? statisticItem : f(statisticItem, j(context)) : (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem f(StatisticItem statisticItem, b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, statisticItem, bVar)) == null) ? (bVar == null || statisticItem == null) ? statisticItem : g(statisticItem, bVar.b(), bVar.a()) : (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem g(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
+            if (statisticItem == null) {
                 return null;
             }
-            String a = new a().a();
-            StringBuilder sb2 = new StringBuilder();
-            for (String str3 : collection) {
-                if (sb2.length() > 0) {
-                    sb2.append(",");
+            if (tbPageTag2 != null) {
+                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PAGE, tbPageTag2.locatePage);
                 }
-                sb2.append(str3);
+                statisticItem.param("sort_tab", tbPageTag2.sortType);
             }
-            String str4 = "http://" + a + "/domains/resolve?domains=" + ((Object) sb2) + "&t=" + System.currentTimeMillis();
-            c.a.d.f.j.a.e eVar = new c.a.d.f.j.a.e();
-            c.a.d.f.j.a.c cVar = new c.a.d.f.j.a.c(eVar);
-            eVar.b().s(str4);
-            cVar.e(-1, -1, -1);
-            byte[] bArr = eVar.c().f2450h;
-            if (bArr != null) {
-                try {
-                    str = new String(bArr, "UTF-8");
-                    message = null;
-                } catch (Throwable th) {
-                    message = th.getMessage();
-                    str = null;
+            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
+                if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
+                    statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
                 }
-                DnsProxyResponseData dnsProxyResponseData2 = (DnsProxyResponseData) OrmObject.objectWithJsonStr(str, DnsProxyResponseData.class);
-                if (dnsProxyResponseData2 != null && dnsProxyResponseData2.getErrno() == 0) {
-                    sb = new StringBuilder();
-                    List<HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> data2 = dnsProxyResponseData2.getData();
-                    HashSet hashSet = new HashSet();
-                    HashMap hashMap3 = new HashMap(data2.size());
-                    for (HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap4 : data2) {
-                        for (Map.Entry<String, List<DnsProxyResponseData.DnsProxyIpData>> entry2 : hashMap4.entrySet()) {
-                            hashMap3.put(entry2.getKey(), entry2.getValue());
-                        }
-                    }
-                    for (Map.Entry entry3 : hashMap3.entrySet()) {
-                        List<DnsProxyResponseData.DnsProxyIpData> list = (List) entry3.getValue();
-                        if (list != null && list.size() > 0) {
-                            StringBuilder sb3 = new StringBuilder();
-                            for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData : list) {
-                                if (dnsProxyIpData != null) {
-                                    hashSet.add(dnsProxyIpData.getIp());
-                                    if (sb3.length() > 0) {
-                                        sb3.append(",");
-                                    }
-                                    sb3.append(dnsProxyIpData.getIp());
-                                }
-                            }
-                            if (sb3.length() > 0) {
-                                sb3.insert(0, ":");
-                                sb3.insert(0, (String) entry3.getKey());
-                                if (sb.length() > 0) {
-                                    sb.append(";");
-                                }
-                                sb.append((CharSequence) sb3);
-                            }
-                        }
-                    }
-                    b.a().b(hashSet);
-                    publishProgress(hashMap3);
-                    c2.g("dnsproxycachedata", str);
-                    if (!TextUtils.isEmpty(message)) {
-                        c.a.d.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-                        statsItem.b("workflow", "dnsproxy_get");
-                        statsItem.c("issuc", Boolean.TRUE);
-                        statsItem.b("comment", sb == null ? "" : sb.toString());
-                        BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                    } else {
-                        c.a.d.f.n.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
-                        statsItem2.b("workflow", "dnsproxy_get");
-                        statsItem2.c("issuc", Boolean.FALSE);
-                        statsItem2.b("comment", message);
-                        BdStatisticsManager.getInstance().debug("dnsproxy", statsItem2);
-                    }
-                    return null;
-                } else if (dnsProxyResponseData2 == null) {
-                    message = "parser response error return null";
-                } else {
-                    message = dnsProxyResponseData2.getErrno() + " " + dnsProxyResponseData2.getErrmsg();
-                }
-            } else if (eVar.a() != null) {
-                message = eVar.a().f2431h;
-            } else {
-                StringBuilder sb4 = new StringBuilder();
-                List<c.a.d.f.j.a.d> d2 = eVar.d();
-                if (d2 != null) {
-                    for (c.a.d.f.j.a.d dVar : d2) {
-                        if (dVar != null && !TextUtils.isEmpty(dVar.f2431h)) {
-                            if (sb4.length() > 0) {
-                                sb4.append(",");
-                            }
-                            sb4.append(dVar.f2431h);
-                        }
-                    }
-                }
-                message = sb4.length() <= 0 ? "http get data is null" : sb4.toString();
+                statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
             }
-            sb = null;
-            if (!TextUtils.isEmpty(message)) {
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLLL.objValue;
+    }
+
+    public static StatisticItem h(Context context, StatisticItem statisticItem) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, statisticItem)) == null) {
+            if (context == null || statisticItem == null) {
+                return null;
+            }
+            TbPageTag l = l(context);
+            if (l != null) {
+                if (!TextUtils.isEmpty(l.locatePage)) {
+                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
+                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
+                    }
+                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, l.locatePage);
+                }
+                statisticItem.param("sort_tab", l.sortType);
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem i(Context context, d2 d2Var, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, d2Var, str)) == null) {
+            if (context == null || d2Var == null || StringUtils.isNull(str)) {
+                return null;
+            }
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("tid", d2Var.g0()).param("fid", d2Var.U()).param("thread_type", d2Var.r1()).param("card_type", d2Var.R0()).param("nid", d2Var.G0());
+            if (d2Var.L() != null && !l.isEmpty(d2Var.L().oriUgcVid)) {
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, d2Var.L().oriUgcVid);
+            }
+            statisticItem.param("weight", d2Var.a1).param("ab_tag", d2Var.b1).param("extra", d2Var.c1).param("obj_type", d2Var.K2 ? "2" : "1").param("source", d2Var.Z0);
+            h(context, statisticItem);
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLLL.objValue;
+    }
+
+    public static b j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            if (context != null) {
+                g<?> b2 = j.b(context);
+                if (b2 instanceof a) {
+                    return ((a) b2).getTbPageInfo();
+                }
+                return null;
             }
             return null;
         }
-        return (HashMap) invokeL.objValue;
+        return (b) invokeL.objValue;
+    }
+
+    public static TbPageTag k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            b j2 = j(context);
+            if (j2 == null) {
+                return null;
+            }
+            return j2.a();
+        }
+        return (TbPageTag) invokeL.objValue;
+    }
+
+    public static TbPageTag l(Context context) {
+        InterceptResult invokeL;
+        g<?> b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            if (context == null || (b2 = j.b(context)) == null || b2.getPageContext() == null || b2.getPageContext().getPageActivity() == null) {
+                return null;
+            }
+            return m(b2.getPageContext().getPageActivity().getIntent());
+        }
+        return (TbPageTag) invokeL.objValue;
+    }
+
+    public static TbPageTag m(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, intent)) == null) {
+            if (intent != null) {
+                return (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
+            }
+            return null;
+        }
+        return (TbPageTag) invokeL.objValue;
     }
 }

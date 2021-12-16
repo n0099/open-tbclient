@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PlayerStageType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AD = 23;
@@ -22,6 +22,12 @@ public class PlayerStageType {
     public static final int LOCAL = -2;
     public static final int MINIGAME = 21;
     public static final int MINI_VIDEO = 22;
+    public static final int MINI_VIDEO_LIVE_CARD_BD = 1005;
+    public static final int MINI_VIDEO_LIVE_CARD_XC = 1006;
+    public static final int MINI_VIDEO_LIVE_CARD_YY = 1009;
+    public static final int MINI_VIDEO_LIVE_FLOAT_BD = 1008;
+    public static final int MINI_VIDEO_LIVE_FLOAT_XC = 1007;
+    public static final int MINI_VIDEO_LIVE_FLOAT_YY = 1010;
     public static final int NEWS = 5;
     public static final int NOVEL = 3;
     public static final int NUOMI = 13;

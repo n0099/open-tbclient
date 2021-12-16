@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.sticker;
 
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public interface OnChangeStickerListener {
     void onAutoAdjust(String str);
 

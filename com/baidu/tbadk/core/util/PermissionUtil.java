@@ -2,12 +2,14 @@ package com.baidu.tbadk.core.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.collection.ArrayMap;
 import c.a.d.f.j.b.a;
-import c.a.d.f.p.l;
-import c.a.q0.d1.j;
-import c.a.q0.k0.b;
-import c.a.q0.k0.h;
+import c.a.d.f.p.m;
+import c.a.r0.d1.l;
+import c.a.r0.k0.b;
+import c.a.r0.k0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -24,6 +26,7 @@ import com.baidu.searchbox.launch.IdleLaunchTask;
 import com.baidu.searchbox.taskmanager.IdleLaunchTaskManager;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.GrowthStatsUtil;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
@@ -38,7 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.un.s;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PermissionUtil {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isAgreePrivacyPolicy;
@@ -79,7 +82,7 @@ public class PermissionUtil {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.a.q0.k0.b
+            @Override // c.a.r0.k0.b
             public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -163,8 +166,8 @@ public class PermissionUtil {
             boolean z = true;
             if (ApiUtil.shouldCheckPermission()) {
                 try {
-                    if (!ContextCompat.checkPermissionGranted(context, s.f56842g)) {
-                        if (!ContextCompat.checkPermissionGranted(context, s.f56843h)) {
+                    if (!ContextCompat.checkPermissionGranted(context, s.f57423g)) {
+                        if (!ContextCompat.checkPermissionGranted(context, s.f57424h)) {
                             z = false;
                         }
                     }
@@ -196,7 +199,7 @@ public class PermissionUtil {
                     return false;
                 }
                 try {
-                    z = ContextCompat.checkPermissionGranted(context, s.f56838c);
+                    z = ContextCompat.checkPermissionGranted(context, s.f57419c);
                 } catch (Exception e2) {
                     e = e2;
                     z = false;
@@ -226,10 +229,10 @@ public class PermissionUtil {
                     return false;
                 }
                 try {
-                    if (ContextCompat.checkPermissionGranted(context, s.f56842g)) {
+                    if (ContextCompat.checkPermissionGranted(context, s.f57423g)) {
                         return true;
                     }
-                    return ContextCompat.checkPermissionGranted(context, s.f56843h);
+                    return ContextCompat.checkPermissionGranted(context, s.f57424h);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                     return false;
@@ -249,8 +252,8 @@ public class PermissionUtil {
                     return false;
                 }
                 try {
-                    if (ContextCompat.checkPermissionGranted(context, s.f56842g)) {
-                        if (ContextCompat.checkPermissionGranted(context, s.f56843h)) {
+                    if (ContextCompat.checkPermissionGranted(context, s.f57423g)) {
+                        if (ContextCompat.checkPermissionGranted(context, s.f57424h)) {
                             return true;
                         }
                     }
@@ -294,7 +297,7 @@ public class PermissionUtil {
                     return false;
                 }
                 try {
-                    return ContextCompat.checkPermissionGranted(context, s.f56838c);
+                    return ContextCompat.checkPermissionGranted(context, s.f57419c);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                     return false;
@@ -314,7 +317,7 @@ public class PermissionUtil {
                     return false;
                 }
                 try {
-                    return ContextCompat.checkPermissionGranted(context, s.f56839d);
+                    return ContextCompat.checkPermissionGranted(context, s.f57420d);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                     return false;
@@ -355,7 +358,7 @@ public class PermissionUtil {
             }
             try {
                 if (ApiUtil.shouldCheckPermission() && ContextCompat.checkPermissionDenied(providerContext, PermissionRequest.RESOURCE_AUDIO_CAPTURE)) {
-                    l.L(providerContext, R.string.record_audio_permission_denied_fun_disable);
+                    m.L(providerContext, R.string.record_audio_permission_denied_fun_disable);
                     return true;
                 }
                 return false;
@@ -412,7 +415,7 @@ public class PermissionUtil {
             }
             try {
                 if (ApiUtil.shouldCheckPermission() && ContextCompat.checkPermissionDenied(providerContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                    l.L(providerContext, R.string.write_external_storage_permission_denied_fun_disable);
+                    m.L(providerContext, R.string.write_external_storage_permission_denied_fun_disable);
                     return true;
                 }
                 return false;
@@ -427,7 +430,7 @@ public class PermissionUtil {
     public static String getLastCachedOid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) ? !isAgreePrivacyPolicy() ? "" : c.a.q.b.f(context).g() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) ? !isAgreePrivacyPolicy() ? "" : c.a.r.b.f(context).g() : (String) invokeL.objValue;
     }
 
     public static String getLocalMacAddress(Context context) {
@@ -436,7 +439,7 @@ public class PermissionUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
             if (isAgreePrivacyPolicy()) {
                 if (localMacAddress == null) {
-                    localMacAddress = j.d().e(context);
+                    localMacAddress = l.d().e(context);
                 }
                 return localMacAddress;
             }
@@ -448,7 +451,7 @@ public class PermissionUtil {
     public static boolean isAgreePrivacyPolicy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? isAgreePrivacyPolicy || c.a.q0.s.e0.b.j().g("key_secret_is_show", false) || c.a.q0.s.e0.b.j().g("key_secret_is_show_new", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? isAgreePrivacyPolicy || c.a.r0.s.g0.b.j().g("key_secret_is_show", false) || c.a.r0.s.g0.b.j().g("key_secret_is_show_new", false) : invokeV.booleanValue;
     }
 
     public static Context providerContext(Context context) {
@@ -469,8 +472,8 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65561, null, activity, i2, onPermissionsGrantedListener)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-            permissionJudgePolicy.appendRequestPermissionWithoutGrantedCheck(activity, s.f56843h);
-            permissionJudgePolicy.appendRequestPermissionWithoutGrantedCheck(activity, s.f56842g);
+            permissionJudgePolicy.appendRequestPermissionWithoutGrantedCheck(activity, s.f57424h);
+            permissionJudgePolicy.appendRequestPermissionWithoutGrantedCheck(activity, s.f57423g);
             permissionJudgePolicy.setOnPermissionsGrantedListener(onPermissionsGrantedListener);
             return permissionJudgePolicy.startRequestPermission(activity, i2);
         }
@@ -568,9 +571,9 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65567, null, activity, i2) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-            permissionJudgePolicy.appendRequestPermission(activity, s.f56838c);
-            permissionJudgePolicy.appendRequestPermission(activity, s.f56843h);
-            permissionJudgePolicy.appendRequestPermission(activity, s.f56842g);
+            permissionJudgePolicy.appendRequestPermission(activity, s.f57419c);
+            permissionJudgePolicy.appendRequestPermission(activity, s.f57424h);
+            permissionJudgePolicy.appendRequestPermission(activity, s.f57423g);
             permissionJudgePolicy.startRequestPermission(activity, i2);
         }
     }
@@ -591,8 +594,8 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65569, null, activity, i2)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-            permissionJudgePolicy.appendRequestPermission(activity, s.f56843h);
-            permissionJudgePolicy.appendRequestPermission(activity, s.f56842g);
+            permissionJudgePolicy.appendRequestPermission(activity, s.f57424h);
+            permissionJudgePolicy.appendRequestPermission(activity, s.f57423g);
             return permissionJudgePolicy.startRequestPermission(activity, i2);
         }
         return invokeLI.booleanValue;
@@ -602,7 +605,7 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65571, null, activity, i2) == null) {
             try {
-                ActivityCompat.requestPermissions(activity, new String[]{s.f56838c}, i2);
+                ActivityCompat.requestPermissions(activity, new String[]{s.f57419c}, i2);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
@@ -613,7 +616,14 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65572, null, z) == null) {
             isAgreePrivacyPolicy = z;
-            c.a.q0.s.e0.b.j().t("key_secret_is_show_new", z);
+            c.a.r0.s.g0.b.j().t("key_secret_is_show_new", z);
+            if (TbadkCoreApplication.getIntent() != null) {
+                String dataString = TbadkCoreApplication.getIntent().getDataString();
+                if (!TextUtils.isEmpty(dataString)) {
+                    TbSingleton.getInstance().setFirstOpenScheme(Uri.parse(dataString));
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).addParam("obj_param1", 2));
+                }
+            }
             GrowthStatsUtil.statisticActivity();
             h.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
             FH.setAgreePolicy(TbadkCoreApplication.getInst(), isAgreePrivacyPolicy);
@@ -658,10 +668,10 @@ public class PermissionUtil {
 
     public static void syncAgreeStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65573, null, z) == null) && z && c.a.q0.s.e0.b.j().g("key_secret_is_show", false)) {
+        if ((interceptable == null || interceptable.invokeZ(65573, null, z) == null) && z && c.a.r0.s.g0.b.j().g("key_secret_is_show", false)) {
             isAgreePrivacyPolicy = true;
-            c.a.q0.s.e0.b.j().t("key_secret_is_show_new", true);
-            c.a.q0.s.e0.b.j().C("key_secret_is_show");
+            c.a.r0.s.g0.b.j().t("key_secret_is_show_new", true);
+            c.a.r0.s.g0.b.j().C("key_secret_is_show");
         }
     }
 
@@ -686,8 +696,8 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65570, null, activity, i2, iExtraDialogCloseCallback, iSystemPermissionDialogShowCallBack)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-            permissionJudgePolicy.appendRequestPermission(activity, s.f56843h);
-            permissionJudgePolicy.appendRequestPermission(activity, s.f56842g);
+            permissionJudgePolicy.appendRequestPermission(activity, s.f57424h);
+            permissionJudgePolicy.appendRequestPermission(activity, s.f57423g);
             return permissionJudgePolicy.startRequestPermission(activity, i2, PermissionJudgePolicy.EXTRA_DIALOG_REFUSE_POLICY.Reject_all, iExtraDialogCloseCallback, iSystemPermissionDialogShowCallBack);
         }
         return invokeLILL.booleanValue;

@@ -12,7 +12,7 @@ import io.reactivex.internal.util.NotificationLite;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class SerializedSubscriber<T> implements FlowableSubscriber<T>, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int QUEUE_LINK_SIZE = 4;

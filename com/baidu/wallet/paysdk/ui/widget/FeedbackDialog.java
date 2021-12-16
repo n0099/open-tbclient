@@ -27,7 +27,7 @@ import com.dxmpay.wallet.base.widget.SimpleRatingBar;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class FeedbackDialog extends Dialog implements View.OnClickListener, SimpleRatingBar.OnSimpleRatingBarChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ICON_HEIGHT_DP = 12;
@@ -54,14 +54,14 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     public ArrayList<TagButton> mTags;
     public TextView mTitle;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public FeedbackInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f53928b;
+        public b f54508b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -78,21 +78,21 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface b {
         void a();
 
         void a(c cVar);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f53929b;
+        public String[] f54509b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             this.mFeedbackInfo = aVar.a;
-            this.mListener = aVar.f53928b;
+            this.mListener = aVar.f54508b;
             this.mCloseButton.setOnClickListener(this);
             this.mSubmit.setOnClickListener(this);
             FeedbackInfo feedbackInfo = this.mFeedbackInfo;
@@ -245,7 +245,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
                         }
                     }
                     String[] strArr = new String[arrayList.size()];
-                    cVar.f53929b = strArr;
+                    cVar.f54509b = strArr;
                     arrayList.toArray(strArr);
                     this.mListener.a(cVar);
                 }
@@ -293,7 +293,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         this.mLastRating = i2;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class TagButton extends Button implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -15,13 +15,13 @@ import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.i.c;
 import java.nio.charset.Charset;
 @SuppressLint({"ApplySharedPref"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.b.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f61006b;
+    public static final Boolean f61587b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class a {
                 return;
             }
         }
-        f61006b = Boolean.valueOf(f.f60988b);
+        f61587b = Boolean.valueOf(f.f61569b);
     }
 
     public a() {
@@ -63,7 +63,7 @@ public class a {
                 str2 = context.getSharedPreferences("ZzxCache", 0).getString(str, "");
                 return new String(c.a(str2), Charset.defaultCharset());
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61006b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61587b);
                 return str2;
             }
         }
@@ -78,7 +78,7 @@ public class a {
                 edit.putLong(str, l.longValue());
                 edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61006b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61587b);
             }
         }
     }
@@ -92,7 +92,7 @@ public class a {
                 edit.putString(str, c.a(str2.getBytes(Charset.defaultCharset())));
                 return edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61006b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61587b);
                 return false;
             }
         }
@@ -106,7 +106,7 @@ public class a {
             try {
                 return context.getSharedPreferences("ZzxCache", 0).getString(str, "");
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61006b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61587b);
                 return "";
             }
         }
@@ -122,7 +122,7 @@ public class a {
                 edit.putString(str, str2);
                 return edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61006b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61587b);
                 return false;
             }
         }
@@ -137,7 +137,7 @@ public class a {
             try {
                 j2 = context.getSharedPreferences("ZzxCache", 0).getLong(str, 0L);
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61006b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61587b);
             }
             return Long.valueOf(j2);
         }

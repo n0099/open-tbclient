@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_COOKIE = "Cookie";
@@ -34,7 +34,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public String mUserAgent;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SORT {
         public static final /* synthetic */ SORT[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -95,13 +95,13 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Comparator<Map.Entry<String, Object>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public SORT f31652e;
+        public SORT f32022e;
 
         public a(SORT sort) {
             Interceptable interceptable = $ic;
@@ -118,8 +118,8 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     return;
                 }
             }
-            this.f31652e = null;
-            this.f31652e = sort;
+            this.f32022e = null;
+            this.f32022e = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,7 +129,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
-                if (this.f31652e == SORT.ASCEND) {
+                if (this.f32022e == SORT.ASCEND) {
                     return entry.getKey().compareTo(entry2.getKey());
                 }
                 return entry2.getKey().compareTo(entry.getKey());
@@ -201,7 +201,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     Object value = entry.getValue();
                     String str2 = StringUtil.NULL_STRING;
                     sb.append(key == null ? StringUtil.NULL_STRING : key.toString());
-                    sb.append(com.alipay.sdk.encrypt.a.f31351h);
+                    sb.append(com.alipay.sdk.encrypt.a.f31721h);
                     if (value != null) {
                         str2 = value.toString();
                     }
@@ -249,7 +249,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     addHeader("Cookie", map2KVString(";", parseKVString));
                     return str3;
                 }
-                addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f31351h + str2 + ';');
+                addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f31721h + str2 + ';');
             }
             return null;
         }

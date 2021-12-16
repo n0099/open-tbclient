@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class x implements ViewTreeObserver.OnGlobalFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ p0 f30983e;
+    public final /* synthetic */ p0 f31353e;
 
     public x(s0 s0Var, p0 p0Var) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class x implements ViewTreeObserver.OnGlobalFocusChangeListener {
                 return;
             }
         }
-        this.f30983e = p0Var;
+        this.f31353e = p0Var;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalFocusChangeListener
@@ -37,7 +37,7 @@ public class x implements ViewTreeObserver.OnGlobalFocusChangeListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, view2) == null) {
             String str = "onGlobalFocusChanged:" + view + ",newFocus:" + view2;
-            p0 p0Var = this.f30983e;
+            p0 p0Var = this.f31353e;
             if (p0Var != null) {
                 p0Var.b();
             }

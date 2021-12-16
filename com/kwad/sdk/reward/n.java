@@ -8,7 +8,7 @@ import com.kwad.sdk.core.diskcache.a.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.aa;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

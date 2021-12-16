@@ -2,6 +2,7 @@ package com.baidu.android.lbspay;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.android.lbspay.beans.GetPayBean;
 import com.baidu.android.lbspay.channelpay.AbstractChannelPay;
@@ -15,12 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
+import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.dxmpay.wallet.core.utils.LogUtil;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LBSPayResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ACTION_EXIT = "com.baidu.android.lbspay.EXIT";
@@ -73,14 +75,16 @@ public class LBSPayResult {
             List<String> collectData = StatHelper.collectData(StatHelper.getOrderId(), StatHelper.getChannelId());
             HashMap hashMap = new HashMap();
             hashMap.put("pay_amount", StatHelper.getPayAmount());
-            if (i2 == 0) {
-                StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_RESULT_SUCCESS, collectData, hashMap);
-            } else if (i2 == 1) {
-                StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_RESULT_PAYING, collectData, hashMap);
-            } else if (i2 == 2) {
-                StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_RESULT_CANCEL, collectData, hashMap);
-            } else {
-                StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_RESULT_ERROR, collectData, hashMap);
+            if (TextUtils.isEmpty(StatHelper.getSignChannel())) {
+                if (i2 == 0) {
+                    StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_RESULT_SUCCESS, collectData, hashMap);
+                } else if (i2 == 1) {
+                    StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_RESULT_PAYING, collectData, hashMap);
+                } else if (i2 == 2) {
+                    StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_RESULT_CANCEL, collectData, hashMap);
+                } else {
+                    StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_RESULT_ERROR, collectData, hashMap);
+                }
             }
             String orderNo = LBSPayInner.getInstance().getOrderNo();
             if (orderNo == null) {
@@ -120,6 +124,8 @@ public class LBSPayResult {
                 callBack.onPayResult(i2, stringBuffer2);
             }
             LBSPayInner.getInstance().clearLbsPayBack();
+            PayDataCache.getInstance().setmWxAppId(null);
+            StatHelper.clearSensor();
             if (context != null) {
                 LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
             }

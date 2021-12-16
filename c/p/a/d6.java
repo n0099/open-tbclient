@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,8 +32,8 @@ public class d6 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) && i2 == 1 && i3 == 0) {
             d1 d1Var = this.a;
-            e1 e1Var = d1Var.f30768e;
-            if (e1Var != null && !d1Var.f30769f && !d1Var.f30774k && !d1.x) {
+            e1 e1Var = d1Var.f31138e;
+            if (e1Var != null && !d1Var.f31139f && !d1Var.f31144k && !d1.x) {
                 if (e1Var != null) {
                     e1Var.e();
                     return;
@@ -41,16 +41,16 @@ public class d6 {
                 return;
             }
             d1 d1Var2 = this.a;
-            if (d1Var2.f30768e == null || d1Var2.f30769f || !d1Var2.f30774k || d1.x) {
+            if (d1Var2.f31138e == null || d1Var2.f31139f || !d1Var2.f31144k || d1.x) {
                 return;
             }
-            u uVar = d1Var2.f30765b.a;
-            if (((uVar == null || !uVar.f()) ? -1 : uVar.f30944c.getOpent()) == 1) {
+            u uVar = d1Var2.f31135b.a;
+            if (((uVar == null || !uVar.f()) ? -1 : uVar.f31314c.getOpent()) == 1) {
                 d1 d1Var3 = this.a;
-                if (d1Var3.f30768e == null || !d1Var3.r.isShown()) {
+                if (d1Var3.f31138e == null || !d1Var3.r.isShown()) {
                     return;
                 }
-                this.a.f30768e.e();
+                this.a.f31138e.e();
             }
         }
     }

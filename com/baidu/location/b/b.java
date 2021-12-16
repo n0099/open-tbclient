@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f35488b;
+    public static b f35977b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35489c;
+    public int f35978c;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class b {
                 return;
             }
         }
-        this.f35489c = -1;
+        this.f35978c = -1;
     }
 
     public static b a() {
@@ -58,10 +58,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a) {
-                if (f35488b == null) {
-                    f35488b = new b();
+                if (f35977b == null) {
+                    f35977b = new b();
                 }
-                bVar = f35488b;
+                bVar = f35977b;
             }
             return bVar;
         }
@@ -70,10 +70,10 @@ public class b {
 
     public void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || i3 == this.f35489c) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || i3 == this.f35978c) {
             return;
         }
-        this.f35489c = i3;
+        this.f35978c = i3;
         Bundle bundle = new Bundle();
         bundle.putInt("loctype", i2);
         bundle.putInt("diagtype", i3);

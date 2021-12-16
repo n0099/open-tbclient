@@ -25,7 +25,7 @@ import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SapiOptions implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_GRAY = 1000000;
@@ -84,7 +84,7 @@ public final class SapiOptions implements NoProguard {
     public Map<String, LoginShareStrategy> specificShareStrategy;
     public String tid;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Cache {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EXTERNAL_CACHE_DIR = ".BD_SAPI_CACHE";
@@ -93,7 +93,7 @@ public final class SapiOptions implements NoProguard {
         public List<Module> modules;
         public String version;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class Module {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -266,7 +266,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class CacheGray {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -322,7 +322,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Gray implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FUN_NAME_ADDRESS_NA_MAP = "addrmap";
@@ -348,7 +348,7 @@ public final class SapiOptions implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
         public Map<String, GrayModule> grayModuleMap;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class GrayModule implements NoProguard {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -510,7 +510,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PkgSigns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_AUTHORIZED_PACKAGES = "authorized_packages";

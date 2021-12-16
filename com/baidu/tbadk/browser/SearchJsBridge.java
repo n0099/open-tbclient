@@ -4,10 +4,10 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.j;
-import c.a.q0.d1.i0;
-import c.a.q0.d1.l0;
-import c.a.q0.d1.q;
+import c.a.d.f.p.k;
+import c.a.r0.d1.k0;
+import c.a.r0.d1.n0;
+import c.a.r0.d1.s;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -28,8 +28,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @c.a.f.a.a
-/* loaded from: classes9.dex */
-public class SearchJsBridge implements c.a.r0.t3.n0.b {
+/* loaded from: classes11.dex */
+public class SearchJsBridge implements c.a.s0.v3.n0.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDUID = "baiduid";
     public static final String CLIENT_VERSION = "_client_version";
@@ -59,8 +59,8 @@ public class SearchJsBridge implements c.a.r0.t3.n0.b {
     public transient /* synthetic */ FieldHolder $fh;
     public List<String> mHistoryDatas;
 
-    /* loaded from: classes9.dex */
-    public class a extends i0<String> {
+    /* loaded from: classes11.dex */
+    public class a extends k0<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -84,21 +84,21 @@ public class SearchJsBridge implements c.a.r0.t3.n0.b {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.i0
+        @Override // c.a.r0.d1.k0
         /* renamed from: a */
         public String doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.r0.t3.p0.a.h(this.a);
+                c.a.s0.v3.p0.a.h(this.a);
                 return this.a;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class b implements q<String> {
+    /* loaded from: classes11.dex */
+    public class b implements s<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -119,7 +119,7 @@ public class SearchJsBridge implements c.a.r0.t3.n0.b {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.q
+        @Override // c.a.r0.d1.s
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             Interceptable interceptable = $ic;
@@ -129,8 +129,8 @@ public class SearchJsBridge implements c.a.r0.t3.n0.b {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class c extends i0 {
+    /* loaded from: classes11.dex */
+    public class c extends k0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -150,20 +150,20 @@ public class SearchJsBridge implements c.a.r0.t3.n0.b {
             }
         }
 
-        @Override // c.a.q0.d1.i0
+        @Override // c.a.r0.d1.k0
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.r0.t3.p0.a.b();
+                c.a.s0.v3.p0.a.b();
                 return null;
             }
             return invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class d implements q {
+    /* loaded from: classes11.dex */
+    public class d implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchJsBridge a;
@@ -186,7 +186,7 @@ public class SearchJsBridge implements c.a.r0.t3.n0.b {
             this.a = searchJsBridge;
         }
 
-        @Override // c.a.q0.d1.q
+        @Override // c.a.r0.d1.s
         public void onReturnDataInUI(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -229,16 +229,16 @@ public class SearchJsBridge implements c.a.r0.t3.n0.b {
             try {
                 MercatorModel.MercatorData e2 = MercatorModel.d().e();
                 if (e2 != null) {
-                    addCookie(jSONObject, COOKIE_MERCATOR_LAT, e2.x());
-                    addCookie(jSONObject, COOKIE_MERCATOR_LON, e2.y());
+                    addCookie(jSONObject, COOKIE_MERCATOR_LAT, e2.z());
+                    addCookie(jSONObject, COOKIE_MERCATOR_LON, e2.A());
                     addCookie(jSONObject, COOKIE_MERCATOR_CITY, String.valueOf(e2.w()));
-                    addCookie(jSONObject, COOKIE_MERCATOR_RADIUS, e2.z());
-                    addCookie(jSONObject, COOKIE_MERCATOR_TIME, String.valueOf(e2.A()));
+                    addCookie(jSONObject, COOKIE_MERCATOR_RADIUS, e2.C());
+                    addCookie(jSONObject, COOKIE_MERCATOR_TIME, String.valueOf(e2.D()));
                 }
                 addCookie(jSONObject, COOKIE_MOD, Build.MODEL);
                 addCookie(jSONObject, COOKIE_OV, Build.VERSION.RELEASE);
                 addCookie(jSONObject, "os_type", String.valueOf(2));
-                addCookie(jSONObject, "net_type", String.valueOf(j.I()));
+                addCookie(jSONObject, "net_type", String.valueOf(k.I()));
                 addCookie(jSONObject, "imei", TbadkCoreApplication.getInst().getImei());
                 addCookie(jSONObject, "from", TbConfig.getFrom());
                 addCookie(jSONObject, "cfrom", TbConfig.getCurrentFrom());
@@ -258,7 +258,7 @@ public class SearchJsBridge implements c.a.r0.t3.n0.b {
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.t3.n0.b
+    @Override // c.a.s0.v3.n0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -298,44 +298,44 @@ public class SearchJsBridge implements c.a.r0.t3.n0.b {
         return invokeLLLL.booleanValue;
     }
 
-    public c.a.r0.t3.n0.d.c deleteAllSearchHistory() {
+    public c.a.s0.v3.n0.d.c deleteAllSearchHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.r0.t3.n0.d.c cVar = new c.a.r0.t3.n0.d.c();
-            l0.b(new c(this), new d(this));
+            c.a.s0.v3.n0.d.c cVar = new c.a.s0.v3.n0.d.c();
+            n0.b(new c(this), new d(this));
             return cVar;
         }
-        return (c.a.r0.t3.n0.d.c) invokeV.objValue;
+        return (c.a.s0.v3.n0.d.c) invokeV.objValue;
     }
 
-    public c.a.r0.t3.n0.d.c deleteSearchHistory(String str) {
+    public c.a.s0.v3.n0.d.c deleteSearchHistory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            c.a.r0.t3.n0.d.c cVar = new c.a.r0.t3.n0.d.c();
-            l0.b(new a(this, str), new b(this));
+            c.a.s0.v3.n0.d.c cVar = new c.a.s0.v3.n0.d.c();
+            n0.b(new a(this, str), new b(this));
             return cVar;
         }
-        return (c.a.r0.t3.n0.d.c) invokeL.objValue;
+        return (c.a.s0.v3.n0.d.c) invokeL.objValue;
     }
 
-    public c.a.r0.t3.n0.d.c getSearchAdCookie() {
+    public c.a.s0.v3.n0.d.c getSearchAdCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.r0.t3.n0.d.c cVar = new c.a.r0.t3.n0.d.c();
+            c.a.s0.v3.n0.d.c cVar = new c.a.s0.v3.n0.d.c();
             cVar.o(initCookies());
             return cVar;
         }
-        return (c.a.r0.t3.n0.d.c) invokeV.objValue;
+        return (c.a.s0.v3.n0.d.c) invokeV.objValue;
     }
 
-    public c.a.r0.t3.n0.d.c getSearchHistoryJson() {
+    public c.a.s0.v3.n0.d.c getSearchHistoryJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.a.r0.t3.n0.d.c cVar = new c.a.r0.t3.n0.d.c();
+            c.a.s0.v3.n0.d.c cVar = new c.a.s0.v3.n0.d.c();
             int count = ListUtils.getCount(this.mHistoryDatas);
             if (count == 0) {
                 cVar.o("");
@@ -345,16 +345,17 @@ public class SearchJsBridge implements c.a.r0.t3.n0.b {
                 jSONArray.put(this.mHistoryDatas.get(i2));
             }
             cVar.o(jSONArray.toString());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
             return cVar;
         }
-        return (c.a.r0.t3.n0.d.c) invokeV.objValue;
+        return (c.a.s0.v3.n0.d.c) invokeV.objValue;
     }
 
-    public c.a.r0.t3.n0.d.c openSearchPage(String str, int i2) {
+    public c.a.s0.v3.n0.d.c openSearchPage(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
-            c.a.r0.t3.n0.d.c cVar = new c.a.r0.t3.n0.d.c();
+            c.a.s0.v3.n0.d.c cVar = new c.a.s0.v3.n0.d.c();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("query", str);
@@ -365,7 +366,7 @@ public class SearchJsBridge implements c.a.r0.t3.n0.b {
             }
             return cVar;
         }
-        return (c.a.r0.t3.n0.d.c) invokeLI.objValue;
+        return (c.a.s0.v3.n0.d.c) invokeLI.objValue;
     }
 
     public void setHistoryDatas(List<String> list) {

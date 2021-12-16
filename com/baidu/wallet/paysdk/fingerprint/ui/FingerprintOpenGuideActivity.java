@@ -37,32 +37,32 @@ import com.dxmpay.wallet.base.datamodel.UserData;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.io.Serializable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f53507b;
+    public TextView f54087b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f53508c;
+    public Button f54088c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f53509d;
+    public TextView f54089d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f53510e;
+    public TextView f54090e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f53511f;
+    public TextView f54091f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f53512g;
+    public TextView f54092g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PayController.PayResultWrapper f53513h;
+    public PayController.PayResultWrapper f54093h;
 
     public FingerprintOpenGuideActivity() {
         Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || CheckUtils.isFastDoubleClick()) {
             return;
         }
-        if (view == this.f53508c) {
+        if (view == this.f54088c) {
             PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
             IFingerprintPay fingerprintPay = WalletFingerprint.getInstance(getActivity()).getFingerprintPay(WalletFingerprint.FpType.SYSTEM_FINGERPRINT);
             if (payRequest == null || fingerprintPay == null) {
@@ -158,7 +158,7 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                                 GlobalUtils.toast(this.this$0.getActivity(), ResUtils.getString(this.this$0.getActivity(), "wallet_fp_upgrade_success"));
                                 StatHelper.statServiceEvent("fp_upgrade_success");
                             }
-                            this.this$0.f53508c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.3.1
+                            this.this$0.f54088c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.3.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass3 a;
@@ -189,7 +189,7 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                                     }
                                 }
                             }, 2000L);
-                            this.this$0.f53508c.setClickable(false);
+                            this.this$0.f54088c.setClickable(false);
                             this.this$0.mRightTxt.setClickable(false);
                         } else if (i2 == 2) {
                             if (TextUtils.isEmpty(str)) {
@@ -208,7 +208,7 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                                 }
                             }
                             GlobalUtils.toast(this.this$0.getActivity(), str);
-                            this.this$0.f53508c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.3.2
+                            this.this$0.f54088c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.3.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass3 a;
@@ -239,7 +239,7 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                                     }
                                 }
                             }, 2000L);
-                            this.this$0.f53508c.setClickable(false);
+                            this.this$0.f54088c.setClickable(false);
                             this.this$0.mRightTxt.setClickable(false);
                         } else if (i2 == 1) {
                             int i5 = this.val$payRequest.FP_Guide_Strategy;
@@ -269,15 +269,15 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
             if (bundle != null) {
                 Serializable serializable = bundle.getSerializable("payresultwrapper");
                 if (serializable instanceof PayController.PayResultWrapper) {
-                    this.f53513h = (PayController.PayResultWrapper) serializable;
+                    this.f54093h = (PayController.PayResultWrapper) serializable;
                 }
             } else {
                 Intent intent = getIntent();
                 if (intent != null && (intent.getSerializableExtra("payresultwrapper") instanceof PayController.PayResultWrapper)) {
-                    this.f53513h = (PayController.PayResultWrapper) intent.getSerializableExtra("payresultwrapper");
+                    this.f54093h = (PayController.PayResultWrapper) intent.getSerializableExtra("payresultwrapper");
                 }
             }
-            if (this.f53513h == null) {
+            if (this.f54093h == null) {
                 PayBaseBeanActivity.exitEbpay();
                 finish();
             }
@@ -300,7 +300,7 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            bundle.putSerializable("payresultwrapper", this.f53513h);
+            bundle.putSerializable("payresultwrapper", this.f54093h);
         }
     }
 
@@ -316,17 +316,17 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             this.mLeftImg.setVisibility(4);
             this.a = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_title"));
-            this.f53507b = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_subtitle"));
-            this.f53509d = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_hint1"));
-            this.f53510e = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_hint2"));
+            this.f54087b = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_subtitle"));
+            this.f54089d = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_hint1"));
+            this.f54090e = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_hint2"));
             this.mRightTxt.setTextColor(ResUtils.getColor(this, "wallet_base_primary_color"));
             this.mRightTxt.setText(ResUtils.getString(this, "wallet_base_skip"));
             this.mRightTxt.setOnClickListener(this);
             Button button = (Button) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_open_btn"));
-            this.f53508c = button;
+            this.f54088c = button;
             button.setOnClickListener(this);
-            this.f53511f = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_protocol_prefix"));
-            this.f53512g = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_protocol_msg"));
+            this.f54091f = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_protocol_prefix"));
+            this.f54092g = (TextView) this.mContentView.findViewById(ResUtils.id(this, "fingerprint_protocol_msg"));
         }
     }
 
@@ -360,17 +360,17 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                     String string4 = ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_btn");
                     String[] strArr2 = fingerprintMsg != null ? fingerprintMsg.getOpen().hints : new String[]{ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint0"), ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint1")};
                     if (fingerprintMsg != null && fingerprintMsg.getOpen() != null && fingerprintMsg.getOpen().getFingerprintProtocol() != null && !TextUtils.isEmpty(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolPrefix()) && !TextUtils.isEmpty(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolMsg()) && !TextUtils.isEmpty(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolUrl())) {
-                        this.f53511f.setText(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolPrefix());
-                        this.f53512g.setText(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolMsg());
-                        this.f53512g.setVisibility(0);
-                        this.f53511f.setVisibility(0);
-                        this.f53512g.setOnClickListener(new View.OnClickListener(this, fingerprintMsg) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.1
+                        this.f54091f.setText(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolPrefix());
+                        this.f54092g.setText(fingerprintMsg.getOpen().getFingerprintProtocol().getFingerprintProtocolMsg());
+                        this.f54092g.setVisibility(0);
+                        this.f54091f.setVisibility(0);
+                        this.f54092g.setOnClickListener(new View.OnClickListener(this, fingerprintMsg) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ UserData.UserModel.FingerprintMsg a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ FingerprintOpenGuideActivity f53514b;
+                            public final /* synthetic */ FingerprintOpenGuideActivity f54094b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -387,7 +387,7 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                                         return;
                                     }
                                 }
-                                this.f53514b = this;
+                                this.f54094b = this;
                                 this.a = fingerprintMsg;
                             }
 
@@ -395,13 +395,13 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                             public void onClick(View view) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                    BaiduWalletDelegate.getInstance().openH5Module(this.f53514b, this.a.getOpen().getFingerprintProtocol().getFingerprintProtocolUrl(), false);
+                                    BaiduWalletDelegate.getInstance().openH5Module(this.f54094b, this.a.getOpen().getFingerprintProtocol().getFingerprintProtocolUrl(), false);
                                 }
                             }
                         });
                     } else {
-                        this.f53512g.setVisibility(8);
-                        this.f53511f.setVisibility(8);
+                        this.f54092g.setVisibility(8);
+                        this.f54091f.setVisibility(8);
                     }
                     str2 = string4;
                     strArr = strArr2;
@@ -420,17 +420,17 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                     }
                     String string5 = ResUtils.getString(this, "bd_wallet_fingerprint_reopen_guide_btn");
                     if (fingerprintMsg != null && fingerprintMsg.getReopen() != null && fingerprintMsg.getReopen().getFingerprintProtocol() != null && !TextUtils.isEmpty(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolPrefix()) && !TextUtils.isEmpty(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolMsg()) && !TextUtils.isEmpty(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolUrl())) {
-                        this.f53511f.setText(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolPrefix());
-                        this.f53512g.setText(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolMsg());
-                        this.f53512g.setVisibility(0);
-                        this.f53511f.setVisibility(0);
-                        this.f53512g.setOnClickListener(new View.OnClickListener(this, fingerprintMsg) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.2
+                        this.f54091f.setText(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolPrefix());
+                        this.f54092g.setText(fingerprintMsg.getReopen().getFingerprintProtocol().getFingerprintProtocolMsg());
+                        this.f54092g.setVisibility(0);
+                        this.f54091f.setVisibility(0);
+                        this.f54092g.setOnClickListener(new View.OnClickListener(this, fingerprintMsg) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.FingerprintOpenGuideActivity.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ UserData.UserModel.FingerprintMsg a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ FingerprintOpenGuideActivity f53515b;
+                            public final /* synthetic */ FingerprintOpenGuideActivity f54095b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -447,7 +447,7 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                                         return;
                                     }
                                 }
-                                this.f53515b = this;
+                                this.f54095b = this;
                                 this.a = fingerprintMsg;
                             }
 
@@ -455,13 +455,13 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                             public void onClick(View view) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                    BaiduWalletDelegate.getInstance().openH5Module(this.f53515b, this.a.getReopen().getFingerprintProtocol().getFingerprintProtocolUrl(), false);
+                                    BaiduWalletDelegate.getInstance().openH5Module(this.f54095b, this.a.getReopen().getFingerprintProtocol().getFingerprintProtocolUrl(), false);
                                 }
                             }
                         });
                     } else {
-                        this.f53512g.setVisibility(8);
-                        this.f53511f.setVisibility(8);
+                        this.f54092g.setVisibility(8);
+                        this.f54091f.setVisibility(8);
                     }
                     str2 = string5;
                 } else if (i2 == 3) {
@@ -483,25 +483,25 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                     str2 = str;
                 }
                 this.a.setText(str3);
-                this.f53507b.setText(str);
-                this.f53508c.setText(str2);
+                this.f54087b.setText(str);
+                this.f54088c.setText(str2);
                 if (strArr != null && strArr.length > 0) {
-                    this.f53509d.setVisibility(0);
-                    this.f53510e.setVisibility(0);
+                    this.f54089d.setVisibility(0);
+                    this.f54090e.setVisibility(0);
                     if (strArr.length == 1) {
-                        this.f53509d.setText(!TextUtils.isEmpty(strArr[0]) ? strArr[0] : ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint0"));
-                        this.f53510e.setText(ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint1"));
+                        this.f54089d.setText(!TextUtils.isEmpty(strArr[0]) ? strArr[0] : ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint0"));
+                        this.f54090e.setText(ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint1"));
                         return;
                     } else if (strArr.length >= 2) {
-                        this.f53509d.setText(!TextUtils.isEmpty(strArr[0]) ? strArr[0] : ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint0"));
-                        this.f53510e.setText(!TextUtils.isEmpty(strArr[1]) ? strArr[1] : ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint1"));
+                        this.f54089d.setText(!TextUtils.isEmpty(strArr[0]) ? strArr[0] : ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint0"));
+                        this.f54090e.setText(!TextUtils.isEmpty(strArr[1]) ? strArr[1] : ResUtils.getString(this, "bd_wallet_fingerprint_open_guide_hint1"));
                         return;
                     } else {
                         return;
                     }
                 }
-                this.f53509d.setVisibility(8);
-                this.f53510e.setVisibility(8);
+                this.f54089d.setVisibility(8);
+                this.f54090e.setVisibility(8);
             }
         }
     }
@@ -510,7 +510,7 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            PayController.PayResultWrapper payResultWrapper = this.f53513h;
+            PayController.PayResultWrapper payResultWrapper = this.f54093h;
             if (payResultWrapper.payResult == 0) {
                 PayResultContent payResultContent = payResultWrapper.payResultContent;
                 if (payResultContent != null) {
@@ -526,7 +526,7 @@ public class FingerprintOpenGuideActivity extends HalfScreenBaseActivity impleme
                 }
                 PayDataCache.getInstance().setPayReslutContent(payResultContent);
                 Bundle bundle = new Bundle();
-                bundle.putInt(BeanConstants.KEY_PAY_RESULT_TYPE, this.f53513h.payResultType);
+                bundle.putInt(BeanConstants.KEY_PAY_RESULT_TYPE, this.f54093h.payResultType);
                 startActivityWithExtras(bundle, WalletPayResultCommonActivity.class);
                 PayBaseBeanActivity.exitEbpay();
             }

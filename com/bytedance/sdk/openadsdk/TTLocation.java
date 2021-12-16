@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class TTLocation implements LocationProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f54698b;
+    public double f55278b;
 
     public TTLocation(double d2, double d3) {
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public class TTLocation implements LocationProvider {
             }
         }
         this.a = 0.0d;
-        this.f54698b = 0.0d;
+        this.f55278b = 0.0d;
         this.a = d2;
-        this.f54698b = d3;
+        this.f55278b = d3;
     }
 
     @Override // com.bytedance.sdk.openadsdk.LocationProvider
@@ -47,7 +47,7 @@ public class TTLocation implements LocationProvider {
     public double getLongitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54698b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55278b : invokeV.doubleValue;
     }
 
     public void setLatitude(double d2) {
@@ -60,7 +60,7 @@ public class TTLocation implements LocationProvider {
     public void setLongitude(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f54698b = d2;
+            this.f55278b = d2;
         }
     }
 }

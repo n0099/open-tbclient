@@ -16,25 +16,25 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public InputStream a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f54771b;
+        public Map<String, String> f55351b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f54772c;
+        public int f55352c;
 
         /* renamed from: d  reason: collision with root package name */
-        public HttpURLConnection f54773d;
+        public HttpURLConnection f55353d;
 
         public a(InputStream inputStream, Map<String, String> map, int i2, HttpURLConnection httpURLConnection) {
             Interceptable interceptable = $ic;
@@ -52,9 +52,9 @@ public class c {
                 }
             }
             this.a = inputStream;
-            this.f54771b = map;
-            this.f54772c = i2;
-            this.f54773d = httpURLConnection;
+            this.f55351b = map;
+            this.f55352c = i2;
+            this.f55353d = httpURLConnection;
         }
     }
 

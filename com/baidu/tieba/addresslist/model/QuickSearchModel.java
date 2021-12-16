@@ -3,7 +3,7 @@ package com.baidu.tieba.addresslist.model;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import c.a.d.a.f;
-import c.a.r0.x.d.a;
+import c.a.s0.x.d.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.addresslist.QuickSearchActivity;
@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f42679e;
+    public a f43170e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f42680f;
+    public byte[] f43171f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
@@ -43,8 +43,8 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                 return;
             }
         }
-        this.f42680f = new byte[0];
-        this.f42679e = a.d();
+        this.f43171f = new byte[0];
+        this.f43170e = a.d();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -68,20 +68,20 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<c.a.q0.t.f.a> w(String str) {
+    public List<c.a.r0.t.f.a> w(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this.f42680f) {
+            synchronized (this.f43171f) {
                 ArrayList arrayList = new ArrayList();
                 if (TextUtils.isEmpty(str)) {
                     return arrayList;
                 }
-                List<c.a.q0.t.f.a> c2 = this.f42679e.c();
+                List<c.a.r0.t.f.a> c2 = this.f43170e.c();
                 if (c2 == null) {
                     return arrayList;
                 }
-                for (c.a.q0.t.f.a aVar : c2) {
+                for (c.a.r0.t.f.a aVar : c2) {
                     String f2 = aVar.f();
                     String d2 = aVar.d();
                     if (!TextUtils.isEmpty(f2) && f2.toLowerCase().startsWith(str.toLowerCase())) {
@@ -90,7 +90,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                         arrayList.add(aVar);
                     }
                 }
-                for (c.a.q0.t.f.a aVar2 : c2) {
+                for (c.a.r0.t.f.a aVar2 : c2) {
                     String f3 = aVar2.f();
                     String d3 = aVar2.d();
                     if (!arrayList.contains(aVar2)) {

@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.utils.Identifier;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class a implements RestHttpRequestInterceptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "X-Requested-Session-ID";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f52390b = "X-Domain-From-Config";
+    public static final String f52970b = "X-Domain-From-Config";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f52391c;
+    public boolean f52971c;
 
     public a(boolean z) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class a implements RestHttpRequestInterceptor {
                 return;
             }
         }
-        this.f52391c = false;
-        this.f52391c = z;
+        this.f52971c = false;
+        this.f52971c = z;
     }
 
     @Override // com.baidu.apollon.restnet.rest.RestHttpRequestInterceptor
@@ -46,7 +46,7 @@ public class a implements RestHttpRequestInterceptor {
             if (dVar != null && dVar.a() != null) {
                 dVar.a().a(a, Identifier.sessionID());
             }
-            dVar.a().a(f52390b, this.f52391c ? "1" : "0");
+            dVar.a().a(f52970b, this.f52971c ? "1" : "0");
         }
     }
 }

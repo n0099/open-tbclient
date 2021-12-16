@@ -17,7 +17,7 @@ import i.o.d.j.y;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class QueuedValueProducer<T> extends AtomicLong implements f {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object NULL_SENTINEL;

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean isServing = false;
@@ -32,10 +32,10 @@ public class f extends Service {
     public LLSInterface a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LLSInterface f35723b;
+    public LLSInterface f36212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LLSInterface f35724c;
+    public LLSInterface f36213c;
 
     static {
         InterceptResult invokeClinit;
@@ -66,8 +66,8 @@ public class f extends Service {
             }
         }
         this.a = null;
-        this.f35723b = null;
-        this.f35724c = null;
+        this.f36212b = null;
+        this.f36213c = null;
     }
 
     private boolean a(File file) {
@@ -125,7 +125,7 @@ public class f extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            LLSInterface lLSInterface = this.f35724c;
+            LLSInterface lLSInterface = this.f36213c;
             if (lLSInterface != null) {
                 return lLSInterface.onBind(intent);
             }
@@ -145,7 +145,7 @@ public class f extends Service {
             }
             mC = getApplicationContext();
             System.currentTimeMillis();
-            this.f35723b = new com.baidu.location.d.a();
+            this.f36212b = new com.baidu.location.d.a();
             try {
                 File file = new File(k.j() + File.separator + replaceFileName);
                 File file2 = new File(k.j() + File.separator + "app.jar");
@@ -164,15 +164,15 @@ public class f extends Service {
                 this.a = null;
             }
             LLSInterface lLSInterface = this.a;
-            if (lLSInterface == null || lLSInterface.getVersion() < this.f35723b.getVersion()) {
-                this.f35724c = this.f35723b;
+            if (lLSInterface == null || lLSInterface.getVersion() < this.f36212b.getVersion()) {
+                this.f36213c = this.f36212b;
                 this.a = null;
             } else {
-                this.f35724c = this.a;
-                this.f35723b = null;
+                this.f36213c = this.a;
+                this.f36212b = null;
             }
             isServing = true;
-            this.f35724c.onCreate(this);
+            this.f36213c.onCreate(this);
         }
     }
 
@@ -181,7 +181,7 @@ public class f extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             isServing = false;
-            LLSInterface lLSInterface = this.f35724c;
+            LLSInterface lLSInterface = this.f36213c;
             if (lLSInterface != null) {
                 lLSInterface.onDestroy();
             }
@@ -210,7 +210,7 @@ public class f extends Service {
                     e2.printStackTrace();
                 }
             }
-            return this.f35724c.onStartCommand(intent, i2, i3);
+            return this.f36213c.onStartCommand(intent, i2, i3);
         }
         return invokeLII.intValue;
     }
@@ -219,7 +219,7 @@ public class f extends Service {
     public void onTaskRemoved(Intent intent) {
         LLSInterface lLSInterface;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || (lLSInterface = this.f35724c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || (lLSInterface = this.f36213c) == null) {
             return;
         }
         lLSInterface.onTaskRemoved(intent);

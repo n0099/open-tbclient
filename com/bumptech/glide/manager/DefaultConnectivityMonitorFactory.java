@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.ConnectivityMonitor;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class DefaultConnectivityMonitorFactory implements ConnectivityMonitorFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NETWORK_PERMISSION = "android.permission.ACCESS_NETWORK_STATE";

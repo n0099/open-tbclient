@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PassFaceRecogDTO extends PassBiometricDto {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_FLAG_CUT_AND_ORIGIN_IMAGE = 3;

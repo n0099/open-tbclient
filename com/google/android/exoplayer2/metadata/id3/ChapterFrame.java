@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ChapterFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<ChapterFrame> CREATOR;
@@ -26,7 +26,7 @@ public final class ChapterFrame extends Id3Frame {
     public final int startTimeMs;
     public final Id3Frame[] subFrames;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<ChapterFrame> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

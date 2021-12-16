@@ -48,45 +48,44 @@ import java.util.Set;
 import java.util.zip.GZIPInputStream;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
-import kotlinx.coroutines.DebugKt;
 import org.aspectj.runtime.reflect.SignatureImpl;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DefaultHandler2;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class SVGParser extends DefaultHandler2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SVG a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SVG.h0 f54849b;
+    public SVG.h0 f55429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f54850c;
+    public boolean f55430c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54851d;
+    public int f55431d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f54852e;
+    public boolean f55432e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SVGElem f54853f;
+    public SVGElem f55433f;
 
     /* renamed from: g  reason: collision with root package name */
-    public StringBuilder f54854g;
+    public StringBuilder f55434g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f54855h;
+    public boolean f55435h;
 
     /* renamed from: i  reason: collision with root package name */
-    public StringBuilder f54856i;
+    public StringBuilder f55436i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class SVGAttr {
         public static final /* synthetic */ SVGAttr[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -102,7 +101,7 @@ public class SVGParser extends DefaultHandler2 {
         public static final SVGAttr cy;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final SVGAttr f54857d;
+        public static final SVGAttr f55437d;
         public static final SVGAttr direction;
         public static final SVGAttr display;
         public static final SVGAttr dx;
@@ -152,7 +151,7 @@ public class SVGParser extends DefaultHandler2 {
         public static final SVGAttr requiredFormats;
 
         /* renamed from: rx  reason: collision with root package name */
-        public static final SVGAttr f54858rx;
+        public static final SVGAttr f55438rx;
         public static final SVGAttr ry;
         public static final SVGAttr solid_color;
         public static final SVGAttr solid_opacity;
@@ -215,7 +214,7 @@ public class SVGParser extends DefaultHandler2 {
             dy = new SVGAttr("dy", 10);
             fx = new SVGAttr("fx", 11);
             fy = new SVGAttr("fy", 12);
-            f54857d = new SVGAttr("d", 13);
+            f55437d = new SVGAttr("d", 13);
             display = new SVGAttr("display", 14);
             fill = new SVGAttr("fill", 15);
             fill_rule = new SVGAttr("fill_rule", 16);
@@ -258,7 +257,7 @@ public class SVGParser extends DefaultHandler2 {
             requiredExtensions = new SVGAttr("requiredExtensions", 53);
             requiredFormats = new SVGAttr("requiredFormats", 54);
             requiredFonts = new SVGAttr("requiredFonts", 55);
-            f54858rx = new SVGAttr("rx", 56);
+            f55438rx = new SVGAttr("rx", 56);
             ry = new SVGAttr("ry", 57);
             solid_color = new SVGAttr("solid_color", 58);
             solid_opacity = new SVGAttr("solid_opacity", 59);
@@ -295,7 +294,7 @@ public class SVGParser extends DefaultHandler2 {
             visibility = new SVGAttr("visibility", 90);
             SVGAttr sVGAttr = new SVGAttr("UNSUPPORTED", 91);
             UNSUPPORTED = sVGAttr;
-            $VALUES = new SVGAttr[]{CLASS, clip, clip_path, clipPathUnits, clip_rule, color, cx, cy, direction, dx, dy, fx, fy, f54857d, display, fill, fill_rule, fill_opacity, font, font_family, font_size, font_weight, font_style, gradientTransform, gradientUnits, height, href, id, marker, marker_start, marker_mid, marker_end, markerHeight, markerUnits, markerWidth, mask, maskContentUnits, maskUnits, media, offset, opacity, orient, overflow, pathLength, patternContentUnits, patternTransform, patternUnits, points, preserveAspectRatio, r, refX, refY, requiredFeatures, requiredExtensions, requiredFormats, requiredFonts, f54858rx, ry, solid_color, solid_opacity, spreadMethod, startOffset, stop_color, stop_opacity, stroke, stroke_dasharray, stroke_dashoffset, stroke_linecap, stroke_linejoin, stroke_miterlimit, stroke_opacity, stroke_width, style, systemLanguage, text_anchor, text_decoration, transform, type, vector_effect, version, viewBox, width, x, y, x1, y1, x2, y2, viewport_fill, viewport_fill_opacity, visibility, sVGAttr};
+            $VALUES = new SVGAttr[]{CLASS, clip, clip_path, clipPathUnits, clip_rule, color, cx, cy, direction, dx, dy, fx, fy, f55437d, display, fill, fill_rule, fill_opacity, font, font_family, font_size, font_weight, font_style, gradientTransform, gradientUnits, height, href, id, marker, marker_start, marker_mid, marker_end, markerHeight, markerUnits, markerWidth, mask, maskContentUnits, maskUnits, media, offset, opacity, orient, overflow, pathLength, patternContentUnits, patternTransform, patternUnits, points, preserveAspectRatio, r, refX, refY, requiredFeatures, requiredExtensions, requiredFormats, requiredFonts, f55438rx, ry, solid_color, solid_opacity, spreadMethod, startOffset, stop_color, stop_opacity, stroke, stroke_dasharray, stroke_dashoffset, stroke_linecap, stroke_linejoin, stroke_miterlimit, stroke_opacity, stroke_width, style, systemLanguage, text_anchor, text_decoration, transform, type, vector_effect, version, viewBox, width, x, y, x1, y1, x2, y2, viewport_fill, viewport_fill_opacity, visibility, sVGAttr};
             cache = new HashMap();
         }
 
@@ -362,7 +361,7 @@ public class SVGParser extends DefaultHandler2 {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static final class SVGElem {
         public static final /* synthetic */ SVGElem[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -377,7 +376,7 @@ public class SVGParser extends DefaultHandler2 {
         public static final SVGElem ellipse;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final SVGElem f54859g;
+        public static final SVGElem f55439g;
         public static final SVGElem image;
         public static final SVGElem line;
         public static final SVGElem linearGradient;
@@ -423,7 +422,7 @@ public class SVGParser extends DefaultHandler2 {
             defs = new SVGElem("defs", 4);
             desc = new SVGElem("desc", 5);
             ellipse = new SVGElem("ellipse", 6);
-            f54859g = new SVGElem("g", 7);
+            f55439g = new SVGElem("g", 7);
             image = new SVGElem("image", 8);
             line = new SVGElem("line", 9);
             linearGradient = new SVGElem("linearGradient", 10);
@@ -449,7 +448,7 @@ public class SVGParser extends DefaultHandler2 {
             view = new SVGElem("view", 30);
             SVGElem sVGElem = new SVGElem("UNSUPPORTED", 31);
             UNSUPPORTED = sVGElem;
-            $VALUES = new SVGElem[]{svg, a, circle, clipPath, defs, desc, ellipse, f54859g, image, line, linearGradient, marker, mask, path, pattern, polygon, polyline, radialGradient, rect, solidColor, stop, style, SWITCH, symbol, text, textPath, title, tref, tspan, use, view, sVGElem};
+            $VALUES = new SVGElem[]{svg, a, circle, clipPath, defs, desc, ellipse, f55439g, image, line, linearGradient, marker, mask, path, pattern, polygon, polyline, radialGradient, rect, solidColor, stop, style, SWITCH, symbol, text, textPath, title, tref, tspan, use, view, sVGElem};
             cache = new HashMap();
         }
 
@@ -511,13 +510,13 @@ public class SVGParser extends DefaultHandler2 {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f54860b;
+        public static final /* synthetic */ int[] f55440b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -534,357 +533,357 @@ public class SVGParser extends DefaultHandler2 {
                 }
             }
             int[] iArr = new int[SVGAttr.values().length];
-            f54860b = iArr;
+            f55440b = iArr;
             try {
                 iArr[SVGAttr.x.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f54860b[SVGAttr.y.ordinal()] = 2;
+                f55440b[SVGAttr.y.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f54860b[SVGAttr.width.ordinal()] = 3;
+                f55440b[SVGAttr.width.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f54860b[SVGAttr.height.ordinal()] = 4;
+                f55440b[SVGAttr.height.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f54860b[SVGAttr.version.ordinal()] = 5;
+                f55440b[SVGAttr.version.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f54860b[SVGAttr.href.ordinal()] = 6;
+                f55440b[SVGAttr.href.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f54860b[SVGAttr.preserveAspectRatio.ordinal()] = 7;
+                f55440b[SVGAttr.preserveAspectRatio.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f54860b[SVGAttr.f54857d.ordinal()] = 8;
+                f55440b[SVGAttr.f55437d.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f54860b[SVGAttr.pathLength.ordinal()] = 9;
+                f55440b[SVGAttr.pathLength.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f54860b[SVGAttr.f54858rx.ordinal()] = 10;
+                f55440b[SVGAttr.f55438rx.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f54860b[SVGAttr.ry.ordinal()] = 11;
+                f55440b[SVGAttr.ry.ordinal()] = 11;
             } catch (NoSuchFieldError unused11) {
             }
             try {
-                f54860b[SVGAttr.cx.ordinal()] = 12;
+                f55440b[SVGAttr.cx.ordinal()] = 12;
             } catch (NoSuchFieldError unused12) {
             }
             try {
-                f54860b[SVGAttr.cy.ordinal()] = 13;
+                f55440b[SVGAttr.cy.ordinal()] = 13;
             } catch (NoSuchFieldError unused13) {
             }
             try {
-                f54860b[SVGAttr.r.ordinal()] = 14;
+                f55440b[SVGAttr.r.ordinal()] = 14;
             } catch (NoSuchFieldError unused14) {
             }
             try {
-                f54860b[SVGAttr.x1.ordinal()] = 15;
+                f55440b[SVGAttr.x1.ordinal()] = 15;
             } catch (NoSuchFieldError unused15) {
             }
             try {
-                f54860b[SVGAttr.y1.ordinal()] = 16;
+                f55440b[SVGAttr.y1.ordinal()] = 16;
             } catch (NoSuchFieldError unused16) {
             }
             try {
-                f54860b[SVGAttr.x2.ordinal()] = 17;
+                f55440b[SVGAttr.x2.ordinal()] = 17;
             } catch (NoSuchFieldError unused17) {
             }
             try {
-                f54860b[SVGAttr.y2.ordinal()] = 18;
+                f55440b[SVGAttr.y2.ordinal()] = 18;
             } catch (NoSuchFieldError unused18) {
             }
             try {
-                f54860b[SVGAttr.dx.ordinal()] = 19;
+                f55440b[SVGAttr.dx.ordinal()] = 19;
             } catch (NoSuchFieldError unused19) {
             }
             try {
-                f54860b[SVGAttr.dy.ordinal()] = 20;
+                f55440b[SVGAttr.dy.ordinal()] = 20;
             } catch (NoSuchFieldError unused20) {
             }
             try {
-                f54860b[SVGAttr.requiredFeatures.ordinal()] = 21;
+                f55440b[SVGAttr.requiredFeatures.ordinal()] = 21;
             } catch (NoSuchFieldError unused21) {
             }
             try {
-                f54860b[SVGAttr.requiredExtensions.ordinal()] = 22;
+                f55440b[SVGAttr.requiredExtensions.ordinal()] = 22;
             } catch (NoSuchFieldError unused22) {
             }
             try {
-                f54860b[SVGAttr.systemLanguage.ordinal()] = 23;
+                f55440b[SVGAttr.systemLanguage.ordinal()] = 23;
             } catch (NoSuchFieldError unused23) {
             }
             try {
-                f54860b[SVGAttr.requiredFormats.ordinal()] = 24;
+                f55440b[SVGAttr.requiredFormats.ordinal()] = 24;
             } catch (NoSuchFieldError unused24) {
             }
             try {
-                f54860b[SVGAttr.requiredFonts.ordinal()] = 25;
+                f55440b[SVGAttr.requiredFonts.ordinal()] = 25;
             } catch (NoSuchFieldError unused25) {
             }
             try {
-                f54860b[SVGAttr.refX.ordinal()] = 26;
+                f55440b[SVGAttr.refX.ordinal()] = 26;
             } catch (NoSuchFieldError unused26) {
             }
             try {
-                f54860b[SVGAttr.refY.ordinal()] = 27;
+                f55440b[SVGAttr.refY.ordinal()] = 27;
             } catch (NoSuchFieldError unused27) {
             }
             try {
-                f54860b[SVGAttr.markerWidth.ordinal()] = 28;
+                f55440b[SVGAttr.markerWidth.ordinal()] = 28;
             } catch (NoSuchFieldError unused28) {
             }
             try {
-                f54860b[SVGAttr.markerHeight.ordinal()] = 29;
+                f55440b[SVGAttr.markerHeight.ordinal()] = 29;
             } catch (NoSuchFieldError unused29) {
             }
             try {
-                f54860b[SVGAttr.markerUnits.ordinal()] = 30;
+                f55440b[SVGAttr.markerUnits.ordinal()] = 30;
             } catch (NoSuchFieldError unused30) {
             }
             try {
-                f54860b[SVGAttr.orient.ordinal()] = 31;
+                f55440b[SVGAttr.orient.ordinal()] = 31;
             } catch (NoSuchFieldError unused31) {
             }
             try {
-                f54860b[SVGAttr.gradientUnits.ordinal()] = 32;
+                f55440b[SVGAttr.gradientUnits.ordinal()] = 32;
             } catch (NoSuchFieldError unused32) {
             }
             try {
-                f54860b[SVGAttr.gradientTransform.ordinal()] = 33;
+                f55440b[SVGAttr.gradientTransform.ordinal()] = 33;
             } catch (NoSuchFieldError unused33) {
             }
             try {
-                f54860b[SVGAttr.spreadMethod.ordinal()] = 34;
+                f55440b[SVGAttr.spreadMethod.ordinal()] = 34;
             } catch (NoSuchFieldError unused34) {
             }
             try {
-                f54860b[SVGAttr.fx.ordinal()] = 35;
+                f55440b[SVGAttr.fx.ordinal()] = 35;
             } catch (NoSuchFieldError unused35) {
             }
             try {
-                f54860b[SVGAttr.fy.ordinal()] = 36;
+                f55440b[SVGAttr.fy.ordinal()] = 36;
             } catch (NoSuchFieldError unused36) {
             }
             try {
-                f54860b[SVGAttr.offset.ordinal()] = 37;
+                f55440b[SVGAttr.offset.ordinal()] = 37;
             } catch (NoSuchFieldError unused37) {
             }
             try {
-                f54860b[SVGAttr.clipPathUnits.ordinal()] = 38;
+                f55440b[SVGAttr.clipPathUnits.ordinal()] = 38;
             } catch (NoSuchFieldError unused38) {
             }
             try {
-                f54860b[SVGAttr.startOffset.ordinal()] = 39;
+                f55440b[SVGAttr.startOffset.ordinal()] = 39;
             } catch (NoSuchFieldError unused39) {
             }
             try {
-                f54860b[SVGAttr.patternUnits.ordinal()] = 40;
+                f55440b[SVGAttr.patternUnits.ordinal()] = 40;
             } catch (NoSuchFieldError unused40) {
             }
             try {
-                f54860b[SVGAttr.patternContentUnits.ordinal()] = 41;
+                f55440b[SVGAttr.patternContentUnits.ordinal()] = 41;
             } catch (NoSuchFieldError unused41) {
             }
             try {
-                f54860b[SVGAttr.patternTransform.ordinal()] = 42;
+                f55440b[SVGAttr.patternTransform.ordinal()] = 42;
             } catch (NoSuchFieldError unused42) {
             }
             try {
-                f54860b[SVGAttr.maskUnits.ordinal()] = 43;
+                f55440b[SVGAttr.maskUnits.ordinal()] = 43;
             } catch (NoSuchFieldError unused43) {
             }
             try {
-                f54860b[SVGAttr.maskContentUnits.ordinal()] = 44;
+                f55440b[SVGAttr.maskContentUnits.ordinal()] = 44;
             } catch (NoSuchFieldError unused44) {
             }
             try {
-                f54860b[SVGAttr.style.ordinal()] = 45;
+                f55440b[SVGAttr.style.ordinal()] = 45;
             } catch (NoSuchFieldError unused45) {
             }
             try {
-                f54860b[SVGAttr.CLASS.ordinal()] = 46;
+                f55440b[SVGAttr.CLASS.ordinal()] = 46;
             } catch (NoSuchFieldError unused46) {
             }
             try {
-                f54860b[SVGAttr.fill.ordinal()] = 47;
+                f55440b[SVGAttr.fill.ordinal()] = 47;
             } catch (NoSuchFieldError unused47) {
             }
             try {
-                f54860b[SVGAttr.fill_rule.ordinal()] = 48;
+                f55440b[SVGAttr.fill_rule.ordinal()] = 48;
             } catch (NoSuchFieldError unused48) {
             }
             try {
-                f54860b[SVGAttr.fill_opacity.ordinal()] = 49;
+                f55440b[SVGAttr.fill_opacity.ordinal()] = 49;
             } catch (NoSuchFieldError unused49) {
             }
             try {
-                f54860b[SVGAttr.stroke.ordinal()] = 50;
+                f55440b[SVGAttr.stroke.ordinal()] = 50;
             } catch (NoSuchFieldError unused50) {
             }
             try {
-                f54860b[SVGAttr.stroke_opacity.ordinal()] = 51;
+                f55440b[SVGAttr.stroke_opacity.ordinal()] = 51;
             } catch (NoSuchFieldError unused51) {
             }
             try {
-                f54860b[SVGAttr.stroke_width.ordinal()] = 52;
+                f55440b[SVGAttr.stroke_width.ordinal()] = 52;
             } catch (NoSuchFieldError unused52) {
             }
             try {
-                f54860b[SVGAttr.stroke_linecap.ordinal()] = 53;
+                f55440b[SVGAttr.stroke_linecap.ordinal()] = 53;
             } catch (NoSuchFieldError unused53) {
             }
             try {
-                f54860b[SVGAttr.stroke_linejoin.ordinal()] = 54;
+                f55440b[SVGAttr.stroke_linejoin.ordinal()] = 54;
             } catch (NoSuchFieldError unused54) {
             }
             try {
-                f54860b[SVGAttr.stroke_miterlimit.ordinal()] = 55;
+                f55440b[SVGAttr.stroke_miterlimit.ordinal()] = 55;
             } catch (NoSuchFieldError unused55) {
             }
             try {
-                f54860b[SVGAttr.stroke_dasharray.ordinal()] = 56;
+                f55440b[SVGAttr.stroke_dasharray.ordinal()] = 56;
             } catch (NoSuchFieldError unused56) {
             }
             try {
-                f54860b[SVGAttr.stroke_dashoffset.ordinal()] = 57;
+                f55440b[SVGAttr.stroke_dashoffset.ordinal()] = 57;
             } catch (NoSuchFieldError unused57) {
             }
             try {
-                f54860b[SVGAttr.opacity.ordinal()] = 58;
+                f55440b[SVGAttr.opacity.ordinal()] = 58;
             } catch (NoSuchFieldError unused58) {
             }
             try {
-                f54860b[SVGAttr.color.ordinal()] = 59;
+                f55440b[SVGAttr.color.ordinal()] = 59;
             } catch (NoSuchFieldError unused59) {
             }
             try {
-                f54860b[SVGAttr.font.ordinal()] = 60;
+                f55440b[SVGAttr.font.ordinal()] = 60;
             } catch (NoSuchFieldError unused60) {
             }
             try {
-                f54860b[SVGAttr.font_family.ordinal()] = 61;
+                f55440b[SVGAttr.font_family.ordinal()] = 61;
             } catch (NoSuchFieldError unused61) {
             }
             try {
-                f54860b[SVGAttr.font_size.ordinal()] = 62;
+                f55440b[SVGAttr.font_size.ordinal()] = 62;
             } catch (NoSuchFieldError unused62) {
             }
             try {
-                f54860b[SVGAttr.font_weight.ordinal()] = 63;
+                f55440b[SVGAttr.font_weight.ordinal()] = 63;
             } catch (NoSuchFieldError unused63) {
             }
             try {
-                f54860b[SVGAttr.font_style.ordinal()] = 64;
+                f55440b[SVGAttr.font_style.ordinal()] = 64;
             } catch (NoSuchFieldError unused64) {
             }
             try {
-                f54860b[SVGAttr.text_decoration.ordinal()] = 65;
+                f55440b[SVGAttr.text_decoration.ordinal()] = 65;
             } catch (NoSuchFieldError unused65) {
             }
             try {
-                f54860b[SVGAttr.direction.ordinal()] = 66;
+                f55440b[SVGAttr.direction.ordinal()] = 66;
             } catch (NoSuchFieldError unused66) {
             }
             try {
-                f54860b[SVGAttr.text_anchor.ordinal()] = 67;
+                f55440b[SVGAttr.text_anchor.ordinal()] = 67;
             } catch (NoSuchFieldError unused67) {
             }
             try {
-                f54860b[SVGAttr.overflow.ordinal()] = 68;
+                f55440b[SVGAttr.overflow.ordinal()] = 68;
             } catch (NoSuchFieldError unused68) {
             }
             try {
-                f54860b[SVGAttr.marker.ordinal()] = 69;
+                f55440b[SVGAttr.marker.ordinal()] = 69;
             } catch (NoSuchFieldError unused69) {
             }
             try {
-                f54860b[SVGAttr.marker_start.ordinal()] = 70;
+                f55440b[SVGAttr.marker_start.ordinal()] = 70;
             } catch (NoSuchFieldError unused70) {
             }
             try {
-                f54860b[SVGAttr.marker_mid.ordinal()] = 71;
+                f55440b[SVGAttr.marker_mid.ordinal()] = 71;
             } catch (NoSuchFieldError unused71) {
             }
             try {
-                f54860b[SVGAttr.marker_end.ordinal()] = 72;
+                f55440b[SVGAttr.marker_end.ordinal()] = 72;
             } catch (NoSuchFieldError unused72) {
             }
             try {
-                f54860b[SVGAttr.display.ordinal()] = 73;
+                f55440b[SVGAttr.display.ordinal()] = 73;
             } catch (NoSuchFieldError unused73) {
             }
             try {
-                f54860b[SVGAttr.visibility.ordinal()] = 74;
+                f55440b[SVGAttr.visibility.ordinal()] = 74;
             } catch (NoSuchFieldError unused74) {
             }
             try {
-                f54860b[SVGAttr.stop_color.ordinal()] = 75;
+                f55440b[SVGAttr.stop_color.ordinal()] = 75;
             } catch (NoSuchFieldError unused75) {
             }
             try {
-                f54860b[SVGAttr.stop_opacity.ordinal()] = 76;
+                f55440b[SVGAttr.stop_opacity.ordinal()] = 76;
             } catch (NoSuchFieldError unused76) {
             }
             try {
-                f54860b[SVGAttr.clip.ordinal()] = 77;
+                f55440b[SVGAttr.clip.ordinal()] = 77;
             } catch (NoSuchFieldError unused77) {
             }
             try {
-                f54860b[SVGAttr.clip_path.ordinal()] = 78;
+                f55440b[SVGAttr.clip_path.ordinal()] = 78;
             } catch (NoSuchFieldError unused78) {
             }
             try {
-                f54860b[SVGAttr.clip_rule.ordinal()] = 79;
+                f55440b[SVGAttr.clip_rule.ordinal()] = 79;
             } catch (NoSuchFieldError unused79) {
             }
             try {
-                f54860b[SVGAttr.mask.ordinal()] = 80;
+                f55440b[SVGAttr.mask.ordinal()] = 80;
             } catch (NoSuchFieldError unused80) {
             }
             try {
-                f54860b[SVGAttr.solid_color.ordinal()] = 81;
+                f55440b[SVGAttr.solid_color.ordinal()] = 81;
             } catch (NoSuchFieldError unused81) {
             }
             try {
-                f54860b[SVGAttr.solid_opacity.ordinal()] = 82;
+                f55440b[SVGAttr.solid_opacity.ordinal()] = 82;
             } catch (NoSuchFieldError unused82) {
             }
             try {
-                f54860b[SVGAttr.viewport_fill.ordinal()] = 83;
+                f55440b[SVGAttr.viewport_fill.ordinal()] = 83;
             } catch (NoSuchFieldError unused83) {
             }
             try {
-                f54860b[SVGAttr.viewport_fill_opacity.ordinal()] = 84;
+                f55440b[SVGAttr.viewport_fill_opacity.ordinal()] = 84;
             } catch (NoSuchFieldError unused84) {
             }
             try {
-                f54860b[SVGAttr.vector_effect.ordinal()] = 85;
+                f55440b[SVGAttr.vector_effect.ordinal()] = 85;
             } catch (NoSuchFieldError unused85) {
             }
             try {
-                f54860b[SVGAttr.viewBox.ordinal()] = 86;
+                f55440b[SVGAttr.viewBox.ordinal()] = 86;
             } catch (NoSuchFieldError unused86) {
             }
             try {
-                f54860b[SVGAttr.type.ordinal()] = 87;
+                f55440b[SVGAttr.type.ordinal()] = 87;
             } catch (NoSuchFieldError unused87) {
             }
             try {
-                f54860b[SVGAttr.media.ordinal()] = 88;
+                f55440b[SVGAttr.media.ordinal()] = 88;
             } catch (NoSuchFieldError unused88) {
             }
             int[] iArr2 = new int[SVGElem.values().length];
@@ -894,7 +893,7 @@ public class SVGParser extends DefaultHandler2 {
             } catch (NoSuchFieldError unused89) {
             }
             try {
-                a[SVGElem.f54859g.ordinal()] = 2;
+                a[SVGElem.f55439g.ordinal()] = 2;
             } catch (NoSuchFieldError unused90) {
             }
             try {
@@ -1016,7 +1015,7 @@ public class SVGParser extends DefaultHandler2 {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<String, PreserveAspectRatio.Alignment> a;
@@ -1056,7 +1055,7 @@ public class SVGParser extends DefaultHandler2 {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<String, Integer> a;
@@ -1235,7 +1234,7 @@ public class SVGParser extends DefaultHandler2 {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<String, SVG.o> a;
@@ -1274,7 +1273,7 @@ public class SVGParser extends DefaultHandler2 {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<String, Integer> a;
@@ -1317,20 +1316,20 @@ public class SVGParser extends DefaultHandler2 {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes2.dex */
     public static class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f54861b;
+        public int f55441b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f54862c;
+        public int f55442c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.c.a.b f54863d;
+        public c.c.a.b f55443d;
 
         public f(String str) {
             Interceptable interceptable = $ic;
@@ -1347,25 +1346,25 @@ public class SVGParser extends DefaultHandler2 {
                     return;
                 }
             }
-            this.f54861b = 0;
-            this.f54862c = 0;
-            this.f54863d = new c.c.a.b();
+            this.f55441b = 0;
+            this.f55442c = 0;
+            this.f55443d = new c.c.a.b();
             String trim = str.trim();
             this.a = trim;
-            this.f54862c = trim.length();
+            this.f55442c = trim.length();
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = this.f54861b;
-                int i3 = this.f54862c;
+                int i2 = this.f55441b;
+                int i3 = this.f55442c;
                 if (i2 == i3) {
                     return -1;
                 }
                 int i4 = i2 + 1;
-                this.f54861b = i4;
+                this.f55441b = i4;
                 if (i4 < i3) {
                     return this.a.charAt(i4);
                 }
@@ -1378,12 +1377,12 @@ public class SVGParser extends DefaultHandler2 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = this.f54861b;
-                while (!g() && !j(this.a.charAt(this.f54861b))) {
-                    this.f54861b++;
+                int i2 = this.f55441b;
+                while (!g() && !j(this.a.charAt(this.f55441b))) {
+                    this.f55441b++;
                 }
-                String substring = this.a.substring(i2, this.f54861b);
-                this.f54861b = i2;
+                String substring = this.a.substring(i2, this.f55441b);
+                this.f55441b = i2;
                 return substring;
             }
             return (String) invokeV.objValue;
@@ -1419,10 +1418,10 @@ public class SVGParser extends DefaultHandler2 {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Character.valueOf(c2)})) == null) {
-                int i2 = this.f54861b;
-                boolean z = i2 < this.f54862c && this.a.charAt(i2) == c2;
+                int i2 = this.f55441b;
+                boolean z = i2 < this.f55442c && this.a.charAt(i2) == c2;
                 if (z) {
-                    this.f54861b++;
+                    this.f55441b++;
                 }
                 return z;
             }
@@ -1434,10 +1433,10 @@ public class SVGParser extends DefaultHandler2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
                 int length = str.length();
-                int i2 = this.f54861b;
-                boolean z = i2 <= this.f54862c - length && this.a.substring(i2, i2 + length).equals(str);
+                int i2 = this.f55441b;
+                boolean z = i2 <= this.f55442c - length && this.a.substring(i2, i2 + length).equals(str);
                 if (z) {
-                    this.f54861b += length;
+                    this.f55441b += length;
                 }
                 return z;
             }
@@ -1447,15 +1446,15 @@ public class SVGParser extends DefaultHandler2 {
         public boolean g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f54861b == this.f54862c : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f55441b == this.f55442c : invokeV.booleanValue;
         }
 
         public boolean h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                int i2 = this.f54861b;
-                if (i2 == this.f54862c) {
+                int i2 = this.f55441b;
+                if (i2 == this.f55442c) {
                     return false;
                 }
                 char charAt = this.a.charAt(i2);
@@ -1480,12 +1479,12 @@ public class SVGParser extends DefaultHandler2 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                int i2 = this.f54861b;
-                if (i2 == this.f54862c) {
+                int i2 = this.f55441b;
+                if (i2 == this.f55442c) {
                     return null;
                 }
                 String str = this.a;
-                this.f54861b = i2 + 1;
+                this.f55441b = i2 + 1;
                 return Integer.valueOf(str.charAt(i2));
             }
             return (Integer) invokeV.objValue;
@@ -1495,13 +1494,13 @@ public class SVGParser extends DefaultHandler2 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                int i2 = this.f54861b;
-                if (i2 == this.f54862c) {
+                int i2 = this.f55441b;
+                if (i2 == this.f55442c) {
                     return null;
                 }
                 char charAt = this.a.charAt(i2);
                 if (charAt == '0' || charAt == '1') {
-                    this.f54861b++;
+                    this.f55441b++;
                     return Boolean.valueOf(charAt == '1');
                 }
                 return null;
@@ -1513,9 +1512,9 @@ public class SVGParser extends DefaultHandler2 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                float b2 = this.f54863d.b(this.a, this.f54861b, this.f54862c);
+                float b2 = this.f55443d.b(this.a, this.f55441b, this.f55442c);
                 if (!Float.isNaN(b2)) {
-                    this.f54861b = this.f54863d.a();
+                    this.f55441b = this.f55443d.a();
                 }
                 return b2;
             }
@@ -1529,7 +1528,7 @@ public class SVGParser extends DefaultHandler2 {
                 if (g()) {
                     return null;
                 }
-                int i2 = this.f54861b;
+                int i2 = this.f55441b;
                 int charAt = this.a.charAt(i2);
                 while (true) {
                     if ((charAt < 97 || charAt > 122) && (charAt < 65 || charAt > 90)) {
@@ -1537,15 +1536,15 @@ public class SVGParser extends DefaultHandler2 {
                     }
                     charAt = a();
                 }
-                int i3 = this.f54861b;
+                int i3 = this.f55441b;
                 while (j(charAt)) {
                     charAt = a();
                 }
                 if (charAt == 40) {
-                    this.f54861b++;
+                    this.f55441b++;
                     return this.a.substring(i2, i3);
                 }
-                this.f54861b = i2;
+                this.f55441b = i2;
                 return null;
             }
             return (String) invokeV.objValue;
@@ -1575,7 +1574,7 @@ public class SVGParser extends DefaultHandler2 {
                 if (g()) {
                     return null;
                 }
-                int i2 = this.f54861b;
+                int i2 = this.f55441b;
                 char charAt = this.a.charAt(i2);
                 if (charAt == '\'' || charAt == '\"') {
                     int a = a();
@@ -1583,11 +1582,11 @@ public class SVGParser extends DefaultHandler2 {
                         a = a();
                     }
                     if (a == -1) {
-                        this.f54861b = i2;
+                        this.f55441b = i2;
                         return null;
                     }
-                    int i3 = this.f54861b + 1;
-                    this.f54861b = i3;
+                    int i3 = this.f55441b + 1;
+                    this.f55441b = i3;
                     return this.a.substring(i2 + 1, i3 - 1);
                 }
                 return null;
@@ -1608,16 +1607,16 @@ public class SVGParser extends DefaultHandler2 {
                 if (g()) {
                     return null;
                 }
-                char charAt = this.a.charAt(this.f54861b);
+                char charAt = this.a.charAt(this.f55441b);
                 if (j(charAt) || charAt == c2) {
                     return null;
                 }
-                int i2 = this.f54861b;
+                int i2 = this.f55441b;
                 int a = a();
                 while (a != -1 && a != c2 && !j(a)) {
                     a = a();
                 }
-                return this.a.substring(i2, this.f54861b);
+                return this.a.substring(i2, this.f55441b);
             }
             return (String) invokeCommon.objValue;
         }
@@ -1629,17 +1628,17 @@ public class SVGParser extends DefaultHandler2 {
                 if (g()) {
                     return null;
                 }
-                if (this.a.charAt(this.f54861b) == '%') {
-                    this.f54861b++;
+                if (this.a.charAt(this.f55441b) == '%') {
+                    this.f55441b++;
                     return SVG.Unit.percent;
                 }
-                int i2 = this.f54861b;
-                if (i2 > this.f54862c - 2) {
+                int i2 = this.f55441b;
+                if (i2 > this.f55442c - 2) {
                     return null;
                 }
                 try {
                     SVG.Unit valueOf = SVG.Unit.valueOf(this.a.substring(i2, i2 + 2).toLowerCase(Locale.US));
-                    this.f54861b += 2;
+                    this.f55441b += 2;
                     return valueOf;
                 } catch (IllegalArgumentException unused) {
                     return null;
@@ -1653,9 +1652,9 @@ public class SVGParser extends DefaultHandler2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                 v();
-                float b2 = this.f54863d.b(this.a, this.f54861b, this.f54862c);
+                float b2 = this.f55443d.b(this.a, this.f55441b, this.f55442c);
                 if (!Float.isNaN(b2)) {
-                    this.f54861b = this.f54863d.a();
+                    this.f55441b = this.f55443d.a();
                 }
                 return b2;
             }
@@ -1669,8 +1668,8 @@ public class SVGParser extends DefaultHandler2 {
                 if (g()) {
                     return null;
                 }
-                int i2 = this.f54861b;
-                this.f54861b = this.f54862c;
+                int i2 = this.f55441b;
+                this.f55441b = this.f55442c;
                 return this.a.substring(i2);
             }
             return (String) invokeV.objValue;
@@ -1681,9 +1680,9 @@ public class SVGParser extends DefaultHandler2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
                 w();
-                int i2 = this.f54861b;
-                if (i2 != this.f54862c && this.a.charAt(i2) == ',') {
-                    this.f54861b++;
+                int i2 = this.f55441b;
+                if (i2 != this.f55442c && this.a.charAt(i2) == ',') {
+                    this.f55441b++;
                     w();
                     return true;
                 }
@@ -1698,11 +1697,11 @@ public class SVGParser extends DefaultHandler2 {
                 return;
             }
             while (true) {
-                int i2 = this.f54861b;
-                if (i2 >= this.f54862c || !j(this.a.charAt(i2))) {
+                int i2 = this.f55441b;
+                if (i2 >= this.f55442c || !j(this.a.charAt(i2))) {
                     return;
                 }
-                this.f54861b++;
+                this.f55441b++;
             }
         }
     }
@@ -1721,13 +1720,13 @@ public class SVGParser extends DefaultHandler2 {
             }
         }
         this.a = null;
-        this.f54849b = null;
-        this.f54850c = false;
-        this.f54852e = false;
-        this.f54853f = null;
-        this.f54854g = null;
-        this.f54855h = false;
-        this.f54856i = null;
+        this.f55429b = null;
+        this.f55430c = false;
+        this.f55432e = false;
+        this.f55433f = null;
+        this.f55434g = null;
+        this.f55435h = false;
+        this.f55436i = null;
     }
 
     public static void B0(SVG.Style style, String str, String str2) throws SAXException {
@@ -1735,42 +1734,42 @@ public class SVGParser extends DefaultHandler2 {
         if (!(interceptable == null || interceptable.invokeLLL(65537, null, style, str, str2) == null) || str2.length() == 0 || str2.equals("inherit")) {
             return;
         }
-        switch (a.f54860b[SVGAttr.fromString(str).ordinal()]) {
+        switch (a.f55440b[SVGAttr.fromString(str).ordinal()]) {
             case 47:
-                style.f54805f = h0(str2, "fill");
-                style.f54804e |= 1;
+                style.f55385f = h0(str2, "fill");
+                style.f55384e |= 1;
                 return;
             case 48:
-                style.f54806g = S(str2);
-                style.f54804e |= 2;
+                style.f55386g = S(str2);
+                style.f55384e |= 2;
                 return;
             case 49:
-                style.f54807h = Float.valueOf(f0(str2));
-                style.f54804e |= 4;
+                style.f55387h = Float.valueOf(f0(str2));
+                style.f55384e |= 4;
                 return;
             case 50:
-                style.f54808i = h0(str2, "stroke");
-                style.f54804e |= 8;
+                style.f55388i = h0(str2, "stroke");
+                style.f55384e |= 8;
                 return;
             case 51:
-                style.f54809j = Float.valueOf(f0(str2));
-                style.f54804e |= 16;
+                style.f55389j = Float.valueOf(f0(str2));
+                style.f55384e |= 16;
                 return;
             case 52:
-                style.f54810k = c0(str2);
-                style.f54804e |= 32;
+                style.f55390k = c0(str2);
+                style.f55384e |= 32;
                 return;
             case 53:
                 style.l = n0(str2);
-                style.f54804e |= 64;
+                style.f55384e |= 64;
                 return;
             case 54:
                 style.m = o0(str2);
-                style.f54804e |= 128;
+                style.f55384e |= 128;
                 return;
             case 55:
                 style.n = Float.valueOf(T(str2));
-                style.f54804e |= 256;
+                style.f55384e |= 256;
                 return;
             case 56:
                 if ("none".equals(str2)) {
@@ -1778,79 +1777,79 @@ public class SVGParser extends DefaultHandler2 {
                 } else {
                     style.o = m0(str2);
                 }
-                style.f54804e |= 512;
+                style.f55384e |= 512;
                 return;
             case 57:
                 style.p = c0(str2);
-                style.f54804e |= 1024;
+                style.f55384e |= 1024;
                 return;
             case 58:
                 style.q = Float.valueOf(f0(str2));
-                style.f54804e |= 2048;
+                style.f55384e |= 2048;
                 return;
             case 59:
                 style.r = P(str2);
-                style.f54804e |= 4096;
+                style.f55384e |= 4096;
                 return;
             case 60:
                 V(style, str2);
                 return;
             case 61:
                 style.s = W(str2);
-                style.f54804e |= 8192;
+                style.f55384e |= 8192;
                 return;
             case 62:
                 style.t = X(str2);
-                style.f54804e |= 16384;
+                style.f55384e |= 16384;
                 return;
             case 63:
                 style.u = Z(str2);
-                style.f54804e |= 32768;
+                style.f55384e |= 32768;
                 return;
             case 64:
                 style.v = Y(str2);
-                style.f54804e |= 65536;
+                style.f55384e |= 65536;
                 return;
             case 65:
                 style.w = s0(str2);
-                style.f54804e |= PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
+                style.f55384e |= PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
                 return;
             case 66:
                 style.x = t0(str2);
-                style.f54804e |= 68719476736L;
+                style.f55384e |= 68719476736L;
                 return;
             case 67:
                 style.y = r0(str2);
-                style.f54804e |= PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
+                style.f55384e |= PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
                 return;
             case 68:
                 style.z = g0(str2);
-                style.f54804e |= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED;
+                style.f55384e |= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED;
                 return;
             case 69:
                 String a0 = a0(str2, str);
                 style.B = a0;
                 style.C = a0;
                 style.D = a0;
-                style.f54804e |= 14680064;
+                style.f55384e |= 14680064;
                 return;
             case 70:
                 style.B = a0(str2, str);
-                style.f54804e |= 2097152;
+                style.f55384e |= 2097152;
                 return;
             case 71:
                 style.C = a0(str2, str);
-                style.f54804e |= 4194304;
+                style.f55384e |= 4194304;
                 return;
             case 72:
                 style.D = a0(str2, str);
-                style.f54804e |= 8388608;
+                style.f55384e |= 8388608;
                 return;
             case 73:
                 if (str2.indexOf(124) < 0) {
                     if ("|inline|block|list-item|run-in|compact|marker|table|inline-table|table-row-group|table-header-group|table-footer-group|table-row|table-column-group|table-column|table-cell|table-caption|none|".indexOf('|' + str2 + '|') != -1) {
                         style.E = Boolean.valueOf(!str2.equals("none"));
-                        style.f54804e |= 16777216;
+                        style.f55384e |= 16777216;
                         return;
                     }
                 }
@@ -1859,7 +1858,7 @@ public class SVGParser extends DefaultHandler2 {
                 if (str2.indexOf(124) < 0) {
                     if ("|visible|hidden|collapse|".indexOf('|' + str2 + '|') != -1) {
                         style.F = Boolean.valueOf(str2.equals(TKBase.VISIBILITY_VISIBLE));
-                        style.f54804e |= 33554432;
+                        style.f55384e |= 33554432;
                         return;
                     }
                 }
@@ -1870,27 +1869,27 @@ public class SVGParser extends DefaultHandler2 {
                 } else {
                     style.G = P(str2);
                 }
-                style.f54804e |= 67108864;
+                style.f55384e |= 67108864;
                 return;
             case 76:
                 style.H = Float.valueOf(f0(str2));
-                style.f54804e |= 134217728;
+                style.f55384e |= 134217728;
                 return;
             case 77:
                 style.A = O(str2);
-                style.f54804e |= 1048576;
+                style.f55384e |= 1048576;
                 return;
             case 78:
                 style.I = a0(str2, str);
-                style.f54804e |= AccountConstants.TYPE_MODIFY_NICKNAME;
+                style.f55384e |= AccountConstants.TYPE_MODIFY_NICKNAME;
                 return;
             case 79:
                 style.J = S(str2);
-                style.f54804e |= 536870912;
+                style.f55384e |= 536870912;
                 return;
             case 80:
                 style.K = a0(str2, str);
-                style.f54804e |= 1073741824;
+                style.f55384e |= 1073741824;
                 return;
             case 81:
                 if (str2.equals("currentColor")) {
@@ -1898,11 +1897,11 @@ public class SVGParser extends DefaultHandler2 {
                 } else {
                     style.L = P(str2);
                 }
-                style.f54804e |= 2147483648L;
+                style.f55384e |= 2147483648L;
                 return;
             case 82:
                 style.M = Float.valueOf(f0(str2));
-                style.f54804e |= 4294967296L;
+                style.f55384e |= 4294967296L;
                 return;
             case 83:
                 if (str2.equals("currentColor")) {
@@ -1910,15 +1909,15 @@ public class SVGParser extends DefaultHandler2 {
                 } else {
                     style.N = P(str2);
                 }
-                style.f54804e |= AnimatedStateListDrawableCompat.AnimatedStateListState.REVERSIBLE_FLAG_BIT;
+                style.f55384e |= AnimatedStateListDrawableCompat.AnimatedStateListState.REVERSIBLE_FLAG_BIT;
                 return;
             case 84:
                 style.O = Float.valueOf(f0(str2));
-                style.f54804e |= 17179869184L;
+                style.f55384e |= 17179869184L;
                 return;
             case 85:
                 style.P = v0(str2);
-                style.f54804e |= 34359738368L;
+                style.f55384e |= 34359738368L;
                 return;
             default:
                 return;
@@ -1929,7 +1928,7 @@ public class SVGParser extends DefaultHandler2 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (DebugKt.DEBUG_PROPERTY_VALUE_AUTO.equals(str)) {
+            if ("auto".equals(str)) {
                 return null;
             }
             if (str.toLowerCase(Locale.US).startsWith("rect(")) {
@@ -2116,7 +2115,7 @@ public class SVGParser extends DefaultHandler2 {
                 fontStyle = SVG.Style.FontStyle.Normal;
             }
             style.v = fontStyle;
-            style.f54804e |= 122880;
+            style.f55384e |= 122880;
         }
     }
 
@@ -2273,7 +2272,7 @@ public class SVGParser extends DefaultHandler2 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, fVar)) == null) {
-            if (fVar.f(DebugKt.DEBUG_PROPERTY_VALUE_AUTO)) {
+            if (fVar.f("auto")) {
                 return new SVG.o(0.0f);
             }
             return fVar.o();
@@ -2319,7 +2318,7 @@ public class SVGParser extends DefaultHandler2 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
-            if (!TKBase.VISIBILITY_VISIBLE.equals(str) && !DebugKt.DEBUG_PROPERTY_VALUE_AUTO.equals(str)) {
+            if (!TKBase.VISIBILITY_VISIBLE.equals(str) && !"auto".equals(str)) {
                 if (!TKBase.VISIBILITY_HIDDEN.equals(str) && !"scroll".equals(str)) {
                     throw new SAXException("Invalid toverflow property: " + str);
                 }
@@ -2752,10 +2751,10 @@ public class SVGParser extends DefaultHandler2 {
             }
             fVar.w();
             if (fVar.g() || fVar.e(';')) {
-                if (j0Var.f54838f == null) {
-                    j0Var.f54838f = new SVG.Style();
+                if (j0Var.f55418f == null) {
+                    j0Var.f55418f = new SVG.Style();
                 }
-                B0(j0Var.f54838f, r, r2);
+                B0(j0Var.f55418f, r, r2);
                 fVar.w();
             }
         }
@@ -2891,7 +2890,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048576, this, xVar, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                 if (i3 == 1) {
                     xVar.s = c0(trim);
                 } else if (i3 == 2) {
@@ -2945,16 +2944,16 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributes) == null) {
             d("<polyline>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.y yVar = new SVG.y();
                 yVar.a = this.a;
-                yVar.f54840b = this.f54849b;
+                yVar.f55420b = this.f55429b;
                 r(yVar, attributes);
                 G(yVar, attributes);
                 K(yVar, attributes);
                 q(yVar, attributes);
                 B(yVar, attributes, "polyline");
-                this.f54849b.i(yVar);
+                this.f55429b.i(yVar);
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3007,7 +3006,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048579, this, o0Var, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                 if (i3 == 35) {
                     o0Var.p = c0(trim);
                 } else if (i3 != 36) {
@@ -3037,16 +3036,16 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, attributes) == null) {
             d("<radialGradient>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.o0 o0Var = new SVG.o0();
                 o0Var.a = this.a;
-                o0Var.f54840b = this.f54849b;
+                o0Var.f55420b = this.f55429b;
                 r(o0Var, attributes);
                 G(o0Var, attributes);
                 t(o0Var, attributes);
                 C(o0Var, attributes);
-                this.f54849b.i(o0Var);
-                this.f54849b = o0Var;
+                this.f55429b.i(o0Var);
+                this.f55429b = o0Var;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3058,7 +3057,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048581, this, a0Var, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                 if (i3 == 1) {
                     a0Var.o = c0(trim);
                 } else if (i3 == 2) {
@@ -3098,16 +3097,16 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, attributes) == null) {
             d("<rect>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.a0 a0Var = new SVG.a0();
                 a0Var.a = this.a;
-                a0Var.f54840b = this.f54849b;
+                a0Var.f55420b = this.f55429b;
                 r(a0Var, attributes);
                 G(a0Var, attributes);
                 K(a0Var, attributes);
                 q(a0Var, attributes);
                 D(a0Var, attributes);
-                this.f54849b.i(a0Var);
+                this.f55429b.i(a0Var);
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3119,7 +3118,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048583, this, d0Var, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                 if (i3 == 1) {
                     d0Var.p = c0(trim);
                 } else if (i3 == 2) {
@@ -3147,14 +3146,14 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, attributes) == null) {
             d("<solidColor>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.b0 b0Var = new SVG.b0();
                 b0Var.a = this.a;
-                b0Var.f54840b = this.f54849b;
+                b0Var.f55420b = this.f55429b;
                 r(b0Var, attributes);
                 G(b0Var, attributes);
-                this.f54849b.i(b0Var);
-                this.f54849b = b0Var;
+                this.f55429b.i(b0Var);
+                this.f55429b = b0Var;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3166,8 +3165,8 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048585, this, c0Var, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                if (a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()] == 37) {
-                    c0Var.f54820h = b0(trim);
+                if (a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()] == 37) {
+                    c0Var.f55400h = b0(trim);
                 }
             }
         }
@@ -3177,17 +3176,17 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, attributes) == null) {
             d("<stop>", new Object[0]);
-            SVG.h0 h0Var = this.f54849b;
+            SVG.h0 h0Var = this.f55429b;
             if (h0Var != null) {
                 if (h0Var instanceof SVG.j) {
                     SVG.c0 c0Var = new SVG.c0();
                     c0Var.a = this.a;
-                    c0Var.f54840b = this.f54849b;
+                    c0Var.f55420b = this.f55429b;
                     r(c0Var, attributes);
                     G(c0Var, attributes);
                     F(c0Var, attributes);
-                    this.f54849b.i(c0Var);
-                    this.f54849b = c0Var;
+                    this.f55429b.i(c0Var);
+                    this.f55429b = c0Var;
                     return;
                 }
                 throw new SAXException("Invalid document. <stop> elements are only valid inside <linearGradiant> or <radialGradient> elements.");
@@ -3202,16 +3201,16 @@ public class SVGParser extends DefaultHandler2 {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
                 if (trim.length() != 0) {
-                    int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                    int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                     if (i3 == 45) {
                         p0(j0Var, trim);
                     } else if (i3 != 46) {
-                        if (j0Var.f54837e == null) {
-                            j0Var.f54837e = new SVG.Style();
+                        if (j0Var.f55417e == null) {
+                            j0Var.f55417e = new SVG.Style();
                         }
-                        B0(j0Var.f54837e, attributes.getLocalName(i2), attributes.getValue(i2).trim());
+                        B0(j0Var.f55417e, attributes.getLocalName(i2), attributes.getValue(i2).trim());
                     } else {
-                        j0Var.f54839g = CSSParser.f(trim);
+                        j0Var.f55419g = CSSParser.f(trim);
                     }
                 }
             }
@@ -3222,12 +3221,12 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, attributes) == null) {
             d("<style>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 String str = "all";
                 boolean z = true;
                 for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                     String trim = attributes.getValue(i2).trim();
-                    int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                    int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                     if (i3 == 87) {
                         z = trim.equals("text/css");
                     } else if (i3 == 88) {
@@ -3235,11 +3234,11 @@ public class SVGParser extends DefaultHandler2 {
                     }
                 }
                 if (z && CSSParser.b(str, CSSParser.MediaType.screen)) {
-                    this.f54855h = true;
+                    this.f55435h = true;
                     return;
                 }
-                this.f54850c = true;
-                this.f54851d = 1;
+                this.f55430c = true;
+                this.f55431d = 1;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3251,7 +3250,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048589, this, s0Var, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                if (a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()] == 6 && "http://www.w3.org/1999/xlink".equals(attributes.getURI(i2))) {
+                if (a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()] == 6 && "http://www.w3.org/1999/xlink".equals(attributes.getURI(i2))) {
                     s0Var.n = trim;
                 }
             }
@@ -3264,19 +3263,19 @@ public class SVGParser extends DefaultHandler2 {
             d("<svg>", new Object[0]);
             SVG.d0 d0Var = new SVG.d0();
             d0Var.a = this.a;
-            d0Var.f54840b = this.f54849b;
+            d0Var.f55420b = this.f55429b;
             r(d0Var, attributes);
             G(d0Var, attributes);
             q(d0Var, attributes);
             M(d0Var, attributes);
             E(d0Var, attributes);
-            SVG.h0 h0Var = this.f54849b;
+            SVG.h0 h0Var = this.f55429b;
             if (h0Var == null) {
                 this.a.p(d0Var);
             } else {
                 h0Var.i(d0Var);
             }
-            this.f54849b = d0Var;
+            this.f55429b = d0Var;
         }
     }
 
@@ -3285,7 +3284,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048591, this, x0Var, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                 if (i3 != 6) {
                     if (i3 == 39) {
                         x0Var.o = c0(trim);
@@ -3301,16 +3300,16 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, attributes) == null) {
             d("<symbol>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.p0 r0Var = new SVG.r0();
                 r0Var.a = this.a;
-                r0Var.f54840b = this.f54849b;
+                r0Var.f55420b = this.f55429b;
                 r(r0Var, attributes);
                 G(r0Var, attributes);
                 q(r0Var, attributes);
                 M(r0Var, attributes);
-                this.f54849b.i(r0Var);
-                this.f54849b = r0Var;
+                this.f55429b.i(r0Var);
+                this.f55429b = r0Var;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3322,7 +3321,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048593, this, y0Var, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                 if (i3 == 1) {
                     y0Var.n = d0(trim);
                 } else if (i3 == 2) {
@@ -3340,17 +3339,17 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, attributes) == null) {
             d("<text>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.u0 u0Var = new SVG.u0();
                 u0Var.a = this.a;
-                u0Var.f54840b = this.f54849b;
+                u0Var.f55420b = this.f55429b;
                 r(u0Var, attributes);
                 G(u0Var, attributes);
                 K(u0Var, attributes);
                 q(u0Var, attributes);
                 J(u0Var, attributes);
-                this.f54849b.i(u0Var);
-                this.f54849b = u0Var;
+                this.f55429b.i(u0Var);
+                this.f55429b = u0Var;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3372,17 +3371,17 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, attributes) == null) {
             d("<textPath>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.x0 x0Var = new SVG.x0();
                 x0Var.a = this.a;
-                x0Var.f54840b = this.f54849b;
+                x0Var.f55420b = this.f55429b;
                 r(x0Var, attributes);
                 G(x0Var, attributes);
                 q(x0Var, attributes);
                 I(x0Var, attributes);
-                this.f54849b.i(x0Var);
-                this.f54849b = x0Var;
-                SVG.h0 h0Var = x0Var.f54840b;
+                this.f55429b.i(x0Var);
+                this.f55429b = x0Var;
+                SVG.h0 h0Var = x0Var.f55420b;
                 if (h0Var instanceof SVG.z0) {
                     x0Var.n((SVG.z0) h0Var);
                     return;
@@ -3400,7 +3399,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048597, this, b1Var, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                 if (i3 == 1) {
                     b1Var.p = c0(trim);
                 } else if (i3 == 2) {
@@ -3430,18 +3429,18 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, attributes) == null) {
             d("<tref>", new Object[0]);
-            SVG.h0 h0Var = this.f54849b;
+            SVG.h0 h0Var = this.f55429b;
             if (h0Var != null) {
                 if (h0Var instanceof SVG.w0) {
                     SVG.s0 s0Var = new SVG.s0();
                     s0Var.a = this.a;
-                    s0Var.f54840b = this.f54849b;
+                    s0Var.f55420b = this.f55429b;
                     r(s0Var, attributes);
                     G(s0Var, attributes);
                     q(s0Var, attributes);
                     H(s0Var, attributes);
-                    this.f54849b.i(s0Var);
-                    SVG.h0 h0Var2 = s0Var.f54840b;
+                    this.f55429b.i(s0Var);
+                    SVG.h0 h0Var2 = s0Var.f55420b;
                     if (h0Var2 instanceof SVG.z0) {
                         s0Var.n((SVG.z0) h0Var2);
                         return;
@@ -3461,7 +3460,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048599, this, p0Var, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                 if (i3 == 7) {
                     j0(p0Var, trim);
                 } else if (i3 == 86) {
@@ -3475,19 +3474,19 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, attributes) == null) {
             d("<tspan>", new Object[0]);
-            SVG.h0 h0Var = this.f54849b;
+            SVG.h0 h0Var = this.f55429b;
             if (h0Var != null) {
                 if (h0Var instanceof SVG.w0) {
                     SVG.t0 t0Var = new SVG.t0();
                     t0Var.a = this.a;
-                    t0Var.f54840b = this.f54849b;
+                    t0Var.f55420b = this.f55429b;
                     r(t0Var, attributes);
                     G(t0Var, attributes);
                     q(t0Var, attributes);
                     J(t0Var, attributes);
-                    this.f54849b.i(t0Var);
-                    this.f54849b = t0Var;
-                    SVG.h0 h0Var2 = t0Var.f54840b;
+                    this.f55429b.i(t0Var);
+                    this.f55429b = t0Var;
+                    SVG.h0 h0Var2 = t0Var.f55420b;
                     if (h0Var2 instanceof SVG.z0) {
                         t0Var.n((SVG.z0) h0Var2);
                         return;
@@ -3513,17 +3512,17 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, attributes) == null) {
             d("<use>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.b1 b1Var = new SVG.b1();
                 b1Var.a = this.a;
-                b1Var.f54840b = this.f54849b;
+                b1Var.f55420b = this.f55429b;
                 r(b1Var, attributes);
                 G(b1Var, attributes);
                 K(b1Var, attributes);
                 q(b1Var, attributes);
                 L(b1Var, attributes);
-                this.f54849b.i(b1Var);
-                this.f54849b = b1Var;
+                this.f55429b.i(b1Var);
+                this.f55429b = b1Var;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3534,15 +3533,15 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, attributes) == null) {
             d("<view>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.p0 c1Var = new SVG.c1();
                 c1Var.a = this.a;
-                c1Var.f54840b = this.f54849b;
+                c1Var.f55420b = this.f55429b;
                 r(c1Var, attributes);
                 q(c1Var, attributes);
                 M(c1Var, attributes);
-                this.f54849b.i(c1Var);
-                this.f54849b = c1Var;
+                this.f55429b.i(c1Var);
+                this.f55429b = c1Var;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3553,16 +3552,16 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, attributes) == null) {
             d("<switch>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.q0 q0Var = new SVG.q0();
                 q0Var.a = this.a;
-                q0Var.f54840b = this.f54849b;
+                q0Var.f55420b = this.f55429b;
                 r(q0Var, attributes);
                 G(q0Var, attributes);
                 K(q0Var, attributes);
                 q(q0Var, attributes);
-                this.f54849b.i(q0Var);
-                this.f54849b = q0Var;
+                this.f55429b.i(q0Var);
+                this.f55429b = q0Var;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3573,16 +3572,16 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, attributes) == null) {
             d("<circle>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.d dVar = new SVG.d();
                 dVar.a = this.a;
-                dVar.f54840b = this.f54849b;
+                dVar.f55420b = this.f55429b;
                 r(dVar, attributes);
                 G(dVar, attributes);
                 K(dVar, attributes);
                 q(dVar, attributes);
                 o(dVar, attributes);
-                this.f54849b.i(dVar);
+                this.f55429b.i(dVar);
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3626,17 +3625,17 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, attributes) == null) {
             d("<clipPath>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.e eVar = new SVG.e();
                 eVar.a = this.a;
-                eVar.f54840b = this.f54849b;
+                eVar.f55420b = this.f55429b;
                 r(eVar, attributes);
                 G(eVar, attributes);
                 K(eVar, attributes);
                 q(eVar, attributes);
                 p(eVar, attributes);
-                this.f54849b.i(eVar);
-                this.f54849b = eVar;
+                this.f55429b.i(eVar);
+                this.f55429b = eVar;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3646,34 +3645,34 @@ public class SVGParser extends DefaultHandler2 {
     @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
     public void characters(char[] cArr, int i2, int i3) throws SAXException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048608, this, cArr, i2, i3) == null) || this.f54850c) {
+        if (!(interceptable == null || interceptable.invokeLII(1048608, this, cArr, i2, i3) == null) || this.f55430c) {
             return;
         }
-        if (this.f54852e) {
-            if (this.f54854g == null) {
-                this.f54854g = new StringBuilder(i3);
+        if (this.f55432e) {
+            if (this.f55434g == null) {
+                this.f55434g = new StringBuilder(i3);
             }
-            this.f54854g.append(cArr, i2, i3);
-        } else if (this.f54855h) {
-            if (this.f54856i == null) {
-                this.f54856i = new StringBuilder(i3);
+            this.f55434g.append(cArr, i2, i3);
+        } else if (this.f55435h) {
+            if (this.f55436i == null) {
+                this.f55436i = new StringBuilder(i3);
             }
-            this.f54856i.append(cArr, i2, i3);
+            this.f55436i.append(cArr, i2, i3);
         } else {
-            SVG.h0 h0Var = this.f54849b;
+            SVG.h0 h0Var = this.f55429b;
             if (h0Var instanceof SVG.w0) {
                 SVG.f0 f0Var = (SVG.f0) h0Var;
-                int size = f0Var.f54823i.size();
-                SVG.l0 l0Var = size == 0 ? null : f0Var.f54823i.get(size - 1);
+                int size = f0Var.f55403i.size();
+                SVG.l0 l0Var = size == 0 ? null : f0Var.f55403i.get(size - 1);
                 if (l0Var instanceof SVG.a1) {
                     StringBuilder sb = new StringBuilder();
                     SVG.a1 a1Var = (SVG.a1) l0Var;
-                    sb.append(a1Var.f54811c);
+                    sb.append(a1Var.f55391c);
                     sb.append(new String(cArr, i2, i3));
-                    a1Var.f54811c = sb.toString();
+                    a1Var.f55391c = sb.toString();
                     return;
                 }
-                ((SVG.f0) this.f54849b).i(new SVG.a1(new String(cArr, i2, i3)));
+                ((SVG.f0) this.f55429b).i(new SVG.a1(new String(cArr, i2, i3)));
             }
         }
     }
@@ -3681,11 +3680,11 @@ public class SVGParser extends DefaultHandler2 {
     @Override // org.xml.sax.ext.DefaultHandler2, org.xml.sax.ext.LexicalHandler
     public void comment(char[] cArr, int i2, int i3) throws SAXException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048609, this, cArr, i2, i3) == null) && !this.f54850c && this.f54855h) {
-            if (this.f54856i == null) {
-                this.f54856i = new StringBuilder(i3);
+        if ((interceptable == null || interceptable.invokeLII(1048609, this, cArr, i2, i3) == null) && !this.f55430c && this.f55435h) {
+            if (this.f55436i == null) {
+                this.f55436i = new StringBuilder(i3);
             }
-            this.f54856i.append(cArr, i2, i3);
+            this.f55436i.append(cArr, i2, i3);
         }
     }
 
@@ -3699,15 +3698,15 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, attributes) == null) {
             d("<defs>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.h hVar = new SVG.h();
                 hVar.a = this.a;
-                hVar.f54840b = this.f54849b;
+                hVar.f55420b = this.f55429b;
                 r(hVar, attributes);
                 G(hVar, attributes);
                 K(hVar, attributes);
-                this.f54849b.i(hVar);
-                this.f54849b = hVar;
+                this.f55429b.i(hVar);
+                this.f55429b = hVar;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3725,11 +3724,11 @@ public class SVGParser extends DefaultHandler2 {
     public void endElement(String str, String str2, String str3) throws SAXException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048613, this, str, str2, str3) == null) {
-            if (this.f54850c) {
-                int i2 = this.f54851d - 1;
-                this.f54851d = i2;
+            if (this.f55430c) {
+                int i2 = this.f55431d - 1;
+                this.f55431d = i2;
                 if (i2 == 0) {
-                    this.f54850c = false;
+                    this.f55430c = false;
                     return;
                 }
             }
@@ -3753,21 +3752,21 @@ public class SVGParser extends DefaultHandler2 {
                             break;
                         case 22:
                         case 23:
-                            this.f54852e = false;
-                            SVGElem sVGElem = this.f54853f;
+                            this.f55432e = false;
+                            SVGElem sVGElem = this.f55433f;
                             if (sVGElem == SVGElem.title) {
-                                this.a.q(this.f54854g.toString());
+                                this.a.q(this.f55434g.toString());
                             } else if (sVGElem == SVGElem.desc) {
-                                this.a.o(this.f54854g.toString());
+                                this.a.o(this.f55434g.toString());
                             }
-                            this.f54854g.setLength(0);
+                            this.f55434g.setLength(0);
                             return;
                         case 30:
-                            StringBuilder sb = this.f54856i;
+                            StringBuilder sb = this.f55436i;
                             if (sb != null) {
-                                this.f54855h = false;
+                                this.f55435h = false;
                                 N(sb.toString());
-                                this.f54856i.setLength(0);
+                                this.f55436i.setLength(0);
                                 return;
                             }
                             return;
@@ -3775,7 +3774,7 @@ public class SVGParser extends DefaultHandler2 {
                             return;
                     }
                 }
-                this.f54849b = ((SVG.l0) this.f54849b).f54840b;
+                this.f55429b = ((SVG.l0) this.f55429b).f55420b;
             }
         }
     }
@@ -3784,16 +3783,16 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, attributes) == null) {
             d("<ellipse>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.i iVar = new SVG.i();
                 iVar.a = this.a;
-                iVar.f54840b = this.f54849b;
+                iVar.f55420b = this.f55429b;
                 r(iVar, attributes);
                 G(iVar, attributes);
                 K(iVar, attributes);
                 q(iVar, attributes);
                 s(iVar, attributes);
-                this.f54849b.i(iVar);
+                this.f55429b.i(iVar);
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3804,16 +3803,16 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, attributes) == null) {
             d("<g>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.l lVar = new SVG.l();
                 lVar.a = this.a;
-                lVar.f54840b = this.f54849b;
+                lVar.f55420b = this.f55429b;
                 r(lVar, attributes);
                 G(lVar, attributes);
                 K(lVar, attributes);
                 q(lVar, attributes);
-                this.f54849b.i(lVar);
-                this.f54849b = lVar;
+                this.f55429b.i(lVar);
+                this.f55429b = lVar;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3824,17 +3823,17 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, attributes) == null) {
             d("<image>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.n nVar = new SVG.n();
                 nVar.a = this.a;
-                nVar.f54840b = this.f54849b;
+                nVar.f55420b = this.f55429b;
                 r(nVar, attributes);
                 G(nVar, attributes);
                 K(nVar, attributes);
                 q(nVar, attributes);
                 u(nVar, attributes);
-                this.f54849b.i(nVar);
-                this.f54849b = nVar;
+                this.f55429b.i(nVar);
+                this.f55429b = nVar;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3845,16 +3844,16 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, attributes) == null) {
             d("<line>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.p pVar = new SVG.p();
                 pVar.a = this.a;
-                pVar.f54840b = this.f54849b;
+                pVar.f55420b = this.f55429b;
                 r(pVar, attributes);
                 G(pVar, attributes);
                 K(pVar, attributes);
                 q(pVar, attributes);
                 v(pVar, attributes);
-                this.f54849b.i(pVar);
+                this.f55429b.i(pVar);
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3865,16 +3864,16 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, attributes) == null) {
             d("<linearGradiant>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.k0 k0Var = new SVG.k0();
                 k0Var.a = this.a;
-                k0Var.f54840b = this.f54849b;
+                k0Var.f55420b = this.f55429b;
                 r(k0Var, attributes);
                 G(k0Var, attributes);
                 t(k0Var, attributes);
                 w(k0Var, attributes);
-                this.f54849b.i(k0Var);
-                this.f54849b = k0Var;
+                this.f55429b.i(k0Var);
+                this.f55429b = k0Var;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3885,17 +3884,17 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, attributes) == null) {
             d("<marker>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.q qVar = new SVG.q();
                 qVar.a = this.a;
-                qVar.f54840b = this.f54849b;
+                qVar.f55420b = this.f55429b;
                 r(qVar, attributes);
                 G(qVar, attributes);
                 q(qVar, attributes);
                 M(qVar, attributes);
                 x(qVar, attributes);
-                this.f54849b.i(qVar);
-                this.f54849b = qVar;
+                this.f55429b.i(qVar);
+                this.f55429b = qVar;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3906,16 +3905,16 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, attributes) == null) {
             d("<mask>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.r rVar = new SVG.r();
                 rVar.a = this.a;
-                rVar.f54840b = this.f54849b;
+                rVar.f55420b = this.f55429b;
                 r(rVar, attributes);
                 G(rVar, attributes);
                 q(rVar, attributes);
                 y(rVar, attributes);
-                this.f54849b.i(rVar);
-                this.f54849b = rVar;
+                this.f55429b.i(rVar);
+                this.f55429b = rVar;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -3972,7 +3971,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048622, this, dVar, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                switch (a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()]) {
+                switch (a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()]) {
                     case 12:
                         dVar.o = c0(trim);
                         break;
@@ -3996,7 +3995,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048623, this, eVar, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                if (a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()] == 38) {
+                if (a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()] == 38) {
                     if ("objectBoundingBox".equals(trim)) {
                         eVar.o = Boolean.FALSE;
                     } else if ("userSpaceOnUse".equals(trim)) {
@@ -4014,7 +4013,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048624, this, e0Var, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                switch (a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()]) {
+                switch (a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()]) {
                     case 21:
                         e0Var.g(k0(trim));
                         break;
@@ -4045,17 +4044,17 @@ public class SVGParser extends DefaultHandler2 {
                     if (qName.equals("xml:space")) {
                         String trim = attributes.getValue(i2).trim();
                         if ("default".equals(trim)) {
-                            j0Var.f54836d = Boolean.FALSE;
+                            j0Var.f55416d = Boolean.FALSE;
                             return;
                         } else if ("preserve".equals(trim)) {
-                            j0Var.f54836d = Boolean.TRUE;
+                            j0Var.f55416d = Boolean.TRUE;
                             return;
                         } else {
                             throw new SAXException("Invalid value for \"xml:space\" attribute: " + trim);
                         }
                     }
                 } else {
-                    j0Var.f54835c = attributes.getValue(i2).trim();
+                    j0Var.f55415c = attributes.getValue(i2).trim();
                     return;
                 }
             }
@@ -4067,7 +4066,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048626, this, iVar, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                switch (a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()]) {
+                switch (a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()]) {
                     case 10:
                         SVG.o c0 = c0(trim);
                         iVar.q = c0;
@@ -4105,8 +4104,8 @@ public class SVGParser extends DefaultHandler2 {
     public void startElement(String str, String str2, String str3, Attributes attributes) throws SAXException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048628, this, str, str2, str3, attributes) == null) {
-            if (this.f54850c) {
-                this.f54851d++;
+            if (this.f55430c) {
+                this.f55431d++;
             } else if ("http://www.w3.org/2000/svg".equals(str) || "".equals(str)) {
                 SVGElem fromString = SVGElem.fromString(str2);
                 switch (a.a[fromString.ordinal()]) {
@@ -4173,8 +4172,8 @@ public class SVGParser extends DefaultHandler2 {
                         return;
                     case 22:
                     case 23:
-                        this.f54852e = true;
-                        this.f54853f = fromString;
+                        this.f55432e = true;
+                        this.f55433f = fromString;
                         return;
                     case 24:
                         c(attributes);
@@ -4201,8 +4200,8 @@ public class SVGParser extends DefaultHandler2 {
                         E0(attributes);
                         return;
                     default:
-                        this.f54850c = true;
-                        this.f54851d = 1;
+                        this.f55430c = true;
+                        this.f55431d = 1;
                         return;
                 }
             }
@@ -4220,25 +4219,25 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048629, this, jVar, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                 if (i3 != 6) {
                     switch (i3) {
                         case 32:
                             if ("objectBoundingBox".equals(trim)) {
-                                jVar.f54832i = Boolean.FALSE;
+                                jVar.f55412i = Boolean.FALSE;
                                 continue;
                             } else if ("userSpaceOnUse".equals(trim)) {
-                                jVar.f54832i = Boolean.TRUE;
+                                jVar.f55412i = Boolean.TRUE;
                                 break;
                             } else {
                                 throw new SAXException("Invalid value for attribute gradientUnits");
                             }
                         case 33:
-                            jVar.f54833j = u0(trim);
+                            jVar.f55413j = u0(trim);
                             continue;
                         case 34:
                             try {
-                                jVar.f54834k = SVG.GradientSpread.valueOf(trim);
+                                jVar.f55414k = SVG.GradientSpread.valueOf(trim);
                                 continue;
                             } catch (IllegalArgumentException unused) {
                                 throw new SAXException("Invalid spreadMethod attribute. \"" + trim + "\" is not a valid value.");
@@ -4256,7 +4255,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048630, this, nVar, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                 if (i3 == 1) {
                     nVar.p = c0(trim);
                 } else if (i3 == 2) {
@@ -4399,7 +4398,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048632, this, pVar, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                switch (a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()]) {
+                switch (a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()]) {
                     case 15:
                         pVar.o = c0(trim);
                         break;
@@ -4422,7 +4421,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048633, this, k0Var, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                switch (a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()]) {
+                switch (a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()]) {
                     case 15:
                         k0Var.m = c0(trim);
                         break;
@@ -4445,7 +4444,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048634, this, qVar, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                switch (a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()]) {
+                switch (a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()]) {
                     case 26:
                         qVar.q = c0(trim);
                         break;
@@ -4477,7 +4476,7 @@ public class SVGParser extends DefaultHandler2 {
                             throw new SAXException("Invalid value for attribute markerUnits");
                         }
                     case 31:
-                        if (DebugKt.DEBUG_PROPERTY_VALUE_AUTO.equals(trim)) {
+                        if ("auto".equals(trim)) {
                             qVar.u = Float.valueOf(Float.NaN);
                             break;
                         } else {
@@ -4493,16 +4492,16 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048635, this, attributes) == null) {
             d("<path>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.u uVar = new SVG.u();
                 uVar.a = this.a;
-                uVar.f54840b = this.f54849b;
+                uVar.f55420b = this.f55429b;
                 r(uVar, attributes);
                 G(uVar, attributes);
                 K(uVar, attributes);
                 q(uVar, attributes);
                 z(uVar, attributes);
-                this.f54849b.i(uVar);
+                this.f55429b.i(uVar);
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -4514,7 +4513,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048636, this, rVar, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                 if (i3 == 1) {
                     rVar.p = c0(trim);
                 } else if (i3 == 2) {
@@ -4556,17 +4555,17 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048637, this, attributes) == null) {
             d("<pattern>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.x xVar = new SVG.x();
                 xVar.a = this.a;
-                xVar.f54840b = this.f54849b;
+                xVar.f55420b = this.f55429b;
                 r(xVar, attributes);
                 G(xVar, attributes);
                 q(xVar, attributes);
                 M(xVar, attributes);
                 A(xVar, attributes);
-                this.f54849b.i(xVar);
-                this.f54849b = xVar;
+                this.f55429b.i(xVar);
+                this.f55429b = xVar;
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");
@@ -4578,7 +4577,7 @@ public class SVGParser extends DefaultHandler2 {
         if (interceptable == null || interceptable.invokeLL(1048638, this, uVar, attributes) == null) {
             for (int i2 = 0; i2 < attributes.getLength(); i2++) {
                 String trim = attributes.getValue(i2).trim();
-                int i3 = a.f54860b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
+                int i3 = a.f55440b[SVGAttr.fromString(attributes.getLocalName(i2)).ordinal()];
                 if (i3 == 8) {
                     uVar.o = i0(trim);
                 } else if (i3 != 9) {
@@ -4598,16 +4597,16 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048639, this, attributes) == null) {
             d("<polygon>", new Object[0]);
-            if (this.f54849b != null) {
+            if (this.f55429b != null) {
                 SVG.y zVar = new SVG.z();
                 zVar.a = this.a;
-                zVar.f54840b = this.f54849b;
+                zVar.f55420b = this.f55429b;
                 r(zVar, attributes);
                 G(zVar, attributes);
                 K(zVar, attributes);
                 q(zVar, attributes);
                 B(zVar, attributes, "polygon");
-                this.f54849b.i(zVar);
+                this.f55429b.i(zVar);
                 return;
             }
             throw new SAXException("Invalid document. Root element must be <svg>");

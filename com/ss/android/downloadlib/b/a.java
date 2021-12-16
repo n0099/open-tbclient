@@ -19,7 +19,7 @@ import com.ss.android.download.api.model.DeepLink;
 import com.ss.android.downloadad.api.download.AdDownloadModel;
 import com.ss.android.downloadlib.g.l;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, eVar)) == null) {
-            DeepLink deepLink = eVar.f61223b.getDeepLink();
+            DeepLink deepLink = eVar.f61804b.getDeepLink();
             String openUrl = deepLink == null ? null : deepLink.getOpenUrl();
             JSONObject a = com.ss.android.downloadlib.g.f.a(new JSONObject(), eVar);
             l.a(a, "applink_source", "click_by_sdk");
@@ -39,11 +39,11 @@ public class a {
                 if (!TextUtils.isEmpty(openUrl)) {
                     b("by_url", a2, a, eVar);
                 }
-                a2 = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), eVar.f61223b.getPackageName(), eVar);
+                a2 = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), eVar.f61804b.getPackageName(), eVar);
             }
             boolean z2 = false;
             if (a(eVar.a) && com.ss.android.downloadlib.addownload.j.i().optInt("link_ad_click_event") == 1) {
-                DownloadModel downloadModel = eVar.f61223b;
+                DownloadModel downloadModel = eVar.f61804b;
                 if (downloadModel instanceof AdDownloadModel) {
                     ((AdDownloadModel) downloadModel).setFunnelType(4);
                 }
@@ -63,7 +63,7 @@ public class a {
                 } else {
                     a("by_package", a2, a, eVar);
                 }
-                if (z2 && !z && ((com.ss.android.downloadlib.d.c.a().b() && !com.ss.android.downloadlib.d.c.a().b(eVar.a, eVar.f61223b.getLogExtra())) || com.ss.android.downloadlib.d.c.a().c())) {
+                if (z2 && !z && ((com.ss.android.downloadlib.d.c.a().b() && !com.ss.android.downloadlib.d.c.a().b(eVar.a, eVar.f61804b.getLogExtra())) || com.ss.android.downloadlib.d.c.a().c())) {
                     com.ss.android.downloadlib.d.a.a().a(eVar.a, 2);
                 }
                 return z2;
@@ -155,7 +155,7 @@ public class a {
                         public final /* synthetic */ JSONObject a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ com.ss.android.downloadad.api.a.a f61348b;
+                        public final /* synthetic */ com.ss.android.downloadad.api.a.a f61929b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -173,16 +173,16 @@ public class a {
                                 }
                             }
                             this.a = jSONObject;
-                            this.f61348b = aVar;
+                            this.f61929b = aVar;
                         }
 
                         @Override // com.ss.android.downloadlib.b.d
                         public void a(boolean z) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                                com.ss.android.downloadlib.d.a.a().b(z ? "deeplink_success" : "deeplink_failed", this.a, this.f61348b);
+                                com.ss.android.downloadlib.d.a.a().b(z ? "deeplink_success" : "deeplink_failed", this.a, this.f61929b);
                                 if (z) {
-                                    com.ss.android.downloadlib.addownload.j.t().a(com.ss.android.downloadlib.addownload.j.getContext(), this.f61348b.u(), this.f61348b.w(), this.f61348b.v(), this.f61348b.e(), 0);
+                                    com.ss.android.downloadlib.addownload.j.t().a(com.ss.android.downloadlib.addownload.j.getContext(), this.f61929b.u(), this.f61929b.w(), this.f61929b.v(), this.f61929b.e(), 0);
                                 }
                             }
                         }
@@ -317,7 +317,7 @@ public class a {
                         public final /* synthetic */ JSONObject a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ com.ss.android.downloadad.api.a.a f61347b;
+                        public final /* synthetic */ com.ss.android.downloadad.api.a.a f61928b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -335,16 +335,16 @@ public class a {
                                 }
                             }
                             this.a = jSONObject;
-                            this.f61347b = aVar;
+                            this.f61928b = aVar;
                         }
 
                         @Override // com.ss.android.downloadlib.b.d
                         public void a(boolean z) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                                com.ss.android.downloadlib.d.a.a().b(z ? "deeplink_success" : "deeplink_failed", this.a, this.f61347b);
+                                com.ss.android.downloadlib.d.a.a().b(z ? "deeplink_success" : "deeplink_failed", this.a, this.f61928b);
                                 if (z) {
-                                    com.ss.android.downloadlib.addownload.j.t().a(com.ss.android.downloadlib.addownload.j.getContext(), this.f61347b.u(), this.f61347b.w(), this.f61347b.v(), this.f61347b.e(), 0);
+                                    com.ss.android.downloadlib.addownload.j.t().a(com.ss.android.downloadlib.addownload.j.getContext(), this.f61928b.u(), this.f61928b.w(), this.f61928b.v(), this.f61928b.e(), 0);
                                 }
                             }
                         }
@@ -373,7 +373,7 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             l.a(jSONObject, "download_scene", Integer.valueOf(eVar.t()));
             com.ss.android.downloadlib.d.a.a().b("market_click_open", jSONObject, eVar);
-            com.ss.android.downloadlib.addownload.b.g a = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), eVar, eVar.f61223b.getPackageName());
+            com.ss.android.downloadlib.addownload.b.g a = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), eVar, eVar.f61804b.getPackageName());
             String a2 = l.a(a.b(), "open_market");
             int type = a.getType();
             if (type == 5) {
@@ -415,10 +415,10 @@ public class a {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ com.ss.android.downloadlib.addownload.b.e f61349b;
+                    public final /* synthetic */ com.ss.android.downloadlib.addownload.b.e f61930b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ JSONObject f61350c;
+                    public final /* synthetic */ JSONObject f61931c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -436,8 +436,8 @@ public class a {
                             }
                         }
                         this.a = str;
-                        this.f61349b = eVar;
-                        this.f61350c = jSONObject;
+                        this.f61930b = eVar;
+                        this.f61931c = jSONObject;
                     }
 
                     @Override // com.ss.android.downloadlib.b.d
@@ -446,23 +446,23 @@ public class a {
                         if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z2) == null) {
                             if (!z2 && !"open_market".equals(this.a)) {
                                 Context context = com.ss.android.downloadlib.addownload.j.getContext();
-                                a.a(com.ss.android.downloadlib.g.i.a(context, Uri.parse(BaseConstants.MARKET_PREFIX + this.f61349b.e())), this.f61349b, false);
+                                a.a(com.ss.android.downloadlib.g.i.a(context, Uri.parse(BaseConstants.MARKET_PREFIX + this.f61930b.e())), this.f61930b, false);
                             }
-                            com.ss.android.downloadlib.d.a.a().a(z2 ? "market_delay_success" : "market_delay_failed", this.f61350c, this.f61349b);
+                            com.ss.android.downloadlib.d.a.a().a(z2 ? "market_delay_success" : "market_delay_failed", this.f61931c, this.f61930b);
                             if (z2) {
                                 r t = com.ss.android.downloadlib.addownload.j.t();
                                 Context context2 = com.ss.android.downloadlib.addownload.j.getContext();
-                                com.ss.android.downloadlib.addownload.b.e eVar2 = this.f61349b;
-                                DownloadModel downloadModel = eVar2.f61223b;
-                                t.a(context2, downloadModel, eVar2.f61225d, eVar2.f61224c, downloadModel.getPackageName(), 2);
+                                com.ss.android.downloadlib.addownload.b.e eVar2 = this.f61930b;
+                                DownloadModel downloadModel = eVar2.f61804b;
+                                t.a(context2, downloadModel, eVar2.f61806d, eVar2.f61805c, downloadModel.getPackageName(), 2);
                             }
                         }
                     }
                 });
             } else {
-                com.ss.android.downloadlib.addownload.j.b().a(com.ss.android.downloadlib.addownload.j.getContext(), eVar.f61223b, eVar.f61225d, eVar.f61224c, eVar.f61223b.getPackageName(), str);
+                com.ss.android.downloadlib.addownload.j.b().a(com.ss.android.downloadlib.addownload.j.getContext(), eVar.f61804b, eVar.f61806d, eVar.f61805c, eVar.f61804b.getPackageName(), str);
             }
-            com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f61223b, eVar.f61224c, eVar.f61225d);
+            com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f61804b, eVar.f61805c, eVar.f61806d);
             bVar.e(2);
             bVar.f(System.currentTimeMillis());
             bVar.h(4);

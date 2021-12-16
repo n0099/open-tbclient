@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUILD_TYPE = "release";
@@ -13,7 +13,11 @@ public final class BuildConfig {
     public static final boolean IS_BUSINESS_VERSION = false;
     public static final String LIBRARY_PACKAGE_NAME = "com.dxmpay.walletsdk.core";
     public static final int VERSION_CODE = -1;
-    public static final String VERSION_NAME = "9.4.5.108";
+    public static final String VERSION_NAME = "9.5.0.114";
+    public static final boolean hasBankCardDetection = true;
+    public static final boolean hasFaceEntry = false;
+    public static final boolean hasLivenessDetect = false;
+    public static final boolean hasNfcKyc = false;
     public static final boolean hasOcrDetect = false;
     public static final boolean hasSdkAsPlugin = false;
     public static final boolean isFaceSDKindependent = false;
@@ -21,7 +25,7 @@ public final class BuildConfig {
     public static final String sChannelId = "tieba";
     public static final boolean sDebugStatus = false;
     public static final boolean sMtjDbg = false;
-    public static final String sSdkVersion = "9.4.5.108";
+    public static final String sSdkVersion = "9.5.0.114";
     public transient /* synthetic */ FieldHolder $fh;
 
     public BuildConfig() {

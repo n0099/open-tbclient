@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AdResultData";
@@ -206,7 +206,7 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
                         a aVar = new a();
                         this.entryInfo = aVar;
                         aVar.parseJson(optJSONObject2);
-                        this.entryInfo.f57819k = this.adTemplateList;
+                        this.entryInfo.f58400k = this.adTemplateList;
                     }
                 } catch (Exception e3) {
                     com.kwad.sdk.core.d.a.a(e3);

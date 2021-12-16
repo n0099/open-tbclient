@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ConfigVersion extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_PLUGIN = "";
@@ -17,17 +17,17 @@ public final class ConfigVersion extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
 
     /* renamed from: plugin  reason: collision with root package name */
-    public final String f64313plugin;
+    public final String f64884plugin;
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String sync;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder extends Message.Builder<ConfigVersion> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: plugin  reason: collision with root package name */
-        public String f64314plugin;
+        public String f64885plugin;
         public String sync;
 
         public Builder() {
@@ -66,7 +66,7 @@ public final class ConfigVersion extends Message {
                 return;
             }
             this.sync = configVersion.sync;
-            this.f64314plugin = configVersion.f64313plugin;
+            this.f64885plugin = configVersion.f64884plugin;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public final class ConfigVersion extends Message {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,16 +113,16 @@ public final class ConfigVersion extends Message {
             } else {
                 this.sync = str;
             }
-            String str2 = builder.f64314plugin;
+            String str2 = builder.f64885plugin;
             if (str2 == null) {
-                this.f64313plugin = "";
+                this.f64884plugin = "";
                 return;
             } else {
-                this.f64313plugin = str2;
+                this.f64884plugin = str2;
                 return;
             }
         }
         this.sync = builder.sync;
-        this.f64313plugin = builder.f64314plugin;
+        this.f64884plugin = builder.f64885plugin;
     }
 }

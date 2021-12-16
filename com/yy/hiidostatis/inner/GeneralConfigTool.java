@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.TreeSet;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GeneralConfigTool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CODE = "code";

@@ -2,7 +2,7 @@ package com.baidu.nadcore.download.view;
 
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import c.a.b0.g.f.i;
+import c.a.c0.g.f.i;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IDownloadViewCreator {
     public static final ServiceReference a = new ServiceReference("nad.core", "downloadview");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final IDownloadViewCreator f37571b = new a();
+    public static final IDownloadViewCreator f38060b = new a();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class ViewType {
         public static final /* synthetic */ ViewType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -82,7 +82,7 @@ public interface IDownloadViewCreator {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements IDownloadViewCreator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +123,7 @@ public interface IDownloadViewCreator {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;

@@ -16,25 +16,25 @@ import com.qq.e.comm.pi.NEADVI;
 import com.qq.e.comm.pi.POFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f60738g;
+    public volatile boolean f61319g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f60739h;
+    public volatile boolean f61320h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NativeExpressMediaListener f60740i;
+    public NativeExpressMediaListener f61321i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f60741j;
+    public volatile boolean f61322j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final NEADI f60742k;
+    public final NEADI f61323k;
     public final NEADVI l;
     public final NativeExpressADData2 m;
     public ADSize n;
@@ -58,11 +58,11 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
                 return;
             }
         }
-        this.f60738g = false;
-        this.f60739h = false;
-        this.f60741j = false;
+        this.f61319g = false;
+        this.f61320h = false;
+        this.f61322j = false;
         this.q = nativeExpressADView;
-        this.f60742k = neadi;
+        this.f61323k = neadi;
         this.l = neadvi;
         this.m = nativeExpressADData2;
         this.n = aDSize;
@@ -74,7 +74,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public NEADVI a(Context context, POFactory pOFactory, String str, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, pOFactory, str, str2)) == null) ? pOFactory.getNativeExpressADView(this.f60742k, this.l, this.m, context, this.q, this.n, str, str2, this.o, this.p) : (NEADVI) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, pOFactory, str, str2)) == null) ? pOFactory.getNativeExpressADView(this.f61323k, this.l, this.m, context, this.q, this.n, str, str2, this.o, this.p) : (NEADVI) invokeLLLL.objValue;
     }
 
     @Override // com.qq.e.ads.AbstractAD
@@ -85,7 +85,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public void a(NativeExpressMediaListener nativeExpressMediaListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressMediaListener) == null) {
-            this.f60740i = nativeExpressMediaListener;
+            this.f61321i = nativeExpressMediaListener;
             T t = this.a;
             if (t == 0 || nativeExpressMediaListener == null) {
                 return;
@@ -110,21 +110,21 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            NativeExpressMediaListener nativeExpressMediaListener = this.f60740i;
+            NativeExpressMediaListener nativeExpressMediaListener = this.f61321i;
             if (nativeExpressMediaListener != null) {
-                this.f60740i = nativeExpressMediaListener;
+                this.f61321i = nativeExpressMediaListener;
                 T t = this.a;
                 if (t != 0 && nativeExpressMediaListener != null) {
                     ((NEADVI) t).setAdListener(new NativeExpressAD.ADListenerAdapter(nativeExpressMediaListener));
                 }
             }
-            if (this.f60738g) {
+            if (this.f61319g) {
                 preloadVideo();
             }
-            if (this.f60739h) {
+            if (this.f61320h) {
                 render();
             }
-            if (this.f60741j) {
+            if (this.f61322j) {
                 negativeFeedback();
             }
         }
@@ -155,7 +155,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
             } else {
                 z = true;
             }
-            this.f60741j = z;
+            this.f61322j = z;
         }
     }
 
@@ -163,7 +163,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (!b()) {
-                this.f60738g = true;
+                this.f61319g = true;
                 return;
             }
             T t = this.a;
@@ -179,7 +179,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (!b()) {
-                this.f60739h = true;
+                this.f61320h = true;
                 return;
             }
             T t = this.a;

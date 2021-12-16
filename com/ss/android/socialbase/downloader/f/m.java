@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class m implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,34 +38,34 @@ public class m implements Runnable {
     public volatile i a;
 
     /* renamed from: b  reason: collision with root package name */
-    public q f61814b;
+    public q f62395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f61815c;
+    public final int f62396c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile long f61816d;
+    public volatile long f62397d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile long f61817e;
+    public volatile long f62398e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile long f61818f;
+    public volatile long f62399f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f61819g;
+    public volatile long f62400g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f61820h;
+    public String f62401h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f61821i;
+    public String f62402i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f61822j;
+    public String f62403j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final f f61823k;
+    public final f f62404k;
     public final c l;
     public final DownloadInfo m;
     public final com.ss.android.socialbase.downloader.g.a n;
@@ -100,11 +100,11 @@ public class m implements Runnable {
         this.q = new ArrayList();
         this.u = -1L;
         this.m = downloadInfo;
-        this.f61823k = kVar;
+        this.f62404k = kVar;
         this.l = cVar;
         this.n = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
-        this.f61814b = qVar;
-        this.f61815c = i2;
+        this.f62395b = qVar;
+        this.f62396c = i2;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -125,7 +125,7 @@ public class m implements Runnable {
                 throw e2;
             } catch (Throwable th) {
                 try {
-                    com.ss.android.socialbase.downloader.c.a.e("SegmentReader", "download: e = " + th + ", threadIndex = " + this.f61815c + ", reconnect = " + this.y + ", closed = " + this.x);
+                    com.ss.android.socialbase.downloader.c.a.e("SegmentReader", "download: e = " + th + ", threadIndex = " + this.f62396c + ", reconnect = " + this.y + ", closed = " + this.x);
                     if (this.x) {
                         return false;
                     }
@@ -163,8 +163,8 @@ public class m implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, iVar) == null) {
             c(iVar);
-            this.f61823k.a(this, iVar, this.f61814b, this.p);
-            this.f61814b.c();
+            this.f62404k.a(this, iVar, this.f62395b, this.p);
+            this.f62395b.c();
         }
     }
 
@@ -178,8 +178,8 @@ public class m implements Runnable {
             try {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
-                    this.f61817e = 0L;
-                    this.f61816d = currentTimeMillis;
+                    this.f62398e = 0L;
+                    this.f62397d = currentTimeMillis;
                     this.r = iVar.e();
                     this.t = iVar.f();
                     if (this.t > 0 && this.r > this.t) {
@@ -188,20 +188,20 @@ public class m implements Runnable {
                     this.L = new com.ss.android.socialbase.downloader.i.e();
                     List<com.ss.android.socialbase.downloader.model.c> a2 = com.ss.android.socialbase.downloader.i.f.a(this.m.getExtraHeaders(), this.m.geteTag(), this.r, this.t);
                     a2.add(new com.ss.android.socialbase.downloader.model.c("Segment-Index", String.valueOf(iVar.g())));
-                    a2.add(new com.ss.android.socialbase.downloader.model.c("Thread-Index", String.valueOf(this.f61815c)));
+                    a2.add(new com.ss.android.socialbase.downloader.model.c("Thread-Index", String.valueOf(this.f62396c)));
                     com.ss.android.socialbase.downloader.i.f.a(a2, this.m);
                     com.ss.android.socialbase.downloader.i.f.b(a2, this.m);
-                    str = this.f61814b.a;
+                    str = this.f62395b.a;
                     if (this.H && !TextUtils.isEmpty(str) && str.startsWith("https")) {
                         str = str.replaceFirst("https", "http");
                     }
-                    str2 = this.f61814b.f61825b;
-                    com.ss.android.socialbase.downloader.c.a.c("SegmentReader", "createConnectionBegin: url = " + str + ", ip = " + str2 + ", segment = " + iVar + ", threadIndex = " + this.f61815c);
-                    this.f61820h = str;
-                    this.f61821i = str2;
+                    str2 = this.f62395b.f62406b;
+                    com.ss.android.socialbase.downloader.c.a.c("SegmentReader", "createConnectionBegin: url = " + str + ", ip = " + str2 + ", segment = " + iVar + ", threadIndex = " + this.f62396c);
+                    this.f62401h = str;
+                    this.f62402i = str2;
                     a = com.ss.android.socialbase.downloader.downloader.c.a(this.m.isNeedDefaultHttpServiceBackUp(), this.m.getMaxBytes(), str, str2, a2, 0, currentTimeMillis - this.F > 3000 && this.n.b("monitor_download_connect") > 0, this.m);
                 } finally {
-                    this.f61817e = System.currentTimeMillis();
+                    this.f62398e = System.currentTimeMillis();
                 }
             } catch (BaseException e2) {
                 throw e2;
@@ -213,9 +213,9 @@ public class m implements Runnable {
                 this.p = new com.ss.android.socialbase.downloader.model.d(str, a);
                 if (!this.x) {
                     if (a instanceof com.ss.android.socialbase.downloader.network.a) {
-                        this.f61822j = ((com.ss.android.socialbase.downloader.network.a) a).e();
+                        this.f62403j = ((com.ss.android.socialbase.downloader.network.a) a).e();
                     }
-                    String str3 = "createConnectionSuccess: url = " + str + ", ip = " + str2 + ", hostRealIp = " + this.f61822j + ", threadIndex = " + this.f61815c;
+                    String str3 = "createConnectionSuccess: url = " + str + ", ip = " + str2 + ", hostRealIp = " + this.f62403j + ", threadIndex = " + this.f62396c;
                     return;
                 }
                 throw new p("createConn");
@@ -281,7 +281,7 @@ public class m implements Runnable {
         if (interceptable == null || interceptable.invokeL(65543, this, iVar) == null) {
             i iVar2 = iVar;
             c cVar = this.l;
-            this.f61818f = System.currentTimeMillis();
+            this.f62399f = System.currentTimeMillis();
             long e2 = iVar.e();
             boolean z = false;
             try {
@@ -305,33 +305,33 @@ public class m implements Runnable {
                                 aVar2 = aVar;
                                 if (aVar2 != null) {
                                 }
-                                this.f61819g = System.currentTimeMillis();
+                                this.f62400g = System.currentTimeMillis();
                                 if (j2 > e2) {
                                 }
-                                this.f61823k.c(this, iVar2);
+                                this.f62404k.c(this, iVar2);
                                 throw th2;
                             }
                         }
-                        aVar.f61771c = -1;
+                        aVar.f62352c = -1;
                         eVar.b(aVar);
                         aVar2 = null;
                         if (aVar2 != null) {
                             cVar.a(aVar2);
                         }
-                        this.f61819g = System.currentTimeMillis();
+                        this.f62400g = System.currentTimeMillis();
                         if (j2 > e2) {
-                            com.ss.android.socialbase.downloader.d.a.a(this.n, this.m, this.f61820h, this.f61821i, this.f61822j, this.x || this.y, this.o, this.I, j2 - e2, TimeUnit.MILLISECONDS.toNanos(this.f61819g - this.f61818f));
+                            com.ss.android.socialbase.downloader.d.a.a(this.n, this.m, this.f62401h, this.f62402i, this.f62403j, this.x || this.y, this.o, this.I, j2 - e2, TimeUnit.MILLISECONDS.toNanos(this.f62400g - this.f62399f));
                         }
-                        this.f61823k.c(this, iVar2);
+                        this.f62404k.c(this, iVar2);
                         throw th2;
                     }
                     aVar2 = aVar;
                     if (aVar2 != null) {
                     }
-                    this.f61819g = System.currentTimeMillis();
+                    this.f62400g = System.currentTimeMillis();
                     if (j2 > e2) {
                     }
-                    this.f61823k.c(this, iVar2);
+                    this.f62404k.c(this, iVar2);
                     throw th2;
                 }
             } catch (BaseException e4) {
@@ -356,14 +356,14 @@ public class m implements Runnable {
                         eVar = null;
                     }
                     if (!this.y && !this.x) {
-                        this.f61823k.b(this, iVar2);
-                        eVar = this.f61823k.d(this, iVar2);
+                        this.f62404k.b(this, iVar2);
+                        eVar = this.f62404k.d(this, iVar2);
                         try {
                             f2 = iVar.f();
                             if (f2 <= 0) {
                                 f2 = i5 > 0 ? (h2 + e2) - 1 : Long.MAX_VALUE;
                             }
-                            i2 = aVar.f61771c;
+                            i2 = aVar.f62352c;
                             j3 = i2;
                             j2 = e2 + j3;
                             try {
@@ -381,7 +381,7 @@ public class m implements Runnable {
                         if (j2 > f2) {
                             long j5 = f2 + 1;
                             if (j2 > j5 && (i4 = (int) (j3 - (j2 - j5))) > 0 && i4 < i2) {
-                                aVar.f61771c = i4;
+                                aVar.f62352c = i4;
                                 j2 = j5;
                             }
                             this.u = j2;
@@ -391,7 +391,7 @@ public class m implements Runnable {
                                 try {
                                     a b2 = cVar.b();
                                     try {
-                                        b2.f61771c = -1;
+                                        b2.f62352c = -1;
                                         eVar.b(b2);
                                     } catch (Throwable unused2) {
                                         aVar5 = b2;
@@ -403,11 +403,11 @@ public class m implements Runnable {
                             if (aVar5 != null) {
                                 cVar.a(aVar5);
                             }
-                            this.f61819g = System.currentTimeMillis();
+                            this.f62400g = System.currentTimeMillis();
                             if (j2 > e2) {
-                                com.ss.android.socialbase.downloader.d.a.a(this.n, this.m, this.f61820h, this.f61821i, this.f61822j, this.x || this.y, this.o, this.I, j2 - e2, TimeUnit.MILLISECONDS.toNanos(this.f61819g - this.f61818f));
+                                com.ss.android.socialbase.downloader.d.a.a(this.n, this.m, this.f62401h, this.f62402i, this.f62403j, this.x || this.y, this.o, this.I, j2 - e2, TimeUnit.MILLISECONDS.toNanos(this.f62400g - this.f62399f));
                             }
-                            this.f61823k.c(this, iVar2);
+                            this.f62404k.c(this, iVar2);
                             return;
                         }
                         this.u = j2;
@@ -423,7 +423,7 @@ public class m implements Runnable {
                                                 break;
                                             }
                                         }
-                                        synchronized (this.f61823k) {
+                                        synchronized (this.f62404k) {
                                             try {
                                                 if (this.s != 0) {
                                                     com.ss.android.socialbase.downloader.c.a.c("SegmentReader", "loopAndRead:  change readEnd = " + j6 + ", segmentNewEndOffset = " + this.s + ", segment = " + iVar2);
@@ -458,34 +458,34 @@ public class m implements Runnable {
                                                         if (aVar3 != null) {
                                                             cVar.a(aVar3);
                                                         }
-                                                        this.f61819g = System.currentTimeMillis();
+                                                        this.f62400g = System.currentTimeMillis();
                                                         if (j2 > e2) {
-                                                            com.ss.android.socialbase.downloader.d.a.a(this.n, this.m, this.f61820h, this.f61821i, this.f61822j, this.x || this.y, this.o, this.I, j2 - e2, TimeUnit.MILLISECONDS.toNanos(this.f61819g - this.f61818f));
+                                                            com.ss.android.socialbase.downloader.d.a.a(this.n, this.m, this.f62401h, this.f62402i, this.f62403j, this.x || this.y, this.o, this.I, j2 - e2, TimeUnit.MILLISECONDS.toNanos(this.f62400g - this.f62399f));
                                                         }
-                                                        fVar = this.f61823k;
+                                                        fVar = this.f62404k;
                                                         fVar.c(this, iVar2);
                                                         return;
                                                     }
                                                 }
-                                                aVar.f61771c = -1;
+                                                aVar.f62352c = -1;
                                                 eVar.b(aVar);
                                                 aVar3 = null;
                                                 if (aVar3 != null) {
                                                 }
-                                                this.f61819g = System.currentTimeMillis();
+                                                this.f62400g = System.currentTimeMillis();
                                                 if (j2 > e2) {
                                                 }
-                                                fVar = this.f61823k;
+                                                fVar = this.f62404k;
                                                 fVar.c(this, iVar2);
                                                 return;
                                             }
                                             aVar3 = aVar;
                                             if (aVar3 != null) {
                                             }
-                                            this.f61819g = System.currentTimeMillis();
+                                            this.f62400g = System.currentTimeMillis();
                                             if (j2 > e2) {
                                             }
-                                            fVar = this.f61823k;
+                                            fVar = this.f62404k;
                                             fVar.c(this, iVar2);
                                             return;
                                         } catch (BaseException e9) {
@@ -502,7 +502,7 @@ public class m implements Runnable {
                             }
                             try {
                                 int read = inputStream.read(aVar.a);
-                                aVar.f61771c = read;
+                                aVar.f62352c = read;
                                 if (read == -1) {
                                     eVar.b(aVar);
                                     j4 = 0;
@@ -514,12 +514,12 @@ public class m implements Runnable {
                                 if (j2 > j6) {
                                     long j8 = j6 + 1;
                                     if (j2 > j8 && (i3 = (int) (j7 - (j2 - j8))) > 0 && i3 < read) {
-                                        aVar.f61771c = i3;
+                                        aVar.f62352c = i3;
                                         j2 = j8;
                                     }
                                     this.u = j2;
                                     eVar.b(aVar);
-                                    com.ss.android.socialbase.downloader.c.a.c("SegmentReader", "loopAndRead: bytesRead = " + (j2 - e2) + ", url = " + this.f61814b.a);
+                                    com.ss.android.socialbase.downloader.c.a.c("SegmentReader", "loopAndRead: bytesRead = " + (j2 - e2) + ", url = " + this.f62395b.a);
                                 } else {
                                     iVar2 = iVar;
                                     this.u = j2;
@@ -542,10 +542,10 @@ public class m implements Runnable {
                                 aVar3 = aVar;
                                 if (aVar3 != null) {
                                 }
-                                this.f61819g = System.currentTimeMillis();
+                                this.f62400g = System.currentTimeMillis();
                                 if (j2 > e2) {
                                 }
-                                fVar = this.f61823k;
+                                fVar = this.f62404k;
                                 fVar.c(this, iVar2);
                                 return;
                             }
@@ -558,7 +558,7 @@ public class m implements Runnable {
                             try {
                                 a b3 = cVar.b();
                                 try {
-                                    b3.f61771c = -1;
+                                    b3.f62352c = -1;
                                     eVar.b(b3);
                                 } catch (Throwable unused5) {
                                     aVar4 = b3;
@@ -570,11 +570,11 @@ public class m implements Runnable {
                         if (aVar4 != null) {
                             cVar.a(aVar4);
                         }
-                        this.f61819g = System.currentTimeMillis();
+                        this.f62400g = System.currentTimeMillis();
                         if (j2 > e2) {
-                            com.ss.android.socialbase.downloader.d.a.a(this.n, this.m, this.f61820h, this.f61821i, this.f61822j, this.x || this.y, this.o, this.I, j2 - e2, TimeUnit.MILLISECONDS.toNanos(this.f61819g - this.f61818f));
+                            com.ss.android.socialbase.downloader.d.a.a(this.n, this.m, this.f62401h, this.f62402i, this.f62403j, this.x || this.y, this.o, this.I, j2 - e2, TimeUnit.MILLISECONDS.toNanos(this.f62400g - this.f62399f));
                         }
-                        fVar = this.f61823k;
+                        fVar = this.f62404k;
                         iVar2 = iVar;
                         fVar.c(this, iVar2);
                         return;
@@ -590,11 +590,11 @@ public class m implements Runnable {
     private void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.F = this.f61816d;
-            this.f61816d = -1L;
-            this.f61817e = -1L;
-            this.f61818f = -1L;
-            this.f61819g = -1L;
+            this.F = this.f62397d;
+            this.f62397d = -1L;
+            this.f62398e = -1L;
+            this.f62399f = -1L;
+            this.f62400g = -1L;
             j();
         }
     }
@@ -606,7 +606,7 @@ public class m implements Runnable {
             return;
         }
         try {
-            com.ss.android.socialbase.downloader.c.a.c("SegmentReader", "closeConnection: thread = " + this.f61815c);
+            com.ss.android.socialbase.downloader.c.a.c("SegmentReader", "closeConnection: thread = " + this.f62396c);
             iVar.d();
             iVar.c();
         } catch (Throwable unused) {
@@ -624,7 +624,7 @@ public class m implements Runnable {
     private void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            this.D = this.f61814b.f61827d ? this.m.getRetryCount() : this.m.getBackUpUrlRetryCount();
+            this.D = this.f62395b.f62408d ? this.m.getRetryCount() : this.m.getBackUpUrlRetryCount();
             this.E = 0;
         }
     }
@@ -646,7 +646,7 @@ public class m implements Runnable {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            com.ss.android.socialbase.downloader.c.a.c("SegmentReader", "close: threadIndex = " + this.f61815c);
+            com.ss.android.socialbase.downloader.c.a.c("SegmentReader", "close: threadIndex = " + this.f62396c);
             synchronized (this) {
                 this.x = true;
                 this.B = true;
@@ -694,12 +694,12 @@ public class m implements Runnable {
             Process.setThreadPriority(10);
             try {
                 this.A = Thread.currentThread();
-                this.f61823k.a(this);
-                this.f61814b.a(this);
+                this.f62404k.a(this);
+                this.f62395b.a(this);
                 while (true) {
-                    a = this.f61823k.a(this, this.f61814b);
+                    a = this.f62404k.a(this, this.f62395b);
                     if (a == null) {
-                        com.ss.android.socialbase.downloader.c.a.c("SegmentReader", "no more segment, thread_index = " + this.f61815c);
+                        com.ss.android.socialbase.downloader.c.a.c("SegmentReader", "no more segment, thread_index = " + this.f62396c);
                         break;
                     }
                     this.a = a;
@@ -708,37 +708,37 @@ public class m implements Runnable {
                         } catch (j e2) {
                             com.ss.android.socialbase.downloader.c.a.e("SegmentReader", "run: SegmentApplyException, e = " + e2);
                             if (this.C >= 50) {
-                                com.ss.android.socialbase.downloader.c.a.e("SegmentReader", "segment apply failed " + this.C + "times, thread_index = " + this.f61815c);
+                                com.ss.android.socialbase.downloader.c.a.e("SegmentReader", "segment apply failed " + this.C + "times, thread_index = " + this.f62396c);
                                 this.a = null;
-                                fVar = this.f61823k;
+                                fVar = this.f62404k;
                                 break;
                             }
                             this.C++;
                             this.a = null;
-                            fVar2 = this.f61823k;
+                            fVar2 = this.f62404k;
                         }
                         if (a(a)) {
                             this.q.add(a);
                             this.a = null;
-                            fVar2 = this.f61823k;
+                            fVar2 = this.f62404k;
                             fVar2.a(this, a);
                         } else if (!this.x) {
-                            com.ss.android.socialbase.downloader.c.a.e("SegmentReader", "download segment failed, segment = " + a + ", thread_index = " + this.f61815c + ", failedException = " + this.I);
+                            com.ss.android.socialbase.downloader.c.a.e("SegmentReader", "download segment failed, segment = " + a + ", thread_index = " + this.f62396c + ", failedException = " + this.I);
                             break;
                         } else {
                             break;
                         }
                     } catch (Throwable th) {
                         this.a = null;
-                        this.f61823k.a(this, a);
+                        this.f62404k.a(this, a);
                         throw th;
                     }
                 }
                 this.a = null;
-                fVar = this.f61823k;
+                fVar = this.f62404k;
                 fVar.a(this, a);
-                this.f61814b.b(this);
-                this.f61823k.b(this);
+                this.f62395b.b(this);
+                this.f62404k.b(this);
             } catch (Throwable unused) {
             }
             this.A = null;
@@ -750,7 +750,7 @@ public class m implements Runnable {
         long c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this.f61823k) {
+            synchronized (this.f62404k) {
                 c2 = this.v + c();
             }
             return c2;
@@ -773,7 +773,7 @@ public class m implements Runnable {
             if (j3 < 0 || eVar == null) {
                 return;
             }
-            String str = "markProgress: curSegmentReadOffset = " + j3 + ", threadIndex = " + this.f61815c;
+            String str = "markProgress: curSegmentReadOffset = " + j3 + ", threadIndex = " + this.f62396c;
             eVar.a(j3, j2);
         }
     }
@@ -787,12 +787,12 @@ public class m implements Runnable {
                 return false;
             }
             this.G = i2 + 1;
-            q qVar2 = this.f61814b;
+            q qVar2 = this.f62395b;
             if (qVar2 != null) {
                 qVar2.b(this);
             }
             qVar.a(this);
-            this.f61814b = qVar;
+            this.f62395b = qVar;
             l();
             return true;
         }
@@ -805,8 +805,8 @@ public class m implements Runnable {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, iVar, baseException)) == null) {
             com.ss.android.socialbase.downloader.c.a.e("SegmentReader", "handleDownloadFailed:  e = " + baseException + ", curRetryCount = " + this.E + ", retryCount = " + this.D);
             this.I = baseException;
-            this.f61814b.b();
-            this.f61823k.a(this, this.f61814b, iVar, baseException, this.E, this.D);
+            this.f62395b.b();
+            this.f62404k.a(this, this.f62395b, iVar, baseException, this.E, this.D);
             int i2 = this.E;
             if (i2 < this.D) {
                 this.E = i2 + 1;
@@ -814,7 +814,7 @@ public class m implements Runnable {
             } else if (a(baseException)) {
                 return true;
             } else {
-                this.f61823k.a(this, this.f61814b, iVar, baseException);
+                this.f62404k.a(this, this.f62395b, iVar, baseException);
                 return false;
             }
         }
@@ -825,7 +825,7 @@ public class m implements Runnable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            synchronized (this.f61823k) {
+            synchronized (this.f62404k) {
                 long j2 = this.u;
                 long j3 = this.r;
                 if (j3 < 0 || j2 <= j3) {
@@ -842,7 +842,7 @@ public class m implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, baseException)) == null) {
             if (com.ss.android.socialbase.downloader.i.f.c(baseException)) {
-                String str = this.f61814b.a;
+                String str = this.f62395b.a;
                 if (TextUtils.isEmpty(str) || !str.startsWith("https") || !this.m.isNeedHttpsToHttpRetry() || this.H) {
                     return false;
                 }
@@ -876,7 +876,7 @@ public class m implements Runnable {
             }
             try {
                 if (i2 != -1) {
-                    b2.f61771c = i2;
+                    b2.f62352c = i2;
                     if (i2 == -1) {
                         cVar.a(b2);
                     }
@@ -915,9 +915,9 @@ public class m implements Runnable {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            q qVar = this.f61814b;
+            q qVar = this.f62395b;
             try {
-                synchronized (this.f61823k) {
+                synchronized (this.f62404k) {
                     long c2 = c();
                     if (c2 > 0) {
                         this.v += c2;
@@ -933,7 +933,7 @@ public class m implements Runnable {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            com.ss.android.socialbase.downloader.c.a.c("SegmentReader", "reconnect: threadIndex = " + this.f61815c);
+            com.ss.android.socialbase.downloader.c.a.c("SegmentReader", "reconnect: threadIndex = " + this.f62396c);
             synchronized (this) {
                 this.z = z;
                 this.y = true;
@@ -943,7 +943,7 @@ public class m implements Runnable {
             Thread thread = this.A;
             if (thread != null) {
                 try {
-                    String str = "reconnect: t.interrupt threadIndex = " + this.f61815c;
+                    String str = "reconnect: t.interrupt threadIndex = " + this.f62396c;
                     thread.interrupt();
                 } catch (Throwable unused) {
                 }

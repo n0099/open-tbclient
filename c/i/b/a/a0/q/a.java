@@ -68,7 +68,7 @@ import com.googlecode.mp4parser.boxes.ultraviolet.SampleEncryptionBox;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public static final int A;
@@ -115,43 +115,43 @@ public abstract class a {
     public static final int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f29095b;
+    public static final int f29465b;
     public static final int b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f29096c;
+    public static final int f29466c;
     public static final int c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f29097d;
+    public static final int f29467d;
     public static final int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f29098e;
+    public static final int f29468e;
     public static final int e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f29099f;
+    public static final int f29469f;
     public static final int f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f29100g;
+    public static final int f29470g;
     public static final int g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f29101h;
+    public static final int f29471h;
     public static final int h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f29102i;
+    public static final int f29472i;
     public static final int i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f29103j;
+    public static final int f29473j;
     public static final int j0;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f29104k;
+    public static final int f29474k;
     public static final int k0;
     public static final int l;
     public static final int l0;
@@ -187,16 +187,16 @@ public abstract class a {
     public final int a;
 
     /* renamed from: c.i.b.a.a0.q.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C1592a extends a {
+    /* loaded from: classes9.dex */
+    public static final class C1631a extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long P0;
         public final List<b> Q0;
-        public final List<C1592a> R0;
+        public final List<C1631a> R0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1592a(int i2, long j2) {
+        public C1631a(int i2, long j2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -218,10 +218,10 @@ public abstract class a {
             this.R0 = new ArrayList();
         }
 
-        public void d(C1592a c1592a) {
+        public void d(C1631a c1631a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c1592a) == null) {
-                this.R0.add(c1592a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, c1631a) == null) {
+                this.R0.add(c1631a);
             }
         }
 
@@ -232,20 +232,20 @@ public abstract class a {
             }
         }
 
-        public C1592a f(int i2) {
+        public C1631a f(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
                 int size = this.R0.size();
                 for (int i3 = 0; i3 < size; i3++) {
-                    C1592a c1592a = this.R0.get(i3);
-                    if (c1592a.a == i2) {
-                        return c1592a;
+                    C1631a c1631a = this.R0.get(i3);
+                    if (c1631a.a == i2) {
+                        return c1631a;
                     }
                 }
                 return null;
             }
-            return (C1592a) invokeI.objValue;
+            return (C1631a) invokeI.objValue;
         }
 
         public b g(int i2) {
@@ -275,7 +275,7 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -316,16 +316,16 @@ public abstract class a {
                 return;
             }
         }
-        f29095b = v.q("ftyp");
-        f29096c = v.q(VisualSampleEntry.TYPE3);
-        f29097d = v.q(VisualSampleEntry.TYPE4);
-        f29098e = v.q("hvc1");
-        f29099f = v.q("hev1");
-        f29100g = v.q(VisualSampleEntry.TYPE2);
-        f29101h = v.q("d263");
-        f29102i = v.q(MediaDataBox.TYPE);
-        f29103j = v.q(AudioSampleEntry.TYPE3);
-        f29104k = v.q(EmotionResourceProvider.EMOTION_SOUND_SUFFIX);
+        f29465b = v.q("ftyp");
+        f29466c = v.q(VisualSampleEntry.TYPE3);
+        f29467d = v.q(VisualSampleEntry.TYPE4);
+        f29468e = v.q("hvc1");
+        f29469f = v.q("hev1");
+        f29470g = v.q(VisualSampleEntry.TYPE2);
+        f29471h = v.q("d263");
+        f29472i = v.q(MediaDataBox.TYPE);
+        f29473j = v.q(AudioSampleEntry.TYPE3);
+        f29474k = v.q(EmotionResourceProvider.EMOTION_SOUND_SUFFIX);
         l = v.q(AppleWaveBox.TYPE);
         m = v.q("lpcm");
         n = v.q("sowt");

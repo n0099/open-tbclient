@@ -18,14 +18,14 @@ import io.reactivex.internal.operators.maybe.MaybeMap;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class MaybeZipArray<T, R> extends Maybe<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MaybeSource<? extends T>[] sources;
     public final Function<? super Object[], ? extends R> zipper;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class SingletonArrayFunc implements Function<T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public final class MaybeZipArray<T, R> extends Maybe<R> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ZipCoordinator<T, R> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5556924161382950569L;
@@ -172,7 +172,7 @@ public final class MaybeZipArray<T, R> extends Maybe<R> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ZipMaybeObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3323743579927613702L;

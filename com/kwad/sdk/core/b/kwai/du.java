@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class du implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.e> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,8 +34,8 @@ public class du implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.
             return;
         }
         eVar.a = jSONObject.optBoolean("needPromopt");
-        eVar.f57965b = jSONObject.optBoolean("needReport");
-        eVar.f57966c = jSONObject.optInt("showTime");
+        eVar.f58546b = jSONObject.optBoolean("needReport");
+        eVar.f58547c = jSONObject.optInt("showTime");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,8 +48,8 @@ public class du implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "needPromopt", eVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "needReport", eVar.f57965b);
-            com.kwad.sdk.utils.t.a(jSONObject, "showTime", eVar.f57966c);
+            com.kwad.sdk.utils.t.a(jSONObject, "needReport", eVar.f58546b);
+            com.kwad.sdk.utils.t.a(jSONObject, "showTime", eVar.f58547c);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

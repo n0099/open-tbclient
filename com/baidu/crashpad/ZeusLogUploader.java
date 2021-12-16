@@ -34,7 +34,7 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class ZeusLogUploader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADD_UPLOAD_FILE_FLAG = "uploadfailed";
@@ -67,7 +67,7 @@ public final class ZeusLogUploader {
     public String mType;
     public boolean mUseHttps;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class LogFilter implements FilenameFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public final class ZeusLogUploader {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnFinishedListener {
         void onFinished(String str, int i2, String str2);
     }
@@ -610,7 +610,7 @@ public final class ZeusLogUploader {
         return invokeCommon.booleanValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class MyRunner implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class u extends com.vivo.push.y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62446b;
+    public int f63027b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(int i2) {
@@ -34,7 +34,7 @@ public class u extends com.vivo.push.y {
             }
         }
         this.a = null;
-        this.f62446b = 0;
+        this.f63027b = 0;
     }
 
     @Override // com.vivo.push.y
@@ -42,7 +42,7 @@ public class u extends com.vivo.push.y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             aVar.a("req_id", this.a);
-            aVar.a("status_msg_code", this.f62446b);
+            aVar.a("status_msg_code", this.f63027b);
         }
     }
 
@@ -51,7 +51,7 @@ public class u extends com.vivo.push.y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             this.a = aVar.a("req_id");
-            this.f62446b = aVar.b("status_msg_code", this.f62446b);
+            this.f63027b = aVar.b("status_msg_code", this.f63027b);
         }
     }
 
@@ -64,7 +64,7 @@ public class u extends com.vivo.push.y {
     public final int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62446b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63027b : invokeV.intValue;
     }
 
     @Override // com.vivo.push.y

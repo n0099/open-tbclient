@@ -28,24 +28,24 @@ public class g0 extends Handler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f2712g;
+    public static long f2676g;
     public transient /* synthetic */ FieldHolder $fh;
     public final Random a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f2713b;
+    public final Handler f2677b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Looper f2714c;
+    public final Looper f2678c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final e.a f2715d;
+    public final e.a f2679d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d0 f2716e;
+    public final d0 f2680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final a f2717f;
+    public final a f2681f;
 
     static {
         InterceptResult invokeClinit;
@@ -81,18 +81,18 @@ public class g0 extends Handler {
             }
         }
         this.a = new Random();
-        this.f2714c = looper;
-        this.f2713b = handler;
-        this.f2715d = aVar;
-        this.f2716e = d0Var;
-        this.f2717f = new a(d0Var.b() + 14, 262144);
+        this.f2678c = looper;
+        this.f2677b = handler;
+        this.f2679d = aVar;
+        this.f2680e = d0Var;
+        this.f2681f = new a(d0Var.b() + 14, 262144);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (g0.class) {
-                f2712g = 0L;
+                f2676g = 0L;
             }
         }
     }
@@ -114,7 +114,7 @@ public class g0 extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (g0.class) {
-                j2 = f2712g;
+                j2 = f2676g;
             }
             return j2;
         }
@@ -133,7 +133,7 @@ public class g0 extends Handler {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             byte[] bArr = new byte[16];
             this.a.nextBytes(bArr);
-            return c.a.d.f.p.c.j(bArr);
+            return c.a.d.f.p.d.j(bArr);
         }
         return (String) invokeV.objValue;
     }
@@ -141,9 +141,9 @@ public class g0 extends Handler {
     public final void f(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-            Message obtainMessage = this.f2713b.obtainMessage();
+            Message obtainMessage = this.f2677b.obtainMessage();
             obtainMessage.obj = obj;
-            this.f2713b.sendMessage(obtainMessage);
+            this.f2677b.sendMessage(obtainMessage);
         }
     }
 
@@ -199,24 +199,24 @@ public class g0 extends Handler {
                     return;
                 }
                 c cVar = message.obj instanceof s ? ((s) message.obj).a : null;
-                this.f2717f.a();
+                this.f2681f.a();
                 if (!h(message.obj)) {
                     f(new x(cVar));
                     return;
                 }
-                this.f2717f.e();
+                this.f2681f.e();
                 if (cVar != null) {
                     f(new b0(cVar));
                 }
-                while (this.f2717f.g() > 0) {
-                    if (this.f2715d == null) {
+                while (this.f2681f.g() > 0) {
+                    if (this.f2679d == null) {
                         f(new n(new SocketException("write socket = null")));
                         return;
                     }
-                    int write = this.f2715d.write(this.f2717f.f());
+                    int write = this.f2679d.write(this.f2681f.f());
                     if (write > 0) {
                         synchronized (g0.class) {
-                            f2712g += write;
+                            f2676g += write;
                         }
                     }
                 }
@@ -238,11 +238,11 @@ public class g0 extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             try {
-                this.f2714c.quit();
+                this.f2678c.quit();
             } catch (Exception unused) {
             }
             try {
-                this.f2715d.close();
+                this.f2679d.close();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -252,7 +252,7 @@ public class g0 extends Handler {
     public final void j(k kVar) throws IOException, WebSocketException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, kVar) == null) {
-            if (kVar.a.length <= this.f2716e.c()) {
+            if (kVar.a.length <= this.f2680e.c()) {
                 m(2, true, kVar.a);
                 return;
             }
@@ -263,51 +263,51 @@ public class g0 extends Handler {
     public final void k(l lVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, lVar) == null) {
-            this.f2717f.h("GET " + (lVar.f2739c != null ? lVar.f2738b + "?" + lVar.f2739c : lVar.f2738b) + " HTTP/1.1");
-            this.f2717f.c();
-            this.f2717f.h("Host: " + lVar.a);
-            this.f2717f.c();
-            this.f2717f.h("Upgrade: WebSocket");
-            this.f2717f.c();
-            this.f2717f.h("Connection: Upgrade");
-            this.f2717f.c();
-            this.f2717f.h("Sec-WebSocket-Key: " + e());
-            this.f2717f.c();
-            d0 d0Var = this.f2716e;
-            if (d0Var != null && d0Var.i() != null && this.f2716e.i().length() > 0) {
-                this.f2717f.h("Sec-WebSocket-Extensions: " + this.f2716e.i());
-                this.f2717f.c();
+            this.f2681f.h("GET " + (lVar.f2703c != null ? lVar.f2702b + "?" + lVar.f2703c : lVar.f2702b) + " HTTP/1.1");
+            this.f2681f.c();
+            this.f2681f.h("Host: " + lVar.a);
+            this.f2681f.c();
+            this.f2681f.h("Upgrade: WebSocket");
+            this.f2681f.c();
+            this.f2681f.h("Connection: Upgrade");
+            this.f2681f.c();
+            this.f2681f.h("Sec-WebSocket-Key: " + e());
+            this.f2681f.c();
+            d0 d0Var = this.f2680e;
+            if (d0Var != null && d0Var.i() != null && this.f2680e.i().length() > 0) {
+                this.f2681f.h("Sec-WebSocket-Extensions: " + this.f2680e.i());
+                this.f2681f.c();
             }
-            String str = lVar.f2740d;
+            String str = lVar.f2704d;
             if (str != null && !str.equals("")) {
-                this.f2717f.h("Origin: " + lVar.f2740d);
-                this.f2717f.c();
+                this.f2681f.h("Origin: " + lVar.f2704d);
+                this.f2681f.c();
             }
-            String[] strArr = lVar.f2741e;
+            String[] strArr = lVar.f2705e;
             if (strArr != null && strArr.length > 0) {
-                this.f2717f.h("Sec-WebSocket-Protocol: ");
+                this.f2681f.h("Sec-WebSocket-Protocol: ");
                 int i2 = 0;
                 while (true) {
-                    String[] strArr2 = lVar.f2741e;
+                    String[] strArr2 = lVar.f2705e;
                     if (i2 >= strArr2.length) {
                         break;
                     }
-                    this.f2717f.h(strArr2[i2]);
-                    this.f2717f.h(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    this.f2681f.h(strArr2[i2]);
+                    this.f2681f.h(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                     i2++;
                 }
-                this.f2717f.c();
+                this.f2681f.c();
             }
-            this.f2717f.h("Sec-WebSocket-Version: 13");
-            this.f2717f.c();
-            List<BasicNameValuePair> list = lVar.f2742f;
+            this.f2681f.h("Sec-WebSocket-Version: 13");
+            this.f2681f.c();
+            List<BasicNameValuePair> list = lVar.f2706f;
             if (list != null) {
                 for (BasicNameValuePair basicNameValuePair : list) {
-                    this.f2717f.h(basicNameValuePair.getName() + ":" + basicNameValuePair.getValue());
-                    this.f2717f.c();
+                    this.f2681f.h(basicNameValuePair.getName() + ":" + basicNameValuePair.getValue());
+                    this.f2681f.c();
                 }
             }
-            this.f2717f.c();
+            this.f2681f.c();
         }
     }
 
@@ -316,11 +316,11 @@ public class g0 extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, mVar) == null) {
             if (mVar.a > 0) {
-                String str = mVar.f2743b;
+                String str = mVar.f2707b;
                 if (str == null || str.equals("")) {
                     bArr = new byte[2];
                 } else {
-                    byte[] bytes = mVar.f2743b.getBytes("UTF-8");
+                    byte[] bytes = mVar.f2707b.getBytes("UTF-8");
                     bArr = new byte[bytes.length + 2];
                     for (int i2 = 0; i2 < bytes.length; i2++) {
                         bArr[i2 + 2] = bytes[i2];
@@ -357,35 +357,35 @@ public class g0 extends Handler {
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), bArr, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             byte b3 = ByteCompanionObject.MIN_VALUE;
             if (z) {
-                b2 = (byte) com.alipay.sdk.encrypt.a.f31350g;
+                b2 = (byte) com.alipay.sdk.encrypt.a.f31720g;
                 i5 = i2;
             } else {
                 i5 = i2;
                 b2 = 0;
             }
-            this.f2717f.write((byte) (b2 | ((byte) i5)));
-            if (!this.f2716e.a()) {
+            this.f2681f.write((byte) (b2 | ((byte) i5)));
+            if (!this.f2680e.a()) {
                 b3 = 0;
             }
             long j2 = i4;
             if (j2 <= 125) {
-                this.f2717f.write((byte) (b3 | ((byte) j2)));
+                this.f2681f.write((byte) (b3 | ((byte) j2)));
             } else if (j2 <= WebSocketProtocol.PAYLOAD_SHORT_MAX) {
-                this.f2717f.write((byte) (b3 | 126));
-                this.f2717f.write(new byte[]{(byte) ((j2 >> 8) & 255), (byte) (j2 & 255)});
+                this.f2681f.write((byte) (b3 | 126));
+                this.f2681f.write(new byte[]{(byte) ((j2 >> 8) & 255), (byte) (j2 & 255)});
             } else {
-                this.f2717f.write((byte) (b3 | ByteCompanionObject.MAX_VALUE));
-                this.f2717f.write(new byte[]{(byte) ((j2 >> 56) & 255), (byte) ((j2 >> 48) & 255), (byte) ((j2 >> 40) & 255), (byte) ((j2 >> 32) & 255), (byte) ((j2 >> 24) & 255), (byte) ((j2 >> 16) & 255), (byte) ((j2 >> 8) & 255), (byte) (j2 & 255)});
+                this.f2681f.write((byte) (b3 | ByteCompanionObject.MAX_VALUE));
+                this.f2681f.write(new byte[]{(byte) ((j2 >> 56) & 255), (byte) ((j2 >> 48) & 255), (byte) ((j2 >> 40) & 255), (byte) ((j2 >> 32) & 255), (byte) ((j2 >> 24) & 255), (byte) ((j2 >> 16) & 255), (byte) ((j2 >> 8) & 255), (byte) (j2 & 255)});
             }
-            if (this.f2716e.a()) {
-                this.f2717f.write(0);
-                this.f2717f.write(0);
-                this.f2717f.write(0);
-                this.f2717f.write(0);
+            if (this.f2680e.a()) {
+                this.f2681f.write(0);
+                this.f2681f.write(0);
+                this.f2681f.write(0);
+                this.f2681f.write(0);
             }
             if (j2 > 0) {
-                this.f2716e.a();
-                this.f2717f.write(bArr, i3, i4);
+                this.f2680e.a();
+                this.f2681f.write(bArr, i3, i4);
             }
         }
     }
@@ -398,7 +398,7 @@ public class g0 extends Handler {
             if (e2 == null) {
                 return false;
             }
-            if (e2.length <= this.f2716e.c()) {
+            if (e2.length <= this.f2680e.c()) {
                 m(2, true, e2);
                 return true;
             }
@@ -432,7 +432,7 @@ public class g0 extends Handler {
     public final void r(w wVar) throws IOException, WebSocketException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, wVar) == null) {
-            if (wVar.a.length <= this.f2716e.c()) {
+            if (wVar.a.length <= this.f2680e.c()) {
                 m(1, true, wVar.a);
                 return;
             }
@@ -444,7 +444,7 @@ public class g0 extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, c0Var) == null) {
             byte[] bytes = c0Var.a.getBytes("UTF-8");
-            if (bytes.length <= this.f2716e.c()) {
+            if (bytes.length <= this.f2680e.c()) {
                 m(1, true, bytes);
                 return;
             }

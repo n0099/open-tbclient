@@ -20,18 +20,18 @@ import java.util.Arrays;
 import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
 import kotlin.jvm.internal.ShortCompanionObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class WalletFacadeAOP implements NoProguard, InvocationHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WalletFacadeAOP";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f51866b;
+    public static final List<String> f52415b;
     public transient /* synthetic */ FieldHolder $fh;
     public final IWalletFacade a;
 
     /* renamed from: com.baidu.wallet.api.WalletFacadeAOP$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -68,7 +68,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static final class EntranceService {
         public static final /* synthetic */ EntranceService[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -145,7 +145,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                 return;
             }
         }
-        f51866b = new ArrayList(Arrays.asList("doPay", "doBind", "doRNAuth", "doCheckPwd", "doBindCardIndependent", "checkPwd", StatServiceEvent.GET_WALLET_OUTER_INTERFACE, "accessWalletEntry", "preOrderPay", "getPayMethod", "changePayMethod", "gotoWalletService"));
+        f52415b = new ArrayList(Arrays.asList("doPay", "doBind", "doRNAuth", "doCheckPwd", "doBindCardIndependent", "checkPwd", StatServiceEvent.GET_WALLET_OUTER_INTERFACE, "accessWalletEntry", "preOrderPay", "getPayMethod", "changePayMethod", "gotoWalletService"));
     }
 
     public WalletFacadeAOP(IWalletFacade iWalletFacade) {
@@ -176,7 +176,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
-            List<String> list = f51866b;
+            List<String> list = f52415b;
             if (list != null && list.contains(str)) {
                 if ("gotoWalletService".equals(str)) {
                     return EntranceService.SHARE;

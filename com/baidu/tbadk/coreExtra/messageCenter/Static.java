@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.messageCenter;
 
-import c.a.d.f.p.l;
-import c.a.q0.t.d.b;
+import c.a.d.f.p.m;
+import c.a.r0.t.d.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -15,23 +15,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements CustomMessageTask.CustomRunnable<AccountData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tbadk.coreExtra.messageCenter.Static$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public class RunnableC1813a implements Runnable {
+        /* loaded from: classes11.dex */
+        public class RunnableC1872a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC1813a(a aVar) {
+            public RunnableC1872a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,11 +75,11 @@ public class Static {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (l.B()) {
+                if (m.B()) {
                     b.g0().h();
                     return null;
                 } else if (TbadkCoreApplication.getInst() != null) {
-                    TbadkCoreApplication.getInst().handler.post(new RunnableC1813a(this));
+                    TbadkCoreApplication.getInst().handler.post(new RunnableC1872a(this));
                     return null;
                 } else {
                     return null;

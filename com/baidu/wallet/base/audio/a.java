@@ -14,23 +14,23 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class a implements Observer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AudioRecorder a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FileOutputStream f51905b;
+    public FileOutputStream f52485b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f51906c;
+    public File f52486c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f51907d;
+    public b f52487d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51908e;
+    public int f52488e;
 
     public a(AudioRecorder audioRecorder) {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class a implements Observer {
             }
         }
         this.a = audioRecorder;
-        this.f51906c = new File("/sdcard/cu.wav");
+        this.f52486c = new File("/sdcard/cu.wav");
     }
 
     @Override // java.util.Observer
@@ -58,37 +58,37 @@ public class a implements Observer {
             if (obj instanceof AudioRecorder.State) {
                 AudioRecorder.State state = (AudioRecorder.State) obj;
                 if (AudioRecorder.State.OPEN == state) {
-                    this.f51908e = 0;
+                    this.f52488e = 0;
                     try {
-                        this.f51905b = new FileOutputStream(this.f51906c);
-                        FileInputStream fileInputStream = new FileInputStream(this.f51906c);
+                        this.f52485b = new FileOutputStream(this.f52486c);
+                        FileInputStream fileInputStream = new FileInputStream(this.f52486c);
                         b.a(fileInputStream).a();
                         fileInputStream.close();
                         b a = b.a(1, 16, 8000, 0);
-                        this.f51907d = a;
-                        a.a(this.f51905b);
+                        this.f52487d = a;
+                        a.a(this.f52485b);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 } else if (AudioRecorder.State.STOP == state) {
                     try {
-                        this.f51905b.close();
-                        this.f51907d = b.a(1, 16, 8000, this.f51908e);
-                        RandomAccessFile randomAccessFile = new RandomAccessFile(this.f51906c, "rw");
-                        this.f51907d.a(randomAccessFile);
-                        this.f51907d.a();
+                        this.f52485b.close();
+                        this.f52487d = b.a(1, 16, 8000, this.f52488e);
+                        RandomAccessFile randomAccessFile = new RandomAccessFile(this.f52486c, "rw");
+                        this.f52487d.a(randomAccessFile);
+                        this.f52487d.a();
                         randomAccessFile.close();
                     } catch (IOException e3) {
                         e3.printStackTrace();
                     }
-                    this.f51905b = null;
+                    this.f52485b = null;
                 }
-            } else if (!(obj instanceof Buffer) || this.f51905b == null) {
+            } else if (!(obj instanceof Buffer) || this.f52485b == null) {
             } else {
                 ByteBuffer byteBuffer = (ByteBuffer) obj;
                 try {
-                    this.f51908e += byteBuffer.remaining();
-                    this.f51905b.write(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
+                    this.f52488e += byteBuffer.remaining();
+                    this.f52485b.write(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
                 } catch (IOException e4) {
                     e4.printStackTrace();
                 }

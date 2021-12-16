@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class cq implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.kwai.i> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,13 +37,13 @@ public class cq implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.kwai.i>
         if (jSONObject.opt("url") == JSONObject.NULL) {
             iVar.a = "";
         }
-        iVar.f58113b = jSONObject.optString("title");
+        iVar.f58694b = jSONObject.optString("title");
         if (jSONObject.opt("title") == JSONObject.NULL) {
-            iVar.f58113b = "";
+            iVar.f58694b = "";
         }
-        iVar.f58114c = jSONObject.optString("params");
+        iVar.f58695c = jSONObject.optString("params");
         if (jSONObject.opt("params") == JSONObject.NULL) {
-            iVar.f58114c = "";
+            iVar.f58695c = "";
         }
     }
 
@@ -57,8 +57,8 @@ public class cq implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.kwai.i>
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.t.a(jSONObject, "url", iVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "title", iVar.f58113b);
-            com.kwad.sdk.utils.t.a(jSONObject, "params", iVar.f58114c);
+            com.kwad.sdk.utils.t.a(jSONObject, "title", iVar.f58694b);
+            com.kwad.sdk.utils.t.a(jSONObject, "params", iVar.f58695c);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

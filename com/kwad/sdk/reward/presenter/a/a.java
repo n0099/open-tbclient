@@ -14,30 +14,30 @@ import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.g;
 import com.kwad.sdk.reward.l;
 import com.kwad.sdk.reward.presenter.a.kwai.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdInfo f59022b;
+    public AdInfo f59603b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f59023c;
+    public AdTemplate f59604c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.e.a f59024d;
+    public com.kwad.sdk.core.e.a f59605d;
 
     /* renamed from: e  reason: collision with root package name */
-    public l.b f59025e;
+    public l.b f59606e;
 
     /* renamed from: com.kwad.sdk.reward.presenter.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2055a extends com.kwad.sdk.reward.presenter.a {
+    /* loaded from: classes3.dex */
+    public static class C2116a extends com.kwad.sdk.reward.presenter.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2055a() {
+        public C2116a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class a extends g {
                 return;
             }
         }
-        this.f59025e = new l.b(this, null, null) { // from class: com.kwad.sdk.reward.presenter.a.a.1
+        this.f59606e = new l.b(this, null, null) { // from class: com.kwad.sdk.reward.presenter.a.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -138,9 +138,9 @@ public class a extends g {
                 }
             }
         };
-        this.f59023c = adTemplate;
-        this.f59024d = aVar;
-        this.f59022b = d.j(adTemplate);
+        this.f59604c = adTemplate;
+        this.f59605d = aVar;
+        this.f59603b = d.j(adTemplate);
         if (z) {
             e();
         } else {
@@ -150,20 +150,20 @@ public class a extends g {
 
     private void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || com.kwad.sdk.core.response.a.a.an(this.f59022b)) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || com.kwad.sdk.core.response.a.a.an(this.f59603b)) {
             return;
         }
-        if (com.kwad.sdk.core.response.a.b.j(this.f59023c)) {
+        if (com.kwad.sdk.core.response.a.b.j(this.f59604c)) {
             a(new com.kwad.sdk.reward.presenter.a.kwai.a());
         }
         c cVar = new c();
-        cVar.a(this.f59025e);
+        cVar.a(this.f59606e);
         a((Presenter) cVar);
-        if (com.kwad.sdk.core.response.a.b.h(this.f59023c)) {
+        if (com.kwad.sdk.core.response.a.b.h(this.f59604c)) {
             a(new com.kwad.sdk.reward.presenter.a.kwai.d());
         }
-        a(new C2055a());
-        if (com.kwad.sdk.core.response.a.a.aG(this.f59022b) || !com.kwad.sdk.core.response.a.a.q(this.f59022b)) {
+        a(new C2116a());
+        if (com.kwad.sdk.core.response.a.a.aG(this.f59603b) || !com.kwad.sdk.core.response.a.a.q(this.f59603b)) {
             return;
         }
         a(new com.kwad.sdk.reward.presenter.a.kwai.b());
@@ -173,15 +173,15 @@ public class a extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             c cVar = new c();
-            cVar.a(this.f59025e);
+            cVar.a(this.f59606e);
             a((Presenter) cVar);
-            if (com.kwad.sdk.core.response.a.b.h(this.f59023c)) {
+            if (com.kwad.sdk.core.response.a.b.h(this.f59604c)) {
                 a(new com.kwad.sdk.reward.presenter.a.kwai.d());
             }
-            if (d.s(this.f59023c)) {
+            if (d.s(this.f59604c)) {
                 a(new com.kwad.sdk.reward.presenter.a.kwai.b());
             }
-            if (com.kwad.sdk.core.response.a.b.j(this.f59023c)) {
+            if (com.kwad.sdk.core.response.a.b.j(this.f59604c)) {
                 a(new com.kwad.sdk.reward.presenter.a.kwai.a());
             }
         }

@@ -8,8 +8,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
+import com.dxmpay.wallet.utils.BdWalletUtils;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class EnterWalletClearRnAuthBackAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,8 +26,10 @@ public class EnterWalletClearRnAuthBackAction implements RouterAction {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        BdWalletUtils.putFunctionNameList(EnterDxmPayServiceAction.DXM_CLEAR_RN_AUTH);
     }
 
     @Override // com.baidu.wallet.router.RouterAction

@@ -24,13 +24,13 @@ import com.kwad.sdk.core.imageloader.utils.BlurUtils;
 import com.kwad.sdk.widget.DownloadProgressView;
 import com.kwad.sdk.widget.KsLogoView;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f58868i;
+    public ImageView f59449i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(@NonNull Context context) {
@@ -58,14 +58,14 @@ public class b extends a {
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i2) == null) {
             FrameLayout.inflate(context, R.layout.ksad_reflux_card_left, this);
             ((a) this).a = (TextView) findViewById(R.id.ksad_reflux_card_title);
-            ((a) this).f58861e = (ImageView) findViewById(R.id.ksad_reflux_card_img);
-            ((a) this).f58862f = (KsLogoView) findViewById(R.id.ksad_reflux_card_logo);
-            ((a) this).f58860d = (ImageView) findViewById(R.id.ksad_reflux_app_icon);
-            ((a) this).f58858b = (TextView) findViewById(R.id.ksad_reflux_app_name);
-            ((a) this).f58859c = (TextView) findViewById(R.id.ksad_reflux_app_desc);
-            ((a) this).f58863g = (ComplianceTextView) findViewById(R.id.ksad_reflux_card_title_compliance);
-            this.f58864h = (DownloadProgressView) findViewById(R.id.ksad_reflux_app_download_btn);
-            this.f58868i = (ImageView) findViewById(R.id.ksad_reflux_card_blur);
+            ((a) this).f59442e = (ImageView) findViewById(R.id.ksad_reflux_card_img);
+            ((a) this).f59443f = (KsLogoView) findViewById(R.id.ksad_reflux_card_logo);
+            ((a) this).f59441d = (ImageView) findViewById(R.id.ksad_reflux_app_icon);
+            ((a) this).f59439b = (TextView) findViewById(R.id.ksad_reflux_app_name);
+            ((a) this).f59440c = (TextView) findViewById(R.id.ksad_reflux_app_desc);
+            ((a) this).f59444g = (ComplianceTextView) findViewById(R.id.ksad_reflux_card_title_compliance);
+            this.f59445h = (DownloadProgressView) findViewById(R.id.ksad_reflux_app_download_btn);
+            this.f59449i = (ImageView) findViewById(R.id.ksad_reflux_card_blur);
         }
     }
 
@@ -74,10 +74,10 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             super.a(bVar);
-            if (bVar == null || bVar.c() == null || this.f58868i == null) {
+            if (bVar == null || bVar.c() == null || this.f59449i == null) {
                 return;
             }
-            ImageLoaderProxy.INSTANCE.load(getContext(), bVar.h(), this.f58868i, new DisplayImageOptionsCompat.Builder().setBlurRadius(50).build(), new SimpleImageLoadingListener(this) { // from class: com.kwad.sdk.reflux.kwai.b.1
+            ImageLoaderProxy.INSTANCE.load(getContext(), bVar.h(), this.f59449i, new DisplayImageOptionsCompat.Builder().setBlurRadius(50).build(), new SimpleImageLoadingListener(this) { // from class: com.kwad.sdk.reflux.kwai.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b a;

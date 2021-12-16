@@ -1,7 +1,7 @@
 package com.baidu.searchbox.perfframe.ubc;
 
 import android.content.Context;
-import c.a.i0.b.a.a;
+import c.a.j0.b.a.a;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -22,7 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UbcPerfFrameRegister implements IPerfFrameRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UbcPerfFrameRegister";

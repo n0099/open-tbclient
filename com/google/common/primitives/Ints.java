@@ -20,12 +20,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Ints {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class IntArrayAsList extends AbstractList<Integer> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -244,7 +244,7 @@ public final class Ints {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class IntConverter extends Converter<String, Integer> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final IntConverter INSTANCE;
@@ -311,7 +311,7 @@ public final class Ints {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class LexicographicalComparator implements Comparator<int[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

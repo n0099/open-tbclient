@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RemoteSdpRequest implements IJsonSignalling {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RemoteSdpRequest";

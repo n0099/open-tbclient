@@ -13,7 +13,7 @@ import com.kwad.sdk.api.core.KsAdSdkApi;
 import java.util.List;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class KsCustomController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

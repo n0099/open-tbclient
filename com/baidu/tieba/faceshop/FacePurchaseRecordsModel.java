@@ -3,7 +3,7 @@ package com.baidu.tieba.faceshop;
 import android.app.Application;
 import android.content.Context;
 import c.a.d.a.f;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -17,40 +17,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FacePurchaseRecordsModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f43776e;
+    public b f44267e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43777f;
+    public String f44268f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f43778g;
+    public int f44269g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43779h;
+    public int f44270h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f43780i;
+    public float f44271i;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class b extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchaseRecordsData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FacePurchaseRecordsModel f43781b;
+        public final /* synthetic */ FacePurchaseRecordsModel f44272b;
 
         public b(FacePurchaseRecordsModel facePurchaseRecordsModel) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f43781b = facePurchaseRecordsModel;
+            this.f44272b = facePurchaseRecordsModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,10 +80,10 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_PURCHASE_RECORDS);
                     this.a = netWork;
-                    netWork.addPostData("st_type", this.f43781b.f43777f);
-                    this.a.addPostData("scr_w", String.valueOf(this.f43781b.f43778g));
-                    this.a.addPostData("scr_h", String.valueOf(this.f43781b.f43779h));
-                    this.a.addPostData("scr_dip", String.valueOf(this.f43781b.f43780i));
+                    netWork.addPostData("st_type", this.f44272b.f44268f);
+                    this.a.addPostData("scr_w", String.valueOf(this.f44272b.f44269g));
+                    this.a.addPostData("scr_h", String.valueOf(this.f44272b.f44270h));
+                    this.a.addPostData("scr_dip", String.valueOf(this.f44272b.f44271i));
                     return (FacePurchaseRecordsData) OrmObject.objectWithJsonStr(this.a.postNetData(), FacePurchaseRecordsData.class);
                 } catch (Exception e2) {
                     BdLog.detailException(e2);
@@ -99,8 +99,8 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
         public void onPostExecute(FacePurchaseRecordsData facePurchaseRecordsData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, facePurchaseRecordsData) == null) {
-                this.f43781b.f43776e = null;
-                this.f43781b.mLoadDataCallBack.c(facePurchaseRecordsData);
+                this.f44272b.f44267e = null;
+                this.f44272b.mLoadDataCallBack.c(facePurchaseRecordsData);
                 super.onPostExecute(facePurchaseRecordsData);
             }
         }
@@ -114,7 +114,7 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f43781b.f43776e = null;
+                this.f44272b.f44267e = null;
             }
         }
 
@@ -141,12 +141,12 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
                 return;
             }
         }
-        this.f43778g = 0;
-        this.f43779h = 0;
+        this.f44269g = 0;
+        this.f44270h = 0;
         Application app = TbadkApplication.getInst().getApp();
-        this.f43778g = l.k(app);
-        this.f43779h = l.i(app);
-        this.f43780i = app.getResources().getDisplayMetrics().density;
+        this.f44269g = m.k(app);
+        this.f44270h = m.i(app);
+        this.f44271i = app.getResources().getDisplayMetrics().density;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -154,7 +154,7 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b bVar = this.f43776e;
+            b bVar = this.f44267e;
             if (bVar != null) {
                 bVar.cancel();
                 return true;
@@ -169,11 +169,11 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f43776e == null) {
+            if (this.f44267e == null) {
                 b bVar = new b(this, null);
-                this.f43776e = bVar;
+                this.f44267e = bVar;
                 bVar.setPriority(3);
-                this.f43776e.execute(new Object[0]);
+                this.f44267e.execute(new Object[0]);
             }
             return false;
         }
@@ -183,7 +183,7 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
     public void setStType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f43777f = str;
+            this.f44268f = str;
         }
     }
 }

@@ -13,41 +13,41 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final j a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final j f60954b;
+    public static final j f61535b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static j f60955c;
+    public static j f61536c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static j f60956d;
+    public static j f61537d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static j f60957e;
+    public static j f61538e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static j f60958f;
+    public static j f61539f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static j f60959g;
+    public static j f61540g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static j f60960h;
+    public static j f61541h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static j f60961i;
+    public static j f61542i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static j f60962j;
+    public static j f61543j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: k  reason: collision with root package name */
-    public final String f60963k;
+    public final String f61544k;
 
     static {
         InterceptResult invokeClinit;
@@ -63,15 +63,15 @@ public final class j {
             }
         }
         a = new j("GET", 0, "GET");
-        f60954b = new j("POST", 1, "POST");
-        f60955c = new j(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
-        f60956d = new j("HEAD", 3, "HEAD");
-        f60957e = new j("MOVE", 4, "MOVE");
-        f60958f = new j("COPY", 5, "COPY");
-        f60959g = new j(HttpDelete.METHOD_NAME, 6, HttpDelete.METHOD_NAME);
-        f60960h = new j(HttpOptions.METHOD_NAME, 7, HttpOptions.METHOD_NAME);
-        f60961i = new j(HttpTrace.METHOD_NAME, 8, HttpTrace.METHOD_NAME);
-        f60962j = new j("CONNECT", 9, "CONNECT");
+        f61535b = new j("POST", 1, "POST");
+        f61536c = new j(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
+        f61537d = new j("HEAD", 3, "HEAD");
+        f61538e = new j("MOVE", 4, "MOVE");
+        f61539f = new j("COPY", 5, "COPY");
+        f61540g = new j(HttpDelete.METHOD_NAME, 6, HttpDelete.METHOD_NAME);
+        f61541h = new j(HttpOptions.METHOD_NAME, 7, HttpOptions.METHOD_NAME);
+        f61542i = new j(HttpTrace.METHOD_NAME, 8, HttpTrace.METHOD_NAME);
+        f61543j = new j("CONNECT", 9, "CONNECT");
     }
 
     public j(String str, int i2, String str2) {
@@ -92,13 +92,13 @@ public final class j {
                 return;
             }
         }
-        this.f60963k = str2;
+        this.f61544k = str2;
     }
 
     @Override // java.lang.Enum
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60963k : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61544k : (String) invokeV.objValue;
     }
 }

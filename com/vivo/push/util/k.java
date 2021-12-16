@@ -12,40 +12,40 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f62547b;
+    public static final String f63128b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f62548c;
+    public static final boolean f63129c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f62549d;
+    public static final boolean f63130d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f62550e;
+    public static final boolean f63131e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f62551f;
+    public static final boolean f63132f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f62552g;
+    public static final boolean f63133g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f62553h;
+    public static final boolean f63134h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Method f62554i;
+    public static Method f63135i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f62555j;
+    public static String f63136j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static String f62556k;
+    public static String f63137k;
     public static String l;
     public static String m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,15 +70,15 @@ public final class k {
         } else {
             b2 = z.b("ro.product.customize.bbk", "N");
         }
-        f62547b = b2;
-        f62548c = "RU".equals(b2);
-        f62549d = "IN".equals(f62547b);
-        f62550e = b("rom_1.0");
-        f62551f = b("rom_2.0");
-        f62552g = b("rom_2.5");
-        f62553h = b("rom_3.0");
-        f62555j = null;
-        f62556k = null;
+        f63128b = b2;
+        f63129c = "RU".equals(b2);
+        f63130d = "IN".equals(f63128b);
+        f63131e = b("rom_1.0");
+        f63132f = b("rom_2.0");
+        f63133g = b("rom_2.5");
+        f63134h = b("rom_3.0");
+        f63136j = null;
+        f63137k = null;
         l = "";
         m = "";
     }
@@ -88,21 +88,21 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (k.class) {
-                if (f62555j == null && f62556k == null) {
+                if (f63136j == null && f63137k == null) {
                     try {
                         Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
-                        f62554i = declaredMethod;
+                        f63135i = declaredMethod;
                         declaredMethod.setAccessible(true);
-                        f62555j = (String) f62554i.invoke(null, "ro.vivo.rom", "@><@");
-                        f62556k = (String) f62554i.invoke(null, "ro.vivo.rom.version", "@><@");
+                        f63136j = (String) f63135i.invoke(null, "ro.vivo.rom", "@><@");
+                        f63137k = (String) f63135i.invoke(null, "ro.vivo.rom.version", "@><@");
                     } catch (Exception unused) {
                         p.b("Device", "getRomCode error");
                     }
                 }
-                p.d("Device", "sRomProperty1 : " + f62555j + " ; sRomProperty2 : " + f62556k);
-                String a2 = a(f62555j);
+                p.d("Device", "sRomProperty1 : " + f63136j + " ; sRomProperty2 : " + f63137k);
+                String a2 = a(f63136j);
                 if (TextUtils.isEmpty(a2)) {
-                    String a3 = a(f62556k);
+                    String a3 = a(f63137k);
                     if (TextUtils.isEmpty(a3)) {
                         return null;
                     }

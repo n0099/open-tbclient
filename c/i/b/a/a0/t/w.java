@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface w {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f29446b;
+        public final byte[] f29816b;
 
         public a(String str, int i2, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -38,24 +38,24 @@ public interface w {
                 }
             }
             this.a = str;
-            this.f29446b = bArr;
+            this.f29816b = bArr;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f29447b;
+        public final String f29817b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<a> f29448c;
+        public final List<a> f29818c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final byte[] f29449d;
+        public final byte[] f29819d;
 
         public b(int i2, String str, List<a> list, byte[] bArr) {
             List<a> unmodifiableList;
@@ -74,41 +74,41 @@ public interface w {
                 }
             }
             this.a = i2;
-            this.f29447b = str;
+            this.f29817b = str;
             if (list == null) {
                 unmodifiableList = Collections.emptyList();
             } else {
                 unmodifiableList = Collections.unmodifiableList(list);
             }
-            this.f29448c = unmodifiableList;
-            this.f29449d = bArr;
+            this.f29818c = unmodifiableList;
+            this.f29819d = bArr;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface c {
         w a(int i2, b bVar);
 
         SparseArray<w> b();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f29450b;
+        public final int f29820b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f29451c;
+        public final int f29821c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f29452d;
+        public int f29822d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f29453e;
+        public String f29823e;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public d(int i2, int i3) {
@@ -134,9 +134,9 @@ public interface w {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f29452d;
-                this.f29452d = i2 == Integer.MIN_VALUE ? this.f29450b : i2 + this.f29451c;
-                this.f29453e = this.a + this.f29452d;
+                int i2 = this.f29822d;
+                this.f29822d = i2 == Integer.MIN_VALUE ? this.f29820b : i2 + this.f29821c;
+                this.f29823e = this.a + this.f29822d;
             }
         }
 
@@ -145,7 +145,7 @@ public interface w {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 d();
-                return this.f29453e;
+                return this.f29823e;
             }
             return (String) invokeV.objValue;
         }
@@ -155,14 +155,14 @@ public interface w {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 d();
-                return this.f29452d;
+                return this.f29822d;
             }
             return invokeV.intValue;
         }
 
         public final void d() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f29452d == Integer.MIN_VALUE) {
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f29822d == Integer.MIN_VALUE) {
                 throw new IllegalStateException("generateNewId() must be called before retrieving ids.");
             }
         }
@@ -189,9 +189,9 @@ public interface w {
                 str = "";
             }
             this.a = str;
-            this.f29450b = i3;
-            this.f29451c = i4;
-            this.f29452d = Integer.MIN_VALUE;
+            this.f29820b = i3;
+            this.f29821c = i4;
+            this.f29822d = Integer.MIN_VALUE;
         }
     }
 

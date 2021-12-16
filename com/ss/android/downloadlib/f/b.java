@@ -8,7 +8,7 @@ import com.ss.android.downloadlib.addownload.b.f;
 import com.ss.android.socialbase.appdownloader.c.i;
 import com.ss.android.socialbase.appdownloader.c.j;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

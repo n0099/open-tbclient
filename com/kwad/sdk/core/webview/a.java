@@ -17,40 +17,40 @@ import com.kwad.sdk.utils.ac;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f57955b;
+    public AdBaseFrameLayout f58536b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f57956c;
+    public JSONObject f58537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f57957d;
+    public ViewGroup f58538d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebView f57958e;
+    public WebView f58539e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f57959f;
+    public b f58540f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public ac f57960g;
+    public ac f58541g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f57961h;
+    public boolean f58542h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f57962i;
+    public boolean f58543i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<AdTemplate> f57963j;
+    public List<AdTemplate> f58544j;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -65,20 +65,20 @@ public class a {
                 return;
             }
         }
-        this.f57961h = true;
-        this.f57962i = true;
-        this.f57963j = null;
+        this.f58542h = true;
+        this.f58543i = true;
+        this.f58544j = null;
     }
 
     public AdTemplate a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<AdTemplate> list = this.f57963j;
+            List<AdTemplate> list = this.f58544j;
             if (list == null || list.size() == 0) {
                 return null;
             }
-            return this.f57963j.get(0);
+            return this.f58544j.get(0);
         }
         return (AdTemplate) invokeV.objValue;
     }
@@ -89,7 +89,7 @@ public class a {
         List<AdTemplate> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            if (j2 >= 0 && (list = this.f57963j) != null) {
+            if (j2 >= 0 && (list = this.f58544j) != null) {
                 for (AdTemplate adTemplate : list) {
                     if (d.y(adTemplate) == j2) {
                         return adTemplate;
@@ -105,7 +105,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adTemplate) == null) {
             ArrayList arrayList = new ArrayList();
-            this.f57963j = arrayList;
+            this.f58544j = arrayList;
             arrayList.add(adTemplate);
         }
     }
@@ -113,21 +113,21 @@ public class a {
     public void a(List<AdTemplate> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f57963j = list;
+            this.f58544j = list;
         }
     }
 
     public List<AdTemplate> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57963j : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58544j : (List) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<AdTemplate> list = this.f57963j;
+            List<AdTemplate> list = this.f58544j;
             return list == null || list.size() == 0;
         }
         return invokeV.booleanValue;

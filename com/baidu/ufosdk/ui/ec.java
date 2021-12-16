@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class ec implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,10 +85,10 @@ public final class ec implements d {
                 SpannableString spannableString2 = new SpannableString("问题截图（系统自动截取）");
                 spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#999999")), 4, spannableString2.length(), 34);
                 spannableString2.setSpan(new AbsoluteSizeSpan(12, true), 4, spannableString2.length(), 34);
-                bArr = this.a.f51632j;
+                bArr = this.a.f52181j;
                 if (bArr != null) {
                     list = this.a.x;
-                    bArr2 = this.a.f51632j;
+                    bArr2 = this.a.f52181j;
                     if (list.contains(bArr2)) {
                         textView2 = this.a.r;
                         textView2.setText(spannableString2);

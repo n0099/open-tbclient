@@ -18,7 +18,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public abstract class PluginService extends Service implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginService";

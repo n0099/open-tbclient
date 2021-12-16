@@ -29,7 +29,7 @@ import java.util.Queue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
     public final Function<? super T, ? extends ObservableSource<? extends U>> mapper;
     public final int maxConcurrency;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class InnerObserver<T, U> extends AtomicReference<Disposable> implements Observer<U> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4606175640614850599L;
@@ -132,7 +132,7 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class MergeObserver<T, U> extends AtomicInteger implements Disposable, Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final InnerObserver<?, ?>[] CANCELLED;

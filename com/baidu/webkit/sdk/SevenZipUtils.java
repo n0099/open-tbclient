@@ -36,7 +36,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class SevenZipUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSETS_NAME_PREFIX = "file:///android_assets";

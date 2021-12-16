@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public /* synthetic */ class c {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ int[] a;
@@ -32,19 +32,19 @@ public /* synthetic */ class c {
         } catch (NoSuchFieldError unused) {
         }
         try {
-            a[c.a.f36558c.ordinal()] = 2;
+            a[c.a.f37047c.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            a[c.a.f36560e.ordinal()] = 3;
+            a[c.a.f37049e.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            a[c.a.f36557b.ordinal()] = 4;
+            a[c.a.f37046b.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            a[c.a.f36559d.ordinal()] = 5;
+            a[c.a.f37048d.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
     }

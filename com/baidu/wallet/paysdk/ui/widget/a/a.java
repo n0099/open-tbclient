@@ -9,7 +9,7 @@ import com.baidu.wallet.base.datamodel.Authorize;
 import com.baidu.wallet.paysdk.ui.widget.AuthorizeInfoView;
 import com.dxmpay.wallet.base.datamodel.UserData;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class a extends AuthorizeInfoView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

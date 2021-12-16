@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SynchronizedFIFOPool<T extends IPoolItem> extends FIFOPool<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,6 +54,7 @@ public class SynchronizedFIFOPool<T extends IPoolItem> extends FIFOPool<T> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.player.pool.FIFOPool, com.baidu.searchbox.player.pool.IPool
+    @NonNull
     public T acquire() {
         InterceptResult invokeV;
         T t;

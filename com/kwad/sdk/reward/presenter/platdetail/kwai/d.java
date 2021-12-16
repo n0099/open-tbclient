@@ -18,26 +18,26 @@ import com.kwad.sdk.utils.j;
 import com.kwad.sdk.utils.x;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends g implements View.OnClickListener, Observer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f59275b;
+    public ImageView f59856b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f59276c;
+    public AdTemplate f59857c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f59277d;
+    public com.kwad.sdk.reward.c.a f59858d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j.a f59278e;
+    public j.a f59859e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f59279f;
+    public com.kwad.sdk.contentalliance.detail.video.d f59860f;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class d extends g implements View.OnClickListener, Observer {
                 return;
             }
         }
-        this.f59278e = new j.a(this) { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.d.1
+        this.f59859e = new j.a(this) { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -78,10 +78,10 @@ public class d extends g implements View.OnClickListener, Observer {
             @Override // com.kwad.sdk.utils.j.a
             public void a() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.f59275b == null || com.kwad.sdk.core.config.b.F()) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.f59856b == null || com.kwad.sdk.core.config.b.F()) {
                     return;
                 }
-                this.a.f59275b.post(new Runnable(this) { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.d.1.1
+                this.a.f59856b.post(new Runnable(this) { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.d.1.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AnonymousClass1 a;
@@ -108,8 +108,8 @@ public class d extends g implements View.OnClickListener, Observer {
                     public void run() {
                         Interceptable interceptable3 = $ic;
                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                            this.a.a.f59275b.setSelected(false);
-                            this.a.a.f59277d.a(false, false);
+                            this.a.a.f59856b.setSelected(false);
+                            this.a.a.f59858d.a(false, false);
                         }
                     }
                 });
@@ -122,7 +122,7 @@ public class d extends g implements View.OnClickListener, Observer {
                 }
             }
         };
-        this.f59279f = new com.kwad.sdk.contentalliance.detail.video.e(this) { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.d.2
+        this.f59860f = new com.kwad.sdk.contentalliance.detail.video.e(this) { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.d.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -159,7 +159,7 @@ public class d extends g implements View.OnClickListener, Observer {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f59275b.setOnClickListener(this);
+            this.f59856b.setOnClickListener(this);
         }
     }
 
@@ -171,25 +171,25 @@ public class d extends g implements View.OnClickListener, Observer {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
             com.kwad.sdk.reward.a aVar = ((g) this).a;
-            this.f59276c = aVar.f58874g;
-            com.kwad.sdk.reward.c.a aVar2 = aVar.f58878k;
-            this.f59277d = aVar2;
-            KsVideoPlayConfig ksVideoPlayConfig = aVar.f58871d;
+            this.f59857c = aVar.f59455g;
+            com.kwad.sdk.reward.c.a aVar2 = aVar.f59459k;
+            this.f59858d = aVar2;
+            KsVideoPlayConfig ksVideoPlayConfig = aVar.f59452d;
             if (!aVar2.a() && com.kwad.sdk.utils.b.a(q()).a()) {
-                imageView = this.f59275b;
+                imageView = this.f59856b;
                 z = false;
             } else if (ksVideoPlayConfig != null) {
-                this.f59275b.setSelected(ksVideoPlayConfig.isVideoSoundEnable());
-                this.f59277d.a(this.f59279f);
-                this.f59277d.a(this.f59278e);
+                this.f59856b.setSelected(ksVideoPlayConfig.isVideoSoundEnable());
+                this.f59858d.a(this.f59860f);
+                this.f59858d.a(this.f59859e);
                 x.a().addObserver(this);
             } else {
-                imageView = this.f59275b;
+                imageView = this.f59856b;
                 z = true;
             }
             imageView.setSelected(z);
-            this.f59277d.a(this.f59279f);
-            this.f59277d.a(this.f59278e);
+            this.f59858d.a(this.f59860f);
+            this.f59858d.a(this.f59859e);
             x.a().addObserver(this);
         }
     }
@@ -200,8 +200,8 @@ public class d extends g implements View.OnClickListener, Observer {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.c();
             x.a().deleteObserver(this);
-            this.f59277d.b(this.f59279f);
-            this.f59277d.b(this.f59278e);
+            this.f59858d.b(this.f59860f);
+            this.f59858d.b(this.f59859e);
         }
     }
 
@@ -210,7 +210,7 @@ public class d extends g implements View.OnClickListener, Observer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.c_();
-            this.f59275b = (ImageView) a(R.id.ksad_video_sound_switch);
+            this.f59856b = (ImageView) a(R.id.ksad_video_sound_switch);
         }
     }
 
@@ -218,9 +218,9 @@ public class d extends g implements View.OnClickListener, Observer {
     public void onClick(View view) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view == (imageView = this.f59275b)) {
-            this.f59277d.a(!imageView.isSelected(), true);
-            ImageView imageView2 = this.f59275b;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view == (imageView = this.f59856b)) {
+            this.f59858d.a(!imageView.isSelected(), true);
+            ImageView imageView2 = this.f59856b;
             imageView2.setSelected(!imageView2.isSelected());
         }
     }
@@ -242,15 +242,15 @@ public class d extends g implements View.OnClickListener, Observer {
                 c2 = 1;
             }
             if (c2 == 0) {
-                AdTemplate adTemplate = this.f59276c;
+                AdTemplate adTemplate = this.f59857c;
                 if (adTemplate.mXiaomiAppStoreDetailViewOpen && (sceneImpl = adTemplate.mAdScene) != null && sceneImpl.getAdStyle() == 2) {
-                    this.f59277d.d();
+                    this.f59858d.d();
                 }
             } else if (c2 != 1) {
             } else {
-                AdTemplate adTemplate2 = this.f59276c;
+                AdTemplate adTemplate2 = this.f59857c;
                 if (adTemplate2.mXiaomiAppStoreDetailViewOpen && (sceneImpl2 = adTemplate2.mAdScene) != null && sceneImpl2.getAdStyle() == 2) {
-                    this.f59277d.b();
+                    this.f59858d.b();
                 }
             }
         }

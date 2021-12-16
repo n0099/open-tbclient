@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class az implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,13 +50,13 @@ public final class az implements View.OnClickListener {
         }
         view2 = this.a.l;
         view2.setVisibility(0);
-        linearLayout = this.a.f51599h;
+        linearLayout = this.a.f52148h;
         linearLayout.setVisibility(8);
         if (!com.baidu.ufosdk.b.d.b(this.a.getApplicationContext()).contains(RomUtils.UNKNOWN) && !com.baidu.ufosdk.b.d.b(this.a.getApplicationContext()).contains(PolyActivity.NONE_PANEL_TYPE)) {
             this.a.a();
-            linearLayout3 = this.a.f51599h;
+            linearLayout3 = this.a.f52148h;
             linearLayout3.setVisibility(8);
-            webView = this.a.f51601j;
+            webView = this.a.f52150j;
             webView.setVisibility(0);
             return;
         }
@@ -65,7 +65,7 @@ public final class az implements View.OnClickListener {
         Context applicationContext = this.a.getApplicationContext();
         textView = this.a.m;
         com.baidu.ufosdk.f.i.a(applicationContext, textView);
-        linearLayout2 = this.a.f51599h;
+        linearLayout2 = this.a.f52148h;
         linearLayout2.setVisibility(0);
     }
 }

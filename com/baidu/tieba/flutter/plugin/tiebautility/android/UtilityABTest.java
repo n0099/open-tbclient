@@ -1,12 +1,12 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
-import c.a.q0.b.c;
+import c.a.r0.b.c;
 import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityAbtestAuto;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class UtilityABTest implements TiebaUtilityAbtestAuto.HostUtilityABTest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -15,20 +15,20 @@ import java.net.SocketAddress;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i extends ProxySelector {
     public static /* synthetic */ Interceptable $ic;
     public static final List<Proxy> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ProxySelector f57921b;
+    public final ProxySelector f58502b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f57922c;
+    public final String f58503c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f57923d;
+    public final int f58504d;
 
     static {
         InterceptResult invokeClinit;
@@ -61,9 +61,9 @@ public class i extends ProxySelector {
                 return;
             }
         }
-        this.f57921b = (ProxySelector) j.a(proxySelector);
-        this.f57922c = (String) j.a(str);
-        this.f57923d = i2;
+        this.f58502b = (ProxySelector) j.a(proxySelector);
+        this.f58503c = (String) j.a(str);
+        this.f58504d = i2;
     }
 
     public static void a(String str, int i2) {
@@ -77,7 +77,7 @@ public class i extends ProxySelector {
     public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, uri, socketAddress, iOException) == null) {
-            this.f57921b.connectFailed(uri, socketAddress, iOException);
+            this.f58502b.connectFailed(uri, socketAddress, iOException);
         }
     }
 
@@ -86,7 +86,7 @@ public class i extends ProxySelector {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            return this.f57922c.equals(uri.getHost()) && this.f57923d == uri.getPort() ? a : this.f57921b.select(uri);
+            return this.f58503c.equals(uri.getHost()) && this.f58504d == uri.getPort() ? a : this.f58502b.select(uri);
         }
         return (List) invokeL.objValue;
     }

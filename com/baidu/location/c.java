@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,8 +41,8 @@ public class c extends Thread {
             cVar = this.a.C;
             if (cVar == null) {
                 LocationClient locationClient = this.a;
-                context = this.a.f35461f;
-                locationClientOption = this.a.f35459d;
+                context = this.a.f35950f;
+                locationClientOption = this.a.f35948d;
                 locationClient.C = new com.baidu.location.b.c(context, locationClientOption, this.a);
             }
             cVar2 = this.a.C;

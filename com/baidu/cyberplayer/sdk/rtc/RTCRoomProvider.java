@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class RTCRoomProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class CyberRtcLiveTransferMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRtcLiveTransferMode RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION;
@@ -81,7 +81,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class CyberRtcRoomAudioLevel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface CyberRtcRoomDelegate {
         void onEngineStatisticsInfo(int i2);
 
@@ -127,7 +127,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class CyberRtcRoomUserInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class CyberRtcRoomVideoDimension {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,7 +184,7 @@ public abstract class RTCRoomProvider {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class CyberRtcSoundMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRtcSoundMode RTC_SOUND_MODE_EAR;

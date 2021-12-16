@@ -12,7 +12,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class b implements Runnable {
                 public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f61239b;
+                public final /* synthetic */ b f61820b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -91,7 +91,7 @@ public class b implements Runnable {
                             return;
                         }
                     }
-                    this.f61239b = this;
+                    this.f61820b = this;
                     this.a = a;
                 }
             });

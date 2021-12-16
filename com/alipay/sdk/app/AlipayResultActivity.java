@@ -19,13 +19,13 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AlipayResultActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public static final ConcurrentHashMap<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(int i2, String str, String str2);
     }
@@ -93,7 +93,7 @@ public class AlipayResultActivity extends Activity {
                 stringExtra = intent.getStringExtra("session");
                 bundleExtra = intent.getBundleExtra("result");
                 stringExtra2 = intent.getStringExtra("scene");
-                a2 = a.C1640a.a(stringExtra);
+                a2 = a.C1679a.a(stringExtra);
             } catch (Throwable unused) {
                 finish();
             }
@@ -132,7 +132,7 @@ public class AlipayResultActivity extends Activity {
                     com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.x0, th);
                     if (TextUtils.isEmpty(stringExtra)) {
                     }
-                    com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f31386d);
+                    com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f31756d);
                     finish();
                     LogUtil.logActivity(this, "onCreate");
                 }
@@ -141,10 +141,10 @@ public class AlipayResultActivity extends Activity {
                 com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.Z, "" + SystemClock.elapsedRealtime());
                 com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.a0, bundleExtra.getInt("endCode", -1) + "|" + bundleExtra.getString("memo", "-"));
                 OpenAuthTask.a(stringExtra, 9000, StatHelper.SENSOR_OK, bundleExtra);
-                com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f31386d);
+                com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f31756d);
                 finish();
             } else {
-                com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f31386d);
+                com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f31756d);
                 finish();
             }
             LogUtil.logActivity(this, "onCreate");

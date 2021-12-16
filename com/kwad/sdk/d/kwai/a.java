@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.compliance.widget.ComplianceTextView;
 import com.kwad.sdk.utils.bb;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class a extends b {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
             c cVar = (c) p();
-            if (cVar.f58253f) {
+            if (cVar.f58834f) {
                 a((View) this.a);
             }
             this.a.setVisibility(0);

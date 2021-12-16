@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class AnimatedDrawableOptions {
     public static /* synthetic */ Interceptable $ic;
     public static AnimatedDrawableOptions DEFAULTS;

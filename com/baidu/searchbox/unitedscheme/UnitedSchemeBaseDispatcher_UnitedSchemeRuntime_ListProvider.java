@@ -1,16 +1,16 @@
 package com.baidu.searchbox.unitedscheme;
 
-import c.a.i0.a.a;
-import c.a.p0.a.f2.c;
-import c.a.p0.a.f2.d;
-import c.a.p0.g.q.e;
+import c.a.j0.a.a;
+import c.a.q0.a.f2.c;
+import c.a.q0.a.f2.d;
+import c.a.q0.g.q.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider impleme
         }
     }
 
-    @Override // c.a.i0.a.a
+    @Override // c.a.j0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

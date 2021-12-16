@@ -1,7 +1,7 @@
 package com.baidu.tieba.quickWebView.message;
 
 import android.text.TextUtils;
-import c.a.r0.f3.e.a;
+import c.a.s0.h3.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoResIdl;
 import tbclient.GetWebviewCacheInfo.Offpack;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

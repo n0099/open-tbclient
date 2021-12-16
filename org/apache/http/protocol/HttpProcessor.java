@@ -3,6 +3,6 @@ package org.apache.http.protocol;
 import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.HttpResponseInterceptor;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface HttpProcessor extends HttpRequestInterceptor, HttpResponseInterceptor {
 }

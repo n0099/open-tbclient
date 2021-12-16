@@ -9,8 +9,8 @@ import android.os.Message;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.c;
-import c.a.q0.r0.l;
-import c.a.q0.s.e0.b;
+import c.a.r0.r0.l;
+import c.a.r0.s.g0.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TbadkApplication extends TbadkCoreApplication {
     public static /* synthetic */ Interceptable $ic = null;
     public static String mForumName = "armcv";

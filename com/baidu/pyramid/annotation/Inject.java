@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.CONSTRUCTOR})
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public @interface Inject {
     boolean force() default true;
 

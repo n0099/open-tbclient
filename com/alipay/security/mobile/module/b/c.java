@@ -9,7 +9,7 @@ import com.bumptech.glide.load.engine.executor.RuntimeCompat;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class c implements FileFilter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -16,7 +16,7 @@ import com.ss.android.socialbase.downloader.depend.z;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Downloader extends b {
     public static /* synthetic */ Interceptable $ic;
     public static volatile Downloader instance;

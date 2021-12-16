@@ -17,23 +17,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class XfordView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Bitmap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f35028b;
+    public Paint f35496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f35029c;
+    public Rect f35497c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Rect f35030d;
+    public Rect f35498d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Xfermode f35031e;
+    public Xfermode f35499e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public XfordView(Context context) {
@@ -54,23 +54,23 @@ public class XfordView extends ImageView {
             }
         }
         this.a = null;
-        this.f35028b = null;
+        this.f35496b = null;
         a();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (this.f35028b == null) {
+            if (this.f35496b == null) {
                 Paint paint = new Paint();
-                this.f35028b = paint;
+                this.f35496b = paint;
                 paint.setColor(1711276032);
             }
             if (this.a == null) {
                 this.a = BitmapFactory.decodeResource(getResources(), R.drawable.sapi_liveness_recog_face_mask);
             }
-            if (this.f35031e == null) {
-                this.f35031e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
+            if (this.f35499e == null) {
+                this.f35499e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
             }
         }
     }
@@ -86,9 +86,9 @@ public class XfordView extends ImageView {
                 this.a = null;
             }
             System.gc();
-            this.f35031e = null;
-            this.f35029c = null;
-            this.f35030d = null;
+            this.f35499e = null;
+            this.f35497c = null;
+            this.f35498d = null;
         }
     }
 
@@ -102,16 +102,16 @@ public class XfordView extends ImageView {
             int dimensionPixelSize2 = getContext().getResources().getDimensionPixelSize(R.dimen.sapi_liveness_face_round_width);
             int width = (getWidth() - dimensionPixelSize2) / 2;
             int height = (getHeight() - dimensionPixelSize) / 2;
-            if (this.f35030d == null) {
-                this.f35030d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
+            if (this.f35498d == null) {
+                this.f35498d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
             }
-            if (this.f35029c == null) {
-                this.f35029c = new Rect(0, 0, this.a.getWidth(), this.a.getHeight());
+            if (this.f35497c == null) {
+                this.f35497c = new Rect(0, 0, this.a.getWidth(), this.a.getHeight());
             }
-            canvas.drawBitmap(this.a, this.f35029c, this.f35030d, this.f35028b);
-            this.f35028b.setXfermode(this.f35031e);
-            canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f35028b);
-            this.f35028b.setXfermode(null);
+            canvas.drawBitmap(this.a, this.f35497c, this.f35498d, this.f35496b);
+            this.f35496b.setXfermode(this.f35499e);
+            canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f35496b);
+            this.f35496b.setXfermode(null);
             canvas.restoreToCount(saveLayer);
         }
     }
@@ -119,10 +119,10 @@ public class XfordView extends ImageView {
     public void setBgPaintColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f35028b == null) {
-                this.f35028b = new Paint();
+            if (this.f35496b == null) {
+                this.f35496b = new Paint();
             }
-            this.f35028b.setColor(i2);
+            this.f35496b.setColor(i2);
         }
     }
 
@@ -146,7 +146,7 @@ public class XfordView extends ImageView {
             }
         }
         this.a = null;
-        this.f35028b = null;
+        this.f35496b = null;
         a();
     }
 }

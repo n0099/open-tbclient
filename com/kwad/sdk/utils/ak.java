@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ak {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ak a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f59597b;
+    public volatile boolean f60178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile long f59598c;
+    public volatile long f60179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile PowerManager f59599d;
+    public volatile PowerManager f60180d;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +55,7 @@ public class ak {
                 return;
             }
         }
-        this.f59598c = 0L;
+        this.f60179c = 0L;
     }
 
     public static ak a() {
@@ -68,19 +68,19 @@ public class ak {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (this.f59598c <= 0 || SystemClock.elapsedRealtime() - this.f59598c >= 600) {
-                if (this.f59599d == null && context != null) {
+            if (this.f60179c <= 0 || SystemClock.elapsedRealtime() - this.f60179c >= 600) {
+                if (this.f60180d == null && context != null) {
                     synchronized (this) {
-                        if (this.f59599d == null) {
-                            this.f59599d = (PowerManager) context.getApplicationContext().getSystemService("power");
+                        if (this.f60180d == null) {
+                            this.f60180d = (PowerManager) context.getApplicationContext().getSystemService("power");
                         }
                     }
                 }
-                this.f59597b = this.f59599d != null ? Build.VERSION.SDK_INT >= 20 ? this.f59599d.isInteractive() : this.f59599d.isScreenOn() : false;
-                this.f59598c = SystemClock.elapsedRealtime();
-                return this.f59597b;
+                this.f60178b = this.f60180d != null ? Build.VERSION.SDK_INT >= 20 ? this.f60180d.isInteractive() : this.f60180d.isScreenOn() : false;
+                this.f60179c = SystemClock.elapsedRealtime();
+                return this.f60178b;
             }
-            return this.f59597b;
+            return this.f60178b;
         }
         return invokeL.booleanValue;
     }

@@ -16,20 +16,20 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.ss.android.downloadlib.addownload.b.e f61273b;
+    public com.ss.android.downloadlib.addownload.b.e f61854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f61274c;
+    public AtomicBoolean f61855c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f61275d;
+    public AtomicBoolean f61856d;
 
     public d(Handler handler) {
         Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class d {
                 return;
             }
         }
-        this.f61274c = new AtomicBoolean(false);
-        this.f61275d = new AtomicBoolean(false);
+        this.f61855c = new AtomicBoolean(false);
+        this.f61856d = new AtomicBoolean(false);
         this.a = handler;
     }
 
@@ -86,38 +86,38 @@ public class d {
     public void a(com.ss.android.downloadlib.addownload.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            this.f61273b = eVar;
+            this.f61854b = eVar;
         }
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61275d.get() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61856d.get() : invokeV.booleanValue;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f61275d.set(z);
+            this.f61856d.set(z);
         }
     }
 
     public void a(int i2, long j2, long j3, e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), aVar}) == null) {
-            this.f61275d.set(false);
+            this.f61856d.set(false);
             if (aVar == null) {
                 return;
             }
             if (com.ss.android.downloadlib.g.e.f(i2) && com.ss.android.downloadlib.g.e.e(i2)) {
                 long c2 = com.ss.android.downloadlib.g.e.c(i2);
-                this.f61274c.set(false);
-                String downloadUrl = this.f61273b.f61223b.getDownloadUrl();
+                this.f61855c.set(false);
+                String downloadUrl = this.f61854b.f61804b.getDownloadUrl();
                 com.ss.android.downloadad.api.a.b b2 = com.ss.android.downloadlib.addownload.b.f.a().b(downloadUrl);
                 if (b2 == null) {
-                    com.ss.android.downloadlib.addownload.b.e eVar = this.f61273b;
-                    b2 = new com.ss.android.downloadad.api.a.b(eVar.f61223b, eVar.f61224c, eVar.f61225d, 0);
+                    com.ss.android.downloadlib.addownload.b.e eVar = this.f61854b;
+                    b2 = new com.ss.android.downloadad.api.a.b(eVar.f61804b, eVar.f61805c, eVar.f61806d, 0);
                     com.ss.android.downloadlib.addownload.b.f.a().a(b2);
                 }
                 com.ss.android.downloadad.api.a.b bVar = b2;
@@ -136,19 +136,19 @@ public class d {
                         public final /* synthetic */ int a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f61276b;
+                        public final /* synthetic */ String f61857b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ com.ss.android.downloadad.api.a.b f61277c;
+                        public final /* synthetic */ com.ss.android.downloadad.api.a.b f61858c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ long f61278d;
+                        public final /* synthetic */ long f61859d;
 
                         /* renamed from: e  reason: collision with root package name */
-                        public final /* synthetic */ e.a f61279e;
+                        public final /* synthetic */ e.a f61860e;
 
                         /* renamed from: f  reason: collision with root package name */
-                        public final /* synthetic */ d f61280f;
+                        public final /* synthetic */ d f61861f;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -165,19 +165,19 @@ public class d {
                                     return;
                                 }
                             }
-                            this.f61280f = this;
+                            this.f61861f = this;
                             this.a = i2;
-                            this.f61276b = downloadUrl;
-                            this.f61277c = bVar;
-                            this.f61278d = j2;
-                            this.f61279e = aVar;
+                            this.f61857b = downloadUrl;
+                            this.f61858c = bVar;
+                            this.f61859d = j2;
+                            this.f61860e = aVar;
                         }
 
                         @Override // com.ss.android.downloadlib.addownload.e.b
                         public void a(long j4) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeJ(1048576, this, j4) == null) {
-                                this.f61280f.a(this.a, this.f61276b, j4, this.f61277c, this.f61278d, this.f61279e);
+                                this.f61861f.a(this.a, this.f61857b, j4, this.f61858c, this.f61859d, this.f61860e);
                             }
                         }
                     });
@@ -190,7 +190,7 @@ public class d {
                     public final /* synthetic */ e.a a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ d f61281b;
+                    public final /* synthetic */ d f61862b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -207,17 +207,17 @@ public class d {
                                 return;
                             }
                         }
-                        this.f61281b = this;
+                        this.f61862b = this;
                         this.a = aVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f61281b.f61274c.get()) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f61862b.f61855c.get()) {
                             return;
                         }
-                        this.f61281b.f61274c.set(true);
+                        this.f61862b.f61855c.set(true);
                         this.a.a();
                     }
                 }, c2);
@@ -238,7 +238,7 @@ public class d {
             public final /* synthetic */ e.b a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d f61282b;
+            public final /* synthetic */ d f61863b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -255,18 +255,18 @@ public class d {
                         return;
                     }
                 }
-                this.f61282b = this;
+                this.f61863b = this;
                 this.a = bVar2;
             }
 
             @Override // com.ss.android.socialbase.downloader.network.j
             public void a(Map<String, String> map) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, map) == null) || this.f61282b.f61274c.get()) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, map) == null) || this.f61863b.f61855c.get()) {
                     return;
                 }
-                this.f61282b.f61274c.set(true);
-                long a = this.f61282b.a(map);
+                this.f61863b.f61855c.set(true);
+                long a = this.f61863b.a(map);
                 if (a > 0) {
                     JSONObject jSONObject = new JSONObject();
                     try {
@@ -307,7 +307,7 @@ public class d {
     public void a(int i2, String str, long j2, com.ss.android.downloadad.api.a.b bVar, long j3, e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), bVar, Long.valueOf(j3), aVar}) == null) {
-            this.f61274c.set(true);
+            this.f61855c.set(true);
             boolean z = false;
             if (j2 > 0) {
                 JSONObject jSONObject = new JSONObject();
@@ -331,13 +331,13 @@ public class d {
                             public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ e.a f61283b;
+                            public final /* synthetic */ e.a f61864b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ String f61284c;
+                            public final /* synthetic */ String f61865c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ d f61285d;
+                            public final /* synthetic */ d f61866d;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -354,10 +354,10 @@ public class d {
                                         return;
                                     }
                                 }
-                                this.f61285d = this;
+                                this.f61866d = this;
                                 this.a = bVar;
-                                this.f61283b = aVar;
-                                this.f61284c = a;
+                                this.f61864b = aVar;
+                                this.f61865c = a;
                             }
                         });
                         z = a(i2, bVar, str, longValue);
@@ -378,7 +378,7 @@ public class d {
                 public final /* synthetic */ e.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f61286b;
+                public final /* synthetic */ d f61867b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -395,7 +395,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f61286b = this;
+                    this.f61867b = this;
                     this.a = aVar;
                 }
 

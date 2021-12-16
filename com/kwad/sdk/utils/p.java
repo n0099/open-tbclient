@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.loader.Loader;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59660b = "";
+    public static String f60241b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f59661c = "";
+    public static String f60242c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -69,13 +69,13 @@ public class p {
                 str = a;
                 str2 = GrowthConstant.UBC_KEY_AES_KEY;
             } else if (i2 == 1) {
-                str = f59660b;
+                str = f60241b;
                 str2 = "rsa_public_key";
             } else if (i2 != 2) {
                 str = "";
                 str2 = str;
             } else {
-                str = f59661c;
+                str = f60242c;
                 str2 = "rsa_private_key";
             }
             if (TextUtils.isEmpty(str)) {
@@ -94,9 +94,9 @@ public class p {
                     if (i2 == 0) {
                         a = a2;
                     } else if (i2 == 1) {
-                        f59660b = a2;
+                        f60241b = a2;
                     } else if (i2 == 2) {
-                        f59661c = a2;
+                        f60242c = a2;
                     }
                     return a2;
                 }

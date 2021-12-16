@@ -12,7 +12,7 @@ import com.baidu.wallet.paysdk.ui.widget.IdentifyCodeGetFailDialog;
 import com.dxmpay.apollon.armor.SecurePay;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.core.utils.StringUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class g extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,15 +49,15 @@ public class g extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String string = ResUtils.getString(this.a, "ebpay_submit_pay");
-            PayRequest payRequest = this.f53597d;
+            PayRequest payRequest = this.f54177d;
             if (payRequest != null) {
                 if (payRequest.mMktSolution != null) {
-                    string = String.format(ResUtils.getString(this.a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f53597d.mMktSolution.easypay_amount));
+                    string = String.format(ResUtils.getString(this.a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f54177d.mMktSolution.easypay_amount));
                 } else {
-                    string = String.format(ResUtils.getString(this.a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f53597d.getFinalPayAmount()));
+                    string = String.format(ResUtils.getString(this.a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f54177d.getFinalPayAmount()));
                 }
             }
-            this.f53595b.initSMSActivityView("ebpay_sms_top_tip_voice_verify", "", string, SecurePay.unicodeDecode(SecurePay.getInstance().localDecryptProxy(this.f53598e)), true);
+            this.f54175b.initSMSActivityView("ebpay_sms_top_tip_voice_verify", "", string, SecurePay.unicodeDecode(SecurePay.getInstance().localDecryptProxy(this.f54178e)), true);
         }
     }
 

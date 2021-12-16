@@ -3,10 +3,10 @@ package com.baidu.tieba.flutter.plugin.performanceMonitor;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import c.a.d.f.n.a;
-import c.a.o.d.a;
-import c.a.q0.r0.j;
-import c.a.q0.r0.k;
-import c.a.r0.z0.a.h.e;
+import c.a.p.d.a;
+import c.a.r0.r0.j;
+import c.a.r0.r0.k;
+import c.a.s0.z0.a.h.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -32,14 +32,14 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonitorAuto.HostPerformanceMonitor {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, String> flutterEngineStartInfo;
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener mFlutterEngineInitListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class PerfCPULogAsync extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,7 +155,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
                 }
             }
         };
-        c.a.o.d.a.b().c(new a.InterfaceC0165a(this) { // from class: com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin.2
+        c.a.p.d.a.b().c(new a.InterfaceC0199a(this) { // from class: com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PerformanceMonitorPlugin this$0;
@@ -178,7 +178,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
                 this.this$0 = this;
             }
 
-            @Override // c.a.o.d.a.InterfaceC0165a
+            @Override // c.a.p.d.a.InterfaceC0199a
             public void report(String str, HashMap<String, Object> hashMap) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, hashMap) == null) {
@@ -405,7 +405,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
         statsItem.c("try", params.get("tryTimes"));
         statsItem.c("ct", params.get("contentType"));
         statsItem.c("dc", params.get("dartCodecCost"));
-        statsItem.c(com.baidu.fsg.base.statistics.k.f34316h, params.get("loadingCost"));
+        statsItem.c(com.baidu.fsg.base.statistics.k.f34784h, params.get("loadingCost"));
         statsItem.c("trans", params.get("channelTransTime"));
         statsItem.c("cc", params.get("codecCost"));
         statsItem.c("tc", params.get("totalCost"));

@@ -29,7 +29,7 @@ import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.widget.KSRatingBar;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements com.kwad.sdk.widget.d {
     public static /* synthetic */ Interceptable $ic = null;
     public static long l = 1600;
@@ -39,68 +39,68 @@ public class c implements com.kwad.sdk.widget.d {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f58898b;
+    public View f59479b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f58899c;
+    public Button f59480c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f58900d;
+    public Button f59481d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f58901e;
+    public TextView f59482e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f58902f;
+    public ImageView f59483f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f58903g;
+    public TextView f59484g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f58904h;
+    public TextView f59485h;
 
     /* renamed from: i  reason: collision with root package name */
-    public KSRatingBar f58905i;
+    public KSRatingBar f59486i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f58906j;
+    public LinearLayout f59487j;
 
     /* renamed from: k  reason: collision with root package name */
-    public a f58907k;
+    public a f59488k;
     public volatile boolean o;
     @Nullable
     public Animator p;
     public boolean q;
     public AdTemplate r;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(c cVar, View view, boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58912b;
+        public String f59493b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f58913c;
+        public float f59494c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<String> f58914d;
+        public List<String> f59495d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f58915e;
+        public String f59496e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f58916f;
+        public int f59497f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f58917g;
+        public String f59498g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class c implements com.kwad.sdk.widget.d {
                     return;
                 }
             }
-            this.f58916f = 15;
+            this.f59497f = 15;
         }
 
         public static b a(AdTemplate adTemplate) {
@@ -128,19 +128,19 @@ public class c implements com.kwad.sdk.widget.d {
                 }
                 AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
                 b bVar = new b();
-                bVar.f58912b = com.kwad.sdk.core.response.a.d.v(adTemplate) ? com.kwad.sdk.core.response.a.a.u(j2) : com.kwad.sdk.core.response.a.a.t(j2);
-                bVar.f58913c = com.kwad.sdk.core.response.a.a.y(j2);
-                bVar.f58915e = com.kwad.sdk.core.response.a.a.s(j2);
+                bVar.f59493b = com.kwad.sdk.core.response.a.d.v(adTemplate) ? com.kwad.sdk.core.response.a.a.u(j2) : com.kwad.sdk.core.response.a.a.t(j2);
+                bVar.f59494c = com.kwad.sdk.core.response.a.a.y(j2);
+                bVar.f59496e = com.kwad.sdk.core.response.a.a.s(j2);
                 bVar.a = com.kwad.sdk.core.response.a.d.v(adTemplate) ? com.kwad.sdk.core.response.a.a.aE(j2) : com.kwad.sdk.core.response.a.a.au(j2);
                 if (com.kwad.sdk.core.response.a.d.u(adTemplate)) {
-                    bVar.f58916f = com.kwad.sdk.core.config.b.az();
+                    bVar.f59497f = com.kwad.sdk.core.config.b.az();
                     str = "安装并体验%s秒  可领取奖励";
                 } else {
-                    bVar.f58916f = com.kwad.sdk.core.config.b.aA();
+                    bVar.f59497f = com.kwad.sdk.core.config.b.aA();
                     str = "浏览详情页%s秒，领取奖励";
                 }
-                bVar.f58917g = str;
-                bVar.f58914d = com.kwad.sdk.core.response.a.c.i(adTemplate);
+                bVar.f59498g = str;
+                bVar.f59495d = com.kwad.sdk.core.response.a.c.i(adTemplate);
                 return bVar;
             }
             return (b) invokeL.objValue;
@@ -149,17 +149,17 @@ public class c implements com.kwad.sdk.widget.d {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format(this.f58917g, Integer.valueOf(this.f58916f)) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format(this.f59498g, Integer.valueOf(this.f59497f)) : (String) invokeV.objValue;
         }
     }
 
     /* renamed from: com.kwad.sdk.reward.d.c$c  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2050c implements Animator.AnimatorListener {
+    /* loaded from: classes3.dex */
+    public static class C2111c implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2050c() {
+        public C2111c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -251,13 +251,13 @@ public class c implements com.kwad.sdk.widget.d {
                 public final /* synthetic */ float a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ float f58909b;
+                public final /* synthetic */ float f59490b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ float f58910c;
+                public final /* synthetic */ float f59491c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ View f58911d;
+                public final /* synthetic */ View f59492d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -275,9 +275,9 @@ public class c implements com.kwad.sdk.widget.d {
                         }
                     }
                     this.a = r6;
-                    this.f58909b = f3;
-                    this.f58910c = r8;
-                    this.f58911d = view;
+                    this.f59490b = f3;
+                    this.f59491c = r8;
+                    this.f59492d = view;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -286,20 +286,20 @@ public class c implements com.kwad.sdk.widget.d {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                         float f4 = this.a * floatValue;
-                        float f5 = this.f58909b;
+                        float f5 = this.f59490b;
                         if (f5 != 0.0f) {
-                            float f6 = (floatValue / f5) * this.f58910c;
-                            View view2 = this.f58911d;
+                            float f6 = (floatValue / f5) * this.f59491c;
+                            View view2 = this.f59492d;
                             if (view2 instanceof TextView) {
                                 ((TextView) view2).setTextSize(0, f6);
                             }
                         }
                         com.kwai.sodler.lib.a.b("ApkInfoCardViewHelper", "onAnimationUpdate: " + floatValue + ", currentWidth:" + f4 + ", ratio:" + this.a);
-                        ViewGroup.LayoutParams layoutParams = this.f58911d.getLayoutParams();
+                        ViewGroup.LayoutParams layoutParams = this.f59492d.getLayoutParams();
                         if (layoutParams != null) {
                             layoutParams.height = (int) floatValue;
                             layoutParams.width = (int) f4;
-                            this.f58911d.setLayoutParams(layoutParams);
+                            this.f59492d.setLayoutParams(layoutParams);
                         }
                     }
                 }
@@ -317,7 +317,7 @@ public class c implements com.kwad.sdk.widget.d {
             float f2 = i2;
             float f3 = i3;
             Animator a2 = a(view2, f2, f3);
-            a2.addListener(new C2050c(view) { // from class: com.kwad.sdk.reward.d.c.3
+            a2.addListener(new C2111c(view) { // from class: com.kwad.sdk.reward.d.c.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ View a;
@@ -340,7 +340,7 @@ public class c implements com.kwad.sdk.widget.d {
                     this.a = view;
                 }
 
-                @Override // com.kwad.sdk.reward.d.c.C2050c, android.animation.Animator.AnimatorListener
+                @Override // com.kwad.sdk.reward.d.c.C2111c, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
@@ -371,7 +371,7 @@ public class c implements com.kwad.sdk.widget.d {
         if (interceptable == null || interceptable.invokeLL(65541, this, linearLayout, str) == null) {
             TextView textView = (TextView) LayoutInflater.from(linearLayout.getContext()).inflate(R.layout.ksad_reward_apk_info_card_tag_item, (ViewGroup) linearLayout, false);
             textView.setText(str);
-            this.f58906j.addView(textView);
+            this.f59487j.addView(textView);
         }
     }
 
@@ -390,14 +390,14 @@ public class c implements com.kwad.sdk.widget.d {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.f58899c = (Button) this.a.findViewById(R.id.ksad_reward_apk_info_install_action);
-            this.f58900d = (Button) this.a.findViewById(R.id.ksad_reward_apk_info_install_start);
-            this.f58898b = this.a.findViewById(R.id.ksad_reward_apk_info_install_container);
-            this.f58902f = (ImageView) this.a.findViewById(R.id.ksad_reward_apk_info_icon);
-            this.f58901e = (TextView) this.a.findViewById(R.id.ksad_reward_apk_info_name);
-            this.f58903g = (TextView) this.a.findViewById(R.id.ksad_reward_apk_info_desc);
-            this.f58905i = (KSRatingBar) this.a.findViewById(R.id.ksad_reward_apk_info_score);
-            this.f58906j = (LinearLayout) this.a.findViewById(R.id.ksad_reward_apk_info_tags);
+            this.f59480c = (Button) this.a.findViewById(R.id.ksad_reward_apk_info_install_action);
+            this.f59481d = (Button) this.a.findViewById(R.id.ksad_reward_apk_info_install_start);
+            this.f59479b = this.a.findViewById(R.id.ksad_reward_apk_info_install_container);
+            this.f59483f = (ImageView) this.a.findViewById(R.id.ksad_reward_apk_info_icon);
+            this.f59482e = (TextView) this.a.findViewById(R.id.ksad_reward_apk_info_name);
+            this.f59484g = (TextView) this.a.findViewById(R.id.ksad_reward_apk_info_desc);
+            this.f59486i = (KSRatingBar) this.a.findViewById(R.id.ksad_reward_apk_info_score);
+            this.f59487j = (LinearLayout) this.a.findViewById(R.id.ksad_reward_apk_info_tags);
         }
     }
 
@@ -415,15 +415,15 @@ public class c implements com.kwad.sdk.widget.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             com.kwai.sodler.lib.a.b("ApkInfoCardViewHelper", "startAnimation");
-            int height = this.f58898b.getHeight();
-            int width = this.f58898b.getWidth();
+            int height = this.f59479b.getHeight();
+            int width = this.f59479b.getWidth();
             if (height == 0 || width == 0) {
                 return;
             }
             if (this.p == null) {
-                Animator a2 = a(this.f58900d, this.f58899c, width, height);
+                Animator a2 = a(this.f59481d, this.f59480c, width, height);
                 this.p = a2;
-                a2.addListener(new C2050c(this) { // from class: com.kwad.sdk.reward.d.c.2
+                a2.addListener(new C2111c(this) { // from class: com.kwad.sdk.reward.d.c.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ c a;
@@ -446,7 +446,7 @@ public class c implements com.kwad.sdk.widget.d {
                         this.a = this;
                     }
 
-                    @Override // com.kwad.sdk.reward.d.c.C2050c, android.animation.Animator.AnimatorListener
+                    @Override // com.kwad.sdk.reward.d.c.C2111c, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) || this.a.q) {
@@ -458,7 +458,7 @@ public class c implements com.kwad.sdk.widget.d {
                             public final /* synthetic */ Animator a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f58908b;
+                            public final /* synthetic */ AnonymousClass2 f59489b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -475,7 +475,7 @@ public class c implements com.kwad.sdk.widget.d {
                                         return;
                                     }
                                 }
-                                this.f58908b = this;
+                                this.f59489b = this;
                                 this.a = animator;
                             }
 
@@ -506,7 +506,7 @@ public class c implements com.kwad.sdk.widget.d {
             if (id == R.id.ksad_reward_apk_info_install_container || id == R.id.ksad_reward_apk_info_install_action || id == R.id.ksad_reward_apk_info_install_start) {
                 com.kwai.sodler.lib.a.b("ApkInfoCardViewHelper", "onClick install");
                 this.o = true;
-                a aVar = this.f58907k;
+                a aVar = this.f59488k;
                 if (aVar != null) {
                     aVar.a(this, view, z);
                 }
@@ -522,44 +522,44 @@ public class c implements com.kwad.sdk.widget.d {
             if (a2 == null) {
                 return;
             }
-            KSImageLoader.loadAppIcon(this.f58902f, a2.a, adTemplate, 12);
-            this.f58901e.setText(a2.f58912b);
-            this.f58903g.setText(a2.f58915e);
-            this.f58905i.setStar(a2.f58913c);
+            KSImageLoader.loadAppIcon(this.f59483f, a2.a, adTemplate, 12);
+            this.f59482e.setText(a2.f59493b);
+            this.f59484g.setText(a2.f59496e);
+            this.f59486i.setStar(a2.f59494c);
             int i2 = 0;
             if (com.kwad.sdk.core.response.a.d.u(adTemplate)) {
-                this.f58900d.setText("开始下载");
-                this.f58905i.setVisibility(0);
+                this.f59481d.setText("开始下载");
+                this.f59486i.setVisibility(0);
             } else {
-                this.f58900d.setText("查看详情");
-                this.f58905i.setVisibility(8);
+                this.f59481d.setText("查看详情");
+                this.f59486i.setVisibility(8);
             }
-            this.f58899c.setText(a2.a());
-            this.f58899c.setClickable(true);
-            this.f58900d.setClickable(true);
-            this.f58898b.setClickable(true);
-            new com.kwad.sdk.widget.f(this.f58899c, this);
-            new com.kwad.sdk.widget.f(this.f58900d, this);
-            new com.kwad.sdk.widget.f(this.f58898b, this);
-            List<String> list = a2.f58914d;
+            this.f59480c.setText(a2.a());
+            this.f59480c.setClickable(true);
+            this.f59481d.setClickable(true);
+            this.f59479b.setClickable(true);
+            new com.kwad.sdk.widget.f(this.f59480c, this);
+            new com.kwad.sdk.widget.f(this.f59481d, this);
+            new com.kwad.sdk.widget.f(this.f59479b, this);
+            List<String> list = a2.f59495d;
             if (z && list.size() == 0) {
-                this.f58903g.setVisibility(8);
+                this.f59484g.setVisibility(8);
                 TextView textView = (TextView) this.a.findViewById(R.id.ksad_reward_apk_info_desc_2);
-                this.f58904h = textView;
+                this.f59485h = textView;
                 textView.setVisibility(0);
-                this.f58904h.setText(a2.f58915e);
+                this.f59485h.setText(a2.f59496e);
             }
             if (list.size() == 0) {
-                this.f58906j.setVisibility(8);
+                this.f59487j.setVisibility(8);
             }
             for (String str : list) {
                 i2++;
                 if (i2 > 3) {
                     break;
                 }
-                a(this.f58906j, str);
+                a(this.f59487j, str);
             }
-            this.f58898b.postDelayed(new Runnable(this) { // from class: com.kwad.sdk.reward.d.c.1
+            this.f59479b.postDelayed(new Runnable(this) { // from class: com.kwad.sdk.reward.d.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c a;
@@ -586,7 +586,7 @@ public class c implements com.kwad.sdk.widget.d {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int height = this.a.f58898b.getHeight();
+                        int height = this.a.f59479b.getHeight();
                         com.kwai.sodler.lib.a.b("ApkInfoCardViewHelper", hashCode() + " parentHeight: " + height);
                         if (this.a.o) {
                             return;
@@ -601,14 +601,14 @@ public class c implements com.kwad.sdk.widget.d {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f58907k = aVar;
+            this.f59488k = aVar;
         }
     }
 
     public void a(String str, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            Button button = this.f58900d;
+            Button button = this.f59481d;
             if (button != null && str != null) {
                 button.setText(str);
             }

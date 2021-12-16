@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class i extends l implements IDIDBinderStatusListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public final SupplementaryDIDManager f54410j;
+    public final SupplementaryDIDManager f54990j;
 
     public i(Context context) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class i extends l implements IDIDBinderStatusListener {
                 return;
             }
         }
-        this.f54410j = new SupplementaryDIDManager(context);
+        this.f54990j = new SupplementaryDIDManager(context);
     }
 
     @Override // android.os.IInterface
@@ -55,12 +55,12 @@ public class i extends l implements IDIDBinderStatusListener {
             a();
             try {
                 c();
-                this.f54410j.init(this);
+                this.f54990j.init(this);
                 b();
             } catch (Exception e2) {
                 e0.b("AsusProvider", "doStart: Exception: " + e2.getMessage());
                 a();
-                a(this.f54415c, this.f54416d, this.f54417e, this.f54418f, this.f54419g);
+                a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
             }
         }
     }
@@ -81,7 +81,7 @@ public class i extends l implements IDIDBinderStatusListener {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             e0.d("AsusProvider", "onError");
             a();
-            a(this.f54415c, this.f54416d, this.f54417e, this.f54418f, this.f54419g);
+            a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
             shutDown();
         }
     }
@@ -96,29 +96,29 @@ public class i extends l implements IDIDBinderStatusListener {
             }
             try {
                 try {
-                    this.f54418f = iDidAidlInterface.isSupport();
+                    this.f54998f = iDidAidlInterface.isSupport();
                     String oaid = iDidAidlInterface.getOAID();
                     String vaid = iDidAidlInterface.getVAID();
                     String aaid = iDidAidlInterface.getAAID();
-                    this.f54419g = false;
+                    this.f54999g = false;
                     if (oaid == null) {
                         oaid = "";
                     }
-                    this.f54415c = oaid;
+                    this.f54995c = oaid;
                     if (vaid == null) {
                         vaid = "";
                     }
-                    this.f54416d = vaid;
+                    this.f54996d = vaid;
                     if (aaid == null) {
                         aaid = "";
                     }
-                    this.f54417e = aaid;
+                    this.f54997e = aaid;
                 } catch (Exception e2) {
                     e0.b("AsusProvider", "onSuccess: Exception: " + e2.getMessage());
                     a();
                 }
             } finally {
-                a(this.f54415c, this.f54416d, this.f54417e, this.f54418f, this.f54419g);
+                a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
                 shutDown();
             }
         }
@@ -128,7 +128,7 @@ public class i extends l implements IDIDBinderStatusListener {
     public void shutDown() {
         SupplementaryDIDManager supplementaryDIDManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (supplementaryDIDManager = this.f54410j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (supplementaryDIDManager = this.f54990j) == null) {
             return;
         }
         supplementaryDIDManager.deInit();

@@ -27,7 +27,7 @@ import org.joda.time.Period;
 import org.joda.time.ReadablePartial;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final DateTimeFormatter ISO_FIXED_FORMAT;

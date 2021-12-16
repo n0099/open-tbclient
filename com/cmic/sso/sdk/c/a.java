@@ -18,7 +18,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class a extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,34 +29,34 @@ public class a extends g {
     public CopyOnWriteArrayList<Throwable> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54968b;
+    public String f55548b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54969c;
+    public String f55549c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54970d;
+    public String f55550d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54971e;
+    public String f55551e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f54972f;
+    public String f55552f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54973g;
+    public String f55553g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f54974h;
+    public String f55554h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f54975i;
+    public String f55555i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f54976j;
+    public String f55556j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f54977k;
+    public String f55557k;
     public String l;
     public String m;
     public String n;
@@ -86,16 +86,16 @@ public class a extends g {
                 return;
             }
         }
-        this.f54968b = null;
-        this.f54969c = null;
-        this.f54970d = null;
-        this.f54971e = null;
-        this.f54972f = null;
-        this.f54973g = null;
-        this.f54974h = null;
-        this.f54975i = null;
-        this.f54976j = null;
-        this.f54977k = "";
+        this.f55548b = null;
+        this.f55549c = null;
+        this.f55550d = null;
+        this.f55551e = null;
+        this.f55552f = null;
+        this.f55553g = null;
+        this.f55554h = null;
+        this.f55555i = null;
+        this.f55556j = null;
+        this.f55557k = "";
         this.l = null;
         this.m = null;
         this.n = null;
@@ -170,7 +170,7 @@ public class a extends g {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f54968b = str;
+            this.f55548b = str;
         }
     }
 
@@ -226,35 +226,35 @@ public class a extends g {
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f54977k = str;
+            this.f55557k = str;
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f54970d = str;
+            this.f55550d = str;
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f54971e = str;
+            this.f55551e = str;
         }
     }
 
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f54972f = str;
+            this.f55552f = str;
         }
     }
 
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f54975i = str;
+            this.f55555i = str;
         }
     }
 
@@ -296,14 +296,14 @@ public class a extends g {
     public void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.f54969c = str;
+            this.f55549c = str;
         }
     }
 
     public void u(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            this.f54973g = str;
+            this.f55553g = str;
         }
     }
 
@@ -317,14 +317,14 @@ public class a extends g {
     public void x(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.f54974h = str;
+            this.f55554h = str;
         }
     }
 
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            this.f54976j = str;
+            this.f55556j = str;
         }
     }
 
@@ -342,18 +342,18 @@ public class a extends g {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("appid", this.f54968b);
-                jSONObject.put("traceId", this.f54969c);
-                jSONObject.put("appName", this.f54970d);
-                jSONObject.put("appVersion", this.f54971e);
+                jSONObject.put("appid", this.f55548b);
+                jSONObject.put("traceId", this.f55549c);
+                jSONObject.put("appName", this.f55550d);
+                jSONObject.put("appVersion", this.f55551e);
                 jSONObject.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
                 jSONObject.put("clientType", "android");
-                jSONObject.put("timeOut", this.f54972f);
-                jSONObject.put("requestTime", this.f54973g);
-                jSONObject.put("responseTime", this.f54974h);
-                jSONObject.put("elapsedTime", this.f54975i);
-                jSONObject.put(AdExtParam.KEY_REQUEST_TYPE, this.f54976j);
-                jSONObject.put("interfaceType", this.f54977k);
+                jSONObject.put("timeOut", this.f55552f);
+                jSONObject.put("requestTime", this.f55553g);
+                jSONObject.put("responseTime", this.f55554h);
+                jSONObject.put("elapsedTime", this.f55555i);
+                jSONObject.put(AdExtParam.KEY_REQUEST_TYPE, this.f55556j);
+                jSONObject.put("interfaceType", this.f55557k);
                 jSONObject.put("interfaceCode", this.l);
                 jSONObject.put("interfaceElasped", this.m);
                 jSONObject.put(IWalletLoginListener.KEY_LOGIN_TYPE, this.n);

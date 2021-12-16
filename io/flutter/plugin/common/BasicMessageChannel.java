@@ -13,7 +13,7 @@ import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class BasicMessageChannel<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANNEL_BUFFERS_CHANNEL = "dev.flutter/channel-buffers";
@@ -27,13 +27,13 @@ public final class BasicMessageChannel<T> {
     public final String name;
 
     /* renamed from: io.flutter.plugin.common.BasicMessageChannel$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class IncomingMessageHandler implements BinaryMessenger.BinaryMessageHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public final class BasicMessageChannel<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class IncomingReplyHandler implements BinaryMessenger.BinaryReply {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,12 +156,12 @@ public final class BasicMessageChannel<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface MessageHandler<T> {
         void onMessage(@Nullable T t, @NonNull Reply<T> reply);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface Reply<T> {
         void reply(@Nullable T t);
     }

@@ -11,24 +11,24 @@ import com.kwad.sdk.utils.t;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.reward.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f58884b;
+    public b f59465b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final C2049a f58885c;
+    public final C2110a f59466c;
 
     /* renamed from: com.kwad.sdk.reward.b.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2049a extends com.kwad.sdk.reward.b.a {
+    /* loaded from: classes3.dex */
+    public static class C2110a extends com.kwad.sdk.reward.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2049a(int i2) {
+        public C2110a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public class a extends com.kwad.sdk.reward.b.a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b extends com.kwad.sdk.reward.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,14 +82,14 @@ public class a extends com.kwad.sdk.reward.b.a {
                 return;
             }
         }
-        this.f58884b = new b();
-        this.f58885c = new C2049a(com.kwad.sdk.core.config.b.aA());
+        this.f59465b = new b();
+        this.f59466c = new C2110a(com.kwad.sdk.core.config.b.aA());
     }
 
     private void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            if (this.f58884b.d() && this.f58885c.d()) {
+            if (this.f59465b.d() && this.f59466c.d()) {
                 a();
             } else {
                 b();
@@ -101,14 +101,14 @@ public class a extends com.kwad.sdk.reward.b.a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58884b.d() && this.f58885c.d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59465b.d() && this.f59466c.d() : invokeV.booleanValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.kwad.sdk.core.d.a.a("LandPageOpenTask", "markWatchVideoCompleted");
-            this.f58884b.a();
+            this.f59465b.a();
             k();
         }
     }
@@ -117,7 +117,7 @@ public class a extends com.kwad.sdk.reward.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             com.kwad.sdk.core.d.a.a("LandPageOpenTask", "markOpenNsCompleted");
-            this.f58885c.a();
+            this.f59466c.a();
             k();
         }
     }
@@ -142,8 +142,8 @@ public class a extends com.kwad.sdk.reward.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f58884b);
-            arrayList.add(this.f58885c);
+            arrayList.add(this.f59465b);
+            arrayList.add(this.f59466c);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -154,8 +154,8 @@ public class a extends com.kwad.sdk.reward.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
             try {
-                this.f58884b.parseJson(jSONObject.optJSONObject("mWatchVideoTask"));
-                this.f58885c.parseJson(jSONObject.optJSONObject("mOpenNsTask"));
+                this.f59465b.parseJson(jSONObject.optJSONObject("mWatchVideoTask"));
+                this.f59466c.parseJson(jSONObject.optJSONObject("mOpenNsTask"));
             } catch (Throwable unused) {
             }
         }
@@ -167,8 +167,8 @@ public class a extends com.kwad.sdk.reward.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            t.a(jSONObject, "mWatchVideoTask", this.f58884b);
-            t.a(jSONObject, "mOpenNsTask", this.f58885c);
+            t.a(jSONObject, "mWatchVideoTask", this.f59465b);
+            t.a(jSONObject, "mOpenNsTask", this.f59466c);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

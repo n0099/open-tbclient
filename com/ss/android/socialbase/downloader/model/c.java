@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements Parcelable, Comparable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<c> CREATOR;
@@ -20,7 +20,7 @@ public class c implements Parcelable, Comparable {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f62009b;
+    public final String f62590b;
 
     static {
         InterceptResult invokeClinit;
@@ -89,7 +89,7 @@ public class c implements Parcelable, Comparable {
             }
         }
         this.a = str;
-        this.f62009b = str2;
+        this.f62590b = str2;
     }
 
     public String a() {
@@ -101,7 +101,7 @@ public class c implements Parcelable, Comparable {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62009b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62590b : (String) invokeV.objValue;
     }
 
     @Override // java.lang.Comparable
@@ -150,7 +150,7 @@ public class c implements Parcelable, Comparable {
                 return false;
             }
             c cVar = (c) obj;
-            return TextUtils.equals(this.a, cVar.a) && TextUtils.equals(this.f62009b, cVar.f62009b);
+            return TextUtils.equals(this.a, cVar.a) && TextUtils.equals(this.f62590b, cVar.f62590b);
         }
         return invokeL.booleanValue;
     }
@@ -161,7 +161,7 @@ public class c implements Parcelable, Comparable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             String str = this.a;
             int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-            String str2 = this.f62009b;
+            String str2 = this.f62590b;
             return hashCode + (str2 != null ? str2.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -171,7 +171,7 @@ public class c implements Parcelable, Comparable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "HttpHeader{name='" + this.a + ExtendedMessageFormat.QUOTE + ", value='" + this.f62009b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "HttpHeader{name='" + this.a + ExtendedMessageFormat.QUOTE + ", value='" + this.f62590b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -181,7 +181,7 @@ public class c implements Parcelable, Comparable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
             parcel.writeString(this.a);
-            parcel.writeString(this.f62009b);
+            parcel.writeString(this.f62590b);
         }
     }
 
@@ -201,6 +201,6 @@ public class c implements Parcelable, Comparable {
             }
         }
         this.a = parcel.readString();
-        this.f62009b = parcel.readString();
+        this.f62590b = parcel.readString();
     }
 }

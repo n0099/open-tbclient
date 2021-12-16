@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public final class bm implements eu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ er a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f51644b;
+    public final /* synthetic */ FeedbackInputActivity f52193b;
 
     public bm(FeedbackInputActivity feedbackInputActivity, er erVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class bm implements eu {
                 return;
             }
         }
-        this.f51644b = feedbackInputActivity;
+        this.f52193b = feedbackInputActivity;
         this.a = erVar;
     }
 
@@ -38,8 +38,8 @@ public final class bm implements eu {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.dismiss();
-            this.f51644b.s.setVisibility(0);
-            this.f51644b.s.bringToFront();
+            this.f52193b.s.setVisibility(0);
+            this.f52193b.s.bringToFront();
             new Thread(new bp(this)).start();
         }
     }
@@ -50,22 +50,22 @@ public final class bm implements eu {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             if (str == null || str.trim().length() == 0) {
                 this.a.dismiss();
-                FeedbackInputActivity feedbackInputActivity = this.f51644b;
+                FeedbackInputActivity feedbackInputActivity = this.f52193b;
                 feedbackInputActivity.D = true;
                 feedbackInputActivity.J.setTextColor(com.baidu.ufosdk.b.y);
-                this.f51644b.E.setEnabled(false);
-                this.f51644b.s.setVisibility(0);
-                this.f51644b.s.bringToFront();
+                this.f52193b.E.setEnabled(false);
+                this.f52193b.s.setVisibility(0);
+                this.f52193b.s.bringToFront();
                 new Thread(new bo(this)).start();
                 return;
             }
             this.a.dismiss();
-            FeedbackInputActivity feedbackInputActivity2 = this.f51644b;
+            FeedbackInputActivity feedbackInputActivity2 = this.f52193b;
             feedbackInputActivity2.D = true;
             feedbackInputActivity2.J.setTextColor(com.baidu.ufosdk.b.y);
-            this.f51644b.E.setEnabled(false);
-            this.f51644b.s.setVisibility(0);
-            this.f51644b.s.bringToFront();
+            this.f52193b.E.setEnabled(false);
+            this.f52193b.s.setVisibility(0);
+            this.f52193b.s.bringToFront();
             new Thread(new bn(this, str)).start();
         }
     }

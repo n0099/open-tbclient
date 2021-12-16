@@ -23,7 +23,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetUserIdentityRequest";
@@ -145,7 +145,7 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
         iGetUserIdentityListener.onGetUserIdentityResult(i2, null);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0152  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0153  */
     /* JADX WARN: Removed duplicated region for block: B:81:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

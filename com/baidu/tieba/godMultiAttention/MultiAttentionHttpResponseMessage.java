@@ -15,7 +15,7 @@ import tbclient.Error;
 import tbclient.MFollow.DataRes;
 import tbclient.MFollow.MFollowResIdl;
 import tbclient.MFollow.MFollowResult;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class MultiAttentionHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.fun.ad.sdk.FunAdSdk;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class v {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SharedPreferences f28935b;
+    public static final SharedPreferences f29305b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,20 +31,20 @@ public class v {
             }
         }
         a = new Object();
-        f28935b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
+        f29305b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f28935b.getInt("key_rpt_fai_c", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f29305b.getInt("key_rpt_fai_c", 0) : invokeV.intValue;
     }
 
     public static int b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return f28935b.getInt("key_sid_c_pre_" + str, 0);
+            return f29305b.getInt("key_sid_c_pre_" + str, 0);
         }
         return invokeL.intValue;
     }
@@ -56,7 +56,7 @@ public class v {
                 int f2 = f();
                 int g2 = g();
                 int e2 = e();
-                f28935b.edit().putInt("key_rpt_req_c", ((f2 - i2) - i3) - i4).putInt("key_rpt_fai_c", a() - i2).putInt("key_rpt_suc_c", g2 - i3).putInt("key_rpt_mis_c", e2 - i4).apply();
+                f29305b.edit().putInt("key_rpt_req_c", ((f2 - i2) - i3) - i4).putInt("key_rpt_fai_c", a() - i2).putInt("key_rpt_suc_c", g2 - i3).putInt("key_rpt_mis_c", e2 - i4).apply();
             }
         }
     }
@@ -64,26 +64,26 @@ public class v {
     public static void d(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2) == null) {
-            f28935b.edit().putInt(str, i2).apply();
+            f29305b.edit().putInt(str, i2).apply();
         }
     }
 
     public static int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f28935b.getInt("key_rpt_mis_c", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f29305b.getInt("key_rpt_mis_c", 0) : invokeV.intValue;
     }
 
     public static int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f28935b.getInt("key_rpt_req_c", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f29305b.getInt("key_rpt_req_c", 0) : invokeV.intValue;
     }
 
     public static int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f28935b.getInt("key_rpt_suc_c", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f29305b.getInt("key_rpt_suc_c", 0) : invokeV.intValue;
     }
 
     public static void h() {

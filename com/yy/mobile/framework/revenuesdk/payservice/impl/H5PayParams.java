@@ -9,7 +9,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class H5PayParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,6 +20,7 @@ public class H5PayParams {
     public String orderId;
     public PayCallBackBean payBackBean;
     public String payChannel;
+    public int payFlowTypeId;
     public String payMethod;
     public IPayServiceCallback payServiceCallback;
     public PayType payType;

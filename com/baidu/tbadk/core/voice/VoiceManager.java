@@ -44,7 +44,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Date;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class VoiceManager extends BroadcastReceiver implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean BOOLEAN_SEEKTO = false;
@@ -75,8 +75,8 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public PermissionJudgePolicy mPermissionJudgePolicy;
     public boolean mPhoneSpeaker;
     public k mPlayCall;
-    public CustomResponsedMessage<c.a.r0.t3.r0.a> mRecorderManagerRespMsg;
-    public c.a.d.f.l.c<c.a.q0.s.h0.b.a> mResourceCall;
+    public CustomResponsedMessage<c.a.s0.v3.r0.a> mRecorderManagerRespMsg;
+    public c.a.d.f.l.c<c.a.r0.s.j0.b.a> mResourceCall;
     public final BroadcastReceiver mVoicePlayerReceiver;
     public Sensor proximitySensor;
     public i sNewPlayView;
@@ -93,7 +93,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public WindowManager.LayoutParams windowParams;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class PlayMode {
         public static final /* synthetic */ PlayMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -152,7 +152,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,13 +195,13 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VoiceManager f41537e;
+        public final /* synthetic */ VoiceManager f42028e;
 
         public b(VoiceManager voiceManager) {
             Interceptable interceptable = $ic;
@@ -218,26 +218,26 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     return;
                 }
             }
-            this.f41537e = voiceManager;
+            this.f42028e = voiceManager;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                VoiceManager voiceManager = this.f41537e;
+                VoiceManager voiceManager = this.f42028e;
                 voiceManager.mCurPlayModel = voiceManager.mNewClickModel;
-                VoiceManager voiceManager2 = this.f41537e;
+                VoiceManager voiceManager2 = this.f42028e;
                 voiceManager2.sPlayView = voiceManager2.sNewPlayView;
-                this.f41537e.sNewPlayView = null;
-                VoiceManager voiceManager3 = this.f41537e;
+                this.f42028e.sNewPlayView = null;
+                VoiceManager voiceManager3 = this.f42028e;
                 voiceManager3.setDownloading(voiceManager3.mCurPlayModel);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class c extends c.a.d.f.l.c<c.a.q0.s.h0.b.a> {
+    /* loaded from: classes11.dex */
+    public class c extends c.a.d.f.l.c<c.a.r0.s.j0.b.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoiceManager a;
@@ -263,17 +263,17 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.d.f.l.c
         /* renamed from: a */
-        public void onLoaded(c.a.q0.s.h0.b.a aVar, String str, int i2) {
+        public void onLoaded(c.a.r0.s.j0.b.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded(aVar, str, i2);
                 if (this.a.mCurPlayModel == null || this.a.sPlayView == null || aVar == null) {
                     return;
                 }
-                String str2 = aVar.f12750b;
+                String str2 = aVar.f13127b;
                 String str3 = aVar.a;
-                int i3 = aVar.f12751c;
-                String str4 = aVar.f12752d;
+                int i3 = aVar.f13128c;
+                String str4 = aVar.f13129d;
                 if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
                     if (this.a.mCurPlayModel.voiceId.equals(str3) && VoiceManager.isVoiceDownloading(this.a.mCurPlayModel.voice_status.intValue())) {
                         VoiceManager voiceManager = this.a;
@@ -294,13 +294,13 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VoiceManager f41538e;
+        public final /* synthetic */ VoiceManager f42029e;
 
         public d(VoiceManager voiceManager) {
             Interceptable interceptable = $ic;
@@ -317,27 +317,27 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     return;
                 }
             }
-            this.f41538e = voiceManager;
+            this.f42029e = voiceManager;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             i playView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (playView = this.f41538e.getPlayView()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (playView = this.f42029e.getPlayView()) == null) {
                 return;
             }
-            this.f41538e.startPlay(playView);
+            this.f42029e.startPlay(playView);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VoiceManager f41539e;
+        public final /* synthetic */ VoiceManager f42030e;
 
         public e(VoiceManager voiceManager) {
             Interceptable interceptable = $ic;
@@ -354,30 +354,30 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     return;
                 }
             }
-            this.f41539e = voiceManager;
+            this.f42030e = voiceManager;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41539e.bSpeakerphoneOn == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42030e.bSpeakerphoneOn == null) {
                 return;
             }
-            if (this.f41539e.bSpeakerphoneOn.booleanValue()) {
-                this.f41539e.openSpeaker();
+            if (this.f42030e.bSpeakerphoneOn.booleanValue()) {
+                this.f42030e.openSpeaker();
             } else {
-                this.f41539e.closeSpeaker();
+                this.f42030e.closeSpeaker();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VoiceManager f41540e;
+        public final /* synthetic */ VoiceManager f42031e;
 
         public f(VoiceManager voiceManager) {
             Interceptable interceptable = $ic;
@@ -394,20 +394,20 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     return;
                 }
             }
-            this.f41540e = voiceManager;
+            this.f42031e = voiceManager;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41540e.isPlaying()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42031e.isPlaying()) {
                 return;
             }
-            this.f41540e.unRegistSensor();
+            this.f42031e.unRegistSensor();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class g extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -527,7 +527,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class h extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -624,7 +624,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface i {
         i getRealView();
 
@@ -639,14 +639,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         void onShowErr(int i2, String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface j {
         i getRealView(VoiceData$VoiceModel voiceData$VoiceModel);
 
         VoiceManager getVoiceManager();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class k implements c.a.d.f.q.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -791,7 +791,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         this.mVoicePlayerReceiver = new g(this);
         initConfig();
         bUseMedaiPlayer = true ^ isVoiceUseSoftDecoder();
-        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, c.a.r0.t3.r0.a.class);
+        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, c.a.s0.v3.r0.a.class);
     }
 
     private void acquireWakeLock() {
@@ -909,7 +909,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         if (interceptable == null || interceptable.invokeV(65566, null) == null) {
             synchronized (VoiceManager.class) {
                 if (!bInitConfig) {
-                    bVoiceUseSoftDecoder = c.a.q0.s.e0.b.j().g("voice_use_soft_decoder", c.a.d.f.q.h.b());
+                    bVoiceUseSoftDecoder = c.a.r0.s.g0.b.j().g("voice_use_soft_decoder", c.a.d.f.q.h.b());
                 }
             }
         }
@@ -1088,7 +1088,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 if (this.mResourceCall == null) {
                     this.mResourceCall = new c(this);
                 }
-                Object b2 = c.a.q0.s.h0.a.b(voiceData$VoiceModel.getId());
+                Object b2 = c.a.r0.s.j0.a.b(voiceData$VoiceModel.getId());
                 if (b2 == null) {
                     b2 = c.a.d.f.l.d.h().k(voiceData$VoiceModel.getId(), 23, this.mResourceCall, 0, 0, (this.context == null || !(this.context.getOrignalPage() instanceof c.a.d.a.i)) ? null : ((c.a.d.a.i) this.context.getOrignalPage()).getUniqueId(), voiceData$VoiceModel.from);
                 }
@@ -1172,9 +1172,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 firstOpenSpeaker();
                 if (this.audioManager != null) {
                     if (this.audioManager.isSpeakerphoneOn()) {
-                        c.a.d.f.q.h.f2673b = 3;
+                        c.a.d.f.q.h.f2637b = 3;
                     } else {
-                        c.a.d.f.q.h.f2673b = 0;
+                        c.a.d.f.q.h.f2637b = 0;
                     }
                 }
                 setVolumeControlStream();
@@ -1236,7 +1236,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         if (interceptable == null || interceptable.invokeL(65584, this, voiceData$VoiceModel) == null) {
             unRegistSensorHandler();
             voiceData$VoiceModel.voice_status = 1;
-            c.a.d.f.q.h.f2673b = 2;
+            c.a.d.f.q.h.f2637b = 2;
             setVolumeControlStream();
             i playView = getPlayView();
             if (playView != null) {
@@ -1249,7 +1249,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65585, null, z) == null) {
             bVoiceUseSoftDecoder = true;
-            c.a.q0.s.e0.b.j().t("voice_use_soft_decoder", bVoiceUseSoftDecoder);
+            c.a.r0.s.g0.b.j().t("voice_use_soft_decoder", bVoiceUseSoftDecoder);
         }
     }
 
@@ -1261,7 +1261,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 if (this.context == null || this.context.getPageActivity() == null) {
                     return;
                 }
-                this.context.getPageActivity().setVolumeControlStream(c.a.d.f.q.h.f2673b);
+                this.context.getPageActivity().setVolumeControlStream(c.a.d.f.q.h.f2637b);
             } catch (Exception e2) {
                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_VOLUME, "setVolumeControlStream exception: " + e2.getMessage(), "");
             }
@@ -1357,7 +1357,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         saveInitVoiceStatus();
         try {
             setSpeakerphone(false);
-            c.a.d.f.q.h.f2673b = 0;
+            c.a.d.f.q.h.f2637b = 0;
             stopVoiceAndRePlay();
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -1384,19 +1384,19 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         stopPlay();
     }
 
-    public c.a.r0.t3.r0.a getRecorderManager() {
+    public c.a.s0.v3.r0.a getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            CustomResponsedMessage<c.a.r0.t3.r0.a> customResponsedMessage = this.mRecorderManagerRespMsg;
+            CustomResponsedMessage<c.a.s0.v3.r0.a> customResponsedMessage = this.mRecorderManagerRespMsg;
             if (customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return null;
             }
-            c.a.r0.t3.r0.a data = this.mRecorderManagerRespMsg.getData();
+            c.a.s0.v3.r0.a data = this.mRecorderManagerRespMsg.getData();
             data.a(this.context);
             return data;
         }
-        return (c.a.r0.t3.r0.a) invokeV.objValue;
+        return (c.a.s0.v3.r0.a) invokeV.objValue;
     }
 
     public boolean isPlayDoing(VoiceData$VoiceModel voiceData$VoiceModel) {
@@ -1561,7 +1561,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             try {
                 saveInitVoiceStatus();
                 setSpeakerphone(true);
-                c.a.d.f.q.h.f2673b = 3;
+                c.a.d.f.q.h.f2637b = 3;
                 stopVoiceAndRePlay();
                 return;
             } catch (Exception e2) {
@@ -1604,7 +1604,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     return;
                 }
                 setSpeakerphone(bInitSpeakerphoneOn.booleanValue());
-                c.a.d.f.q.h.f2673b = 3;
+                c.a.d.f.q.h.f2637b = 3;
                 bInitSpeakerphoneOn = null;
                 bInitMode = null;
                 bInitVolume = null;

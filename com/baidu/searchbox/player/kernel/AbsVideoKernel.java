@@ -6,14 +6,18 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.ICyberVideoView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.helper.ViewOpUtils;
+import com.baidu.searchbox.player.interfaces.IDnsProcessListener;
+import com.baidu.searchbox.player.interfaces.OnSnapShotFrameListener;
+import com.baidu.searchbox.player.message.IMessenger;
+import com.baidu.searchbox.player.model.VideoUrlModel;
 import com.baidu.searchbox.player.pool.IPoolItem;
-import com.baidu.searchbox.player.session.VideoKernelState;
 import com.baidu.searchbox.player.session.VideoSession;
+import com.baidu.searchbox.player.session.VideoSessionManager;
 import com.baidu.searchbox.player.utils.BdVideoLog;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,29 +25,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbsVideoKernel implements IPoolItem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CYBER_PLAYER = "CyberVideoKernel";
     public static final int DURATION_MIN_DIFF = 2;
     public static final String NORMAL_PLAYER = "NormalVideoKernel";
-    public static final int POSITION_NONE = -1;
     public static final String PRELOAD_PREFIX = "videoplayer:preload";
-    public static final String SURFACE_PLAYER = "SurfaceVideoKernel";
-    public static final String TAG = "AbsVideoKernel";
-    public static final String TEXTURE_PLAYER = "TextureVideoKernel";
+    public static final String TAG = "VideoKernel";
     public transient /* synthetic */ FieldHolder $fh;
     public int mBufferingPosition;
-    public HashMap<String, String> mHeader;
-    public IKernelPlayer mKernelCallBack;
-    public VideoKernelState mKernelStatus;
+    public String mCurrentPlayUrl;
+    public final HashMap<String, String> mHeader;
     public String mPageUrl;
     public int mPercent;
-    public String mPreparingUrl;
     public String mRemoteServer;
     public int mSpeed;
-    public int mStorePosition;
-    public String mVideoUrl;
+    public VideoUrlModel mUrlModel;
+    @NonNull
+    public final VideoSession mVideoSession;
 
     public AbsVideoKernel() {
         Interceptable interceptable = $ic;
@@ -58,43 +58,88 @@ public abstract class AbsVideoKernel implements IPoolItem {
                 return;
             }
         }
-        this.mStorePosition = -1;
         this.mHeader = new HashMap<>();
+        this.mVideoSession = VideoSessionManager.getInstance().createVideoSession();
+        printLog("VideoKernel: " + getClass().getSimpleName() + " Created, HashCode = " + System.identityHashCode(this));
     }
 
-    public abstract void changePlayUrl(@NonNull String str);
+    private void checkInvokePrepare(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(65537, this, z) == null) && !TextUtils.isEmpty(getVideoUrl()) && z) {
+            this.mCurrentPlayUrl = getVideoUrl();
+            printLog("setDataSourceAndPrepare " + getVideoUrl());
+            notifyStatusChange(PlayerStatus.PREPARING);
+            setDataSourceAndPrepare();
+        }
+    }
+
+    private void processUrlChange() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || TextUtils.equals(this.mCurrentPlayUrl, getVideoUrl()) || TextUtils.isEmpty(getVideoUrl())) {
+            return;
+        }
+        notifyStatusChange(PlayerStatus.PREPARING);
+        setDataSourceAndPrepare();
+    }
+
+    private String reuseLogId(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, this, z)) == null) {
+            VideoUrlModel videoUrlModel = this.mUrlModel;
+            return (videoUrlModel == null || z) ? "" : videoUrlModel.logId;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    private void updateVideoUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
+            getVideoUrlModel().videoUrl = str;
+        }
+    }
+
+    public void bindMessenger(@NonNull IMessenger iMessenger) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, iMessenger) == null) {
+            this.mVideoSession.bindMessenger(iMessenger);
+        }
+    }
+
+    public void changePlayUrl(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        updateVideoUrl(str);
+        this.mCurrentPlayUrl = this.mUrlModel.videoUrl;
+        notifyStatusChange(PlayerStatus.PREPARING);
+        setDataSourceAndPrepare();
+        start();
+    }
 
     @Nullable
     public abstract View getBVideoView();
 
     public abstract int getBufferingPosition();
 
-    public String getCyberNativeVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? CyberPlayerManager.getCoreVersion() : (String) invokeV.objValue;
-    }
-
-    public String getCyberSDKVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? CyberPlayerManager.getSDKVersion() : (String) invokeV.objValue;
-    }
+    public abstract int getDecodeMode();
 
     public abstract int getDuration();
 
     public abstract int getDurationMs();
 
-    public VideoKernelState getKernelState() {
+    @Nullable
+    public String getKernelLogId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mKernelStatus : (VideoKernelState) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? getVideoUrlModel().logId : (String) invokeV.objValue;
     }
 
     public String getPageUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mPageUrl : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mPageUrl : (String) invokeV.objValue;
     }
 
     public abstract int getPlayedTime();
@@ -107,48 +152,86 @@ public abstract class AbsVideoKernel implements IPoolItem {
     public String getServerIpInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mRemoteServer : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mRemoteServer : (String) invokeV.objValue;
+    }
+
+    public PlayerStatus getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mVideoSession.getStatus() : (PlayerStatus) invokeV.objValue;
     }
 
     public abstract int getSyncPositionMs();
 
     public abstract int getVideoHeight();
 
+    @NonNull
+    public VideoSession getVideoSession() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mVideoSession : (VideoSession) invokeV.objValue;
+    }
+
     public String getVideoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mVideoUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            VideoUrlModel videoUrlModel = this.mUrlModel;
+            return videoUrlModel != null ? videoUrlModel.videoUrl : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public VideoUrlModel getVideoUrlModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.mUrlModel == null) {
+                this.mUrlModel = new VideoUrlModel();
+            }
+            return this.mUrlModel;
+        }
+        return (VideoUrlModel) invokeV.objValue;
     }
 
     public abstract int getVideoWidth();
 
-    public boolean inClarityChanging() {
-        InterceptResult invokeV;
+    public boolean matchStatus(@NonNull PlayerStatus... playerStatusArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mStorePosition != -1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, playerStatusArr)) == null) ? this.mVideoSession.matchStatus(playerStatusArr) : invokeL.booleanValue;
     }
 
     public abstract void mute(boolean z);
 
+    public void notifyStatusChange(PlayerStatus playerStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, playerStatus) == null) {
+            this.mVideoSession.statusChangeNotify(playerStatus);
+        }
+    }
+
     public void onComplete() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             this.mPercent = 0;
         }
     }
 
     public void onError() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             this.mPercent = 0;
             this.mSpeed = 0;
-            this.mPreparingUrl = null;
+            this.mCurrentPlayUrl = null;
+            this.mUrlModel = null;
         }
     }
 
     public void onInfo(int i2, int i3, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048597, this, i2, i3, obj) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048602, this, i2, i3, obj) == null) {
             if (701 == i2) {
                 this.mPercent = 0;
             } else if (702 == i2) {
@@ -166,80 +249,106 @@ public abstract class AbsVideoKernel implements IPoolItem {
     @Override // com.baidu.searchbox.player.pool.IPoolItem
     public void onInit() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            printLog("onInit");
+            View bVideoView = getBVideoView();
+            if (bVideoView != null) {
+                bVideoView.setBackground(null);
+            }
         }
     }
 
     public void onPrepared() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.pool.IPoolItem
     public void onRelease() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            BdVideoLog.d("videoKernel onRelease");
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            printLog("onRelease");
             ViewOpUtils.removeView(getBVideoView());
-            this.mKernelCallBack = null;
-            this.mKernelStatus = null;
-            this.mPreparingUrl = null;
+            this.mVideoSession.reset();
+            this.mCurrentPlayUrl = null;
+            this.mUrlModel = null;
         }
     }
 
     public void pause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+            printLog("pause");
         }
     }
 
     public void play(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            BdVideoLog.d(TAG, "kernel play url:" + str);
-            this.mVideoUrl = str;
-            if (!TextUtils.equals(this.mPreparingUrl, str)) {
-                this.mKernelStatus.stateChangeNotify(PlayerStatus.PREPARING);
-                this.mPreparingUrl = null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
+            printLog("play(), url = " + str);
+            updateVideoUrl(str);
+            processUrlChange();
             this.mPercent = 0;
         }
     }
 
     public void prepare() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+            printLog("prepare");
+            if (PlayerStatus.isActiveStatus(getStatus()) || TextUtils.isEmpty(getVideoUrl())) {
+                return;
+            }
+            notifyStatusChange(PlayerStatus.PREPARING);
+            setDataSourceAndPrepare();
+        }
+    }
+
+    public void printLog(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
+            BdVideoLog.d(TAG, String.format("video kernel [%s]: %s ", "AbsVideoKernel@" + System.identityHashCode(this), str));
         }
     }
 
     public void resume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            printLog("resume");
         }
     }
-
-    public abstract void seekTo(int i2);
 
     public void seekToMs(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
+            seekToMs(i2, 3);
         }
     }
+
+    public abstract void seekToMs(int i2, int i3);
+
+    public void setClarityInfo(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+        }
+    }
+
+    public abstract void setDataSourceAndPrepare();
 
     public abstract void setDecodeMode(int i2);
 
     public abstract void setExternalInfo(String str, Object obj);
 
-    public void setHttpDns(@NonNull CyberPlayerManager.HttpDNS httpDNS) {
+    public void setHttpDns(@NonNull IDnsProcessListener iDnsProcessListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, httpDNS) == null) {
+        if (interceptable == null || interceptable.invokeL(1048617, this, iDnsProcessListener) == null) {
         }
     }
 
     public void setHttpHeader(@Nullable HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048610, this, hashMap) == null) || hashMap == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048618, this, hashMap) == null) || hashMap == null) {
             return;
         }
         for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -249,8 +358,14 @@ public abstract class AbsVideoKernel implements IPoolItem {
 
     public void setKernelCallBack(IKernelPlayer iKernelPlayer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, iKernelPlayer) == null) {
-            this.mKernelCallBack = iKernelPlayer;
+        if (interceptable == null || interceptable.invokeL(1048619, this, iKernelPlayer) == null) {
+        }
+    }
+
+    public void setKernelLogId(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
+            getVideoUrlModel().logId = str;
         }
     }
 
@@ -260,16 +375,28 @@ public abstract class AbsVideoKernel implements IPoolItem {
 
     public void setPageUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
             this.mPageUrl = str;
+        }
+    }
+
+    public void setPlayConf(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
         }
     }
 
     public abstract void setProxy(@Nullable String str);
 
+    public void setRadius(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048626, this, f2) == null) {
+        }
+    }
+
     public void setRemote(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048627, this, z) == null) {
         }
     }
 
@@ -277,16 +404,16 @@ public abstract class AbsVideoKernel implements IPoolItem {
 
     public void setSurface(Surface surface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, surface) == null) {
+        if (interceptable == null || interceptable.invokeL(1048629, this, surface) == null) {
         }
     }
 
     public void setUserAgent(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048619, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048630, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        BdVideoLog.d("UserAgent", "setUserAgent " + str);
+        printLog("setUserAgent = " + str);
         this.mHeader.put("User-Agent", str);
     }
 
@@ -296,38 +423,32 @@ public abstract class AbsVideoKernel implements IPoolItem {
 
     public abstract void setVideoScalingMode(int i2);
 
-    public void setVideoSession(@NonNull VideoSession videoSession) {
+    public <T extends VideoUrlModel> void setVideoUrl(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, videoSession) == null) {
-            this.mKernelStatus = videoSession.getState();
-        }
-    }
-
-    public void setVideoUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
-            this.mVideoUrl = str;
+        if (interceptable == null || interceptable.invokeL(1048634, this, t) == null) {
+            String reuseLogId = reuseLogId(t.isNeedPrepare);
+            this.mUrlModel = t;
+            t.logId = reuseLogId;
             this.mRemoteServer = null;
+            checkInvokePrepare(t.isNeedPrepare);
         }
     }
 
     public void setZOrderMediaOverlay(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048637, this, z) == null) {
         }
     }
 
     public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
-            BdVideoLog.d(TAG, "start " + this.mVideoUrl);
-            if (TextUtils.isEmpty(this.mVideoUrl)) {
-                this.mVideoUrl = "";
+        if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
+            printLog("start()" + getVideoUrl());
+            if (TextUtils.isEmpty(getVideoUrl())) {
+                getVideoUrlModel().videoUrl = "";
                 return;
             }
-            if (!this.mVideoUrl.equals(this.mPreparingUrl)) {
-                this.mKernelStatus.stateChangeNotify(PlayerStatus.PREPARING);
-            }
+            processUrlChange();
             this.mPercent = 0;
             this.mSpeed = 0;
         }
@@ -335,19 +456,39 @@ public abstract class AbsVideoKernel implements IPoolItem {
 
     public void stop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            this.mPreparingUrl = null;
+        if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
+            printLog(IntentConfig.STOP);
+            this.mPercent = 0;
+            this.mSpeed = 0;
+            this.mCurrentPlayUrl = null;
+            this.mUrlModel = null;
+            notifyStatusChange(PlayerStatus.STOP);
         }
     }
 
     public void stopPlayback() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
-            this.mPreparingUrl = null;
+        if (interceptable == null || interceptable.invokeV(1048640, this) == null) {
+            printLog("stopPlayback");
+            this.mCurrentPlayUrl = null;
+            this.mUrlModel = null;
         }
     }
 
-    public abstract boolean takeSnapshotAsync(ICyberVideoView.OnSnapShotCompleteListener onSnapShotCompleteListener, float f2);
+    public void switchMediaSource(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048641, this, i2) == null) {
+        }
+    }
+
+    public abstract boolean takeSnapshotAsync(OnSnapShotFrameListener onSnapShotFrameListener, float f2);
+
+    public void unbindMessenger() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
+            this.mVideoSession.unbindMessenger();
+        }
+    }
 
     public abstract void updateFreeProxy(@Nullable String str);
 
@@ -355,9 +496,47 @@ public abstract class AbsVideoKernel implements IPoolItem {
     public boolean verify(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, str)) == null) {
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public void setVideoUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
+            setVideoUrl(str, true);
+        }
+    }
+
+    public <T extends VideoUrlModel> void changePlayUrl(@NonNull T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            String str = getVideoUrlModel().logId;
+            this.mUrlModel = t;
+            t.logId = str;
+            String str2 = t.videoUrl;
+            this.mCurrentPlayUrl = str2;
+            updateVideoUrl(str2);
+            notifyStatusChange(PlayerStatus.PREPARING);
+            setDataSourceAndPrepare();
+            start();
+        }
+    }
+
+    @Deprecated
+    public void setVideoUrl(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048636, this, str, z) == null) {
+            String reuseLogId = reuseLogId(z);
+            VideoUrlModel videoUrlModel = new VideoUrlModel();
+            this.mUrlModel = videoUrlModel;
+            videoUrlModel.videoUrl = str;
+            videoUrlModel.isNeedPrepare = z;
+            videoUrlModel.logId = reuseLogId;
+            this.mRemoteServer = null;
+            checkInvokePrepare(z);
+        }
     }
 }

@@ -17,7 +17,7 @@ import com.yy.gslbsdk.control.NetworkStatus;
 import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DeviceMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DeviceMgr";

@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f32162b;
+    public c f32532b;
 
     public d(c cVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class d {
                 return;
             }
         }
-        this.f32162b = cVar;
+        this.f32532b = cVar;
     }
 
     public static d a(Context context, String str) {
@@ -41,13 +41,13 @@ public class d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             b.a(context).b(context);
             e b2 = b.a(context).b(str);
-            if (b2 != null && !TextUtils.isEmpty(b2.f32155b)) {
+            if (b2 != null && !TextUtils.isEmpty(b2.f32525b)) {
                 d dVar = new d(c.a);
                 dVar.a = b2;
                 return dVar;
             }
             m.a("ClientTypeInfo*BBind* isRegisteredClientByAppid not PushClient! appid=" + str, context);
-            return new d(c.f32160b);
+            return new d(c.f32530b);
         }
         return (d) invokeLL.objValue;
     }
@@ -55,6 +55,6 @@ public class d {
     public c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32162b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32532b : (c) invokeV.objValue;
     }
 }

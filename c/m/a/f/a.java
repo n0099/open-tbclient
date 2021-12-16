@@ -14,26 +14,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.opensource.svgaplayer.SVGAVideoEntity;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SVGAVideoEntity f30674b;
+    public final SVGAVideoEntity f31044b;
 
     /* renamed from: c.m.a.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public final class C1628a {
+    /* loaded from: classes9.dex */
+    public final class C1667a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final g f30675b;
+        public final g f31045b;
 
-        public C1628a(a aVar, String str, g gVar) {
+        public C1667a(a aVar, String str, g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,13 +49,13 @@ public class a {
                 }
             }
             this.a = str;
-            this.f30675b = gVar;
+            this.f31045b = gVar;
         }
 
         public final g a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30675b : (g) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31045b : (g) invokeV.objValue;
         }
 
         public final String b() {
@@ -80,14 +80,14 @@ public class a {
                 return;
             }
         }
-        this.f30674b = sVGAVideoEntity;
+        this.f31044b = sVGAVideoEntity;
         this.a = new e();
     }
 
     public void a(Canvas canvas, int i2, ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i2, scaleType) == null) {
-            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.f30674b.h().b(), (float) this.f30674b.h().a(), scaleType);
+            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.f31044b.h().b(), (float) this.f31044b.h().a(), scaleType);
         }
     }
 
@@ -100,22 +100,22 @@ public class a {
     public final SVGAVideoEntity c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30674b : (SVGAVideoEntity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31044b : (SVGAVideoEntity) invokeV.objValue;
     }
 
-    public final List<C1628a> d(int i2) {
+    public final List<C1667a> d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            List<f> g2 = this.f30674b.g();
+            List<f> g2 = this.f31044b.g();
             ArrayList arrayList = new ArrayList();
             for (f fVar : g2) {
-                C1628a c1628a = null;
+                C1667a c1667a = null;
                 if (i2 >= 0 && i2 < fVar.a().size() && fVar.a().get(i2).a() > 0.0d) {
-                    c1628a = new C1628a(this, fVar.b(), fVar.a().get(i2));
+                    c1667a = new C1667a(this, fVar.b(), fVar.a().get(i2));
                 }
-                if (c1628a != null) {
-                    arrayList.add(c1628a);
+                if (c1667a != null) {
+                    arrayList.add(c1667a);
                 }
             }
             return arrayList;

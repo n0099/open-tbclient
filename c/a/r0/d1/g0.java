@@ -1,78 +1,66 @@
 package c.a.r0.d1;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.collection.ArrayMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class g0 {
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes6.dex */
+public class g0<KEY> {
     public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ArrayMap<KEY, Long> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static g0 f15509b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<String> a;
+    public long f12210b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-592906117, "Lc/a/r0/d1/g0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-592906117, "Lc/a/r0/d1/g0;");
-                return;
-            }
-        }
-        f15509b = new g0();
-    }
-
-    public g0() {
+    public g0(int i2, @NonNull TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), timeUnit};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new SparseArray<>();
+        this.a = new ArrayMap<>();
+        this.f12210b = timeUnit.toMillis(i2);
     }
 
-    public static g0 a() {
+    public static <T> g0<T> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f15509b : (g0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new g0<>(1000, TimeUnit.MILLISECONDS) : (g0) invokeV.objValue;
     }
 
-    public boolean b(int i2) {
-        InterceptResult invokeI;
+    public synchronized boolean a(@NonNull KEY key) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 > 100) {
-                i2 = 100;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
+            synchronized (this) {
+                Long l = this.a.get(key);
+                long uptimeMillis = SystemClock.uptimeMillis();
+                if (l == null) {
+                    this.a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else if (uptimeMillis - l.longValue() > this.f12210b) {
+                    this.a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else {
+                    return false;
+                }
             }
-            return !TextUtils.isEmpty(this.a.get(i2));
         }
-        return invokeI.booleanValue;
-    }
-
-    public void c(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.a.put(i2, "1");
-        }
+        return invokeL.booleanValue;
     }
 }

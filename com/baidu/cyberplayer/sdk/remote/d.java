@@ -14,22 +14,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface d extends IInterface {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a extends Binder implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C1723a implements d {
+        /* loaded from: classes10.dex */
+        public static class C1782a implements d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C1723a(IBinder iBinder) {
+            public C1782a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -258,7 +258,7 @@ public interface d extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C1723a(iBinder) : (d) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C1782a(iBinder) : (d) queryLocalInterface;
             }
             return (d) invokeL.objValue;
         }

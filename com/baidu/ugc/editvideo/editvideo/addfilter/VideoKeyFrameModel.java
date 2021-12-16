@@ -8,9 +8,9 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.os.Handler;
 import android.os.HandlerThread;
-import c.a.x0.b;
-import c.a.x0.t.c;
-import c.a.x0.t.h;
+import c.a.y0.b;
+import c.a.y0.t.c;
+import c.a.y0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -32,7 +32,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(17)
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class VideoKeyFrameModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VideoKeyFrameModel";
@@ -54,7 +54,7 @@ public class VideoKeyFrameModel {
     public VideoEffectData mVideoEffectData;
 
     /* renamed from: com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel$4  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ugc$editvideo$magicmusic$EffectType;
         public static /* synthetic */ Interceptable $ic;
@@ -82,14 +82,14 @@ public class VideoKeyFrameModel {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface OnAPeriodOfTimeFrameAvailableListener extends OnDecodeFrameAvailableListener {
         void onDecodeFrameEnd();
 
         void onDecodeFrameError();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes13.dex */
     public interface OnDecodeFrameAvailableListener {
         void onFrameAvailable(long j2, Bitmap bitmap);
     }
@@ -355,7 +355,7 @@ public class VideoKeyFrameModel {
         r1 = r2;
      */
     /* JADX WARN: Code restructure failed: missing block: B:55:0x00fc, code lost:
-        c.a.x0.t.c.g(r0);
+        c.a.y0.t.c.g(r0);
      */
     /* JADX WARN: Code restructure failed: missing block: B:56:0x00ff, code lost:
         if (r1 != null) goto L39;

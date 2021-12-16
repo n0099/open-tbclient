@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.SocketException;
 import okhttp3.Response;
-/* loaded from: classes12.dex */
+/* loaded from: classes2.dex */
 public class BosObjectInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -6,24 +6,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f extends b<c.b.b.q.k, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.k f27364b;
+    public c.b.b.q.k f27739b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends c.b.b.j.c<c.b.b.q.k> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Locale f27365b;
+        public final Locale f27740b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f27366c;
+        public final String f27741c;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a() {
@@ -59,8 +59,8 @@ public class f extends b<c.b.b.q.k, a> {
                     return;
                 }
             }
-            this.f27365b = locale;
-            this.f27366c = str;
+            this.f27740b = locale;
+            this.f27741c = str;
         }
     }
 
@@ -104,21 +104,21 @@ public class f extends b<c.b.b.q.k, a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, eVar, str, aVar, aVar2) == null) {
             String str2 = null;
-            this.f27364b = null;
+            this.f27739b = null;
             if (aVar2 == null) {
                 locale = Locale.getDefault();
             } else {
-                Locale locale2 = aVar2.f27365b;
+                Locale locale2 = aVar2.f27740b;
                 if (locale2 == null) {
                     locale2 = Locale.getDefault();
                 }
                 locale = locale2;
-                str2 = aVar2.f27366c;
+                str2 = aVar2.f27741c;
             }
             if (str2 == null) {
-                this.f27364b = c.b.b.q.k.b(aVar, locale);
+                this.f27739b = c.b.b.q.k.b(aVar, locale);
             } else {
-                this.f27364b = c.b.b.q.k.c(aVar, locale, str2);
+                this.f27739b = c.b.b.q.k.c(aVar, locale, str2);
             }
         }
     }
@@ -130,8 +130,8 @@ public class f extends b<c.b.b.q.k, a> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
-            c.b.b.q.k kVar = this.f27364b;
-            this.f27364b = null;
+            c.b.b.q.k kVar = this.f27739b;
+            this.f27739b = null;
             return kVar;
         }
         return (c.b.b.q.k) invokeLLLL.objValue;

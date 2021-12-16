@@ -1,7 +1,7 @@
 package com.baidu.sapi2.callback.inner;
 
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface GetOnlineAppCallback {
     void onFailure();
 

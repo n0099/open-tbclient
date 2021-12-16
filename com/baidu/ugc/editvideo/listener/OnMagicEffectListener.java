@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.listener;
 import com.baidu.ugc.editvideo.editvideo.data.EffectData;
 import com.baidu.ugc.editvideo.magicmusic.EffectType;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public interface OnMagicEffectListener {
     void onClickEffect(EffectType effectType, EffectData effectData);
 

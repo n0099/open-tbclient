@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.platform.base.a implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetGeoCoderResultListener f38365b;
+    public OnGetGeoCoderResultListener f38854b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a extends com.baidu.platform.base.a implements d {
                 return;
             }
         }
-        this.f38365b = null;
+        this.f38854b = null;
     }
 
     @Override // com.baidu.platform.core.b.d
@@ -39,7 +39,7 @@ public class a extends com.baidu.platform.base.a implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.lock();
-            this.f38365b = null;
+            this.f38854b = null;
             this.a.unlock();
         }
     }
@@ -49,7 +49,7 @@ public class a extends com.baidu.platform.base.a implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetGeoCoderResultListener) == null) {
             this.a.lock();
-            this.f38365b = onGetGeoCoderResultListener;
+            this.f38854b = onGetGeoCoderResultListener;
             this.a.unlock();
         }
     }
@@ -61,11 +61,11 @@ public class a extends com.baidu.platform.base.a implements d {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, geoCodeOption)) == null) {
             b bVar = new b();
             com.baidu.platform.base.e cVar = new c(geoCodeOption);
-            bVar.a(SearchType.f38338g);
+            bVar.a(SearchType.f38827g);
             if (geoCodeOption != null) {
                 bVar.b(geoCodeOption.getAddress());
             }
-            return a(cVar, this.f38365b, bVar);
+            return a(cVar, this.f38854b, bVar);
         }
         return invokeL.booleanValue;
     }
@@ -77,8 +77,8 @@ public class a extends com.baidu.platform.base.a implements d {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, reverseGeoCodeOption)) == null) {
             e eVar = new e();
             f fVar = new f(reverseGeoCodeOption);
-            eVar.a(SearchType.f38339h);
-            return a(fVar, this.f38365b, eVar);
+            eVar.a(SearchType.f38828h);
+            return a(fVar, this.f38854b, eVar);
         }
         return invokeL.booleanValue;
     }

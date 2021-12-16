@@ -2,10 +2,10 @@ package com.baidu.tieba.wallet;
 
 import android.app.Activity;
 import android.content.Context;
-import c.a.q0.q0.f;
+import c.a.r0.q0.f;
 import com.baidu.adp.BdUniqueId;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface IWalletPlugin {
     void accessWalletEntry(Context context, String str);
 

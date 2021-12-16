@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final iy a;
@@ -22,7 +22,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public static final jg f603a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f63079b;
+    public static final iy f63660b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -49,7 +49,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         }
         f603a = new jg("XmPushActionCheckClientInfo");
         a = new iy("", (byte) 8, (short) 1);
-        f63079b = new iy("", (byte) 8, (short) 2);
+        f63660b = new iy("", (byte) 8, (short) 2);
     }
 
     public hx() {
@@ -198,7 +198,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
             jbVar.a(a);
             jbVar.a(this.f604a);
             jbVar.b();
-            jbVar.a(f63079b);
+            jbVar.a(f63660b);
             jbVar.a(this.f606b);
             jbVar.b();
             jbVar.c();

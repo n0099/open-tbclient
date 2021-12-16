@@ -18,13 +18,13 @@ import com.win.opensdk.PBMediaView;
 import com.win.opensdk.PBNative;
 import com.win.opensdk.PBNativeListener;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class k extends f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PBNative a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements PBNativeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,16 +65,16 @@ public class k extends f {
                 v.a aVar = (v.a) this.a;
                 aVar.getClass();
                 LogPrinter.d();
-                aVar.f28765d.onAdShow(aVar.f28764c, aVar.a);
+                aVar.f29135d.onAdShow(aVar.f29134c, aVar.a);
                 aVar.a = true;
-                synchronized (aVar.f28765d.f28762h) {
-                    v.b bVar = aVar.f28765d.f28762h.get(aVar.f28764c);
+                synchronized (aVar.f29135d.f29132h) {
+                    v.b bVar = aVar.f29135d.f29132h.get(aVar.f29134c);
                     if (bVar != null) {
-                        FunAdInteractionListener funAdInteractionListener = bVar.f28767c;
+                        FunAdInteractionListener funAdInteractionListener = bVar.f29137c;
                         String str = bVar.a;
-                        pid = aVar.f28765d.mPid;
+                        pid = aVar.f29135d.mPid;
                         String str2 = pid.ssp.type;
-                        pid2 = aVar.f28765d.mPid;
+                        pid2 = aVar.f29135d.mPid;
                         funAdInteractionListener.onAdShow(str, str2, pid2.pid);
                     }
                 }

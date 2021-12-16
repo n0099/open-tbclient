@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final double a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final double f30632b;
+        public final double f31002b;
 
         public /* synthetic */ b(double d2, double d3, a aVar) {
             this(d2, d3);
@@ -40,7 +40,7 @@ public abstract class d {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)})) == null) {
                 n.d(!Double.isNaN(d2));
                 if (c.i.d.f.b.c(d2)) {
-                    return new C1624d(d2, this.f30632b - (this.a * d2));
+                    return new C1663d(d2, this.f31002b - (this.a * d2));
                 }
                 return new e(this.a);
             }
@@ -63,11 +63,11 @@ public abstract class d {
                 }
             }
             this.a = d2;
-            this.f30632b = d3;
+            this.f31002b = d3;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class c extends d {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
@@ -111,16 +111,16 @@ public abstract class d {
     }
 
     /* renamed from: c.i.d.f.d$d  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C1624d extends d {
+    /* loaded from: classes9.dex */
+    public static final class C1663d extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final double a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final double f30633b;
+        public final double f31003b;
 
-        public C1624d(double d2, double d3) {
+        public C1663d(double d2, double d3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,17 +136,17 @@ public abstract class d {
                 }
             }
             this.a = d2;
-            this.f30633b = d3;
+            this.f31003b = d3;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("y = %g * x + %g", Double.valueOf(this.a), Double.valueOf(this.f30633b)) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("y = %g * x + %g", Double.valueOf(this.a), Double.valueOf(this.f31003b)) : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class e extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,7 +202,7 @@ public abstract class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d2)})) == null) {
             n.d(c.i.d.f.b.c(d2));
-            return new C1624d(0.0d, d2);
+            return new C1663d(0.0d, d2);
         }
         return (d) invokeCommon.objValue;
     }

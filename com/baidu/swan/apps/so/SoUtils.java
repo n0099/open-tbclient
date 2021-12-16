@@ -5,8 +5,8 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.k;
-import c.a.p0.a.k2.c;
+import c.a.q0.a.k;
+import c.a.q0.a.k2.c;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +21,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class SoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARM64_V8A = "arm64-v8a";
@@ -38,7 +38,7 @@ public final class SoUtils {
     public static String[] uris;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void onEvent(String str, String str2);
     }

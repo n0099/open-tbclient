@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
-import c.a.d.f.p.a;
-import c.a.r0.t3.j0.n;
+import c.a.d.f.p.b;
+import c.a.s0.v3.j0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ForumBroadcastHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PARMARS_BCAST_CONTENT = "content";
@@ -53,7 +53,7 @@ public class ForumBroadcastHelper {
     public void clipCopy(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            a.a("http://tieba.baidu.com/p/" + str + "?share=9105&fr=share");
+            b.a("http://tieba.baidu.com/p/" + str + "?share=9105&fr=share");
         }
     }
 
@@ -93,7 +93,7 @@ public class ForumBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.params.put("swipeback", Boolean.FALSE);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(this.mContext, "BarBroadcastEdit", this.params)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(this.mContext, "BarBroadcastEditPage", this.params)));
         }
     }
 

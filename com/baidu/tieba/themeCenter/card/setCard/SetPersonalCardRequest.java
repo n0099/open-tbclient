@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.card.setCard;
 
-import c.a.q0.d1.z;
+import c.a.r0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SetCard.DataReq;
 import tbclient.SetCard.SetCardReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SetPersonalCardRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class SetPersonalCardRequest extends NetMessage {
             builder.props_id = Long.valueOf(this.cardId);
             builder.type = Integer.valueOf(this.type);
             if (z) {
-                z.a(builder, true);
+                b0.a(builder, true);
             }
             SetCardReqIdl.Builder builder2 = new SetCardReqIdl.Builder();
             builder2.data = builder.build(false);

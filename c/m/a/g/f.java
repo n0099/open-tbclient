@@ -17,14 +17,14 @@ import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<g> f30691b;
+    public final List<g> f31061b;
 
     public f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -57,13 +57,13 @@ public final class f {
                 }
             }
         }
-        this.f30691b = CollectionsKt___CollectionsKt.toList(arrayList);
+        this.f31061b = CollectionsKt___CollectionsKt.toList(arrayList);
     }
 
     public final List<g> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30691b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31061b : (List) invokeV.objValue;
     }
 
     public final String b() {
@@ -105,6 +105,6 @@ public final class f {
         } else {
             emptyList = CollectionsKt__CollectionsKt.emptyList();
         }
-        this.f30691b = emptyList;
+        this.f31061b = emptyList;
     }
 }

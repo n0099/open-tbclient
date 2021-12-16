@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.report;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface h<T> {
     long a();
 

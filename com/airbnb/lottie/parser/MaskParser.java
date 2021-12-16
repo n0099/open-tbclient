@@ -7,7 +7,7 @@ import com.airbnb.lottie.model.content.Mask;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MaskParser {
     public static Mask parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         char c2;

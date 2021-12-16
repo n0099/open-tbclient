@@ -13,7 +13,7 @@ import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SdkVerController {
     public static /* synthetic */ Interceptable $ic;
     public static boolean mIsShowSdkUpdate;

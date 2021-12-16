@@ -1,6 +1,6 @@
 package com.baidu.tieba.myAttentionAndFans.message;
 
-import c.a.q0.s.q.i1;
+import c.a.r0.s.r.i1;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ResponseLocalPersonFollowMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class ResponseLocalPersonFollowMessage extends CustomResponsedMessage<Obj
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'c.a.q0.s.q.i1' to match base method */
+    /* JADX DEBUG: Return type fixed from 'c.a.r0.s.r.i1' to match base method */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage
     /* renamed from: getData */
     public Object getData2() {
